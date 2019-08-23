@@ -276,12 +276,14 @@ namespace PXWeb
         private void InitializeMetatags()
         {
             //Set value on metatags
-            //Retrieve text for the meta tag title from the menu or table heading
-            IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
-            PCAxis.Menu.Item currentItem = PXWeb.Management.PxContext.GetMenuItem(url.Database, url.TablePath);
+
             //Meta name/property Title
             if (PXWeb.Settings.Current.Selection.TitleFromMenu)
             {
+                //Retrieve text for the meta tag title from the menu or table heading
+                IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
+                PCAxis.Menu.Item currentItem = PXWeb.Management.PxContext.GetMenuItem(url.Database, url.TablePath);
+
                 TableTitle = currentItem.Text;
             }
             else 

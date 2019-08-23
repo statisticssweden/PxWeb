@@ -209,6 +209,8 @@ namespace PXWeb
                     _metaCacheService = cacheService;
                     _metaPxCache = cacheService;
                 }
+
+                PXWeb.Management.PxContext.CacheService = _metaCacheService;
             }
 
             if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["RouteExtender"]))

@@ -76,7 +76,9 @@ function CollapseChildrenFromLevel(ele, fromLevel) {
 //}
 
 jQuery(function () {
-    if (typeof sessionStorage !== 'undefined') {
+    var isOnIOS = navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
+
+    if (typeof sessionStorage !== 'undefined' && !isOnIOS) {
         // Get rxid session cookie
         var rxid = document.cookie.replace(/(?:(?:^|.*;\s*)rxid\s*\=\s*([^;]*).*$)|^.*$/, "$1");
         // Store rxid in sessionStorage because this storage is unique for each browser tab

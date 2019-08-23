@@ -83,10 +83,10 @@ Public Class TableListCodebehind
             End If
 
             If Not String.IsNullOrEmpty(_pxPath) Then
-                Dim menu As PxMenuBase = Marker.GetMenu(_pxPath)
+                Dim menu As Item = Marker.GetMenu(_pxPath)
 
-                If TypeOf (menu.CurrentItem) Is PxMenuItem Then
-                    RenderMenuList(CType(menu.CurrentItem, PxMenuItem))
+                If TypeOf (menu) Is PxMenuItem Then
+                    RenderMenuList(CType(menu, PxMenuItem))
                 Else
                     Page.Response.Redirect("~/" + Marker.DefaultPageURL)
                 End If
@@ -157,11 +157,6 @@ Public Class TableListCodebehind
                             If (CType(childItem, TableLink).HasAttribute("size")) Then
                                 MenuLinkItem.Size = CType(childItem, TableLink).GetAttribute("size").ToString()
 
-                                'If (CType(MenuLinkItem.Size.Split(CChar(" "))(0), Integer) < Marker.MaxFileziseForSmallFile) Then
-                                '    MenuLinkItem.IsSmallFile = True
-                                'Else
-                                '    MenuLinkItem.IsSmallFile = False
-                                'End If
                             End If
 
                             'Determine if it a small file

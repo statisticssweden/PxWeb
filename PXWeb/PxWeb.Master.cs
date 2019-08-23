@@ -125,7 +125,7 @@ namespace PXWeb
                 breadcrumb1.GetMenu = GetMenu;
             }
             
-            navigationFlowControl.GetMenu = GetMenu;
+            //navigationFlowControl.GetMenu = GetMenu;
         }
 
         private bool DoNotUseBreadCrumb()
@@ -485,28 +485,31 @@ namespace PXWeb
         /// Gets the menu object
         /// </summary>
         /// <returns>returns the menu object</returns>
-        private PxMenuBase GetMenu(string nodeId)
-         {
-             //Checks that the necessary parameters are present
-             if (String.IsNullOrEmpty(PxUrlObj.Database))
-             {
-                 //if parameters is missing redirect to the start page
-                 Response.Redirect("Default.aspx", false);
-             }
+        private Item GetMenu(string nodeId)
+        {
+            //Checks that the necessary parameters are present
+            if (String.IsNullOrEmpty(PxUrlObj.Database))
+            {
+                //if parameters is missing redirect to the start page
+                Response.Redirect("Default.aspx", false);
+            }
 
-             try
-             {
-                 string db = PxUrlObj.Database;
-                 return PXWeb.Management.PxContext.GetMenu(db, nodeId);
-             }
-             catch (Exception e)
-             {
-                 log.Error("An error occured in GetMenu(string nodeId). So it returns null after logging this message.", e);
-                 return null;
-             }
-      
+            try
+            {
+                string db = PxUrlObj.Database;
+                return PXWeb.Management.PxContext.GetMenuItem(db, nodeId);
+            }
+            catch (Exception e)
+            {
+                log.Error("An error occured in GetMenu(string nodeId). So it returns null after logging this message.", e);
+                return null;
+            }
 
-         }
-          
+
+        }
+
+
+
+
     }
 }

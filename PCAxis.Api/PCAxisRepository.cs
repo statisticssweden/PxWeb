@@ -11,7 +11,93 @@ using System.Xml.Linq;
 
 namespace PCAxis.Api
 {
-    public static class PCAxisRepository
+
+    public class MenuObject
+    {
+        public ItemSelection ID { get; set; }
+
+        public bool HasSubItems { get; set; }
+
+        public Type MenuType { get; set; }
+
+        public IEnumerable<MetaList> MetaList { get; set; }
+
+        public static MenuObject Create(Item item)
+        {
+
+            if (item is null) return null;
+
+            MenuObject menu = new MenuObject();
+
+            menu.ID = item.ID;
+            menu.MenuType = item.GetType();
+
+            if (item is PxMenuItem)
+            {
+                PxMenuItem mi = (PxMenuItem)item;
+                menu.HasSubItems = mi.HasSubItems;
+
+                if (menu.HasSubItems)
+                {
+                    menu.MetaList = GetMetaList(mi);
+                }
+
+            }
+            else
+            {
+                menu.HasSubItems = false;
+            }
+
+            return menu;
+        }
+
+        /// <summary>
+        /// Returns a list of metadata for the specified item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        private static IEnumerable<MetaList> GetMetaList(PxMenuItem item)
+        {
+            // Logs usage
+           // _usageLogger.Info(String.Format("url={0}, type=metadata, caller={1}, cached=false", context.Request.RawUrl, context.Request.UserHostAddress));
+
+            return item.SubItems.Select(i => new MetaList
+            {
+                Id = i.ID.Selection.Replace('\\', '/'),
+                Text = i.Text,
+                Type = GetMetaListType(i),
+                Updated = i is TableLink ? (((TableLink)i).Published) : null
+            });
+        }
+
+
+
+        /// <summary>
+        /// Returns the coded type indicating that the item  t(able), h(eadline) or l(ink)/folder 
+        /// </summary>
+        /// <param name="menuItem">the item </param>
+        /// <returns>the coded type</returns>
+        private static string GetMetaListType(Item menuItem)
+        {
+            if (menuItem is TableLink)
+            {
+                return "t";
+            }
+            else if (menuItem is Headline)
+            {
+                return "h";
+            }
+            else
+            {
+                return "l";
+            }
+        }
+
+    }
+
+
+public static class PCAxisRepository
     {
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(PCAxisRepository));
 
@@ -20,18 +106,28 @@ namespace PCAxis.Api
         /// </summary>
         /// <remarks></remarks>
         /// <returns>A menu object</returns>
-        public static Item GetMenu(string db, string language, string[] nodePath)
+        public static MenuObject GetMenu(string db, string language, string[] nodePath)
         {
             if (ExposedDatabases.DatabaseConfigurations[language].ContainsKey(db) == false)
                 return null;
 
             var database = ExposedDatabases.DatabaseConfigurations[language][db];
             var dbtype = database.Type;
+            string cacheKey = ApiCache.CreateKey($"{db}_{language}_{string.Join("_", nodePath)}");
+            MenuObject menuObj = null;
+            
+            ResponseBucket cacheResponse = ApiCache.Current.Fetch(cacheKey);
+
+            if (cacheResponse != null)
+            {
+                return cacheResponse.Menu;
+            }
+
             try
             {
                 if (dbtype == "PX")
                 {
-                    return GetPxMenu(db, language, string.Join("\\", nodePath));
+                    menuObj = MenuObject.Create(GetPxMenu(db, language, string.Join("\\", nodePath)));
                 }
                 else if (dbtype == "CNMM")
                 {
@@ -39,9 +135,16 @@ namespace PCAxis.Api
                     string menu = nodePath.Length > 1 ? nodePath[nodePath.Length-2]:"START";
 
                     if (tid.Contains("'") || menu.Contains("'")) throw new ArgumentException("Possible SQL injection");
-                    return GetCnmmMenu(db, language, tid, menu);
+                    menuObj = MenuObject.Create(GetCnmmMenu(db, language, tid, menu));
                 }
-                return null;
+
+                // Request object to be stored in cache
+                cacheResponse = new ResponseBucket();
+                cacheResponse.Key = cacheKey;
+                cacheResponse.Menu = menuObj;
+                ApiCache.Current.Store(cacheResponse, new TimeSpan(24,0,0));
+
+                return menuObj;
             }
             catch (Exception e)
             {
@@ -49,6 +152,8 @@ namespace PCAxis.Api
                 return null;
             }
         }
+
+
 
         /// <summary>
         /// Gets the PC-Axis file based menu object
@@ -187,11 +292,37 @@ namespace PCAxis.Api
                         selection = PCAxis.Paxiom.Selection.SelectAll(variable);
                 }
 
-                selections.Add(selection);
-               
+                if (selection != null)
+                {
+                    selections.Add(selection);
+                }
+                else
+                {
+                    //The user as requested an non vaild selection
+                    return null;
+                }
             }
+
+            if (!ValidateSelection(builder, selections)) return null;
+
             return selections;
         }
 
+        public static bool ValidateSelection(PCAxis.Paxiom.IPXModelBuilder builder, List<PCAxis.Paxiom.Selection> selections)
+        {
+            //Check that all mandatory variables has at least one value selected
+
+            var mandatoryVariables = builder.Model.Meta.Variables.Where(v => !v.Elimination);
+
+            foreach (var v in mandatoryVariables)
+            {
+                var selection = selections.FirstOrDefault(s => s.VariableCode == v.Code);
+                if (selection == null) return false;
+                if (selection.ValueCodes.Count == 0) return false;
+            }
+
+            return true;
+
+        }
     }
 }

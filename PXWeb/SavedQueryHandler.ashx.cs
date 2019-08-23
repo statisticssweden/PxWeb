@@ -159,7 +159,7 @@ namespace PXWeb
                 // "Pre-flight" request from MS Office application
                 var userAgent = context.Request.Headers["User-Agent"];
                 //if (userAgent.ToLower().Contains("ms-office") && sq.Output.Type == PxUrl.VIEW_TABLE_IDENTIFIER)
-                if (userAgent.ToLower().Contains("ms-office"))
+                if (userAgent != null && userAgent.ToLower().Contains("ms-office"))
                 {
                     context.Response.Write("<html><body>ms office return</body></html>");
                     HttpContext.Current.ApplicationInstance.CompleteRequest();

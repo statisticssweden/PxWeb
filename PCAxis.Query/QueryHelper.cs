@@ -301,7 +301,8 @@ namespace PCAxis.Query
 
             if (s.ValueCodes.Count != query.Selection.Values.Length)
             {
-                //TODO Error missmatch between the number of values
+                //Error missmatch between the number of values
+                return null;
             }
 
             return s;

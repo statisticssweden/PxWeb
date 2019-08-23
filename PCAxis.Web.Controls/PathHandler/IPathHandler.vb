@@ -70,4 +70,12 @@ Public Interface IPathHandler
     Function CombineTable(ByVal db As String, ByVal path As String, ByVal table As String) As String
 
 
+    ''' <summary>
+    ''' Creates a node path with nodeids
+    ''' </summary>
+    ''' <param name="itemId">the item to create the path for</param>
+    ''' <returns></returns>
+    Function GetNodeIds(ByVal itemId As String) As List(Of String)
+
+
 End Interface

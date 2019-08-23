@@ -28,6 +28,8 @@ namespace PXWeb.Management
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(PxContext));
 
+        public static ICacheService CacheService { get; set; }
+
         /// <summary>
         /// Get the Paxiom model built for selection (only metadata)
         /// </summary>
@@ -260,6 +262,18 @@ namespace PXWeb.Management
         /// <returns></returns>
         public static PCAxis.Menu.Item GetMenuItem(string db, string nodeId, string lang)
         {
+            Item item = null;
+            if (PxContext.CacheService != null)
+            {
+                string key = $"pxc_menu_{db}_{lang}_{nodeId}";
+                item = PxContext.CacheService.Get<Item>(key);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
+            
+           
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
 
             if (dbi == null)
@@ -267,17 +281,28 @@ namespace PXWeb.Management
                 return null;
             }
 
+            
+
             try
             {
                 if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.PX)
                 {
-                    return GetPxMenuItem(db, nodeId, lang);
+                    item = GetPxMenuItem(db, nodeId, lang);
                 }
                 else if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM)
                 {
-                    return GetCnmmMenuItem(db, nodeId, lang);
+                    item = GetCnmmMenuItem(db, nodeId, lang);
                 }
-                return null;
+                if (PxContext.CacheService != null)
+                {
+                    string key = $"pxc_menu_{db}_{lang}_{nodeId}";
+                    
+                    if (item != null)
+                    {
+                        PxContext.CacheService.Set(key, item);
+                    }
+                }
+                return item;
             }
             catch (Exception)
             {
@@ -370,7 +395,7 @@ namespace PXWeb.Management
             currentItem = null;
             return null;
         }
-        
+
         private static PxMenuBase GetCnmmMenuAndItem(string dbid, string nodeId, string lang, out PCAxis.Menu.Item currentItem)
         {
 
@@ -410,12 +435,12 @@ namespace PXWeb.Management
                                         // Store date in the PC-Axis date format
                                         tbl.SetAttribute("modified", tbl.Published.Value.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT));
                                     }
-                                    if (string.Compare(tblId + item.ID.Menu, PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Selection + PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Menu , true) == 0)
+                                    if (string.Compare(tblId + item.ID.Menu, PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Selection + PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Menu, true) == 0)
                                     {
                                         tblFix = tbl;
                                     }
                                 }
-                                
+
                                 if (String.IsNullOrEmpty(item.SortCode))
                                 {
                                     item.SortCode = item.Text;
@@ -440,6 +465,8 @@ namespace PXWeb.Management
 
             return menu;
         }
+
+
 
         /// <summary>
         /// Customize the table title

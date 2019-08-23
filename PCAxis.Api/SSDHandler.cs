@@ -244,6 +244,15 @@ namespace PCAxis.Api
             // Process selections
             var selections = PCAxisRepository.BuildSelections(builder, tableQuery);
 
+            if (selections == null)
+            {
+                cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(Error("Parameter error", false));
+                context.SendJSONError(cacheResponse, 404, true);
+                // Logs usage
+                _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false, message=Parameter error", context.Request.RawUrl, context.Request.UserHostAddress));
+                return;
+            }
+
             // Check that the number of selected cells do not exceed the limit
             long cellCount = 1;
             foreach (var sel in selections)
@@ -532,7 +541,7 @@ namespace PCAxis.Api
                         //{
                             var currentItem = menu;//.CurrentItem as Item;
 
-                            if (currentItem is PxMenuItem && ((PxMenuItem)currentItem).HasSubItems)
+                            if (currentItem.MenuType == typeof(PxMenuItem) && currentItem.HasSubItems)
                             {
                                 if (!string.IsNullOrEmpty(options.SearchQuery))
                                 {
@@ -563,13 +572,13 @@ namespace PCAxis.Api
                                 {
                                     // Current item is a list item - return meta data for this list
                                     cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-                                    cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(GetMetaList(context, (PxMenuItem)currentItem).ToJSON(options.PrettyPrint));
+                                    cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(currentItem.MetaList.ToJSON(options.PrettyPrint));
                                     context.Send(cacheResponse, true);
                                 }
 
                                 //context.SendJSON(GetMetaList(context, (PxMenuItem)currentItem).ToJSON(options.PrettyPrint));
                             }
-                            else if (context.Request.HttpMethod == "GET" && currentItem is TableLink)
+                            else if (context.Request.HttpMethod == "GET" && currentItem.MenuType == typeof(TableLink))
                             {
                                 // Current item is not a list. Try to return table meta data
                                 cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
@@ -580,7 +589,7 @@ namespace PCAxis.Api
                                 // Logs usage
                                 _usageLogger.Info(String.Format("url={0}, type=metadata, caller={1}, cached=false, format=json", context.Request.RawUrl, context.Request.UserHostAddress));
                             }
-                            else if (context.Request.HttpMethod == "POST" && currentItem is TableLink)
+                            else if (context.Request.HttpMethod == "POST" && currentItem.MenuType == typeof(TableLink))
                             {
                                 // Current item is not a list. Try to return table data.
                                 SendTableData(context, language, db, routeParts.ToArray(), cacheResponse);
