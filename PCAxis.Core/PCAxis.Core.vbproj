@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{630041BC-4531-4547-9820-FE4290A18A54}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>PCAxis.Core</AssemblyName>
+    <MyType>Windows</MyType>
+    <OptionStrict>On</OptionStrict>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Strong Name Key.pfx</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/PCAxis.Core/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PCAxis.Plugin.Core.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CustomConstants Condition=" '$(TargetFrameworkVersion)' == 'v3.5' ">v3_5</CustomConstants>
+    <DefineConstants Condition=" '$(DefineConstants)' != '' And '$(CustomConstants)' != '' ">$(DefineConstants);</DefineConstants>
+    <DefineConstants>$(DefineConstants)$(CustomConstants)</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PCAxis.Plugin.Core.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CustomConstants Condition=" '$(TargetFrameworkVersion)' == 'v3.5' ">v3_5</CustomConstants>
+    <DefineConstants Condition=" '$(DefineConstants)' != '' And '$(CustomConstants)' != '' ">$(DefineConstants);</DefineConstants>
+    <DefineConstants>$(DefineConstants)$(CustomConstants)</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ext\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\LanguageDependentAttribute.vb" />
+    <Compile Include="Builders\BuilderMessage.vb" />
+    <Compile Include="Builders\ModelBuilderStateType.vb" />
+    <Compile Include="Configuration\AppSettingsHelper.vb" />
+    <Compile Include="Configuration\Sections\FileGeneratorSection.vb" />
+    <Compile Include="Configuration\Sections\GroupingSection.vb" />
+    <Compile Include="Enums\DataNotePlacementType.vb" />
+    <Compile Include="Enums\DoubleColumnType.vb" />
+    <Compile Include="Enums\GroupingIncludesType.vb" />
+    <Compile Include="Enums\HeaderPresentation.vb" />
+    <Compile Include="Enums\KeysTypes.vb" />
+    <Compile Include="Enums\SecrecyOptionType.vb" />
+    <Compile Include="Enums\TimeScaleType.vb" />
+    <Compile Include="Enums\ValueTextOptionType.vb" />
+    <Compile Include="Exceptions\PXSerializationException.vb" />
+    <Compile Include="Interfaces\IDataStorage.vb" />
+    <Compile Include="PaxiOM\Attributes.vb" />
+    <Compile Include="Misc\PxDate.vb" />
+    <Compile Include="PaxiOM\Contact.vb" />
+    <Compile Include="PaxiOM\Misc\PaxiomUtil.vb" />
+    <Compile Include="PaxiOM\Misc\PxExtensions.vb" />
+    <Compile Include="Misc\Settings.vb" />
+    <Compile Include="Configuration\ConfigurationHelper.vb" />
+    <Compile Include="Configuration\Sections\LocalizationSection.vb" />
+    <Compile Include="Enums\InformationLevelType.vb" />
+    <Compile Include="Enums\InformationType.vb" />
+    <Compile Include="Interfaces\IPXModelBuilder.vb" />
+    <Compile Include="Localization\Language.vb" />
+    <Compile Include="Localization\PxResourceManager.vb" />
+    <Compile Include="Localization\PxResourceReader.vb" />
+    <Compile Include="Localization\PxResourceSet.vb" />
+    <Compile Include="Localization\Sentence.vb" />
+    <Compile Include="Misc\DataFormatter.vb" />
+    <Compile Include="Misc\DataIndexer.vb" />
+    <Compile Include="Misc\Util.vb" />
+    <Compile Include="Enums\CompleteInfoType.vb" />
+    <Compile Include="PaxiOM\Lists\ExtendedPropertiesList.vb" />
+    <Compile Include="PaxiOM\Grouping\Group.vb" />
+    <Compile Include="PaxiOM\Grouping\Grouping.vb" />
+    <Compile Include="PaxiOM\Grouping\GroupingInfo.vb" />
+    <Compile Include="PaxiOM\Grouping\Valueset.vb" />
+    <Compile Include="PaxiOM\Lists\HierarchyLevels.vb" />
+    <Compile Include="PaxiOM\Grouping\OperationsInfo.vb" />
+    <Compile Include="PaxiOM\Lists\Partitions.vb" />
+    <Compile Include="PaxiOM\Misc\Selection.vb" />
+    <Compile Include="PaxiOM\Misc\SerializableDictionary.vb" />
+    <Compile Include="PaxiOM\Grouping\ValueSetInfo.vb" />
+    <Compile Include="PaxiOM\CellNote.vb" />
+    <Compile Include="PaxiOM\Lists\CellNotes.vb" />
+    <Compile Include="PaxiOM\ContInfo.vb" />
+    <Compile Include="PaxiOM\Misc\ErrorCodes.vb" />
+    <Compile Include="PaxiOM\DataNoteCell.vb" />
+    <Compile Include="PaxiOM\Lists\DataNoteCells.vb" />
+    <Compile Include="PaxiOM\Hierarchy.vb" />
+    <Compile Include="PaxiOM\HierarchyLevel.vb" />
+    <Compile Include="PaxiOM\Misc\VariableHelper.vb" />
+    <Compile Include="PaxiOM\NoteBase.vb" />
+    <Compile Include="PaxiOM\Lists\Notes.vb" />
+    <Compile Include="PaxiOM\Lists\Values.vb" />
+    <Compile Include="PaxiOM\Lists\Variables.vb" />
+    <Compile Include="PaxiOM\PxFileDatastorage.vb" />
+    <Compile Include="PaxiOM\PxMemoryDatastorage.vb" />
+    <Compile Include="PaxiOM\VariableValuePair.vb" />
+    <Compile Include="PaxiOM\Lists\VariableValuePairs.vb" />
+    <Compile Include="Interfaces\IPXModelParser.vb" />
+    <Compile Include="Interfaces\IPXModelStreamSerializer.vb" />
+    <Compile Include="Interfaces\IPXOperation.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PaxiOM\Note.vb" />
+    <Compile Include="Enums\NoteType.vb" />
+    <Compile Include="PaxiOM\Partition.vb" />
+    <Compile Include="Enums\PlacmentType.vb" />
+    <Compile Include="PaxiOM\Misc\PXConstant.vb" />
+    <Compile Include="PaxiOM\PXData.vb" />
+    <Compile Include="Exceptions\PXException.vb" />
+    <Compile Include="PaxiOM\Misc\PXKeywords.vb" />
+    <Compile Include="PaxiOM\PXMeta.vb" />
+    <Compile Include="PaxiOM\PXModel.vb" />
+    <Compile Include="Builders\PXModelBuilderAdapter.vb" />
+    <Compile Include="Exceptions\PXModelParserException.vb" />
+    <Compile Include="PaxiOM\Value.vb" />
+    <Compile Include="PaxiOM\Variable.vb" />
+    <Compile Include="Exceptions\PXOperationException.vb" />
+    <Compile Include="Plugin\IPlugin.vb" />
+    <Compile Include="Plugin\IPluginHost.vb" />
+    <Compile Include="Plugin\IPluginManager.vb" />
+    <Compile Include="Plugin\PCAxisPluginException.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PaxiOM\Paxiom.cd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="XSDSchemas\LanguageSchema.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Languages\pxlang.fi.xml" />
+    <Content Include="Languages\pxlang.sv.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Languages\pxlang.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

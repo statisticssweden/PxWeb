@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD41BC03-2B7A-4D76-AF3C-39830AE8E75D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCAxis.Search</RootNamespace>
+    <AssemblyName>PCAxis.Search</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ext\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\ext\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ext\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DefaultOperator.cs" />
+    <Compile Include="DefaultSearchIndex.cs" />
+    <Compile Include="Indexer.cs" />
+    <Compile Include="ISearchIndex.cs" />
+    <Compile Include="PaxiomHelperExtensions.cs" />
+    <Compile Include="PxModelManager.cs" />
+    <Compile Include="SearchConstants.cs" />
+    <Compile Include="Searcher.cs" />
+    <Compile Include="SearchManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchResultItem.cs" />
+    <Compile Include="TableUpdate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
+      <Project>{630041bc-4531-4547-9820-fe4290a18a54}</Project>
+      <Name>PCAxis.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
+      <Project>{f5405866-b6ba-43cd-9dd1-ad6961167aff}</Project>
+      <Name>PCAxis.Menu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
+      <Project>{69cd4248-077e-4e3c-a83b-70f883c8d305}</Project>
+      <Name>PCAxis.PX.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Sql\PCAxis.Sql.csproj">
+      <Project>{43d337f6-29e8-465f-82a2-18389ea4c48d}</Project>
+      <Name>PCAxis.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Web.Core\PCAxis.Web.Core.vbproj">
+      <Project>{bc004d40-ddc6-446e-a3df-5d4ba0ae92b8}</Project>
+      <Name>PCAxis.Web.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

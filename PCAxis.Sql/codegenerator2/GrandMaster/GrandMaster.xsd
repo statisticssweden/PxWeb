@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Jfi (Statistics Norway) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="GrandMaster">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Codes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Code" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="codeName" type="xs:string" use="required"/>
+									<xs:attribute name="defaultCodeValue" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Keywords">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Keyword" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="modelName" type="xs:string" use="required"/>
+									<xs:attribute name="optional" type="xs:boolean"/>
+									<xs:attribute name="defaultLocalName" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>normally the uppercased modelName</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Tables">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Table" type="TableType" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="CNMMversion" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TableType">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+			<xs:element name="Columns" type="ColumnsType"/>
+			<xs:element name="generate">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="onlyForDbconfig" minOccurs="0"/>
+						<xs:element name="dontMakeRowClasses" minOccurs="0"/>
+						<xs:element name="getByPk" minOccurs="0"/>
+						<xs:element name="getAllRows" minOccurs="0">
+							<xs:complexType>
+								<xs:attribute name="key" use="required"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Dictionary" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="arg" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:attribute name="id" type="xs:string" use="required"/>
+											<xs:attribute name="argClass" type="xs:string" use="optional" default="string"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="is_not_null" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Adds a AND-contraint to the where.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:attribute name="columnModelName" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="key" type="xs:string" use="required"/>
+								<xs:attribute name="suff" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>when more than one, to aviod duplicate names</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="List" type="xs:boolean" use="optional" default="false">
+									<xs:annotation>
+										<xs:documentation>return Dictionary of key and List of rows</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="modelName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="tableName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="alias" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Preferably unique!</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hasSL" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="defaultAlias_lang2" type="xs:string"/>
+		<xs:attribute name=" readBySqlDbConfig" type="xs:boolean" use="optional" default="true"/>
+	</xs:complexType>
+	<xs:complexType name="ColumnType">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="modelName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="deviatingDefaultColumnName" use="optional">
+			<xs:annotation>
+				<xs:documentation>when deviating from upper(modelName)</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="hasSL" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="pk" type="xs:int"/>
+		<xs:attribute name="upper" type="xs:boolean"/>
+		<xs:attribute name="DateTimeRoundTrip" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Do a toDateTime.ToString</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="readBySqlDbConfig" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="datatype" type="xs:string" use="required"/>
+		<xs:attribute name="mandatory" type="xs:string" use="required"/>
+		<xs:attribute name="foreignkey" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>not in use</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="length" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ColumnsType">
+		<xs:sequence>
+			<xs:element name="Column" type="ColumnType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

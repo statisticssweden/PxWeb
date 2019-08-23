@@ -1,0 +1,1075 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="Default">
+  <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Ret tekster" />
+  <sentence name="CtrlChangeTextsHeading" value="Ret tekster" />
+  <sentence name="CtrlChangeTextsText" value="Ret tekst og tryk 'Fortsæt'" />
+  <sentence name="CtrlChangeTextsContinueButton" value="Fortsæt" />
+  <sentence name="CtrlChangeTextsContentsHeading" value="Indhold" />
+  <sentence name="CtrlChangeTextsUnitsHeading" value="Enhed" />
+  <sentence name="CtrlChangeTextsVariablesHeading" value="Variabler" />
+  <sentence name="CtrlChangePresentationContinueButton" value="Fortsæt" />
+  <sentence name="CtrlChangePresentationContentsHeading" value="Indhold" />
+  <sentence name="CtrlChangePresentationUnitsHeading" value="Enhed" />
+  <sentence name="CtrlChangePresentationVariablesHeading" value="Variabler" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Ret tekst/kode præsentation" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Ret tekst/kode præsentation" />
+  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Vælg a option for hver variabel som du vil rette præsentationsmåde for" />
+  <sentence name="CtrlChangeCodeTextPresentationText" value="Tekst" />
+  <sentence name="CtrlChangeCodeTextPresentationCode" value="Kode" />
+  <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Kode og tekst" />
+  <sentence name="CtrlChangeDecimalContinueButton" value="Fortsæt" />
+  <sentence name="CtrlChangeDecimalHeading" value="Ret decimaler" />
+  <sentence name="CtrlChangeDecimalHeaderLabel" value="Skriv hvor mange decimaler der skal være og tryk på Fortsæt knappen" />
+  <sentence name="CtrlChangeDecimalDecimalLabel" value="Antal decimaler (0-6)" />
+  <sentence name="CtrlChangeDecimalRangeError" value="Tal skal være heltal mellem 0 og 6" />
+  <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Ret decimaler" />
+  <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Slet variabel" />
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Marker variablen og den værdi som skal bruges når variablen slettes." />
+  <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Tilføj valgt værdi til tabel titlen" />
+  <sentence name="CtrlDeleteVariableContinueButton" value="Fortsæt" />
+  <sentence name="CtrlDeleteVariableErrorDescription" value="Vælg mindst en variabel og en værdi" />
+  <sentence name="CtrlDeleteVariableOneVariable" value="Du må ikke slette alle variabler, der skal findes mindst en" />
+  <sentence name="CtrlCommandBarFunctionDeleteValue" value="Slet værdi" />
+  <sentence name="CtrlDeleteValueHeaderLabel" value="Vælg en eller flere værdier, som skal slettes. Det er ikke muligt at slette alle værdier i en variabel (Vælg i stedet Slet variabel)" />
+  <sentence name="CtrlDeleteValueErrorDescription" value="Det er ikke muligt at slette alle værdier i en variabel." />
+  <sentence name="CtrlDeleteValueContinueButton" value="Fortsæt" />
+  <sentence name="CtrlCommandBarFunctionPerPart" value="Procent" />
+  <sentence name="CtrlPerPartContinueButton" value="Fortsæt" />
+  <sentence name="CtrlPerPartNewValueName" value="Navn til ny værdi" />
+  <sentence name="CtrlPerPartKeepData" value="Vis både oprindelige data samt procent" />
+  <sentence name="CtrlPerPartPerCentOnly" value="Vis kun procent" />
+  <sentence name="CtrlPerPartOneVariableAllValues" value="Vælg en variabel som basis for procent beregningen" />
+  <sentence name="CtrlPerPartOneVariableOneValue" value="Vælg en variable fra hvilken du vil vælge en basisværdi" />
+  <sentence name="CtrlPerPartOneMatrixValue" value="Vælg a datacelle til basis, en værdi til hver variabel" />
+  <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Rediger og beregn" />
+  <sentence name="CtrlCommandBarSaveAsCaption" value="Gem tabel som" />
+  <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Presentation views" />
+  <sentence name="CtrlCommandBarActionButtonCaption" value="Send" />
+  <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="Ok" />
+  <sentence name="CtrlCommandBarDownloadFileTitle" value="Gem fil" />
+  <sentence name="CtrlCommandBarDownloadFileInformation" value="Klik 'Gem fil' link nedenfor for at overføre filen til din computer" />
+  <sentence name="CtrlCommandBarDownloadFileLink" value="Gem fil" />
+  <sentence name="CtrlCommandBarFunctionPivotManual" value="Pivoter manuelt" />
+  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Pivot manuelt" />
+  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Pivot manuelt" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Pivoter med uret" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Pivoter med uret" />
+  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Pivoter med uret" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Pivoter mod uret" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Pivoter mod uret" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Pivoter mod uret" />
+  <sentence name="CtrlCommandBarFunctionShowAllRows" value="Vis alle rækker" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Vis alle rækker" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsAlt" value="Vis alle rækker" />
+  <sentence name="CtrlCommandBarFunctionRemoveZero" value="Fjern nul rækker" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroTitle" value="Fjern nul rækker" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAlt" value="Fjern nul rækker" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphen" value="Fjern rækker med nul eller '-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenTitle" value="Fjern rækker med nul eller '-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenAlt" value="Fjern rækker med nul eller '-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveDots" value="Fjern rækker med dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsTitle" value="Fjern rækker med dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsAlt" value="Fjern rækker med dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" value="Fjern rækker med nul, '-' eller dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsTitle" value="Fjern rækker med nul, '-' eller dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsAlt" value="Fjern rækker nul zero, '-' eller dots" />
+  <sentence name="CtrlCommandBarFunctionSort" value="Sorter" />
+  <sentence name="CtrlCommandBarFunctionSortTitle" value="Sorter" />
+  <sentence name="CtrlCommandBarFunctionSum" value="Summer variablens værdier" />
+  <sentence name="CtrlCommandBarFunctionSumTitle" value="Summer variablens værdier" />
+  <sentence name="CtrlCommandBarFunctionSumAlt" value="Summer variablens værdier" />
+  <sentence name="CtrlCommandBarFunctionSubtract" value="Subtract variablens værdier" />
+  <sentence name="CtrlCommandBarFunctionDivide" value="Divider variablens værdier" />
+  <sentence name="CtrlCommandBarFunctionMultiply" value="Multiplicer variablens værdier" />
+  <sentence name="CtrlCommandBarFunctionSortAlt" value="Sorter" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayout" value="Vis tabel, ny layout" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutAlt" value="Vis tabel, ny layout" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutTitle" value="Vis tabel, ny layout" />
+  <sentence name="CtrlCommandBarFunctionLinkGoogle" value="Google(Test Link)" />
+  <sentence name="CtrlCommandBarFunctionChangeValueOrder" value="Skift værdi rækkefølge" />
+  <sentence name="CtrlCommandBarFileTypeXlsTitle" value="Gem som Excel" />
+  <sentence name="CtrlCommandBarFileTypeXlsAlt" value="Gem som Excel" />
+  <sentence name="CtrlCommandBarFileTypePxTitle" value="Gem som Px" />
+  <sentence name="CtrlCommandBarFileTypePXAlt" value="Gem som Px" />
+  <sentence name="CtrlCommandBarFileTypeTxtTitle" value="Gem som Text" />
+  <sentence name="CtrlCommandBarFileTypeTxtAlt" value="Gem som Text" />
+  <sentence name="CtrlCommandBarFileTypeCsvTitle" value="Gem som csv" />
+  <sentence name="CtrlCommandBarFileTypeCsvAlt" value="Gem som csv" />
+  <sentence name="CtrlCommandBarFileTypeHtmlTitle" value="Gem som HTML" />
+  <sentence name="CtrlCommandBarFileTypeHtmlAlt" value="Gem som HTML" />
+  <sentence name="CtrlCommandBarFileTypeRelationalTitle" value="Gem som Relational fil" />
+  <sentence name="CtrlCommandBarFileTypeRelationallAlt" value="Gem som Relational fil" />
+  <sentence name="CtrlPresentationViewTableLayout1" value="Tabel - Layout 1" />
+  <sentence name="CtrlPresentationViewTableLayout2" value="Tabel - Layout 2" />
+  <sentence name="CtrlPresentationViewTableSorted" value="Tabel - Sorteret" />
+  <sentence name="CtrlPresentationViewChartColumn" value="Graf - Søjle" />
+  <sentence name="CtrlPresentationViewChartColumnStacked" value="Graf - Stablet søjle" />
+  <sentence name="CtrlPresentationViewChartColumnStacked100" value="Graf - Stablet søjle 100%" />
+  <sentence name="CtrlPresentationViewChartBar" value="Graf - Horisontal søjle" />
+  <sentence name="CtrlPresentationViewChartBarStacked" value="Graf - Horisontal stablet søjle" />
+  <sentence name="CtrlPresentationViewChartBarStacked100" value="Graf - Horisontal stablet søjle 100%" />
+  <sentence name="CtrlPresentationViewChartLine" value="Graf - Linje" />
+  <sentence name="CtrlPresentationViewChartColumnLine" value="Graf - Søjle og linje" />
+  <sentence name="CtrlPresentationViewChartPopulationPyramid" value="Graf - Befolknings pyramide" />
+  <sentence name="CtrlPresentationViewChartPie" value="Graf - Lakage" />
+  <sentence name="CtrlPresentationViewChartArea" value="Graf - Område" />
+  <sentence name="CtrlPresentationViewChartAreaStacked" value="Graf - Stablet område" />
+  <sentence name="CtrlPresentationViewChartAreaStacked100" value="Graf - Stablet område 100%" />
+  <sentence name="CtrlPresentationViewChartPoint" value="Graf - Punkt" />
+  <sentence name="CtrlPresentationViewChartRadar" value="Graf - Radar" />
+  <sentence name="CtrlCommandBarLinkFootnoteTitle" value="Fodnoter" />
+  <sentence name="CtrlCommandBarLinkFootnoteAlt" value="Fodnoter" />
+  <sentence name="CtrlCommandBarLinkGraphTitle" value="Graf" />
+  <sentence name="CtrlCommandBarLinkGraphAlt" value="Graf" />
+  <sentence name="CtrlCommandBarLinkInformationTitle" value="Information" />
+  <sentence name="CtrlCommandBarLinkInformationAlt" value="Information" />
+  <sentence name="CtrlCommandBarLinkPrintTitle" value="Udskriv" />
+  <sentence name="CtrlCommandBarLinkPrintAlt" value="Udskriv" />
+  <sentence name="CtrlCommandBarLinkGoogleTitle" value="Google" />
+  <sentence name="CtrlCommandBarLinkGoogleAlt" value="Google" />
+  <sentence name="CtrlCommandBarFileDownLoadLink" value="Klik her for at hente filen" />
+  <sentence name="CtrlFootnoteFootnoteLabel" value="Fodnoter" />
+  <sentence name="CtrlFootnoteNoFootnotesLabel" value="Der er ingen fodnoter" />
+  <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Vælg alt" />
+  <sentence name="CtrlHierarchicalVariableUnselectAllButton" value="Slet alt" />
+  <sentence name="CtrlHierarchicalVariableOpenAllNodesButton" value="Åbn alt" />
+  <sentence name="CtrlHierarchicalVariableCloseAllNodesButton" value="Luk alt" />
+  <sentence name="CtrlHierarchicalVariableContinueButtonText" value="Fortsæt" />
+  <sentence name="CtrlHierarchicalVariableErrorMessage" value="Der er sket en fejl, prøv at gentage udvælgelsen" />
+  <sentence name="CtrlInformationInformationLabel" value="Information" />
+  <sentence name="CtrlInformationOfficialStatisticsLabel" value="Officiel statistik" />
+  <sentence name="CtrlInformationUnitLabel" value="Enhed" />
+  <sentence name="CtrlInformationContactLabel" value="Kontakt" />
+  <sentence name="CtrlInformationLastUpdatedLabel" value="Seneste opdatering" />
+  <sentence name="CtrlInformationRefPeriodLabel" value="Reference tid" />
+  <sentence name="CtrlInformationStockFaLabel" value="Data type" />
+  <sentence name="CtrlInformationCFPricesLabel" value="Pris type" />
+  <sentence name="CtrlInformationDayAdjLabel" value="Day adjusted" />
+  <sentence name="CtrlInformationSeasAdjLabel" value="Sæsonkorrigeret" />
+  <sentence name="CtrlInformationBasePeriodLabel" value="Basetid" />
+  <sentence name="CtrlInformationUpdateFrequencyLabel" value="Opdateringsfrekvens" />
+  <sentence name="CtrlInformationNextUpdateLabel" value="Næste opdatering" />
+  <sentence name="CtrlInformationSurveyLabel" value="Survey" />
+  <sentence name="CtrlInformationLinkLabel" value="Link" />
+  <sentence name="CtrlInformationCreationDateLabel" value="Oprettelsesdato" />
+  <sentence name="CtrlInformationCopyrightLabel" value="Copyright" />
+  <sentence name="CtrlInformationSourceLabel" value="Kilde" />
+  <sentence name="CtrlInformationMatrixLabel" value="Matrix" />
+  <sentence name="CtrlInformationDatabaseLabel" value="Database" />
+  <sentence name="CtrlInformationYesValue" value="Ja" />
+  <sentence name="CtrlInformationNoValue" value="Nej" />
+  <sentence name="CtrlInformationFixedPricesValue" value="Faste priser" />
+  <sentence name="CtrlInformationCurrentPricesValue" value="Løbende priser" />
+  <sentence name="CtrlInformationFlowValue" value="Strøm" />
+  <sentence name="CtrlInformationAverageValue" value="Gennemsnit" />
+  <sentence name="CtrlInformationStockValue" value="Beholdning" />
+  <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Vælg variabler:" />
+  <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Vælg rækkefølge for værdier ved at flytte fra en liste til den anden. Hvis ikke alle værdier flyttes, vil de som ikke flyttes placeres først i tabellen." />
+  <sentence name="CtrlChangeValueOrderCancelButton" value="Fortryd" />
+  <sentence name="CtrlChangeValueOrderContinueButton" value="Fortsæt" />
+  <sentence name="CtrlChangeValueOrderMoveRight" value="Flyt til højre" />
+  <sentence name="CtrlChangeValueOrderMoveLeft" value="Flyt til venstre" />
+  <sentence name="CtrlChangeValueOrderMoveDown" value="Flyt ned" />
+  <sentence name="CtrlChangeValueOrderFromOrder" value="Fra" />
+  <sentence name="CtrlChangeValueOrderToOrder" value="Til" />
+  <sentence name="CtrlPivotContinueButton" value="Fortsæt" />
+  <sentence name="CtrlPivotStubLabel" value="Rækker" />
+  <sentence name="CtrlPivotHeadingLabel" value="Kolonner" />
+  <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Gem som filetype:" />
+  <sentence name="CtrlSaveAsDelimiterListHeadLabel" value="For filer med adskiller skal denne også vælges:" />
+  <sentence name="CtrlSaveAsPageSetupHeadLabel" value="For text fil skal også vælges:" />
+  <sentence name="CtrlSaveAsLineLengthControl" value="Linje længde:" />
+  <sentence name="CtrlSaveAsPageLengthControl" value="Side længde:" />
+  <sentence name="CtrlSaveAsMarginControl" value="Margin" />
+  <sentence name="CtrlSaveAsContinueButton" value="Gem" />
+  <sentence name="CtrlSaveAsCancelButton" value="Fortryd" />
+  <sentence name="CtrlSaveAsButtonLabel" value="Vælg en og tryk " />
+  <sentence name="CtrlSaveAsSaveTypeDropDown" value="Gem som filetype " />
+  <sentence name="CtrlSaveAsDelimiterDropDown" value="Vælg adskiller" />
+  <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Fortsæt" />
+  <sentence name="SumInvalidValuename" value="Den ny værdi skal have a unique text indenfor variablen." />
+  <sentence name="CtrlSumHeading" value="Summer variablens værdier" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Nyt navn til værdi:" />
+  <sentence name="CtrlSumAllValuesText" value="Summer alle værdier" />
+  <sentence name="CtrlSumSelectedValuesText" value="Summer valgte værdier" />
+  <sentence name="CtrlSumSelectedVariabelTitle" value="Vælg værdier der skal summeres" />
+  <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Vælg værdier til sum" />
+  <sentence name="CtrlSumVariableNameRequired" value="Navn på ny værdi skal angives" />
+  <sentence name="CtrlSumDifferentOperandsRequired" value="Operation requires two different operands." />
+  <sentence name="CtrlSumContinueButton" value="Sum" />
+  <sentence name="CtrlSumKeepValuesText" value="Vis også de oprindelige værdier" />
+  <sentence name="CtrlFirstOperandLabel" value="Første værdi:" />
+  <sentence name="CtrlSecondOperandLabel" value="Anden værdi:" />
+  <sentence name="CtrlSubtractHeading" value="Subtraher variabel værdier" />
+  <sentence name="CtrlSubtractTotalVariabelNameText" value="Enter a text for the resulting value " />
+  <sentence name="CtrlSubtractSelectedVariabelTitle" value="Vælg a variable to use to subtract values" />
+  <sentence name="CtrlSubtractSelectedVariabelValuesTitle" value="Vælg 2 values in the order you want to subtract" />
+  <sentence name="CtrlSubtractContinueButton" value="Subtract" />
+  <sentence name="CtrlDivideHeading" value="Divide variable values" />
+  <sentence name="CtrlDivideTotalVariabelNameText" value="Enter a text for the resulting value " />
+  <sentence name="CtrlDivideSelectedVariabelTitle" value="Vælg a variable to use to divide values" />
+  <sentence name="CtrlDivideSelectedVariabelValuesTitle" value="Vælg 2 values in the order you want to divide" />
+  <sentence name="CtrlDivideErrorSameVariable" value="Cannot divide the same variable values. Select two different variables." />
+  <sentence name="CtrlDivideContinueButton" value="Divide" />
+  <sentence name="CtrlMultiplyHeading" value="Multiply variable values" />
+  <sentence name="CtrlMultiplyTotalVariabelNameText" value="Enter a text for the resulting value " />
+  <sentence name="CtrlMultiplySelectedVariabelTitle" value="Vælg a variable to use to multiply values" />
+  <sentence name="CtrlMultiplySelectedVariabelValuesTitle" value="Vælg 2 values to multiply " />
+  <sentence name="CtrlMultiplyContinueButton" value="Multiplicer" />
+  <sentence name="CtrlTableDecimalDelimiter" value="." />
+  <sentence name="CtrlTableThousandDelimiter" value="." />
+  <sentence name="CtrlTableDefaultAttributesLabel" value="Standard attributter er:" />
+  <sentence name="CtrlTableCellInformationDialogTitle" value="Celle detaljer" />
+  <sentence name="CtrlTableCellInformationCell" value="Celle" />
+  <sentence name="CtrlTableCellInformationAttributes" value="Attributter" />
+  <sentence name="CtrlTableCellInformationNotes" value="Noter" />
+  <sentence name="CtrlTableInformationTableLabel" value="Tabel: " />
+  <sentence name="CtrlVariableSelectorInstructionLabel" value="Marker dit valg og vælg mellem tabel på skærm eller fil format" />
+  <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Markerings tips" />
+  <sentence name="CtrlVariableSelectorEliminationTooltip" value="Vælg mindst en værdi" />
+  <sentence name="CtrlVariableSelectorSelectValues" value="--- Vælg klassifikation ---" />
+  <sentence name="CtrlVariableSelectorEliminationLabel" value="For variabler markeret med {image} skal der vælges mindst en værdi" />
+  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Vælg alt" />
+  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Fravælg alt" />
+  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Sorter stigende" />
+  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Sorter faldende" />
+  <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Vælg hierarcically" />
+  <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Søg værdier" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Total" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valgt" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Søg" />
+  <sentence name="CtrlVariableSelectorSearchTooltip" value="Søg" />
+  <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Tekst start" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Præsentation på skærm er begrænset til {0} rækker og {1} kolonner" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsCellsLabel" value="Præsentation på skærm er begrænset til {0} celler" />
+  <sentence name="CtrlVariableSelectorSelectionLimitCellsExceeded" value="Antal valgte celler overstiger max tilladte {0}" />
+  <sentence name="CtrlVariableSelectorSelectionLimitRowsExceeded" value="Antal valgte rækker overstiger max tilladte{0}. " />
+  <sentence name="CtrlVariableSelectorSelectionLimitColsExceeded" value="Antal valgte kolonner overstiger max tilladte {0}. " />
+  <sentence name="CtrlVariableSelectorSelectedRowsLabel" value="Antal valgte data rækker" />
+  <sentence name="CtrlVariableSelectorSelectedColumnsLabel" value="Antal valgte data kolonner" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Antal valgte data celler:" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(max antal {0})" />
+  <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Mindst en værdi skal vælges for variablen: " />
+  <sentence name="CtrlVariableSelectorContinueLabel" value="Vælg en og tryk" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Fortsæt" />
+  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Der er flere en 500 værdier hvorfor de ikke vises" />
+  <sentence name="CtrlVariableSelectorShowAll" value="Vis alle" />
+  <sentence name="CtrlVariableSelectorShowHierarchy" value="Vis hierarki" />
+  <sentence name="CtrlVariableSelectorSearch" value="Søg" />
+  <sentence name="CtrlVariableSelectorOutputFormatsOutputScreen" value="Vis tabel på skærm" />
+  <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Søg" />
+  <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="I begyndelsen" />
+  <sentence name="CtrlVariableSelectorManyValues" value="Der er mere end {0} værdier hvorfor de ikke vises automatisk. Brug søgefunktionen for at vælge." />
+  <sentence name="CtrlVariableSelectorLargeValueset" value="(Stort værdisæt)" />
+  <sentence name="CtrlVariableSelectorActionButton" value="Send" />
+  <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Opdel tids variablen" />
+  <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Regiger specifikationen af den gemte tabel" />
+  <sentence name="CtrlSaveQueryListEditHeaderLine1" value="If you want to remove a saved table specification check the box on that line." />
+  <sentence name="CtrlSaveQueryListEditHeaderLine2" value="If you want to change the table name eller the description type the ny texts." />
+  <sentence name="CtrlSaveQueryListEditRemove" value="Fjern" />
+  <sentence name="CtrlSaveQueryListEditTableCode" value="Tabel kode" />
+  <sentence name="CtrlSaveQueryListEditDescription" value="Beskrivelse" />
+  <sentence name="CtrlSaveQueryListEditOutput" value="Resultat" />
+  <sentence name="CtrlSaveQueryListEditUpdate" value="Opdatering" />
+  <sentence name="CtrlTextSearchButtonText" value="Søg" />
+  <sentence name="CtrlTextSearchOptionAll" value="Alt" />
+  <sentence name="CtrlTextSearchOptionAnd" value="og" />
+  <sentence name="CtrlTextSearchOptionOr" value="eller" />
+  <sentence name="CtrlTextSearchSelect" value="Vælg del" />
+  <sentence name="CtrlTextSearchDownload" value="Overførsel færdig" />
+  <sentence name="CtrlTextSearchView" value="Se tabel" />
+  <sentence name="CtrlTextSearchResultText" value="Søg resultat for" />
+  <sentence name="CtrlTextSearchAttributeModified" value="Ændret:" />
+  <sentence name="CtrlTextSearchAttributePath" value=" " />
+  <sentence name="CtrlTextSearchAttributeSize" value="Størrelse:" />
+  <sentence name="CtrlTableOfContentSizeHeading" value="Størrelse:" />
+  <sentence name="CtrlTableOfContentSizeKilobytes" value="Kb" />
+  <sentence name="CtrlTableOfContentModifiedHeading" value="Ændret:" />
+  <sentence name="CtrlTableOfContentUpdatedHeading" value="Opdateret:" />
+  <sentence name="CtrlTableOfContentActionButton" value="Javascript is disabled, klik for at se hele træet" />
+  <sentence name="CtrlTableOfContentExternalLinkTooltip" value="Information" />
+  <sentence name="CtrlTableListSizeHeading" value="Størrelse:" />
+  <sentence name="CtrlTableListModifiedHeading" value="Ændret:" />
+  <sentence name="CtrlTableListUpdatedHeading" value="Opdateret:" />
+  <sentence name="CtrlTableListVariablesAndValuesHeading" value="Variabler:" />
+  <sentence name="CtrlTableListSelectOption_Select" value="Vælg del:" />
+  <sentence name="CtrlTableListSelectOption_Download" value="Download:" />
+  <sentence name="CtrlTableListSelectOption_Downloadsmallfile" value="Download:" />
+  <sentence name="CtrlTableListSelectOption_View" value="Se tabel:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValues" value="Se tabel:" />
+  <sentence name="CtrlTableListSelectOption_ViewWithCommandbar" value="Se tabel:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValuesWithCommandbar" value="Se tabel:" />
+  <sentence name="CtrlCsvFileTypeFileWithHeading" value="Delimited fil med heading" />
+  <sentence name="CtrlCsvFileTypeFileWithoutHeading" value="Delimited fil uden heading" />
+  <sentence name="CtrlCsvFileTypeFileTabulator" value="Tabulator" />
+  <sentence name="CtrlCsvFileTypeFileComma" value="Komma" />
+  <sentence name="CtrlCsvFileTypeFileSpace" value="Blank" />
+  <sentence name="CtrlCsvFileTypeFileSemicolon" value="Semikolon" />
+  <sentence name="CtrlExcelInformationLevelNone" value="Ingen" />
+  <sentence name="CtrlExcelInformationLevelMandatoryFootnotes" value="Kun meget vigtige fodnoter" />
+  <sentence name="CtrlExcelInformationLevelAllFootnotes" value="Alle fodnoter" />
+  <sentence name="CtrlExcelInformationLevelAll" value="Al information" />
+  <sentence name="CtrlExcelDoubleColumn" value="Kode og tekst i separate kolonner" />
+  <sentence name="FileTypePX" value="PC-Axis fil" />
+  <sentence name="FileTypeExcel" value="Excel workbook (xml)" />
+  <sentence name="FileTypeExcelDoubleColumn" value="Excel workbook (xml) med kode og tekst" />
+  <sentence name="FileTypeExcelCompleteInfoFile" value="Excel file fra skærm" />
+  <sentence name="FileTypeCsvWithHeadingAndTabulator" value="Tab separeret med heading" />
+  <sentence name="FileTypeCsvWithoutHeadingAndTabulator" value="Tab separeret uden heading" />
+  <sentence name="FileTypeCsvWithHeadingAndComma" value="Komma separeret med heading" />
+  <sentence name="FileTypeCsvWithoutHeadingAndComma" value="Komma separeret uden heading" />
+  <sentence name="FileTypeCsvWithHeadingAndSpace" value="Blank separeret med heading" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Blank separeret uden heading" />
+  <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Semikolon separeret med heading" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Semikolon separeret uden heading" />
+  <sentence name="FileTypeText" value="Text fil (txt)" />
+  <sentence name="FileTypeHtml" value="Html fil (htm)" />
+  <sentence name="FileTypeRelational" value="Relational fil (txt)" />
+  <sentence name="FileTypeChartPng" value="Graf som PNG (png)" />
+  <sentence name="FileTypeChartGif" value="Graf som Gif (gif)" />
+  <sentence name="FileTypeChartJpeg" value="Graf som JPEG (jpg)" />
+  <sentence name="FileTypeExcelX" value="Excel (xlsx)" />
+  <sentence name="FileTypeExcelXDoubleColumn" value="Excel (xlsx) med kode og tekst kolonner" />
+  <sentence name="CtrlSearchVariableValuesAddButton" value="Tilføj" />
+  <sentence name="CtrlSearchVariableValuesSearchHeader" value="Søg" />
+  <sentence name="CtrlSearchVariableValuesSearchForCode" value="Søg kode:" />
+  <sentence name="CtrlSearchVariableValuesSearchForValue" value="Søg tekst:" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeBeginning" value="Søg kode/tekst fra start" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Søg overalt i tekst" />
+  <sentence name="CtrlSearchVariableValuesSearch" value="Søg" />
+  <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Tilføj valgte resultater" />
+  <sentence name="CtrlSearchValuesHeader" value="Søg værdi for" />
+  <sentence name="CtrlSearchValuesSearchCode" value="Søg kode:" />
+  <sentence name="CtrlSearchValuesSearchValue" value="Søg værdi:" />
+  <sentence name="CtrlSearchValuesSearchValueOrCode" value="Søg kode/værdi:" />
+  <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Søg i start" />
+  <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Søg overalt i tekst" />
+  <sentence name="CtrlSearchValuesShowAllValues" value="Vis alle værdier" />
+  <sentence name="CtrlSearchValuesSearch" value="Søg" />
+  <sentence name="CtrlSearchValuesSelectionTips" value="For at vælge værdier i søgeresultat, klik den øverste værdi, hold Shift nede og klik på den sidste værdi" />
+  <sentence name="CtrlSearchValuesSearchResultHeader" value="Søgeresultat" />
+  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(antal resultater: {0})" />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Vælg alle" />
+  <sentence name="CtrlSearchValuesChoosenValues" value="Valgte værdier" />
+  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Tilføj valgte værdier" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Fjern fra valgte værdier" />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(antal værdier: {0})" />
+  <sentence name="CtrlSearchValuesNoValuesFound" value="Ingen værdier fundet" />
+  <sentence name="CtrlSearchValuesNoValuesSelected" value="Ingen værdier valgt" />
+  <sentence name="CtrlSearchValuesCancel" value="Fortryd" />
+  <sentence name="CtrlSearchValuesClear" value="Clear values" />
+  <sentence name="CtrlSearchValuesAddToVariableSelector" value="OK" />
+  <sentence name="CtrlSearchValuesSearchLabel" value="Søg" />
+  <sentence name="CtrlSearchValuesCode" value="Kode" />
+  <sentence name="CtrlSearchValuesValue" value="Værdi" />
+  <sentence name="CtrlSearchValuesAllValues" value="Vis alle værdier" />
+  <sentence name="CtrlSearchValuesSearchText" value="Tekst:" />
+  <sentence name="CtrlSearchValuesSearchButton" value="Søg" />
+  <sentence name="CtrlSearchValuesPagerFirstPage" value="Første side" />
+  <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Antal sider i alt" />
+  <sentence name="CtrlSearchValuesPagerLastPage" value="Sidste side" />
+  <sentence name="CtrlSearchValuesPagerForward" value="Frem" />
+  <sentence name="CtrlSearchValuesPagerBackward" value="Tilbage" />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Vælg alle tlgængelige værdier" />
+  <sentence name="CtrlTableQueryShowInformation" value="Brug denne tabel i dit program/applikation" />
+  <sentence name="CtrlTableQueryShowInformationTooltip" value="Få information om hvordan du kan hente data fra denne tabel direkte ind i dit program" />
+  <sentence name="CtrlTableQueryHideInformation" value="Skjul information" />
+  <sentence name="CtrlTableQueryInformationText" value="POST følgende JSON query til URL nedenfor for at hente data ind i din applikation / dit program." />
+  <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
+  <sentence name="CtrlTableQueryQueryCaption" value="JSON query:" />
+  <sentence name="CtrlTableQueryMoreInformation" value="Mere information" />
+  <sentence name="CtrlNavigationFlowStep1" value="Vælg tabel" />
+  <sentence name="CtrlNavigationFlowStep2" value="Vælg variabler" />
+  <sentence name="CtrlNavigationFlowStep3" value="Vis tabel" />
+  <sentence name="CtrlSaveQueryChoosetimeperiod" value="Vælg tid til din tabel" />
+  <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="Hvad vil du gøre når din tabel opdateres med en ny tidsperiode?" />
+  <sentence name="CtrlSaveQueryTimeWarning" value="Det er ikke muligt at opdatere din tabel, da 'tid' er blevet efterbehandlet" />
+  <sentence name="CtrlSaveQueryNoTimeValWarning" value="Det er ikke muligt at opdatere tabellen, da tidsvariable ikke er defineret for denne tabel. Kontakt os - fortæl hvilken tabel det gælder!" />
+  <sentence name="CtrlSaveQuerylnkSaveQuery" value="Gem din tabel" />
+  <sentence name="CtrlSaveQueryAsCaption" value="Gem resultat som" />
+  <sentence name="CtrlSaveQueryForScreen" value="Tabel på skærm" />
+  <sentence name="CtrlSaveQueryCancelSaveQuery" value="Fortryd" />
+  <sentence name="CtrlSaveQuerybtnCreateQuery" value="Ok" />
+  <sentence name="CtrlSaveQueryFloatingTimePeriod" value="Rullende tid. Samme antal tidsperioder, med seneste periode" />
+  <sentence name="CtrlSaveQuerySelectedTimePeriod" value="Fast tid. Altid de valgte tidsperioder" />
+  <sentence name="CtrlSaveQueryExtendedTimePeriod" value="Fast start. Fra en bestemt tidsperiode og alle efterfølgende" />
+  <sentence name="CtrlSaveQuerySelectFormat" value="Vælg format" />
+  <sentence name="CtrlSaveQuerybtnBack" value="Tilbage" />
+  <sentence name="CtrlSaveQueryBookmark" value="Tilføj favorit" />
+  <sentence name="CtrlSaveQueryCopyLink" value="Kopier" />
+  <sentence name="CtrlSaveQueryMailQuery" value="Send med e-post" />
+  <sentence name="CtrlSaveQueryFailedSave" value="Der skete en fejl. Din tabel er ikke gemt." />
+  <sentence name="CtrlSaveQueryURLInfo" value="Du kan altid hente den valgte tabel med denne URL" />
+  <sentence name="CtrlSaveQueryHeadingExplanationText" value="Om 'Gem din tabel'" />
+  <sentence name="CtrlSaveQueryExplanationText" value="Gem dine valg til senere brug." />
+  <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Opdateringsvalg:" />
+  <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Format:" />
+  <sentence name="PxcYear" value="årlig" />
+  <sentence name="PxcHalfyear" value="halvårlig" />
+  <sentence name="PxcQuarter" value="kvartalsvis" />
+  <sentence name="PxcMonth" value="månedlig" />
+  <sentence name="PxcWeek" value="ugentlig" />
+  <sentence name="PxcMetaTitleBy" value="efter" />
+  <sentence name="PxcMetaTitleAnd" value="og" />
+  <sentence name="PxcOpSplitTimeVarYear" value="år" />
+  <sentence name="PxcOpSplitTimeVarQuarter" value="kvartal" />
+  <sentence name="PxcOpSplitTimeVarMonth" value="måned" />
+  <sentence name="PxcOpSplitTimeVarJanuary" value="Januar" />
+  <sentence name="PxcOpSplitTimeVarFebruary" value="Februar" />
+  <sentence name="PxcOpSplitTimeVarMarch" value="Marts" />
+  <sentence name="PxcOpSplitTimeVarApril" value="April" />
+  <sentence name="PxcOpSplitTimeVarMay" value="Maj" />
+  <sentence name="PxcOpSplitTimeVarJune" value="Juni" />
+  <sentence name="PxcOpSplitTimeVarJuly" value="Juli" />
+  <sentence name="PxcOpSplitTimeVarAugust" value="August" />
+  <sentence name="PxcOpSplitTimeVarSeptember" value="September" />
+  <sentence name="PxcOpSplitTimeVarOctober" value="Oktober" />
+  <sentence name="PxcOpSplitTimeVarNovember" value="November" />
+  <sentence name="PxcOpSplitTimeVarDecember" value="December" />
+  <sentence name="PxcOpSplitTimeVarQuarter1" value="Kvartal 1" />
+  <sentence name="PxcOpSplitTimeVarQuarter2" value="Kvartal 2" />
+  <sentence name="PxcOpSplitTimeVarQuarter3" value="Kvartal 3" />
+  <sentence name="PxcOpSplitTimeVarQuarter4" value="Kvartal 4" />
+  <sentence name="ERROR_MISSING_TIMEVALUE" value="TIMEVALUE mangler" />
+  <sentence name="PxcErrCellNoteValueMissing" value="Værdien={0} er ikke gyldig" />
+  <sentence name="PxcErrToManyCodes" value="{0} har for mange koder" />
+  <sentence name="PxcGroupedValuesMissing" value="{0} grupperede værdier mangler" />
+  <sentence name="PxcGroupingVariableWithNoValues" value="Grupperings variablen {0} indeholder ingen værdier" />
+  <sentence name="PxcSortVariable" value="unit variable" />
+  <sentence name="PxcContactPhone" value="Tlf" />
+  <sentence name="PxcContactFax" value="Fax" />
+  <sentence name="PxcContactEMail" value="e-post" />
+  <sentence name="PxcPercent" value="procent" />
+  <sentence name="PxcPermil" value="promille" />
+  <sentence name="PxcPercentUnitVarExists" value="Kan ikke beregne procent da denne allerede findes" />
+  <sentence name="PxcPermilUnitVarExists" value="Kan ikke beregne promille da denne allerede findes" />
+  <sentence name="PxcErr103" value="UNITS fejl" />
+  <sentence name="PxcErr106" value="STUB fejl" />
+  <sentence name="PxcErr107" value="HEADING fejl" />
+  <sentence name="PxcErr108" value="VALUES fejl" />
+  <sentence name="PxcErr109" value="CODES fejl" />
+  <sentence name="PxcErr111" value="NOTE eller NOTEX for Variable fejl" />
+  <sentence name="PxcErr112" value="VALUENOTE eller VALUENOTEX fejl" />
+  <sentence name="PxcErr113" value="CELLNOTE eller CELLNOTEX fejl" />
+  <sentence name="PxcErr115" value="ELIMINATION yes/no fejl" />
+  <sentence name="PxcErr117" value="PARTITION fejl" />
+  <sentence name="PxcErr121" value="KEYS fejl" />
+  <sentence name="PxcErr123" value="PRECISION fejl" />
+  <sentence name="PxcErr124" value="DOMAIN fejl" />
+  <sentence name="PxcErr130" value="TITLE eller DESCRIPTION mangler" />
+  <sentence name="PxcErr131" value="MATRIX mangler" />
+  <sentence name="PxcErr132" value="SUBJECT AREA mangler" />
+  <sentence name="PxcErr133" value="SUBJECT CODE mangler" />
+  <sentence name="PxcErr134" value="STUB and HEADING mangler" />
+  <sentence name="PxcErr135" value="UNITS mangler" />
+  <sentence name="PxcErr136" value="CONTENTS mangler" />
+  <sentence name="PxcErr137" value="DECIMALS mangler" />
+  <sentence name="PxcErr138" value="SHOWDECIMALS fejl" />
+  <sentence name="PxcErr142" value="COPYRIGHT er forkert" />
+  <sentence name="PxcErr143" value="DAYADJ er forkert" />
+  <sentence name="PxcErr144" value="SEASADJ er forkert" />
+  <sentence name="PxcErr146" value="CONTACT er forkert" />
+  <sentence name="PxcErr147" value="REFPERIOD er forkert" />
+  <sentence name="PxcErr149" value="LAST-UPDATED er forkert" />
+  <sentence name="PxcErr151" value="STOCKFA er forkert" />
+  <sentence name="PxcErr152" value="CFPRICES er forkert" />
+  <sentence name="PxcErr153" value="TIMEVAL er forkert" />
+  <sentence name="PxcErr154" value="BASEPERIOD er forkert" />
+  <sentence name="PxcErr160" value="Keyword dependent on CONTVARIABLE found but no contents variable" />
+  <sentence name="PxcErr161" value="CONTVARIABLE eller dependent keyword fejl" />
+  <sentence name="PxcErr162" value="PRESTEXT fejl" />
+  <sentence name="PxcErr164" value="MAP fejl" />
+  <sentence name="PxcErr166" value="AGGREGALLOWED fejl" />
+  <sentence name="PxcErr167" value="AUTOPEN fejl" />
+  <sentence name="PxcErr168" value="DOUBLECOLUMN fejl" />
+  <sentence name="PxcErr169" value="DESCRIPTIONDEFAULT fejl" />
+  <sentence name="PxcErr176" value="DATANOTE fejl" />
+  <sentence name="PxcErr180" value="DATA missing" />
+  <sentence name="PxcErr201" value="HIERARCHYLEVELSOPEN fejl " />
+  <sentence name="PxcErr202" value="HIERARCHYLEVELS fejl " />
+  <sentence name="PxcErr203" value="HIERARCHYNAMES fejl" />
+  <sentence name="PxcErr204" value="HIERARCHIES fejl" />
+  <sentence name="PxcErr205" value="OFFICIAL-STATISTICS fejl" />
+  <sentence name="PxcErr206" value="ATTRIBUTE-ID fejl" />
+  <sentence name="PxcErr207" value="ATTRIBUTE-TEXT fejl" />
+  <sentence name="PxcErr208" value="ATTRIBUTES fejl" />
+  <sentence name="PxcErr300" value="VALUE-TEXT-OPTION fejl" />
+  <sentence name="PxcKeywordError" value="{0} fejl" />
+  <sentence name="PxcKeywordLastUpdated" value="Sneste opdatering" />
+  <sentence name="PxcKeywordSource" value="Kilde" />
+  <sentence name="PxcKeywordContact" value="KOntakt" />
+  <sentence name="PxcKeywordCopyright" value="Copyright" />
+  <sentence name="PxcKeywordUnits" value="Enhed" />
+  <sentence name="PxcKeywordStockfa" value="Data type" />
+  <sentence name="PxcKeywordStockfaValueStock" value="Beholdning" />
+  <sentence name="PxcKeywordStockfaValueFlow" value="Strøm" />
+  <sentence name="PxcKeywordStockfaValueAverage" value="Gennemsnit" />
+  <sentence name="PxcKeywordRefPeriod" value="Reference period" />
+  <sentence name="PxcKeywordBasePeriod" value="Base period" />
+  <sentence name="PxcKeywordCFPricesValueCurrent" value="Løbende priser" />
+  <sentence name="PxcKeywordCFPricesValueFixed" value="Faste priser" />
+  <sentence name="PxcKeywordDayAdj" value="Day adjusted" />
+  <sentence name="PxcKeywordSeasAdj" value="Sæsonkorrigeret" />
+  <sentence name="PxcKeywordDatabase" value="Database" />
+  <sentence name="PxcKeywordMatrix" value="Intern reference kode" />
+  <sentence name="PXWebSearchLink" value="Søg" />
+  <sentence name="PXWebGenXMLLink" value="Dan menu xml" />
+  <sentence name="PageViewFootnoteDialogTitle" value="Fodnoter" />
+  <sentence name="PageViewDataSortDescription" value="Klik på kolonnen hoved for at sortere tabellen. Sorter flere kolonner samtidigt ved at holde Shift nede og klik på anden, tredje eller fjerde kolonne" />
+  <sentence name="PageViewDataSortCopyInstructions" value="Kopier tabellen: Se rediger menu og brug Vælg alle og så Kopier. Eller tryk Crtl+A og så Ctrl+C" />
+  <sentence name="CancelButton" value="Fortryd" />
+  <sentence name="PxWebApplicationTitle" value="Statistikbanken" />
+  <sentence name="PxWebApplicationName" value="Statistikbanken" />
+  <sentence name="PxWebLogoAlt" value="Statistikbanken" />
+  <sentence name="PxWebHome" value="Hjem" />
+  <sentence name="PxWebMenu" value="Menu" />
+  <sentence name="PxWebSelection" value="Udvælgelse" />
+  <sentence name="PxWebInformation" value="Information" />
+  <sentence name="PxWebDetailedInformation" value="Detaljeret information" />
+  <sentence name="PxWebFootnotes" value="Fodnoter" />
+  <sentence name="PxWebMarkingTips" value="Markerings tips" />
+  <sentence name="PxWebMarkingTipsHeader" value="Tips om hvordan du markerer i en liste" />
+  <sentence name="PxWebMarkingTipsText" value="Der skal vælges mindst en værdi i for hver variabel. Variabler ses i hver sin listeboks. For de fleste variabler har vi valgt en standard værdi. &#xD;&#xA;Nogle variabler kan vi ikke angive standardværdi for - de skal vælges, og er markeret med en rød stjerne. &#xD;&#xA;&#xD;&#xA;For at markere hvilken værdi du ønsker med i din tabel klikker du på den.&#xD;&#xA;&#xD;&#xA;For at vælge flere holder du CTRL knap nede og klikker med mus på de værdier du vil have med.&#xD;&#xA;&#xD;&#xA;For at vælge Vis alle i en liste boks:&#xD;&#xA;- Markér første linie i listen. Tryk derefter på knapperne SHIFT og END samtidigt. Eller klik på knappen 'V'&#xD;&#xA;&#xD;&#xA;For at vælge / fortryde :&#xD;&#xA;- Tryk på knappen CTRL og klik på venstre museknap på den valgte linje samtidigt. Eller klik på knappen '-'&#xD;&#xA;&#xD;&#xA;Hvis du vil vælge mere end én værdi i en liste boks:&#xD;&#xA;- Marker værdier i træk ved at trykke på venstre museknap og slip den over de ønskede linjer. Eller markér den første&#xD;&#xA;værdi på din liste, og tryk derefter på knappen SHIFT på samme tid som du trykker på op or ned-pilene på tastaturet.&#xD;&#xA;- Marker værdi, ikke i træk, ved at trykke på knappen CTRL på samme tid som du klikker på venstre museknap på de ønskede værdier.&#xD;&#xA;&#xD;&#xA;For at søge efter en bestemt værdi i listen:&#xD;&#xA;- Markér første linie i listen. Skriv derefter det første bogstav i rækken du ønsker. Hvis du ikke får den rigtige værdi,&#xD;&#xA;prøv at skrive igen, indtil du finder den rigtige værdi. Eller brug up or down pile or museknappen for at se yderligere." />
+  <sentence name="PxWebPresentation" value="Præsentation" />
+  <sentence name="PxWebTable" value="Tabel" />
+  <sentence name="PxWebTableUserSettingsShow" value="Indstillinger for tabel" />
+  <sentence name="PxWebTableUserSettingsHide" value="Skjul indstillinger" />
+  <sentence name="PxWebTableUserSettingsZeroOption" value="Rækker med nuller" />
+  <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Vis alle rækker" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZero" value="Skjul rækker kun med nuller" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroAndNil" value="Skjul rækker kun med nuller eller '-'" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoSymbols" value="Skjul rækker kun med '.'" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol" value="Skjul rækker kun med nuller, '-' eller '.'" />
+  <sentence name="PxWebTableUserSettingsCancel" value="Fortryd" />
+  <sentence name="PxWebTableUserSettingsApply" value="Gem indstillinger" />
+  <sentence name="PxWebChart" value="Graf" />
+  <sentence name="PxWebChartUserSettingsTitle" value="Titel:" />
+  <sentence name="PxWebChartUserSettingsHeight" value="Højde:" />
+  <sentence name="PxWebChartUserSettingsWidth" value="Bredde:" />
+  <sentence name="PxWebChartUserSettingsLineThickness" value="Linje tykkelse:" />
+  <sentence name="PxWebChartUserSettingsSortTime" value="Sorter tid:" />
+  <sentence name="PxWebChartUserSettingsSortTimeAscending" value="Stigende" />
+  <sentence name="PxWebChartUserSettingsSortTimeDescending" value="Faldende" />
+  <sentence name="PxWebChartUserSettingsSortTimeNone" value="Ingen" />
+  <sentence name="PxWebChartUserSettingsLabelOrientation" value="Label orientation:" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationHorizontal" value="Horisontal" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationVertical" value="Vertikal" />
+  <sentence name="PxWebChartUserSettingsGuidelines" value="Gridlines:" />
+  <sentence name="PxWebChartUserSettingsGuidelinesHorizontal" value="Horisontal" />
+  <sentence name="PxWebChartUserSettingsGuidelinesVertical" value="Vertikal" />
+  <sentence name="PxWebChartUserSettingsLegend" value="Legend:" />
+  <sentence name="PxWebChartUserSettingsLegendShow" value="Vis" />
+  <sentence name="PxWebChartUserSettingsLegendHeight" value="Højde (% af Graf):" />
+  <sentence name="PxWebChartUserSettingsCancel" value="Fortryd" />
+  <sentence name="PxWebChartUserSettingsApply" value="Ok" />
+  <sentence name="PxWebChartUserSettingsShow" value="Graf indstillinger" />
+  <sentence name="PxWebChartUserSettingsHide" value="Skjul indstillinger" />
+  <sentence name="PxWebChartPieChartTitle" value="Lagkage diagram kan ikke vises" />
+  <sentence name="PxWebChartPieChartInformation" value="Et lagkage diagram kan kun indeholde en variabel med mere end en værdi. Brug 'Slet variabel' eller  'Slet værdi' på 'Rediger og beregn'-menuen ovenfor for at fjerne varibler og værdier." />
+  <sentence name="PxWebChartPyramidChartTitle" value="Befolkningspyramiden kan ikke vises" />
+  <sentence name="PxWebChartPyramidChartInformation" value="For at vise danne en befolkningspyramide, kan kun en af variablerne have et ubegrænset antal værdier. Desuden skal en af de andre variable have to værdier, mens resten af de øvrige variable kun kan have én værdi. F.eks hvis alder har mange værdier, køn har to værdier kan andre variabler som fx fødested og tid højst have en værdi. Brug 'Slet værdi'-operationen i 'Rediger og beregne'-menuen ovenfor for at fjerne værdier." />
+  <sentence name="PxWebChartTooManyValues" value="For mange værdier er valgt" />
+  <sentence name="PxWebChartTooManyValuesInformation" value="Du har valgt for mange værdier." />
+  <sentence name="PxWebChartUserSettingsLargeValue" value="Max antal er {0}" />
+  <sentence name="PxWebChartLeftScale" value="(left scale)" />
+  <sentence name="PxWebChartRightScale" value="(right scale)" />
+  <sentence name="PxWebChartPercent" value="%" />
+  <sentence name="PxWebDataSort" value="Sorter data" />
+  <sentence name="PxWebSelectDb" value="Vælg database:" />
+  <sentence name="PxWebTableCropped" value="Note: Tabellen er afskåret. Højst {0} rækker og {1} kolonner kan vises på skærm" />
+  <sentence name="PxWebPopupDialogOk" value="Ok" />
+  <sentence name="PxWebPopupDialogClose" value="Luk" />
+  <sentence name="PxWebSelectVariable" value="Vælg variabel" />
+  <sentence name="PxWebAboutTable" value="Om tabel" />
+  <sentence name="PxWebShowTable" value="Vis tabel" />
+  <sentence name="PxWebSearchControlLabel" value="Søg i Statistikbanken - {0}:" />
+  <sentence name="PxWebSearchControlButtonText" value="Søg" />
+  <sentence name="PxWebSearchAllFields" value="Søg alle felter" />
+  <sentence name="PxWebSearchSelection" value="Kun søg" />
+  <sentence name="PxWebSearchFieldTitle" value="Tabel titel" />
+  <sentence name="PxWebSearchFieldValue" value="Værdi tekst" />
+  <sentence name="PxWebSearchFieldCode" value="Værdi kode" />
+  <sentence name="PxWebSearchResultText" value="Søgeresultat: ({0} hits)" />
+  <sentence name="PxWebSearchResultColumnTable" value="Tabel" />
+  <sentence name="PxWebSearchResultColumnPublished" value="Offentliggjort" />
+  <sentence name="PxWebTitleDefault" value="Vælg database" />
+  <sentence name="PxWebTitleApiHelp" value="API hjælp" />
+  <sentence name="PxWebTitleChart" value="Graf" />
+  <sentence name="PxWebTitleDataSort" value="Sorter" />
+  <sentence name="PxWebTitleErrorGeneral" value="Oooops!" />
+  <sentence name="PxWebTitleFootnotesPresentation" value="Fodnoter" />
+  <sentence name="PxWebTitleFootnotesSelection" value="Fodnoter" />
+  <sentence name="PxWebTitleInformationPresentation" value="Information" />
+  <sentence name="PxWebTitleInformationSelection" value="Information" />
+  <sentence name="PxWebTitleMarkingTips" value="Tips" />
+  <sentence name="PxWebTitleMenu" value="Vælg tabel" />
+  <sentence name="PxWebTitleSearch" value="Søg" />
+  <sentence name="PxWebTitleSelection" value="Vælg variabler og værdier" />
+  <sentence name="PxWebTitleTable" value="Tabel" />
+  <sentence name="PxWebSavedQueryUnsafeMessage" value="Teksten er forskellig fra vores, da den efterfølgende er blevet ændret" />
+  <sentence name="PxWebGeneralErrorMessage" value="Det er sket en fejl. Den er blevet registreret." />
+  <sentence name="PxWebSavedQueryExecuteErrorMessage" value="Din tabel kunne ikke opdateres. Der er sket en fejl." />
+  <sentence name="PxWebReturnToStartpage" value="Gå tilbage til startsiden" />
+  <sentence name="PxWebAdminLogout" value="Log ud" />
+  <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2019 v1" />
+  <sentence name="PxWebAdminHomePage" value="PxWeb Homepage" />
+  <sentence name="PxWebAdminSaveButton" value="Save" />
+  <sentence name="PxWebAdminGenerateButton" value="Generate" />
+  <sentence name="PxWebAdminMenuHome" value="Home" />
+  <sentence name="PxWebAdminMenuSettings" value="Settings" />
+  <sentence name="PxWebAdminMenuSettingsGeneral" value="General" />
+  <sentence name="PxWebAdminMenuSettingsGeneralSite" value="Site" />
+  <sentence name="PxWebAdminMenuSettingsGeneralLanguage" value="Sprog" />
+  <sentence name="PxWebAdminMenuSettingsGeneralPaths" value="Paths" />
+  <sentence name="PxWebAdminMenuSettingsGeneralFileFormats" value="File formats" />
+  <sentence name="PxWebAdminMenuSettingsGeneralModules" value="Modules" />
+  <sentence name="PxWebAdminMenuSettingsGeneralGlobal" value="Global" />
+  <sentence name="PxWebAdminMenuSettingsGeneralDatabases" value="Databases" />
+  <sentence name="PxWebAdminMenuSettingsGeneralAdministration" value="Administration" />
+  <sentence name="PxWebAdminMenuSettingsMenu" value="Menu" />
+  <sentence name="PxWebAdminMenuSettingsSelection" value="Selection" />
+  <sentence name="PxWebAdminMenuSettingsPresentation" value="Presentation" />
+  <sentence name="PxWebAdminMenuSettingsPresentationGeneral" value="General" />
+  <sentence name="PxWebAdminMenuSettingsPresentationTable" value="Tabel" />
+  <sentence name="PxWebAdminMenuSettingsPresentationCommandBar" value="CommandBar" />
+  <sentence name="PxWebAdminMenuTools" value="Tools" />
+  <sentence name="PxWebAdminMenuToolsGenerateDb" value="Generate database" />
+  <sentence name="PxWebAdminMenuSettingsNavigation" value="Navigation" />
+  <sentence name="PxWebAdminMenuToolsLanguageManager" value="Language Manager" />
+  <sentence name="PxWebAdminMenuToolsReset" value="Reset" />
+  <sentence name="PxWebAdminMenuToolsChangePassword" value="Change password" />
+  <sentence name="PxWebAdminMenuFeatures" value="Features" />
+  <sentence name="PxWebAdminMenuFeaturesGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesCharts" value="Charts" />
+  <sentence name="PxWebAdminMenuFeaturesChartsGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesApi" value="API" />
+  <sentence name="PxWebAdminMenuFeaturesApiGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQuery" value="Save Query" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQueryGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesSearch" value="Search" />
+  <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Background worker process" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="General" />
+  <sentence name="PxWebPxLogin" value="PxWeb Login" />
+  <sentence name="PxWebLogin" value="Login" />
+  <sentence name="PxWebUsername" value="Username" />
+  <sentence name="PxWebPassword" value="Password" />
+  <sentence name="PxWebWrongLogin" value="Wrong username eller password" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Databases" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Selected PX Databases will be displayed in PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="CNMM (Common Nordic Meta Model) Databases" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Selected CNMM Databases will be displayed in PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesEnabled" value="Enabled" />
+  <sentence name="PxWebAdminSettingsDatabasesDbCreated" value="Db created" />
+  <sentence name="PxWebAdminSettingsDatabasesIndexStatus" value="Index status" />
+  <sentence name="PxWebAdminSettingsDatabasesAction" value="Action" />
+  <sentence name="PxWebAdminSettingsDatabasesCreateIndex" value="Create index" />
+  <sentence name="PxWebAdminSettingsDatabasesConfirmCreateIndex" value="Do you want to create a ny search index?" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePath" value="Language path" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePathInfo" value="Path to directory containing the language files" />
+  <sentence name="PxWebAdminSettingsPathsImagePath" value="Image path" />
+  <sentence name="PxWebAdminSettingsPathsImagePathInfo" value="Path to directory containing the images" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePath" value="PX database path" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePathInfo" value="Path to directory containing the PX databases" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPath" value="Aggregation path" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPathInfo" value="Path to directory containing the aggregation files" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Cell limit download" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Max number of downloadable cells in resulting table" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevel" value="Information level" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelInfo" value="Controls which information that are displayed in the Excel file" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelNone" value="None" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelMandantoryFootnotesOnly" value="Mandatory footnotes only" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllFootnotes" value="All footnotes" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllInformation" value="All information" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumn" value="Double column" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumnInfo" value="If code always shall be displayed in a separate column" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOption" value="Secrecy option" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionInfo" value="If data values should be obfuscated when displayed" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionNone" value="None" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionSimple" value="Simple" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRule" value="Rounding rule" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleBankersRounding" value="Bankers rounding" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleRoundUp" value="Round up" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleInfo" value="Type of rounding rule ('Bankers rounding' eller 'Round up')" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1" value="Symbol 1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1Info" value="Text to display for measures having Data Symbol1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2" value="Symbol 2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2Info" value="Text to display for measures having Data Symbol2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3" value="Symbol 3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3Info" value="Text to display for measures having Data Symbol3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4" value="Symbol 4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4Info" value="Text to display for measures having Data Symbol4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5" value="Symbol 5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5Info" value="Text to display for measures having Data Symbol5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6" value="Symbol 6" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6Info" value="Text to display for measures having Data Symbol6" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNil" value="Data Symbol NIL" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNilInfo" value="Text to display for measures having Data Symbol NIL" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSum" value="Data Symbol Sum" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSumInfo" value="Text to display for measures having Data Symbol Sum" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescription" value="Vis source description" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescriptionInfo" value="If source description shall be displayed for table eller not" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevel" value="Table information level" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelInfo" value="Controls which information that are displayed for the table" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelNone" value="None" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelMandantoryFootnotesOnly" value="Mandatory footnotes only" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllFootnotes" value="All footnotes" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllInformation" value="All information" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCase" value="Upper case" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCaseInfo" value="Rule for making the first character in a value name uppercase" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacement" value="Datanote placement" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementInfo" value="Specifies placement of datanotes. Datanotes can be placed before eller after values" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementBeforeValue" value="Before value" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementAfterValue" value="After value" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContent" value="Fjern single content" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContentInfo" value="Fjern the content variable if it contains only one value" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheck" value="Strict aggregation check" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheckInfo" value="If strict check of aggregation files will be performed eller not. If set to yes the aggregation files (.agg) must have the keyword 'valueset' set to the name of the current valueset, if it is not a match the aggregation will not be added. " />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypes" value="Vis Information types" />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypesInfo" value="Which Information types that shall be displayed in the information of the table" />
+  <sentence name="PxWebAdminSettingsGlobalShowInfoFile" value="InfoFile" />
+  <sentence name="PxWebAdminSettingsGlobalDetailedInformationInfo" value="Should a link to the infofile be displayed. If the metadata are displayed as links a link to the infofile will appear next to the footnotes link. If metadata shall appear in tabs the link to the infofile will appear under the information section in the About table tab. The link to the infofile is only shown on the selection page." />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilter" value="Use IP filter" />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilterInfo" value="If IP filter shall be used when logging in to the administration pages eller not" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddresses" value="IP addresses" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddressesInfo" value="List of IP addresses med permission to access the administration pages. This setting is only valid if the setting 'Use IP filter' is set to true." />
+  <sentence name="PxWebAdminSettingsAdministrationAddNewIPAddress" value="Add ny IP address" />
+  <sentence name="PxWebAdminSettingsAdministrationInvalidIPAddress" value="Invalid IP address" />
+  <sentence name="PxWebAdminSettingsMenuMenuMode" value="Menu mode" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeInfo" value="Controls how the menu is displayed" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeList" value="List" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithoutFiles" value="Tree view without files" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithFiles" value="Tree view med files" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewAndFiles" value="Tree view and files" />
+  <sentence name="PxWebAdminSettingsMenuShowRoot" value="Vis root" />
+  <sentence name="PxWebAdminSettingsMenuShowRootInfo" value="Shall the root node be displayed eller not?" />
+  <sentence name="PxWebAdminSettingsMenuExpandAll" value="Expand all" />
+  <sentence name="PxWebAdminSettingsMenuExpandAllInfo" value="Shall the tree be expanded eller collapsed?" />
+  <sentence name="PxWebAdminSettingsMenuSortByAlias" value="Sort by alias" />
+  <sentence name="PxWebAdminSettingsMenuSortByAliasInfo" value="Shall the nodes be sorted by their alias names eller not?" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLink" value="Vis selection link" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLinkInfo" value="Shall the link to the page where the user can Select variables and variables be displayed eller not?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLink" value="Vis download link" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkInfo" value="Shall the link where the user can download the table as a file be displayed eller not?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysHide" value="Always hide" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysShow" value="Always show" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkShowIfSmallFile" value="Vis if small file" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkMode" value="Viewlink mode" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeInfo" value="Mode for the view-link. Can have one of three different values: 'Default values' = Default values are displayed in a table when the user clicks the link. 'All values' = All values are shown within a table when the user clicks the link. 'Hidden' = The link is not displayed." />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeDefaultValues" value="Default values" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeAllValues" value="All values" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeHidden" value="Hidden" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultView" value="Number of default values" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultViewInfo" value="Maximum number of values that are selected when Viewlink mode = 'Default values'. Values are preselected rather than allowing the users to select variables and values by themselves." />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDate" value="Vis modified date" />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDateInfo" value="Defines if information about when the PX-file was last updated in the file system shall be displayed in PxWeb eller not." />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdated" value="Vis last updated" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdatedInfo" value="Defines if LAST-UPDATED in the PX-files shall be displayed in PxWeb eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSize" value="Vis file size" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSizeInfo" value="If information about the filesize shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowTableCategory" value="Vis table category" />
+  <sentence name="PxWebAdminSettingsMenuShowTableCategoryInfo" value="If information about the table category shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowTableUpdatedAfterPublish" value="Vis updated after publish" />
+  <sentence name="PxWebAdminSettingsMenuShowTableUpdatedAfterPublishInfo" value="If tables that has been updated after they was published shall be marked in the menu eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValues" value="Vis variables and values" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValuesInfo" value="If information about variables and values within the table shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsMenuMetadataAsIcons" value="Metadata as icons" />
+  <sentence name="PxWebAdminSettingsMenuMetadataAsIconsInfo" value="If table metadata shall be displayed as icons after the table name. If set to 'Yes' icons will be displayed. If set to 'No' metadata will be dsipalyed as text." />
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadata" value="If a explanation shall be displayd next to the metadata" />
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadataInfo" value="Vis a explanatory text relevant to table metadata. For example, if set to 'Yes' the text 'Modified' is inserted before the table metadata modified date, if set to 'No' the table metadata is shown but no describing text." />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreen" value="Cell limit screen" />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreenInfo" value="The maximum number of cells that can be displayed on screen" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMark" value="Vis mandatory mark" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMarkInfo" value="If mandatory variables shall be marked eller not" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregations" value="Allow aggregations" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregationsInfo" value="If aggregations of variable values shall be possible eller not" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchies" value="Vis hierarchies" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchiesInfo" value="If hierarchies shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpen" value="Hierarchical levels open" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpenInfo" value="Specifies how expanded (number of tree-levels) the hierarchy tree should be as default" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTips" value="Vis marking tips" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTipsInfo" value="If marking tips shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURL" value="Marking tips URL" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURLInfo" value="URL to the webpage med marking tips" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearch" value="Max rækker without search" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearchInfo" value="Maximum values displayed for a variable in selection box. If the variable has more values the user must use the search function to select the values." />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowTimeVariableWithoutSearch" value="Vis time without search" />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowTimeVariableWithoutSearchInfo" value="Always show time variable without search even if number of values exceeds configured max rækker without search." />
+  <sentence name="PxWebAdminSettingsSelectionListSize" value="List size" />
+  <sentence name="PxWebAdminSettingsSelectionListSizeInfo" value="Number of rækker (height) in the variable selector" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimits" value="Vis selection limits" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimitsInfo" value="If information about selection limits shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormats" value="Output formats" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormatsInfo" value="Selected output formats (presentation views and file formats) will be available for selection in PxWeb" />
+  <sentence name="PxWebAdminSettingsSelectionPresentationViews" value="Presentation views:" />
+  <sentence name="PxWebAdminSettingsSelectionFileFormats" value="File formats:" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirst" value="Valueset must be selected" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirstInfo" value="If the variable has valuesets the user have to select valueset before values can be selected when this settings is set to true" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButton" value="Vis 'All available values'" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButtonInfo" value="Is the 'Show alle available values' button in the search-view. Warning! settings this setting to true can result in big web pages that may be heavy to load." />
+  <sentence name="PxWebAdminSettingsSelectionTitleFromMenu" value="Title from menu" />
+  <sentence name="PxWebAdminSettingsSelectionTitleFromMenuInfo" value="If set to true, the table title will be displayed as it was displayed in the menu" />
+  <sentence name="PxWebAdminSettingsSelectionMetadataAsLinks" value="Metdata as links" />
+  <sentence name="PxWebAdminSettingsSelectionMetadataAsLinksInfo" value="If table metadata (footnotes and information) shall be displayed as links eller directly within the selection page." />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Vis Navigation flow" />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Vis Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Search button mode" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeManyValues" value="Many values" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeAlways" value="Always" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeInfo" value="Controls when the search values button shall be displayed" />
+  <sentence name="PxWebAdminSettingsValidationMandatorySetting" value="Mandatory field" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentPath" value="The path does not exist" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentImage" value="The image does not exist" />
+  <sentence name="PxWebAdminSettingsValidationIntegerValue" value="Must be an integer value" />
+  <sentence name="PxWebAdminSettingsValidationTooLargeIntegerValue" value="Cannot be bigger than 2147483647" />
+  <sentence name="PxWebAdminSettingsValidationGreaterThanZero" value="Must be a value above 0" />
+  <sentence name="PxWebAdminSettingsValidationIllegalCharacter" value="Contains illegal character" />
+  <sentence name="PxWebAdminSettingsValidationBiggerThanMaxSetting" value="Cannot be bigger than the maximum setting ({0})" />
+  <sentence name="PxWebAdminSettingsValidationMaximumValue" value="Maximum value is {0}" />
+  <sentence name="PxWebAdminSettingsValidationIllegalColorCode" value="Illegal color code (expected format is #AAAAAA)" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperations" value="Operations" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="The selected operations will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformats" value="File formats" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformatsInfo" value="The selected file formats will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton" value="Button" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButtonInfo" value="The selected operations will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcutInfo" value="About shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViews" value="Presentation views" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewsInfo" value="The selected presentation views will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeText" value="View mode" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeDropDown" value="Dropdown" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeImageButtons" value="Button" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeHidden" value="Hidden" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderSetting" value="Operation" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderDropDown" value="Drop down" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton2" value="Button" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationView" value="Presentation view" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderCommandbarShortcut" value="Commandbar shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormat" value="File format" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatDropDown" value="Drop down" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotes" value="Prompt for mandatory footnotes" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotesInfo" value="If madantory footnotes should be prompted to the user when the table is displayed" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Table transformation" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="If the table should be automatically transformed before it displays to the user" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformNoTransformation" value="No transformation" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirst" value="Single values first" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirstAndHeaderOnlyOneMultiple" value="Only one multi valued variable in the header" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayout" value="Default layout" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutInfo" value="The default layout to use when displaying a table to the user" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout1" value="Layout 1" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout2" value="Layout 2" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRows" value="Max rækker" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRowsInfo" value="The maximum number of rækker that will be displayed within the table on screen. If the underlying data table contains more rækker than what is specified in this setting, the table on screen will be cropped." />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumns" value="Max columns" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumnsInfo" value="The maximum number of columns that will be displayed within the table on screen. If the underlying data table contains more columns than what is specified in this setting, the table on screen will be cropped." />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisible" value="Vis title" />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisibleInfo" value="If the table title shall be displayed within the table eller not" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayAttributes" value="Display cell information" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayAttributesInfo" value="If cell information shall be displayed in the table eller not. Information displayed is attributes and notes at cell level." />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayDefaultAttributes" value="Display default attributes" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayDefaultAttributesInfo" value="If the default values of the attributes of the table shall be displayed beneath the table eller not" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Generate CNMM database" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Vælg one of the databases to generate the database description file" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Vælg one of the databases to generate the database description file" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Language dependent" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependentInfo" value="Vis alle files despite of the selected language." />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sort order" />
+  <sentence name="PxWebAdminSortOrderFileName" value="File name" />
+  <sentence name="PxWebAdminSortOrderMatrix" value="Matrix" />
+  <sentence name="PxWebAdminSortOrderTitle" value="Title" />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Vælg the key that will be used to create the sort order for the tables." />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Create search index" />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="If selected, search index creation will be automatically initiated after the database has been generated." />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInitiated" value="Search index creation has been initiated" />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguage" value="--- Select language ---" />
+  <sentence name="PxWebAdminToolsLanguageManagerInfo" value="Vælg which language you want to edit. Key = the key that identifies a sentence in the system, Fallback = the sentence that will be used if no translation is done, Language = The sentence in the currently selected language." />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguageError" value="You must select language" />
+  <sentence name="PxWebAdminToolsLanguageManagerKey" value="Key" />
+  <sentence name="PxWebAdminToolsLanguageManagerFallback" value="Fallback" />
+  <sentence name="PxWebAdminToolsLanguageManagerLanguage" value="Language" />
+  <sentence name="PxWebAdminToolsResetAll" value="Reset all" />
+  <sentence name="PxWebAdminToolsResetAllInfo" value="Reset alle static lists in PxWeb" />
+  <sentence name="PxWebAdminToolsResetLanguage" value="Reset language" />
+  <sentence name="PxWebAdminToolsResetLanguageInfo" value="Reset language list in the language system" />
+  <sentence name="PxWebAdminToolsResetAggregation" value="Reset aggregations" />
+  <sentence name="PxWebAdminToolsResetAggregationInfo" value="Releases aggregations list that is loaded into memory" />
+  <sentence name="PxWebAdminToolsResetDatabases" value="Reset databases" />
+  <sentence name="PxWebAdminToolsResetDatabasesInfo" value="Reset the cached px databases structure" />
+  <sentence name="PxWebAdminToolsChangePasswordOld" value="Old password" />
+  <sentence name="PxWebAdminToolsChangePasswordNew" value="New password" />
+  <sentence name="PxWebAdminToolsChangePasswordVerify" value="Verify ny password" />
+  <sentence name="PxWebAdminToolsChangePasswordChange" value="Change!" />
+  <sentence name="PxWebAdminToolsChangePasswordWrongPassword" value="Wrong password" />
+  <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Verify incorrect" />
+  <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Password has been changed" />
+  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Feature" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Selected features will be available in the administration tool and in PxWeb" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Charts" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureApi" value="API" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureSavedQuery" value="Saved Query" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureUserFriendlyUrls" value="User friendly URL:s" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureUserStatistics" value="User statistics" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureSearch" value="Search" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureBackgroundWorker" value="Background worker process" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralChartSettings" value="Graf settings" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralUserSettings" value="Default values for user settings" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontName" value="Font name" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontNameInfo" value="The font used in the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitle" value="Font size title" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitleInfo" value="The font size of the title of the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxis" value="Font size axis" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxisInfo" value="The font size of the axis of the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeight" value="Height" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeightInfo" value="Default value for the 'Height' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxHeight" value="Maximum height" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxHeightInfo" value="Height of chart cannot be larger than this value" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralWidth" value="Width" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralWidthInfo" value="Default value for the 'Width' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxWidth" value="Maximum width" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxWidthInfo" value="Width of chart cannot be larger than this value" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThickness" value="Line thickness" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessInfo" value="Default value for the 'Line thickness' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxLineThickness" value="Maximum line thickness" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxLineThicknessInfo" value="Line thickness cannot be larger than this value" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientation" value="Label orientation" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationHorizontal" value="Horizontal" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationVertical" value="Vertical" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationInfo" value="Default value for the 'Label orientation' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrder" value="Time sort order" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderAscending" value="Ascending" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderDescending" value="Descending" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderNone" value="None" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderInfo" value="Default value for the 'Time sort order' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLegend" value="Vis legend" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLegendInfo" value="Default value for the 'Show legend' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendHeight" value="Legend height" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendHeightInfo" value="Default value for the 'Legend height' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendFontSize" value="Font size legend" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendFontSizeInfo" value="Font size for the chart legend" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesColor" value="Gridline color" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesColorInfo" value="Color of the gridlines in the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesHorizontal" value="Horizontal gridlines" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesHorizontalInfo" value="Default value for the 'Horizontal gridlines' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesVertical" value="Vertical gridlines" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesVerticalInfo" value="Default value for the 'Vertical gridlines' chart user setting" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxValues" value="Maximum cellnumber" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxValuesInfo" value="The maximum number of cells (product of alle values) that can be selected when creating a chart. If the selected number of cells are larger than this value no chart will be displayed. The purpose of this setting is to spare the web server from creating very large chart which takes a lot of calculating power from the web server." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralColors" value="farver" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralColorsInfo" value="Colors of the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralAddColor" value="Add color" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralDeleteColor" value="Slet" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowSourse" value="Vis Kilde" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowSourseInfo" value="Vis the source to the chart " />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLogo" value="Vis logotype" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLogoInfo" value="Vis logotype image ....." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLogoImg" value="Vælg logotype" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLogoImgInfo" value="Vælg the image for the logotype in the chart." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineColorPhrame" value="Frame color" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineColorPhrameInfo" value="Choose the color of the border around the chart. If no line thickness is specified, then no frame." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessPhrame" value="The line thickness on frame" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessPhrameInfo" value="Vælg line thickness of the frame around the chart. If not specified, so there will be no frame." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphs" value="Background color chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphsInfo" value="Choose a background color to the chart." />
+  <sentence name="PxWebChartsSourceLabel" value="Kilde:" />
+  <sentence name="PxWebChartsSource" value="Statistics Greenland" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiSettings" value="API settings" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiPxDatabases" value="PX databases" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiPxDatabasesInfo" value="Defines which PX databases are accessible via the API in which languages" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiCnmmDatabases" value="CNMM databases" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiCnmmDatabasesInfo" value="Defines which CNMM databases are accessible via the API in which languages" />
+  <sentence name="PxWebAdminFeaturesApiGeneralRoutePrefix" value="Route prefix" />
+  <sentence name="PxWebAdminFeaturesApiGeneralRoutePrefixInfo" value="URL route identifying API requests." />
+  <sentence name="PxWebAdminFeaturesApiGeneralMaxValuesReturned" value="Max values returned" />
+  <sentence name="PxWebAdminFeaturesApiGeneralMaxValuesReturnedInfo" value="Maximum number of values returned from request" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterRequests" value="Limiter requests" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterRequestsInfo" value="Maximum number of requests (works togheter med Limiter timespan)" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterTimespan" value="Limiter timespan" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterTimespanInfo" value="Timespan for how many request can be made (see LimiterRequests)" />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCORS" value="Enable CORS" />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCORSInfo" value="Is Cross-Origin-Resource-Sharing allowed?" />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCache" value="Enable cache" />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCacheInfo" value="If cacheing of requests shall be made eller not" />
+  <sentence name="PxWebAdminFeaturesApiGeneralClearCache" value="Clear cache" />
+  <sentence name="PxWebAdminFeaturesApiGeneralClearCacheInfo" value="If specified the cache will be cleared at the specified time(s). Separate times med semi colon. Example: 09:30;12:00;13:49" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformation" value="Vis API help" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="If enabled a information link is displayed in PxWeb in the presentation views. When the link is clicked information about how to access the current table via the API is displayed." />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQuerySettings" value="Save Query settings" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabases" value="PX databases" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabasesInfo" value="Defines which PX databases that will have the save query function available" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabases" value="CNMM databases" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabasesInfo" value="Defines which CNMM databases that will have the save query function available" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralSearchSettings" value="Search settings" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralCacheTime" value="Cache time" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralCacheTimeInfo" value="Time in minutes that the search index will be cached" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralResultListLength" value="Max list length" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralResultListLengthInfo" value="Maximum number of tables that will be displayed in the search result list" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperator" value="Default operator" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorInfo" value="The operator AND/OR that will be used by default when more than one word is included in a search query" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorAnd" value="AND" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorOr" value="OR" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSettings" value="Background worker process settings" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSleepTime" value="Sleep time" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSleepTimeInfo" value="The time in seconds the worker process shall sleep between iterations" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralStatus" value="Status:" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralStatusInfo" value="Describes the current status of the background worker process" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralCurrentActivity" value="Current activity:" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralCurrentActivityInfo" value="What the background worker process is doing right now" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerStop" value="Stop" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerRestart" value="Restart" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerWakeUp" value="Wake up" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStop" value="Do you want to stop the background worker process?" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStart" value="Do you want to start the background worker process?" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmWakeUp" value="Do you want to wake up the background worker process?" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationName" value="Application name" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Name of the PxWeb installation" />
+  <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Logo path" />
+  <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Name of the image file" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Default language" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="The default language for the PxWeb site" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Language" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguagesInfo" value="Selected languages will be available on the PxWeb site." />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparator" value="Decimal separator" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorInfo" value="Character to use as decimal separator" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorPoint" value="Point" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorComma" value="Comma" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparator" value="Thousand sep." />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorInfo" value="Character to use as thousand separator" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorNone" value="None" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorSpace" value="Space" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorPoint" value="Point" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorComma" value="Comma" />
+  <sentence name="PxWebAdminSettingsLanguageDateFormat" value="Date format" />
+  <sentence name="PxWebAdminSettingsLanguageDateFormatInfo" value="The format used for dates" />
+  <sentence name="PxWebAdminYes" value="Yes" />
+  <sentence name="PxWebAdminNo" value="No" />
+  <sentence name="PxWebAdminConfirmSaveSettings" value="Do you want to save the settings?" />
+  <sentence name="PxWebAdminConfirmGenerateDb" value="Do you want to generate a ny database?" />
+  <sentence name="PxWebAdminSettingsImplementedInComingVersions" value="This feature will be implemented in a coming version of PxWeb" />
+  <sentence name="UnauthorizedTableMessage" value="You are not authorized to view this table!" />
+  <sentence name="UnauthorizedTableTitle" value="Unauthorized" />
+  <sentence name="UnauthorizedDatabaseMessage" value="You are not authorized to view this database!" />
+  <sentence name="UnauthorizedDatabaseTitle" value="Unauthorized" />
+  <sentence name="PxWebAdminUsers" value="Users" />
+  <sentence name="PxWebAdminUsersGeneral" value="General" />
+  <sentence name="PxWebAdminUsersUsername" value="Username" />
+  <sentence name="PxWebAdminUsersPassword" value="Password" />
+  <sentence name="PxWebAdminUsersMail" value="E-mail" />
+  <sentence name="PxWebAdminUsersLocked" value="Locked" />
+  <sentence name="PxWebAdminUsersCreateNewUser" value="Create ny user" />
+  <sentence name="PxWebAdminUsersCreateNew" value="Create" />
+  <sentence name="PxWebAdminUsersAdmin" value="Admin" />
+  <sentence name="PxWebAdminUsersDelete" value="Delete" />
+  <sentence name="PxWebAdminUsersEdit" value="Edit" />
+  <sentence name="PxWebAdminUsersUpdate" value="Update" />
+  <sentence name="PxWebAdminUsersCancel" value="Cancel" />
+  <sentence name="PxWebAdminUsersErrorMail" value="Invalid e-mail" />
+  <sentence name="PxWebAdminUsersLogin" value="Login" />
+  <sentence name="PxWebAdminUsersAddedUser" value="has been added as a user" />
+</language>

@@ -1,0 +1,930 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="Default">
+  <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Allassimasoq iluarsiguk" />
+  <sentence name="CtrlChangeTextsHeading" value="Allassimasoq iluarsiguk" />
+  <sentence name="CtrlChangeTextsText" value="Allassimasoq allanngorteriarlugu 'Ingerlaqqigit' tuussavat" />
+  <sentence name="CtrlChangeTextsContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlChangeTextsContentsHeading" value="Imarisaa" />
+  <sentence name="CtrlChangeTextsUnitsHeading" value="Suussusaa" />
+  <sentence name="CtrlChangeTextsVariablesHeading" value="Sammisat" />
+  <sentence name="CtrlChangePresentationContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlChangePresentationContentsHeading" value="Imarisaa" />
+  <sentence name="CtrlChangePresentationUnitsHeading" value="Suussusaa" />
+  <sentence name="CtrlChangePresentationVariablesHeading" value="Sammisat" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Allassimasoq/kode saqqummiunneqartoq iluarsiguk" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Allassimasoq/kode saqqummiunneqartoq iluarsiguk" />
+  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Sammisani tamani qinigassat arlaat saqqummersikkusutat toqqaruk" />
+  <sentence name="CtrlChangeCodeTextPresentationText" value="Allassimasoq" />
+  <sentence name="CtrlChangeCodeTextPresentationCode" value="Kode" />
+  <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Kode aamma allassimasoq" />
+  <sentence name="CtrlChangeDecimalContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlChangeDecimalHeading" value="Decimalit iluarsikkit" />
+  <sentence name="CtrlChangeDecimalHeaderLabel" value="Decimalit qassiussanersut allariarlugit 'Ingerlaqqigit' tuussavat" />
+  <sentence name="CtrlChangeDecimalDecimalLabel" value="Decimalit amerlassusaat (0-6)" />
+  <sentence name="CtrlChangeDecimalRangeError" value="0 aamma 6 akornanni kisitsit ataasiussaaq" />
+  <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Decimalit iluarsikkit" />
+  <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Sammisaq pineqartoq peeruk" />
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Sammisat aamma immikkoortup peerneranni atugassatit toqqakkit" />
+  <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Tabelimut atugassaq immikkoortumut ilanngukkuk" />
+  <sentence name="CtrlDeleteVariableContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlDeleteVariableErrorDescription" value="Sammisamik aamma immikkoortumik minnerpaamik ataatsimik toqqaassaatit" />
+  <sentence name="CtrlDeleteVariableOneVariable" value="Sammisat tamakkerlugit piissanngillatit, minnerpaamik ataaseq atussavat" />
+  <sentence name="CtrlCommandBarFunctionDeleteValue" value="Immikkoortoq peeruk" />
+  <sentence name="CtrlDeleteValueHeaderLabel" value="Immikkoortoq ataaseq imaluunniit amerlanerit peertussat toqqakkit. Sammisami immikkoortut tamakkerlugit peerneqarsinnaanngillat ('Sammisaq peeruk' toqqaannaruk)" />
+  <sentence name="CtrlDeleteValueErrorDescription" value="Sammisami immikkoortut tamakkerlugit peerneqarsinnaanngillat" />
+  <sentence name="CtrlDeleteValueContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlCommandBarFunctionPerPart" value="Procenti" />
+  <sentence name="CtrlPerPartContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlPerPartNewValueName" value="Immikkoortumut nutaamut taaguut" />
+  <sentence name="CtrlPerPartKeepData" value="Datat tunngaviusut procentinngortinnerilu takutikkit" />
+  <sentence name="CtrlPerPartPerCentOnly" value="Procentinngorlugu taamaallaat takutiguk" />
+  <sentence name="CtrlPerPartOneVariableAllValues" value="Sammisap procentinngortinnerani tunngaviusoq toqqaruk" />
+  <sentence name="CtrlPerPartOneVariableOneValue" value="Sammisaq tunngavigalugu immikkoortortassaq toqqaruk" />
+  <sentence name="CtrlPerPartOneMatrixValue" value="Kisitsisit datacellemiittut sammisanut tunngaviusussat toqqakkit" />
+  <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Iluarsiguk naatsorsorlugulu" />
+  <sentence name="CtrlCommandBarSaveAsCaption" value="Tabelinngorlugu toqqoruk" />
+  <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Saqqummertussat isikkuat" />
+  <sentence name="CtrlCommandBarActionButtonCaption" value="Nassiuguk" />
+  <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="Ajunngilaq" />
+  <sentence name="CtrlCommandBarDownloadFileTitle" value="Fili toqqoruk" />
+  <sentence name="CtrlCommandBarDownloadFileInformation" value="Fili qarasaasiannut toqqorniarukku 'Fili toqqoruk' tuussavat" />
+  <sentence name="CtrlCommandBarDownloadFileLink" value="Fili toqqoruk" />
+  <sentence name="CtrlCommandBarFunctionPivotManual" value="Nammineerlutit kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Nammineerlutit kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Nammineerlutit kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Nalunaaqutami tikkuutit malillugit kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Nalunaaqutami tikkuutit malillugit kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Nalunaaqutami tikkuutit malillugit kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Nalunaaqutami tikkuutit killormoortuanik kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Nalunaaqutami tikkuutit killormoortuanik kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Nalunaaqutami tikkuutit killormoortuanik kisitsisit nikisikkit" />
+  <sentence name="CtrlCommandBarFunctionShowAllRows" value="Uiguleriiaat tamaasa nuisikkit" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Uiguleriiaat tamaasa nuisikkit" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsAlt" value="Uiguleriiaat tamaasa nuisikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZero" value="Uiguleriiaat nul-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroTitle" value="Uiguleriiaat nul-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAlt" value="Uiguleriiaat nul-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphen" value="Uigulieriiaat nul-iinnarnik imaluunniit '-'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenTitle" value="Uiguleriiaat nul-iinnarnik imaluunniit '-'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenAlt" value="Uiguleriiaat nul-iinnarnik imaluunniit '-'allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveDots" value="Uiguleriiaat '.'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsTitle" value="Uiguleriiaat '.'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsAlt" value="Uigulieriiaat '.'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" value="Uiguleriiaat nul-iinnarnik, '-'-iinnarnik imaluunniit '.'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsTitle" value="Uiguleriiaat nul-iinnarnik, '-'-iinnarnik imaluunniit '.'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsAlt" value="Uiguleriiaat nul-iinnarnik imaluunniit '.'-iinnarnik allassimasullit piikkit" />
+  <sentence name="CtrlCommandBarFunctionSort" value="Immikkoortitikkit" />
+  <sentence name="CtrlCommandBarFunctionSortTitle" value="Immikkoortitikkit" />
+  <sentence name="CtrlCommandBarFunctionSum" value="Sammisami pineqartumi immikkoortut katikkit" />
+  <sentence name="CtrlCommandBarFunctionSumTitle" value="Sammisami pineqqartumi immikkoortut katikkit" />
+  <sentence name="CtrlCommandBarFunctionSumAlt" value="Sammisami pineqartumi immikkoortut katikkit" />
+  <sentence name="CtrlCommandBarFunctionSubtract" value="Sammisami pineqartumi immikkoortut ilanngaatigikkit imaluunniit piikkit" />
+  <sentence name="CtrlCommandBarFunctionDivide" value="Sammisami pineqartumi immikkoortut agguakkit" />
+  <sentence name="CtrlCommandBarFunctionMultiply" value="Sammisami pineqartumi immikkoortut ganngikkit" />
+  <sentence name="CtrlCommandBarFunctionSortAlt" value="Immikkoortitikkit" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayout" value="Tabeli nutaamik isikkulerlugu nuisiguk" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutAlt" value="Tabeli nutaamik isikkulerlugu nuisiguk" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutTitle" value="Tabeli nutaamik isikkulerlugu nuisiguk" />
+  <sentence name="CtrlCommandBarFunctionLinkGoogle" value="Google (Linki misiligut)" />
+  <sentence name="CtrlCommandBarFunctionChangeValueOrder" value="Immikkoortut inissisimanerat nikisiguk" />
+  <sentence name="CtrlCommandBarFileTypeXlsTitle" value="Excelinngortilugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeXlsAlt" value="Excelinngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypePxTitle" value="Px-inngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypePXAlt" value="Px-inngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeTxtTitle" value="Textinngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeTxtAlt" value="Textinngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeCsvTitle" value="csv-inngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeCsvAlt" value="csv-inngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeHtmlTitle" value="HTML-inngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeHtmlAlt" value="HTML-inngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeRelationalTitle" value="Relational filinngortillugu toqqoruk" />
+  <sentence name="CtrlCommandBarFileTypeRelationallAlt" value="Relational filinngortillugu toqqoruk" />
+  <sentence name="CtrlPresentationViewTableLayout1" value="Tabeli - Isikkoq 1" />
+  <sentence name="CtrlPresentationViewTableLayout2" value="Tabeli - Isikkoq 2" />
+  <sentence name="CtrlPresentationViewTableSorted" value="Tabeli - Immikkoortitigaq" />
+  <sentence name="CtrlPresentationViewChartColumn" value="Titartagaq - Napasut" />
+  <sentence name="CtrlPresentationViewChartColumnStacked" value="Titartagaq - Napasut qaleriiaakkat" />
+  <sentence name="CtrlPresentationViewChartColumnStacked100" value="Titartagaq - Napasut qaleriiaakkat 100%" />
+  <sentence name="CtrlPresentationViewChartBar" value="Titartagaq - Napasut nallarissut" />
+  <sentence name="CtrlPresentationViewChartBarStacked" value="Titartagaq - Napasut qaleriiaakkat nallarissut" />
+  <sentence name="CtrlPresentationViewChartBarStacked100" value="Titartagaq - Napasut qaleriiaakkat nallarissut 100%" />
+  <sentence name="CtrlPresentationViewChartLine" value="Titartagaq - Titarneq" />
+  <sentence name="CtrlPresentationViewChartColumnLine" value="Titartagaq - Napasut titartagarlu" />
+  <sentence name="CtrlPresentationViewChartPopulationPyramid" value="Titartagaq - Pyramide innuttaasut amerlusaanik takutitsisoq" />
+  <sentence name="CtrlPresentationViewChartPie" value="Titartagaq - Lagkage" />
+  <sentence name="CtrlPresentationViewChartArea" value="Titartagaq - ataatsimoortillugit" />
+  <sentence name="CtrlPresentationViewChartAreaStacked" value="Titartagaq - ataatsimoortillugit qaleriiaakkat" />
+  <sentence name="CtrlPresentationViewChartAreaStacked100" value="Titartagaq - ataatsimoortillugit qaleriiaakkat 100%" />
+  <sentence name="CtrlPresentationViewChartPoint" value="Titartagaq - Toorneqqat" />
+  <sentence name="CtrlPresentationViewChartRadar" value="Titartagaq - Radari" />
+  <sentence name="CtrlCommandBarLinkFootnoteTitle" value="Fodnotit" />
+  <sentence name="CtrlCommandBarLinkFootnoteAlt" value="Fodnotit" />
+  <sentence name="CtrlCommandBarLinkGraphTitle" value="Titartagaq" />
+  <sentence name="CtrlCommandBarLinkGraphAlt" value="Titartagaq" />
+  <sentence name="CtrlCommandBarLinkInformationTitle" value="Paasissutissat" />
+  <sentence name="CtrlCommandBarLinkInformationAlt" value="Paasissutissat" />
+  <sentence name="CtrlCommandBarLinkPrintTitle" value="Anisiguk" />
+  <sentence name="CtrlCommandBarLinkPrintAlt" value="Anisiguk" />
+  <sentence name="CtrlCommandBarLinkGoogleTitle" value="Google" />
+  <sentence name="CtrlCommandBarLinkGoogleAlt" value="Google" />
+  <sentence name="CtrlCommandBarFileDownLoadLink" value="Fiili aaniarukku una tooruk" />
+  <sentence name="CtrlFootnoteFootnoteLabel" value="Fodnotit" />
+  <sentence name="CtrlFootnoteNoFootnotesLabel" value="Fodnoteqanngilaq" />
+  <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Tamaasa toqqakkit" />
+  <sentence name="CtrlHierarchicalVariableUnselectAllButton" value="Tamaasa piikkit" />
+  <sentence name="CtrlHierarchicalVariableOpenAllNodesButton" value="Tamaasa ammakkit" />
+  <sentence name="CtrlHierarchicalVariableCloseAllNodesButton" value="Tamaasa matukkit" />
+  <sentence name="CtrlHierarchicalVariableContinueButtonText" value="Ingerlaqqigit" />
+  <sentence name="CtrlHierarchicalVariableErrorMessage" value="Kukkusoqarsimavoq, toqqaaqqillutit misiliguk" />
+  <sentence name="CtrlInformationInformationLabel" value="Paasissutissat" />
+  <sentence name="CtrlInformationOfficialStatisticsLabel" value="Tamanut kisitsisitigut paasissutissat" />
+  <sentence name="CtrlInformationUnitLabel" value="Suussusaa" />
+  <sentence name="CtrlInformationContactLabel" value="Saaffissaq" />
+  <sentence name="CtrlInformationLastUpdatedLabel" value="Kingullermik nutarterneqarfia" />
+  <sentence name="CtrlInformationRefPeriodLabel" value="Piffissaq pineqartoq" />
+  <sentence name="CtrlInformationStockFaLabel" value="Datat suussusaat" />
+  <sentence name="CtrlInformationCFPricesLabel" value="Akit suussusaat" />
+  <sentence name="CtrlInformationDayAdjLabel" value="Ullormut iluarsisaq" />
+  <sentence name="CtrlInformationSeasAdjLabel" value="Piffissamut iluarsisaq" />
+  <sentence name="CtrlInformationBasePeriodLabel" value="Piffissaq tunngaviusoq" />
+  <sentence name="CtrlInformationUpdateFrequencyLabel" value="Nutarterisarnerup akuttussusaa" />
+  <sentence name="CtrlInformationNextUpdateLabel" value="Nutarterneqarfissaa tulleq" />
+  <sentence name="CtrlInformationSurveyLabel" value="Misissuineq" />
+  <sentence name="CtrlInformationLinkLabel" value="Linki" />
+  <sentence name="CtrlInformationCreationDateLabel" value="Suliarineqarnerata ullua" />
+  <sentence name="CtrlInformationCopyrightLabel" value="Copyright" />
+  <sentence name="CtrlInformationSourceLabel" value="Najoqqutaq" />
+  <sentence name="CtrlInformationMatrixLabel" value="Matrixi" />
+  <sentence name="CtrlInformationDatabaseLabel" value="Database" />
+  <sentence name="CtrlInformationYesValue" value="Aap" />
+  <sentence name="CtrlInformationNoValue" value="Naagga" />
+  <sentence name="CtrlInformationFixedPricesValue" value="Akit aalajangersimasut" />
+  <sentence name="CtrlInformationCurrentPricesValue" value="Akit nikerartut" />
+  <sentence name="CtrlInformationFlowValue" value="Sarfaq" />
+  <sentence name="CtrlInformationAverageValue" value="Agguaqatigiissillugu" />
+  <sentence name="CtrlInformationStockValue" value="Uninngasuutit" />
+  <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Sammisaq toqqaaruk:" />
+  <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Allattorsimasut immikkoortunik nuussillutit tulleriiaarigit. Immikkoortut tamarmik nikisinneqanngippata nikisinneqanngitsut siullinngorlugit tabelimi nuisinneqassapput" />
+  <sentence name="CtrlChangeValueOrderCancelButton" value="Sussa" />
+  <sentence name="CtrlChangeValueOrderContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlChangeValueOrderMoveRight" value="Talerpimmukarit" />
+  <sentence name="CtrlChangeValueOrderMoveLeft" value="Saamimmukarit" />
+  <sentence name="CtrlChangeValueOrderMoveDown" value="Apparterit" />
+  <sentence name="CtrlChangeValueOrderFromOrder" value="Tassannga" />
+  <sentence name="CtrlChangeValueOrderToOrder" value="Tassunga" />
+  <sentence name="CtrlPivotContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlPivotStubLabel" value="Sanileriiaat" />
+  <sentence name="CtrlPivotHeadingLabel" value="Quleriiaat" />
+  <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Fili una atorlugu toqqoruk:" />
+  <sentence name="CtrlSaveAsDelimiterListHeadLabel" value="Fili immikkoortiterissutilik atorneqarpat una aamma toqqarneqassaaq:" />
+  <sentence name="CtrlSaveAsPageSetupHeadLabel" value="Text fili atorneqarpat una aamma toqqarneqassaaq:" />
+  <sentence name="CtrlSaveAsLineLengthControl" value="Titarnerup takissusia:" />
+  <sentence name="CtrlSaveAsPageLengthControl" value="Quppernerup takissusia:" />
+  <sentence name="CtrlSaveAsMarginControl" value="Margini" />
+  <sentence name="CtrlSaveAsContinueButton" value="Toqqoruk" />
+  <sentence name="CtrlSaveAsCancelButton" value="Sussa" />
+  <sentence name="CtrlSaveAsButtonLabel" value="Ataatsimik toqqaagit toorlugulu " />
+  <sentence name="CtrlSaveAsSaveTypeDropDown" value="Fili una atorlugu toqqoruk " />
+  <sentence name="CtrlSaveAsDelimiterDropDown" value="Immikkoortiterut toqqaruk" />
+  <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Ingerlaqqigit" />
+  <sentence name="SumInvalidValuename" value="Immikkoortoq nutaaq sammisami pineqartumi allagartaqassaaq" />
+  <sentence name="CtrlSumHeading" value="Sammisami immikkoortut katikkit" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Immikkoortumut taaguut nutaaq:" />
+  <sentence name="CtrlSumAllValuesText" value="Immikkoortumut tamaasa katikkit" />
+  <sentence name="CtrlSumSelectedValuesText" value="Immikkoortut toqqakkat katikkit" />
+  <sentence name="CtrlSumSelectedVariabelTitle" value="Immikkoortut katitassat toqqakkit" />
+  <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Immikkoortut katinnerat suussanersoq toqqaruk" />
+  <sentence name="CtrlSumVariableNameRequired" value="Immikkoortup nutaap taaguutaa toqqarneqassaaq" />
+  <sentence name="CtrlSumDifferentOperandsRequired" value="Marlunnik assigiinngitsunik suliakkiisoqarnissaa pisariaqarpoq" />
+  <sentence name="CtrlSumContinueButton" value="Katillugit" />
+  <sentence name="CtrlSumKeepValuesText" value="Immikkoortut " />
+  <sentence name="CtrlFirstOperandLabel" value="Immikkoortoq siulleq:" />
+  <sentence name="CtrlSecondOperandLabel" value="Immikkoortup aappaa:" />
+  <sentence name="CtrlSubtractHeading" value="Sammisami immikkoortumi ilanngaatigikkit" />
+  <sentence name="CtrlSubtractTotalVariabelNameText" value="Immikkoortup inernissaanut taaguutigitikkusutat allaguk" />
+  <sentence name="CtrlSubtractSelectedVariabelTitle" value="Sammisaq immikkoortumik ilanngaataasussaq toqqaruk" />
+  <sentence name="CtrlSubtractSelectedVariabelValuesTitle" value="Sammisat marluk ilanngaatigerusutatit tunngavigalugit toqqakkit" />
+  <sentence name="CtrlSubtractContinueButton" value="Ilanngaagit" />
+  <sentence name="CtrlDivideHeading" value="Sammisami immikkoortut agguakkit" />
+  <sentence name="CtrlDivideTotalVariabelNameText" value="Immikkoortupp inernissaanut taaguutigitikkusutat allaguk " />
+  <sentence name="CtrlDivideSelectedVariabelTitle" value="Sammisaq immikkoortumik agguaassutissaq toqqaruk" />
+  <sentence name="CtrlDivideSelectedVariabelValuesTitle" value="Sammisat immikkoortunik agguaasussat tulleriisillugit toqqakkit" />
+  <sentence name="CtrlDivideErrorSameVariable" value="Sammisat immikkoortut assigiit agguarsinnaanngilai. Sammisat assigiinngitsut marluk toqqakkit" />
+  <sentence name="CtrlDivideContinueButton" value="Agguakkit" />
+  <sentence name="CtrlMultiplyHeading" value="Sammisat immikkoortut ganngikkit" />
+  <sentence name="CtrlMultiplyTotalVariabelNameText" value="Immikkoortup inernissaanut taaguutigitikkusutat allaguk " />
+  <sentence name="CtrlMultiplySelectedVariabelTitle" value="Immikkoortut ganngernissaanut sammisamik toqqaagit" />
+  <sentence name="CtrlMultiplySelectedVariabelValuesTitle" value="Ganngernissaanut immikkoortut marluk toqqakkit" />
+  <sentence name="CtrlMultiplyContinueButton" value="Ganngikkit" />
+  <sentence name="CtrlTableDecimalDelimiter" value="." />
+  <sentence name="CtrlTableThousandDelimiter" value="." />
+  <sentence name="CtrlTableDefaultAttributesLabel" value="Taakkununnga nalinginnaasumik ilaasartut tassaapput:" />
+  <sentence name="CtrlTableCellInformationDialogTitle" value="Paasissutissat cellemut tunngasut" />
+  <sentence name="CtrlTableCellInformationCell" value="Celle" />
+  <sentence name="CtrlTableCellInformationAttributes" value="Ilaat" />
+  <sentence name="CtrlTableCellInformationNotes" value="Nassuiaatit" />
+  <sentence name="CtrlTableInformationTableLabel" value="Tabeli: " />
+  <sentence name="CtrlVariableSelectorInstructionLabel" value="Skærmimi tabelimik imaluunniit filip suussusissaanik toqqaagit" />
+  <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Toqqaanissamut siunnersuutit" />
+  <sentence name="CtrlVariableSelectorEliminationTooltip" value="Minnerpaamik immikkoortoq ataaseq toqqaruk" />
+  <sentence name="CtrlVariableSelectorSelectValues" value="--- Immikkoortut arlaat toqqaruk ---" />
+  <sentence name="CtrlVariableSelectorEliminationLabel" value="Sammisani {image} -mik nalunaakkat akornanni minnerpaamik ataatsimik toqqaasoqassaaq" />
+  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Tamaasa toqqakkit" />
+  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Tamaasa toqqassanngilatit" />
+  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Alliartortillugit immikkoortitikkit" />
+  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Milliartortillugit immikkoortitikkit" />
+  <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Pingaarnerniit pingaannginnernut toqqaagit" />
+  <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Immikkoortunik ujaarlerit" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Katillugit" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Toqqakkat" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Ujaruk" />
+  <sentence name="CtrlVariableSelectorSearchTooltip" value="Ujaruk" />
+  <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Allassimasup aallartinnera" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Skærmimi taamaallaat {0} uiguleriiaat aamma {1} quleriiaat takutinneqarsinnaapput" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsCellsLabel" value="Skærmimi tamaallaat {0} cellit takutinneqarsinnaapput" />
+  <sentence name="CtrlVariableSelectorSelectionLimitCellsExceeded" value="Cellit toqqarneqarsimasut amerlanerpaafissaq qaangersimavaat {0}" />
+  <sentence name="CtrlVariableSelectorSelectionLimitRowsExceeded" value="Uiguleriaat toqqarneqarsimasut amerlanerpaaffissaq qaangersimavaat {0}. " />
+  <sentence name="CtrlVariableSelectorSelectionLimitColsExceeded" value="Quleriiaat toqqarneqarsimasut amerlanerpaaffissaq qaangersimavaat {0}. " />
+  <sentence name="CtrlVariableSelectorSelectedRowsLabel" value="Datat uiguleriiaat qinikkat amerlassusaat" />
+  <sentence name="CtrlVariableSelectorSelectedColumnsLabel" value="Datat quleriiaat qinikkat amerlassusaat" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Datat cellit qinikkat amerlassuaat:" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(amerlanerpaaffissaat {0})" />
+  <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Immikkoortumik ataatsimik amerlanernilluunniit toqqaasariaqarputit: " />
+  <sentence name="CtrlVariableSelectorContinueLabel" value="Ataatsimik toqqaagit toorlugulu" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Ingerlaqqigit" />
+  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Immikkoortut 500-nit amerlanerummata takutinneqarsinnaanngillat" />
+  <sentence name="CtrlVariableSelectorShowAll" value="Tamaasa takutikkit" />
+  <sentence name="CtrlVariableSelectorShowHierarchy" value="Pingaarnerniit pingaannginnernut nuisikkit" />
+  <sentence name="CtrlVariableSelectorSearch" value="Ujaruk" />
+  <sentence name="CtrlVariableSelectorOutputFormatsOutputScreen" value="Tabeli skærmikkut takutiguk" />
+  <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Ujaruk" />
+  <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Aallaqqaataani" />
+  <sentence name="CtrlVariableSelectorManyValues" value="Immikkoortut {0} -nit amerlanerummata takutikkasuarneqarsinnaanngillat. Toqqaanissannut ujaarliut atoruk" />
+  <sentence name="CtrlVariableSelectorLargeValueset" value="(Immikkoortut amerlasoorujussuupput)" />
+  <sentence name="CtrlVariableSelectorActionButton" value="Nassiuguk" />
+  <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Sammisaq piffissaq immikkoortiguk" />
+  <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Tabelip toqqornikup immikkuullarissutaa allanngortiguk" />
+  <sentence name="CtrlSaveQueryListEditHeaderLine1" value="Tabelimiittoq aalajangersimasoq toqqortat allamut inissikkusukkukku boksi titarnermi tassaniittoq takujuk." />
+  <sentence name="CtrlSaveQueryListEditHeaderLine2" value="Tabelip taaguutaa immaqaluuniit nassuiaataa allanngortikkusukkukku allassimasoq nutaamik taarsissavat." />
+  <sentence name="CtrlSaveQueryListEditRemove" value="Peeruk" />
+  <sentence name="CtrlSaveQueryListEditTableCode" value="Tabelip kodia" />
+  <sentence name="CtrlSaveQueryListEditDescription" value="Paasutissat" />
+  <sentence name="CtrlSaveQueryListEditOutput" value="Inernera" />
+  <sentence name="CtrlSaveQueryListEditUpdate" value="Nutarterineq" />
+  <sentence name="CtrlTextSearchButtonText" value="Ujaruk" />
+  <sentence name="CtrlTextSearchOptionAll" value="Tamakkerlugit" />
+  <sentence name="CtrlTextSearchOptionAnd" value="aamma" />
+  <sentence name="CtrlTextSearchOptionOr" value="imaluunniit" />
+  <sentence name="CtrlTextSearchSelect" value="Ilaanik toqqaagit" />
+  <sentence name="CtrlTextSearchDownload" value="Nuussineq naammassivoq" />
+  <sentence name="CtrlTextSearchView" value="Tabeli takujuk" />
+  <sentence name="CtrlTextSearchResultText" value="{0} -ip inernerani ujaarlerit" />
+  <sentence name="CtrlTextSearchAttributeModified" value="Allanngortitaq:" />
+  <sentence name="CtrlTextSearchAttributePath" value=" " />
+  <sentence name="CtrlTextSearchAttributeSize" value="Angissusaa:" />
+  <sentence name="CtrlTableOfContentSizeHeading" value="Angissusaa:" />
+  <sentence name="CtrlTableOfContentSizeKilobytes" value="Kb" />
+  <sentence name="CtrlTableOfContentModifiedHeading" value="Allanngortitaq:" />
+  <sentence name="CtrlTableOfContentUpdatedHeading" value="Nutarsagaq:" />
+  <sentence name="CtrlTableOfContentActionButton" value="Javascript is disabled, klik for at se hele træet" />
+  <sentence name="CtrlTableOfContentExternalLinkTooltip" value="Paasissutissat" />
+  <sentence name="CtrlTableListSizeHeading" value="Angissusaa:" />
+  <sentence name="CtrlTableListModifiedHeading" value="Allanngortitaq:" />
+  <sentence name="CtrlTableListUpdatedHeading" value="Nutarsagaq:" />
+  <sentence name="CtrlTableListVariablesAndValuesHeading" value="Sammisat:" />
+  <sentence name="CtrlTableListSelectOption_Select" value="Ilaanik toqqaagit:" />
+  <sentence name="CtrlTableListSelectOption_Download" value="Aaguk:" />
+  <sentence name="CtrlTableListSelectOption_Downloadsmallfile" value="Aaguk:" />
+  <sentence name="CtrlTableListSelectOption_View" value="Tabeli takujuk:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValues" value="Tabeli takujuk:" />
+  <sentence name="CtrlTableListSelectOption_ViewWithCommandbar" value="Tabeli takujuk:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValuesWithCommandbar" value="Tabeli takujuk:" />
+  <sentence name="CtrlCsvFileTypeFileWithHeading" value="Delimited fili qulequtalik" />
+  <sentence name="CtrlCsvFileTypeFileWithoutHeading" value="Delimited fili qulequtaqanngitsoq" />
+  <sentence name="CtrlCsvFileTypeFileTabulator" value="Tabulatori" />
+  <sentence name="CtrlCsvFileTypeFileComma" value="Uniffik" />
+  <sentence name="CtrlCsvFileTypeFileSpace" value="Imaqanngitsoq" />
+  <sentence name="CtrlCsvFileTypeFileSemicolon" value="Uniffik anneq" />
+  <sentence name="CtrlExcelInformationLevelNone" value="Soqanngitsoq" />
+  <sentence name="CtrlExcelInformationLevelMandatoryFootnotes" value="Fodnotit pingaarnerinnaat" />
+  <sentence name="CtrlExcelInformationLevelAllFootnotes" value="Fodnotit tamarmik" />
+  <sentence name="CtrlExcelInformationLevelAll" value="Paasissutissat tamarmik" />
+  <sentence name="CtrlExcelDoubleColumn" value="Kodit allassimasullu quleriiaani immikkoortillugit" />
+  <sentence name="FileTypePX" value="PC-Axis fili" />
+  <sentence name="FileTypeExcel" value="Excel workbooki (xml)" />
+  <sentence name="FileTypeExcelDoubleColumn" value="Excel workbooki (xml) kodilerlugu aamma allassimasulerlugu" />
+  <sentence name="FileTypeExcelCompleteInfoFile" value="Excel filit skærmimeersut" />
+  <sentence name="FileTypeCsvWithHeadingAndTabulator" value="Tab separeret med heading" />
+  <sentence name="FileTypeCsvWithoutHeadingAndTabulator" value="Tab separeret uden heading" />
+  <sentence name="FileTypeCsvWithHeadingAndComma" value="Uniffik atorlugu immikkoortitat qulequtalik" />
+  <sentence name="FileTypeCsvWithoutHeadingAndComma" value="Uniffik atorlugu immikkoortitat qulequtaqanngitsoq" />
+  <sentence name="FileTypeCsvWithHeadingAndSpace" value="Imaqanngitsoq atorlugu immikkoortitat qulequtalik" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Imaqanngitsoq atorlugu immikkoortitat qulequtaqanngitsoq" />
+  <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Uniffik anneq atorlugu immikkoortitat qulequtalik" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Uniffik anneq atorlugu immikkoortitat qulequtaqanngitsoq" />
+  <sentence name="FileTypeText" value="Text fili (txt)" />
+  <sentence name="FileTypeHtml" value="Html fili (htm)" />
+  <sentence name="FileTypeRelational" value="Fili allamut atasoq (txt)" />
+  <sentence name="FileTypeChartPng" value="Titartagaq PNG-nngorlugu (png)" />
+  <sentence name="FileTypeChartGif" value="Titartagaq Gif-nngorlugu (gif)" />
+  <sentence name="FileTypeChartJpeg" value="Titartagaq JPEG-nngorlugu (jpg)" />
+  <sentence name="FileTypeExcelX" value="Excel (xlsx)" />
+  <sentence name="FileTypeExcelXDoubleColumn" value="Excel (xlsx) kodilik aamma quleriiaanik allassimasulik" />
+  <sentence name="CtrlSearchVariableValuesAddButton" value="Ilanngukkuk" />
+  <sentence name="CtrlSearchVariableValuesSearchHeader" value="Ujaruk" />
+  <sentence name="CtrlSearchVariableValuesSearchForCode" value="Kodi ujaruk:" />
+  <sentence name="CtrlSearchVariableValuesSearchForValue" value="Allassimasoq ujaruk:" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeBeginning" value="Kodi ujaruk/allassimasup aallartinneraniit" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Allassimasoq tamat ujarlerfigiuk" />
+  <sentence name="CtrlSearchVariableValuesSearch" value="Ujaruk" />
+  <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Inernerit toqqakkat ilanngutikkit" />
+  <sentence name="CtrlSearchValuesHeader" value="Immikkoortoq ujaruk" />
+  <sentence name="CtrlSearchValuesSearchCode" value="Kodi ujaruk:" />
+  <sentence name="CtrlSearchValuesSearchValue" value="Immikkoortoq ujaruk:" />
+  <sentence name="CtrlSearchValuesSearchValueOrCode" value="Kodi/immikkoortoq ujaruk:" />
+  <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Aallartinnerani ujarlerit" />
+  <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Allassimasoq tamaat ujarlerfigiuk" />
+  <sentence name="CtrlSearchValuesShowAllValues" value="Immikkoortut tamaasa nuisikkit" />
+  <sentence name="CtrlSearchValuesSearch" value="Ujaruk" />
+  <sentence name="CtrlSearchValuesSelectionTips" value="Immikkoortoq qulleq toqqaruk ujarlernerup inernerani immikkoortunik toqqaassaguit, Shift tooqqatillugu immikkoortoq kingullerpaaq toqqassavat" />
+  <sentence name="CtrlSearchValuesSearchResultHeader" value="Ujarlernerup inernera" />
+  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(inernerisa amerlassusaat: {0})" />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Tamaasa toqqakkit" />
+  <sentence name="CtrlSearchValuesChoosenValues" value="Immikkoortut toqqakkat" />
+  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Immikkoortut toqqakkat ilanngutikkit" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="immikkoortunik toqqakkaniittunik peersigit" />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(immikkoortut amerlassusaat: {0})" />
+  <sentence name="CtrlSearchValuesNoValuesFound" value="Immikkoortunik nassaartoqanngilaq" />
+  <sentence name="CtrlSearchValuesNoValuesSelected" value="Immikkoortunik toqqaasoqanngilaq" />
+  <sentence name="CtrlSearchValuesCancel" value="Sussa" />
+  <sentence name="CtrlSearchValuesClear" value="Immikkoortut piikkit" />
+  <sentence name="CtrlSearchValuesAddToVariableSelector" value="Ajunngilaq" />
+  <sentence name="CtrlSearchValuesSearchLabel" value="Ujaruk" />
+  <sentence name="CtrlSearchValuesCode" value="Kodi" />
+  <sentence name="CtrlSearchValuesValue" value="Immikkoortoq" />
+  <sentence name="CtrlSearchValuesAllValues" value="Immikkoortut tamaasa nuisikkit" />
+  <sentence name="CtrlSearchValuesSearchText" value="Allassimasoq:" />
+  <sentence name="CtrlSearchValuesSearchButton" value="Ujaruk" />
+  <sentence name="CtrlSearchValuesPagerFirstPage" value="Qupperneq siulleq" />
+  <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Quppernerit katillugit" />
+  <sentence name="CtrlSearchValuesPagerLastPage" value="Qupperneq kingulleq" />
+  <sentence name="CtrlSearchValuesPagerForward" value="Siumut" />
+  <sentence name="CtrlSearchValuesPagerBackward" value="Utimut" />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Immikkoortut toqqarneqarsinnaasut tamaasa toqqakkit" />
+  <sentence name="CtrlTableQueryShowInformation" value="Tabeli programminnut/applikationinnut atoruk" />
+  <sentence name="CtrlTableQueryShowInformationTooltip" value="Programmi atukkat atorlugu tabelimut uunga datanik toqqaannartumik qanoq aallarsinnaanerlutit paasissutissanik pissarsigit" />
+  <sentence name="CtrlTableQueryHideInformation" value="Paasissutissat ersikkunnaarsikkit" />
+  <sentence name="CtrlTableQueryInformationText" value="Programmimut/appalikationimut atukkannut datat aanissaanut URL JSON query-mut nassiuguk" />
+  <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
+  <sentence name="CtrlTableQueryQueryCaption" value="JSON query:" />
+  <sentence name="CtrlTableQueryMoreInformation" value="Paasissutissat annertunerusut" />
+  <sentence name="CtrlNavigationFlowStep1" value="Tabelimik toqqaagit" />
+  <sentence name="CtrlNavigationFlowStep2" value="Sammisanik toqqaagit" />
+  <sentence name="CtrlNavigationFlowStep3" value="Tabeli takutiguk" />
+  <sentence name="CtrlSaveQueryChoosetimeperiod" value="Piffissaq aarusutat toqqaruk" />
+  <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="Tabelini piffissat nutartersimappata ujakkat toqqorsimasat suniarpiuk?" />
+  <sentence name="CtrlSaveQueryTimeWarning" value="Piffissat ataasiakkaarlugit qinigaaneri pissutaalluni ujakkat nutartersinnaanngilaq" />
+  <sentence name="CtrlSaveQueryNoTimeValWarning" value="Ujakkanni piffissaq ilanngussimannginnakku nutartersinnaanngilaq" />
+  <sentence name="CtrlSaveQuerylnkSaveQuery" value="Aasatit toqqukkit" />
+  <sentence name="CtrlSaveQueryAsCaption" value="Inernera {0} -nngorlugu toqqoruk" />
+  <sentence name="CtrlSaveQueryForScreen" value="Tabeli skærmimi" />
+  <sentence name="CtrlSaveQueryCancelSaveQuery" value="Sussa" />
+  <sentence name="CtrlSaveQuerybtnCreateQuery" value="Aasatit toqqukkit" />
+  <sentence name="CtrlSaveQueryFloatingTimePeriod" value="Piffissaq ingerlaartoq. Piffissat kingulliit amerlaqatigiiaat" />
+  <sentence name="CtrlSaveQuerySelectedTimePeriod" value="Piffissaq aalajangersimasoq. Pinerit tamaasa piffissat toqqakkat" />
+  <sentence name="CtrlSaveQueryExtendedTimePeriod" value="Aallartiffik aalajangersimasoq. Piffissaq aalajangersimasumiit malittui tamaasa ilanngullugit" />
+  <sentence name="CtrlSaveQuerySelectFormat" value="Formati toqqaruk" />
+  <sentence name="CtrlSaveQuerybtnBack" value="Utimut" />
+  <sentence name="CtrlSaveQueryBookmark" value="Killiffilersuut" />
+  <sentence name="CtrlSaveQueryCopyLink" value="Kopi" />
+  <sentence name="CtrlSaveQueryMailQuery" value="E-mail" />
+  <sentence name="CtrlSaveQueryFailedSave" value="Kukkusoqarsimavoq. Query toqqorneqanngilaq" />
+  <sentence name="CtrlSaveQueryURLInfo" value="URL atorlugu tabeli aaginnartarsinnaavat" />
+  <sentence name="CtrlSaveQueryHeadingExplanationText" value="Ujakkat toqqulerpoq" />
+  <sentence name="CtrlSaveQueryExplanationText" value="Toqqakkat atoqqinnissaanut toqqoruk" />
+  <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Nutartigassat allat:" />
+  <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Formati:" />
+  <sentence name="PxcYear" value="ukiumut" />
+  <sentence name="PxcHalfyear" value="ukiup affakkaartoq" />
+  <sentence name="PxcQuarter" value="kvartali" />
+  <sentence name="PxcMonth" value="qaammammut" />
+  <sentence name="PxcWeek" value="sapaatip akunnera" />
+  <sentence name="PxcMetaTitleBy" value="kingorna" />
+  <sentence name="PxcMetaTitleAnd" value="aamma" />
+  <sentence name="PxcOpSplitTimeVarYear" value="ukioq" />
+  <sentence name="PxcOpSplitTimeVarQuarter" value="kvartali" />
+  <sentence name="PxcOpSplitTimeVarMonth" value="qaammammut" />
+  <sentence name="PxcOpSplitTimeVarJanuary" value="Januaari" />
+  <sentence name="PxcOpSplitTimeVarFebruary" value="Februaari" />
+  <sentence name="PxcOpSplitTimeVarMarch" value="Marsi" />
+  <sentence name="PxcOpSplitTimeVarApril" value="Apriili" />
+  <sentence name="PxcOpSplitTimeVarMay" value="Maaji" />
+  <sentence name="PxcOpSplitTimeVarJune" value="Juuni" />
+  <sentence name="PxcOpSplitTimeVarJuly" value="Juuli" />
+  <sentence name="PxcOpSplitTimeVarAugust" value="Aggusti" />
+  <sentence name="PxcOpSplitTimeVarSeptember" value="Septembari" />
+  <sentence name="PxcOpSplitTimeVarOctober" value="Oktobari" />
+  <sentence name="PxcOpSplitTimeVarNovember" value="Novembari" />
+  <sentence name="PxcOpSplitTimeVarDecember" value="Decembari" />
+  <sentence name="PxcOpSplitTimeVarQuarter1" value="Kvartali 1" />
+  <sentence name="PxcOpSplitTimeVarQuarter2" value="Kvartali 2" />
+  <sentence name="PxcOpSplitTimeVarQuarter3" value="Kvartali 3" />
+  <sentence name="PxcOpSplitTimeVarQuarter4" value="Kvartali 4" />
+  <sentence name="ERROR_MISSING_TIMEVALUE" value="Immikkoortoq piffissaq amigaataavoq" />
+  <sentence name="PxcErrCellNoteValueMissing" value="Immikkoortoq ={0} atorsinnaanngilaq" />
+  <sentence name="PxcErrToManyCodes" value="{0} amerlavallaartunik kodeqarpoq" />
+  <sentence name="PxcGroupedValuesMissing" value="{0} immikkoortut eqimattat amigaataapput" />
+  <sentence name="PxcGroupingVariableWithNoValues" value=" {0} sammisat eqimattat immikkoortunik imaqanngilaq" />
+  <sentence name="PxcSortVariable" value="Sammisat eqimattat" />
+  <sentence name="PxcContactPhone" value="Oqarasuaat" />
+  <sentence name="PxcContactFax" value="Fax" />
+  <sentence name="PxcContactEMail" value="E-mail" />
+  <sentence name="PxcPercent" value="procenti" />
+  <sentence name="PxcPermil" value="promille" />
+  <sentence name="PxcPercentUnitVarExists" value="Procenti pioreermat naatsorsorneqarsinnaanngilaq" />
+  <sentence name="PxcPermilUnitVarExists" value="Promille pioreermat naatorsorneqarsinnaanngilaq" />
+  <sentence name="PxcErr103" value="UNITS kukkuneq" />
+  <sentence name="PxcErr106" value="STUB kukkuneq" />
+  <sentence name="PxcErr107" value="HEADING kukkuneq" />
+  <sentence name="PxcErr108" value="VALUES kukkuneq" />
+  <sentence name="PxcErr109" value="CODES kukkuneq" />
+  <sentence name="PxcErr111" value="Sammisamut NOTE imaluunniit NOTEX kukkuneq" />
+  <sentence name="PxcErr112" value="VALUENOTE imaluunniit VALUENOTEX kukkuneq" />
+  <sentence name="PxcErr113" value="CELLNOTE imaluunniit CELLNOTEX kukkuneq" />
+  <sentence name="PxcErr115" value="ELIMINATION aap/naagga kukkuneq" />
+  <sentence name="PxcErr117" value="PARTITION kukkuneq" />
+  <sentence name="PxcErr121" value="KEYS kukkuneq" />
+  <sentence name="PxcErr123" value="PRECISION kukkuneq" />
+  <sentence name="PxcErr124" value="DOMAIN kukkuneq" />
+  <sentence name="PxcErr130" value="TITLE imaluunniit DESCRIPTION amigaataavoq" />
+  <sentence name="PxcErr131" value="MATRIX amigaataavoq" />
+  <sentence name="PxcErr132" value="SUBJECT AREA amigaataavoq" />
+  <sentence name="PxcErr133" value="SUBJECT CODE amigaataavoq" />
+  <sentence name="PxcErr134" value="STUB aamma HEADING amigaattaapput" />
+  <sentence name="PxcErr135" value="UNITS amigaataavoq" />
+  <sentence name="PxcErr136" value="CONTENTS amigaataavoq" />
+  <sentence name="PxcErr137" value="DECIMALS amigaataavoq" />
+  <sentence name="PxcErr138" value="SHOWDECIMALS kukkuneq" />
+  <sentence name="PxcErr142" value="COPYRIGHT kukkuneruvoq" />
+  <sentence name="PxcErr143" value="DAYADJ kukkuneruvoq" />
+  <sentence name="PxcErr144" value="SEASADJ kukkuneruvoq" />
+  <sentence name="PxcErr146" value="CONTACT kukkuneruvoq" />
+  <sentence name="PxcErr147" value="REFPERIOD kukkuneruvoq" />
+  <sentence name="PxcErr149" value="LAST-UPDATED kukkuneruvoq" />
+  <sentence name="PxcErr151" value="STOCKFA kukkuneruvoq" />
+  <sentence name="PxcErr152" value="CFPRICES kukkuneruvoq" />
+  <sentence name="PxcErr153" value="TIMEVAL kukkuneruvoq" />
+  <sentence name="PxcErr154" value="BASEPERIOD kukkuneruvoq" />
+  <sentence name="PxcErr160" value="CONTVARIABLE apeqqutaavoq oqaatsip pingaarnerup nassaarinissaanut sammisat imarisaat apeqqutaanngilaq" />
+  <sentence name="PxcErr161" value="CONTVARIABLE imaluunniit oqaaseq pingaarneq kukkuvoq" />
+  <sentence name="PxcErr162" value="PRESTEXT kukkuneq" />
+  <sentence name="PxcErr164" value="MAP kukkuneq" />
+  <sentence name="PxcErr166" value="AGGREGALLOWED kukkuneq" />
+  <sentence name="PxcErr167" value="AUTOPEN kukkuneq" />
+  <sentence name="PxcErr168" value="DOUBLECOLUMN kukkuneq" />
+  <sentence name="PxcErr169" value="DESCRIPTIONDEFAULT kukkuneq" />
+  <sentence name="PxcErr176" value="DATANOTE kukkuneq" />
+  <sentence name="PxcErr180" value="DATA amigaatigineqarput" />
+  <sentence name="PxcErr201" value="HIERARCHYLEVELSOPEN kukkuneq" />
+  <sentence name="PxcErr202" value="HIERARCHYLEVELS kukkuneq" />
+  <sentence name="PxcErr203" value="HIERARCHYNAMES kukkuneq" />
+  <sentence name="PxcErr204" value="HIERARCHIES kukkuneq" />
+  <sentence name="PxcErr205" value="OFFICIAL-STATISTICS kukkuneq" />
+  <sentence name="PxcErr206" value="ATTRIBUTE-ID kukkuneq" />
+  <sentence name="PxcErr207" value="ATTRIBUTE-TEXT kukkuneq" />
+  <sentence name="PxcErr208" value="ATTRIBUTES kukkuneq" />
+  <sentence name="PxcErr300" value="VALUE-TEXT-OPTION kukkuneq" />
+  <sentence name="PxcKeywordError" value="{0} kukkuneq" />
+  <sentence name="PxcKeywordLastUpdated" value="Kingullermik nutarterneqarfia" />
+  <sentence name="PxcKeywordSource" value="Najoqqutaq" />
+  <sentence name="PxcKeywordContact" value="Attaveqarfissaq" />
+  <sentence name="PxcKeywordCopyright" value="Copyright" />
+  <sentence name="PxcKeywordUnits" value="Suussusaa" />
+  <sentence name="PxcKeywordStockfa" value="Datat suussusaat" />
+  <sentence name="PxcKeywordStockfaValueStock" value="Uninngasuutit" />
+  <sentence name="PxcKeywordStockfaValueFlow" value="Sarfaq" />
+  <sentence name="PxcKeywordStockfaValueAverage" value="Agguaqatigiissillugu" />
+  <sentence name="PxcKeywordRefPeriod" value="Piffissaq sammineqartoq" />
+  <sentence name="PxcKeywordBasePeriod" value="Piffissaq tunngaviusoq" />
+  <sentence name="PxcKeywordCFPricesValueCurrent" value="Akit nikerartut" />
+  <sentence name="PxcKeywordCFPricesValueFixed" value="Akit aalajangersimasut" />
+  <sentence name="PxcKeywordDayAdj" value="Ullormut iluarsisaq" />
+  <sentence name="PxcKeywordSeasAdj" value="Piffissamut iluarsisaq" />
+  <sentence name="PxcKeywordDatabase" value="Database" />
+  <sentence name="PxcKeywordMatrix" value="Kode suliaqarnermi atortagaq" />
+  <sentence name="PXWebSearchLink" value="Ujaruk" />
+  <sentence name="PXWebGenXMLLink" value="Xml atorlugu periarfissanik sanagit" />
+  <sentence name="PageViewFootnoteDialogTitle" value="Fodnotit" />
+  <sentence name="PageViewDataSortDescription" value="Tabelimiittut immikkoortiterniarlugit quleriiaani qullerpaaq tooruk. Shift tooriarlugu quleriiaat aappaat, pingajuat imaluunniit sisamaat toorlugit ataatsikkut immikkoortitikkit" />
+  <sentence name="PageViewDataSortCopyInstructions" value="Tabeli kopeeruk: Iluarsiinermi periarfissat takukkit Tamaasa toqqakkit aamma Kopeeruk atussavatit. Imaluunniit uku tuussavatit Crtl+A taavalu Ctrl+C" />
+  <sentence name="CancelButton" value="Sussa" />
+  <sentence name="PxWebApplicationTitle" value="Kisitsisaataasivik" />
+  <sentence name="PxWebApplicationName" value="Kisitsisaataasivik" />
+  <sentence name="PxWebLogoAlt" value="Kisitsisaataasivik" />
+  <sentence name="PxWebHome" value="Angerlarit" />
+  <sentence name="PxWebMenu" value="Periarfissat" />
+  <sentence name="PxWebSelection" value="Toqqaaneq" />
+  <sentence name="PxWebInformation" value="Paasissutissat" />
+  <sentence name="PxWebDetailedInformation" value="Paasissutissat sukumiinerusut" />
+  <sentence name="PxWebFootnotes" value="Fodnotit" />
+  <sentence name="PxWebMarkingTips" value="Toqqaanissamut siunnersuutit" />
+  <sentence name="PxWebMarkingTipsHeader" value="Listimi qanoq toqqaasinnaanermut siunnersuutit" />
+  <sentence name="PxWebMarkingTipsText" value="Sammisani inernerit suliarineqassappata bokslistini minnerpaamik takussutissiaq ataaseq pisariaqarpoq. Sammisaq ataaseq amerlanerilluunniit takorusukkukkit, takorusutatit kisiisa toqqassavatit. Toqqakkat sussaassagukku CTRL musilu allaqqasup ataatigut tuussavatit. Titarnerit bokslistimiittut tamaasa toqqarniarukkit - titarneq bokslistimiittoq toqqaqqaassavat. Taamaaleriarlutit SHIFT aamma END tuussavatit ataatsikkut. Titarneq bokslistimiittoq toqqanngiinnassagukku - CTRL musimilu saamerleq toortagaq ataatsikkut tuussavatit, musi toqqakkavit ataaniissaaq. Bokslistimi titarnernik ataatsimit amerlanernik toqqaassaguit - Musimi saamerleq toorlugu titarnerit tulleriit toqqakkit nuuffissaanullu piguit musip toqqaanera peerlugu. Aamma imaaliorsinnaavutit, titarneq siulleq toqqariarlugu SHIFT tooriarlugu tikkuut qummukartoq immaqaluunniit ammukartoq toorlugu. CTRL aamma musimi saamerleq toorlugu titarnerit toqqarusutavit nalaatigut toorlugit, titarnerit toqqakkit tulleriiaartinnagit. Immikkoortoq aalajangersimasoq bokslistimi ujarniarukku - Bokslistimi titarneq siulleq toqqassavat. Titarnermi perusutavit naqinnera siulleq allassavat. Iluatsinngippat, immikkoortup eqqortup nassaarinissaata tungaanut allaqattaassaatit. Qummut aammullu tikkuutit musimiluunniit toortaatit atorlugit misissuisinnaavutit. " />
+  <sentence name="PxWebPresentation" value="Saqqummiussineq" />
+  <sentence name="PxWebTable" value="Tabeli" />
+  <sentence name="PxWebTableUserSettingsShow" value="Tabelimut siunnersuutit" />
+  <sentence name="PxWebTableUserSettingsHide" value="Peernissaanut siunnersuutit" />
+  <sentence name="PxWebTableUserSettingsZeroOption" value="Sanimoortut nul-ertallit:" />
+  <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Sanimoortut tamaasa nuisikkit" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZero" value="Sanimoortut nul-iinnarnik allaqqasut piikkit" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroAndNil" value="Sanimoortut nul-iinnarnik imalluunniit '-'-iinnarnik allaqqasut piikkit" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoSymbols" value="Sanimoortut naggataannallit piikkit" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol" value="Sanimoortut nul-iinnallit, '-'-iinnallit imaluunniit naggataannallit piikkit" />
+  <sentence name="PxWebTableUserSettingsCancel" value="Sussa" />
+  <sentence name="PxWebTableUserSettingsApply" value="Toqqornissaanut siunnersuutit" />
+  <sentence name="PxWebChart" value="Titartagaq" />
+  <sentence name="PxWebChartUserSettingsTitle" value="Qulequtaq:" />
+  <sentence name="PxWebChartUserSettingsHeight" value="Portussuseq:" />
+  <sentence name="PxWebChartUserSettingsWidth" value="Silissuseq:" />
+  <sentence name="PxWebChartUserSettingsLineThickness" value="Titarnerup issussusaa:" />
+  <sentence name="PxWebChartUserSettingsSortTime" value="Piffissaq immikkoortiteruk:" />
+  <sentence name="PxWebChartUserSettingsSortTimeAscending" value="Alliartuaartut" />
+  <sentence name="PxWebChartUserSettingsSortTimeDescending" value="Milliartuaartut" />
+  <sentence name="PxWebChartUserSettingsSortTimeNone" value="Soqanngilaq" />
+  <sentence name="PxWebChartUserSettingsLabelOrientation" value="Sumiinnermut ilisarnaat:" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationHorizontal" value="Nallarissoq" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationVertical" value="Napparissoq" />
+  <sentence name="PxWebChartUserSettingsGuidelines" value="Titarnerit:" />
+  <sentence name="PxWebChartUserSettingsGuidelinesHorizontal" value="Nallarissoq" />
+  <sentence name="PxWebChartUserSettingsGuidelinesVertical" value="Napparissoq" />
+  <sentence name="PxWebChartUserSettingsLegend" value="Legend:" />
+  <sentence name="PxWebChartUserSettingsLegendShow" value="Takutiguk" />
+  <sentence name="PxWebChartUserSettingsLegendHeight" value="(% Grafip) portussusaa:" />
+  <sentence name="PxWebChartUserSettingsCancel" value="Sussa" />
+  <sentence name="PxWebChartUserSettingsApply" value="Piumaguk" />
+  <sentence name="PxWebChartUserSettingsShow" value="Grafinut siunnersuutit" />
+  <sentence name="PxWebChartUserSettingsHide" value="Tarrisinnissaanut siunnersuutit" />
+  <sentence name="PxWebChartPieChartTitle" value="Lagkage diagrammi takutinneqarsinnaanngilaq" />
+  <sentence name="PxWebChartPieChartInformation" value="Lagkage diagrammi, tamaallaat sammisamik ataatsimik ataaseq sinnerlugu immikkoortortalimmik, imaqarsinnaavoq. Sammisat immikkoortullu peerniarukkit qulaaniittumi 'Iluarsiguk naatsorsorlugulu'-mi uku arlaat atussavat 'Sammisaq peeruk' imaluunniit 'Immikkoortoq peeruk'" />
+  <sentence name="PxWebChartPyramidChartTitle" value="Innuttaasut pillugit pyramide takutinneqarsinnaanngilaq" />
+  <sentence name="PxWebChartPyramidChartInformation" value="Innuttaasut pillugit pyramidimi sammisami ataatsimi immikkoortut ilaat killeqanngillat. Sammisat allat marlunnik immikkoortulerneqassapput, sammisat sinneri ataasiinnermik immikkoortumik peqassapput.  Eg variable age can have alle its values ​​and the variable sex has two values. Use the 'Delete value' operation in the 'Edit and calculate' menu above to remove values." />
+  <sentence name="PxWebChartTooManyValues" value="Immikkoortut amerlavalaat toqqarneqarsimapput" />
+  <sentence name="PxWebChartTooManyValuesInformation" value="Immikkoortut amerlavallaat toqqarsimavatit" />
+  <sentence name="PxWebChartUserSettingsLargeValue" value="{0} immikkoortoq anginerpaavoq" />
+  <sentence name="PxWebChartLeftScale" value="(skalap saamiata tungaa)" />
+  <sentence name="PxWebChartRightScale" value="(skalap talerpiata tungaa)" />
+  <sentence name="PxWebChartPercent" value="%" />
+  <sentence name="PxWebDataSort" value="Datat immikkoortitikkit" />
+  <sentence name="PxWebSelectDb" value="Database toqqaruk:" />
+  <sentence name="PxWebTableCropped" value="Nassuiaat: Tabeli ilanngartigaavoq. Skærmimi annerpaamik sanimoortut {0} -it aamma quleriiaat {0} -it takuneqarsinnaapput" />
+  <sentence name="PxWebPopupDialogOk" value="Ok" />
+  <sentence name="PxWebPopupDialogClose" value="Matuguk" />
+  <sentence name="PxWebSelectVariable" value="Sammisaq toqqaruk" />
+  <sentence name="PxWebAboutTable" value="Tabeli pillugu" />
+  <sentence name="PxWebShowTable" value="Tabeli takutiguk" />
+  <sentence name="PxWebSearchControlLabel" value="Kisitsisaataasivimmi ujarlerit - {0}:" />
+  <sentence name="PxWebSearchControlButtonText" value="Ujaruk" />
+  <sentence name="PxWebSearchAllFields" value="Sammisat tamaasa ujarlerfigikkit" />
+  <sentence name="PxWebSearchSelection" value="Taamaallaat ujaruk" />
+  <sentence name="PxWebSearchFieldTitle" value="Tabelip aqqa" />
+  <sentence name="PxWebSearchFieldValue" value="Immikkoortup allagartaa" />
+  <sentence name="PxWebSearchFieldCode" value="Immikkoortup kodia" />
+  <sentence name="PxWebSearchResultText" value="Ujarlernerup inernera:{0} hits)" />
+  <sentence name="PxWebSearchResultColumnTable" value="Tabeli" />
+  <sentence name="PxWebSearchResultColumnPublished" value="Tamanut saqqummiussaq" />
+  <sentence name="PxWebTitleDefault" value="Database toqqaruk" />
+  <sentence name="PxWebTitleApiHelp" value="API pillugu ikiortissaq" />
+  <sentence name="PxWebTitleChart" value="Titartagaq" />
+  <sentence name="PxWebTitleDataSort" value="Immikkoortitikkit" />
+  <sentence name="PxWebTitleErrorGeneral" value="Oooops!" />
+  <sentence name="PxWebTitleFootnotesPresentation" value="Fodnotit" />
+  <sentence name="PxWebTitleFootnotesSelection" value="Fodnotit" />
+  <sentence name="PxWebTitleInformationPresentation" value="Paasissutissat" />
+  <sentence name="PxWebTitleInformationSelection" value="Paasissutissat" />
+  <sentence name="PxWebTitleMarkingTips" value="Siunnersuutit" />
+  <sentence name="PxWebTitleMenu" value="Tabelimik toqqaagit" />
+  <sentence name="PxWebTitleSearch" value="Ujaruk" />
+  <sentence name="PxWebTitleSelection" value="Sammisanik aamma immikkoortunik toqqaagit" />
+  <sentence name="PxWebTitleTable" value="Tabeli" />
+  <sentence name="PxWebSavedQueryUnsafeMessage" value="Nammineerlutit tabelimi allassimagavit allassimasoq databasemi originalimiittumit allaaneruvoq" />
+  <sentence name="PxWebGeneralErrorMessage" value="Piiarneqarpoq. Peernera nalunaarutigineqarpoq" />
+  <sentence name="PxWebSavedQueryExecuteErrorMessage" value="Toqqorsinnaanngilaq. Kukkuneq nalunaarutigineqarpoq" />
+  <sentence name="PxWebReturnToStartpage" value="Quppernermut siullermut uterit" />
+  <sentence name="PxWebAdminLogout" value="Log-ud" />
+  <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2019 v1" />
+  <sentence name="PxWebAdminHomePage" value="PxWeb Homepage" />
+  <sentence name="PxWebAdminSaveButton" value="Save" />
+  <sentence name="PxWebAdminGenerateButton" value="Generate" />
+  <sentence name="PxWebAdminMenuHome" value="Home" />
+  <sentence name="PxWebAdminMenuSettings" value="Settings" />
+  <sentence name="PxWebAdminMenuSettingsGeneral" value="General" />
+  <sentence name="PxWebAdminMenuSettingsGeneralSite" value="Site" />
+  <sentence name="PxWebAdminMenuSettingsGeneralLanguage" value="Language" />
+  <sentence name="PxWebAdminMenuSettingsGeneralPaths" value="Paths" />
+  <sentence name="PxWebAdminMenuSettingsGeneralFileFormats" value="File formats" />
+  <sentence name="PxWebAdminMenuSettingsGeneralModules" value="Modules" />
+  <sentence name="PxWebAdminMenuSettingsGeneralGlobal" value="Global" />
+  <sentence name="PxWebAdminMenuSettingsGeneralDatabases" value="Databases" />
+  <sentence name="PxWebAdminMenuSettingsGeneralAdministration" value="Administration" />
+  <sentence name="PxWebAdminMenuSettingsMenu" value="Menu" />
+  <sentence name="PxWebAdminMenuSettingsSelection" value="Selection" />
+  <sentence name="PxWebAdminMenuSettingsPresentation" value="Presentation" />
+  <sentence name="PxWebAdminMenuSettingsPresentationGeneral" value="General" />
+  <sentence name="PxWebAdminMenuSettingsPresentationTable" value="Table" />
+  <sentence name="PxWebAdminMenuSettingsPresentationCommandBar" value="CommandBar" />
+  <sentence name="PxWebAdminMenuTools" value="Tools" />
+  <sentence name="PxWebAdminMenuToolsGenerateDb" value="Generate database" />
+  <sentence name="PxWebAdminMenuSettingsNavigation" value="Navigation" />
+  <sentence name="PxWebAdminMenuToolsLanguageManager" value="Language Manager" />
+  <sentence name="PxWebAdminMenuToolsReset" value="Reset" />
+  <sentence name="PxWebAdminMenuToolsChangePassword" value="Change password" />
+  <sentence name="PxWebAdminMenuFeatures" value="Features" />
+  <sentence name="PxWebAdminMenuFeaturesGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesCharts" value="Charts" />
+  <sentence name="PxWebAdminMenuFeaturesChartsGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesApi" value="API" />
+  <sentence name="PxWebAdminMenuFeaturesApiGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQuery" value="Save Query" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQueryGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesSearch" value="Search" />
+  <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="General" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Background worker process" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="General" />
+  <sentence name="PxWebPxLogin" value="PxWeb Login" />
+  <sentence name="PxWebLogin" value="Login" />
+  <sentence name="PxWebUsername" value="Username" />
+  <sentence name="PxWebPassword" value="Password" />
+  <sentence name="PxWebWrongLogin" value="Wrong username eller password" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Databases" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Selected PX Databases will be displayed in PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="CNMM (Common Nordic Meta Model) Databases" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Selected CNMM Databases will be displayed in PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesEnabled" value="Enabled" />
+  <sentence name="PxWebAdminSettingsDatabasesDbCreated" value="Db created" />
+  <sentence name="PxWebAdminSettingsDatabasesIndexStatus" value="Index status" />
+  <sentence name="PxWebAdminSettingsDatabasesAction" value="Action" />
+  <sentence name="PxWebAdminSettingsDatabasesCreateIndex" value="Create index" />
+  <sentence name="PxWebAdminSettingsDatabasesConfirmCreateIndex" value="Do you want to create a ny search index?" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePath" value="Language path" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePathInfo" value="Path to directory containing the language files" />
+  <sentence name="PxWebAdminSettingsPathsImagePath" value="Image path" />
+  <sentence name="PxWebAdminSettingsPathsImagePathInfo" value="Path to directory containing the images" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePath" value="PX database path" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePathInfo" value="Path to directory containing the PX databases" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPath" value="Aggregation path" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPathInfo" value="Path to directory containing the aggregation files" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Cell limit download" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Max number of downloadable cells in resulting table" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevel" value="Information level" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelInfo" value="Controls which information that are displayed in the Excel file" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelNone" value="None" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelMandantoryFootnotesOnly" value="Mandatory footnotes only" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllFootnotes" value="All footnotes" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllInformation" value="All information" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumn" value="Double column" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumnInfo" value="If code always shall be displayed in a separate column" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOption" value="Secrecy option" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionInfo" value="If data values should be obfuscated when displayed" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionNone" value="None" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionSimple" value="Simple" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRule" value="Rounding rule" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleBankersRounding" value="Bankers rounding" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleRoundUp" value="Round up" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleInfo" value="Type of rounding rule ('Bankers rounding' eller 'Round up')" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1" value="Symbol 1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1Info" value="Text to display for measures having Data Symbol1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2" value="Symbol 2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2Info" value="Text to display for measures having Data Symbol2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3" value="Symbol 3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3Info" value="Text to display for measures having Data Symbol3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4" value="Symbol 4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4Info" value="Text to display for measures having Data Symbol4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5" value="Symbol 5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5Info" value="Text to display for measures having Data Symbol5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6" value="Symbol 6" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6Info" value="Text to display for measures having Data Symbol6" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNil" value="Data Symbol NIL" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNilInfo" value="Text to display for measures having Data Symbol NIL" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSum" value="Data Symbol Sum" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSumInfo" value="Text to display for measures having Data Symbol Sum" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescription" value="Vis source description" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescriptionInfo" value="If source description shall be displayed for table eller not" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevel" value="Table information level" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelInfo" value="Controls which information that are displayed for the table" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelNone" value="None" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelMandantoryFootnotesOnly" value="Mandatory footnotes only" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllFootnotes" value="All footnotes" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllInformation" value="All information" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCase" value="Upper case" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCaseInfo" value="Rule for making the first character in a value name uppercase" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacement" value="Datanote placement" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementInfo" value="Specifies placement of datanotes. Datanotes can be placed before eller after values" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementBeforeValue" value="Before value" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementAfterValue" value="After value" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContent" value="Fjern single content" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContentInfo" value="Fjern the content variable if it contains only one value" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheck" value="Strict aggregation check" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheckInfo" value="If strict check of aggregation files will be performed eller not. If set to yes the aggregation files (.agg) must have the keyword 'valueset' set to the name of the current valueset, if it is not a match the aggregation will not be added. " />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypes" value="Vis Information types" />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypesInfo" value="Which Information types that shall be displayed in the information of the table" />
+  <sentence name="PxWebAdminSettingsGlobalShowInfoFile" value="InfoFile" />
+  <sentence name="PxWebAdminSettingsGlobalDetailedInformationInfo" value="Should a link to the infofile be displayed. If the metadata are displayed as links a link to the infofile will appear next to the footnotes link. If metadata shall appear in tabs the link to the infofile will appear under the information section in the About table tab. The link to the infofile is only shown on the selection page." />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilter" value="Use IP filter" />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilterInfo" value="If IP filter shall be used when logging in to the administration pages eller not" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddresses" value="IP addresses" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddressesInfo" value="List of IP addresses med permission to access the administration pages. This setting is only valid if the setting 'Use IP filter' is set to true." />
+  <sentence name="PxWebAdminSettingsAdministrationAddNewIPAddress" value="Add ny IP address" />
+  <sentence name="PxWebAdminSettingsAdministrationInvalidIPAddress" value="Invalid IP address" />
+  <sentence name="PxWebAdminSettingsMenuMenuMode" value="Menu mode" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeInfo" value="Controls how the menu is displayed" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeList" value="List" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithoutFiles" value="Tree view without files" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithFiles" value="Tree view med files" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewAndFiles" value="Tree view and files" />
+  <sentence name="PxWebAdminSettingsMenuShowRoot" value="Vis root" />
+  <sentence name="PxWebAdminSettingsMenuShowRootInfo" value="Shall the root node be displayed eller not?" />
+  <sentence name="PxWebAdminSettingsMenuExpandAll" value="Expand all" />
+  <sentence name="PxWebAdminSettingsMenuExpandAllInfo" value="Shall the tree be expanded eller collapsed?" />
+  <sentence name="PxWebAdminSettingsMenuSortByAlias" value="Sort by alias" />
+  <sentence name="PxWebAdminSettingsMenuSortByAliasInfo" value="Shall the nodes be sorted by their alias names eller not?" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLink" value="Vis selection link" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLinkInfo" value="Shall the link to the page where the user can Select variables and variables be displayed eller not?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLink" value="Vis download link" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkInfo" value="Shall the link where the user can download the table as a file be displayed eller not?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysHide" value="Always hide" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysShow" value="Always show" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkShowIfSmallFile" value="Vis if small file" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkMode" value="Viewlink mode" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeInfo" value="Mode for the view-link. Can have one of three different values: 'Default values' = Default values are displayed in a table when the user clicks the link. 'All values' = All values are shown within a table when the user clicks the link. 'Hidden' = The link is not displayed." />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeDefaultValues" value="Default values" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeAllValues" value="All values" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeHidden" value="Hidden" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultView" value="Number of default values" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultViewInfo" value="Maximum number of values that are selected when Viewlink mode = 'Default values'. Values are preselected rather than allowing the users to select variables and values by themselves." />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDate" value="Vis modified date" />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDateInfo" value="Defines if information about when the PX-file was last updated in the file system shall be displayed in PxWeb eller not." />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdated" value="Vis last updated" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdatedInfo" value="Defines if LAST-UPDATED in the PX-files shall be displayed in PxWeb eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSize" value="Vis file size" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSizeInfo" value="If information about the filesize shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowTableCategory" value="Vis table category" />
+  <sentence name="PxWebAdminSettingsMenuShowTableCategoryInfo" value="If information about the table category shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowTableUpdatedAfterPublish" value="Vis updated after publish" />
+  <sentence name="PxWebAdminSettingsMenuShowTableUpdatedAfterPublishInfo" value="If tables that has been updated after they was published shall be marked in the menu eller not" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValues" value="Vis variables and values" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValuesInfo" value="If information about variables and values within the table shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsMenuMetadataAsIcons" value="Metadata as icons" />
+  <sentence name="PxWebAdminSettingsMenuMetadataAsIconsInfo" value="If table metadata shall be displayed as icons after the table name. If set to 'Yes' icons will be displayed. If set to 'No' metadata will be dsipalyed as text." />
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadata" value="If a explanation shall be displayd next to the metadata" />
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadataInfo" value="Vis a explanatory text relevant to table metadata. For example, if set to 'Yes' the text 'Modified' is inserted before the table metadata modified date, if set to 'No' the table metadata is shown but no describing text." />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreen" value="Cell limit screen" />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreenInfo" value="The maximum number of cells that can be displayed on screen" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMark" value="Vis mandatory mark" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMarkInfo" value="If mandatory variables shall be marked eller not" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregations" value="Allow aggregations" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregationsInfo" value="If aggregations of variable values shall be possible eller not" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchies" value="Vis hierarchies" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchiesInfo" value="If hierarchies shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpen" value="Hierarchical levels open" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpenInfo" value="Specifies how expanded (number of tree-levels) the hierarchy tree should be as default" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTips" value="Vis marking tips" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTipsInfo" value="If marking tips shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURL" value="Marking tips URL" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURLInfo" value="URL to the webpage med marking tips" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearch" value="Max rækker without search" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearchInfo" value="Maximum values displayed for a variable in selection box. If the variable has more values the user must use the search function to select the values." />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowTimeVariableWithoutSearch" value="Vis time without search" />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowTimeVariableWithoutSearchInfo" value="Always show time variable without search even if number of values exceeds configured max rækker without search." />
+  <sentence name="PxWebAdminSettingsSelectionListSize" value="List size" />
+  <sentence name="PxWebAdminSettingsSelectionListSizeInfo" value="Number of rækker (height) in the variable selector" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimits" value="Vis selection limits" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimitsInfo" value="If information about selection limits shall be displayed eller not" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormats" value="Output formats" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormatsInfo" value="Selected output formats (presentation views and file formats) will be available for selection in PxWeb" />
+  <sentence name="PxWebAdminSettingsSelectionPresentationViews" value="Presentation views:" />
+  <sentence name="PxWebAdminSettingsSelectionFileFormats" value="File formats:" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirst" value="Valueset must be selected" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirstInfo" value="If the variable has valuesets the user have to select valueset before values can be selected when this settings is set to true" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButton" value="Vis 'All available values'" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButtonInfo" value="Is the 'Show alle available values' button in the search-view. Warning! settings this setting to true can result in big web pages that may be heavy to load." />
+  <sentence name="PxWebAdminSettingsSelectionTitleFromMenu" value="Title from menu" />
+  <sentence name="PxWebAdminSettingsSelectionTitleFromMenuInfo" value="If set to true, the table title will be displayed as it was displayed in the menu" />
+  <sentence name="PxWebAdminSettingsSelectionMetadataAsLinks" value="Metdata as links" />
+  <sentence name="PxWebAdminSettingsSelectionMetadataAsLinksInfo" value="If table metadata (footnotes and information) shall be displayed as links eller directly within the selection page." />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Vis Navigation flow" />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Vis Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Search button mode" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeManyValues" value="Many values" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeAlways" value="Always" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeInfo" value="Controls when the search values button shall be displayed" />
+  <sentence name="PxWebAdminSettingsValidationMandatorySetting" value="Mandatory field" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentPath" value="The path does not exist" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentImage" value="The image does not exist" />
+  <sentence name="PxWebAdminSettingsValidationIntegerValue" value="Must be an integer value" />
+  <sentence name="PxWebAdminSettingsValidationTooLargeIntegerValue" value="Cannot be bigger than 2147483647" />
+  <sentence name="PxWebAdminSettingsValidationGreaterThanZero" value="Must be a value above 0" />
+  <sentence name="PxWebAdminSettingsValidationIllegalCharacter" value="Contains illegal character" />
+  <sentence name="PxWebAdminSettingsValidationBiggerThanMaxSetting" value="Cannot be bigger than the maximum setting ({0})" />
+  <sentence name="PxWebAdminSettingsValidationMaximumValue" value="Maximum value is {0}" />
+  <sentence name="PxWebAdminSettingsValidationIllegalColorCode" value="Illegal color code (expected format is #AAAAAA)" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperations" value="Operations" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="The selected operations will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformats" value="File formats" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformatsInfo" value="The selected file formats will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton" value="Button" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButtonInfo" value="The selected operations will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcutInfo" value="About shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViews" value="Presentation views" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewsInfo" value="The selected presentation views will be available to the PxWeb user" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeText" value="View mode" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeDropDown" value="Dropdown" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeImageButtons" value="Button" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeHidden" value="Hidden" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderSetting" value="Operation" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderDropDown" value="Drop down" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton2" value="Button" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationView" value="Presentation view" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderCommandbarShortcut" value="Commandbar shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormat" value="File format" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatDropDown" value="Drop down" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatShortcut" value="Shortcut" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotes" value="Prompt for mandatory footnotes" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotesInfo" value="If madantory footnotes should be prompted to the user when the table is displayed" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Table transformation" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="If the table should be automatically transformed before it displays to the user" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformNoTransformation" value="No transformation" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirst" value="Single values first" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirstAndHeaderOnlyOneMultiple" value="Only one multi valued variable in the header" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayout" value="Default layout" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutInfo" value="The default layout to use when displaying a table to the user" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout1" value="Layout 1" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout2" value="Layout 2" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRows" value="Max rækker" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRowsInfo" value="The maximum number of rækker that will be displayed within the table on screen. If the underlying data table contains more rækker than what is specified in this setting, the table on screen will be cropped." />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumns" value="Max columns" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumnsInfo" value="The maximum number of columns that will be displayed within the table on screen. If the underlying data table contains more columns than what is specified in this setting, the table on screen will be cropped." />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisible" value="Vis title" />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisibleInfo" value="If the table title shall be displayed within the table eller not" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayAttributes" value="Display cell information" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayAttributesInfo" value="If cell information shall be displayed in the table eller not. Information displayed is attributes and notes at cell level." />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayDefaultAttributes" value="Display default attributes" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayDefaultAttributesInfo" value="If the default values of the attributes of the table shall be displayed beneath the table eller not" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Generate CNMM database" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Vælg one of the databases to generate the database description file" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Vælg one of the databases to generate the database description file" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Language dependent" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependentInfo" value="Vis alle files despite of the selected language." />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sort order" />
+  <sentence name="PxWebAdminSortOrderFileName" value="File name" />
+  <sentence name="PxWebAdminSortOrderMatrix" value="Matrixi" />
+  <sentence name="PxWebAdminSortOrderTitle" value="Title" />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Vælg the key that will be used to create the sort order for the tables." />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Create search index" />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="If selected, search index creation will be automatically initiated after the database has been generated." />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInitiated" value="Search index creation has been initiated" />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguage" value="--- Select language ---" />
+  <sentence name="PxWebAdminToolsLanguageManagerInfo" value="Vælg which language you want to edit. Key = the key that identifies a sentence in the system, Fallback = the sentence that will be used if no translation is done, Language = The sentence in the currently selected language." />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguageError" value="You must select language" />
+  <sentence name="PxWebAdminToolsLanguageManagerKey" value="Key" />
+  <sentence name="PxWebAdminToolsLanguageManagerFallback" value="Fallback" />
+  <sentence name="PxWebAdminToolsLanguageManagerLanguage" value="Language" />
+  <sentence name="PxWebAdminToolsResetAll" value="Reset all" />
+  <sentence name="PxWebAdminToolsResetAllInfo" value="Reset alle static lists in PxWeb" />
+  <sentence name="PxWebAdminToolsResetLanguage" value="Reset language" />
+  <sentence name="PxWebAdminToolsResetLanguageInfo" value="Reset language list in the language system" />
+  <sentence name="PxWebAdminToolsResetAggregation" value="Reset aggregations" />
+  <sentence name="PxWebAdminToolsResetAggregationInfo" value="Releases aggregations list that is loaded into memory" />
+  <sentence name="PxWebAdminToolsResetDatabases" value="Reset databases" />
+  <sentence name="PxWebAdminToolsResetDatabasesInfo" value="Reset the cached px databases structure" />
+  <sentence name="PxWebAdminToolsChangePasswordOld" value="Old password" />
+  <sentence name="PxWebAdminToolsChangePasswordNew" value="New password" />
+  <sentence name="PxWebAdminToolsChangePasswordVerify" value="Verify ny password" />
+  <sentence name="PxWebAdminToolsChangePasswordChange" value="Change!" />
+  <sentence name="PxWebAdminToolsChangePasswordWrongPassword" value="Wrong password" />
+  <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Verify incorrect" />
+  <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Password has been changed" />
+  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Feature" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Selected features will be available in the administration tool and in PxWeb" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Charts" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureApi" value="API" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureSavedQuery" value="Saved Query" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureUserFriendlyUrls" value="User friendly URL:s" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureUserStatistics" value="User statistics" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureSearch" value="Search" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureBackgroundWorker" value="Background worker process" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralChartSettings" value="Graf settings" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralUserSettings" value="Default values for user settings" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontName" value="Font name" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontNameInfo" value="The font used in the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitle" value="Font size title" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitleInfo" value="The font size of the title of the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxis" value="Font size axis" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxisInfo" value="The font size of the axis of the chart" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeight" value="Height" />
+</language>

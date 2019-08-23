@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="PCAxis.Sql.Pxs.PxsQueryType">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>BAAAEkAAAAAAgAAAAAAACAAIAASABAgAAQAAAIAgYAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.InformationType" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAkQAgAAABgAAAAAAACAAEIAAgAAgAAAAAAAIE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.CreatedByType" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEBQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.AxisType">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAQEAAAAAAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.PresentationType">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAACABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.TimeType" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAEIAAAAAAEAAAgBAEAIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.TimeTypeTimeValues" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.BasicValueType">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAgAAQAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.ValueTypeWithGroup">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.ValueTypeWithGroupGroup">
+    <Position X="10" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAACAAAAAAAAAAAABAAAAAAAAAQAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.StringLangType">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAgAAQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.GroupValueType">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.VariableType">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>BAAAAgAAAAAAAAAAACAAACAAMCBAAAAEACIgAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.myLanguageType" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.allType" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.QueryType">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAEAAACAEAAAQAAIAAQAAAAAABAAAACAUAAABAAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.QueryTypeLanguages" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.QueryTypeContents" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAIBAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.MenuSelType" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAECAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.InformationTypeFiles" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>EAAAAAAAAAAAAAAAAAEAAAAAgABAACAAxAAAAEgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.InformationTypeBatchOptions" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery_20080407.cs</FileName>
+      <HashCode>ABAACAAAAAAAAAAAQgAAAAAAAAAAQAAAAQgEAAgAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.FlatFileReaderHelper">
+    <Position X="0.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>FlatFileReaderHelper.cs</FileName>
+      <HashCode>AAAAIAAAAAgAAAgAAAQAAgAAAAQIAAAAAgAgAgAgAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

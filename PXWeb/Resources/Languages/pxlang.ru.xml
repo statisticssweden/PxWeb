@@ -1,0 +1,871 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="ru">
+  <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Изменить тексты" />
+  <sentence name="CtrlChangeTextsHeading" value="Изменить тексты" />
+  <sentence name="CtrlChangeTextsText" value="Сделайте необходимые изменения в тексте и нажмите" />
+  <sentence name="CtrlChangeTextsContinueButton" value="Продолжить" />
+  <sentence name="CtrlChangeTextsContentsHeading" value="Содержание" />
+  <sentence name="CtrlChangeTextsUnitsHeading" value="Единица измерения/учета" />
+  <sentence name="CtrlChangeTextsVariablesHeading" value="Переменные " />
+  <sentence name="CtrlChangePresentationContinueButton" value="Продолжить" />
+  <sentence name="CtrlChangePresentationContentsHeading" value="Содержание" />
+  <sentence name="CtrlChangePresentationUnitsHeading" value="Единица" />
+  <sentence name="CtrlChangePresentationVariablesHeading" value="Переменные" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Змінити текст/код представлення" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Изменить текст/код представления" />
+  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Выберите опцию для каждой переменной, для которой вы желаете изменить представление" />
+  <sentence name="CtrlChangeCodeTextPresentationText" value="Текст" />
+  <sentence name="CtrlChangeCodeTextPresentationCode" value="Код" />
+  <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Код и текст" />
+  <sentence name="CtrlChangeDecimalContinueButton" value="Продолжить" />
+  <sentence name="CtrlChangeDecimalHeading" value="Изменить десятичные знаки" />
+  <sentence name="CtrlChangeDecimalHeaderLabel" value="Введите желаемое количество десятичных знаков и нажмите кнопку продолжить" />
+  <sentence name="CtrlChangeDecimalDecimalLabel" value="Количество десятичных знаков (0-6)" />
+  <sentence name="CtrlChangeDecimalRangeError" value="Цифра должна быть целым числом 0 и 6" />
+  <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Изменить десятичные знаки" />
+  <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Удалить переменную" />
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Отметьте переменную и значение, которые необходимо удалить." />
+  <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Добавить значение в заголовок таблицы" />
+  <sentence name="CtrlDeleteVariableContinueButton" value="Продолжить" />
+  <sentence name="CtrlDeleteVariableErrorDescription" value="Вам необходимо выбрать по крайней мере одну переменную и одно значение" />
+  <sentence name="CtrlDeleteVariableOneVariable" value="Вы не можете удалять все переменные, по крайней мере одна должна существовать" />
+  <sentence name="CtrlCommandBarFunctionDeleteValue" value="Удалить значение" />
+  <sentence name="CtrlDeleteValueHeaderLabel" value="Выберите одно или более значений для удаления. Вы не можете выбрать все значения переменной. Для этого вам необходимо использовать режим Удалить переменную" />
+  <sentence name="CtrlDeleteValueErrorDescription" value="Вы не можете удалить все значения переменной." />
+  <sentence name="CtrlDeleteValueContinueButton" value="Продолжить" />
+  <sentence name="CtrlCommandBarFunctionPerPart" value="Процент" />
+  <sentence name="CtrlPerPartContinueButton" value="Продолжить" />
+  <sentence name="CtrlPerPartNewValueName" value="Новое название переменной" />
+  <sentence name="CtrlPerPartKeepData" value="Показать исходные данные и проценты" />
+  <sentence name="CtrlPerPartPerCentOnly" value="Показать только проценты" />
+  <sentence name="CtrlPerPartOneVariableAllValues" value="Выберите переменную в качестве основы для расчета процентов" />
+  <sentence name="CtrlPerPartOneVariableOneValue" value="Выберите переменную, для которой вы будете выбирать значение как основу" />
+  <sentence name="CtrlPerPartOneMatrixValue" value="Выберите ячейки за основу, одно значение для каждой переменной" />
+  <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Редактирование и расчет" />
+  <sentence name="CtrlCommandBarSaveAsCaption" value="Сохранить как" />
+  <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Графики и карты" />
+  <sentence name="CtrlCommandBarActionButtonCaption" value="Отправить" />
+  <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="Хорошо" />
+  <sentence name="CtrlCommandBarDownloadFileTitle" value="Сохранить файл" />
+  <sentence name="CtrlCommandBarDownloadFileInformation" value="Нажмите ниже 'Сохранить файл' для того чтобы скачать файл на ваш компьютер" />
+  <sentence name="CtrlCommandBarDownloadFileLink" value="Сохранить файл" />
+  <sentence name="CtrlCommandBarFunctionPivotManual" value="Повернуть вручную" />
+  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Повернуть вручную" />
+  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Повернуть вручную" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Повернуть по часовой стрелке" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Повернуть по часовой стрелке" />
+  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Повернуть по часовой стрелке" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Повернуть против часовой стрелки" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Повернуть против часовой стрелки" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Повернуть против часовой стрелки" />
+  <sentence name="CtrlCommandBarFunctionShowAllRows" value="Показать все строки" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Показать все строки" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsAlt" value="Показать все строки" />
+  <sentence name="CtrlCommandBarFunctionRemoveZero" value="Удалить нулевые строки" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroTitle" value="Удалить нулевые строки" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAlt" value="Удалить нулевые строки" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphen" value="Удалить строки с нулем или'-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenTitle" value="Удалить строки с нулем или'-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenAlt" value="Удалить строки с нулем или'-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveDots" value="Удалить все строки с точками" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsTitle" value="Удалить все строки с точками" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsAlt" value="Удалить все строки с точками" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" value="Удалить все строки с нулем,'-' или точками" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsTitle" value="Удалить все строки с нулем,'-' или точками" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsAlt" value="Удалить все строки с нулем,'-' или точками" />
+  <sentence name="CtrlCommandBarFunctionSort" value="Сортировать" />
+  <sentence name="CtrlCommandBarFunctionSortTitle" value="Сортировать" />
+  <sentence name="CtrlCommandBarFunctionSum" value="Просуммировать значения переменной" />
+  <sentence name="CtrlCommandBarFunctionSumTitle" value="Просуммировать значения переменной" />
+  <sentence name="CtrlCommandBarFunctionSumAlt" value="Просуммировать значения переменной" />
+  <sentence name="CtrlCommandBarFunctionSubtract" value="Вычесть значение переменной" />
+  <sentence name="CtrlCommandBarFunctionDivide" value="Разделить значение переменной" />
+  <sentence name="CtrlCommandBarFunctionMultiply" value="Умножить значение переменной" />
+  <sentence name="CtrlCommandBarFunctionSortAlt" value="Сортировать" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayout" value="Показать таблицю, новый формат" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutAlt" value="Показать таблицю, новый формат" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutTitle" value="Показать таблицю, новый формат" />
+  <sentence name="CtrlCommandBarFunctionLinkGoogle" value="Google (Тестове посилання)" />
+  <sentence name="CtrlCommandBarFunctionChangeValueOrder" value="Изменить порядок значений" />
+  <sentence name="CtrlCommandBarFileTypeXlsTitle" value="Сохранить как Excel" />
+  <sentence name="CtrlCommandBarFileTypeXlsAlt" value="Сохранить как Excel" />
+  <sentence name="CtrlCommandBarFileTypePxTitle" value="Сохранить как Px" />
+  <sentence name="CtrlCommandBarFileTypePXAlt" value="Сохранить как Px" />
+  <sentence name="CtrlCommandBarFileTypeTxtTitle" value="Сохранить как текстовый документ" />
+  <sentence name="CtrlCommandBarFileTypeTxtAlt" value="Сохранить как текстовый документ" />
+  <sentence name="CtrlCommandBarFileTypeCsvTitle" value="Сохранить как Csv" />
+  <sentence name="CtrlCommandBarFileTypeCsvAlt" value="Сохранить как Csv" />
+  <sentence name="CtrlCommandBarFileTypeHtmlTitle" value="Сохранить как Html" />
+  <sentence name="CtrlCommandBarFileTypeHtmlAlt" value="Сохранить как Html" />
+  <sentence name="CtrlCommandBarFileTypeRelationalTitle" value="Сохранить как реляционный файл" />
+  <sentence name="CtrlCommandBarFileTypeRelationallAlt" value="Сохранить как реляционный файл" />
+  <sentence name="CtrlPresentationViewTableLayout1" value="Таблица - Форма 1" />
+  <sentence name="CtrlPresentationViewTableLayout2" value="Таблица - Форма 2" />
+  <sentence name="CtrlPresentationViewTableSorted" value="Таблица - Отсортированная" />
+  <sentence name="CtrlPresentationViewChartColumn" value="Диаграмма - Столбиковая" />
+  <sentence name="CtrlPresentationViewChartColumnStacked" value="Диаграмма - Столбиковая с накоплением" />
+  <sentence name="CtrlPresentationViewChartColumnStacked100" value="Диаграмма - Столбиковая нормированная" />
+  <sentence name="CtrlPresentationViewChartBar" value="Диаграмма - Горизонтальная" />
+  <sentence name="CtrlPresentationViewChartBarStacked" value="Диаграмма - Горизонтальная с накоплением" />
+  <sentence name="CtrlPresentationViewChartBarStacked100" value="Диаграмма - Горизонтальная нормированная" />
+  <sentence name="CtrlPresentationViewChartLine" value="Диаграмма - Линейная" />
+  <sentence name="CtrlPresentationViewChartColumnLine" value="Диаграмма - Столбиковая и линейная" />
+  <sentence name="CtrlPresentationViewChartPopulationPyramid" value="Диаграмма - Пирамида населения" />
+  <sentence name="CtrlPresentationViewChartPie" value="Диаграмма - Круговая" />
+  <sentence name="CtrlPresentationViewChartArea" value="Диаграмма - С областями" />
+  <sentence name="CtrlPresentationViewChartAreaStacked" value="Диаграмма - С областями с накоплением" />
+  <sentence name="CtrlPresentationViewChartAreaStacked100" value="Диаграмма - С областями нормированная" />
+  <sentence name="CtrlPresentationViewChartPoint" value="Диаграмма - Точечная" />
+  <sentence name="CtrlPresentationViewChartRadar" value="Диаграмма - Лепестковая" />
+  <sentence name="CtrlCommandBarLinkFootnoteTitle" value="Примечания" />
+  <sentence name="CtrlCommandBarLinkFootnoteAlt" value="Примечания" />
+  <sentence name="CtrlCommandBarLinkGraphTitle" value="График" />
+  <sentence name="CtrlCommandBarLinkGraphAlt" value="График" />
+  <sentence name="CtrlCommandBarLinkInformationTitle" value="Информация" />
+  <sentence name="CtrlCommandBarLinkInformationAlt" value="Информация" />
+  <sentence name="CtrlCommandBarLinkPrintTitle" value="Печать" />
+  <sentence name="CtrlCommandBarLinkPrintAlt" value="Печать" />
+  <sentence name="CtrlCommandBarLinkGoogleTitle" value="Google" />
+  <sentence name="CtrlCommandBarLinkGoogleAlt" value="Google" />
+  <sentence name="CtrlCommandBarFileDownLoadLink" value="Нажмите тут, чтобы загрузить файл" />
+  <sentence name="CtrlFootnoteFootnoteLabel" value="Примечания" />
+  <sentence name="CtrlFootnoteNoFootnotesLabel" value="Примечания отсутствуют" />
+  <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Выделить все" />
+  <sentence name="CtrlHierarchicalVariableUnselectAllButton" value="Очистить все" />
+  <sentence name="CtrlHierarchicalVariableOpenAllNodesButton" value="Открыть все" />
+  <sentence name="CtrlHierarchicalVariableCloseAllNodesButton" value="Закрыть все" />
+  <sentence name="CtrlHierarchicalVariableContinueButtonText" value="Продолжить" />
+  <sentence name="CtrlHierarchicalVariableErrorMessage" value="Ошибка, пожалуйста вернитесь на начальную страницу и выберите еще раз" />
+  <sentence name="CtrlInformationInformationLabel" value="Информация" />
+  <sentence name="CtrlInformationOfficialStatisticsLabel" value="Официальная статистика" />
+  <sentence name="CtrlInformationUnitLabel" value="Единица измерения/учета" />
+  <sentence name="CtrlInformationContactLabel" value="Контактная информация" />
+  <sentence name="CtrlInformationLastUpdatedLabel" value="Последнее обновление" />
+  <sentence name="CtrlInformationRefPeriodLabel" value="Временная характеристика" />
+  <sentence name="CtrlInformationStockFaLabel" value="Тип данных" />
+  <sentence name="CtrlInformationCFPricesLabel" value="Тип цены" />
+  <sentence name="CtrlInformationDayAdjLabel" value="Дневно скорректировано" />
+  <sentence name="CtrlInformationSeasAdjLabel" value="Сезонно скорректировано" />
+  <sentence name="CtrlInformationBasePeriodLabel" value="Базовое время" />
+  <sentence name="CtrlInformationUpdateFrequencyLabel" value="Частота обновления" />
+  <sentence name="CtrlInformationNextUpdateLabel" value="Следующее обновление" />
+  <sentence name="CtrlInformationSurveyLabel" value="Обследование" />
+  <sentence name="CtrlInformationLinkLabel" value="Ссылка" />
+  <sentence name="CtrlInformationCreationDateLabel" value="Дата создания" />
+  <sentence name="CtrlInformationCopyrightLabel" value="Авторское право" />
+  <sentence name="CtrlInformationSourceLabel" value="Источник" />
+  <sentence name="CtrlInformationMatrixLabel" value="Матрица" />
+  <sentence name="CtrlInformationDatabaseLabel" value="База данных" />
+  <sentence name="CtrlInformationYesValue" value="Да" />
+  <sentence name="CtrlInformationNoValue" value="Нет" />
+  <sentence name="CtrlInformationFixedPricesValue" value="Фиксированные цены" />
+  <sentence name="CtrlInformationCurrentPricesValue" value="Текущие цены" />
+  <sentence name="CtrlInformationFlowValue" value="Поток" />
+  <sentence name="CtrlInformationAverageValue" value="Среднее" />
+  <sentence name="CtrlInformationStockValue" value="Запас" />
+  <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Выберите переменную:" />
+  <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Задайте порядок значений, переместив названия из одного списка в другой. Если не все значения списка перемещаются, тогда оставшиеся значения будут первыми в таблице." />
+  <sentence name="CtrlChangeValueOrderCancelButton" value="Отменить" />
+  <sentence name="CtrlChangeValueOrderContinueButton" value="Продолжить" />
+  <sentence name="CtrlChangeValueOrderMoveRight" value="Переместиться вправо" />
+  <sentence name="CtrlChangeValueOrderMoveLeft" value="Переместиться влево" />
+  <sentence name="CtrlChangeValueOrderMoveDown" value="Переместиться вниз" />
+  <sentence name="CtrlChangeValueOrderFromOrder" value="За порядком" />
+  <sentence name="CtrlChangeValueOrderToOrder" value="Сортировать" />
+  <sentence name="CtrlPivotContinueButton" value="Продолжить" />
+  <sentence name="CtrlPivotStubLabel" value="Строки" />
+  <sentence name="CtrlPivotHeadingLabel" value="Столбики" />
+  <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Сохранить как файл типу:" />
+  <sentence name="CtrlSaveAsDelimiterListHeadLabel" value="Для файла csv также выберите разделитель:" />
+  <sentence name="CtrlSaveAsPageSetupHeadLabel" value="Для текстового файла также решите:" />
+  <sentence name="CtrlSaveAsLineLengthControl" value="Длина строки:" />
+  <sentence name="CtrlSaveAsPageLengthControl" value="Длина страницы:" />
+  <sentence name="CtrlSaveAsMarginControl" value="Отступление от края" />
+  <sentence name="CtrlSaveAsContinueButton" value="Сохранить" />
+  <sentence name="CtrlSaveAsCancelButton" value="Отменить" />
+  <sentence name="CtrlSaveAsButtonLabel" value="Выбрать опцию и нажать" />
+  <sentence name="CtrlSaveAsSaveTypeDropDown" value="Сохранить как файл" />
+  <sentence name="CtrlSaveAsDelimiterDropDown" value="Выбрать разделитель" />
+  <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Продолжить" />
+  <sentence name="SumInvalidValuename" value="Новое значение переменной должно иметь уникальный текст." />
+  <sentence name="CtrlSumHeading" value="Сумма" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Название новой переменной:" />
+  <sentence name="CtrlSumAllValuesText" value="Просуммировать все значения" />
+  <sentence name="CtrlSumSelectedValuesText" value="Просуммировать выбранные значения" />
+  <sentence name="CtrlSumSelectedVariabelTitle" value="Выбрать значение для суммирования" />
+  <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Выбрать значение для суммирования" />
+  <sentence name="CtrlSumVariableNameRequired" value="Необходимо название нового значения" />
+  <sentence name="CtrlSumDifferentOperandsRequired" value="Операция требует двух разных операндов." />
+  <sentence name="CtrlSumContinueButton" value="Сумма" />
+  <sentence name="CtrlSumKeepValuesText" value="Показать также начальные значения" />
+  <sentence name="CtrlFirstOperandLabel" value="Первое значение:" />
+  <sentence name="CtrlSecondOperandLabel" value="Второе значение:" />
+  <sentence name="CtrlSubtractHeading" value="Вычесть" />
+  <sentence name="CtrlSubtractTotalVariabelNameText" value="Введите текст для конечного значения" />
+  <sentence name="CtrlSubtractSelectedVariabelTitle" value="Выберите переменную, значения которой будут вычитаться" />
+  <sentence name="CtrlSubtractSelectedVariabelValuesTitle" value="Выберите 2 значения в порядке вычитания" />
+  <sentence name="CtrlSubtractContinueButton" value="Вычесть" />
+  <sentence name="CtrlDivideHeading" value="Разделить" />
+  <sentence name="CtrlDivideTotalVariabelNameText" value="Введите текст для конечного значения" />
+  <sentence name="CtrlDivideSelectedVariabelTitle" value="Выберите переменную для деления значений" />
+  <sentence name="CtrlDivideSelectedVariabelValuesTitle" value="Выберите 2 значения в порядке деления" />
+  <sentence name="CtrlDivideErrorSameVariable" value="Невозможно выполнить деление значений одной переменной. Выберите две разные переменные." />
+  <sentence name="CtrlDivideContinueButton" value="Разделить" />
+  <sentence name="CtrlMultiplyHeading" value="Умножить" />
+  <sentence name="CtrlMultiplyTotalVariabelNameText" value="Введите текст для конечного значения" />
+  <sentence name="CtrlMultiplySelectedVariabelTitle" value="Выберите переменную для умножения значений" />
+  <sentence name="CtrlMultiplySelectedVariabelValuesTitle" value="Выбрать 2 значения для умножения" />
+  <sentence name="CtrlMultiplyContinueButton" value="Умножить" />
+  <sentence name="CtrlTableInformationTableLabel" value="Таблица:" />
+  <sentence name="CtrlVariableSelectorInstructionLabel" value="Выделите нужное и выберите между представлением на экране и форматом файла" />
+  <sentence name="CtrlVariableSelectorMarkingTipsLink" value="О выборе значений" />
+  <sentence name="CtrlVariableSelectorEliminationTooltip" value="Выбрать по крайней мере одно значение" />
+  <sentence name="CtrlVariableSelectorSelectValues" value="--- Выбрать классификацию ---" />
+  <sentence name="CtrlVariableSelectorEliminationLabel" value="Для отмеченной переменной {image} нужно выбрать по крайней мере одно значение" />
+  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Выбрать все" />
+  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Отменить все выделения" />
+  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Сортировать в порядке убывания" />
+  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Сортировать в порядке роста" />
+  <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Поиск по иерархии" />
+  <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Поиск значений" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Всего" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Выбран" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Поиск" />
+  <sentence name="CtrlVariableSelectorSearchTooltip" value="Поиск" />
+  <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="На начало текста" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Представление на экране ограничено {0} строками и {1} столбиками" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsCellsLabel" value="Представление на экране ограничено {0} ячейками" />
+  <sentence name="CtrlVariableSelectorSelectionLimitCellsExceeded" value="Количество выбранных ячеек превышает допустимый максимум." />
+  <sentence name="CtrlVariableSelectorSelectionLimitRowsExceeded" value="Количество выбранных строк превышает допустимый максимум." />
+  <sentence name="CtrlVariableSelectorSelectionLimitColsExceeded" value="Количество выбранных столбцов превышает допустимый максимум." />
+  <sentence name="CtrlVariableSelectorSelectedRowsLabel" value="Количество выбранных строк данных" />
+  <sentence name="CtrlVariableSelectorSelectedColumnsLabel" value="Количество выбранных столбцов данных" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Количество выбранных ячеек данных" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(максимально допустимое количество {0})" />
+  <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Для переменной нужно выбрать хотя бы одно значение:" />
+  <sentence name="CtrlVariableSelectorContinueLabel" value="Выберите опцию и нажмите" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Продолжить" />
+  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Есть более 500 значень, поэтому они автоматически не отображаются" />
+  <sentence name="CtrlVariableSelectorShowAll" value="Показать все" />
+  <sentence name="CtrlVariableSelectorShowHierarchy" value="Показать иерархию" />
+  <sentence name="CtrlVariableSelectorSearch" value="Поиск" />
+  <sentence name="CtrlVariableSelectorOutputFormatsOutputScreen" value="Показать таблицу на экране" />
+  <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Поиск" />
+  <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Начало строки" />
+  <sentence name="CtrlVariableSelectorManyValues" value="Значения, если их больше {0} ,  отображаются только через функцию поиска." />
+  <sentence name="CtrlVariableSelectorLargeValueset" value="(Большой набор значений)" />
+  <sentence name="CtrlVariableSelectorActionButton" value="Отослать" />
+  <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Разбить временную переменную" />
+  <sentence name="CtrlSaveQueryCreateHeader" value="Вы можете сохранить избранное для дальнейшего потребления" />
+  <sentence name="CtrlSaveQueryCreateDescription" value="Вы также можете выполнить одно или больше редактирований/расчетов перед сохранением." />
+  <sentence name="CtrlSaveQueryCreateTableCode" value="Код таблицы:" />
+  <sentence name="CtrlSaveQueryCreateDescriptionLabel" value="Описание:" />
+  <sentence name="CtrlSaveQueryCreateHeaderTimeVariable" value="Выбор переменной времени:" />
+  <sentence name="CtrlSaveQueryCreateAlwaysTheSelectedTimePeriod" value="Всегда выбран период(ы) времени" />
+  <sentence name="CtrlSaveQueryCreateOnlyTheLastTimePeriod" value="Только последний период времени" />
+  <sentence name="CtrlSaveQueryCreateMovingTimeInterval" value="Подвижной временной промежуток (только последние периоди)" />
+  <sentence name="CtrlSaveQueryCreateFixedStartPeriodAndMovingLastPeriod" value="Фиксированный начальный период и подвижной последний период" />
+  <sentence name="CtrlSaveQueryCreateHeaderPresentation" value="Выбрать презентацию:" />
+  <sentence name="CtrlSaveQueryCreateTableOnScreen" value="Таблица на экране" />
+  <sentence name="CtrlSaveQueryCreateDownloadInFileFormat" value="Выгрузить в файловом формате:" />
+  <sentence name="CtrlSaveQueryCreateCreateWebQueryForDataimportInExcel" value="Создать веб-запрос для импорта данных в Excel" />
+  <sentence name="CtrlSaveQueryCreateSendEmailWhenTableIsUpdated" value="Отправить e-mail после обновления таблицы" />
+  <sentence name="CtrlSaveQueryCreateSave" value="Сохранить спецификацию таблицы" />
+  <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Редактировать сохраненную спецификацию таблицы" />
+  <sentence name="CtrlSaveQueryListEditHeaderLine1" value="Если вы хотите удалить сохраненную спецификациютаблицы, обозначьте ее галочкой." />
+  <sentence name="CtrlSaveQueryListEditHeaderLine2" value="Если вы хотите изменить название таблицы или ее описание, введите новые тексты." />
+  <sentence name="CtrlSaveQueryListEditRemove" value="Удалить" />
+  <sentence name="CtrlSaveQueryListEditTableCode" value="Код таблицы" />
+  <sentence name="CtrlSaveQueryListEditDescription" value="Описание" />
+  <sentence name="CtrlSaveQueryListEditOutput" value="Результат" />
+  <sentence name="CtrlSaveQueryListEditUpdate" value="Обновление" />
+  <sentence name="CtrlTextSearchButtonText" value="Поиск" />
+  <sentence name="CtrlTextSearchOptionAll" value="Все" />
+  <sentence name="CtrlTextSearchOptionAnd" value="И" />
+  <sentence name="CtrlTextSearchOptionOr" value="Или" />
+  <sentence name="CtrlTextSearchSelect" value="Отметить часть" />
+  <sentence name="CtrlTextSearchDownload" value="Загрузка завершена " />
+  <sentence name="CtrlTextSearchView" value="Посмотреть таблицу" />
+  <sentence name="CtrlTextSearchResultText" value="Результат поиска для" />
+  <sentence name="CtrlTextSearchAttributeModified" value="Изменено:" />
+  <sentence name="CtrlTextSearchAttributePath" value=" " />
+  <sentence name="CtrlTextSearchAttributeSize" value="Размер:" />
+  <sentence name="CtrlTableOfContentSizeHeading" value="Размер:" />
+  <sentence name="CtrlTableOfContentSizeKilobytes" value="Кб" />
+  <sentence name="CtrlTableOfContentModifiedHeading" value="Изменено:" />
+  <sentence name="CtrlTableOfContentUpdatedHeading" value="Оновлено:" />
+  <sentence name="CtrlTableOfContentActionButton" value="Javascript не поддерживается. Кликните, чтобы загрузить все дерево" />
+  <sentence name="CtrlTableOfContentExternalLinkTooltip" value="Информация" />
+  <sentence name="CtrlTableListSizeHeading" value="Размер:" />
+  <sentence name="CtrlTableListModifiedHeading" value="Изменено:" />
+  <sentence name="CtrlTableListUpdatedHeading" value="Оновлено:" />
+  <sentence name="CtrlTableListVariablesAndValuesHeading" value="Переменные:" />
+  <sentence name="CtrlTableListSelectOption_Select" value="Отметить часть:" />
+  <sentence name="CtrlTableListSelectOption_Download" value="Загрузить:" />
+  <sentence name="CtrlTableListSelectOption_Downloadsmallfile" value="Загрузить:" />
+  <sentence name="CtrlTableListSelectOption_View" value="Посмотреть таблицу:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValues" value="Посмотреть таблицу:" />
+  <sentence name="CtrlTableListSelectOption_ViewWithCommandbar" value="Посмотреть таблицу:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValuesWithCommandbar" value="Посмотреть таблицу:" />
+  <sentence name="CtrlCsvFileTypeFileWithHeading" value="csv-файл с заголовком" />
+  <sentence name="CtrlCsvFileTypeFileWithoutHeading" value="csv-файл без заголовка" />
+  <sentence name="CtrlCsvFileTypeFileTabulator" value="Табулятор" />
+  <sentence name="CtrlCsvFileTypeFileComma" value="Запятая" />
+  <sentence name="CtrlCsvFileTypeFileSpace" value="Пропуск" />
+  <sentence name="CtrlCsvFileTypeFileSemicolon" value="Точка с запятой" />
+  <sentence name="CtrlExcelInformationLevelNone" value="Ничего" />
+  <sentence name="CtrlExcelInformationLevelMandatoryFootnotes" value="Только обязательные примечания" />
+  <sentence name="CtrlExcelInformationLevelAllFootnotes" value="Все примечания" />
+  <sentence name="CtrlExcelInformationLevelAll" value="Вся информация" />
+  <sentence name="CtrlExcelDoubleColumn" value="Код и текст в отдельных столбцах" />
+  <sentence name="FileTypePX" value="Файл PC-Axis" />
+  <sentence name="FileTypeExcel" value="Excel (xls)" />
+  <sentence name="FileTypeExcelDoubleColumn" value="Файл Excel (xls) с кодом текстовым столбцом" />
+  <sentence name="FileTypeExcelCompleteInfoFile" value="Файл Excel с экрана (xls)" />
+  <sentence name="FileTypeCsvWithHeadingAndTabulator" value="Разделенный табуляцией с заголовком" />
+  <sentence name="FileTypeCsvWithoutHeadingAndTabulator" value="Разделенный табуляцией без заголовка" />
+  <sentence name="FileTypeCsvWithHeadingAndComma" value="Разделенный запятой с заголовком" />
+  <sentence name="FileTypeCsvWithoutHeadingAndComma" value="Разделенный запятой без заголовка" />
+  <sentence name="FileTypeCsvWithHeadingAndSpace" value="Разделенный пробелом с заголовком" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Разделенный пробелом без заголовка" />
+  <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Разделенный точкой с запятой с заголовком" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Разделенный точкой с запятой без заголовка" />
+  <sentence name="FileTypeText" value="Текстовый файл (txt)" />
+  <sentence name="FileTypeHtml" value="Html файл (htm)" />
+  <sentence name="FileTypeRelational" value="Реляционный файл (txt)" />
+  <sentence name="FileTypeChartPng" value="Диаграмма как PNG (png)" />
+  <sentence name="FileTypeChartGif" value="Диаграмма как Gif (gif)" />
+  <sentence name="FileTypeChartJpeg" value="Диаграмма как JPEG (jpg)" />
+  <sentence name="FileTypeExcelX" value="Excel (xlsx)" />
+  <sentence name="FileTypeExcelXDoubleColumn" value="Excel (xlsx) с кодовым и текстовым столбцом" />
+  <sentence name="CtrlSearchVariableValuesAddButton" value="Добавить" />
+  <sentence name="CtrlSearchVariableValuesSearchHeader" value="Поиск" />
+  <sentence name="CtrlSearchVariableValuesSearchForCode" value="Поиск кода:" />
+  <sentence name="CtrlSearchVariableValuesSearchForValue" value="Поиск текста:" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeBeginning" value="Поиск с начала кода/текста" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Поиск где-нибудь в тексте" />
+  <sentence name="CtrlSearchVariableValuesSearch" value="Поиск" />
+  <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Добавить выбранные результаты" />
+  <sentence name="CtrlSearchValuesHeader" value="Поиск значений для" />
+  <sentence name="CtrlSearchValuesSearchCode" value="Поиск кода:" />
+  <sentence name="CtrlSearchValuesSearchValue" value="Поиск значения:" />
+  <sentence name="CtrlSearchValuesSearchValueOrCode" value="Поиск кода/значения:" />
+  <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Поиск в начале текста" />
+  <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Поиск где-нибудь в тексте" />
+  <sentence name="CtrlSearchValuesShowAllValues" value="Показать все значения" />
+  <sentence name="CtrlSearchValuesSearch" value="Поиск" />
+  <sentence name="CtrlSearchValuesSelectionTips" value="Для того чтобы выбрать все значения из результата поиска нажмите на первое значення, тогда держа клавишу Shift нажмите на последнее значение" />
+  <sentence name="CtrlSearchValuesSearchResultHeader" value="Результат поиска" />
+  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(количество нажатий кнопки: {0})" />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Выбрать все" />
+  <sentence name="CtrlSearchValuesChoosenValues" value="Выделенные значения" />
+  <sentence name="CtrlSearchValuesAddToChoosenValues" value="добавить все выделенные значения" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Убрать из выделенных значений" />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(количество значений: {0})" />
+  <sentence name="CtrlSearchValuesNoValuesFound" value="Не найдено никаких значений" />
+  <sentence name="CtrlSearchValuesNoValuesSelected" value="Не выбрано никаких значений" />
+  <sentence name="CtrlSearchValuesCancel" value="Отменить" />
+  <sentence name="CtrlSearchValuesClear" value="Очистить значение" />
+  <sentence name="CtrlSearchValuesAddToVariableSelector" value="Хорошо" />
+  <sentence name="CtrlSearchValuesSearchLabel" value="Поиск" />
+  <sentence name="CtrlSearchValuesCode" value="Код" />
+  <sentence name="CtrlSearchValuesValue" value="Значение" />
+  <sentence name="CtrlSearchValuesAllValues" value="Показать все значения" />
+  <sentence name="CtrlSearchValuesSearchText" value="Текст:" />
+  <sentence name="CtrlSearchValuesSearchButton" value="Поиск" />
+  <sentence name="CtrlSearchValuesPagerFirstPage" value="Первая страница" />
+  <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Общее количество страниц" />
+  <sentence name="CtrlSearchValuesPagerLastPage" value="Последняя страница" />
+  <sentence name="CtrlSearchValuesPagerForward" value="Вперед" />
+  <sentence name="CtrlSearchValuesPagerBackward" value="Назад" />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Выбрать все возможные значения" />
+  <sentence name="PxcYear" value="год" />
+  <sentence name="PxcHalfyear" value="полугодие" />
+  <sentence name="PxcQuarter" value="квартал" />
+  <sentence name="PxcMonth" value="месяц" />
+  <sentence name="PxcWeek" value="неделя" />
+  <sentence name="PxcMetaTitleBy" value="-" />
+  <sentence name="PxcMetaTitleAnd" value="и" />
+  <sentence name="PxcOpSplitTimeVarYear" value="год" />
+  <sentence name="PxcOpSplitTimeVarQuarter" value="квартал" />
+  <sentence name="PxcOpSplitTimeVarMonth" value="месяц" />
+  <sentence name="PxcOpSplitTimeVarJanuary" value="январь" />
+  <sentence name="PxcOpSplitTimeVarFebruary" value="февраль" />
+  <sentence name="PxcOpSplitTimeVarMarch" value="март" />
+  <sentence name="PxcOpSplitTimeVarApril" value="апрель" />
+  <sentence name="PxcOpSplitTimeVarMay" value="май" />
+  <sentence name="PxcOpSplitTimeVarJune" value="июнь" />
+  <sentence name="PxcOpSplitTimeVarJuly" value="июль" />
+  <sentence name="PxcOpSplitTimeVarAugust" value="август" />
+  <sentence name="PxcOpSplitTimeVarSeptember" value="сентябрь" />
+  <sentence name="PxcOpSplitTimeVarOctober" value="октябрь" />
+  <sentence name="PxcOpSplitTimeVarNovember" value="ноября" />
+  <sentence name="PxcOpSplitTimeVarDecember" value="декабря" />
+  <sentence name="PxcOpSplitTimeVarQuarter1" value="1 квартал" />
+  <sentence name="PxcOpSplitTimeVarQuarter2" value="2 квартал" />
+  <sentence name="PxcOpSplitTimeVarQuarter3" value="3 квартал" />
+  <sentence name="PxcOpSplitTimeVarQuarter4" value="4 квартал" />
+  <sentence name="ERROR_MISSING_TIMEVALUE" value="TIMEVALUE отсутствует" />
+  <sentence name="PxcErrCellNoteValueMissing" value="Значение={0} не является верным" />
+  <sentence name="PxcErrToManyCodes" value="{0} указано для слишком многих кодов" />
+  <sentence name="PxcGroupedValuesMissing" value="{0} отсутствуют сгруппированы значение" />
+  <sentence name="PxcGroupingVariableWithNoValues" value="Группирующая переменная {0} не содержит значений" />
+  <sentence name="PxcSortVariable" value="единица переменной" />
+  <sentence name="PxcContactPhone" value="Телефон" />
+  <sentence name="PxcContactFax" value="Факс" />
+  <sentence name="PxcContactEMail" value="электронная почта (e-mail)" />
+  <sentence name="PxcPercent" value="процент" />
+  <sentence name="PxcPermil" value="промилле" />
+  <sentence name="PxcPercentUnitVarExists" value="Не может вычислить процент, когда единичная переменная уже существует" />
+  <sentence name="PxcPermilUnitVarExists" value="Не может вычислить промилле, когда единичная переменная уже существует" />
+  <sentence name="PxcErr103" value="UNITS ошибка" />
+  <sentence name="PxcErr106" value="STUB ошибка" />
+  <sentence name="PxcErr107" value="HEADING ошибка" />
+  <sentence name="PxcErr108" value="VALUES ошибка" />
+  <sentence name="PxcErr109" value="CODES ошибка" />
+  <sentence name="PxcErr111" value="NOTE или NOTEX для Переменной ошибка" />
+  <sentence name="PxcErr112" value="VALUENOTE или VALUENOTEX ошибка" />
+  <sentence name="PxcErr113" value="CELLNOTE или CELLNOTEX ошибка" />
+  <sentence name="PxcErr115" value="ELIMINATION да/нет ошибки" />
+  <sentence name="PxcErr117" value="PARTITION ошибка" />
+  <sentence name="PxcErr121" value="KEYS ошибка" />
+  <sentence name="PxcErr123" value="PRECISION ошибка" />
+  <sentence name="PxcErr124" value="DOMAIN ошибка" />
+  <sentence name="PxcErr130" value="TITLE или DESCRIPTION отсутствует" />
+  <sentence name="PxcErr131" value="MATRIX отсутствует" />
+  <sentence name="PxcErr132" value="SUBJECT AREA отсутствует" />
+  <sentence name="PxcErr133" value="SUBJECT CODE отсутствует" />
+  <sentence name="PxcErr134" value="STUB и HEADING отсутствуют" />
+  <sentence name="PxcErr135" value="UNITS отсутствует" />
+  <sentence name="PxcErr136" value="CONTENTS отсутствует" />
+  <sentence name="PxcErr137" value="DECIMALS отсутствует" />
+  <sentence name="PxcErr138" value="SHOWDECIMALS ошибка" />
+  <sentence name="PxcErr142" value="COPYRIGHT ложное" />
+  <sentence name="PxcErr143" value="DAYADJ ложное" />
+  <sentence name="PxcErr144" value="SEASADJ ложное" />
+  <sentence name="PxcErr146" value="CONTACT ложное" />
+  <sentence name="PxcErr147" value="REFPERIOD ложное" />
+  <sentence name="PxcErr149" value="LAST-UPDATED ложное" />
+  <sentence name="PxcErr151" value="STOCKFA ложное" />
+  <sentence name="PxcErr152" value="CFPRICES ложное" />
+  <sentence name="PxcErr153" value="TIMEVAL ложное" />
+  <sentence name="PxcErr154" value="BASEPERIOD ложное" />
+  <sentence name="PxcErr160" value="Найдено ключевое слово зависящее от CONTVARIABLE, но contents variable нет" />
+  <sentence name="PxcErr161" value="Ошибка CONTVARIABLE или зависимого ключевого слова" />
+  <sentence name="PxcErr162" value="PRESTEXT ошибка" />
+  <sentence name="PxcErr164" value="MAP ошибка" />
+  <sentence name="PxcErr166" value="AGGREGALLOWED ошибка" />
+  <sentence name="PxcErr167" value="AUTOPEN ошибка" />
+  <sentence name="PxcErr168" value="DOUBLECOLUMN ошибка" />
+  <sentence name="PxcErr169" value="DESCRIPTIONDEFAULT ошибка" />
+  <sentence name="PxcErr176" value="DATANOTE ошибка" />
+  <sentence name="PxcErr180" value="DATA отсутствует" />
+  <sentence name="PxcErr201" value="HIERARCHYLEVELSOPEN ошибка" />
+  <sentence name="PxcErr202" value="HIERARCHYLEVELS ошибка" />
+  <sentence name="PxcErr203" value="HIERARCHYNAMES ошибка" />
+  <sentence name="PxcErr204" value="HIERARCHIES ошибка" />
+  <sentence name="PxcErr205" value="OFFICIAL-STATISTICS ошибка" />
+  <sentence name="PxcErr300" value="VALUE-TEXT-OPTION ошибка" />
+  <sentence name="PxcKeywordError" value="{0} ошибка" />
+  <sentence name="PxcKeywordLastUpdated" value="Последнее обновление" />
+  <sentence name="PxcKeywordSource" value="Источник" />
+  <sentence name="PxcKeywordContact" value="Контактная информация" />
+  <sentence name="PxcKeywordCopyright" value="Авторское право" />
+  <sentence name="PxcKeywordUnits" value="Единицы измерения/учета" />
+  <sentence name="PxcKeywordStockfa" value="Тип данных" />
+  <sentence name="PxcKeywordStockfaValueStock" value="Запас" />
+  <sentence name="PxcKeywordStockfaValueFlow" value="Поток" />
+  <sentence name="PxcKeywordStockfaValueAverage" value="Среднее" />
+  <sentence name="PxcKeywordRefPeriod" value="Временная характеристика" />
+  <sentence name="PxcKeywordBasePeriod" value="Базисный период" />
+  <sentence name="PxcKeywordCFPricesValueCurrent" value="Поточные цены" />
+  <sentence name="PxcKeywordCFPricesValueFixed" value="Фиксированные цены" />
+  <sentence name="PxcKeywordDayAdj" value="Дневно скорректировано" />
+  <sentence name="PxcKeywordSeasAdj" value="Сезонно скорректировано" />
+  <sentence name="PxcKeywordDatabase" value="База данных" />
+  <sentence name="PxcKeywordMatrix" value="Внутренний код обращения" />
+  <sentence name="PXWebSearchLink" value="Поиск" />
+  <sentence name="PXWebGenXMLLink" value="Общее меню xml" />
+  <sentence name="PageViewFootnoteDialogTitle" value="Примечания" />
+  <sentence name="PageViewDataSortDescription" value="Кликните на заголовке столбца для сортировки таблицы.Чтобы сортировать одновременно несколько столбцов, удерживайте клавишу shift и кликайте на втором, третьем или даже четвертом заголовке столбца" />
+  <sentence name="PageViewDataSortCopyInstructions" value="Чтобы скопировать таблицу:  В меню Правка используйте Выделить все, а потом Скопировать, или же нажмите Ctrl+A (лат), а потом Ctrl + C (лат)" />
+  <sentence name="CancelButton" value="Отменить" />
+  <sentence name="PxWebApplicationTitle" value="PxWeb" />
+  <sentence name="PxWebApplicationName" value=" " />
+  <sentence name="PxWebHome" value="  Базы данных" />
+  <sentence name="PxWebMenu" value="Содержание" />
+  <sentence name="PxWebSelection" value="Выбор" />
+  <sentence name="PxWebInformation" value="Информация" />
+  <sentence name="PxWebDetailedInformation" value="Обяснения" />
+  <sentence name="PxWebFootnotes" value="Примечания" />
+  <sentence name="PxWebMarkingTips" value="Подсказки" />
+  <sentence name="PxWebMarkingTipsHeader" value="О выборе значений в окне списка" />
+  <sentence name="PxWebMarkingTipsText" value="Хотя бы одно значение в списке должно быть выделено, чтобы получить результат по каждой переменной. &#xD;&#xA;Если вы хотите выбрать только одно или несколько значений, выделите только их. Чтобы снять отметку, нажмите CTRL и щелкните мышкой на отмеченном значении. &#xD;&#xA;Чтобы выбрать все строки в списке значений: &#xD;&#xA;- Выделите первую строку. Затем нажмите клавиши SHIFT и END одновременно. Чтобы выделить / снять отметку строк в перечне значений: &#xD;&#xA;- Нажмите CTRL и одновременно щелкните левой кнопкой мыши на выбранной строке. &#xD;&#xA;Чтобы выбрать более одной строки из перечня значений: &#xD;&#xA;- Выберите строки одну за другой, нажимая левую кнопку мыши на нужных строках. Или выделите первую строку перечня и, удерживая кнопку SHIFT, нажмите на клавиатуре на стрелки ВНИЗ или ВВЕРХ. &#xD;&#xA;- Для того чтобы выбрать строки, которые не идут друг за другом, щелкните CTRL и одновременно щелкните левой кнопкой мыши на нужные строки. &#xD;&#xA;Чтобы найти определенное значение в списке: &#xD;&#xA;- Выделите первую строку. Тогда наберите на клавиатуре нужную первую букву. Если не находите нужную строку, попробуйте набрать снова, до тех пор пока не найдете нужное значение. &#xD;&#xA;Или пользуйтесь стрелками вверх и вниз, или кнопкой мыши для прокрутки и просмотра." />
+  <sentence name="PxWebPresentation" value="Представление" />
+  <sentence name="PxWebTable" value="Таблица" />
+  <sentence name="PxWebChart" value="Диаграмма" />
+  <sentence name="PxWebChartUserSettingsTitle" value="Название:" />
+  <sentence name="PxWebChartUserSettingsHeight" value="Висота:" />
+  <sentence name="PxWebChartUserSettingsWidth" value="Ширина:" />
+  <sentence name="PxWebChartUserSettingsLineThickness" value="Толщина линии:" />
+  <sentence name="PxWebChartUserSettingsSortTime" value="Сортировка по времени" />
+  <sentence name="PxWebChartUserSettingsSortTimeAscending" value="Рост" />
+  <sentence name="PxWebChartUserSettingsSortTimeDescending" value="Падение" />
+  <sentence name="PxWebChartUserSettingsSortTimeNone" value="пусто" />
+  <sentence name="PxWebChartUserSettingsLabelOrientation" value="Направление надписи" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationHorizontal" value="Горизонтальный" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationVertical" value="Вертикальный" />
+  <sentence name="PxWebChartUserSettingsGuidelines" value="Линии сетки:" />
+  <sentence name="PxWebChartUserSettingsGuidelinesHorizontal" value="Горизонтальный" />
+  <sentence name="PxWebChartUserSettingsGuidelinesVertical" value="Вертикальный" />
+  <sentence name="PxWebChartUserSettingsLegend" value="Легенда:" />
+  <sentence name="PxWebChartUserSettingsLegendShow" value="Показывать" />
+  <sentence name="PxWebChartUserSettingsLegendHeight" value="Высота (% от диаграммы)" />
+  <sentence name="PxWebChartUserSettingsApply" value="Применить" />
+  <sentence name="PxWebChartUserSettingsShow" value="Настройки диаграммы" />
+  <sentence name="PxWebChartUserSettingsHide" value="Скрыть настройки" />
+  <sentence name="PxWebChartPieChartTitle" value="Невозможно отобразить круговую диаграмму" />
+  <sentence name="PxWebChartPyramidChartTitle" value="Невозможно показать пирамиду населения" />
+  <sentence name="PxWebChartPyramidChartInformation" value="Для пирамиды населения, для одной из переменных можна выбрать неограниченное количество значений. Для другой переменной - только два значения, а для остальных переменных - только одно значение. Например, для переменной &quot;Возраст&quot;  - все значения, а для переменной &quot;Пол&quot; - два значения. Для того чтобы удалить значения используйте операцию &quot;Удалить значения&quot; в меню &quot;Редактирование и расчет&quot;. " />
+  <sentence name="PxWebChartTooManyValues" value="Выбрано слишком много значений" />
+  <sentence name="PxWebChartTooManyValuesInformation" value="Вы выбрали слишком много значений. Максимальное количество ячеек в данных {0}. Пользуйтесь операциями удаления переменных или удаления значений в меню &quot;Редактирование и расчет&quot;" />
+  <sentence name="PxWebChartUserSettingsLargeValue" value="Максимальное значение {0}" />
+  <sentence name="PxWebChartLeftScale" value="(левая шкала)" />
+  <sentence name="PxWebChartRightScale" value="(правая шкала)" />
+  <sentence name="PxWebChartPercent" value="%" />
+  <sentence name="PxWebDataSort" value="Сортировать данные" />
+  <sentence name="PxWebSelectDb" value="Выбрать базу данных:" />
+  <sentence name="PxWebTableCropped" value="Примечание: Таблица обрезана. На экране в таблице можна показать {0} строк и {1} столбцов" />
+  <sentence name="PxWebPopupDialogOk" value="ок" />
+  <sentence name="PxWebAdminLogout" value="Выход" />
+  <sentence name="PxWebAdminHeading" value="PxWeb администрирование" />
+  <sentence name="PxWebAdminVersion" value="PxWeb версия 2019 v1" />
+  <sentence name="PxWebAdminHomePage" value="Домашняя страница PxWeb" />
+  <sentence name="PxWebAdminSaveButton" value="Сохранить" />
+  <sentence name="PxWebAdminGenerateButton" value="Сгенерировать" />
+  <sentence name="PxWebAdminMenuHome" value=" Главная страница" />
+  <sentence name="PxWebAdminMenuSettings" value="Настройки" />
+  <sentence name="PxWebAdminMenuSettingsGeneral" value="Общее" />
+  <sentence name="PxWebAdminMenuSettingsGeneralSite" value="Сайт" />
+  <sentence name="PxWebAdminMenuSettingsGeneralLanguage" value="Язык" />
+  <sentence name="PxWebAdminMenuSettingsGeneralPaths" value="Пути" />
+  <sentence name="PxWebAdminMenuSettingsGeneralFileFormats" value="Формат файлов" />
+  <sentence name="PxWebAdminMenuSettingsGeneralModules" value="Модули" />
+  <sentence name="PxWebAdminMenuSettingsGeneralGlobal" value="Глобальные настройки" />
+  <sentence name="PxWebAdminMenuSettingsGeneralDatabases" value="Базы данных" />
+  <sentence name="PxWebAdminMenuSettingsGeneralAdministration" value="Администрирование" />
+  <sentence name="PxWebAdminMenuSettingsMenu" value="Меню" />
+  <sentence name="PxWebAdminMenuSettingsSelection" value="Выбор" />
+  <sentence name="PxWebAdminMenuSettingsPresentation" value="Представление" />
+  <sentence name="PxWebAdminMenuSettingsPresentationGeneral" value="Общее" />
+  <sentence name="PxWebAdminMenuSettingsPresentationTable" value="Таблица" />
+  <sentence name="PxWebAdminMenuSettingsPresentationCommandBar" value="Командная строка" />
+  <sentence name="PxWebAdminMenuTools" value="Инструменты" />
+  <sentence name="PxWebAdminMenuToolsGenerateDb" value="Сгенерировать базу данных" />
+  <sentence name="PxWebAdminMenuToolsLanguageManager" value="Менеджер языка" />
+  <sentence name="PxWebAdminMenuToolsReset" value="Перегрузить" />
+  <sentence name="PxWebAdminMenuToolsChangePassword" value="Изменить пароль " />
+  <sentence name="PxWebAdminMenuFeatures" value="Особенности" />
+  <sentence name="PxWebAdminMenuFeaturesGeneral" value="Общее" />
+  <sentence name="PxWebAdminMenuFeaturesCharts" value="Диаграммы" />
+  <sentence name="PxWebAdminMenuFeaturesChartsGeneral" value="Общее" />
+  <sentence name="PxWebPxLogin" value="Вход в PxWeb" />
+  <sentence name="PxWebLogin" value="Вход в систему" />
+  <sentence name="PxWebUsername" value="Имя пользователя" />
+  <sentence name="PxWebPassword" value="Пароль" />
+  <sentence name="PxWebWrongLogin" value="Неверное имя пользователя или пароль" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Базы данных" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Избранные PX базы данных будут показаны в PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="Базы данных CNMM (Common Nordic Meta Model)" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Избранные базы данных CNMM будут показаны в PxWeb" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePath" value="Путь к языку" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePathInfo" value="Путь к каталогу, содержащий файлы языка" />
+  <sentence name="PxWebAdminSettingsPathsImagePath" value="Путь к изображению" />
+  <sentence name="PxWebAdminSettingsPathsImagePathInfo" value="Путь к каталогу, содержащий изображение" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePath" value="Путь базы данных PX" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePathInfo" value="Путь к каталогу, содержащий базы данных PX" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPath" value="Путь агрегации" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPathInfo" value="Путь к каталогу, содержащий файлы агрегации" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Ограничения на количество загружаемых ячеек" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Максимальное количество загружаемых ячеек в результирующей таблице" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevel" value="Уровень информации" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelInfo" value="Контролирует, какая информация появляется в файле Excel" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelNone" value="Ничего" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelMandantoryFootnotesOnly" value="Только обязательные примечания" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllFootnotes" value="Все примечания" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllInformation" value="Вся информация" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumn" value="Двойной столбик" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumnInfo" value="Всегда ли код должен отображаться в отдельном столбце" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOption" value="Опция секретности" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionInfo" value="Должны ли значения данных быть затемнинимы при отображении" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionNone" value="Ничего" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionSimple" value="Обычное" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRule" value="Правило округления" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleBankersRounding" value="Банковское округление" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleRoundUp" value="Округление к большему" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleInfo" value="Тип правила округления ('Банковское округление' или'Округлення к большему')" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1" value="Symbol1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1Info" value="Текст для Symbol1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2" value="Symbol2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2Info" value="Текст для Symbol2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3" value="Symbol3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3Info" value="Текст для Symbol3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4" value="Symbol4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4Info" value="Текст для Symbol4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5" value="Symbol5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5Info" value="Текст для Symbol5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6" value="Symbol6" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6Info" value="Текст для Symbol6" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNil" value="Нулевой символ данных (нуль)" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNilInfo" value="Текст для обозначения нуля" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSum" value="Обозначение Суммирование данных" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSumInfo" value="Текст для обозначения Суммирование данных" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescription" value="Показать описание источника" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescriptionInfo" value="Показывать описание источника или нет" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevel" value="Информационный уровень таблицы" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelInfo" value="Контролирует, какая информация отображается в таблице" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelNone" value="Ничего" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelMandantoryFootnotesOnly" value="Только обязательные примечания" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllFootnotes" value="Все примечания" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllInformation" value="Вся информация" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCase" value="Верхний регистр" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCaseInfo" value="Правило для создания первого символа в значение имени на верхнем регистре" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacement" value="Размещение примечаний Datanote" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementInfo" value="Определяет размещение примечаний к данным. Datanotes могут быть размещены перед или после значений" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementBeforeValue" value="Перед значением" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementAfterValue" value="После значение" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContent" value="Удалить единичную переменную" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContentInfo" value="Удалить содержательную переменную, если она содержит только одно значение" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheck" value="Строгая соответственность агрегациям" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheckInfo" value="Возможность задать или отменить строгое соответствие агрегацие. Если выбрано Да, тогда в файле агрегации (.agg) должно присутствовать ключевое слово 'valueset' с именем соответствующего vs-множества, если выбрано  НЕТ - ключевое слово не обязательно." />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypes" value="Показать тип информации" />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypesInfo" value="Какой тип информации будет отображаться в таблице" />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilter" value="Использовать IP фильтр" />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilterInfo" value="Должен использоваться IP фильтр когда происходит вход на страницу администрирования" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddresses" value="IP адрес" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddressesInfo" value="Перечень ІР адрессов с правами доступа к страницам администрирования. Эти настройки работают только, если включен параметр &quot;Использовать ІР фильтр&quot;" />
+  <sentence name="PxWebAdminSettingsAdministrationAddNewIPAddress" value="Добавить новый IP адрес" />
+  <sentence name="PxWebAdminSettingsAdministrationInvalidIPAddress" value="Недействительный IP адрес" />
+  <sentence name="PxWebAdminSettingsMenuMenuMode" value="Режим меню" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeInfo" value="Контроль отображения меню" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeList" value="Список" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithoutFiles" value="Дерево без файлов" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithFiles" value="Дерево с файлами" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewAndFiles" value="Просмотр дерева и файлов" />
+  <sentence name="PxWebAdminSettingsMenuShowRoot" value="Показывать корневой каталог" />
+  <sentence name="PxWebAdminSettingsMenuShowRootInfo" value="Показывать или нет корневой узел?" />
+  <sentence name="PxWebAdminSettingsMenuExpandAll" value="Раскрыть все" />
+  <sentence name="PxWebAdminSettingsMenuExpandAllInfo" value="Раскрыть или свернуть дерево?" />
+  <sentence name="PxWebAdminSettingsMenuSortByAlias" value="Сортировать по псевдониму alias" />
+  <sentence name="PxWebAdminSettingsMenuSortByAliasInfo" value="Сортировать узлы за их псевдонимами alias или нет?" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLink" value="Показать выбор ссылки" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLinkInfo" value="Отображать ссылку на страницу, где пользователь может выбирать переменные, или нет?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLink" value="Показать ссылки на загрузку" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkInfo" value="Показывать или нет ссылку на выгрузку таблицы, как файла?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysHide" value="Всегда скрывать " />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysShow" value="Всегда показывать" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkShowIfSmallFile" value="Показывать, если маленький файл" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkMode" value="Режим просмотра ссылки" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeInfo" value="Режим для просмотра ссылки.  Может иметь одно из трех значений: 'Значения по умолчанию'=Значения по умолчанию отображаются в таблице, когда пользователь нажимает на ссылку. 'Все значения'=показываются в пределах таблицы, когда пользователь нажимает на ссылку.  'Скрито'=Ссилка не показывается." />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeDefaultValues" value="Значенння по умолчанию" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeAllValues" value="Все значения" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeHidden" value="Скрытые" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultView" value="Количество значений по умолчанию" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultViewInfo" value="&amp;&amp;&amp;&amp;&amp;&amp;Максимальна кількість значень, які вибираються, коли Режим перегляду = 'Значення за замовчуванням'. Maximum number of values that are selected when Viewlink mode = 'Default values'.Значення вибрані заздалегідь скоріше, ніж дозволяють вибирати змінні та значення  самому користувачеві Values are preselected rather than allowing the users to select variables and values by themselves." />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDate" value="Показать измененную дату" />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDateInfo" value="Показывать измененную дату или нет" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdated" value="Показать последнее обновление" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdatedInfo" value="Показывать информацию о том, когда таблица была обновлена последний раз или нет" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSize" value="Показать размер файла" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSizeInfo" value="Информация о размере файла должна отображаться или нет" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValues" value="Показать переменные и значения" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValuesInfo" value="Информация о переменных и значение будет показана в рамках таблицы или нет" />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreen" value="Ограничение на количество ячеек на экране" />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreenInfo" value="Максимальное число ячеек, которое может быть показано на экране" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMark" value="Показать обязательный знак" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMarkInfo" value="Обязательны переменные должны быть отмеченными или нет" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregations" value="Разрешить агрегации" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregationsInfo" value="Возможны ли агрегации переменных или нет" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchies" value="Показать иерархию" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchiesInfo" value="Показывать ли иерархию" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpen" value="Открыть иерархические уровни" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpenInfo" value="Определяет как должно быть развернуто (количество уровней дерева) иерархическое дерево по умолчанию" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTips" value="Показать подсказки" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTipsInfo" value="Показывать подсказки или нет" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURL" value="URL подсказки" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURLInfo" value="URL к веб-страницы с подсказками" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearch" value="Наибольшее количество строк без поиска" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearchInfo" value="Максимальное количество значений переменной в поисковом поле. Если переменная имеет больше значений, пользователь должен использовать функцию поиска для выбора значений." />
+  <sentence name="PxWebAdminSettingsSelectionListSize" value="Размер списка" />
+  <sentence name="PxWebAdminSettingsSelectionListSizeInfo" value="Количество строк окна выбора значений переменной" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimits" value="Показать границы выбора" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimitsInfo" value="Показывать ли в окне выбора информацию за пределами заданных ограничений" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormats" value="Форматы вывода" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormatsInfo" value="Возможные форматы вывода при выборе переменной" />
+  <sentence name="PxWebAdminSettingsSelectionPresentationViews" value="Графики и карты" />
+  <sentence name="PxWebAdminSettingsSelectionFileFormats" value="Форматы файла:" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirst" value="Необходимо выбрать набор значений" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirstInfo" value="Если переменная имеет наборы значень, то пользователь должен выбрать набор значений до того как значения могут быть видибрани, когда этот параметр приобретает истинного значения" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButton" value="Показать все доступные значения" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButtonInfo" value="Кнопка &quot;Показать все доступные значения&quot; в окне поиска. Внимание! Выбор этого параметра может привести к открытию больших веб-страниц, громоздких для загрузки" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Режим поиска" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeManyValues" value="Много значений" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeAlways" value="Всегда" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeInfo" value="Контролирует отображение вкладки поиска значений" />
+  <sentence name="PxWebAdminSettingsValidationMandatorySetting" value="Обязательное поле" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentPath" value="Путь отсутствует" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentImage" value="Изображение не существует" />
+  <sentence name="PxWebAdminSettingsValidationIntegerValue" value="Значение должно быть целым числом" />
+  <sentence name="PxWebAdminSettingsValidationTooLargeIntegerValue" value="Не может быть большим, чем 2147483647" />
+  <sentence name="PxWebAdminSettingsValidationGreaterThanZero" value="Значение должно быть больше 0 " />
+  <sentence name="PxWebAdminSettingsValidationIllegalCharacter" value="Содержит недопустимые символы" />
+  <sentence name="PxWebAdminSettingsValidationBiggerThanMaxSetting" value="Не может превышать максимально установленный ({0})" />
+  <sentence name="PxWebAdminSettingsValidationMaximumValue" value="Максимальное значение {0}" />
+  <sentence name="PxWebAdminSettingsValidationIllegalColorCode" value="Недопустимый код цвета (ожидаемый формат #AAAAAA)" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperations" value="Операции" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="При операции" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformats" value="Форматы" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformatsInfo" value="О форматах файлов" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton" value="Кнопка" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButtonInfo" value="О кнопке" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcut" value="Клавиши" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcutInfo" value="О клавишах" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViews" value="Графики и карты" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewsInfo" value="Избранные графики и карты будут доступны пользователю PxWeb" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeText" value="Режим просмотра" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeDropDown" value="Выпадающее меню" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeImageButtons" value="Кнопка" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeHidden" value="Скрыть" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderSetting" value="Операции" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderDropDown" value="Выпадающее меню" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton2" value="Кнопка" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationShortcut" value="Клавиши для операции" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationView" value="Графики и карты" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewShortcut" value="Клавиши для операции" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderCommandbarShortcut" value="Комбинация клавиш командной строки" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormat" value="Форматы" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatDropDown" value="Выпадающее меню" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatShortcut" value="Клавиши" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotes" value="Обязательные примечания" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotesInfo" value="Обязательно ли примечания освещать сразу при отображении таблицы" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Преобразование таблицы" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="Преобразовывать ли таблицу автоматически прежде чем показать пользователю" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformNoTransformation" value="Никаких преобразований" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirst" value="Единичные значения первыми" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirstAndHeaderOnlyOneMultiple" value="Только одна многозначительная переменная в заголовке" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayout" value="Форма таблицы по умолчанию" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutInfo" value="Форма таблици, которая будет использоваться по умолчанию при отображении таблицы" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout1" value="Форма таблицы 1" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout2" value="Форма таблицы 2" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRows" value="Максимальное количество строк" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRowsInfo" value="&amp;&amp;&amp;&amp;&amp;&amp;Максимальное количество строк которые будут показаны в пределах таблицы на экране. Если главная таблица будет иметь больше строк чем определено етой настройкой, то таблицу на экране будет обрезано" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumns" value="Максимальное количество столбцов" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumnsInfo" value="&amp;&amp;&amp;&amp;&amp;&amp;Максимальное количество столбцов которые будут показаны в пределах таблицы на экране. Если главная таблица будет иметь больше столбцов чем определено етой настройкой, то таблицу на экране будет обрезано" />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisible" value="Показывать название" />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisibleInfo" value="Показывать название таблицы вместе с таблицей, или нет" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Сгенерировать базу данных PX" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Сгенерировать базу данных CNMM" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Выбрать одну из баз данных для генерирования описательного файла баз данных" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Выбрать одну из баз данных для генерирования описательного файла баз данных" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Зависимость от языка" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependentInfo" value="Показывает только файлы для выбранного языка" />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguage" value="--- Язык ---" />
+  <sentence name="PxWebAdminToolsLanguageManagerInfo" value="Выберите язык для редактирования. Обозначение = ключевое обозначение, которое идентифицирует предложение в системе, Текст по умолчанию =  текст, который будет использоваться, если перевод не выполнен, Текст на избранном языке = перевод на избранном языке." />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguageError" value="Вы должны выбрать язык" />
+  <sentence name="PxWebAdminToolsLanguageManagerKey" value="Обозначение" />
+  <sentence name="PxWebAdminToolsLanguageManagerFallback" value="Текст по умолчанию" />
+  <sentence name="PxWebAdminToolsLanguageManagerLanguage" value="Текст на выбранном языке" />
+  <sentence name="PxWebAdminToolsResetAll" value="Перезапуск всего" />
+  <sentence name="PxWebAdminToolsResetAllInfo" value="Перезапуск всех статических списков PxWeb" />
+  <sentence name="PxWebAdminToolsResetLanguage" value="Перезапуск языка" />
+  <sentence name="PxWebAdminToolsResetLanguageInfo" value="Перегрузить список языков" />
+  <sentence name="PxWebAdminToolsResetAggregation" value="Перегрузить агрегации" />
+  <sentence name="PxWebAdminToolsResetAggregationInfo" value="Загруженный список агрегаций" />
+  <sentence name="PxWebAdminToolsResetDatabases" value="Перегрузить базы данных" />
+  <sentence name="PxWebAdminToolsResetDatabasesInfo" value="Перезагрузить кэшированную структуру px-баз данных" />
+  <sentence name="PxWebAdminToolsChangePasswordOld" value="Старый пароль" />
+  <sentence name="PxWebAdminToolsChangePasswordNew" value="Новый пароль" />
+  <sentence name="PxWebAdminToolsChangePasswordVerify" value="Подтвердить пароль" />
+  <sentence name="PxWebAdminToolsChangePasswordChange" value="Поменять!" />
+  <sentence name="PxWebAdminToolsChangePasswordWrongPassword" value="Неверный пароль " />
+  <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Подтвердить неправильность" />
+  <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Пароль изменен" />
+  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Особенность" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Избранные особенности будут доступны в средствах администрирования и в PxWeb" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralChartSettings" value="Настройки диаграмм" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralUserSettings" value="Значение по умолчанию для настроек пользователей" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontName" value="Название шрифта" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontNameInfo" value="Шрифт используемый в диаграмме" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitle" value="Размер шрифта названия" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitleInfo" value="Размер шрифта названия диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxis" value="Размер шрифта оси" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxisInfo" value="Размер шрифта оси диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeight" value="Высота" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeightInfo" value="Значение по умолчанию для настроек высоты диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxHeight" value="Максимальная высота" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxHeightInfo" value="Высота не может превышать это значение" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralWidth" value="Ширина" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralWidthInfo" value="Значение по умолчанию для настроек ширины диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxWidth" value="Максимальная ширина" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxWidthInfo" value="Ширина не может превышать это значение" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThickness" value="Толщина линии" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessInfo" value="Значение по умолчанию для настроек толщины линии диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxLineThickness" value="Максимальная толщина линии" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxLineThicknessInfo" value="Толщина линии не может превышать это значение" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientation" value="Направление надписей" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationHorizontal" value="Горизонтальное" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationVertical" value="Вертикальное" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationInfo" value="Значение по умолчанию для настроек направлении надписей" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrder" value="Порядок сортировки по времени" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderAscending" value="Рост" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderDescending" value="Падение" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderNone" value="пусто" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderInfo" value="Значение по умолчанию для настроек сортировки по времени" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLegend" value="Показывать легенуду" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLegendInfo" value="Значение по умолчанию для параметра настроек 'Показывать легенду'" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendHeight" value="Высота легенды" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendHeightInfo" value="Значение по умолчанию для настроек высоты легенды" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendFontSize" value="Размер шрифта легенды" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendFontSizeInfo" value="Размер шрифта легенды диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesColor" value="Цвет линий сетки" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesColorInfo" value="Цвет линий сетки в диаграмме" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesHorizontal" value="Горизонтальные линии сетки" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesHorizontalInfo" value="Значение по умолчанию для настроек горизонтальных линий сетки" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesVertical" value="Вертикальные линии сетки" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesVerticalInfo" value="Значение по умолчанию для настроек вертикальных линий сетки" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxValues" value="Максимальное количество ячеек" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxValuesInfo" value="Максимальное количество ячеек, которое может быть выбрано при создании диаграммы. Если число выбраных ячеек будет больше этого значения, тогда диаграмма не будет построена. Цель этой настройки -  избежать построения очень большой диаграммы, что потребует значительной мощности от веб-сервера " />
+  <sentence name="PxWebAdminFeaturesChartsGeneralColors" value="Цвет" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralColorsInfo" value="Цвет диаграммы" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralAddColor" value="Добавить цвет" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralDeleteColor" value="Удалить" />
+  <sentence name="PxWebChartsSourceLabel" value="Источник:" />
+  <sentence name="PxWebChartsSource" value="Статистика" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationName" value="Название приложения" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Название инсталляции PxWeb" />
+  <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Путь к эмблеме" />
+  <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Название графического файла" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Язык по умолчанию" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Язык по умолчанию PxWeb-сайта" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Язык" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguagesInfo" value="Выбрать язык, который должен быть доступен для сайта PxWeb." />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparator" value="Десятичный разделитель" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorInfo" value="Символ используемый как десятичный разделитель" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorPoint" value="Точка" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorComma" value="Запятая" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparator" value="Разделитель тысяч" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorInfo" value="Символ используемый как разделитель тысяч" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorNone" value="пусто" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorSpace" value="Пропуск" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorPoint" value="Точка" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorComma" value="Запятая" />
+  <sentence name="PxWebAdminSettingsLanguageDateFormat" value="Формат даты" />
+  <sentence name="PxWebAdminSettingsLanguageDateFormatInfo" value="Формат используемый для дат" />
+  <sentence name="PxWebAdminYes" value="Да" />
+  <sentence name="PxWebAdminNo" value="Нет" />
+  <sentence name="PxWebAdminConfirmSaveSettings" value="Сохранить настройки" />
+  <sentence name="PxWebAdminConfirmGenerateDb" value="Сгенерировать новую базу данных" />
+  <sentence name="PxWebAdminSettingsImplementedInComingVersions" value="Эта функция будет реализована в ближайшей версии PxWeb" />
+</language>

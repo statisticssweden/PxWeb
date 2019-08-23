@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="PCAxis.Web.Core.AssemblyResourceProvider" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAABAAAAAABAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>AssemblyResourceProvider.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.AssemblyResourceVirtualFile" Collapsed="true">
+    <Position X="12" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyResourceProvider.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.ControlBase(Of TControl, TMarker)" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAIAAAAoBAAAABACgAQAAQAAAQIQAAAAAMAACCIk=</HashCode>
+      <FileName>ControlBase.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PCAxis.Web.Core.FileTypeControlBase(Of TControl, TMarker)" Collapsed="true">
+    <Position X="0.75" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAgAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileTypeControlBase.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.FileTypeMarkerControlBase(Of TControl, TMarker)" Collapsed="true">
+    <Position X="3.5" Y="5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAACAAAAAgQAAQgAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileTypeMarkerControlBase.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PCAxis.Web.Core.MarkerControlBase(Of TControl, TMarker)" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgAACEAEIAhBQAAgAAAAAAAAACAAQAAAQASAAAAAE=</HashCode>
+      <FileName>MarkerControlBase.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PCAxis.Web.Core.PaxiomControlBase(Of TControl, TMarker)" Collapsed="true">
+    <Position X="4.5" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AIAAABAAAAARAAAAAAAAAAAAAAAUAgAAAAAAAAAAAEA=</HashCode>
+      <FileName>PaxiomControlBase.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Attributes.PropertyPersistStateAttribute" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Attributes\PropertyPersistStateAttribute.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Configuration.ConfigurationHelper" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAgAAARAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\ConfigurationHelper.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Configuration.Sections.GeneralSettingsSection" Collapsed="true">
+    <Position X="8.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Sections\GeneralSettingsSection.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Configuration.Sections.StateProviderSection" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAADAAAAAAAAAACIAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Sections\StateProviderSection.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Configuration.Sections.StateProviderElementCollection" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAIAAAAAAAAAAEAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Sections\StateProviderSection.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Configuration.Sections.StateProviderElement" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAACAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Configuration\Sections\StateProviderSection.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Exceptions.AscxLoadException" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\AscxLoadException.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Management.LinkManager" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Management\LinkManager.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Management.LocalizationManager" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAACgAAAAAAAABAAAAEAABAAAAAAABAAAAAIA=</HashCode>
+      <FileName>Management\LocalizationManager.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.Management.PaxiomManager" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAUAgAAAAAAAQAAAAA=</HashCode>
+      <FileName>Management\PaxiomManager.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.My.MySettings" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.StateProvider.StateProviderFactory" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAFABAQAAUAAABwQAAAgAEAAJAAACAABAAAAAAAQABA=</HashCode>
+      <FileName>StateProvider\StateProviderFactory.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.StateProvider.StateProviderModule" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAABAAAAAAAAAAABEAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>StateProvider\StateProviderModule.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PCAxis.Web.Core.StateProvider.StaterProviderBase" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgACAAAAAAAAAAAERFIQEAAAAAAgIAAAAAAAQQAA=</HashCode>
+      <FileName>StateProvider\StaterProviderBase.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Web.Core.StateProvider.StateProviders.SessionStateProvider" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEREIAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>StateProvider\StateProviders\SessionStateProvider.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="PCAxis.Web.Core.IFileTypeControl" Collapsed="true">
+    <Position X="8.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgQAAQgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IFileTypeControl.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PCAxis.Web.Core.ILanguageControl" Collapsed="true">
+    <Position X="10.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>ILanguageControl.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PCAxis.Web.Core.IMarkerControl" Collapsed="true">
+    <Position X="12" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMarkerControl.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="PCAxis.Web.Core.Enums.PersistStateType" Collapsed="true">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAgAAQ=</HashCode>
+      <FileName>Enums\PersistStateType.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PCAxis.Web.Core.Enums.StateProviderUnloadReason" Collapsed="true">
+    <Position X="10.25" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAQAAAAAAAAA=</HashCode>
+      <FileName>Enums\StateProviderUnloadReason.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Module Name="PCAxis.Web.Core.My.Resources.Resources" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="PCAxis.Web.Core.My.MySettingsProperty" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CommandBarPluginSchema" targetNamespace="http://www.pc-axis.scb.se/CommandBarPluginSchema.xsd"
+xmlns="http://www.pc-axis.scb.se/CommandBarPluginSchema.xsd" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="commandBar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="plugins" type="plugins" maxOccurs="1" minOccurs="1" />
+<!--        
+		  <xs:element name="imageGroups" type="imageGroups" maxOccurs="1" minOccurs ="1" />
+        <xs:element name="shortcuts" type="shortcuts" maxOccurs="1" minOccurs ="1" />
+-->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:complexType name="plugins">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="plugin" type="plugin" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="plugin">
+    <xs:sequence>
+       <xs:element minOccurs="0" maxOccurs="unbounded" name="properties" type="property" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="constraints" type="constraint" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="type" type="xs:string" use="required" />
+    <xs:attribute name="hasUI" type="xs:boolean" use="required" />
+    <xs:attribute name="category" type="xs:string" use="optional" />
+    <xs:attribute name="nameCode" type="xs:string" use="required"  />
+  	 <xs:attribute name="Image" type="xs:string" use="required"  />
+    <xs:attribute name="ShortcutImage" type="xs:string" use="required"  />
+    <xs:attribute name="SortOrder" type="xs:integer" use="required"  />
+    <!--<xs:attribute name="visible" type="xs:boolean" use="required" />-->
+  </xs:complexType>
+
+	 
+  <xs:simpleType name="category">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="operation" />
+      <xs:enumeration value="view" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="property">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="property">
+        <xs:complexType>
+          <xs:attribute name="key" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <!--<xs:complexType name="category">
+          <xs:attribute name="key" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>-->
+
+  <xs:complexType name="constraint">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="constraint">
+        <xs:complexType>
+          <xs:attribute name="property" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+          <!--<xs:attribute name="constraintType" type="xs:string" use="required" />-->
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+<!--	 
+  <xs:complexType name="imageGroups">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="imageGroup" type="imageGroup" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="imageGroup">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="plugins" type="pluginGroup" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="constraints" type="constraint" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"  />
+    <xs:attribute name="src" type="xs:anyURI" use="required"  />
+    <xs:attribute name="titleCode" type="xs:string" use="required"  />
+    <xs:attribute name="altCode" type="xs:string" use="required"  />
+	<xs:attribute name="filetype" type="xs:string" use="optional"  />	  
+  </xs:complexType>
+
+  <xs:complexType name="pluginGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="pluginRef" type="pluginRef" />
+    </xs:sequence>
+   </xs:complexType>
+
+  <xs:complexType name="pluginRef">
+    <xs:attribute name="ref" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="shortcuts">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="shortcut" type="shortcut" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="shortcut">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="constraints" type="constraint" />
+    </xs:sequence>
+    <xs:attribute name="ref" type="xs:string" use="required"  />
+    <xs:attribute name="placement" type="placement" use="required"  />
+    <xs:attribute name="titleCode" type="xs:string" use="required"  />
+    <xs:attribute name="altCode" type="xs:string" use="required"  />
+    <xs:attribute name="src" type="xs:anyURI" use="required"  />
+	<xs:attribute name="filetype" type="xs:string" use="optional"  />
+  </xs:complexType>
+
+  <xs:simpleType name="placement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="function" />
+      <xs:enumeration value="saveAs" />
+      <xs:enumeration value="link" />
+      <xs:enumeration value="commandBar" />
+    </xs:restriction>
+  </xs:simpleType>
+-->    
+</xs:schema>

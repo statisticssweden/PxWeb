@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LanguageSchema" targetNamespace="http://www.pc-axis.scb.se/" elementFormDefault="qualified" xmlns="http://www.pc-axis.scb.se/" xmlns:mstns="http://www.pc-axis.scb.se/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">  
+  <xs:element name="language">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sentence" type="sentence" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="sentence">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+</xs:schema>

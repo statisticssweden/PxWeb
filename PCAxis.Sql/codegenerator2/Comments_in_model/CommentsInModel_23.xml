@@ -1,0 +1,1897 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommentsInModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\kode\assembla12\PCAxis.Sql\codegenerator\Comments_in_model\CommentsInModel.xsd">
+	<Tables>
+		<Table name="Attribute">
+			<Description>The table contains information on the attribute on the observation values.
+
+See further information in the separate document: Attributes in the Nordic SQL Data Model.</Description>
+			<Columns>  
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the main table to which the attribute is linked.</Description>
+				</Column>
+				<Column colname="Attribute" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the attribute</Description>
+				</Column>
+				<Column colname="AttributeColumn" primarykey="False" datatype="varchar" length="41" mandatory="True">
+					<Description>Name of the column. The length is set to accommodate future use of prefixes</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="25" mandatory="False" hasSL="True">
+					<Description>Presentation text used by the retrieval interface.</Description>
+				</Column>
+				<Column colname="SequenceNo" primarykey="False" datatype="smallint" length="" mandatory="True">
+					<Description>The attributes place in the data table column or the place within the column. The first attribute for a given main table has the value 1.</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="False" hasSL="True">
+					<Description>Description of the attribute.</Description>
+				</Column>
+				<Column colname="ValueSet" primarykey="False" datatype="varchar" length="30" mandatory="False">
+					<Description>Name of the value set to which the values are linked.
+See further description in table ValueSet.
+
+Can be null – for example if the attribute contains a comment.</Description>
+				</Column>
+				<Column colname="ColumnLength" primarykey="False" datatype="smallint" length="" mandatory="True">
+					<Description>Number of stored characters in the data column.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="ColumnCode">
+			<Description>The table is a list and description of all the acceptable codes for the metadata fields in the metadata database.</Description>
+			<Columns>
+				<Column colname="MetaTable" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of metadata table.</Description>
+				</Column>
+				<Column colname="ColumnName" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of column.</Description>
+				</Column>
+				<Column colname="Code" primarykey="True" datatype="varchar" length="10" mandatory="True">
+					<Description>Acceptable code alternative.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="80" mandatory="True" hasSL="True">
+					<Description>Descriptive presentation text for code alternatives.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		
+		<Table name="Contents">
+			<Description>The table contains information on the content of the data table(s).The content column's name is the same as the name of the corresponding data columns in the data table.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the main table to which the content columns are linked. See further description in the table MainTable.</Description>
+				</Column>
+				<Column colname="Contents" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the data columns in the data table. 
+ 
+A main table's content columns must have unique names within that main table but the same column name can occur in other main tables. 
+ 
+The name should be descriptive, max 20 characters, beginning with a capital letter and should only contain letters (a-z) or numbers. The name can also be broken down using the standard "PascalCase",  i.e. CapitalsAndLowerCase.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="250" mandatory="True"  hasSL="True">
+					<Description>Presentation text used by the retrieval interface when selecting table data and which, after retrieval of a data table, forms the beginning of the table heading. 
+
+The presentation text should be unique within a main table. 
+
+The text should contain information on unit (if not obvious), base time, fixed/ current prices, calendar adjustment and seasonal adjustment. 
+
+The text should begin with a capital letter, should not contain the % symbol and should not be finished with a full-stop.</Description>
+				</Column>
+				<Column colname="PresTextS" primarykey="False" datatype="varchar" length="80" mandatory="False"  hasSL="True">
+					<Description>Short presentation text for content column. Used in retrieval interface, e.g. when selecting table data, or as the column name when table is presented, if the main table has several contents. 
+
+The text should begin with a capital letter, should not contain the % symbol and should not end with a full-stop. 
+
+If there is no text, the field should be NULL.</Description>
+				</Column>
+				<Column colname="PresCode" primarykey="False" datatype="varchar" length="8" mandatory="True">
+					<Description>Presentation code.</Description>
+				</Column>
+				<Column colname="Copyright" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code for copyright ownership.
+
+All content columns within a main table must belong to the same category, i.e. the same code should be in all the fields.</Description>
+				</Column>
+				<Column colname="StatAuthority" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the authority responsible for the statistics (statistical authority). 
+
+All content columns in a main table must belong to the same statistical authority. 
+
+Data is taken from the column OrganizationCode in the table Organization. For a more detailed description, see that table.</Description>
+				</Column>
+				<Column colname="Producer" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>All content columns in a main table must have the same producer. 
+
+Data is taken from the column OrganizationCode in the table Organization. For a more detailed description, see that table.</Description>
+				</Column>
+				<Column colname="LastUpdated" primarykey="False" datatype="smalldatetime" length="0" mandatory="False">
+					<Description>The date of the most recent update (incl. exact time) of the main table's data tables on the production server. The date remains unchanged when copying over to the external servers. The field is updated automatically by the programs used for loading and updating of data. 
+ 
+If there is no text, the field should be NULL.</Description>
+				</Column>
+				<Column colname="Published" primarykey="False" datatype="smalldatetime" length="0" mandatory="False">
+					<Description>The most recent date for the official release of data, i.e. the date and exact time for the transfer of the main table's data tables to the external servers. The field is updated automatically by the program used for the transfer. 
+ 
+If there is no text, the field should be NULL.</Description>
+				</Column>
+				<Column colname="Unit" primarykey="False" datatype="varchar" length="60" mandatory="True"  hasSL="True">
+					<Description>Unit, e.g. number, currency, index. The given unit should apply to both the storage and the presentation. Details on unit (if not obvious) should also be written in text to the column PresText in the table Contents. 
+
+The unit can also be stored in the content column in the data table. This column is always called Unit and can contain different units for different values. In this case, %DataTable is written in the field unit in the table Contents.</Description>
+				</Column>
+				<Column colname="PresDecimals" primarykey="False" datatype="smallint" length="0" mandatory="True">
+					<Description>The number of decimals that are to be presented in the table presentation when retrievals are made.</Description>
+				</Column>
+				<Column colname="PresCellsZero" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>The data table, in principle, only stores cells with values that are not zero. Cells containing zero are only stored if another content column in the same data table has a value other than zero (0) in the corresponding cell. In this field, it should be stated how data cells that are not stored, i.e. cells for which data is missing in all content columns, should be presented. 
+
+Alternatives: 
+
+Y = Yes. The cells are assumed to contain zero. Presented as zero (0). 
+N = No. Data cannot be given. 
+
+If PresCellsZero is 'N', the field PresMissingLine should be used to indicate how these cells should be presented. See description of PresMissingLine in Contents. See also the description of the table SpecialCharacter.</Description>
+				</Column>
+				<Column colname="PresMissingLine" primarykey="False" datatype="varchar" length="2" mandatory="False">
+					<Description>The field is used by the retrieval programs for presenting cells that should not be presented as zero, i.e. when PresCellsZero in Contents is 'N'. The field can either be NULL or contain the identity for a special character. The identity must in that case exist in the column CharacterType in the table SpecialCharacter, and the character must exist in the column PresCharacter in this table. If PresMissingLine is NULL, DefaultCodeMissingLine in MetaAdm is used. 
+
+See also descriptions of: the column PresCellsZero in the table Contents,  the columns CharacterType and PresCharacter in the table SpecialCharacter and the table MetaAdm.</Description>
+				</Column>
+				<Column colname="AggregPossible" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows if the content can be aggregated or not. Applies to all distributed variables for the content column. There are the following alternatives: 
+ 
+Y = Yes 
+N = No 
+ 
+If AggregPossible = N, the possibility to both aggregate and group the data in the retrieval interface is eliminated.</Description>
+				</Column>
+				<Column colname="RefPeriod" primarykey="False" datatype="varchar" length="80" mandatory="False" hasSL="True">
+					<Description>RefPeriod relates to the time of measurement for the material. Written as text, i.e."31 December of previous year". Data is obligatory for stock material, i.e. when the field StockFA in Contents is "S". 
+
+If the reference time is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="StockFA" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether the statistical material is of the type stock, flow or average. There are the following alternatives: 
+ 
+F = Flow. Measurement time refers to a specific period. The result describes events that occurred successively during the measurement period. 
+A = Average. The result is made up of an average value of observation values at different measurement times. 
+S = Stock. The measurement time refers to a specific point in time. 
+X = Other</Description>
+				</Column>
+				<Column colname="BasePeriod" primarykey="False" datatype="varchar" length="20" mandatory="False"  hasSL="True">
+					<Description>The base period when calculating an index or fixed prices, for example. In cases where data are not relevant, the field should be NULL.</Description>
+				</Column>
+				<Column colname="CFPrices" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Current/fixed prices. Alternatives: 
+F = Fixed prices. 
+C = Current prices. 
+ 
+In cases where data are not relevant, the field should be NULL.</Description>
+				</Column>
+				<Column colname="DayAdj" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether the statistical material is calendar adjusted or not during the measurement period. There are the following alternatives: 
+ 
+Y = Yes 
+N = No</Description>
+				</Column>
+				<Column colname="SeasAdj" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether the statistical material is seasonally adjusted or not, i.e. adjusted for different periodical variations during the measurement period that may have affected the result. There are the following alternatives: 
+ 
+Y = Yes 
+N = No</Description>
+				</Column>
+				<Column colname="FootnoteContents" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether there is a footnote attached to the content column (FootnoteType = 2). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+ 
+The field is automatically updated when a footnote is attached or taken away from the content column.</Description>
+				</Column>
+				<Column colname="FootnoteVariable" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether there is a footnote attached to a specific variable in the content column (FootnoteType = 3). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+ 
+The field is automatically updated when a footnote is attached or taken away from a variable in the content column.</Description>
+				</Column>
+				<Column colname="FootnoteValue" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether there is a footnote attached to a specific value in the content column (footnote type = 4).
+
+There are the following alternatives: 
+
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+
+The field is automatically updated when a footnote is attached or taken away from a value in the content column.</Description>
+				</Column>
+				<Column colname="FootnoteTime" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows if there is a footnote attached to a specific point in time in the content column (FootnoteType = 4). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+ 
+The field is automatically updated when a footnote is attached or taken away from a point in time in the content column.</Description>
+				</Column>
+				<Column colname="StoreColumnNo" primarykey="False" datatype="smallint" length="0" mandatory="True">
+					<Description>Here the content column's (data columns) order of storage amongst themselves in the data table is shown.</Description>
+				</Column>
+				<Column colname="StoreFormat" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Specifies  the storage format for data cells for the content column. There are the following alternatives: 
+C = Varchar. Can only be used to store unit information in the data tables. There must exist a column with name unit and the filed Contents.Unit should be set to ‘%Datatable’ 
+I = Integer. For numbers of size 2 147 483 647 to - 2 147 483 648. 
+N = Numeric. For larger numbers and always when the material is stored with decimals. 
+S = Smallint. For numbers of size 32 767 to - 32 768. 
+
+Also see the description of column StoreNoChar.</Description>
+				</Column>
+				<Column colname="StoreNoChar" primarykey="False" datatype="smallint" length="0" mandatory="True">
+					<Description>Number of stored characters in the data column. Number of characters should be: 
+ 
+2, if StoreFormat = S, 
+4, if StoreFormat = I, 
+2-17 (decimals included, decimal point excluded), if StoreFormat = N 
+1-30 characters, if StoreFormat = C. 
+ 
+Also see the description of column StoreFormat in the table Contents.</Description>
+				</Column>
+				<Column colname="StoreDecimals" primarykey="False" datatype="smallint" length="0" mandatory="True">
+					<Description>Number of stored decimals (0-15). 
+ 
+Data should be included in StoreNoChar if StoreFormat = N.</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="ContentsTime">
+			<Description>The table links points in time for which data is stored, to a content column.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>The name of the main table that the point in time in the content column is linked to. See further description in the table MainTable.</Description>
+				</Column>
+				<Column colname="Contents" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>The name of the content column that the point in time is linked to. 
+See description in the table Contents.</Description>
+				</Column>
+				<Column colname="TimePeriod" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for point in time, i.e. 2003, 2003Q1, 2003M01. 
+
+Rules for how codes should be constructed are available in the column StoreFormat in the table TimeScale.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="DataStorage">
+			<Description>The table contains information on which database the data tables for the statistical product are stored in. </Description>
+			<Columns>
+				<Column colname="ProductCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Unique identifier for at product group.</Description>
+				</Column>
+				<Column colname="ServerName" primarykey="False" datatype="varchar" length="8" mandatory="True">
+					<Description>Name of the server where the database is situated.</Description>
+				</Column>
+				<Column colname="DatabaseName" primarykey="False" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of the database where the product's data tables are stored.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="Footnote">
+			<Description>The table contains footnote texts and information on footnotes.</Description>
+			<Columns>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Serial number given automatically by the system. The most recently used footnote number is stored in the table MetaAdm. 
+ 
+See further in the description of the table MetaAdm.</Description>
+				</Column>
+				<Column colname="FootnoteType" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code for the type of footnote. There are the following alternatives: 
+ 
+1 = footnote on subject area 
+2 = footnote on content column 
+3 = footnote on variable + content column 
+4 = footnote on value/time + content column 
+5 = footnote on variable 
+6 = footnote on value 
+7 = footnote on main table 
+8 = footnote on sub-table 
+9 = footnote on value + main table 
+A = footnote on statistical area (level 2) 
+B = footnote on product (level 3) 
+C = footnote on table group (level 4) 
+Q = footnote on grouping</Description>
+				</Column>
+				<Column colname="ShowFootnote" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Contains information on when the footnote should be shown in the outdata program, i.e. when content is selected for a table, when the table is presented or both. 
+There are the following alternatives: 
+
+B = show both at selection and presentation 
+P = show at presentation
+S = shown upon selection</Description>
+				</Column>
+				<Column colname="MandOpt" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code for whether the footnote is classified as "optional" or "mandatory". 
+Alternatives: 
+
+O = optional 
+M = mandatory</Description>
+				</Column>
+				<Column colname="FootnoteText" primarykey="False" datatype="text" length="0" mandatory="True" hasSL="True">
+					<Description>Text in the footnote. Written as consecutive text, starting with a capital letter. 
+
+NB! Double quotation marks should not be used as this causes problems in PC-AXIS.</Description>
+				</Column>
+				<Column colname="PresCharacter" primarykey="False" datatype="varchar" length="20" mandatory="False">
+					<Description>Special character or special characters to be associated with the footnote</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteContTime">
+			<Description>The table links footnotes to a point in time for a specific content column.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="Contents" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+				</Column>
+				<Column colname="TimePeriod" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Point in time that the footnote relates to. 
+ 
+See descriptions in table TimeScale and ContentsTime.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="Cellnote" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>State whether the footnote is a cell footnote. A cell footnote is defined as a footnote that exists for at least two of the content column's variables, e.g. Region and Time or Region and Sex. 
+Alternatives: 
+Y = Yes, the footnote is a cell footnote 
+N = No </Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteContValue">
+			<Description>The table links footnotes to a value for a specific content column.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="Contents" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+				</Column>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+				</Column>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of value pool. 
+ 
+See further in the description of the table ValuePool.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the value that the footnote relates to. 
+ 
+See further in the description of the table Value.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="Cellnote" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>State whether the footnote is a cell footnote. A cell footnote is defined as a footnote that exists for at least two of the content column's variables, e.g. Region and Time or Region and Sex. 
+Alternatives: 
+Y = Yes, the footnote is a cell footnote 
+N = No </Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteContVbl">
+			<Description>The table links footnotes to a variable for a specific content column.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="Contents" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+				</Column>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteContents">
+			<Description>The table links footnotes to a content column.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="Contents" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteGrouping">
+			<Description>The table links footnotes to a grouping.</Description>
+			<Columns>
+				<Column colname="Grouping" primarykey="False" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of groupong 
+See further in the description of the table Gruoping.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="False" datatype="numeric" length="" mandatory="True">
+					<Description>Number of the footnote.
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteMainTable">
+			<Description>The table links footnotes to a main table.
+
+N.B this table can only be used as long as all contents of the main table has the same connections in the ContentsTime table. Footnotes that are linked in this way should have type = 9. This is the same type that is used for notes with FootnoteMaintValue. By using that type the footnote can be specified so that it is valid for the intersection of more than one column thereby assigning the footnote to a subset of the data.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteMaintTime">
+			<Description>Footnote for points in time or timeperiods for a main table.
+
+N.B this table can only be used as long as all contents of the main table has the same connections in the ContentsTime table. Footnotes that are linked in this way should have type = 9. This is the same type that is used for notes with FootnoteMaintValue. By using that type the footnote can be specified so that it is valid for the intersection of more than one column thereby assigning the footnote to a subset of the data.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table</Description>
+				</Column>
+				<Column colname="TimePeriod" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Timeperiod</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="" mandatory="True">
+					<Description>Footnote number</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteMaintValue">
+			<Description>The table links footnotes to a value for a specific content column.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+				</Column>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of value pool. 
+ 
+See further in the description of the table ValuePool.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the value that the footnote relates to. 
+ 
+See further in the description of the table Value.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteMenuSel">
+			<Description>The table links footnotes to all levels above the MainTable.</Description>
+			<Columns>
+				<Column colname="Menu" primarykey="True" datatype="varchar" length="80" mandatory="True">
+					<Description>Code for relevant menu level. 
+ 
+See further in the description of the table MenuSelection.</Description>
+				</Column>
+				<Column colname="Selection" primarykey="True" datatype="varchar" length="80" mandatory="True">
+					<Description>Code for the nearest underlying eligible alternative in the relevant menu level.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteSubTable">
+			<Description>The table links footnotes to a main table.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="SubTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of sub-table 
+ 
+See further in the description of the table SubTable.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteValue">
+			<Description>The table links footnotes to a value.</Description>
+			<Columns>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of value pool. 
+ 
+See further in the description of the table ValuePool.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the value that the footnote relates to. 
+ 
+See further in the description of the table Value.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteValueSetValue">
+			<Description>The table links footnotes to a valueset.</Description>
+			<Columns>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of value pool.
+
+See further in the description of the table ValuePool.</Description>
+				</Column>
+				<Column colname="ValueSet" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of value set.
+
+See further in the description of the table ValueSet.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the value that the footnote relates to.
+
+See further in the description of the table Value.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="" mandatory="True">
+					<Description>Number of the footnote.
+
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="FootnoteVariable">
+			<Description>The table links footnotes to a variable.</Description>
+			<Columns>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the variable that the footnote relates to. 
+ 
+See further in the description of the table Variable.</Description>
+				</Column>
+				<Column colname="FootnoteNo" primarykey="True" datatype="numeric" length="6" mandatory="True">
+					<Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="Grouping">
+			<Description>The table describes the groupings which exist in the database. It is used for the grouping of values for presentation purposes.</Description>
+			<Columns>
+				<Column colname="Grouping" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of grouping. 
+ 
+The name should consist of the name of the value pool that the grouping is linked to + a suffix. The suffix should always be used, even if there is only one grouping for a value pool. The suffix can be distinguished by a short text beginning with a capital letter, or a single capital letter or number. 
+ 
+The name is written beginning with a capital letter.</Description>
+				</Column>
+				<Column colname="ValuePool" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the value pool that the grouping belongs to. 
+ 
+See further in the description of the table Organization.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="100" mandatory="True" hasSL="True">
+					<Description>Presentation text for grouping. 
+
+Used in the retrieval interface when selecting a grouping under "Classification". The text should also be able to be used in PC-AXIS as a replacement for the usual variable text, when retrieving grouped material, in the stub or heading and in the title when presenting a table. 
+
+The text should be short and descriptive and begin with a capital letter.</Description>
+				</Column>
+				<Column colname="Hierarchy" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows if the grouping is hierarchic or not. Can be: 
+
+N = No 
+B = Balanced 
+U = Unbalanced 
+
+For non-hierarchic groupings Hierarchy should always be N. 
+In a balanced hierarchy all branches are the same length, i.e. with the same number of levels. In an unbalanced hierarchy the number of levels and the length of the levels can vary within the hierarchy. </Description>
+				</Column>
+				<Column colname="SortCode" primarykey="False" datatype="varchar" length="20" mandatory="False"  hasSL="True">
+					<Description>Sorting code to enable the presentation of the groupings within a value pool in a logical order. 
+
+If there is no sorting code, the field should be NULL. </Description>
+				</Column>
+				<Column colname="GroupPres" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code which indicates how a grouping should be presented, as an aggregated value, integral value or both. There are the following alternatives: 
+
+A = aggregated value should be shown 
+I = integral value should be shown 
+B = both aggregated and integral values should be shown .</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="False">
+					<Description>Description of grouping. Should give an idea of how the grouping has been put together. 
+ 
+Written beginning with a capital letter. 
+If a description is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="GroupingLevel">
+			<Description>The table describes the levels within a grouping. 
+
+The table has to exist for both hierarchical and non-hierarchical groupings, but does not have to be used for the non-hierarchical. </Description>
+			<Columns>
+				<Column colname="Grouping" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of grouping.
+
+See further in the description of the table Grouping.</Description>
+				</Column>
+				<Column colname="LevelNo" primarykey="True" datatype="numeric" length="" mandatory="True">
+					<Description>Number for sorting a level within a grouping. The highest level should always be 1.</Description>
+				</Column>
+				<Column colname="LevelText" primarykey="False" datatype="varchar" length="250" mandatory="False" hasSL="True">
+					<Description>The name of the level.</Description>
+				</Column>
+				<Column colname="GeoAreaNo" primarykey="False" datatype="numeric" length="2" mandatory="False">
+					<Description>Should contain the identification of a map that is suitable for the variable and the grouping. The field must be filled in if the column VariableType in the table SubTableVariable = G, otherwise the field is NULL. 
+ 
+The identification number should also be included in the table TextCatalog. For further information see description of TextCatalog.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="Link">
+			<Description>The table contains one or several links to menu levels in the table MenuSelection. </Description>
+			<Columns>
+				<Column colname="LinkId" primarykey="True" datatype="int" length="0" mandatory="True">
+					<Description>Identifying code for the link.</Description>
+				</Column>
+				<Column colname="Link" primarykey="False" datatype="varchar" length="250" mandatory="True"  hasSL="True">
+					<Description>Link written in HTML.</Description>
+				</Column>
+				<Column colname="LinkType" primarykey="False" datatype="varchar" length="10" mandatory="False">
+					<Description>Describes the type of link. There are the following alternatives: 
+ 
+TableF = table ahead in the same database 
+TableB = previous table in the same database 
+TableRel = related table in the same database 
+TableProc = table for percentage calculation 
+Dok = documentation (internal or external) 
+TableRelEx = related table in other countries 
+Website = related web site 
+Temasite = theme web site 
+Analys = analysis 
+ 
+For the four first above mentioned alternatives the column LinkFormat should be M. In other cases LinkFormat should be U.</Description>
+				</Column>
+				<Column colname="LinkFormat" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Indicates whether the link is an Internet address outside databases (a URL) or a link to a master table in the database. The options are:
+
+U = URL
+M = maintable</Description>
+				</Column>
+				<Column colname="LinkText" primarykey="False" datatype="varchar" length="250" mandatory="True"  hasSL="True">
+					<Description>Presentation text for the link, i.e. the text that is visible for the user in the Internet interface.</Description>
+				</Column>
+				<Column colname="PresCategory" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Presentation category for the link. There are three alternatives: 
+
+O = Public, i.e. link accessible for all users 
+I = Internal, i.e. table is only accessible for internal users. 
+P = Private, i.e. table is only accessible for certain internal users. 
+
+The code is always written with capital letters.</Description>
+				</Column>
+				<Column colname="LinkPres" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Shows how the link should be presented in the Internet interface. There are three alternatives: 
+
+D = Presented directly 
+I = Presented under an icon or similar 
+B = Presented both directly and under an icon</Description>
+				</Column>
+				<Column colname="SortCode" primarykey="False" datatype="varchar" length="20" mandatory="False"  hasSL="True">
+					<Description>Sorting code for the link. Makes it possible to dictate the order in which the links are presented for users in the Internet interface. 
+If there is no sorting code, the field should be NULL.</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="False" hasSL="True">
+					<Description>Description of link. 
+If a description is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="LinkMenuSelection">
+			<Description>The table connects links (table Link) to menu selection (table MenuSelection).</Description>
+			<Columns>
+				<Column colname="Menu" primarykey="True" datatype="varchar" length="80" mandatory="True">
+					<Description>Code for relevant menu level. 
+ 
+See description of the table MenuSelection.</Description>
+				</Column>
+				<Column colname="Selection" primarykey="True" datatype="varchar" length="80" mandatory="True">
+					<Description>The code for the nearest underlying eligible alternative in the relevant menu level.</Description>
+				</Column>
+				<Column colname="LinkId" primarykey="True" datatype="int" length="0" mandatory="True">
+					<Description>Identifying code for the link.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="MainTable">
+			<Description>This table is the central compilation point for material and contains general information for the data tables that are linked to the table.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Summarised names of the statistical material and its underlying sub-tables with stored data. 
+ 
+The name should be descriptive, max 20 characters, beginning with a capital letter and contain only letters (a-z) or numbers. The name can also be broken down using the standard "PascalCase",  i.e. CapitalsAndLowerCase.</Description>
+				</Column>
+				<Column colname="TableStatus" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code for the table's status, giving information on where the table fits into the production and publishing processes. Table status decides whether a table can be seen or not in the indata and outdata programs. 
+
+There are the following alternatives: 
+M = Only metadata input 
+E = The table is new and empty data tables have been created 
+U = The table is currently being updated and retrievals cannot be done 
+N = The table is loaded with new, but not yet officially released data, only accessible for product staff 
+O = The table is ready for official release, only accessible for product staff, locked for updating 
+D = The table is not updated but is accessible to everybody
+A = The table is still updating and the table is accessible to all (with authorisation according to PresCategory)</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="250" mandatory="True"  hasSL="True">
+					<Description>The descriptive text which is presented when selecting a table in the retrieval interface. 
+
+The text should be unique and contain information on all dividing variables, including time scale (at the end). Information on unit, base time, fixed/current prices, calendar-adjusted or seasonally adjusted should normally NOT be included, as this is given in the presentation text for Contents. There can however be exceptions, i.e. for main tables that contain the same information except that the calculations are based on different base times. 
+
+The text should begin with a capital letter, should not end with a full stop, and should not include the % symbol. It should not finish with a number that relates to something other than the point of time.</Description>
+				</Column>
+				<Column colname="PresTextS" primarykey="False" datatype="varchar" length="150" mandatory="False" hasSL="True">
+					<Description>Presentation text in short. Only needs to be filled in if the main table has several content columns. The text comes from the main table's PresText but should not contain information on variable or time. 
+ 
+Used in the retrieval interface as an introduction to the table heading, where several contents are chosen. Also used as content information in a PC-AXIS file, in some cases several contents are chosen at the same time and put into the same file. 
+ 
+Should begin with a capital letter and not end with a full-stop. The text should not include a % symbol. 
+ 
+If a short presentation text is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="ContentsVariable" primarykey="False" datatype="varchar" length="80" mandatory="False" hasSL="True">
+					<Description>Can be used for main tables with several contents to specify a collective name for the content columns. The content variable is used as the general name ("type") which is in the TextCatalog. Used in the retrieval interface in the heading when table is presented, "...by industry, time and [content variable]" 
+
+If the field is not used, it should be NULL. </Description>
+				</Column>
+				<Column colname="TableId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Unique identity for main table. Can be used in requests from the end users, etc. </Description>
+				</Column>
+				<Column colname="PresCategory" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Presentation category for all sub-tables and content columns in the table. There are three alternatives: 
+
+O = Official, i.e. tables that are officially released and accessible to all users on the external servers or are available on the production server, with plans for official release. (Only tables with PresCategory = O are on the external servers) 
+I = Internal, i.e. tables are only accessible for internal users.The table should never be published to the general public.
+P = Private, i.e. tables are only accessible for certain internal users.
+The code is also written with capital letters.</Description>
+				</Column>
+				<Column colname="FirstPublished" primarykey="False" datatype="smalldatetime" length="" mandatory="False">
+					<Description>States when a main table was first published. The value is optional.</Description>
+				</Column>
+				<Column colname="SpecCharExists" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Specifies if a column for special symbols exists in the data table (s) and if it should be used at retrieval. 
+There are the following alternatives: 
+
+Y = Yes, column for special symbols exists in the database, wich should be used at retrieval 
+E = Yes, column for special symbols exists in the database, but is not used at retrieval 
+N = No, column for special symbols does not exist in the database 
+
+If SpecCharExists =Y, there is an extra content column for all content columns in the data table. These special columns have the same names as the content column they belong to, with the suffix X. The format is varchar(2), i.e. the same as CharacterType in the table SpecialCharacter. </Description>
+				</Column>
+				<Column colname="SubjectCode" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for subject area, i.e. BE</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="ProductCode" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Id for the product that corresponds to the table. The field is optional.</Description>
+				</Column>
+				<Column colname="TimeScale" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Name on the time scale that is used in the material. See further description of the table TimeScale.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		
+		<Table name="MainTablePerson">
+			<Description>The table links the person responsible, i.e. the contact person and person responsible for updating, to the main tables. An unlimited number of persons can be linked to a main table.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="PersonCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the person responsible, contact person or person responsible for updating for the main table. 
+ 
+For description, see the table Person.</Description>
+				</Column>
+				<Column colname="RolePerson" primarykey="True" datatype="char" length="1" mandatory="True">
+					<Description>Code that shows the role of responsible person, contact person and/or person responsible for updating. There are the following alternatives: 
+
+M = Main contact person (one person) 
+C = Contact person (0 – several persons) 
+U = Person responsible for updating (1 – several persons) 
+I = Person responsible for international reporting (0 - 1 person).
+V = Person that verifies not yet published data  (0 – several persons) </Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="MainTableVariableHierarchy">
+			<Description>The table links a grouping to a main table. </Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+				</Column>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+				</Column>
+				<Column colname="Grouping" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of grouping. 
+ 
+See further in the description of the table Grouping.</Description>
+				</Column>
+				<Column colname="ShowLevels" primarykey="False" datatype="numeric" length="2" mandatory="False">
+					<Description>The number of open levels that will be shown at menu selection the first time the tree is displayed. Must be 0 if all levels shall be shown.</Description>
+				</Column>
+				<Column colname="AllLevelsStored" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows if all levels shall be stored or not. Can be: 
+ 
+Y = Yes 
+N = No</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="MenuSelection">
+			<Description>The table is used to enable the presentation of any number of eligible levels above the table MainTable. The table acts as the entry point to the databases. 
+All records in MenuSelection should also be in the corresponding MenuSelections for secondary languages (if any).</Description>
+			<Columns>
+				<Column colname="Menu" primarykey="True" datatype="varchar" length="80" mandatory="True">
+					<Description>Code for relevant menu level. If LevelNo = 1, Menu should be filled with START. Code for subject areas may not exceed 20 characters. </Description>
+				</Column>
+				<Column colname="Selection" primarykey="True" datatype="varchar" length="80" mandatory="True">
+					<Description>The code for the nearest underlying eligible alternative in the relevant menu level. A menu can contain objects from different levels. Code for subject areas may not exceed 20 characters.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="100" mandatory="False" hasSL="True">
+					<Description>Presentation text for MenuSelection. </Description>
+				</Column>
+				<Column colname="PresTextS" primarykey="False" datatype="varchar" length="20" mandatory="False" hasSL="True">
+					<Description>Short presentation text for MenuSelection. 
+ 
+If a short presentation text is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="False" hasSL="True">
+					<Description>Descriptive text for MenuSelection. 
+ 
+If a description is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="LevelNo" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Number of menu level, where 1 refers to the highest level. 
+A type of object should always have the same LevelNo. 
+
+The highest level number should be given in the table MetaAdm (see description in that table).</Description>
+				</Column>
+				<Column colname="SortCode" primarykey="False" datatype="varchar" length="20" mandatory="False"  hasSL="True">
+					<Description>Sorting code to dictate the presentation order for the eligible alternatives on each level. 
+ 
+If there is no sorting code, the field should be NULL.</Description>
+				</Column>
+				<Column colname="Presentation" primarykey="False" datatype="char" length="1" mandatory="True"  hasSL="True">
+					<Description>Shows how a menu alternative can be used. Alternatives: 
+ 
+A = Active, visible and can be selected 
+P = Passive, is visible but cannot be selected 
+N = Not shown in the menu</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="MetaAdm">
+			<Description>The table contains system variables and their values.</Description>
+			<Columns>
+				<Column colname="Property" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of system variable. There are the following alternatives: 
+- LastFootnoteNo 
+- MenuLevels 
+- SpecCharSum 
+- NoOfLanguage 
+- Language1, Language2 and so on
+- Codepage1 
+- DataNotAvailable 
+- DataNoteSum 
+- DataSymbolSum 
+- DataSymbolNil 
+- PxDataFormat 
+- KeysUpperLimit 
+- DefaultCodeMissingLine 
+
+NoOfLanguage indicates the number of languages that exists in the model for the meta database presentation texts, and that can be used by the retrieval interfaces. For each language there should be a line like: Language1, Language2 and so on. Language1 should always include the main language. See also the description of the column Value in this table. 
+
+For each language there should also be a row in the table TextCatalog. For further information, see this table. 
+
+Regarding DefaultCodeMissingLine see also descriptions in: PresCellsZero och PresMissingLine in Contents, and CharacterType and PresCharacter in SpecialCharacter.</Description>
+				</Column>
+				<Column colname="Value" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Value of system variable. Contains one value per property. 
+
+For the property LastFootnoteNo, Value should contain the last used footnote number in the table Footnote. 
+
+For the property MenuLevels, Value should contains the highest used level number in the table MenuSelection. 
+
+For the property SpecCharSum, Value should contain the highest acceptable value for character type in the table SpecCharacter. 
+
+For the property NoOfLanguage Value should contain the number of languages that exists in the metadata model. 
+
+For the property Language1 Value should contain the main language of the model. The code is written in three capital letters, i.e. SVE. 
+
+For the property  Language2 , Language3 etc., Value should contain the other languages of the model. The code is written in three capital letters, i.e. ENG, ESP. The code is used as a suffix in the extra tables that should exist in the meta database, i.e. SubTable_ENG, SubTable_ESP. 
+
+For the property Codepage1: The characters that can be used and  how they should be presented. Is used at creating the keyword Codepage in the px file and at converting to XML. 
+Three different examples: iso-8859-1, windows-1251, big5. 
+
+For the property DataNotAvailable: The value that should be presented, if  the data cell contains NULL and NPM-character is missing. If the value exists in the table SpecialCharacter, it is used, otherwise the character in the table DataNotAvailable is used.  The value is a reference to CharacterType in the SpecialCharacter table. 
+Example: .. (two dots). 
+
+For the property DataNoteSum: The value that should be presented after the sum, if data cells with different NPM marking is summarized. The value is a reference to CharacterType in the SpecialCharacter table. 
+Example:  * 
+1A + 2B = 3* 
+
+For the property DataSymbolSum: The value that should be presented if data cells with different NPM character are summarized and no sum can be created. The value is a reference to CharacterType in the SpecialCharacter table. 
+Example: N.A. 
+. + .. = N.A. 
+
+For the property DataSymbolNil: the value that should be presented at absolute 0 (zero) in the table SpecialCharacter. The value is a reference to CharacterType in the SpecialCharacter table. 
+Example: - 
+
+For the property PxDataFormat: Matrix = all retreivals should be stored in matrix format. 
+Keysnn = retreivals with keys are remade 
+nn &amp;gt; read data cells *100 / presented number of data cells 
+Example: 40 
+(Default is Matrix.) 
+
+For the property KeysUpperLimit: Maximum number of data cells that the presented matrix may contain, if the retreival should be possible to do with Keys. If greater, the retreival is made in matrix format. 
+Example: 1000000 
+
+For the property DefaultCodeMissingLine: The value that should be presented in data cells that are not stored. Is used if neither presentation with 0 or special character have been specified. The value is a reference to CharacterType in the SpecialCharacter table. 
+
+See also the description of the column Property in this table, and also the table TextCatalog.</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="False">
+					<Description>Must contain a description of the property.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="MetabaseInfo">
+			<Description>The table contains information on the relevant data model,version and the database role.</Description>
+			<Columns>
+				<Column colname="Model" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>This field can be used to give information about general characteristics of the database. 
+E.g. if the data is on macro or micro level.</Description>
+				</Column>
+				<Column colname="ModelVersion" primarykey="False" datatype="varchar" length="10" mandatory="True">
+					<Description>Version number for the metadata model that the metadata database uses.</Description>
+				</Column>
+				<Column colname="DatabaseRole" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Role of database. Can be: 
+
+- Production 
+- Operation 
+- Test</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="Organization">
+			<Description>The table contains information on the authorities and organizations that are responsible for or produce statistics.</Description>
+			<Columns>
+				<Column colname="OrganizationCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Identification for the organization</Description>
+				</Column>
+				<Column colname="OrganizationName" primarykey="False" datatype="varchar" length="60" mandatory="True" hasSL="True">
+					<Description>Name of authority/organisation in full text, including any official abbreviation in brackets, e.g. Statistics Sweden (SCB). 
+
+Text should begin with a capital letter.</Description>
+				</Column>
+				<Column colname="Department" primarykey="False" datatype="varchar" length="60" mandatory="False"  hasSL="True">
+					<Description>Name of the department or equivalent that produces the statistics. </Description>
+				</Column>
+				<Column colname="Unit" primarykey="False" datatype="varchar" length="60" mandatory="False"  hasSL="True">
+					<Description>Name of unit or equivalent.</Description>
+				</Column>
+				<Column colname="WebAddress" primarykey="False" datatype="varchar" length="100" mandatory="False"  hasSL="True">
+					<Description>Internet address to the authority's/organisation's website. Written as, for example: 
+www.scb.se 
+ 
+If Internet address is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+
+		<Table name="Person">
+			<Description>The table contains information on all persons (or alternatively groups) which are contact persons for content and/or responsible for updating statistics in the database.</Description>
+			<Columns>
+				<Column colname="PersonCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Identifying code for person (or group) responsible. </Description>
+				</Column>
+				<Column colname="OrganizationCode" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the organization or authority that produces and/or is responsible for the statistical material. 
+
+See further description of the table Organization.</Description>
+				</Column>
+				<Column colname="Forename" primarykey="False" datatype="varchar" length="50" mandatory="False">
+					<Description>Responsible person's first name 
+For groups, this data is not available and should therefore be NULL.</Description>
+				</Column>
+				<Column colname="Surname" primarykey="False" datatype="varchar" length="50" mandatory="True">
+					<Description>Surname of the person responsible or name of the group responsible.</Description>
+				</Column>
+				<Column colname="PhonePrefix" primarykey="False" datatype="varchar" length="4" mandatory="True">
+					<Description>Prefix for telephone number, so that the number is valid internationally. 
+
+E.g. for Swedish telephone numbers the prefix is +46.</Description>
+				</Column>
+				<Column colname="PhoneNo" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Complete national telephone numbers, i.e. without international prefix. 
+ 
+Should be written as: national code, hyphen, then numbers in groups of two or three, divided by a space.</Description>
+				</Column>
+				<Column colname="FaxNo" primarykey="False" datatype="varchar" length="20" mandatory="False">
+					<Description>Complete national fax machine numbers, i.e. without international prefix. 
+ 
+Should be written as: national code, hyphen, then numbers in groups of two or three, divided by a space. 
+If there is no fax number, this field should be NULL.</Description>
+				</Column>
+				<Column colname="Email" primarykey="False" datatype="varchar" length="80" mandatory="False">
+					<Description>E-mail address for person or group responsible, if available. 
+If an e-mail address is not available, the field should be NULL. 
+ 
+Written with lower case letters.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="SecondaryLanguage">
+			<Description>Information about secondary languages (if any)</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of main table</Description>
+				</Column>
+				<Column colname="Language" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of secondary language.</Description>
+				</Column>
+				<Column colname="CompletelyTranslated" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Code which shows whether all the table's presentation texts are translated to English or not. This column is necessary so that it is possible to determine from the retrieval interface whether the table will be shown in English or not. 
+
+Valid values:
+Y - the table is completely translated to the secondary language
+N - the table is not completely translated to the secondary language</Description>
+				</Column>
+				<Column colname="Published" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Shows if the secondary language is published or not.
+
+Valid values:
+Y = yes
+N = no</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="False">
+					<Description></Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="False">
+					<Description></Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="SpecialCharacter">
+			<Description>The table contains information on the special characters that are used in the database's data tables. Special characters such as ....or - , can be used to show that data is missing, is not relevant or is too uncertain to be given.</Description>
+			<Columns>
+				<Column colname="CharacterType" primarykey="True" datatype="varchar" length="2" mandatory="True">
+					<Description>Identifying code for the special character. 
+
+Given in the form of a number, from 1 upwards. The highest acceptable number is given in the table MetaAdm, which is 99 (see description in table MetaAdm). 
+
+If PresMissingLine in Contents contains the identity for a special character, this character must be represented here. See also descriptions of PresCellsZero and PresMissingLine in Contents, PresCharacter in SpecialCharacter and the table MetaAdm.</Description>
+				</Column>
+				<Column colname="PresCharacter" primarykey="False" datatype="varchar" length="20" mandatory="True" hasSL="True">
+					<Description>The special character as presented for the user when the table is presented when retrieved.</Description>
+				</Column>
+				<Column colname="AggregPossible" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Used to show whether the data cell with the special character can be aggregated or not. There are the following alternatives: 
+ 
+Y = Yes 
+N = No 
+ 
+If AggregPossible = Y, the specific data cell, even if not shown, can be included in an aggregation.</Description>
+				</Column>
+				<Column colname="DataCellPres" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Provides the retrieval programs with information concerning the presentation of a special character;  with data and special character or with special character only. 
+ 
+There are the following alternatives: 
+Y = The data cell should be presented together with the special character 
+N = The special character alone should be presented</Description>
+				</Column>
+				<Column colname="DataCellFilled" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Shows whether the data cell must be filled in or not. There are the following alternatives: 
+ 
+V = Value must be filled in 
+N = No, the data cell should not be  filled in but should be NULL 
+F = Any, i.e. the data cell can be filled in or can be NULL. 
+0 = The data cell should contain 0 (zero) only</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="200" mandatory="False" hasSL="True">
+					<Description>Explanation to what is written in PresCharacter. 
+ 
+If there is no presentation text, the field should be NULL.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		
+		<Table name="SubTable">
+			<Description>The table contains information on the sub-tables, reflecting the stored data tables, which are in the subject databases. The data tables are identified using the main table's name + sub-table's name.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>The name of the main table, to which the sub-table is linked. See further description in the table MainTable.</Description>
+				</Column>
+				<Column colname="SubTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the sub-table. For material stored only in the sub-table, the field is left empty, i.e. a dash is written. 
+Name of main table + name of sub-table together make up the name of the data table where the data is stored, if SubTable is not empty, in which case the name of the data table is made up of the name of the main table only. 
+
+NB. Make sure that the numbering is always included even if there is only one sub-table divided by region among the sub-tables that are linked to the relevant main table.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="250" mandatory="True" hasSL="True">
+					<Description>Descriptive text that is used by the retrieval interface, i.e. when selecting a sub-level to a table or sub-table in the retrieval interface, if the main table has several sub-tables. 
+
+The text should be unique (there should not be two sub-tables with the same PresText) and should contain information on all the division variables, excluding totals. Information on timescale should be added at the end. 
+
+For data material that is only stored in a sub-table, the text should be the same as PresText in the table MainTable. 
+
+For data material that is divided up into different sub-tables, the main table’s presentation text should be used as a "model", which is supplemented with the information that differentiates the sub-tables. 
+
+The text should begin with a capital letter, should not end with a full stop, and should not include the % symbol.</Description>
+				</Column>
+				<Column colname="CleanTable" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether the sub-tables values can be aggregated or not. </Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="SubTableVariable">
+			<Description>The table links variables with value sets in the sub-tables. The variable name is made up of the name for the corresponding metadata column in the data tables.</Description>
+			<Columns>
+				<Column colname="MainTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>The name of the main table to which the variable and the sub-table are linked. See further description in the MainTable table.</Description>
+				</Column>
+				<Column colname="SubTable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of sub-table 
+ 
+Data can be missing, with a dash in its place. 
+ 
+See further description in the table SubTable.</Description>
+				</Column>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Variable name, which makes up the column name for metadata in the data table. See further description in the table Variable.</Description>
+				</Column>
+				<Column colname="ValueSet" primarykey="False" datatype="varchar" length="30" mandatory="False">
+					<Description>Name of value set. See further description in the table ValueSet. 
+For rows with variable types V and G, the name of the value set must be filled in. For VariableType = T, the field is left empty, as there is no value set for the variable Time.</Description>
+				</Column>
+				<Column colname="VariableType" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code for type of variable. There are three alternatives: 
+
+- V = variable, i.e. dividing variable, not time. 
+- G = geographical information for map program.
+- T = time. 
+
+If VariableType = G, the field GeoAreaNo in the tables ValueSet and Grouping should be filled in (however not yet implemented).</Description>
+				</Column>
+				<Column colname="StoreColumnNo" primarykey="False" datatype="smallint" length="0" mandatory="True">
+					<Description>The variable's column number in the data table. 
+The variable Time should always be included and be the last column in the data table. If the material is divided by region, the variable Region should be the first column. 
+Written as 1, 2, 3, etc.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="TextCatalog">
+			<Description>The table contains information on joint texts.</Description>
+			<Columns>
+				<Column colname="TextCatalogNo" primarykey="True" datatype="int" length="" mandatory="True">
+					<Description>Identity of text. </Description>
+				</Column>
+				<Column colname="TextType" primarykey="False" datatype="varchar" length="30" mandatory="True" hasSL="True">
+					<Description>Type of text. The texts should be fixed for use in PC-AXIS. 
+
+Alternatives: 
+- ContentsVariable 
+- GeoAreaNo 
+- Language1, Language2 (and so on)</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="100" mandatory="True"  hasSL="True">
+					<Description>The text that should be shown. Can be the name of a map file etc., or a language. The language should be written in the language it refers to, e.g. svenska, English, Espanol. See also the description of the table MetaAdm.</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="False"  hasSL="True">
+					<Description>Description of text. 
+ 
+If a description is not available, the field should be NULL.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="TimeScale">
+			<Description>The table describes the timescales that exist in the database.</Description>
+			<Columns>
+				<Column colname="TimeScale" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of timescale, i.e.Year, Month, Quarter. 
+Should not contain dash (applies for retrievals in PC-AXIS).</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="80" mandatory="True" hasSL="True">
+					<Description>Presentation text for timescale, i.e. year, month, quarter. Text is often the same as the name in the column TimeScale. Written in lower case. 
+Presentation text used when selecting time when making a retrieval from databases.</Description>
+				</Column>
+				<Column colname="TimeScalePres" primarykey="False" datatype="char" length="1" mandatory="False">
+					<Description>Shows if the timescale should be presented in table heading instead of the word Time. Can be: 
+
+Y = Yes 
+N = No </Description>
+				</Column>
+				<Column colname="Regular" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows if timescale is regular or not. Can be: 
+ 
+Y = Yes 
+N = No 
+ 
+An example of an irregular timescale is an election year. 
+ 
+Data is primarily accompanying information when retrieving statistics to a file.</Description>
+				</Column>
+				<Column colname="TimeUnit" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code for TimeUnit. Used as accompanying information when retrieving a statistics file. The following alternatives are possible: 
+
+Q = quarter 
+A = academic year 
+M = month 
+X = 3 years 
+S = split year 
+Y = year
+T= term</Description>
+				</Column>
+				<Column colname="Frequency" primarykey="False" datatype="smallint" length="0" mandatory="False">
+					<Description>Shows how many points in time the relevant timescale contains per calendar year, i.e.: 
+ 
+1 for timescale year, 
+4 for timescale quarter, 
+12 for timescale month. 
+ 
+For irregular and regular timescales, where points in time do not occur consecutively (i.e. every other year), the field should be NULL.</Description>
+				</Column>
+				<Column colname="StoreFormat" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Description of storage format for the point in time in the timescale. There are the following alternatives: 
+ 
+yyyy for timescales where TimeUnit = Y, 
+yyyy-yyyy for timescales where TimeUnit = T, 
+yyyy/yy for timescales where TimeUnit = A, 
+yyyy/yyyy for timescales where TimeUnit = P, 
+yyyyQq for timescales where TimeUnit = Q, 
+yyyyMmm for timescales where TimeUnit = M. 
+ 
+For a description of time units, see column TimeUnit in the table TimeScale.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="VSValue">
+			<Description>The table links values for a value pool to a value set, for which data is stored in the data table.</Description>
+			<Columns>
+				<Column colname="ValueSet" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of the value set to which the values are linked. 
+ 
+See further description in table ValueSet.</Description>
+				</Column>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the value pool to which the value set belongs. 
+ 
+See further description in table ValuePool.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the values that are linked to the value set. 
+ 
+See further description in table Value.</Description>
+				</Column>
+				<Column colname="SortCode" primarykey="False" datatype="varchar" length="20" mandatory="False" hasSL="True">
+					<Description>Sorting code for values within the value set. Dictates the presentation order for the value set's values when retrieving from the database and presenting the table. 
+ 
+So that this sorting code can be applied, the field SortCodeExists in the table ValueSet must be filled with Y. If it is N, the sorting code in the table Value is used instead. 
+ 
+If there is no sorting code, the field should be NULL.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="Value">
+			<Description>The table describes the values in the value pool.</Description>
+			<Columns>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the value pool that the value belongs to. See further description of table ValuePool.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for value or group. 
+ 
+Value code should agree with the code in the corresponding classification or standard if there is one. 
+ 
+Because the value codes are stored in a metadata column for variables in the data table(s) and, because the width of the metadata column is decided by the number of characters in the longest value code, the code should not be longer than necessary to ensure that it does not take up more space in the data table than necessary. The value codes within a value set should also be roughly the same size. 
+ 
+Capitals and/or lower case letters can be used, the letters å, ä and ö are accepted. Special characters and dashes should be avoided because they can cause technical problems.</Description>
+				</Column>
+				<Column colname="SortCode" primarykey="False" datatype="varchar" length="20" mandatory="True" hasSL="True">
+					<Description>Sorting code for values and groups, which decides in which order the value and group codes are to be presented when values and table presentation are selected when retrieved from the databases. 
+ 
+The sorting code should be the same as the ValueCode or be designed in such a way that the values can be presented in the desired order. The beginning of ValueTextL can be used so that the values will be presented in alphabetical order by the value text. 
+ 
+NB. Please note that the sorting code is also available in the tables VSValue, VSGroup and Grouping. See further descriptions for these.</Description>
+				</Column>
+				<Column colname="Unit" primarykey="False" datatype="varchar" length="30" mandatory="False"  hasSL="True">
+					<Description>Can be used to state the unit so that a value can have different units.
+
+If the field is filled in with a unit, the column Unit in the table Contents should be filled with %Value. If the field is not filled in, it should be NULL. Then the column Unit in the table Contents is used instead to state the unit.
+
+See also description of the table Contents.</Description>
+				</Column>
+				<Column colname="ValueTextS" primarykey="False" datatype="varchar" length="250" mandatory="False"  hasSL="True">
+					<Description>Short presentation text for value and group. 
+ 
+To be visible in the retrieval interfaces, it requires that: 
+- The field ValueTextExists in ValuePool is either S ('Short value text exists') or B ('Both short and long value text exists') and 
+- The field ValuePres in ValuePool or ValueSet is either A ('Both code and short value text should be presented') or S ('Short value text should be presented'). 
+ 
+The text is written in lower case letters, except for abbreviations etc. 
+ 
+See also descriptions of ValueTextExists in ValuePool and ValuePres in ValuePool and ValueSet.</Description>
+				</Column>
+				<Column colname="ValueTextL" primarykey="False" datatype="varchar" length="1100" mandatory="False"  hasSL="True">
+					<Description>Value text, presentation text for value and group. 
+
+To be visible in the retrieval interface, the field ValueTextExists in the table ValuePool for the value's value pool must be L. 
+
+ValueText can be omitted if the values are to be presented only as codes. The field should then be NULL. There should be consistency with a value pool so that all the value pool's values are presented either with or without value texts. 
+
+The text is written in lower case, with the exception of abbreviations, etc. 
+
+See also descriptions of ValueTextExists in ValuePool and  ValuePres in ValuePool and ValueSet.</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="Footnote" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether there is a footnote linked to the value (FootnoteType 6). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist 
+N = There are no footnotes</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="ValueGroup">
+			<Description>The table link values/ value set with groups</Description>
+			<Columns>
+				<Column colname="Grouping" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of grouping.
+
+See further in the description of the table Grouping.</Description>
+				</Column>
+				<Column colname="GroupCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>
+See further in the description of the table Value.</Description>
+				</Column>
+				<Column colname="ValueCode" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Code for the value contained in the group. Retrieved from the table Value, column value code.
+See further in the description of the table Value
+Se beskrivning av tabellen Varde.</Description>
+				</Column>
+				<Column colname="ValuePool" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>The name of the value set, the grouping is attached.
+See further in the description of the table ValuePool
+
+Se beskrivning av tabellen Vardeforrad.</Description>
+				</Column>
+				<Column colname="GroupLevel" primarykey="False" datatype="numeric" length="" mandatory="True">
+					<Description>Indicates witch level the group code belongs to.</Description>
+				</Column>
+				<Column colname="ValueLevel" primarykey="False" datatype="numeric" length="" mandatory="True">
+					<Description>Indicates witch level the value code belongs to.</Description>
+				</Column>
+				<Column colname="SortCode" primarykey="False" datatype="varchar" length="20" mandatory="False" hasSL="True">
+					<Description>Code for sorting groups within a group, in order to present them in a logical order.
+
+If any group within a grouping of a range is the sort code, all the teams have that. If the sort code is missing, the field shall be NULL.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="ValuePool">
+			<Description>The table describes which value pools exist in the database. The value pool brings together all values and aggregates for a classification or a variation of a classification.</Description>
+			<Columns>
+				<Column colname="ValuePool" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of value pool. 
+
+If there is only one variable belonging to a particular value pool, the variable and value pool should have the same name. 
+
+The name should begin with a capital letter.</Description>
+				</Column>
+				<Column colname="ValuePoolAlias" primarykey="False" datatype="varchar" length="20" mandatory="False"  hasSL="True">
+					<Description>Can be used to give the valuepool an alternative name.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="80" mandatory="False" hasSL="True">
+					<Description>Presentation text for the value pool. 
+
+If there is no text, the field should be NULL. </Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="True">
+					<Description>Description of value pool. 
+ 
+Should also contain information on the principles used for sorting the value pool's values (i.e....sorting by particular principle,....sorting by value code). 
+ 
+Written beginning with a capital letter.</Description>
+				</Column>
+				<Column colname="ValueTextExists" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Here it is stated whether there are texts or not for the value pool's values, and whether they are in the table in ValueExtra. There are the following alternatives: 
+
+L = Long value text exists 
+S = Short value text exists 
+B = Both long and short value text exist 
+N = No value texts for any values 
+
+
+In the table Value (see descriptions of these columns) there are two columns for value texts, ValueTextS (for short texts) and ValueTextL (for long texts). If ValueTextExists = L, the value text is taken from column ValueTextL in the table Value. If ValueTextExists = S, the value text is taken from column ValueTextS in the table Value. If ValueTextExists = B, the value presentation is determined by what is specified in the field ValuePres in the tables ValuePool or ValueSet. If ValueTextExists = N, the values are presented only by a code in the retrieval interface. </Description>
+				</Column>
+				<Column colname="ValuePres" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Here it is shown how the values should be presented after retrieval. There are the following alternatives: 
+ 
+A = Both code and short text should be presented 
+B = Both code and long text should be presented 
+C = Value code should be presented 
+T = Long value text should be presented 
+S = Short value text should be presented</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="ValueSet">
+			<Description>The table describes the value sets that exist for the different value pools.</Description>
+			<Columns>
+				<Column colname="ValueSet" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of the stored value set. 
+ 
+The name should consist of the name of the value pool that the value set is linked to, plus a suffix. The suffix should always be used, even if there is only one value set for a value pool. The suffix can be distinguished by a short text beginning with a capital letter, or a single capital letter or number.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="80" mandatory="False" hasSL="True">
+					<Description>Presentation text for value set. Can be used, if needed, as presentation text for the variable in the retrieval programs. It will then be the the variable name in the px file. 
+
+If the field is not used, it should be NULL.</Description>
+				</Column>
+				<Column colname="Description" primarykey="False" datatype="varchar" length="200" mandatory="True" hasSL="True">
+					<Description>Description of the content of the value set. 
+ 
+The text should give a picture of the integral values, classes, aggregates and any totals, and should end with information on the number of values in the value set, including the total. 
+ 
+Text should begin with a capital letter.</Description>
+				</Column>
+				<Column colname="Elimination" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Here it should be shown whether the variable can be eliminated or not. 
+ 
+Elimination means that the variable can be excluded when selecting the value when retrieving from the databases. The variable must in that case be able to assume a value, i.e. the sum of all integral values or another specific value, that is included in the value set. There are the following alternatives: 
+ 
+N = No elimination value, i.e. the variable cannot be eliminated 
+A = Elimination value is obtained by aggregation of all values in the value set 
+ValueCode = a selected value, included in the value set, that should be used at elimination.</Description>
+				</Column>
+				<Column colname="ValuePool" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of the value pool that the value set belongs to. See further description of the table ValuePool.</Description>
+				</Column>
+				<Column colname="ValuePres" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Used to show how the values in a value set should be presented when being retrieved. There are the following alternatives: 
+ 
+A = Both code and short text should be presented 
+B = Both code and long text should be presented 
+K = Value code should be presented 
+S = Short value text should be presented 
+T = Long value text should be presented 
+V = Presentation format is taken from the column ValuePres in the table ValuePool</Description>
+				</Column>
+				<Column colname="GeoAreaNo" primarykey="False" datatype="smallint" length="0" mandatory="False">
+					<Description>Should contain the identification of a map that is suitable for the variable and the grouping. The field must be filled in if the column VariableType in the table SubTableVariable = G, otherwise the field is NULL. 
+ 
+The identification number should also be included in the table TextCatalog. For further information see description of TextCatalog.</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="SortCodeExists" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Code showing whether there is a particular sorting order for the value set. Can be: 
+ 
+Y = Yes 
+N = No 
+ 
+If SortCodeExists = Y, the sorting code must be in VSValue for all values included in the value set. 
+If SortCodeExists = N, the sorting code for the value pool is used (SortCode in the table Value).</Description>
+				</Column>
+				<Column colname="Footnote" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether there is a footnote linked to a value in the value set (FootNoteType 6). There are the following alternatives: 
+
+B = Both obligatory and optional footnotes exist 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist 
+N = There are no footnotes</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="ValueSetGrouping">
+			<Description>The table connects value set to grouping</Description>
+			<Columns>
+				<Column colname="ValueSet" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of the stored value set. 
+ 
+See description of table ValueSet.</Description>
+				</Column>
+				<Column colname="Grouping" primarykey="True" datatype="varchar" length="30" mandatory="True">
+					<Description>Name of grouping. 
+ 
+See further in the description of the table Grouping.</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		<Table name="Variable">
+			<Description>The table contains the distributed statistical variables in the database.</Description>
+			<Columns>
+				<Column colname="Variable" primarykey="True" datatype="varchar" length="20" mandatory="True">
+					<Description>Name of distributed statistical variable. Name of metadata column for the variable in the data table. 
+ 
+The variable name must be unique within a main table. 
+ 
+The name should be descriptive, i.e. have an obvious link to the presentation text, consist of a maximum of 20 characters, begin with a capital letter and should only contains letters (a-z) and numbers. The name can also be broken down using the standard "PascalCase",  i.e. CapitalsAndLowerCase.</Description>
+				</Column>
+				<Column colname="PresText" primarykey="False" datatype="varchar" length="80" mandatory="True" hasSL="True">
+					<Description>Presentation text for a variable. Used in the retrieval interface when selecting variables or values and in the heading text when the table is presented after retrieval. 
+ 
+The entire text should be written in lower case letters, with the exception of abbreviations, etc.</Description>
+				</Column>
+				<Column colname="VariableInfo" primarykey="False" datatype="varchar" length="200" mandatory="False">
+					<Description>Descriptive information on variables, primarily for internal use, to facilitate the selection of a variable when drawing up new tables. 
+ 
+If there is no text, the field should be NULL.</Description>
+				</Column>
+				<Column colname="MetaId" primarykey="False" datatype="varchar" length="100" mandatory="False">
+					<Description>MetaId can be used to link the information in this table to an external system.</Description>
+				</Column>
+				<Column colname="Footnote" primarykey="False" datatype="char" length="1" mandatory="True">
+					<Description>Shows whether there is a footnote linked to the variable (FootnoteType 5). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist 
+S = There are no footnotes</Description>
+				</Column>
+				<Column colname="UserId" primarykey="False" datatype="varchar" length="20" mandatory="True">
+					<Description>User identification for the person who has added or updated the current row.</Description>
+				</Column>
+				<Column colname="LogDate" primarykey="False" datatype="smalldatetime" length="0" mandatory="True">
+					<Description>Date and time for the addition or updating of the current row.</Description>
+				</Column>
+			</Columns>
+		</Table>
+		
+	</Tables>
+
+</CommentsInModel>

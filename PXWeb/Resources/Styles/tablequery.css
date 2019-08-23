@@ -1,0 +1,63 @@
+﻿/* Used for TableQuery webcontrol */
+.tablequery_container
+{
+}
+
+.tablequery_showinformationlink
+{
+    text-decoration: underline;
+}
+
+.tablequery_hideinformationlink
+{
+    text-decoration: underline;
+    padding-bottom: 10px;
+    display:block;
+}
+
+.tablequery_informationpanel
+{
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #ffcc00;
+}
+
+.tablequery_informationtext
+{
+    display: block;
+}
+
+.tablequery_urlcaption
+{
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.tablequery_url
+{
+    display: block;
+    width: 700px;
+    font-family: Courier New;
+}
+
+.tablequery_querycaption
+{
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.tablequery_query
+{
+    display: block;
+    width: 700px;
+    margin-bottom: 10px;
+}
+
+.tablequery_moreinformation
+{
+}

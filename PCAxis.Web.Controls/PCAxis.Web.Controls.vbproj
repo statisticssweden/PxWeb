@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0F886CCB-3476-4756-816C-7792A9C73FE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PCAxis.Web.Controls</RootNamespace>
+    <AssemblyName>PCAxis.Web.Controls</AssemblyName>
+    <MyType>WebControl</MyType>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Strong Name Key.pfx</AssemblyOriginatorKeyFile>
+    <OptionStrict>On</OptionStrict>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <OptionInfer>On</OptionInfer>
+    <PublishUrl>http://localhost/PCAxis.Web.Controls/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PX.Web.Controls.xml</DocumentationFile>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DefineConstants>
+    </DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PX.Web.Controls.xml</DocumentationFile>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ext\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="PCAxis.Web.Controls" />
+    <Import Include="System" />
+    <Import Include="System.Data" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Management" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Breadcrumb\Breadcrumb.vb" />
+    <Compile Include="Breadcrumb\BreadcrumbCodebehind.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangeDecimal\ChangeDecimal.vb">
+      <DependentUpon>ChangeDecimal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangeDecimal\ChangeDecimalCodebehind.vb">
+      <DependentUpon>ChangeDecimal.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangePresentation\ChangePresentation.vb">
+      <DependentUpon>ChangePresentation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangePresentation\ChangePresentationCodebehind.vb">
+      <DependentUpon>ChangePresentation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangeTexts.vb">
+      <DependentUpon>ChangeTexts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangeTextsCodebehind.vb">
+      <DependentUpon>ChangeTexts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangeValueOrder\ChangeValueOrder.vb">
+      <DependentUpon>ChangeValueOrder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\ChangeValueOrder\ChangeValueOrderCodebehind.vb">
+      <DependentUpon>ChangeValueOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\DeleteValue\DeleteValue.vb">
+      <DependentUpon>DeleteValue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\DeleteValue\DeleteValueCodebehind.vb">
+      <DependentUpon>DeleteValue.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\DeleteVariable\DeleteVariable.vb">
+      <DependentUpon>DeleteVariable.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\DeleteVariable\DeleteVariableCodebehind.vb">
+      <DependentUpon>DeleteVariable.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\PerPart\Link\Link.vb" />
+    <Compile Include="CommandBarFunctions\PerPart\PerPart.vb">
+      <DependentUpon>PerPart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\PerPart\PerPartCodebehind.vb">
+      <DependentUpon>PerPart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\Pivot\PivotCodebehind.vb">
+      <DependentUpon>Pivot.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\Pivot\PivotSimpleCalls.vb" />
+    <Compile Include="CommandBarFunctions\PresentationViews\ChartView.vb" />
+    <Compile Include="CommandBarFunctions\PresentationViews\FootnoteView.vb" />
+    <Compile Include="CommandBarFunctions\PresentationViews\InformationView.vb" />
+    <Compile Include="CommandBarFunctions\PresentationViews\SortedTableView.vb" />
+    <Compile Include="CommandBarFunctions\PresentationViews\TableView.vb" />
+    <Compile Include="CommandBarFunctions\SplitTimeVariable\SplitTimeVariable.vb" />
+    <Compile Include="CommandBarFunctions\Sum\Sum.vb">
+      <DependentUpon>Sum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\Sum\SumCodebehind.vb">
+      <DependentUpon>Sum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBarFunctions\SwitchLayout\SwitchLayout.vb" />
+    <Compile Include="CommandBarFunctions\ZeroRows\RemoveZeroRows.vb" />
+    <Compile Include="CommandBar\CommandBar.vb">
+      <DependentUpon>CommandBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBar\CommandBarCodebehind.vb">
+      <DependentUpon>CommandBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBar\CommandBarPluginSelectorCodebehind.vb">
+      <DependentUpon>CommandBarPluginSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBar\CommandBarPluginSelectorPluginSelectedEventArgs.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarChartFilter.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarFilterFactory.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarFilterNone.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarInformationFilter.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarPluginFilterType.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarFootNoteFilter.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarTableLayout1Filter.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarTableLayout2Filter.vb" />
+    <Compile Include="CommandBar\PluginFilter\ICommandBarPluginFilter.vb" />
+    <Compile Include="CommandBar\PluginFilter\CommandBarSortFilter.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarMarkerControlBase.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginCategoryType.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginImageGroup.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginPlacementType.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommandBar\Plugin\CommandBarPluginFinishedEventArgs.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginManager.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginManagerException.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginShortcut.vb" />
+    <Compile Include="CommandBar\CommandBarViewMode.vb" />
+    <Compile Include="CommandBar\CommandBarPluginSelector.vb">
+      <DependentUpon>CommandBarPluginSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBar\Plugin\ICommandBarGUIPlugin.vb" />
+    <Compile Include="CommandBar\Plugin\ICommandBarRequireControls.vb" />
+    <Compile Include="CommandBar\Plugin\ICommandBarRequiresPaxiom.vb" />
+    <Compile Include="CommandBar\Plugin\CommandBarPluginInfo.vb" />
+    <Compile Include="CommandBar\Plugin\ICommandBarNoGUIPlugin.vb" />
+    <Compile Include="CommandBar\Plugin\Plugins.vb" />
+    <Compile Include="Configuration\ConfigurationHelper.vb" />
+    <Compile Include="Configuration\Paths.vb" />
+    <Compile Include="Configuration\Sections\CommandBarSection.vb" />
+    <Compile Include="Configuration\Sections\GeneralSettingsSection.vb" />
+    <Compile Include="Configuration\Sections\MenuSection.vb" />
+    <Compile Include="Configuration\Sections\PagesSection.vb" />
+    <Compile Include="Configuration\Sections\PxPageSection.vb" />
+    <Compile Include="Configuration\Sections\SortSection.vb" />
+    <Compile Include="Configuration\Sections\ViewSection.vb" />
+    <Compile Include="Events\PxActionEvent.vb" />
+    <Compile Include="Events\PxActionEventHelper.vb" />
+    <Compile Include="Events\PxActionEventType.vb" />
+    <Compile Include="Extensions\PxWebControlExtensions.vb" />
+    <Compile Include="FileGenerator.vb" />
+    <Compile Include="FileTypes\Chart\ChartSerializerCreator.vb" />
+    <Compile Include="FileTypes\Chart\SaveAsChart.vb" />
+    <Compile Include="FileTypes\Chart\SaveAsChartCodebehind.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Excel\Excel.vb">
+      <DependentUpon>Excel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\Excel\ExcelCodebehind.vb">
+      <DependentUpon>Excel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Excel\ExcelSerializerCreator.vb" />
+    <Compile Include="FileTypes\Html\Html.vb">
+      <DependentUpon>Html.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\Html\HtmlCodebehind.vb">
+      <DependentUpon>Html.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Html\HtmlSerializerCreator.vb" />
+    <Compile Include="FileTypes\PrnFileType\CsvSerializerCreator.vb" />
+    <Compile Include="FileTypes\PrnFileType\PrnFileType.vb">
+      <DependentUpon>PrnFileType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\PrnFileType\PrnFileTypeCodebehind.vb">
+      <DependentUpon>PrnFileType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\PxFileType\PxFileSerializerCreator.vb" />
+    <Compile Include="FileTypes\PxFileType\PxFileType.vb">
+      <DependentUpon>PxFileType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\PxFileType\PxFileTypeCodebehind.vb">
+      <DependentUpon>PxFileType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Relational\Relational.vb">
+      <DependentUpon>Relational.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\Relational\RelationalCodebehind.vb">
+      <DependentUpon>Relational.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Relational\RelationalSerializerCreator.vb" />
+    <Compile Include="FileTypes\Text\Text.vb">
+      <DependentUpon>Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\Text\TextCodebehind.vb">
+      <DependentUpon>Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FootnoteList.vb" />
+    <Compile Include="FootnoteListItem.vb" />
+    <Compile Include="Footnote\Footnote.vb">
+      <DependentUpon>Footnote.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Footnote\FootnoteCodebehind.vb">
+      <DependentUpon>Footnote.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Helper\JavascriptTester.vb" />
+    <Compile Include="Hierarchical\HierarchicalCodebehind.vb">
+      <DependentUpon>Hierarchical.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hierarchical\Hierarchical.vb">
+      <DependentUpon>Hierarchical.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InformationList.vb" />
+    <Compile Include="InformationListItem.vb" />
+    <Compile Include="InformationVariable.vb" />
+    <Compile Include="Information\InformationCodebehind.vb">
+      <DependentUpon>Information.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemSelectionExtensions.vb" />
+    <Compile Include="Managment\ChartManager.vb" />
+    <Compile Include="Managment\PanelLink.vb" />
+    <Compile Include="Managment\TableManager.vb" />
+    <Compile Include="Managment\VisitorStatistics\ActionContext.vb" />
+    <Compile Include="Managment\VisitorStatistics\IActionLogger.vb" />
+    <Compile Include="Managment\VisitorStatistics\PxDefaultLogger.vb" />
+    <Compile Include="Managment\VisitorStatistics\VisitorStatisticsHelper.vb" />
+    <Compile Include="Menu\MenuHelper.vb" />
+    <Compile Include="Menu\TableList\DownloadLinkVisibility.vb" />
+    <Compile Include="Menu\TableList\SmallFileSizeMode.vb" />
+    <Compile Include="Menu\TableList\TableList.vb">
+      <DependentUpon>TableList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\TableList\TableListCodebehind.vb">
+      <DependentUpon>TableList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu\TableOfContent\UrlLinkMode.vb" />
+    <Compile Include="Menu\TableOfContent\TableOfContent.vb">
+      <DependentUpon>TableOfContent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\TableOfContent\TableOfContentCodebehind.vb">
+      <DependentUpon>TableOfContent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Information\Information.vb">
+      <DependentUpon>Information.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommandBarFunctions\Pivot\Pivot.vb">
+      <DependentUpon>Pivot.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationFlow\NavigationFlow.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NavigationFlow\NavigationFlowCodebehind.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathHandler\CnmmPathHandler.vb" />
+    <Compile Include="PathHandler\IPathHandler.vb" />
+    <Compile Include="PathHandler\PathHandler.vb" />
+    <Compile Include="PathHandler\PathHandlerFactory.vb" />
+    <Compile Include="PathHandler\PxPathHandler.vb" />
+    <Compile Include="Query\TableQuery.vb">
+      <DependentUpon>TableQuery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Query\TableQueryCodebehind.vb">
+      <DependentUpon>TableQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SaveAs\SaveAs.vb">
+      <DependentUpon>SaveAs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SaveAs\SaveAsCodebehind.vb">
+      <DependentUpon>SaveAs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchValues\SearchValues.vb">
+      <DependentUpon>SearchValues.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchValues\SearchValuesCodebehind.vb">
+      <DependentUpon>SearchValues.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectFromGroup\SelectFromGroup.vb">
+      <DependentUpon>SelectFromGroup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectFromGroup\SelectFromGroupCodebehind.vb">
+      <DependentUpon>SelectFromGroup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TableInformation\TableInformation.vb">
+      <DependentUpon>TableInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TableInformation\TableInformationCodebehind.vb">
+      <DependentUpon>TableInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Table\HeaderPresentation.vb" />
+    <Compile Include="Table\Table.vb">
+      <DependentUpon>Table.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Table\TableCodebehind.vb">
+      <DependentUpon>Table.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Table\TableLayout.vb" />
+    <Compile Include="Table\TableSettings.vb" />
+    <Compile Include="Table\TableTransformationType.vb" />
+    <Compile Include="TextSearch\ITextSearchProvider.vb" />
+    <Compile Include="TextSearch\PaxiomSearchProvider.vb" />
+    <Compile Include="TextSearch\TextSearchCodebehind.vb">
+      <DependentUpon>TextSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextSearch\TextSearchProviderBase.vb" />
+    <Compile Include="TextSearch\TextSearchType.vb" />
+    <Compile Include="TextSearch\TextSearch.vb">
+      <DependentUpon>TextSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelector.vb">
+      <DependentUpon>VariableSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorCodebehind.vb">
+      <DependentUpon>VariableSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorEliminationInformation.vb">
+      <DependentUpon>VariableSelectorEliminationInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorEliminationInformationCodebehind.vb">
+      <DependentUpon>VariableSelectorEliminationInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorMarkingTips.vb">
+      <DependentUpon>VariableSelectorMarkingTips.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorMarkingTipsCodebehind.vb">
+      <DependentUpon>VariableSelectorMarkingTips.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorOutputFormats.vb">
+      <DependentUpon>VariableSelectorOutputFormats.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorOutputFormatsCodebehind.vb">
+      <DependentUpon>VariableSelectorOutputFormats.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorSearchButtonViewMode.vb" />
+    <Compile Include="VariableSelector\VariableSelectorSelectionInformation.vb">
+      <DependentUpon>VariableSelectorSelectionInformation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorSelectionInformationCodebehind.vb">
+      <DependentUpon>VariableSelectorSelectionInformation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorValueSelect.vb">
+      <DependentUpon>VariableSelectorValueSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorValueSelectCodebehind.vb">
+      <DependentUpon>VariableSelectorValueSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VariableSelector\VariableSelectorViewMode.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmbeddedResources\Config\CommandBarPluginSchema.xsd" />
+    <None Include="EmbeddedResources\Config\FileSchema.xsd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
+      <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
+      <Name>PCAxis.Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Common\PCAxis.Common.vbproj">
+      <Project>{923414B2-36AD-48E1-919A-B92418E6A2FC}</Project>
+      <Name>PCAxis.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
+      <Project>{630041BC-4531-4547-9820-FE4290A18A54}</Project>
+      <Name>PCAxis.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
+      <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
+      <Name>PCAxis.Menu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
+      <Project>{69CD4248-077E-4E3C-A83B-70F883C8D305}</Project>
+      <Name>PCAxis.PX.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
+      <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>
+      <Name>PCAxis.Query</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Web.Core\PCAxis.Web.Core.vbproj">
+      <Project>{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}</Project>
+      <Name>PCAxis.Web.Core</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Footnote\Footnote.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Information\Information.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationFlow\NavigationFlow.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\Table.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SaveAs\SaveAs.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBar\CommandBar.ascx">
+      <LogicalName>PCAxis.Web.Controls.CommandBar.CommandBar.ascx</LogicalName>
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\Pivot\Pivot.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VariableSelector\VariableSelector.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileTypes\Excel\Excel.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableInformation\TableInformation.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Hierarchical\Hierarchical.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileTypes\PrnFileType\PrnFileType.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileTypes\Text\Text.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileTypes\Html\Html.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VariableSelector\VariableSelectorEliminationInformation.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VariableSelector\VariableSelectorSelectionInformation.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VariableSelector\VariableSelectorMarkingTips.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VariableSelector\VariableSelectorOutputFormats.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\Sum\Sum.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBar\CommandBarPluginSelector.ascx">
+      <LogicalName>PCAxis.Web.Controls.CommandBar.CommandBarPluginSelector.ascx</LogicalName>
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Menu\TableList\TableList.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\TableOfContent\TableOfContent.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\ChangeValueOrder\ChangeValueOrder.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TextSearch\TextSearch.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileTypes\PxFileType\PxFileType.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VariableSelector\VariableSelectorValueSelect.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\ChangeDecimal\ChangeDecimal.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\DeleteValue\DeleteValue.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\DeleteVariable\DeleteVariable.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\PerPart\PerPart.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\ChangePresentation\ChangePresentation.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandBarFunctions\ChangeTexts.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FileTypes\Relational\Relational.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SearchValues\SearchValues.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\Images\spacer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EmbeddedResources\Config\CommandBarPluginsOperations.xml" />
+    <Content Include="EmbeddedResources\Config\CommandBarPluginsViews.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="EmbeddedResources\Config\FileConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="SelectFromGroup\SelectFromGroup.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmbeddedResources\Images\spinner.gif" />
+    <EmbeddedResource Include="Query\TableQuery.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Breadcrumb\Breadcrumb.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileTypes\Chart\SaveAsChart.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommandBarFunctions\Sort\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

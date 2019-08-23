@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Trygve Falch (Statistics Norway) -->
+<xs:schema xmlns="urn:pcaxis:pxsquery:version20090416" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:pcaxis:pxsquery:version20090416" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="PxsQuery">
+    <xs:annotation>
+      <xs:documentation>The purpose of PxsQuery is to specify a query. The pxs structure should be flexible enough to allow queries against an SQL database as well as a px/pxml file.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Information" type="InformationType" minOccurs="0"/>
+        <xs:element name="Query" type="QueryType">
+          <xs:annotation>
+            <xs:documentation>The sortOrder attribute tells the query-executor the desired order of the values in the returned dataset.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Presentation" type="PresentationType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The index attribute of presentation tells a GUI the display-order of the variables in the dataset returned by the query-executor.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID">
+        <xs:annotation>
+          <xs:documentation>Optional ID for a query.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="BasicValueType">
+    <xs:attributeGroup ref="CodeAttrGrp"/>
+  </xs:complexType>
+  <xs:complexType name="MenuType">
+    <xs:sequence>
+      <xs:element name="MenuSel" type="MenuSelType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MenuSelType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="level" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="InformationType">
+    <xs:sequence>
+      <xs:element name="MetaVersion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CreatedDate">
+        <xs:simpleType>
+          <xs:restriction base="xs:dateTime">
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CreatedBy" type="CreatedByType" minOccurs="0"/>
+      <xs:element name="Comment" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Internal, so does not need language</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Files" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Pxsfile" type="xs:string"/>
+            <xs:element name="Outfile" type="xs:string"/>
+            <xs:element name="Logfile" type="xs:string"/>
+            <xs:element name="Textfile" type="xs:string"/>
+            <xs:element name="Sqlfile" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BatchOptions" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Sqltest" type="xs:string"/>
+            <xs:element name="PxDatabase" type="xs:string"/>
+            <xs:element name="Replace" type="xs:string"/>
+            <xs:element name="Metabase" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Menu" type="MenuType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Contains info for editor GUI, in order to recreate choices made in the creation prosess.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryType">
+    <xs:sequence>
+      <xs:element name="Languages">
+        <xs:annotation>
+          <xs:documentation>In which languages should texts be fetched</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="All" type="allType"/>
+            <xs:element name="Language" type="myLanguageType" maxOccurs="unbounded"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TableSource">
+        <xs:annotation>
+          <xs:documentation>The id of the table or table file from which the data should be fetched</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SubTable" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>For SQL queries: SubTable indicates which subtable to query. If SubTable is not present ALL subtables for the maintable should be queried.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Contents" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Content" type="BasicValueType" maxOccurs="unbounded"/>
+          </xs:sequence>
+          <xs:attribute name="code" use="required">
+            <xs:simpleType>
+              <xs:restriction base="codeType">
+                <xs:minLength value="1"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Variables">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Variable" type="PQVariable" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Time" type="TimeType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PresentationType">
+    <xs:sequence>
+      <xs:element name="Stub" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StubElement" type="AxisType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Heading" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="HeadingElement" type="AxisType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreatedByType">
+    <xs:sequence>
+      <xs:element name="UserName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="userId" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="AxisType">
+    <xs:attribute name="index" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="code" type="codeType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="PQVariable">
+    <xs:sequence>
+      <xs:element name="SelectedValueset" type="xs:string" minOccurs="0"/>
+      <xs:sequence minOccurs="0">
+        <xs:element name="PresTextOption">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1"/>
+              <xs:whiteSpace value="collapse"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Aggregation">
+          <xs:annotation>
+            <xs:documentation>N means no  grouping has been used when creating this file (from file or database). G  means  a Grouping has been used, and H means a Hierarchy has been used.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:annotation>
+                <xs:documentation>N means no  grouping has been used when creating this file (from file or database).</xs:documentation>
+              </xs:annotation>
+              <xs:enumeration value="N"/>
+              <xs:enumeration value="G"/>
+              <xs:enumeration value="H"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="StructureId" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The id of the grouping or hierarchy in the database. If this is present all selected values must belong to the grouping/hierarchy</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Values">
+          <xs:complexType>
+            <xs:choice>
+              <xs:element name="Selection" type="SelectionType">
+                <xs:annotation>
+                  <xs:documentation>Specification of an query to find the values to be used in the extraction</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:sequence>
+                <xs:element name="Value" type="ValueTypeWithGroup" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+    <xs:attribute name="code" type="codeType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="GroupValueType">
+    <xs:attribute name="code" type="codeType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="TimeType">
+    <xs:sequence>
+      <xs:element name="TimeOption">
+        <xs:annotation>
+          <xs:documentation>0=Selected time periods
+1=only the last time period
+2=the n last time periods
+3=Selected start time, include all later periods 
+4=all time periods  </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:choice minOccurs="0">
+        <xs:element name="NoOfValues">
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="1"/>
+              <xs:whiteSpace value="collapse"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="TimeStart">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1"/>
+              <xs:whiteSpace value="collapse"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="TimeValues">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TimeValue" type="BasicValueType" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element name="TimeVal" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="code" type="codeType" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="codeType">
+    <xs:annotation>
+      <xs:documentation>Kan inneholde *</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="CodeAttrGrp">
+    <xs:attribute name="code" type="codeType" use="required"/>
+    <xs:attribute name="sortOrder" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:int">
+          <xs:whiteSpace value="collapse"/>
+          <xs:minInclusive value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:complexType name="ValueTypeWithGroup">
+    <xs:complexContent>
+      <xs:extension base="BasicValueType">
+        <xs:sequence>
+          <xs:element name="Group" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>A Group represents a sum. If GroupText is empty the text should be read from the database</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence minOccurs="0">
+                <xs:element name="GroupText" type="StringLangType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="GroupValue" type="GroupValueType" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                    <xs:documentation>These values define the elements which are included in the aggregation of a sum, they are not returned in the resulting dataset.</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StringLangType">
+    <xs:annotation>
+      <xs:documentation>Datatype for string with required xml:lang attribute</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute ref="xml:lang" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="allType"/>
+  <xs:complexType name="myLanguageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:language"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SelectionType">
+    <xs:sequence>
+      <xs:element name="Method">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute name="selectionCriterion" use="required">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Limit"/>
+                    <xs:enumeration value="Number"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+              <xs:attribute name="selectionCondition" use="required">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Larger"/>
+                    <xs:enumeration value="Smaller"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Sort">
+        <xs:complexType>
+          <xs:attribute name="sortBy" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Value"/>
+                <xs:enumeration value="Code"/>
+                <xs:enumeration value="Text"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="sortDirection" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Ascending"/>
+                <xs:enumeration value="Descending"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Content">
+        <xs:complexType>
+          <xs:attribute name="code" type="xs:string" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Time">
+        <xs:annotation>
+          <xs:documentation>If no Code is given, use lastest period</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="code"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Variables">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Variable" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="code" type="xs:string" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,2195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GrandMaster xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../GrandMaster/GrandMaster.xsd">
+	<Codes>
+		<!--Contents.CFPrices -->
+		<Code codeName="CFPricesC" defaultCodeValue="C"/>
+		<Code codeName="CFPricesF" defaultCodeValue="F"/>
+		<!--Contents.StockFA -->
+		<Code codeName="StockFAS" defaultCodeValue="S"/>
+		<Code codeName="StockFAF" defaultCodeValue="F"/>
+		<Code codeName="StockFAA" defaultCodeValue="A"/>
+		<!--Contents.Copyright-->
+		<Code codeName="Copyright1" defaultCodeValue="1"/>
+		<Code codeName="Copyright2" defaultCodeValue="2"/>
+		<Code codeName="Copyright3" defaultCodeValue="3"/>
+		<!--SpecialCharacter.DataCellFilled-->
+		<Code codeName="DataCellFilledOptional" defaultCodeValue="F"/>
+		<Code codeName="DataCellFilledValue" defaultCodeValue="V"/>
+		<Code codeName="DataCellFilledZero" defaultCodeValue="0"/>
+		<!--SubTableVariable.VariableType  -->
+		<Code codeName="VariableTypeC" defaultCodeValue="C"/>
+		<Code codeName="VariableTypeT" defaultCodeValue="T"/>
+		<Code codeName="VariableTypeG" defaultCodeValue="G"/>
+		<!--FootNote.MandOpt(M,R), Contents.FootNoteContents, Contents.FootNoteVariable, Contents.FootNoteValue, Contents.FootNoteTime, Value.FootNote, ValuePool.Footnote-->
+		<Code codeName="FootnoteM" defaultCodeValue="M"/>
+		<Code codeName="FootnoteR" defaultCodeValue="R"/>
+		<Code codeName="FootnoteB" defaultCodeValue="B"/>
+		<Code codeName="FootnoteN" defaultCodeValue="N"/>
+		<!-- Link.LinkFormat -->
+		<Code codeName="LinkFormatURL" defaultCodeValue="U"/>
+		<Code codeName="LinkFormatMainTable" defaultCodeValue="M"/>
+		<!-- Link.LinkType -->
+		<Code codeName="LinkTypeTableF" defaultCodeValue="TableF" />
+        <Code codeName="LinkTypeTableB" defaultCodeValue="TableB" />
+        <Code codeName="LinkTypeTableRel" defaultCodeValue="TableRel" />
+        <Code codeName="LinkTypeTableProc" defaultCodeValue="TableProc" />  
+        <Code codeName="LinkTypeDok" defaultCodeValue="Dok" />
+        <Code codeName="LinkTypeTableRelEx" defaultCodeValue="TableRelEx" />
+        <Code codeName="LinkTypeWebsite" defaultCodeValue="Website" />
+        <Code codeName="LinkTypeTemasite" defaultCodeValue="Temasite" />
+        <Code codeName="LinkTypeAnalys" defaultCodeValue="Analys" />
+		<!--Link.LinkPres-->
+		<Code codeName="LinkPresDirect" defaultCodeValue="D"/>
+		<Code codeName="LinkPresIndirect" defaultCodeValue="I"/>
+		<Code codeName="LinkPresBoth" defaultCodeValue="B"/>
+		<!--MainTable.PresCategory, Link.PresCategory -->
+		<Code codeName="PresCategoryInternal" defaultCodeValue="I"/>
+		<Code codeName="PresCategoryPrivate" defaultCodeValue="P"/>
+		<Code codeName="PresCategoryPublic" defaultCodeValue="O"/>
+		<!--MenuSelection.Presentation-->
+		<Code codeName="PresActive" defaultCodeValue="A"/>
+		<Code codeName="PresPassive" defaultCodeValue="P"/>
+		<Code codeName="PresNo" defaultCodeValue="N"/>
+		<!--TimeScale.TimeUnit-->
+		<Code codeName="TimeUnitA" defaultCodeValue="Y"/>
+		<Code codeName="TimeUnitH" defaultCodeValue="H"/>
+		<Code codeName="TimeUnitQ" defaultCodeValue="Q"/>
+		<Code codeName="TimeUnitM" defaultCodeValue="M"/>
+		<Code codeName="TimeUnitW" defaultCodeValue="W"/>
+		<!--ValuePool.ValueTextExists -->
+		<Code codeName="ValueTextExistsS" defaultCodeValue="S"/>
+		<Code codeName="ValueTextExistsL" defaultCodeValue="L"/>
+		<Code codeName="ValueTextExistsB" defaultCodeValue="B"/>
+		<Code codeName="ValueTextExistsN" defaultCodeValue="N"/>
+		<!--ValuePool.ValuePres, ValueSet.ValuePres-->
+		<Code codeName="ValuePresC" defaultCodeValue="C"/>
+		<Code codeName="ValuePresT" defaultCodeValue="T"/>
+		<Code codeName="ValuePresB" defaultCodeValue="B"/>
+		<Code codeName="ValuePresA" defaultCodeValue="A"/>
+		<Code codeName="ValuePresS" defaultCodeValue="S"/>
+		<!--ValueSet.ValuePres-->
+		<Code codeName="ValuePresV" defaultCodeValue="V"/>
+		<!--ValuePool.Elimination-->
+		<Code codeName="EliminationA" defaultCodeValue="A"/>
+		<Code codeName="EliminationN" defaultCodeValue="N"/>
+		<!--Grouping.GroupPres -->
+		<Code codeName="GroupPresA" defaultCodeValue="A"/>
+		<Code codeName="GroupPresI" defaultCodeValue="I"/>
+		<Code codeName="GroupPresB" defaultCodeValue="B"/>
+		<!--Grouping.Hierarchy -->
+		<Code codeName="HierarchyNon" defaultCodeValue="N"/>
+		<Code codeName="HierarchyBalanced" defaultCodeValue="B"/>
+		<Code codeName="HierarchyUnbalanced" defaultCodeValue="U"/>
+		<!-- MainTable.SpecialCharExists-->
+		<Code codeName="SpecialSignColumnY" defaultCodeValue="Y"/>
+		<Code codeName="SpecialSignColumnN" defaultCodeValue="N"/>
+		<Code codeName="SpecialSignColumnE" defaultCodeValue="E"/>
+		<!--FootNoteContTime.CellNote, FootNoteContValue.CellNote, MainTableLang2.Status(No),MainTableLang2.Published, Contents.PresCellsZero, Contents.DayAdj,    
+          Contents.SeasAdj, SpecialCharacter.AggregPossible;DataCellPres, SpecialCharacter.DataCellFilled(No),TimeScale.TimeScalePres,TimeScale.Regular,
+          ValuePool.SortCodeExists-->
+		<Code codeName="Yes" defaultCodeValue="Y"/>
+		<Code codeName="No" defaultCodeValue="N"/>
+		<!--MainTable.TableStatus -->
+		<Code codeName="StatusAll" defaultCodeValue="A"/>
+		<Code codeName="StatusEmpty" defaultCodeValue="E"/>
+		<Code codeName="StatusNew" defaultCodeValue="N"/>
+		<Code codeName="StatusMeta" defaultCodeValue="M"/>
+		<Code codeName="StatusOrder" defaultCodeValue="O"/>
+		<Code codeName="StatusUpdate" defaultCodeValue="U"/>
+		<Code codeName="StatusEng" defaultCodeValue="T"/>
+		<!--MainTableLang2.Status-->
+		<Code codeName="StatusTranslated" defaultCodeValue="T"/>
+		<!--MainTablePerson.RolePerson-->
+		<Code codeName="RoleMain" defaultCodeValue="M"/>
+		<Code codeName="RoleContact" defaultCodeValue="C"/>
+		<Code codeName="RoleUpdate" defaultCodeValue="U"/>
+		<Code codeName="RoleVerify" defaultCodeValue="V"/>
+		<Code codeName="RoleInternationalReporting" defaultCodeValue="V"/>
+		<!--FootNote.ShowFootnote -->
+		<Code codeName="FootnoteShowS" defaultCodeValue="S"/>
+		<Code codeName="FootnoteShowP" defaultCodeValue="P"/>
+		<Code codeName="FootnoteShowB" defaultCodeValue="B"/>
+	</Codes>
+	<Keywords>
+		<Keyword modelName="ContentVariable" defaultLocalName="CONTENTVARIABLE"/>
+		<Keyword modelName="MenuLevels" defaultLocalName="MENULEVELS"/>
+		<Keyword modelName="Macro" defaultLocalName="MACRO"/>
+		<Keyword modelName="DataNotAvailable" defaultLocalName = "DATANOTAVAILABLE"/>
+        <Keyword modelName="DataNoteSum" defaultLocalName  = "DATANOTESUM"/>
+        <Keyword modelName="DataSymbolNIL" defaultLocalName  =  "DATASYMBOLNIL"/>
+        <Keyword modelName="DataSymbolSum" defaultLocalName  = "DATASYMBOLSUM"/>
+        <Keyword modelName="DefaultCodeMissingLine" defaultLocalName  = "DEFAULTCODEMISSINGLINE"/>
+		<!--Keyword modelName="GeoArea" keywordName="GEOOMRADE"/-->
+		<!--Keyword modelName="NoOfLanguage" keywordName="NOOFLANGUAGE"/-->
+		<!-- <Keyword modelName="PXDescriptionDefault" keywordName="PXDescriptionDefault"/> -->
+		<Keyword modelName="PXCodepage" optional="true"/>
+		<Keyword modelName="PXDescriptionDefault" optional="true"/>
+		<Keyword modelName="PXCharset" optional="true"/>
+		<Keyword modelName="PXAxisVersion" optional="true"/>
+	</Keywords>
+  <Tables CNMMversion="23">
+    <Table modelName="Attribute" tableName="ATTRIBUTE" alias="ATT" hasSL="true" defaultAlias_lang2="AT2">
+      <Description>The table contains information on the attribute on the observation values.
+
+See further information in the separate document: Attributes in the Nordic SQL Data Model.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the main table to which the attribute is linked.</Description>
+        </Column>
+        <Column modelName="Attribute" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the attribute</Description>
+        </Column>
+        <Column modelName="AttributeColumn" datatype="varchar" mandatory="True" length="41">
+          <Description>Name of the column. The length is set to accommodate future use of prefixes</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="False" length="25">
+          <Description>Presentation text used by the retrieval interface.</Description>
+        </Column>
+        <Column modelName="SequenceNo" datatype="smallint" mandatory="True" length="">
+          <Description>The attributes place in the data table column or the place within the column. The first attribute for a given main table has the value 1.</Description>
+        </Column>
+        <Column modelName="Description" hasSL="true" datatype="varchar" mandatory="False" length="200">
+          <Description>Description of the attribute.</Description>
+        </Column>
+        <Column modelName="ValueSet" datatype="varchar" mandatory="False" length="30">
+          <Description>Name of the value set to which the values are linked.
+See further description in table ValueSet.
+
+Can be null – for example if the attribute contains a comment.</Description>
+        </Column>
+        <Column modelName="ColumnLength" datatype="smallint" mandatory="True" length="">
+          <Description>Number of stored characters in the data column.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="Attribute" suff="">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="ColumnCode" tableName="COLUMNCODE" alias="CCD" hasSL="true" defaultAlias_lang2="CC2" readBySqlDbConfig="false">
+      <Description>The table is a list and description of all the acceptable codes for the metadata fields in the metadata database.</Description>
+      <Columns>
+        <Column modelName="MetaTable" pk="2" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of metadata table.</Description>
+        </Column>
+        <Column modelName="ColumnName" pk="2" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of column.</Description>
+        </Column>
+        <Column modelName="Code" pk="2" datatype="varchar" mandatory="True" length="10">
+          <Description>Acceptable code alternative.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="80">
+          <Description>Descriptive presentation text for code alternatives.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="Contents" tableName="CONTENTS" alias="CNT" hasSL="true" defaultAlias_lang2="CN2">
+      <Description>The table contains information on the content of the data table(s).The content column's name is the same as the name of the corresponding data columns in the data table.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the main table to which the content columns are linked. See further description in the table MainTable.</Description>
+        </Column>
+        <Column modelName="Contents" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the data columns in the data table. 
+ 
+A main table's content columns must have unique names within that main table but the same column name can occur in other main tables. 
+ 
+The name should be descriptive, max 20 characters, beginning with a capital letter and should only contain letters (a-z) or numbers. The name can also be broken down using the standard "PascalCase",  i.e. CapitalsAndLowerCase.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="250">
+          <Description>Presentation text used by the retrieval interface when selecting table data and which, after retrieval of a data table, forms the beginning of the table heading. 
+
+The presentation text should be unique within a main table. 
+
+The text should contain information on unit (if not obvious), base time, fixed/ current prices, calendar adjustment and seasonal adjustment. 
+
+The text should begin with a capital letter, should not contain the % symbol and should not be finished with a full-stop.</Description>
+        </Column>
+        <Column modelName="PresTextS" hasSL="true" datatype="varchar" mandatory="False" length="80">
+          <Description>Short presentation text for content column. Used in retrieval interface, e.g. when selecting table data, or as the column name when table is presented, if the main table has several contents. 
+
+The text should begin with a capital letter, should not contain the % symbol and should not end with a full-stop. 
+
+If there is no text, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="PresCode" datatype="varchar" mandatory="True" length="8">
+          <Description>Presentation code.</Description>
+        </Column>
+        <Column modelName="Copyright" datatype="char" mandatory="True" length="1">
+          <Description>Code for copyright ownership.
+
+All content columns within a main table must belong to the same category, i.e. the same code should be in all the fields.</Description>
+        </Column>
+        <Column modelName="StatAuthority" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the authority responsible for the statistics (statistical authority). 
+
+All content columns in a main table must belong to the same statistical authority. 
+
+Data is taken from the column OrganizationCode in the table Organization. For a more detailed description, see that table.</Description>
+        </Column>
+        <Column modelName="Producer" datatype="varchar" mandatory="True" length="20">
+          <Description>All content columns in a main table must have the same producer. 
+
+Data is taken from the column OrganizationCode in the table Organization. For a more detailed description, see that table.</Description>
+        </Column>
+        <Column modelName="LastUpdated" DateTimeRoundTrip="true" datatype="smalldatetime" mandatory="False" length="0">
+          <Description>The date of the most recent update (incl. exact time) of the main table's data tables on the production server. The date remains unchanged when copying over to the external servers. The field is updated automatically by the programs used for loading and updating of data. 
+ 
+If there is no text, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="Published" datatype="smalldatetime" mandatory="False" length="0">
+          <Description>The most recent date for the official release of data, i.e. the date and exact time for the transfer of the main table's data tables to the external servers. The field is updated automatically by the program used for the transfer. 
+ 
+If there is no text, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="Unit" hasSL="true" datatype="varchar" mandatory="True" length="60">
+          <Description>Unit, e.g. number, currency, index. The given unit should apply to both the storage and the presentation. Details on unit (if not obvious) should also be written in text to the column PresText in the table Contents. 
+
+The unit can also be stored in the content column in the data table. This column is always called Unit and can contain different units for different values. In this case, %DataTable is written in the field unit in the table Contents.</Description>
+        </Column>
+        <Column modelName="PresDecimals" datatype="smallint" mandatory="True" length="0">
+          <Description>The number of decimals that are to be presented in the table presentation when retrievals are made.</Description>
+        </Column>
+        <Column modelName="PresCellsZero" datatype="char" mandatory="True" length="1">
+          <Description>The data table, in principle, only stores cells with values that are not zero. Cells containing zero are only stored if another content column in the same data table has a value other than zero (0) in the corresponding cell. In this field, it should be stated how data cells that are not stored, i.e. cells for which data is missing in all content columns, should be presented. 
+
+Alternatives: 
+
+Y = Yes. The cells are assumed to contain zero. Presented as zero (0). 
+N = No. Data cannot be given. 
+
+If PresCellsZero is 'N', the field PresMissingLine should be used to indicate how these cells should be presented. See description of PresMissingLine in Contents. See also the description of the table SpecialCharacter.</Description>
+        </Column>
+        <Column modelName="PresMissingLine" datatype="varchar" mandatory="False" length="2">
+          <Description>The field is used by the retrieval programs for presenting cells that should not be presented as zero, i.e. when PresCellsZero in Contents is 'N'. The field can either be NULL or contain the identity for a special character. The identity must in that case exist in the column CharacterType in the table SpecialCharacter, and the character must exist in the column PresCharacter in this table. If PresMissingLine is NULL, DefaultCodeMissingLine in MetaAdm is used. 
+
+See also descriptions of: the column PresCellsZero in the table Contents,  the columns CharacterType and PresCharacter in the table SpecialCharacter and the table MetaAdm.</Description>
+        </Column>
+        <Column modelName="AggregPossible" datatype="char" mandatory="True" length="1">
+          <Description>Shows if the content can be aggregated or not. Applies to all distributed variables for the content column. There are the following alternatives: 
+ 
+Y = Yes 
+N = No 
+ 
+If AggregPossible = N, the possibility to both aggregate and group the data in the retrieval interface is eliminated.</Description>
+        </Column>
+        <Column modelName="RefPeriod" hasSL="true" datatype="varchar" mandatory="False" length="80">
+          <Description>RefPeriod relates to the time of measurement for the material. Written as text, i.e."31 December of previous year". Data is obligatory for stock material, i.e. when the field StockFA in Contents is "S". 
+
+If the reference time is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="StockFA" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether the statistical material is of the type stock, flow or average. There are the following alternatives: 
+ 
+F = Flow. Measurement time refers to a specific period. The result describes events that occurred successively during the measurement period. 
+A = Average. The result is made up of an average value of observation values at different measurement times. 
+S = Stock. The measurement time refers to a specific point in time. 
+X = Other</Description>
+        </Column>
+        <Column modelName="BasePeriod" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>The base period when calculating an index or fixed prices, for example. In cases where data are not relevant, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="CFPrices" datatype="char" mandatory="False" length="1">
+          <Description>Current/fixed prices. Alternatives: 
+F = Fixed prices. 
+C = Current prices. 
+ 
+In cases where data are not relevant, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="DayAdj" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether the statistical material is calendar adjusted or not during the measurement period. There are the following alternatives: 
+ 
+Y = Yes 
+N = No</Description>
+        </Column>
+        <Column modelName="SeasAdj" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether the statistical material is seasonally adjusted or not, i.e. adjusted for different periodical variations during the measurement period that may have affected the result. There are the following alternatives: 
+ 
+Y = Yes 
+N = No</Description>
+        </Column>
+        <Column modelName="FootnoteContents" readBySqlDbConfig="false" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether there is a footnote attached to the content column (FootnoteType = 2). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+ 
+The field is automatically updated when a footnote is attached or taken away from the content column.</Description>
+        </Column>
+        <Column modelName="FootnoteVariable" readBySqlDbConfig="false" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether there is a footnote attached to a specific variable in the content column (FootnoteType = 3). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+ 
+The field is automatically updated when a footnote is attached or taken away from a variable in the content column.</Description>
+        </Column>
+        <Column modelName="FootnoteValue" readBySqlDbConfig="false" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether there is a footnote attached to a specific value in the content column (footnote type = 4).
+
+There are the following alternatives: 
+
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+
+The field is automatically updated when a footnote is attached or taken away from a value in the content column.</Description>
+        </Column>
+        <Column modelName="FootnoteTime" readBySqlDbConfig="false" datatype="char" mandatory="True" length="1">
+          <Description>Shows if there is a footnote attached to a specific point in time in the content column (FootnoteType = 4). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist. 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist. 
+N = There are no footnotes. 
+ 
+The field is automatically updated when a footnote is attached or taken away from a point in time in the content column.</Description>
+        </Column>
+        <Column modelName="StoreColumnNo" datatype="smallint" mandatory="True" length="0">
+          <Description>Here the content column's (data columns) order of storage amongst themselves in the data table is shown.</Description>
+        </Column>
+        <Column modelName="StoreFormat" datatype="char" mandatory="True" length="1">
+          <Description>Specifies  the storage format for data cells for the content column. There are the following alternatives: 
+C = Varchar. Can only be used to store unit information in the data tables. There must exist a column with name unit and the filed Contents.Unit should be set to ‘%Datatable’ 
+I = Integer. For numbers of size 2 147 483 647 to - 2 147 483 648. 
+N = Numeric. For larger numbers and always when the material is stored with decimals. 
+S = Smallint. For numbers of size 32 767 to - 32 768. 
+
+Also see the description of column StoreNoChar.</Description>
+        </Column>
+        <Column modelName="StoreNoChar" datatype="smallint" mandatory="True" length="0">
+          <Description>Number of stored characters in the data column. Number of characters should be: 
+ 
+2, if StoreFormat = S, 
+4, if StoreFormat = I, 
+2-17 (decimals included, decimal point excluded), if StoreFormat = N 
+1-30 characters, if StoreFormat = C. 
+ 
+Also see the description of column StoreFormat in the table Contents.</Description>
+        </Column>
+        <Column modelName="StoreDecimals" datatype="smallint" mandatory="True" length="0">
+          <Description>Number of stored decimals (0-15). 
+ 
+Data should be included in StoreNoChar if StoreFormat = N.</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="Contents" suff="">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="ContentsTime" tableName="CONTENTSTIME" alias="CTM">
+      <Description>The table links points in time for which data is stored, to a content column.</Description>
+      <Comment>Used in DatamodelMenu.cs</Comment>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>The name of the main table that the point in time in the content column is linked to. See further description in the table MainTable.</Description>
+        </Column>
+        <Column modelName="Contents" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>The name of the content column that the point in time is linked to. 
+See description in the table Contents.</Description>
+        </Column>
+        <Column modelName="TimePeriod" pk="3" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for point in time, i.e. 2003, 2003Q1, 2003M01. 
+
+Rules for how codes should be constructed are available in the column StoreFormat in the table TimeScale.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="DataStorage" tableName="DATASTORAGE" alias="DST">
+      <Description>The table contains information on which database the data tables for the statistical product are stored in. </Description>
+      <Columns>
+        <Column modelName="ProductCode" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Unique identifier for at product group.</Description>
+        </Column>
+        <Column modelName="ServerName" datatype="varchar" mandatory="True" length="8">
+          <Description>Name of the server where the database is situated.</Description>
+        </Column>
+        <Column modelName="DatabaseName" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of the database where the product's data tables are stored.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="Footnote" tableName="FOOTNOTE" alias="FNT" hasSL="true" defaultAlias_lang2="FN2">
+      <Description>The table contains footnote texts and information on footnotes.</Description>
+      <Columns>
+        <Column modelName="FootnoteNo" pk="1" datatype="numeric" mandatory="True" length="6">
+          <Description>Serial number given automatically by the system. The most recently used footnote number is stored in the table MetaAdm. 
+ 
+See further in the description of the table MetaAdm.</Description>
+        </Column>
+        <Column modelName="FootnoteType" datatype="char" mandatory="True" length="1">
+          <Description>Code for the type of footnote. There are the following alternatives: 
+ 
+1 = footnote on subject area 
+2 = footnote on content column 
+3 = footnote on variable + content column 
+4 = footnote on value/time + content column 
+5 = footnote on variable 
+6 = footnote on value 
+7 = footnote on main table 
+8 = footnote on sub-table 
+9 = footnote on value + main table 
+A = footnote on statistical area (level 2) 
+B = footnote on product (level 3) 
+C = footnote on table group (level 4) 
+Q = footnote on grouping</Description>
+        </Column>
+        <Column modelName="ShowFootnote" datatype="char" mandatory="True" length="1">
+          <Description>Contains information on when the footnote should be shown in the outdata program, i.e. when content is selected for a table, when the table is presented or both. 
+There are the following alternatives: 
+
+B = show both at selection and presentation 
+P = show at presentation
+S = shown upon selection</Description>
+        </Column>
+        <Column modelName="MandOpt" datatype="char" mandatory="True" length="1">
+          <Description>Code for whether the footnote is classified as "optional" or "mandatory". 
+Alternatives: 
+
+O = optional 
+M = mandatory</Description>
+        </Column>
+        <Column modelName="FootnoteText" hasSL="true" datatype="text" mandatory="True" length="0">
+          <Description>Text in the footnote. Written as consecutive text, starting with a capital letter. 
+
+NB! Double quotation marks should not be used as this causes problems in PC-AXIS.</Description>
+        </Column>
+        <Column modelName="PresCharacter" datatype="varchar" mandatory="False" length="20">
+          <Description>Special character or special characters to be associated with the footnote</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+        <Dictionary key="FootnoteNo">
+          <arg id="FootnoteNo" argClass="StringCollection" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="FootnoteContTime" tableName="FOOTNOTECONTTIME" alias="FCT">
+      <Description>The table links footnotes to a point in time for a specific content column.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="Contents" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+        </Column>
+        <Column modelName="TimePeriod" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Point in time that the footnote relates to. 
+ 
+See descriptions in table TimeScale and ContentsTime.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="Cellnote" datatype="char" mandatory="True" length="1">
+          <Description>State whether the footnote is a cell footnote. A cell footnote is defined as a footnote that exists for at least two of the content column's variables, e.g. Region and Time or Region and Sex. 
+Alternatives: 
+Y = Yes, the footnote is a cell footnote 
+N = No </Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="FootnoteNo" List="true">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="FootnoteContValue" tableName="FOOTNOTECONTVALUE" alias="FCA">
+      <Description>The table links footnotes to a value for a specific content column.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="Contents" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+        </Column>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+        </Column>
+        <Column modelName="ValuePool" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of value pool. 
+ 
+See further in the description of the table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the value that the footnote relates to. 
+ 
+See further in the description of the table Value.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="Cellnote" datatype="char" mandatory="True" length="1">
+          <Description>State whether the footnote is a cell footnote. A cell footnote is defined as a footnote that exists for at least two of the content column's variables, e.g. Region and Time or Region and Sex. 
+Alternatives: 
+Y = Yes, the footnote is a cell footnote 
+N = No </Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="FootnoteNo" List="true">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="FootnoteContVbl" tableName="FOOTNOTECONTVBL" alias="FCB">
+      <Description>The table links footnotes to a variable for a specific content column.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="Contents" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+        </Column>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteContents" tableName="FOOTNOTECONTENTS" alias="FCO">
+      <Description>The table links footnotes to a content column.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="Contents" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of content column. 
+ 
+See further in the description of the table Contents.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteGrouping" tableName="FOOTNOTEGROUPING" alias="FCO">
+      <Description>The table links footnotes to a grouping.</Description>
+      <Columns>
+        <Column modelName="Grouping" pk="1" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of groupong 
+See further in the description of the table Gruoping.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="">
+          <Description>Number of the footnote.
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="FootnoteNo" suff="">
+          <arg id="Grouping" argClass="StringCollection" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="FootnoteMainTable" tableName="FOOTNOTEMAINTABLE" alias="FMT">
+      <Description>The table links footnotes to a main table.
+
+N.B this table can only be used as long as all contents of the main table has the same connections in the ContentsTime table. Footnotes that are linked in this way should have type = 9. This is the same type that is used for notes with FootnoteMaintValue. By using that type the footnote can be specified so that it is valid for the intersection of more than one column thereby assigning the footnote to a subset of the data.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteMaintTime" tableName="FOOTNOTEMAINTTIME" alias="FNM">
+      <Description>Footnote for points in time or timeperiods for a main table.
+
+N.B this table can only be used as long as all contents of the main table has the same connections in the ContentsTime table. Footnotes that are linked in this way should have type = 9. This is the same type that is used for notes with FootnoteMaintValue. By using that type the footnote can be specified so that it is valid for the intersection of more than one column thereby assigning the footnote to a subset of the data.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="0" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table</Description>
+        </Column>
+        <Column modelName="TimePeriod" pk="0" datatype="varchar" mandatory="True" length="20">
+          <Description>Timeperiod</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="0" datatype="numeric" mandatory="True" length="">
+          <Description>Footnote number</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="FootnoteNo" suff="">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="FootnoteMaintValue" tableName="FOOTNOTEMAINTVALUE" alias="FMV">
+      <Description>The table links footnotes to a value for a specific content column.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+        </Column>
+        <Column modelName="ValuePool" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of value pool. 
+ 
+See further in the description of the table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the value that the footnote relates to. 
+ 
+See further in the description of the table Value.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteMenuSel" tableName="FOOTNOTEMENUSEL" alias="FMS">
+      <Description>The table links footnotes to all levels above the MainTable.</Description>
+      <Columns>
+        <Column modelName="Menu" pk="2" datatype="varchar" mandatory="True" length="80">
+          <Description>Code for relevant menu level. 
+ 
+See further in the description of the table MenuSelection.</Description>
+        </Column>
+        <Column modelName="Selection" pk="2" datatype="varchar" mandatory="True" length="80">
+          <Description>Code for the nearest underlying eligible alternative in the relevant menu level.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteSubTable" tableName="FOOTNOTESUBTABLE" alias="FST">
+      <Description>The table links footnotes to a main table.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="SubTable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of sub-table 
+ 
+See further in the description of the table SubTable.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteValue" tableName="FOOTNOTEVALUE" alias="FVL">
+      <Description>The table links footnotes to a value.</Description>
+      <Columns>
+        <Column modelName="ValuePool" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of value pool. 
+ 
+See further in the description of the table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the value that the footnote relates to. 
+ 
+See further in the description of the table Value.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="FootnoteValueSetValue" tableName="FOOTNOTEVALUESETVALUE" alias="FVS">
+      <Description>The table links footnotes to a valueset.</Description>
+      <Columns>
+        <Column modelName="ValuePool" pk="0" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of value pool.
+
+See further in the description of the table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValueSet" pk="0" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of value set.
+
+See further in the description of the table ValueSet.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="0" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the value that the footnote relates to.
+
+See further in the description of the table Value.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="0" datatype="numeric" mandatory="True" length="">
+          <Description>Number of the footnote.
+
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="FootnoteNo" suff="">
+          <arg id="ValueSet" argClass="StringCollection" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="FootnoteVariable" tableName="FOOTNOTEVARIABLE" alias="FVB">
+      <Description>The table links footnotes to a variable.</Description>
+      <Columns>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the variable that the footnote relates to. 
+ 
+See further in the description of the table Variable.</Description>
+        </Column>
+        <Column modelName="FootnoteNo" pk="2" datatype="numeric" mandatory="True" length="6">
+          <Description>Number of the footnote. 
+ 
+See further in the description of the table Footnote.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="Grouping" tableName="GROUPING" alias="GRP" hasSL="true" defaultAlias_lang2="GR2">
+      <Description>The table describes the groupings which exist in the database. It is used for the grouping of values for presentation purposes.</Description>
+      <Columns>
+        <Column modelName="Grouping" pk="1" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of grouping. 
+ 
+The name should consist of the name of the value pool that the grouping is linked to + a suffix. The suffix should always be used, even if there is only one grouping for a value pool. The suffix can be distinguished by a short text beginning with a capital letter, or a single capital letter or number. 
+ 
+The name is written beginning with a capital letter.</Description>
+        </Column>
+        <Column modelName="ValuePool" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the value pool that the grouping belongs to. 
+ 
+See further in the description of the table Organization.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="100">
+          <Description>Presentation text for grouping. 
+
+Used in the retrieval interface when selecting a grouping under "Classification". The text should also be able to be used in PC-AXIS as a replacement for the usual variable text, when retrieving grouped material, in the stub or heading and in the title when presenting a table. 
+
+The text should be short and descriptive and begin with a capital letter.</Description>
+        </Column>
+        <Column modelName="Hierarchy" datatype="char" mandatory="True" length="1">
+          <Description>Shows if the grouping is hierarchic or not. Can be: 
+
+N = No 
+B = Balanced 
+U = Unbalanced 
+
+For non-hierarchic groupings Hierarchy should always be N. 
+In a balanced hierarchy all branches are the same length, i.e. with the same number of levels. In an unbalanced hierarchy the number of levels and the length of the levels can vary within the hierarchy. </Description>
+        </Column>
+        <Column modelName="SortCode" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Sorting code to enable the presentation of the groupings within a value pool in a logical order. 
+
+If there is no sorting code, the field should be NULL. </Description>
+        </Column>
+        <Column modelName="GroupPres" datatype="char" mandatory="True" length="1">
+          <Description>Code which indicates how a grouping should be presented, as an aggregated value, integral value or both. There are the following alternatives: 
+
+A = aggregated value should be shown 
+I = integral value should be shown 
+B = both aggregated and integral values should be shown .</Description>
+        </Column>
+        <Column modelName="Description" datatype="varchar" mandatory="False" length="200">
+          <Description>Description of grouping. Should give an idea of how the grouping has been put together. 
+ 
+Written beginning with a capital letter. 
+If a description is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="GroupingLevel" tableName="GROUPINGLEVEL" alias="GRP" hasSL="true" defaultAlias_lang2="GR2">
+      <Description>The table describes the levels within a grouping. 
+
+The table has to exist for both hierarchical and non-hierarchical groupings, but does not have to be used for the non-hierarchical. </Description>
+      <Columns>
+        <Column modelName="Grouping" pk="1" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of grouping.
+
+See further in the description of the table Grouping.</Description>
+        </Column>
+        <Column modelName="LevelNo" pk="2" datatype="numeric" mandatory="True" length="">
+          <Description>Number for sorting a level within a grouping. The highest level should always be 1.</Description>
+        </Column>
+        <Column modelName="LevelText" hasSL="true" datatype="varchar" mandatory="False" length="250">
+          <Description>The name of the level.</Description>
+        </Column>
+        <Column modelName="GeoAreaNo" datatype="numeric" mandatory="False" length="2">
+          <Description>Should contain the identification of a map that is suitable for the variable and the grouping. The field must be filled in if the column VariableType in the table SubTableVariable = G, otherwise the field is NULL. 
+ 
+The identification number should also be included in the table TextCatalog. For further information see description of TextCatalog.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="LevelNo" suff="_KeyIsLevel">
+          <arg id="Grouping" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="Link" tableName="LINK" alias="LNK" hasSL="true" defaultAlias_lang2="LN2">
+      <Description>The table contains one or several links to menu levels in the table MenuSelection. </Description>
+      <Columns>
+        <Column modelName="LinkId" pk="2" datatype="int" mandatory="True" length="0">
+          <Description>Identifying code for the link.</Description>
+        </Column>
+        <Column modelName="Link" hasSL="true" datatype="varchar" mandatory="True" length="250">
+          <Description>Link written in HTML.</Description>
+        </Column>
+        <Column modelName="LinkType" datatype="varchar" mandatory="False" length="10">
+          <Description>Describes the type of link. There are the following alternatives: 
+ 
+TableF = table ahead in the same database 
+TableB = previous table in the same database 
+TableRel = related table in the same database 
+TableProc = table for percentage calculation 
+Dok = documentation (internal or external) 
+TableRelEx = related table in other countries 
+Website = related web site 
+Temasite = theme web site 
+Analys = analysis 
+ 
+For the four first above mentioned alternatives the column LinkFormat should be M. In other cases LinkFormat should be U.</Description>
+        </Column>
+        <Column modelName="LinkFormat" datatype="char" mandatory="False" length="1">
+          <Description>Indicates whether the link is an Internet address outside databases (a URL) or a link to a master table in the database. The options are:
+
+U = URL
+M = maintable</Description>
+        </Column>
+        <Column modelName="LinkText" hasSL="true" datatype="varchar" mandatory="True" length="250">
+          <Description>Presentation text for the link, i.e. the text that is visible for the user in the Internet interface.</Description>
+        </Column>
+        <Column modelName="PresCategory" datatype="char" mandatory="True" length="1">
+          <Description>Presentation category for the link. There are three alternatives: 
+
+O = Public, i.e. link accessible for all users 
+I = Internal, i.e. table is only accessible for internal users. 
+P = Private, i.e. table is only accessible for certain internal users. 
+
+The code is always written with capital letters.</Description>
+        </Column>
+        <Column modelName="LinkPres" datatype="char" mandatory="False" length="1">
+          <Description>Shows how the link should be presented in the Internet interface. There are three alternatives: 
+
+D = Presented directly 
+I = Presented under an icon or similar 
+B = Presented both directly and under an icon</Description>
+        </Column>
+        <Column modelName="SortCode" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Sorting code for the link. Makes it possible to dictate the order in which the links are presented for users in the Internet interface. 
+If there is no sorting code, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="Description" hasSL="true" datatype="varchar" mandatory="False" length="200">
+          <Description>Description of link. 
+If a description is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="LinkMenuSelection" tableName="LINKMENUSELECTION" alias="LMS">
+      <Description>The table connects links (table Link) to menu selection (table MenuSelection).</Description>
+      <Columns>
+        <Column modelName="Menu" pk="0" datatype="varchar" mandatory="True" length="80">
+          <Description>Code for relevant menu level. 
+ 
+See description of the table MenuSelection.</Description>
+        </Column>
+        <Column modelName="Selection" pk="0" datatype="varchar" mandatory="True" length="80">
+          <Description>The code for the nearest underlying eligible alternative in the relevant menu level.</Description>
+        </Column>
+        <Column modelName="LinkId" pk="0" datatype="int" mandatory="True" length="0">
+          <Description>Identifying code for the link.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <onlyForDbconfig />
+      </generate>
+    </Table>
+    <Table modelName="MainTable" tableName="MAINTABLE" alias="MTA" hasSL="true" defaultAlias_lang2="MT2">
+      <Description>This table is the central compilation point for material and contains general information for the data tables that are linked to the table.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Summarised names of the statistical material and its underlying sub-tables with stored data. 
+ 
+The name should be descriptive, max 20 characters, beginning with a capital letter and contain only letters (a-z) or numbers. The name can also be broken down using the standard "PascalCase",  i.e. CapitalsAndLowerCase.</Description>
+        </Column>
+        <Column modelName="TableStatus" datatype="char" mandatory="True" length="1">
+          <Description>Code for the table's status, giving information on where the table fits into the production and publishing processes. Table status decides whether a table can be seen or not in the indata and outdata programs. 
+
+There are the following alternatives: 
+M = Only metadata input 
+E = The table is new and empty data tables have been created 
+U = The table is currently being updated and retrievals cannot be done 
+N = The table is loaded with new, but not yet officially released data, only accessible for product staff 
+O = The table is ready for official release, only accessible for product staff, locked for updating 
+D = The table is not updated but is accessible to everybody
+A = The table is still updating and the table is accessible to all (with authorisation according to PresCategory)</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="250">
+          <Description>The descriptive text which is presented when selecting a table in the retrieval interface. 
+
+The text should be unique and contain information on all dividing variables, including time scale (at the end). Information on unit, base time, fixed/current prices, calendar-adjusted or seasonally adjusted should normally NOT be included, as this is given in the presentation text for Contents. There can however be exceptions, i.e. for main tables that contain the same information except that the calculations are based on different base times. 
+
+The text should begin with a capital letter, should not end with a full stop, and should not include the % symbol. It should not finish with a number that relates to something other than the point of time.</Description>
+        </Column>
+        <Column modelName="PresTextS" hasSL="true" datatype="varchar" mandatory="False" length="150">
+          <Description>Presentation text in short. Only needs to be filled in if the main table has several content columns. The text comes from the main table's PresText but should not contain information on variable or time. 
+ 
+Used in the retrieval interface as an introduction to the table heading, where several contents are chosen. Also used as content information in a PC-AXIS file, in some cases several contents are chosen at the same time and put into the same file. 
+ 
+Should begin with a capital letter and not end with a full-stop. The text should not include a % symbol. 
+ 
+If a short presentation text is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="ContentsVariable" hasSL="true" datatype="varchar" mandatory="False" length="80">
+          <Description>Can be used for main tables with several contents to specify a collective name for the content columns. The content variable is used as the general name ("type") which is in the TextCatalog. Used in the retrieval interface in the heading when table is presented, "...by industry, time and [content variable]" 
+
+If the field is not used, it should be NULL. </Description>
+        </Column>
+        <Column modelName="TableId" datatype="varchar" mandatory="True" length="20">
+          <Description>Unique identity for main table. Can be used in requests from the end users, etc. </Description>
+        </Column>
+        <Column modelName="PresCategory" datatype="char" mandatory="True" length="1">
+          <Description>Presentation category for all sub-tables and content columns in the table. There are three alternatives: 
+
+O = Official, i.e. tables that are officially released and accessible to all users on the external servers or are available on the production server, with plans for official release. (Only tables with PresCategory = O are on the external servers) 
+I = Internal, i.e. tables are only accessible for internal users.The table should never be published to the general public.
+P = Private, i.e. tables are only accessible for certain internal users.
+The code is also written with capital letters.</Description>
+        </Column>
+        <Column modelName="FirstPublished" hasSL="true" datatype="smalldatetime" mandatory="False" length="">
+          <Description>States when a main table was first published. The value is optional.</Description>
+        </Column>
+        <Column modelName="SpecCharExists" datatype="char" mandatory="True" length="1">
+          <Description>Specifies if a column for special symbols exists in the data table (s) and if it should be used at retrieval. 
+There are the following alternatives: 
+
+Y = Yes, column for special symbols exists in the database, wich should be used at retrieval 
+E = Yes, column for special symbols exists in the database, but is not used at retrieval 
+N = No, column for special symbols does not exist in the database 
+
+If SpecCharExists =Y, there is an extra content column for all content columns in the data table. These special columns have the same names as the content column they belong to, with the suffix X. The format is varchar(2), i.e. the same as CharacterType in the table SpecialCharacter. </Description>
+        </Column>
+        <Column modelName="SubjectCode" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for subject area, i.e. BE</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="ProductCode" datatype="varchar" mandatory="True" length="20">
+          <Description>Id for the product that corresponds to the table. The field is optional.</Description>
+        </Column>
+        <Column modelName="TimeScale" datatype="varchar" mandatory="True" length="20">
+          <Description>Name on the time scale that is used in the material. See further description of the table TimeScale.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="MainTablePerson" tableName="MAINTABLEPERSON" alias="MTP">
+      <Description>The table links the person responsible, i.e. the contact person and person responsible for updating, to the main tables. An unlimited number of persons can be linked to a main table.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="PersonCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the person responsible, contact person or person responsible for updating for the main table. 
+ 
+For description, see the table Person.</Description>
+        </Column>
+        <Column modelName="RolePerson" pk="2" datatype="char" mandatory="True" length="1">
+          <Description>Code that shows the role of responsible person, contact person and/or person responsible for updating. There are the following alternatives: 
+
+M = Main contact person (one person) 
+C = Contact person (0 – several persons) 
+U = Person responsible for updating (1 – several persons) 
+I = Person responsible for international reporting (0 - 1 person).
+V = Person that verifies not yet published data  (0 – several persons) </Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="PersonCode" suff="">
+          <arg id="MainTable" />
+          <arg id="RolePerson" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="MainTableVariableHierarchy" tableName="MAINTABLEVARIABLEHIERARCHY" alias="MTP">
+      <Description>The table links a grouping to a main table. </Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table. 
+ 
+See further in the description of the table MainTable.</Description>
+        </Column>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of variable. 
+ 
+See further in the description of the table Variable.</Description>
+        </Column>
+        <Column modelName="Grouping" pk="3" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of grouping. 
+ 
+See further in the description of the table Grouping.</Description>
+        </Column>
+        <Column modelName="ShowLevels" datatype="numeric" mandatory="False" length="2">
+          <Description>The number of open levels that will be shown at menu selection the first time the tree is displayed. Must be 0 if all levels shall be shown.</Description>
+        </Column>
+        <Column modelName="AllLevelsStored" datatype="char" mandatory="True" length="1">
+          <Description>Shows if all levels shall be stored or not. Can be: 
+ 
+Y = Yes 
+N = No</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+        <Dictionary key="Grouping" suff="_KeyIsGroupingID">
+          <arg id="MainTable" />
+          <arg id="Variable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="MenuSelection" tableName="MENUSELECTION" alias="MSL" hasSL="true" defaultAlias_lang2="MS2">
+      <Description>The table is used to enable the presentation of any number of eligible levels above the table MainTable. The table acts as the entry point to the databases. 
+All records in MenuSelection should also be in the corresponding MenuSelections for secondary languages (if any).</Description>
+      <Comment> For SubjectArea</Comment>
+      <Columns>
+        <Column modelName="Menu" pk="1" datatype="varchar" mandatory="True" length="80">
+          <Description>Code for relevant menu level. If LevelNo = 1, Menu should be filled with START. Code for subject areas may not exceed 20 characters. </Description>
+        </Column>
+        <Column modelName="Selection" pk="2" datatype="varchar" mandatory="True" length="80">
+          <Description>The code for the nearest underlying eligible alternative in the relevant menu level. A menu can contain objects from different levels. Code for subject areas may not exceed 20 characters.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="False" length="100">
+          <Description>Presentation text for MenuSelection. </Description>
+        </Column>
+        <Column modelName="PresTextS" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Short presentation text for MenuSelection. 
+ 
+If a short presentation text is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="Description" hasSL="true" datatype="varchar" mandatory="False" length="200">
+          <Description>Descriptive text for MenuSelection. 
+ 
+If a description is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="LevelNo" datatype="char" mandatory="True" length="1">
+          <Description>Number of menu level, where 1 refers to the highest level. 
+A type of object should always have the same LevelNo. 
+
+The highest level number should be given in the table MetaAdm (see description in that table).</Description>
+        </Column>
+        <Column modelName="SortCode" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Sorting code to dictate the presentation order for the eligible alternatives on each level. 
+ 
+If there is no sorting code, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="Presentation" hasSL="true" datatype="char" mandatory="True" length="1">
+          <Description>Shows how a menu alternative can be used. Alternatives: 
+ 
+A = Active, visible and can be selected 
+P = Passive, is visible but cannot be selected 
+N = Not shown in the menu</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="MetaAdm" tableName="METAADM" alias="MAD">
+      <Description>The table contains system variables and their values.</Description>
+      <Columns>
+        <Column modelName="Property" pk="2" upper="true" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of system variable. There are the following alternatives: 
+- LastFootnoteNo 
+- MenuLevels 
+- SpecCharSum 
+- NoOfLanguage 
+- Language1, Language2 and so on
+- Codepage1 
+- DataNotAvailable 
+- DataNoteSum 
+- DataSymbolSum 
+- DataSymbolNil 
+- PxDataFormat 
+- KeysUpperLimit 
+- DefaultCodeMissingLine 
+
+NoOfLanguage indicates the number of languages that exists in the model for the meta database presentation texts, and that can be used by the retrieval interfaces. For each language there should be a line like: Language1, Language2 and so on. Language1 should always include the main language. See also the description of the column Value in this table. 
+
+For each language there should also be a row in the table TextCatalog. For further information, see this table. 
+
+Regarding DefaultCodeMissingLine see also descriptions in: PresCellsZero och PresMissingLine in Contents, and CharacterType and PresCharacter in SpecialCharacter.</Description>
+        </Column>
+        <Column modelName="Value" datatype="varchar" mandatory="True" length="20">
+          <Description>Value of system variable. Contains one value per property. 
+
+For the property LastFootnoteNo, Value should contain the last used footnote number in the table Footnote. 
+
+For the property MenuLevels, Value should contains the highest used level number in the table MenuSelection. 
+
+For the property SpecCharSum, Value should contain the highest acceptable value for character type in the table SpecCharacter. 
+
+For the property NoOfLanguage Value should contain the number of languages that exists in the metadata model. 
+
+For the property Language1 Value should contain the main language of the model. The code is written in three capital letters, i.e. SVE. 
+
+For the property  Language2 , Language3 etc., Value should contain the other languages of the model. The code is written in three capital letters, i.e. ENG, ESP. The code is used as a suffix in the extra tables that should exist in the meta database, i.e. SubTable_ENG, SubTable_ESP. 
+
+For the property Codepage1: The characters that can be used and  how they should be presented. Is used at creating the keyword Codepage in the px file and at converting to XML. 
+Three different examples: iso-8859-1, windows-1251, big5. 
+
+For the property DataNotAvailable: The value that should be presented, if  the data cell contains NULL and NPM-character is missing. If the value exists in the table SpecialCharacter, it is used, otherwise the character in the table DataNotAvailable is used.  The value is a reference to CharacterType in the SpecialCharacter table. 
+Example: .. (two dots). 
+
+For the property DataNoteSum: The value that should be presented after the sum, if data cells with different NPM marking is summarized. The value is a reference to CharacterType in the SpecialCharacter table. 
+Example:  * 
+1A + 2B = 3* 
+
+For the property DataSymbolSum: The value that should be presented if data cells with different NPM character are summarized and no sum can be created. The value is a reference to CharacterType in the SpecialCharacter table. 
+Example: N.A. 
+. + .. = N.A. 
+
+For the property DataSymbolNil: the value that should be presented at absolute 0 (zero) in the table SpecialCharacter. The value is a reference to CharacterType in the SpecialCharacter table. 
+Example: - 
+
+For the property PxDataFormat: Matrix = all retreivals should be stored in matrix format. 
+Keysnn = retreivals with keys are remade 
+nn &amp;gt; read data cells *100 / presented number of data cells 
+Example: 40 
+(Default is Matrix.) 
+
+For the property KeysUpperLimit: Maximum number of data cells that the presented matrix may contain, if the retreival should be possible to do with Keys. If greater, the retreival is made in matrix format. 
+Example: 1000000 
+
+For the property DefaultCodeMissingLine: The value that should be presented in data cells that are not stored. Is used if neither presentation with 0 or special character have been specified. The value is a reference to CharacterType in the SpecialCharacter table. 
+
+See also the description of the column Property in this table, and also the table TextCatalog.</Description>
+        </Column>
+        <Column modelName="Description" datatype="varchar" mandatory="False" length="200">
+          <Description>Must contain a description of the property.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+        <getAllRows key="Property" />
+      </generate>
+    </Table>
+    <Table modelName="MetabaseInfo" tableName="METABASEINFO" alias="MBI">
+      <Description>The table contains information on the relevant data model,version and the database role.</Description>
+      <Columns>
+        <Column modelName="Model" pk="2" upper="true" datatype="varchar" mandatory="True" length="20">
+          <Description>This field can be used to give information about general characteristics of the database. 
+E.g. if the data is on macro or micro level.</Description>
+        </Column>
+        <Column modelName="ModelVersion" datatype="varchar" mandatory="True" length="10">
+          <Description>Version number for the metadata model that the metadata database uses.</Description>
+        </Column>
+        <Column modelName="DatabaseRole" datatype="varchar" mandatory="True" length="20">
+          <Description>Role of database. Can be: 
+
+- Production 
+- Operation 
+- Test</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="Organization" tableName="ORGANIZATION" alias="ORG" hasSL="true" defaultAlias_lang2="OR2">
+      <Description>The table contains information on the authorities and organizations that are responsible for or produce statistics.</Description>
+      <Columns>
+        <Column modelName="OrganizationCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Identification for the organization</Description>
+        </Column>
+        <Column modelName="OrganizationName" hasSL="true" datatype="varchar" mandatory="True" length="60">
+          <Description>Name of authority/organisation in full text, including any official abbreviation in brackets, e.g. Statistics Sweden (SCB). 
+
+Text should begin with a capital letter.</Description>
+        </Column>
+        <Column modelName="Department" hasSL="true" datatype="varchar" mandatory="False" length="60">
+          <Description>Name of the department or equivalent that produces the statistics. </Description>
+        </Column>
+        <Column modelName="Unit" hasSL="true" datatype="varchar" mandatory="False" length="60">
+          <Description>Name of unit or equivalent.</Description>
+        </Column>
+        <Column modelName="WebAddress" hasSL="true" datatype="varchar" mandatory="False" length="100">
+          <Description>Internet address to the authority's/organisation's website. Written as, for example: 
+www.scb.se 
+ 
+If Internet address is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="Person" tableName="PERSON" alias="PRS">
+      <Description>The table contains information on all persons (or alternatively groups) which are contact persons for content and/or responsible for updating statistics in the database.</Description>
+      <Columns>
+        <Column modelName="PersonCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Identifying code for person (or group) responsible. </Description>
+        </Column>
+        <Column modelName="OrganizationCode" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the organization or authority that produces and/or is responsible for the statistical material. 
+
+See further description of the table Organization.</Description>
+        </Column>
+        <Column modelName="Forename" datatype="varchar" mandatory="False" length="50">
+          <Description>Responsible person's first name 
+For groups, this data is not available and should therefore be NULL.</Description>
+        </Column>
+        <Column modelName="Surname" datatype="varchar" mandatory="True" length="50">
+          <Description>Surname of the person responsible or name of the group responsible.</Description>
+        </Column>
+        <Column modelName="PhonePrefix" datatype="varchar" mandatory="True" length="4">
+          <Description>Prefix for telephone number, so that the number is valid internationally. 
+
+E.g. for Swedish telephone numbers the prefix is +46.</Description>
+        </Column>
+        <Column modelName="PhoneNo" datatype="varchar" mandatory="True" length="20">
+          <Description>Complete national telephone numbers, i.e. without international prefix. 
+ 
+Should be written as: national code, hyphen, then numbers in groups of two or three, divided by a space.</Description>
+        </Column>
+        <Column modelName="FaxNo" datatype="varchar" mandatory="False" length="20">
+          <Description>Complete national fax machine numbers, i.e. without international prefix. 
+ 
+Should be written as: national code, hyphen, then numbers in groups of two or three, divided by a space. 
+If there is no fax number, this field should be NULL.</Description>
+        </Column>
+        <Column modelName="Email" datatype="varchar" mandatory="False" length="80">
+          <Description>E-mail address for person or group responsible, if available. 
+If an e-mail address is not available, the field should be NULL. 
+ 
+Written with lower case letters.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="SecondaryLanguage" tableName="SECONDARYLANGUAGE" alias="SLA">
+      <Description>Information about secondary languages (if any)</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of main table</Description>
+        </Column>
+        <Column modelName="Language" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of secondary language.</Description>
+        </Column>
+        <Column modelName="CompletelyTranslated" datatype="char" mandatory="False" length="1">
+          <Description>Code which shows whether all the table's presentation texts are translated to English or not. This column is necessary so that it is possible to determine from the retrieval interface whether the table will be shown in English or not. 
+
+Valid values:
+Y - the table is completely translated to the secondary language
+N - the table is not completely translated to the secondary language</Description>
+        </Column>
+        <Column modelName="Published" datatype="char" mandatory="False" length="1">
+          <Description>Shows if the secondary language is published or not.
+
+Valid values:
+Y = yes
+N = no</Description>
+        </Column>
+        <Column modelName="UserId" datatype="varchar" mandatory="False" length="20">
+          <Description />
+        </Column>
+        <Column modelName="LogDate" datatype="smalldatetime" mandatory="False" length="">
+          <Description />
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="Language" suff="byLanguage">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="SpecialCharacter" tableName="SPECIALCHARACTER" alias="SPC" hasSL="true" defaultAlias_lang2="SP2">
+      <Description>The table contains information on the special characters that are used in the database's data tables. Special characters such as ....or - , can be used to show that data is missing, is not relevant or is too uncertain to be given.</Description>
+      <Columns>
+        <Column modelName="CharacterType" pk="2" datatype="varchar" mandatory="True" length="2">
+          <Description>Identifying code for the special character. 
+
+Given in the form of a number, from 1 upwards. The highest acceptable number is given in the table MetaAdm, which is 99 (see description in table MetaAdm). 
+
+If PresMissingLine in Contents contains the identity for a special character, this character must be represented here. See also descriptions of PresCellsZero and PresMissingLine in Contents, PresCharacter in SpecialCharacter and the table MetaAdm.</Description>
+        </Column>
+        <Column modelName="PresCharacter" hasSL="true" datatype="varchar" mandatory="True" length="20">
+          <Description>The special character as presented for the user when the table is presented when retrieved.</Description>
+        </Column>
+        <Column modelName="AggregPossible" datatype="char" mandatory="True" length="1">
+          <Description>Used to show whether the data cell with the special character can be aggregated or not. There are the following alternatives: 
+ 
+Y = Yes 
+N = No 
+ 
+If AggregPossible = Y, the specific data cell, even if not shown, can be included in an aggregation.</Description>
+        </Column>
+        <Column modelName="DataCellPres" datatype="char" mandatory="True" length="1">
+          <Description>Provides the retrieval programs with information concerning the presentation of a special character;  with data and special character or with special character only. 
+ 
+There are the following alternatives: 
+Y = The data cell should be presented together with the special character 
+N = The special character alone should be presented</Description>
+        </Column>
+        <Column modelName="DataCellFilled" datatype="char" mandatory="False" length="1">
+          <Description>Shows whether the data cell must be filled in or not. There are the following alternatives: 
+ 
+V = Value must be filled in 
+N = No, the data cell should not be  filled in but should be NULL 
+F = Any, i.e. the data cell can be filled in or can be NULL. 
+0 = The data cell should contain 0 (zero) only</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="False" length="200">
+          <Description>Explanation to what is written in PresCharacter. 
+ 
+If there is no presentation text, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+        <getAllRows key="CharacterType" />
+      </generate>
+    </Table>
+    <Table modelName="SubTable" tableName="SUBTABLE" alias="STB" hasSL="true" defaultAlias_lang2="ST2">
+      <Description>The table contains information on the sub-tables, reflecting the stored data tables, which are in the subject databases. The data tables are identified using the main table's name + sub-table's name.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>The name of the main table, to which the sub-table is linked. See further description in the table MainTable.</Description>
+        </Column>
+        <Column modelName="SubTable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the sub-table. For material stored only in the sub-table, the field is left empty, i.e. a dash is written. 
+Name of main table + name of sub-table together make up the name of the data table where the data is stored, if SubTable is not empty, in which case the name of the data table is made up of the name of the main table only. 
+
+NB. Make sure that the numbering is always included even if there is only one sub-table divided by region among the sub-tables that are linked to the relevant main table.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="250">
+          <Description>Descriptive text that is used by the retrieval interface, i.e. when selecting a sub-level to a table or sub-table in the retrieval interface, if the main table has several sub-tables. 
+
+The text should be unique (there should not be two sub-tables with the same PresText) and should contain information on all the division variables, excluding totals. Information on timescale should be added at the end. 
+
+For data material that is only stored in a sub-table, the text should be the same as PresText in the table MainTable. 
+
+For data material that is divided up into different sub-tables, the main table’s presentation text should be used as a "model", which is supplemented with the information that differentiates the sub-tables. 
+
+The text should begin with a capital letter, should not end with a full stop, and should not include the % symbol.</Description>
+        </Column>
+        <Column modelName="CleanTable" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether the sub-tables values can be aggregated or not. </Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="SubTable" suff="">
+          <arg id="MainTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="SubTableVariable" tableName="SUBTABLEVARIABLE" alias="STV">
+      <Description>The table links variables with value sets in the sub-tables. The variable name is made up of the name for the corresponding metadata column in the data tables.</Description>
+      <Columns>
+        <Column modelName="MainTable" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>The name of the main table to which the variable and the sub-table are linked. See further description in the MainTable table.</Description>
+        </Column>
+        <Column modelName="SubTable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of sub-table 
+ 
+Data can be missing, with a dash in its place. 
+ 
+See further description in the table SubTable.</Description>
+        </Column>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Variable name, which makes up the column name for metadata in the data table. See further description in the table Variable.</Description>
+        </Column>
+        <Column modelName="ValueSet" datatype="varchar" mandatory="False" length="30">
+          <Description>Name of value set. See further description in the table ValueSet. 
+For rows with variable types V and G, the name of the value set must be filled in. For VariableType = T, the field is left empty, as there is no value set for the variable Time.</Description>
+        </Column>
+        <Column modelName="VariableType" datatype="char" mandatory="True" length="1">
+          <Description>Code for type of variable. There are three alternatives: 
+
+- V = variable, i.e. dividing variable, not time. 
+- G = geographical information for map program.
+- T = time. 
+
+If VariableType = G, the field GeoAreaNo in the tables ValueSet and Grouping should be filled in (however not yet implemented).</Description>
+        </Column>
+        <Column modelName="StoreColumnNo" datatype="smallint" mandatory="True" length="0">
+          <Description>The variable's column number in the data table. 
+The variable Time should always be included and be the last column in the data table. If the material is divided by region, the variable Region should be the first column. 
+Written as 1, 2, 3, etc.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+        <Dictionary key="Variable" suff="keyVariable">
+          <arg id="MainTable" />
+          <arg id="SubTable" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="TextCatalog" tableName="TEXTCATALOG" alias="TXC" hasSL="true" defaultAlias_lang2="TX2">
+      <Description>The table contains information on joint texts.</Description>
+      <Comment>This table is not suitable for generated extractions such as Get...</Comment>
+      <Columns>
+        <Column modelName="TextCatalogNo" pk="2" datatype="int" mandatory="True" length="">
+          <Description>Identity of text. </Description>
+        </Column>
+        <Column modelName="TextType" hasSL="true" datatype="varchar" mandatory="True" length="30">
+          <Description>Type of text. The texts should be fixed for use in PC-AXIS. 
+
+Alternatives: 
+- ContentsVariable 
+- GeoAreaNo 
+- Language1, Language2 (and so on)</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="100">
+          <Description>The text that should be shown. Can be the name of a map file etc., or a language. The language should be written in the language it refers to, e.g. svenska, English, Espanol. See also the description of the table MetaAdm.</Description>
+        </Column>
+        <Column modelName="Description" hasSL="true" datatype="varchar" mandatory="False" length="200">
+          <Description>Description of text. 
+ 
+If a description is not available, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate />
+    </Table>
+    <Table modelName="TimeScale" tableName="TIMESCALE" alias="TSC" hasSL="true" defaultAlias_lang2="TS2">
+      <Description>The table describes the timescales that exist in the database.</Description>
+      <Columns>
+        <Column modelName="TimeScale" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of timescale, i.e.Year, Month, Quarter. 
+Should not contain dash (applies for retrievals in PC-AXIS).</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="80">
+          <Description>Presentation text for timescale, i.e. year, month, quarter. Text is often the same as the name in the column TimeScale. Written in lower case. 
+Presentation text used when selecting time when making a retrieval from databases.</Description>
+        </Column>
+        <Column modelName="TimeScalePres" datatype="char" mandatory="False" length="1">
+          <Description>Shows if the timescale should be presented in table heading instead of the word Time. Can be: 
+
+Y = Yes 
+N = No </Description>
+        </Column>
+        <Column modelName="Regular" datatype="char" mandatory="True" length="1">
+          <Description>Shows if timescale is regular or not. Can be: 
+ 
+Y = Yes 
+N = No 
+ 
+An example of an irregular timescale is an election year. 
+ 
+Data is primarily accompanying information when retrieving statistics to a file.</Description>
+        </Column>
+        <Column modelName="TimeUnit" datatype="char" mandatory="True" length="1">
+          <Description>Code for TimeUnit. Used as accompanying information when retrieving a statistics file. The following alternatives are possible: 
+
+Q = quarter 
+A = academic year 
+M = month 
+X = 3 years 
+S = split year 
+Y = year
+T= term</Description>
+        </Column>
+        <Column modelName="Frequency" datatype="smallint" mandatory="False" length="0">
+          <Description>Shows how many points in time the relevant timescale contains per calendar year, i.e.: 
+ 
+1 for timescale year, 
+4 for timescale quarter, 
+12 for timescale month. 
+ 
+For irregular and regular timescales, where points in time do not occur consecutively (i.e. every other year), the field should be NULL.</Description>
+        </Column>
+        <Column modelName="StoreFormat" datatype="varchar" mandatory="True" length="20">
+          <Description>Description of storage format for the point in time in the timescale. There are the following alternatives: 
+ 
+yyyy for timescales where TimeUnit = Y, 
+yyyy-yyyy for timescales where TimeUnit = T, 
+yyyy/yy for timescales where TimeUnit = A, 
+yyyy/yyyy for timescales where TimeUnit = P, 
+yyyyQq for timescales where TimeUnit = Q, 
+yyyyMmm for timescales where TimeUnit = M. 
+ 
+For a description of time units, see column TimeUnit in the table TimeScale.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="VSValue" tableName="VSVALUE" alias="VVL" hasSL="true" defaultAlias_lang2="VV2">
+      <Description>The table links values for a value pool to a value set, for which data is stored in the data table.</Description>
+      <Columns>
+        <Column modelName="ValueSet" pk="2" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of the value set to which the values are linked. 
+ 
+See further description in table ValueSet.</Description>
+        </Column>
+        <Column modelName="ValuePool" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the value pool to which the value set belongs. 
+ 
+See further description in table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the values that are linked to the value set. 
+ 
+See further description in table Value.</Description>
+        </Column>
+        <Column modelName="SortCode" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Sorting code for values within the value set. Dictates the presentation order for the value set's values when retrieving from the database and presenting the table. 
+ 
+So that this sorting code can be applied, the field SortCodeExists in the table ValueSet must be filled with Y. If it is N, the sorting code in the table Value is used instead. 
+ 
+If there is no sorting code, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="Value" tableName="VALUE" alias="VAL" hasSL="true" defaultAlias_lang2="VA2">
+      <Description>The table describes the values in the value pool.</Description>
+      <Columns>
+        <Column modelName="ValuePool" pk="1" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the value pool that the value belongs to. See further description of table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for value or group. 
+ 
+Value code should agree with the code in the corresponding classification or standard if there is one. 
+ 
+Because the value codes are stored in a metadata column for variables in the data table(s) and, because the width of the metadata column is decided by the number of characters in the longest value code, the code should not be longer than necessary to ensure that it does not take up more space in the data table than necessary. The value codes within a value set should also be roughly the same size. 
+ 
+Capitals and/or lower case letters can be used, the letters å, ä and ö are accepted. Special characters and dashes should be avoided because they can cause technical problems.</Description>
+        </Column>
+        <Column modelName="SortCode" hasSL="true" datatype="varchar" mandatory="True" length="20">
+          <Description>Sorting code for values and groups, which decides in which order the value and group codes are to be presented when values and table presentation are selected when retrieved from the databases. 
+ 
+The sorting code should be the same as the ValueCode or be designed in such a way that the values can be presented in the desired order. The beginning of ValueTextL can be used so that the values will be presented in alphabetical order by the value text. 
+ 
+NB. Please note that the sorting code is also available in the tables VSValue, VSGroup and Grouping. See further descriptions for these.</Description>
+        </Column>
+        <Column modelName="Unit" datatype="varchar" mandatory="False" length="30">
+          <Description>Can be used to state the unit so that a value can have different units.
+
+If the field is filled in with a unit, the column Unit in the table Contents should be filled with %Value. If the field is not filled in, it should be NULL. Then the column Unit in the table Contents is used instead to state the unit.
+
+See also description of the table Contents.</Description>
+        </Column>
+        <Column modelName="ValueTextS" hasSL="true" datatype="varchar" mandatory="False" length="250">
+          <Description>Short presentation text for value and group. 
+ 
+To be visible in the retrieval interfaces, it requires that: 
+- The field ValueTextExists in ValuePool is either S ('Short value text exists') or B ('Both short and long value text exists') and 
+- The field ValuePres in ValuePool or ValueSet is either A ('Both code and short value text should be presented') or S ('Short value text should be presented'). 
+ 
+The text is written in lower case letters, except for abbreviations etc. 
+ 
+See also descriptions of ValueTextExists in ValuePool and ValuePres in ValuePool and ValueSet.</Description>
+        </Column>
+        <Column modelName="ValueTextL" hasSL="true" datatype="varchar" mandatory="False" length="1100">
+          <Description>Value text, presentation text for value and group. 
+
+To be visible in the retrieval interface, the field ValueTextExists in the table ValuePool for the value's value pool must be L. 
+
+ValueText can be omitted if the values are to be presented only as codes. The field should then be NULL. There should be consistency with a value pool so that all the value pool's values are presented either with or without value texts. 
+
+The text is written in lower case, with the exception of abbreviations, etc. 
+
+See also descriptions of ValueTextExists in ValuePool and  ValuePres in ValuePool and ValueSet.</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="Footnote" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether there is a footnote linked to the value (FootnoteType 6). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist 
+N = There are no footnotes</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="ValueCode">
+          <arg id="ValuePool" />
+          <is_not_null columnModelName="MetaId" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="ValueGroup" tableName="VALUEGROUP" alias="VPL" hasSL="true" defaultAlias_lang2="VL2">
+      <Description>The table link values/ value set with groups</Description>
+      <Columns>
+        <Column modelName="Grouping" pk="1" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of grouping.
+
+See further in the description of the table Grouping.</Description>
+        </Column>
+        <Column modelName="GroupCode" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>
+See further in the description of the table Value.</Description>
+        </Column>
+        <Column modelName="ValueCode" pk="3" datatype="varchar" mandatory="True" length="20">
+          <Description>Code for the value contained in the group. Retrieved from the table Value, column value code.
+See further in the description of the table Value
+Se beskrivning av tabellen Varde.</Description>
+        </Column>
+        <Column modelName="ValuePool" datatype="varchar" mandatory="True" length="20">
+          <Description>The name of the value set, the grouping is attached.
+See further in the description of the table ValuePool
+
+Se beskrivning av tabellen Vardeforrad.</Description>
+        </Column>
+        <Column modelName="GroupLevel" datatype="numeric" mandatory="True" length="">
+          <Description>Indicates witch level the group code belongs to.</Description>
+        </Column>
+        <Column modelName="ValueLevel" datatype="numeric" mandatory="True" length="">
+          <Description>Indicates witch level the value code belongs to.</Description>
+        </Column>
+        <Column modelName="SortCode" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Code for sorting groups within a group, in order to present them in a logical order.
+
+If any group within a grouping of a range is the sort code, all the teams have that. If the sort code is missing, the field shall be NULL.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="ValueCode" suff="keyValueCode">
+          <arg id="Grouping" />
+          <arg id="GroupCode" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="ValuePool" tableName="VALUEPOOL" alias="VPL" hasSL="true" defaultAlias_lang2="VP2">
+      <Description>The table describes which value pools exist in the database. The value pool brings together all values and aggregates for a classification or a variation of a classification.</Description>
+      <Columns>
+        <Column modelName="ValuePool" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of value pool. 
+
+If there is only one variable belonging to a particular value pool, the variable and value pool should have the same name. 
+
+The name should begin with a capital letter.</Description>
+        </Column>
+        <Column modelName="ValuePoolAlias" hasSL="true" datatype="varchar" mandatory="False" length="20">
+          <Description>Can be used to give the valuepool an alternative name.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="False" length="80">
+          <Description>Presentation text for the value pool. 
+
+If there is no text, the field should be NULL. </Description>
+        </Column>
+        <Column modelName="Description" datatype="varchar" mandatory="True" length="200">
+          <Description>Description of value pool. 
+ 
+Should also contain information on the principles used for sorting the value pool's values (i.e....sorting by particular principle,....sorting by value code). 
+ 
+Written beginning with a capital letter.</Description>
+        </Column>
+        <Column modelName="ValueTextExists" datatype="char" mandatory="True" length="1">
+          <Description>Here it is stated whether there are texts or not for the value pool's values, and whether they are in the table in ValueExtra. There are the following alternatives: 
+
+L = Long value text exists 
+S = Short value text exists 
+B = Both long and short value text exist 
+N = No value texts for any values 
+
+
+In the table Value (see descriptions of these columns) there are two columns for value texts, ValueTextS (for short texts) and ValueTextL (for long texts). If ValueTextExists = L, the value text is taken from column ValueTextL in the table Value. If ValueTextExists = S, the value text is taken from column ValueTextS in the table Value. If ValueTextExists = B, the value presentation is determined by what is specified in the field ValuePres in the tables ValuePool or ValueSet. If ValueTextExists = N, the values are presented only by a code in the retrieval interface. </Description>
+        </Column>
+        <Column modelName="ValuePres" datatype="char" mandatory="True" length="1">
+          <Description>Here it is shown how the values should be presented after retrieval. There are the following alternatives: 
+ 
+A = Both code and short text should be presented 
+B = Both code and long text should be presented 
+C = Value code should be presented 
+T = Long value text should be presented 
+S = Short value text should be presented</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="ValueSet" tableName="VALUESET" alias="VST" hasSL="true" defaultAlias_lang2="VS2">
+      <Description>The table describes the value sets that exist for the different value pools.</Description>
+      <Columns>
+        <Column modelName="ValueSet" pk="2" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of the stored value set. 
+ 
+The name should consist of the name of the value pool that the value set is linked to, plus a suffix. The suffix should always be used, even if there is only one value set for a value pool. The suffix can be distinguished by a short text beginning with a capital letter, or a single capital letter or number.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="False" length="80">
+          <Description>Presentation text for value set. Can be used, if needed, as presentation text for the variable in the retrieval programs. It will then be the the variable name in the px file. 
+
+If the field is not used, it should be NULL.</Description>
+        </Column>
+        <Column modelName="Description" hasSL="true" datatype="varchar" mandatory="True" length="200">
+          <Description>Description of the content of the value set. 
+ 
+The text should give a picture of the integral values, classes, aggregates and any totals, and should end with information on the number of values in the value set, including the total. 
+ 
+Text should begin with a capital letter.</Description>
+        </Column>
+        <Column modelName="Elimination" datatype="varchar" mandatory="True" length="20">
+          <Description>Here it should be shown whether the variable can be eliminated or not. 
+ 
+Elimination means that the variable can be excluded when selecting the value when retrieving from the databases. The variable must in that case be able to assume a value, i.e. the sum of all integral values or another specific value, that is included in the value set. There are the following alternatives: 
+ 
+N = No elimination value, i.e. the variable cannot be eliminated 
+A = Elimination value is obtained by aggregation of all values in the value set 
+ValueCode = a selected value, included in the value set, that should be used at elimination.</Description>
+        </Column>
+        <Column modelName="ValuePool" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of the value pool that the value set belongs to. See further description of the table ValuePool.</Description>
+        </Column>
+        <Column modelName="ValuePres" datatype="char" mandatory="True" length="1">
+          <Description>Used to show how the values in a value set should be presented when being retrieved. There are the following alternatives: 
+ 
+A = Both code and short text should be presented 
+B = Both code and long text should be presented 
+K = Value code should be presented 
+S = Short value text should be presented 
+T = Long value text should be presented 
+V = Presentation format is taken from the column ValuePres in the table ValuePool</Description>
+        </Column>
+        <Column modelName="GeoAreaNo" datatype="smallint" mandatory="False" length="0">
+          <Description>Should contain the identification of a map that is suitable for the variable and the grouping. The field must be filled in if the column VariableType in the table SubTableVariable = G, otherwise the field is NULL. 
+ 
+The identification number should also be included in the table TextCatalog. For further information see description of TextCatalog.</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="SortCodeExists" datatype="char" mandatory="True" length="1">
+          <Description>Code showing whether there is a particular sorting order for the value set. Can be: 
+ 
+Y = Yes 
+N = No 
+ 
+If SortCodeExists = Y, the sorting code must be in VSValue for all values included in the value set. 
+If SortCodeExists = N, the sorting code for the value pool is used (SortCode in the table Value).</Description>
+        </Column>
+        <Column modelName="Footnote" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether there is a footnote linked to a value in the value set (FootNoteType 6). There are the following alternatives: 
+
+B = Both obligatory and optional footnotes exist 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist 
+N = There are no footnotes</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+    <Table modelName="ValueSetGrouping" tableName="VALUESETGROUPING" alias="VBL">
+      <Description>The table connects value set to grouping</Description>
+      <Columns>
+        <Column modelName="ValueSet" pk="1" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of the stored value set. 
+ 
+See description of table ValueSet.</Description>
+        </Column>
+        <Column modelName="Grouping" pk="2" datatype="varchar" mandatory="True" length="30">
+          <Description>Name of grouping. 
+ 
+See further in the description of the table Grouping.</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <Dictionary key="Grouping" suff="keyGrouping">
+          <arg id="ValueSet" />
+        </Dictionary>
+      </generate>
+    </Table>
+    <Table modelName="Variable" tableName="VARIABLE" alias="VBL" hasSL="true" defaultAlias_lang2="VB2">
+      <Description>The table contains the distributed statistical variables in the database.</Description>
+      <Columns>
+        <Column modelName="Variable" pk="2" datatype="varchar" mandatory="True" length="20">
+          <Description>Name of distributed statistical variable. Name of metadata column for the variable in the data table. 
+ 
+The variable name must be unique within a main table. 
+ 
+The name should be descriptive, i.e. have an obvious link to the presentation text, consist of a maximum of 20 characters, begin with a capital letter and should only contains letters (a-z) and numbers. The name can also be broken down using the standard "PascalCase",  i.e. CapitalsAndLowerCase.</Description>
+        </Column>
+        <Column modelName="PresText" hasSL="true" datatype="varchar" mandatory="True" length="80">
+          <Description>Presentation text for a variable. Used in the retrieval interface when selecting variables or values and in the heading text when the table is presented after retrieval. 
+ 
+The entire text should be written in lower case letters, with the exception of abbreviations, etc.</Description>
+        </Column>
+        <Column modelName="VariableInfo" datatype="varchar" mandatory="False" length="200">
+          <Description>Descriptive information on variables, primarily for internal use, to facilitate the selection of a variable when drawing up new tables. 
+ 
+If there is no text, the field should be NULL.</Description>
+        </Column>
+        <Column modelName="MetaId" datatype="varchar" mandatory="False" length="100">
+          <Description>MetaId can be used to link the information in this table to an external system.</Description>
+        </Column>
+        <Column modelName="Footnote" datatype="char" mandatory="True" length="1">
+          <Description>Shows whether there is a footnote linked to the variable (FootnoteType 5). There are the following alternatives: 
+ 
+B = Both obligatory and optional footnotes exist 
+V = One or several optional footnotes exist. 
+O = One or several obligatory footnotes exist 
+S = There are no footnotes</Description>
+        </Column>
+        <Column modelName="UserId" readBySqlDbConfig="false" datatype="varchar" mandatory="True" length="20">
+          <Description>User identification for the person who has added or updated the current row.</Description>
+        </Column>
+        <Column modelName="LogDate" readBySqlDbConfig="false" datatype="smalldatetime" mandatory="True" length="0">
+          <Description>Date and time for the addition or updating of the current row.</Description>
+        </Column>
+      </Columns>
+      <generate>
+        <getByPk />
+      </generate>
+    </Table>
+  </Tables>
+</GrandMaster>

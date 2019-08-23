@@ -1,0 +1,73 @@
+﻿.hierarchical_selectionbuttonregion
+{
+}
+.hierarchical_selectionbutton
+{
+    padding-left:2px;
+    padding-right: 1em;
+    vertical-align: top;
+}
+.hierarchical_selectall_button
+{
+    width:19px;
+    height:17px;
+    background: #FFFFFF url(../images/SelectAll.gif) no-repeat;
+    vertical-align: middle;
+	 outline: none;
+}
+.hierarchical_unselectall_button
+{
+    background: #FFFFFF url(../images/UnSelect.gif) no-repeat;
+	 outline: none;
+	 vertical-align: middle;
+    width:19px;
+    height:17px;
+}
+.hierarchical_openall_button
+{
+    background: #FFFFFF url(../images/hierarchy.gif) no-repeat;
+	 outline: none;
+	 vertical-align: middle;
+    width:19px;
+    height:17px;
+}
+.hierarchical_closeall_button
+{
+    background: #FFFFFF url(../images/closeall.gif) no-repeat;
+	 outline: none;
+	 vertical-align: middle;
+    width:19px;
+    height:17px;
+}
+.hierarchical_continuebutton
+{
+    margin-top:2em;
+}
+.hierarchical_variabletitle
+{
+    margin:4em 0 -1em 0;
+    font-weight:bold;
+}
+
+.hierarchical_treeview
+{
+}
+.hierarchical_selectionlabel
+{   
+}
+
+.hierarchical_tableinformation_title
+{
+    font-family: Arial;
+    font-size:150%;
+    font-weight:normal;
+    line-height:100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: block;
+}
+.hierarchical_tableinformation_description
+{
+    font-weight:bold;
+    margin-bottom:20px;
+}

@@ -1,0 +1,27 @@
+﻿/* Add your overrides of the default styles in this style sheet */
+
+/* Login form */
+.login-form {
+    width: 400px;
+    border: solid 1px #c2c4c6;
+    padding: 15px;
+    margin: 40px 0; 
+}
+
+.login-form label {
+    display: block;
+}
+
+.login-form-failure {
+    color: #9b0014;
+    font-weight: bold;
+}
+
+.login-form-buttons {
+    text-align: right;
+}
+
+.login-form  div {
+    margin-bottom: 10px;
+}
+

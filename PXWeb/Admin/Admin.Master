@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="PXWeb.Admin.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>PX-Web Administration</title>
+    <link href="../Resources/Styles/Admin.css" rel="stylesheet" type="text/css" media="screen" /> 
+    <link href="../Resources/Styles/jQuery/smoothness/jquery-ui-1.10.3.custom.min.css" rel="Stylesheet" type="text/css" media="screen" />
+    <script src="../Resources/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../Resources/Scripts/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderAdminHead" runat="server" />  
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="pagewrapper">
+            <div id="header">
+                <div id="headerleft">
+                    <h1><asp:Label ID="lblHeader" runat="server" Text="<%$ PxString: PxWebAdminHeading %>"></asp:Label></h1>
+                </div>
+                <div id="headerright">
+                    <asp:LinkButton ID="lnkLogout" runat="server" CssClass="logout_link"  onclick="lnkLogout_Click" Text="<%$ PxString: PxWebAdminLogout %>"></asp:LinkButton>
+                    <asp:DropDownList ID="cboLanguage" runat="server" AutoPostBack="true" onselectedindexchanged="cboLanguage_SelectedIndexChanged">
+                    </asp:DropDownList>
+                </div>
+            </div>
+            <asp:Panel ID="pnlMenuLevel1" CssClass="navigation-level1" runat="server"></asp:Panel>
+            <asp:Panel ID="pnlMenuLevel2" runat="server" CssClass="navigation-level2">
+                    <asp:Button ID="btnSave1" runat="server" Text="<%$ PxString: PxWebAdminSaveButton %>" CssClass="save_button" />
+            </asp:Panel>
+            <div id="page-content-wrapper">
+                <div id="page-content">
+                    <asp:Panel ID="pnlMenuLevel3" CssClass="navigation-level3" runat="server" ></asp:Panel>
+                    <div id="placeholder-content">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderAdmin" runat="server" >
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div style="clear: both;"> </div>
+                </div>
+            </div>
+            <div id="footer">
+                <asp:Button ID="btnSave2" runat="server" Text="<%$ PxString: PxWebAdminSaveButton %>" CssClass="save_button" />
+            </div>
+        </div>
+        <div id="dialogmodal" runat="server" visible="false">
+            <asp:Literal ID="litInfoDialog" runat="server" EnableViewState="false"></asp:Literal>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="PCAxis.Sql.Pxs.PxsQueryType">
+    <Position X="0.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>BAAAEkAAAAAAgAAAAAAACAAIAASABAgAAQAAAIAgYAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.InformationType" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAEQAgAAAAgAAAAAAACAAEIAAiAAggAAAAAAIE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.CreatedByType" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEBQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.AxisType" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAQEAAAAAAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.PresentationType">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAACABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.TimeType">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAEIAAAAAAEAAAgBAEAIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.TimeTypeTimeValues" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.BasicValueType">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAgAAQAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.ValueTypeWithGroup">
+    <Position X="0.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.ValueTypeWithGroupGroup">
+    <Position X="7" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAACAAAAAAAAAAAABAAAAAAAAAQAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.StringLangType" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAgAAQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.GroupValueType" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.SelectionType" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAAIAwAAAAABIAEAAACAQAAAAAAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.SelectionTypeMethod" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAQAAAAAAAgAAAAAAAACAAAAACAgAAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.SelectionTypeSort" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAABAAAACAgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.SelectionTypeContent" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.SelectionTypeTime" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.SelectionTypeVariable" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.VariableType">
+    <Position X="5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>BAAAAAACAAAAAAAAAAAAAAAAMAAAAAgEACIgAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.VariableTypeValues">
+    <Position X="7" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.myLanguageType" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.allType" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.QueryType">
+    <Position X="3.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAEAAACAEAAAQAAIAAQAAAAAABAAAACAUAAABAAQA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.QueryTypeLanguages" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.QueryTypeContents" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAIBAAAAAEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.MenuSelType" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAECAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.InformationTypeFiles">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>EAAAAAAAAAAAAAAAAAEAAAAAgABAACAAxAAAAEgAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PCAxis.Sql.Pxs.InformationTypeBatchOptions" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAACAAAAAAAAAAAQgAAAAAAAAAAAAAAAQgEAAgAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="PCAxis.Sql.Pxs.TimeTypeTimeOption">
+    <Position X="9.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAABAEAAAIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PCAxis.Sql.Pxs.SelectionTypeMethodSelectionCriterion" Collapsed="true">
+    <Position X="14.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PCAxis.Sql.Pxs.SelectionTypeMethodSelectionCondition" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PCAxis.Sql.Pxs.SelectionTypeSortSortBy" Collapsed="true">
+    <Position X="16" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAgCAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PCAxis.Sql.Pxs.SelectionTypeSortSortDirection" Collapsed="true">
+    <Position X="17.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PCAxis.Sql.Pxs.VariableTypeAggregation">
+    <Position X="7" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>PxsQuery.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACFAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

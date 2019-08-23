@@ -1,0 +1,627 @@
+﻿
+body {
+background: #fff;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+line-height: 18px;
+color: #333333;
+}
+
+/*Master*/
+html {
+    /* Always display scroll. This prevents the auto-centering of the page to jump around between pages 
+    /* where one page has scrollbar and the other one don´t*/
+    height: 102%; 
+}
+
+#wrap {
+    margin: 0px auto;
+    max-width:1017px;
+    min-width:760px;  
+}
+
+#header { 
+padding: 10px 0 10px 0;
+min-height :100px;
+max-height : 200px;
+}
+#header h1 {
+font-size: 26px;
+font-weight: 100;
+letter-spacing: -3px;
+padding: 12px 0 5px 10px;
+}
+#header h1 a {
+color: #57626a;
+text-decoration: none;
+}
+#header h1 a:hover {
+color: #57626a;
+text-decoration: none;
+}
+#header h2 {
+color: #ccc;
+font-size: 15px;
+font-weight: 100;
+padding: 0 0 0 11px;
+letter-spacing: -1px;
+line-height: 12px;
+}
+
+#header span
+{
+    font-size: 46px;
+    font-weight: 100;
+    letter-spacing: -3px;
+    padding: 12px 0 0 10px;
+}
+
+.headerleft {
+float: left;
+}
+.headerright {
+float: right;
+font-weight: 600;
+color: #000;
+}
+
+#breadcrumb 
+{
+/*border-top: 3px solid #57626a;*/
+border-top: 3px solid #2870ae;
+/*height: 30px;
+line-height: 30px;*/
+background:  #eee;
+text-transform: none;
+padding: 5px 15px;
+}
+
+#sitemappath
+{
+    font-family : Verdana;
+    font-size : 0.9em;
+    color : #ffffff;
+}
+
+.sitemappath_pathseparator
+{
+    color: Black;
+    font-weight: bold;
+}
+
+.sitemappath_currentnode
+{
+    color: Black;
+    font-weight: bold;
+}
+
+.sitemappath_node
+{
+    color: Black;
+}
+
+.sitemappath_rootnode
+{
+    color: Black;
+}
+
+#content {
+    padding: 10px 15px;
+}
+
+#place-holder
+{
+}
+
+
+#footer {
+background: #eee;
+/*border-top: 3px solid #57626a;*/
+border-top: 3px solid #2870ae;
+margin-top: 20px;
+text-align: center;
+color: #333;
+font-size: 11px;
+padding: 10px;
+}
+
+
+.footerleft {
+float: left;
+}
+.footerright {
+float: right;
+font-weight: 600;
+color: #000;
+}
+
+.cboSelectLanguages
+{
+    width : 200px;
+}
+
+.imgSiteLogo
+{
+    height : 100px;
+    width : 100px;
+    vertical-align : middle;
+}
+
+.siteLogoText
+{
+    vertical-align : middle;
+}
+.tableAlternatingRow
+{
+    background-color: #eee;
+}
+
+/*Menu*/
+
+.menu_databasename
+{
+    font-family: Arial;
+    font-size:200%;
+    font-weight:normal;
+    line-height:100%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.menuTopLeftContent
+{
+    float:left;
+}
+
+.menuTopRightContent
+{
+    float:right;
+    vertical-align: top;
+}
+
+.menuExplanation
+{
+    font-style: italic;
+    padding-top: 10px;
+    display: block;
+}
+
+/*Search*/
+
+.search_searchresulttext
+{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.searchTopLeftContent
+{
+    float:left;
+}
+
+.searchResultTable
+{
+    width: 100%;
+}
+.searchHeaderCell
+{
+    font-weight: bold;
+    padding-left: 3px;
+}
+.searchCell
+{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.searchCellTable
+{
+    width: 90%;
+}
+
+.searchCellPublished
+{
+    width: 10%;
+}
+
+/*Selection*/
+
+.selectionLinksContainer
+{
+    margin-bottom: 15px;
+}
+
+/* Save query*/
+.settings_panel
+{
+    float: left;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Chart */
+.chart-links
+{
+    float: right;
+}
+.chart-image
+{
+    padding-top: 20px;
+}
+
+/* Setting panel links*/
+.panelshowlink
+{
+    width: 100%;
+    background-color: #e0e0e0;
+    padding: 10px 10px 10px 10px;
+    margin-top: 5px;
+    display:inline-block;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+}
+
+.panelshowlink.savequery
+{
+    background-color: #87b6da;
+}
+
+/* Presentation settings */
+.px-settings-imagelink
+{
+    vertical-align: middle;
+    padding-right: 3px;
+    padding-bottom: 3px;
+}
+.px-settings-expandimage
+{
+    width:16px;
+    height:16px;
+    background: url(../images/plus-black-16.gif) no-repeat;
+    vertical-align: middle;
+	outline: none;
+    margin-left: 3px;
+    margin-right: 10px;
+}
+.px-settings-collapseimage
+{
+    width:16px;
+    height:16px;
+    background: url(../images/minus-black-16.gif) no-repeat;
+    vertical-align: middle;
+	outline: none;
+    margin-left: 3px;
+    margin-right: 10px;
+}
+.px-settings
+{
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    /*border: solid 1px #cccccc;*/
+    border-left:1px solid #e0e0e0;
+    border-right:1px solid #e0e0e0;
+    border-bottom:1px solid #e0e0e0;
+    width: 100%;
+}
+.px_setting_validator
+{
+    color: Red;
+}
+.px_setting_heading 
+{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.px_setting_label_normal
+{
+    display: inline-block;
+    width: 160px;
+    vertical-align: top;
+    font-weight: bold;
+}
+.px_setting_textbox_normal
+{
+    width: 40px;
+    margin-bottom:5px;
+}
+.px_setting_textbox_title
+{
+    width: 600px;
+    margin-bottom:5px;
+}
+.px_setting_label_width
+{
+    display: inline-block;
+    width: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.px_setting_radiobuttonlist
+{
+    display: inline-block;
+}
+.px_setting_radiobuttonlist input
+{
+    margin-right: 5px;
+    margin-bottom:7px;
+}
+.px_setting_radiobuttonlist label
+{
+    margin-right: 15px;
+}
+.px_setting_checkbox
+{
+    margin-bottom: 2px;
+}
+.px_setting_checkbox input
+{
+    margin-right: 5px;
+}
+.px_setting_checkbox label
+{
+    margin-right: 15px;
+}
+.px_setting_validation_summary
+{
+}
+.px_settings_buttons
+{
+    display: block;
+    margin-top: 20px;
+}
+.px_settings_cancel
+{
+    margin-right: 20px;
+}
+.px_setting_apply
+{
+}
+.chart_information
+{
+    background-color: #cccccc;
+    padding: 20px 20px 20px 20px;
+    display: inline-block;
+    width: 731px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.chart_information_title
+{
+    font-weight: bold;
+}
+
+/* Table */
+.table-links
+{
+    display: inline-block;
+}
+
+/*.table-settings
+{
+    display: inline-block;
+    background-color: #eeeeee;
+    padding: 10px 10px 10px 10px;
+    border: solid 1px #cccccc;
+    width: 100%;
+}
+.table_setting_validator
+{
+    color: Red;
+}
+.table_setting_label_normal
+{
+    display: inline-block;
+    width: 160px;
+    vertical-align: top;
+}
+.table_setting_label_width
+{
+    display: inline-block;
+    width: 40px;
+    margin-left: 10px;
+}
+.table_setting_radiobuttonlist
+{
+    display: inline-block;
+}
+.table_setting_radiobuttonlist input
+{
+    margin-right: 5px;
+    margin-bottom:7px;
+}
+.table_setting_radiobuttonlist label
+{
+    margin-right: 15px;
+}
+
+.table_setting_apply
+{
+}*/
+
+/* Login-page */
+.login_container
+{
+    position:absolute;
+    top: 150px;
+    left: 150px;
+    background-color: #eeeeee;
+    padding: 30px;
+}
+.login_caption
+{
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.login_left
+{
+    float: left;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    line-height: 22px;
+    vertical-align:middle;
+}
+.login_right
+{
+    float: right;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+.login_error
+{
+    clear:both;
+    padding-top: 5px;
+    color: Red;
+}
+.login_buttoncontainer
+{
+    clear:both;
+    float: right;
+    padding-top: 10px;
+}
+.login_button
+{
+    padding: 5px;
+}
+.login_textbox
+{
+    margin-bottom: 5px;
+    width: 150px;
+}
+.login_label
+{
+}
+
+/* Search */
+.search-settings
+{
+    display: inline-block;
+    background-color: #eeeeee;
+    padding: 10px 10px 10px 10px;
+    border: solid 1px #cccccc;
+    margin-top: 10px;
+}
+
+/* Metadata */
+.meta_heading
+{
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.metadata_selectVariable
+{
+    margin-top: 10px;
+}
+.meta_tablelinks
+{
+}
+.meta_tablelink
+{
+     display:block;
+     color: #03649c !important;
+}
+.meta_header
+{
+    width: 100%;
+    border-bottom: 3px solid #dddddd;
+}
+.metadata_header
+{
+    font-weight: bold;
+    margin-top: 30px;
+    display: block;
+}
+
+.metadata_itemname
+{
+}
+
+.metadata_itemlink a
+{
+    color: #03649c !important;
+}
+.meta_row
+{
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+}
+
+.meta_left
+{
+    display: inline-block;
+    width: 250px;
+    vertical-align: top;
+}
+.meta_right
+{
+    display: inline-block;
+}
+.metadata_no_meta
+{
+    font-style: italic;
+}
+
+/*Other*/
+
+img { border: none; }
+a { color: #57626a; text-decoration: none; }
+a:hover { text-decoration: underline; color : #000; }
+
+.headingtext
+{
+    font-weight: bold;
+}
+
+input[type="submit"]
+{
+    padding : 1px 5px 1px 5px;
+}
+
+.markingTipsText
+{
+}
+
+.tableCropped
+{
+    font-weight: bold;
+    color: Gray;
+}
+
+.alertimage
+{
+    width:16px;
+    height:16px;
+    background: url(../images/alert-16.gif) no-repeat;
+    vertical-align:top;
+	outline: none;
+}
+
+.px-messages
+{
+    display: inline-block;
+    border: 1px solid #fba504;
+    margin-top: 5px;
+    padding: 10px 10px 10px 10px;
+    width: 45%;
+    vertical-align: middle;
+}
+.saved_query_unsafe_panel
+{
+    width: 100%;
+}
+.errorMessage
+{
+    font-family: Verdana;
+    font-size: 0.9em;
+    color: #B0272E;
+    display:block;
+}

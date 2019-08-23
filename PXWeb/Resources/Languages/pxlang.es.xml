@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="es">
+  <sentence name="CtrlTableDecimalDelimiter" value="," />
+  <sentence name="PxcSortVariable" value="variable de unidad" />
+  <sentence name="PxcMetaTitleAnd" value="y" />
+  <sentence name="PxcMetaTitleBy" value="por" />
+  <sentence name="CtrlCommandBarLinkFootnoteTitle" value="Notas al pie " />
+  <sentence name="CtrlCommandBarLinkFootnoteAlt" value="Notas al pie " />
+  <sentence name="CtrlFootnoteFootnoteLabel" value="Notas al pie " />
+  <sentence name="PageViewFootnoteDialogTitle" value="Notas al pie " />
+  <sentence name="PxWebFootnotes" value="Notas al pie " />
+  <sentence name="CtrlCommandBarLinkInformationTitle" value="Informaci&amp;oacute;n" />
+  <sentence name="CtrlCommandBarLinkInformationAlt" value="Informaci&amp;oacute;n" />
+  <sentence name="CtrlInformationInformationLabel" value="Informaci&amp;oacute;n" />
+  <sentence name="PxWebInformation" value="Informaci&amp;oacute;n" />
+  <sentence name="CtrlChangeTextsContinueButton" value="Continuar" />
+  <sentence name="CtrlChangePresentationContinueButton" value="Continuar" />
+  <sentence name="CtrlChangeDecimalContinueButton" value="Continuar" />
+  <sentence name="CtrlDeleteVariableContinueButton" value="Continuar" />
+  <sentence name="CtrlDeleteValueContinueButton" value="Continuar" />
+  <sentence name="CtrlPerPartContinueButton" value="Continuar" />
+  <sentence name="CtrlChangeValueOrderContinueButton" value="Continuar" />
+  <sentence name="CtrlPivotContinueButton" value="Continuar" />
+  <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Continuar" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Continuar" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Total" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Seleccionado" />
+  <sentence name="PxWebAdminMenuSettingsPresentationTable" value="Tabla" />
+  <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Consejos para seleccionar" />
+  <sentence name="PxWebMarkingTips" value="Consejos para seleccionar" />
+  <sentence name="PxWebDetailedInformation" value="Informaci&amp;oacute;n detallada" />
+  <sentence name="CtrlCsvFileTypeFileWithHeading" value="Fichero delimitado con encabezamiento" />
+  <sentence name="CtrlCsvFileTypeFileWithoutHeading" value="Archivo delimitado sin encabezamiento" />
+  <sentence name="CtrlCsvFileTypeFileTabulator" value="Tabulador" />
+  <sentence name="CtrlCsvFileTypeFileSpace" value="Espacio" />
+  <sentence name="CtrlCsvFileTypeFileComma" value="Coma" />
+  <sentence name="CtrlCsvFileTypeFileSemicolon" value="Punto y coma" />
+  <sentence name="CtrlHierarchicalVariableContinueButtonText" value="Guardar" />
+  <sentence name="CtrlSaveAsContinueButton" value="Guardar" />
+  <sentence name="PxWebAdminSaveButton" value="Guardar" />
+  <sentence name="CtrlInformationYesValue" value="S&amp;iacute;" />
+  <sentence name="PxWebAdminYes" value="S&amp;iacute;" />
+  <sentence name="CtrlInformationNoValue" value="No" />
+  <sentence name="PxWebAdminNo" value="No" />
+  <sentence name="CtrlInformationFlowValue" value="Flujo" />
+  <sentence name="PxcKeywordStockfaValueFlow" value="Flujo" />
+  <sentence name="PxcKeywordStockfaValueAverage" value="Medio" />
+  <sentence name="CtrlInformationStockValue" value="Stock" />
+  <sentence name="PxcKeywordStockfaValueStock" value="Stock" />
+  <sentence name="PxcKeywordCFPricesValueCurrent" value="Precios actuales" />
+  <sentence name="PxcKeywordCFPricesValueFixed" value="Precios fijos " />
+  <sentence name="CtrlTextSearchResultText" value="Buscar resultado para" />
+  <sentence name="CtrlInformationDatabaseLabel" value="Base de datos" />
+  <sentence name="PxcKeywordDatabase" value="Base de datos" />
+  <sentence name="CtrlCommandBarFunctionRemoveZero" value="Eliminar filas cero" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroTitle" value="Eliminar filas cero" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAlt" value="Eliminar filas cero" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Nuevo nombre del valor:" />
+  <sentence name="CtrlCommandBarSaveAsCaption" value="Guardar como" />
+  <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Seleccionar todos" />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Seleccionar todos" />
+  <sentence name="CtrlHierarchicalVariableUnselectAllButton" value="Deseleccionar todos" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Buscar" />
+  <sentence name="CtrlVariableSelectorSearchTooltip" value="Buscar" />
+  <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Buscar" />
+  <sentence name="CtrlTextSearchButtonText" value="Buscar" />
+  <sentence name="CtrlSearchVariableValuesSearch" value="Buscar" />
+  <sentence name="CtrlSearchValuesSearch" value="Buscar" />
+  <sentence name="PXWebSearchLink" value="Buscar" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Cambiar texto/c&amp;oacute;digo presentaci&amp;oacute;n" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Cambiar texto/c&amp;oacute;digo presentaci&amp;oacute;n" />
+  <sentence name="CtrlChangeCodeTextPresentationCode" value="C&amp;oacute;digo" />
+  <sentence name="CtrlChangeCodeTextPresentationText" value="Texto" />
+  <sentence name="CtrlSaveQueryListEditDescription" value="Descripci&amp;oacute;n" />
+  <sentence name="PxWebPresentation" value="Resultado" />
+  <sentence name="PxWebAdminMenuSettingsPresentation" value="Resultado" />
+  <sentence name="CtrlSaveQueryListEditRemove" value="Eliminar" />
+  <sentence name="PxWebSelection" value="Selecci&amp;oacute;n" />
+  <sentence name="PxWebAdminMenuSettingsSelection" value="Selecci&amp;oacute;n" />
+  <sentence name="CtrlSaveQueryListEditUpdate" value="Actualizaci&amp;oacute;n" />
+  <sentence name="CtrlSaveQueryListEditTableCode" value="C&amp;oacute;digo de tabla" />
+  <sentence name="CtrlSaveQueryCreateTableOnScreen" value="Tabla en pantalla" />
+  <sentence name="CtrlSaveQueryCreateSave" value="Guardar las especificaciones de la tabla" />
+  <sentence name="PxWebAdminLogout" value="Desconectar" />
+  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Ordenar descendentemente" />
+  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Ordenar ascendentemente" />
+  <sentence name="CtrlChangeDecimalHeading" value="Cambiar decimales" />
+  <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Cambiar decimales" />
+  <sentence name="CtrlCommandBarFunctionPerPart" value="Por ciento" />
+  <sentence name="CtrlPerPartOneVariableAllValues" value="Seleccione una variable como base para el cálculo del porcentaje" />
+  <sentence name="PxcPercent" value="por ciento" />
+  <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Elimine una variable" />
+  <sentence name="CtrlCommandBarFunctionChangeValueOrder" value="Cambie el orden de valores" />
+  <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Divida la variable tiempo" />
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Marque la variable y el valor ha ser usado cuando la variable sea removida." />
+  <sentence name="CtrlPerPartKeepData" value="Muestre data original y por ciento" />
+  <sentence name="CtrlPerPartPerCentOnly" value="Muestre solo por ciento" />
+  <sentence name="CtrlInformationLinkLabel" value="Enlace" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderLink" value="Enlace" />
+  <sentence name="CtrlCommandBarFunctionDeleteValue" value="Elimine valor" />
+  <sentence name="CtrlDeleteValueHeaderLabel" value="Seleccione uno o más valores para eliminar. Usted no puede seleccionar todos los valores para una variable. Para hacer eso usted necesita usar la variable Borrar" />
+  <sentence name="CtrlCommandBarFunctionSubtract" value="Subtract variable values" />
+  <sentence name="CtrlCommandBarFunctionMultiply" value="Multiply variable values" />
+  <sentence name="CtrlCommandBarFunctionDivide" value="Divide variable values" />
+  <sentence name="CtrlSubtractSelectedVariabelValuesTitle" value="Select 2 values in the order you want to subtract" />
+  <sentence name="CtrlMultiplySelectedVariabelValuesTitle" value="Select 2 values to multiply" />
+  <sentence name="CtrlDivideSelectedVariabelValuesTitle" value="Select 2 values in the order you want to divide" />
+  <sentence name="CtrlSubtractTotalVariabelNameText" value="Enter a text for the resulting value" />
+  <sentence name="CtrlDivideTotalVariabelNameText" value="Enter a text for the resulting value" />
+  <sentence name="CtrlMultiplyTotalVariabelNameText" value="Enter a text for the resulting value" />
+  <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Change texts" />
+  <sentence name="CtrlChangeTextsHeading" value="Change texts" />
+  <sentence name="CtrlTableListVariablesAndValuesHeading" value="Variables:" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphen" value="Remove rows with zero or '-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenTitle" value="Remove rows with zero or '-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenAlt" value="Remove rows with zero or '-'" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" value="Remove rows with zero, '-' or dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsTitle" value="Remove rows with zero, '-' or dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsAlt" value="Remove rows with zero, '-' or dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveDots" value="Remove rows with dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsTitle" value="Remove rows with dots" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsAlt" value="Remove rows with dots" />
+</language>

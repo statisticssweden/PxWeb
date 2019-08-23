@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<FileTypeList xmlns="http://www.scb.se"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.scb.se ../XSDSchemas/FileSchema.xsd">
+	 <FileType Active="true">
+		  <Type>px</Type>
+		  <AssemblyQualifiedName>PCAxis.Paxiom.PXFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+      <Creator>PCAxis.Web.Controls.PxFileSerializerCreator, PCAxis.Web.Controls</Creator>
+		  <FileInfos>
+				<FileInfo>FileTypePX</FileInfo>
+		  </FileInfos>
+		  <WebControl>PCAxis.Web.Controls.PxFileType, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+		  <MimeType>application/octet-stream</MimeType>
+		  <FileExtension>px</FileExtension>
+		  <CssClass>?</CssClass>
+		  <Image>button_save_as_px.png</Image>
+		  <ShortcutImage>small_button_px.png</ShortcutImage>
+	 </FileType>
+	 <FileType Active="true">
+		  <Type>xls</Type>
+		  <AssemblyQualifiedName>PCAxis.Paxiom.ExcelFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+      <Creator>PCAxis.Web.Controls.ExcelSerializerCreator, PCAxis.Web.Controls</Creator>
+		  <FileInfos>
+				<FileInfo>FileTypeExcel</FileInfo>
+				<FileInfo>FileTypeExcelDoubleColumn</FileInfo>
+		  </FileInfos>
+		  <WebControl>PCAxis.Web.Controls.Excel, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+		  <MimeType>text/xml</MimeType>
+		  <FileExtension>xml</FileExtension>
+		  <CssClass>?</CssClass>
+		  <Image>button_save_as_xml.png</Image>
+		  <ShortcutImage>small_buttons_xml.png</ShortcutImage>
+	 </FileType>
+	 <FileType Active="true">
+		  <Type>csv</Type>
+		  <AssemblyQualifiedName>PCAxis.Paxiom.PrnFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+      <Creator>PCAxis.Web.Controls.CsvSerializerCreator, PCAxis.Web.Controls</Creator>
+		  <FileInfos>
+				<FileInfo>FileTypeCsvWithHeadingAndTabulator</FileInfo>
+				<FileInfo>FileTypeCsvWithoutHeadingAndTabulator</FileInfo>
+				<FileInfo>FileTypeCsvWithHeadingAndComma</FileInfo>
+				<FileInfo>FileTypeCsvWithoutHeadingAndComma</FileInfo>
+				<FileInfo>FileTypeCsvWithHeadingAndSpace</FileInfo>
+				<FileInfo>FileTypeCsvWithoutHeadingAndSpace</FileInfo>
+				<FileInfo>FileTypeCsvWithHeadingAndSemiColon</FileInfo>
+				<FileInfo>FileTypeCsvWithoutHeadingAndSemiColon</FileInfo>
+		  </FileInfos>
+		  <WebControl>PCAxis.Web.Controls.PrnFileType, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+		  <MimeType>application/octet-stream</MimeType>
+		  <FileExtension>csv</FileExtension>
+		  <CssClass>?</CssClass>
+		  <Image>button_save_as_csv.png</Image>
+		  <ShortcutImage>small_button_csv.png</ShortcutImage>
+	 </FileType>
+	 <FileType Active="true">
+		  <Type>html</Type>
+		  <AssemblyQualifiedName>PCAxis.Paxiom.HtmlFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+      <Creator>PCAxis.Web.Controls.HtmlSerializerCreator, PCAxis.Web.Controls</Creator>
+		  <FileInfos>
+				<FileInfo>FileTypeHtml</FileInfo>
+		  </FileInfos>
+		  <WebControl>PCAxis.Web.Controls.Html, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+		  <MimeType>text/html</MimeType>
+		  <FileExtension>htm</FileExtension>
+		  <CssClass>?</CssClass>
+		  <Image>button_save_as_html.png</Image>
+		  <ShortcutImage>small_button_h-fil.png</ShortcutImage>
+	 </FileType>
+	 <FileType Active="true">
+		  <Type>scb</Type>
+		  <AssemblyQualifiedName>PCAxis.Paxiom.RelationtableFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+      <Creator>PCAxis.Web.Controls.RelationalSerializerCreator, PCAxis.Web.Controls</Creator>
+		  <FileInfos>
+				<FileInfo>FileTypeRelational</FileInfo>
+		  </FileInfos>
+		  <WebControl>PCAxis.Web.Controls.Relational, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+		  <MimeType>text/plain</MimeType>
+		  <FileExtension>txt</FileExtension>
+		  <CssClass>?</CssClass>
+		  <Image>button_save_as_scb.png</Image>
+		  <ShortcutImage>small_button_txt.png</ShortcutImage>
+	 </FileType>
+	 <FileType Active="false">
+		  <Type>txt</Type>
+		  <AssemblyQualifiedName>PCAxis.Paxiom.TextFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+      <Creator>PCAxis.Web.Controls.PxFileSerializerCreator, PCAxis.Web.Controls</Creator>
+		  <FileInfos>
+				<FileInfo>FileTypeText</FileInfo>
+		  </FileInfos>
+		  <WebControl>PCAxis.Web.Controls.Text, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+		  <MimeType>text/plain</MimeType>
+		  <FileExtension>txt</FileExtension>
+		  <CssClass>?</CssClass>
+		  <Image>button_save_as_text.png</Image>
+		  <ShortcutImage>pcaxisss.gif</ShortcutImage>
+	 </FileType>
+  <FileType Active="true" category="chart">
+    <Type>chart</Type>
+    <AssemblyQualifiedName>PCAxis.Chart.ChartSerializer, PCAxis.Chart, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</AssemblyQualifiedName>
+    <Creator>PCAxis.Web.Controls.ChartSerializerCreator, PCAxis.Web.Controls</Creator>
+    <FileInfos>
+      <FileInfo>FileTypeChartPng</FileInfo>
+      <FileInfo>FileTypeChartGif</FileInfo>
+      <FileInfo>FileTypeChartJpeg</FileInfo>
+    </FileInfos>
+    <WebControl>PCAxis.Web.Controls.SaveAsChart, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30</WebControl>
+    <MimeType>image/png</MimeType>
+    <FileExtension>png</FileExtension>
+    <CssClass>?</CssClass>
+    <Image>button_save_as_image.png</Image>
+    <ShortcutImage>small_button_save_as_image.png</ShortcutImage>
+  </FileType>
+</FileTypeList>

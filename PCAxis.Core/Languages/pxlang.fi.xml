@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="fi-FI">
+  <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Change texts"/>
+  <sentence name="CtrlChangeTextsHeading" value="Change texts"/>
+  <sentence name="CtrlChangeTextsText" value="Make any text changes you like to have and press"/>
+  <sentence name="CtrlChangeTextsContinueButton" value="Continue"/>
+  <sentence name="CtrlChangeTextsContentsHeading" value="Contents"/>
+  <sentence name="CtrlChangeTextsUnitsHeading" value="Unit"/>
+  <sentence name="CtrlChangeTextsVariablesHeading" value="Variables"/>
+
+  <sentence name="CtrlChangePresentationContinueButton" value="Continue"/>
+  <sentence name="CtrlChangePresentationContentsHeading" value="Contents"/>
+  <sentence name="CtrlChangePresentationUnitsHeading" value="Unit"/>
+  <sentence name="CtrlChangePresentationVariablesHeading" value="Variables"/>
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Change text/code presentation"/>
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Change text/code presentation"/>
+
+  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Select an option for each variable for which you want to change presentation"/>
+  <sentence name="CtrlChangeCodeTextPresentationText" value="Text"/>
+  <sentence name="CtrlChangeCodeTextPresentationCode" value="Code"/>
+  <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Code and Text"/>
+  
+  
+  
+  <sentence name="CtrlChangeDecimalHeading" value="Change decimals"/>
+  <sentence name="CtrlChangeDecimalContinueButton" value=" Jatka " />
+  <sentence name="CtrlChangeDecimalHeaderLabel" value="Kirjoita haluamasi desimaalien määrä ja paina nappia" />
+  <sentence name="CtrlChangeDecimalDecimlaLabel" value="Desimaalien lukumäärä (0-6)" />
+  <sentence name="CtrlChangeDecimalRangeError" value="Number must be an integer between 0 and 6"/>
+  <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Change decimals"/>
+  <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Delete variable"/>
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Mark the variable and the value to be used when variable is removed." />
+  <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Add the value to the table title" />
+  <sentence name="CtrlDeleteVariableContinueButton" value="Continue"/>
+  <sentence name="CtrlDeleteVariableErrorDescription" value="You must select at least one variable and one value"/>
+  <sentence name="CtrlCommandBarFunctionDeleteValue" value="Delete value"/>
+  <sentence name="CtrlDeleteValueHeaderLabel" value="Select one or more values to delete. You cannot select all values for a variable. For that you need to use Delete variable" />
+  <sentence name="CtrlDeleteValueErrorDescription" value="You cannot delete all values for a variable." />
+  <sentence name="CtrlDeleteValueContinueButton" value="Continue"/>
+  <sentence name="CtrlCommandBarFunctionPerPart" value="Per cent"/>
+  <sentence name="CtrlPerPartContinueButton" value="Continue"/>
+  <sentence name="CtrlPerPartNewValueName" value="New Value Name"/>
+  <sentence name="CtrlPerPartKeepData" value="Show original data and per cent"/>
+  <sentence name="CtrlPerPartPerCentOnly" value="Show per cent only"/>
+  <sentence name="CtrlPerPartOneVariableAllValues" value="Select a variable as basis for the percent calculation"/>
+  <sentence name="CtrlPerPartOneVariableOneValue" value="Select a variable for which you will select a value as basis"/>
+  <sentence name="CtrlPerPartOneMatrixValue" value="Select a datacells as basis, one value for each variabl"/>
+  <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Muokkaa ja laske" />
+  <sentence name="CtrlCommandBarSaveAsCaption" value="Tallenna" />
+  <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Kuviot ja kartat" />
+  <sentence name="CtrlCommandBarActionButtonCaption" value="Send" />
+  <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="Ok" />
+  <sentence name="CtrlCommandBarFunctionPivotManual" value="Pivot manual" />
+  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Pivot manual" />
+  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Pivot manual" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Pivot clockwise" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Pivot clockwise" />
+  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Pivot clockwise" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Pivot counterclockwise" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Pivot counterclockwise" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Pivot counterclockwise" />
+  <sentence name="CtrlCommandBarFunctionShowAllRows" value="Show all rows"/>
+  <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Show all rows"/>
+  <sentence name="CtrlCommandBarFunctionShowAllRowsAlt" value="Show all rows"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZero" value="Poista nollarivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroTitle" value="Poista nollarivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAlt" value="Poista nollarivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphen" value="Poista nolla- ja viivarivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenTitle" value="Poista nolla- ja viivarivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenAlt" value="Poista nolla- ja viivarivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveDots" value="Poista pistekoodirivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveDotsTitle" value="Poista pistekoodirivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveDotsAlt" value="Poista pistekoodirivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" value="Poista nolla-, viiva- ja pistekoodirivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsTitle" value="Poista nolla-, viiva- ja pistekoodirivit"/>
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsAlt" value="Poista nolla-, viiva- ja pistekoodirivit"/>
+  <sentence name="CtrlCommandBarFunctionSort" value="Sort" />
+  <sentence name="CtrlCommandBarFunctionSortTitle" value="Sort" />
+  <sentence name="CtrlCommandBarFunctionSum" value="Summera variabelvärden" />
+  <sentence name="CtrlCommandBarFunctionSumTitle" value="Sum variable values"/>
+  <sentence name="CtrlCommandBarFunctionSumAlt" value="Sum variable values"/>
+  <sentence name="CtrlCommandBarFunctionSubtract" value="Subtract variable values"/>
+  <sentence name="CtrlCommandBarFunctionDivide" value="Divide variable values"/>
+  <sentence name="CtrlCommandBarFunctionMultiply" value="Multiply variable values"/>
+  <sentence name="CtrlCommandBarFunctionSortAlt" value="Sort" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayout" value="Show table, new layout" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutAlt" value="Show table, new layout" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutTitle" value="Show table, new layout" />
+  <sentence name="CtrlCommandBarFunctionLinkGoogle" value="Google(Test Link)" />
+  <sentence name="CtrlCommandBarFunctionChangeValueOrder" value="" />
+  <sentence name="CtrlCommandBarFileTypeXlsTitle" value="Save as Excel" />
+  <sentence name="CtrlCommandBarFileTypeXlsAlt" value="Save as Excel" />
+  <sentence name="CtrlCommandBarFileTypePxTitle" value="Save as Px" />
+  <sentence name="CtrlCommandBarFileTypePXAlt" value="Save as Px" />
+  <sentence name="CtrlCommandBarFileTypeTxtTitle" value="Save as Text" />
+  <sentence name="CtrlCommandBarFileTypeTxtAlt" value="Save as Text" />
+  <sentence name="CtrlCommandBarFileTypePrnTitle" value="Save as Prn" />
+  <sentence name="CtrlCommandBarFileTypePrnAlt" value="Save as Prn" />
+  <sentence name="CtrlCommandBarFileTypeHtmlTitle" value="Save as Html" />
+  <sentence name="CtrlCommandBarFileTypeHtmlAlt" value="Save as Html" />
+  <sentence name="CtrlCommandBarLinkFootnoteTitle" value="" />
+  <sentence name="CtrlCommandBarLinkFootnoteAlt" value="" />
+  <sentence name="CtrlCommandBarLinkInformationTitle" value="" />
+  <sentence name="CtrlCommandBarLinkInformationAlt" value="" />
+  <sentence name="CtrlCommandBarLinkPrintTitle" value="" />
+  <sentence name="CtrlCommandBarLinkPrintAlt" value="" />
+  <sentence name="CtrlCommandBarLinkGoogleTitle" value="" />
+  <sentence name="CtrlCommandBarLinkGoogleAlt" value="" />
+  <sentence name="CtrlFootnoteFootnoteLabel" value="Alaviite" />
+  <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Markera alla" />
+  <sentence name="CtrlHierarchicalVariableUnselectAllButton" value="Avmarkera alla" />
+  <sentence name="CtrlHierarchicalVariableOpenAllNodesButton" value="Expandera träd" />
+  <sentence name="CtrlHierarchicalVariableCloseAllNodesButton" value="Stäng träd" />
+  <sentence name="CtrlHierarchicalVariableContinueButtonText" value="Spara" />
+  <sentence name="CtrlHierarchicalVariableErrorMessage" value="Ett fel har tyvärr uppstått, vänligen gör oom urval" />
+  <sentence name="CtrlInformationInformationLabel" value="Kuvaus" />
+  <sentence name="CtrlInformationUnitLabel" value="Yksikkö" />
+  <sentence name="CtrlInformationContactLabel" value="Yhteystiedot" />
+  <sentence name="CtrlInformationLastUpdatedLabel" value="Latest update" />
+  <sentence name="CtrlInformationRefPeriodLabel" value="Viiteaika" />
+  <sentence name="CtrlInformationStockFaLabel" value="Datatyyppi" />
+  <sentence name="CtrlInformationCFPricesLabel" value="Hintatyyppi" />
+  <sentence name="CtrlInformationDayAdjLabel" value="Päivätasoitettu" />
+  <sentence name="CtrlInformationSeasAdjLabel" value="Kausitasoitettu" />
+  <sentence name="CtrlInformationBasePeriodLabel" value="Perusaika" />
+  <sentence name="CtrlInformationUpdateFrequencyLabel" value="Päivitystiheys" />
+  <sentence name="CtrlInformationNextUpdateLabel" value="Seuraava päivitys" />
+  <sentence name="CtrlInformationSurveyLabel" value="Haastattelututkimus" />
+  <sentence name="CtrlInformationLinkLabel" value="Linkki" />
+  <sentence name="CtrlInformationCreationDateLabel" value="Creation date" />
+  <sentence name="CtrlInformationCopyrightLabel" value="Tekijänoikeus" />
+  <sentence name="CtrlInformationSourceLabel" value="Source" />
+  <sentence name="CtrlInformationMatrixLabel" value="Matrix" />
+  <sentence name="CtrlInformationDatabaseLabel" value="Database" />	
+  <sentence name="CtrlInformationYesValue" value="Kyllä" />
+  <sentence name="CtrlInformationNoValue" value="Ei" />
+  <sentence name="CtrlInformationFixedPricesValue" value="Kiinteät hinnat" />
+  <sentence name="CtrlInformationCurrentPricesValue" value="Käyvät hinnat" />
+  <sentence name="CtrlInformationFlowValue" value="Virta" />
+  <sentence name="CtrlInformationAverageValue" value="Keskiarvo" />
+  <sentence name="CtrlInformationStockValue" value="Stock" />
+  <sentence name="CtrlChangeValueOrderChooseVariableButton" value="" />
+  <sentence name="CtrlChangeValueOrderHideButton" value="OK" />
+  <sentence name="CtrlChangeValueOrderUpAlt" value="" />
+  <sentence name="CtrlChangeValueOrderDownAlt" value="" />
+  <sentence name="CtrlPivotContinueButton" value="Continue" />
+  <sentence name="CtrlPivotStubLabel" value="Rows" />
+  <sentence name="CtrlPivotHeadingLabel" value="Columns" />
+  <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Save as filetype:" />
+  <sentence name="CtrlSaveAsDelimiterListHeadLabel" value="For delimited file also choose delimiter:" />
+  <sentence name="CtrlSaveAsPageSetupHeadLabel" value="For text file also decide on:" />
+  <sentence name="CtrlSaveAsLineLengthControl" value="Line length:" />
+  <sentence name="CtrlSaveAsPageLengthControl" value="Page length:" />
+  <sentence name="CtrlSaveAsMarginControl" value="Marginal" />
+  <sentence name="CtrlSaveAsSaveTypeListBox" value="" />
+  <sentence name="CtrlSaveAsDelimiterListBox" value="" />
+  <sentence name="CtrlSaveAsContinueButton" value="Save" />
+  <sentence name="CtrlSaveAsButtonLabel" value="Select an option and press " />
+  <sentence name="CtrlSaveAsSaveTypeDropDown" value="Save as filetyp " />
+  <sentence name="CtrlSaveAsDelimiterDropDown" value="Choose delimiter" />
+  <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Continue" />
+  <sentence name="SumInvalidValuename" value="The new value must have a unique text for the variable."/>
+  <sentence name="CtrlSumHeading" value="Summering" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Välj ett namn för den summerade variabeln" />
+  <sentence name="CtrlSumAllValuesText" value="Sum all values"/>
+  <sentence name="CtrlSumSelectedValuesText" value="Sum selected values"/>
+  <sentence name="CtrlSumSelectedVariabelTitle" value="Välj variabel som ska summeras" />
+  <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Välj värden som ska summeras" />
+  <sentence name="CtrlSumVariableNameRequired" value="Name for new value is required"/>
+  <sentence name="CtrlSumDifferentOperandsRequired" value="Operation requires two different operands."/>
+  <sentence name="CtrlSumContinueButton" value="Summera" />
+  <sentence name="CtrlSumKeepValuesText" value="Show also the original values"/>
+  <sentence name="CtrlFirstOperandLabel" value="First value:"/>
+  <sentence name="CtrlSecondOperandLabel" value="Second value:"/>
+  <sentence name="CtrlSubtractHeading" value="Subtract"/>
+  <sentence name="CtrlSubtractTotalVariabelNameText" value="Enter a text for the resulting value "/>
+  <sentence name="CtrlSubtractSelectedVariabelTitle" value="Select a variable to use to subtract values"/>
+  <sentence name="CtrlSubtractSelectedVariabelValuesTitle" value="Select 2 values in the order you want to subtract"/>
+  <sentence name="CtrlSubtractContinueButton" value="Subtract"/>
+  <sentence name="CtrlDivideHeading" value="Divide"/>
+  <sentence name="CtrlDivideTotalVariabelNameText" value="Enter a text for the resulting value "/>
+  <sentence name="CtrlDivideSelectedVariabelTitle" value="Select a variable to use to divide values"/>
+  <sentence name="CtrlDivideErrorSameVariable" value="Cannot divide the same variable values. Select two different variables."/>	
+  <sentence name="CtrlDivideSelectedVariabelValuesTitle" value="Select 2 values in the order you want to divide"/>
+  <sentence name="CtrlDivideContinueButton" value="Divide"/>
+  <sentence name="CtrlMultiplyHeading" value="Multiply"/>
+  <sentence name="CtrlMultiplyTotalVariabelNameText" value="Enter a text for the resulting value "/>
+  <sentence name="CtrlMultiplySelectedVariabelTitle" value="Select a variable to use to multiply values"/>
+  <sentence name="CtrlMultiplySelectedVariabelValuesTitle" value="Select 2 values to multiply "/>
+  <sentence name="CtrlMultiplyContinueButton" value="Multiply"/>
+  <sentence name="CtrlTableDecimalDelimiter" value="." />
+  <sentence name="CtrlTableThousandDelimiter" value="." />
+  <sentence name="CtrlTableInformationTableLabel" value="Table: " />
+  <sentence name="CtrlVariableSelectorInstructionLabel" value="Mark your selections and choose between table on screen and file format" />
+  <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Marking tips" />
+  <sentence name="CtrlVariableSelectorEliminationTooltip" value="Select at least one value" />
+  <sentence name="CtrlVariableSelectorEliminationLabel" value="For variables marked {image} you need to select at least one value" />
+  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Select all" />
+  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Deselect all" />
+  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Sort descending" />
+  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Sort ascending" />
+  <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Select hierarcically" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Total" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valittu" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Search" />
+  <sentence name="CtrlVariableSelectorSearchTooltip" value="Search" />
+  <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Text start" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Presentation on screen is limited to {0} rows and {1} columns" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsCellsLabel" value="Presentation on screen is limited to {0} cells"/>
+  <sentence name="CtrlVariableSelectorSelectionLimitCellsExceeded" value="Number of selected cells exceeds maximum allowed. "/>
+  <sentence name="CtrlVariableSelectorSelectionLimitRowsExceeded" value="Number of selected rows exceeds maximum allowed. "/>
+  <sentence name="CtrlVariableSelectorSelectionLimitColsExceeded" value="Number of selected columns exceeds maximum allowed. "/>
+  <sentence name="CtrlVariableSelectorSelectedRowsLabel" value="Number of selected data rows" />
+  <sentence name="CtrlVariableSelectorSelectedColumnsLabel" value="Number of selected data columns" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Number of selected data cells"/>
+  <sentence name="CtrlVariableSelectorContinueLabel" value="Select an option and press" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Continue" />
+  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Their are more then 500 values and they are therefor not automatically presented" />
+  <sentence name="CtrlVariableSelectorShowAll" value="Show All" />
+  <sentence name="CtrlVariableSelectorSearch" value="Searchfunction" />
+  <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Split time variable"/>
+ 
+  <sentence name="CtrlSaveQueryListEditHeaderStrong" value="" />
+  <sentence name="CtrlSaveQueryListEditHeaderLine1" value="" />
+  <sentence name="CtrlSaveQueryListEditHeaderLine2" value="" />
+  <sentence name="CtrlSaveQueryListEditRemove" value="" />
+  <sentence name="CtrlSaveQueryListEditTableCode" value="" />
+  <sentence name="CtrlSaveQueryListEditDescription" value="" />
+  <sentence name="CtrlSaveQueryListEditOutput" value="" />
+  <sentence name="CtrlSaveQueryListEditUpdate" value="" />
+  <sentence name="CtrlTextSearchButtonText" value="" />
+  <sentence name="CtrlTextSearchOptionAll" value="" />
+  <sentence name="CtrlTextSearchOptionAnd" value="" />
+  <sentence name="CtrlTextSearchOptionOr" value="" />
+  <sentence name="CtrlTextSearchSelect" value="" />
+  <sentence name="CtrlTextSearchDownload" value="" />
+  <sentence name="CtrlTextSearchView" value="" />
+  <sentence name="CtrlTextSearchResultText" value="" />
+  <sentence name="CtrlTextSearchAttributeModified" value="" />
+  <sentence name="CtrlTextSearchAttributePath" value="" />
+  <sentence name="CtrlTextSearchAttributeSize" value="" />
+  <sentence name="CtrlTableListSizeHeading" value="" />
+  <sentence name="CtrlTableListModifiedHeading" value="" />
+  <sentence name="CtrlTableListUpdatedHeading" value="" />
+  <sentence name="CtrlTableListVariablesAndValuesHeading" value="" />
+  <sentence name="CtrlTableListSelectOption_Select" value="" />
+  <sentence name="CtrlTableListSelectOption_Download" value="" />
+  <sentence name="CtrlTableListSelectOption_Downloadsmallfile" value="" />
+  <sentence name="CtrlTableListSelectOption_View" value="" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValues" value="" />
+  <sentence name="CtrlTableListSelectOption_ViewWithCommandbar" value="" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValuesWithCommandbar" value="" />
+  <sentence name="FileTypeExcel" value="Excel file (xlsx)" />
+  <sentence name="FileTypeExcelDoubleColumn" value="Excel file (xlsx) with code and text column" />
+  <sentence name="FileTypeExcelCompleteInfoFile" value="Excel file from screen (xlsx)" />
+  <sentence name="FileTypePrnWithHeadingAndTabulator" value="Tab delimited with heading" />
+  <sentence name="FileTypePrnWithoutHeadingAndTabulator" value="Tab delimited without heading" />
+  <sentence name="FileTypePrnWithHeadingAndComma" value="Comma delimited with heading" />
+  <sentence name="FileTypePrnWithoutHeadingAndComma" value="Comma delimited without heading" />
+  <sentence name="FileTypePrnWithHeadingAndSpace" value="Space delimited with heading" />
+  <sentence name="FileTypePrnWithoutHeadingAndSpace" value="Space delimited without heading" />
+  <sentence name="FileTypePrnWithHeadingAndSemiColon" value="Semi colon delimited with heading" />
+  <sentence name="FileTypePrnWithoutHeadingAndSemiColon" value="Semi colon delimited without heading" />
+  <sentence name="FileTypeText" value="Text file (txt)" />
+  <sentence name="FileTypeHtml" value="Html file (htm)" />
+  <sentence name="CtrlSearchVariableValuesAddButton" value="Add" />
+  <sentence name="CtrlSearchVariableValuesSearchHeader" value="Search" />
+  <sentence name="CtrlSearchVariableValuesSearchForCode" value="Search code:" />
+  <sentence name="CtrlSearchVariableValuesSearchForValue" value="Search text:" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeBeginning" value="Search beginning of code/text" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Search anywhere in text" />
+  <sentence name="CtrlSearchVariableValuesSearch" value="Search" />
+  <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Add choosen results" />
+  <sentence name="PxcMetaTitleBy" value="" />
+  <sentence name="PxcMetaTitleAnd" value="" />
+  <sentence name="PxcOpSplitTimeVarYear" value="" />
+  <sentence name="PxcOpSplitTimeVarQuarter" value="" />
+  <sentence name="PxcOpSplitTimeVarMonth" value="" />
+  <sentence name="PxcOpSplitTimeVarJanuary" value="" />
+  <sentence name="PxcOpSplitTimeVarFebruary" value="" />
+  <sentence name="PxcOpSplitTimeVarMarch" value="" />
+  <sentence name="PxcOpSplitTimeVarApril" value="" />
+  <sentence name="PxcOpSplitTimeVarMay" value="" />
+  <sentence name="PxcOpSplitTimeVarJune" value="" />
+  <sentence name="PxcOpSplitTimeVarJuly" value="" />
+  <sentence name="PxcOpSplitTimeVarAugust" value="" />
+  <sentence name="PxcOpSplitTimeVarSeptember" value="" />
+  <sentence name="PxcOpSplitTimeVarOctober" value="" />
+  <sentence name="PxcOpSplitTimeVarNovember" value="" />
+  <sentence name="PxcOpSplitTimeVarDecember" value="" />
+  <sentence name="PxcOpSplitTimeVarQuarter1" value="" />
+  <sentence name="PxcOpSplitTimeVarQuarter2" value="" />
+  <sentence name="PxcOpSplitTimeVarQuarter3" value="" />
+  <sentence name="PxcOpSplitTimeVarQuarter4" value="" />
+  <sentence name="ERROR_MISSING_TIMEVALUE" value="" />
+  <sentence name="PxcErrCellNoteValueMissing" value="" />
+  <sentence name="PxcErrToManyCodes" value="" />
+  <sentence name="PxcGroupedValuesMissing" value="" />
+  <sentence name="PxcSortVariable" value="" />
+  <sentence name="SqlErr" value="" />
+  <sentence name="SqlWarn" value="" />
+  <sentence name="PXWebSearchLink" value="" />
+	
+  <sentence name="PageViewFootnoteDialogTitle" value="Alaviite"/>
+  <sentence name="CancelButton" value="Cancel"/>	
+</language>

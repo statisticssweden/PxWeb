@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EB90826-A01B-494D-A596-E5C5F9815C3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCAxis.Api</RootNamespace>
+    <AssemblyName>PCAxis.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/PCAxis.Api/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ext\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiCache.cs" />
+    <Compile Include="HttpContextExtensions.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="PCAxisRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestLimiter.cs" />
+    <Compile Include="ResponseBucket.cs" />
+    <Compile Include="Serializers\ChartSerializer.cs" />
+    <Compile Include="Serializers\CsvSerializer.cs" />
+    <Compile Include="Serializers\IWebSerializer.cs" />
+    <Compile Include="Serializers\JsonSerializer.cs" />
+    <Compile Include="Serializers\JsonStat2Seriaizer.cs" />
+    <Compile Include="Serializers\JsonStatSeriaizer.cs" />
+    <Compile Include="Serializers\PxSerializer.cs" />
+    <Compile Include="Serializers\SdmxDataSerializer.cs" />
+    <Compile Include="Serializers\XlsxSerializer.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SSDHandler.cs" />
+    <Compile Include="SSDRouteHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
+      <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
+      <Name>PCAxis.Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Common\PCAxis.Common.vbproj">
+      <Project>{923414B2-36AD-48E1-919A-B92418E6A2FC}</Project>
+      <Name>PCAxis.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
+      <Project>{630041BC-4531-4547-9820-FE4290A18A54}</Project>
+      <Name>PCAxis.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Excel\PCAxis.Excel.csproj">
+      <Project>{6CC55F46-4B41-4EB9-B775-4F740C3D3599}</Project>
+      <Name>PCAxis.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Menu\ConfigDatamodelMenu\PCAxis.Menu.Implementations.ConfigDatamodelMenu.csproj">
+      <Project>{5B3B610A-DFDB-4B2F-8509-DA4591864DCA}</Project>
+      <Name>PCAxis.Menu.Implementations.ConfigDatamodelMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
+      <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
+      <Name>PCAxis.Menu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Menu\MsSqlDatamodelMenu\PCAxis.Menu.Implementations.MsSqlDatamodelMenu.csproj">
+      <Project>{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}</Project>
+      <Name>PCAxis.Menu.Implementations.MsSqlDatamodelMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Menu\OracleDatamodelMenu\PCAxis.Menu.Implementations.OracleDatamodelMenu.csproj">
+      <Project>{79CD0AEA-E236-4E95-9032-FEDCC95D0664}</Project>
+      <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
+      <Project>{69CD4248-077E-4E3C-A83B-70F883C8D305}</Project>
+      <Name>PCAxis.PX.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
+      <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>
+      <Name>PCAxis.Query</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Sdmx\PCAxis.Sdmx.csproj">
+      <Project>{7C7D7F81-CDD0-404C-9109-7A141EA17E15}</Project>
+      <Name>PCAxis.Sdmx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
+      <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
+      <Name>PCAxis.Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Serializers.JsonStat2\JsonStat2Serializer\JsonStat2Serializer\PCAxis.Serializers.JsonStat2Serializer.csproj">
+      <Project>{c33c6d4d-c95c-441e-862d-e8b55354a096}</Project>
+      <Name>PCAxis.Serializers.JsonStat2Serializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Serializers.JsonStat\JsonStatSerializer\PCAxis.Serializers.JsonStat.csproj">
+      <Project>{82889591-AFF6-4127-83EE-84A96D9964D7}</Project>
+      <Name>PCAxis.Serializers.JsonStat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
+      <Project>{DB47AF85-69B1-4D57-8EF4-B2A28A820D30}</Project>
+      <Name>PCAxis.Sql.DbConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Sql.Exceptions\PCAxis.Sql.Exceptions.csproj">
+      <Project>{41701C12-278E-4721-ABED-66CB2A4CAB03}</Project>
+      <Name>PCAxis.Sql.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Sql\PCAxis.Sql.csproj">
+      <Project>{43D337F6-29E8-465F-82A2-18389EA4C48D}</Project>
+      <Name>PCAxis.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PX.Serializers.Json\PX.Serializers.Json.csproj">
+      <Project>{5a8e1898-37c2-463e-a2dc-a00ca1db73eb}</Project>
+      <Name>PX.Serializers.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PX.Web.Interfaces\PX.Web.Interfaces.csproj">
+      <Project>{01468f9c-f679-49fe-9c9f-b127868d86a6}</Project>
+      <Name>PX.Web.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

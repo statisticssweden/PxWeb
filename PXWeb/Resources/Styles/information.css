@@ -1,0 +1,143 @@
+﻿/* Used for Information webcontrol */
+
+/* generall style for the definitionlist */
+dl.information_definitionlist dt
+{
+    margin-top:1em;
+    line-height:120%;
+}
+
+dl.information_definitionlist dd
+{  
+    margin-left:2em;
+    line-height:120%;
+}
+.information_definitionlist_heading
+{
+    margin-top:10px;
+    font-weight: bold;
+}
+
+.information_definitionlist dd a {
+    color: #03649c;;
+}
+
+
+.information_definitionlist dd a:visited {
+    color: #0493ac;
+}
+
+#0493ac;
+/* Define if specific style is to be used for presentation of a heading or value for some of the information*/
+.information_definitionlist_heading
+{    
+}
+.information_definitionlist_value
+{    
+}
+.information_unit_heading
+{
+}
+.information_unit_value
+{
+}
+.information_contact_heading
+{
+}
+.information_contact_value
+{
+}
+.information_lastupdated_heading
+{
+}
+.information_lastupdated_value
+{
+}
+.information_refperiod_heading
+{
+}
+.information_refperiod_value
+{
+}
+.information_stockfa_heading
+{
+}
+.information_stockfa_value
+{
+}
+.information_cfprices_heading
+{
+}
+.information_cfprices_value
+{
+}
+.information_dayadj_heading
+{
+}
+.information_dayadj_value
+{
+}
+.information_seasadj_heading
+{
+}
+.information_seasadj_value
+{
+}
+.information_baseperiod_heading
+{
+}
+.information_baseperiod_value
+{
+}    
+.information_updatefrequency_heading
+{
+}
+.information_updatefrequency_value
+{
+}
+.information_nextupdate_heading
+{
+} 
+.information_nextupdate_value
+{
+}
+.information_survey_heading
+{
+}
+.information_survey_value
+{
+}
+.information_link_heading
+{
+} 
+.information_link_value
+{
+}        
+.information_creationdate_heading
+{
+} 
+.information_creationdate_value
+{
+}        
+.information_copyright_heading
+{
+}   
+.information_copyright_value
+{
+}      
+.information_source_heading
+{
+}
+.information_copyright_value
+{
+}     
+.information_detailedLink_heading
+{
+}
+.information_detailedLink_value
+{
+}      
+       
+        
+        
+       

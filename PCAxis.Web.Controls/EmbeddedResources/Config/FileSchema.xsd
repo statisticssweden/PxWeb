@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.scb.se"
+xmlns="http://www.scb.se"
+elementFormDefault="qualified">
+	<xs:annotation>
+	<xs:appinfo>Version Info</xs:appinfo>
+	<xs:documentation xml:lang="en">
+		Modified: 2008-12-18
+		Version: 1.0
+		By: Robert Karlsson Consultant from Logica 
+		Description:  First release of this schema.
+					  Only the file types existing 
+					  at this time are included.
+					  Comments added.
+	</xs:documentation>
+	</xs:annotation>
+	<xs:element name="FileTypeList">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element minOccurs="1" maxOccurs="unbounded" type="FileType" name="FileType"></xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="FileType">
+	<xs:sequence>
+	  <xs:element name="Type" minOccurs="1" maxOccurs="1">
+		<xs:simpleType>
+		  <xs:annotation>
+			<xs:documentation xml:lang="en">
+			  'Type' enumerator is a unique identifyer for each file format.
+			  A 'Type' can only be used once in every XML-file using this schema.
+			</xs:documentation>
+		  </xs:annotation>
+		  <xs:restriction base="xs:string">
+			<xs:enumeration value="px"></xs:enumeration>
+			<xs:enumeration value="xls"></xs:enumeration>
+			<xs:enumeration value="txt"></xs:enumeration>
+			<xs:enumeration value="csv"></xs:enumeration>
+   		<xs:enumeration value="html"></xs:enumeration>
+			<xs:enumeration value="scb"></xs:enumeration>
+		  </xs:restriction>
+		</xs:simpleType>
+	  </xs:element>
+	  <xs:element name="AssemblyQualifiedName" minOccurs="1" maxOccurs="1" type="NonEmptyString">
+		<xs:annotation>
+		  <xs:documentation xml:lang="en">
+			
+		  </xs:documentation>
+		</xs:annotation>
+	  </xs:element>
+    <xs:element name="Creator" minOccurs="1" maxOccurs="1" type="NonEmptyString"></xs:element>
+    <xs:element minOccurs="1" maxOccurs="1" type="FileInfos" name="FileInfos"></xs:element>
+    <xs:element name="WebControl" minOccurs="1" maxOccurs="1" type="NonEmptyString">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">					
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="MimeType" type="NonEmptyString" maxOccurs="1" minOccurs="1">
+		<xs:annotation>
+		  <xs:documentation xml:lang="en">
+			'MimeType' is the mime that the response to the browser will contain when saving a file.
+		  </xs:documentation>
+		</xs:annotation>
+	  </xs:element>
+		<xs:element name="FileExtension" type="NonEmptyString" maxOccurs="1" minOccurs="1">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">
+					'The last characters after the period in the name of a file
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+	 <xs:element type="NonEmptyString" maxOccurs="1" minOccurs="1" name="CssClass">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Css class used to show image in 
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+		 <xs:element name="Image" type="NonEmptyString" maxOccurs="1" minOccurs="1">
+			  <xs:annotation>
+					<xs:documentation xml:lang="en">
+						 'Image' is the picture to use as a button for this filetype
+					</xs:documentation>
+			  </xs:annotation>
+		 </xs:element>
+		 <xs:element name="ShortcutImage" type="NonEmptyString" maxOccurs="1" minOccurs="1">
+			  <xs:annotation>
+					<xs:documentation xml:lang="en">
+						 'ShortcutImage' is the picture to use as a shortcut button for this filetype
+					</xs:documentation>
+			  </xs:annotation>
+		 </xs:element>
+	</xs:sequence>
+	<xs:attribute name="Active" type="xs:boolean" use="required" >
+	  <xs:annotation>
+		<xs:documentation xml:lang="en">
+		  'Active' If this is set to true then this format will be show on the web.
+		  If it's set to false it will not be shown. So you can have fileformats in 
+		  the config file that will not be shown on the web.
+		</xs:documentation>
+	  </xs:annotation>
+	</xs:attribute>
+    <xs:attribute name="category" type="xs:string" use="optional" >
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="FileInfos">
+    <xs:sequence>
+      <xs:element name="FileInfo" minOccurs="1" maxOccurs="unbounded" type="NonEmptyString">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>
+

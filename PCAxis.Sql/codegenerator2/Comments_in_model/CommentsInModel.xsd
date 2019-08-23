@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Jfi (Statistics Norway) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="CommentsInModel">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Tables">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element ref="Table"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Table">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Description" type="xs:string"/>
+				<xs:element name="Columns">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element ref="Column"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="name" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Column">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Description" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="colname" type="xs:string" use="required"/>
+			<xs:attribute name="datatype" type="xs:string" use="required"/>
+			<xs:attribute name="mandatory" type="xs:string" use="required"/>
+			<xs:attribute name="primarykey" type="xs:string" use="optional"/>
+			<xs:attribute name="foreignkey" type="xs:string" use="optional"/>
+			<xs:attribute name="length" use="required"/>
+			<xs:attribute name="hasSL" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

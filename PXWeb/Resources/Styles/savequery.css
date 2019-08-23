@@ -1,0 +1,152 @@
+/* Used for SaveQuery webcontrol */
+.savequery_container  a
+{
+    cursor:pointer;
+    /*text-decoration: underline; */
+}
+.savequery_container  input
+{
+    cursor:pointer;
+}
+
+.savequery_container savequery_url input
+{
+    cursor:help;
+} 
+.savequery_readmore_expandimage
+{
+    width:16px;
+    height:16px;
+    background: url(../images/plus-16.gif) no-repeat;
+    vertical-align: middle;
+	outline: none;
+}.savequery_readmore_collapseimage
+{
+    width:16px;
+    height:16px;
+    background: url(../images/minus-16.gif) no-repeat;
+    vertical-align: middle;
+	outline: none;
+}
+.savequery_informationpanel
+{
+    display: inline-block;
+    padding-right: 10px;
+}
+.savequery_informationtext
+{
+}
+.savequery_timeperioddiv
+{
+    float:left; 
+    width: 50%; 
+    margin-top:5px;  
+}
+.savequery_saveasdiv
+{
+    margin-top:10px; 
+    width: 100%;
+}
+.savequery_informationpanelwidth
+{
+    width: 100%;
+}
+.savequery_create
+{
+}
+.savequery_cancel
+{
+    margin-right: 15px;
+}
+
+.savequery_functionbtn
+{
+    float:left;
+    margin-top:25px; 
+    margin-right:3px;
+    cursor:pointer;
+    border-color: #B0272E;
+
+}
+
+.savequery_rblist
+{
+}
+    .savequery_rblist input[type="radio"]
+    {
+        margin-top: 7px;
+    }
+
+.saveas_dropdownlist
+{
+    width:250px;
+}
+.saveas_dropdownlist_error
+{
+    border-color: #B0272E;
+}
+.savequery_heading 
+{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.querySummary
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.querySummaryItem
+{
+    display:inline-block;
+}
+.savequery_urlcaption
+{
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.savequery_url
+{
+    display: block;
+    width: 700px;
+    font-family: Courier New;    
+}
+
+.savequery_querycaption
+{
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.savequery_query
+{
+    display: block;
+    width: 700px;
+    margin-bottom: 10px;
+}
+.savequery_error
+{
+    color:#B0272E;
+    margin-left: 5px;
+}
+.savequery_novisibility
+{
+    display: none;
+}
+/*Old css. Remove?*/
+.floatleft
+{
+    float:left;
+}
+
+.time_warning_panel
+{
+    margin-bottom: 10px;
+}
+.savequery_function
+{
+    margin-right: 15px;
+}

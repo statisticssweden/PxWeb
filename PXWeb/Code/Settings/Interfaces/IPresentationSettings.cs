@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace PXWeb
+{
+    /// <summary>
+    /// Interface for the Presentation settings
+    /// </summary>
+    public interface IPresentationSettings
+    {
+        /// <summary>
+        /// If all mandatory footnotes shall be displayed the first time the table is shown or not
+        /// </summary>
+        bool PromptMandatoryFootnotes { get; }
+
+        /// <summary>
+        /// Table settings
+        /// </summary>
+        ITableSettings Table { get; }
+
+        /// <summary>
+        /// CommandBar settings
+        /// </summary>
+        ICommandBarSettings CommandBar { get; }
+    }
+}

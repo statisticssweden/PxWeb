@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C21F6414-06B0-406C-9864-B6C72D2009BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCAxis.Html5Table.Web.Controls</RootNamespace>
+    <AssemblyName>PCAxis.Html5Table.Web.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Html5TableSerializerCreator.cs" />
+    <Compile Include="SaveAsHtml5Table.cs" />
+    <Compile Include="SaveAsHtml5TableCodebehind.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
+      <Project>{630041bc-4531-4547-9820-fe4290a18a54}</Project>
+      <Name>PCAxis.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Html5Table\PCAxis.Html5Table.csproj">
+      <Project>{10f26c50-39bc-467b-9707-a84fe329534a}</Project>
+      <Name>PCAxis.Html5Table</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Web.Controls\PCAxis.Web.Controls.vbproj">
+      <Project>{0f886ccb-3476-4756-816c-7792a9c73fe2}</Project>
+      <Name>PCAxis.Web.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCAxis.Web.Core\PCAxis.Web.Core.vbproj">
+      <Project>{bc004d40-ddc6-446e-a3df-5d4ba0ae92b8}</Project>
+      <Name>PCAxis.Web.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SaveAsHtml5Table.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetDir)*.dll" "$(SolutionDir)PXWeb\bin"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

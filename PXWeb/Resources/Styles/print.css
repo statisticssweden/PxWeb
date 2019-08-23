@@ -1,0 +1,8 @@
+﻿@media print {
+    #breadcrumb, #navigationFlow, .headerright, .ui-tabs-nav, .commandbar, .headerleft { display: none; }
+    table {
+        text-align: left;
+    }
+}
+
+

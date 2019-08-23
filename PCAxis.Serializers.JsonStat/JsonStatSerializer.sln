@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonStatSerializer", "JsonStatSerializer\JsonStatSerializer.csproj", "{82889591-AFF6-4127-83EE-84A96D9964D7}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.Core", "..\..\..\Visual Studio 2008\Projects\PCAxis.Core\PCAxis.Core.vbproj", "{630041BC-4531-4547-9820-FE4290A18A54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82889591-AFF6-4127-83EE-84A96D9964D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82889591-AFF6-4127-83EE-84A96D9964D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82889591-AFF6-4127-83EE-84A96D9964D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82889591-AFF6-4127-83EE-84A96D9964D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630041BC-4531-4547-9820-FE4290A18A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630041BC-4531-4547-9820-FE4290A18A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630041BC-4531-4547-9820-FE4290A18A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630041BC-4531-4547-9820-FE4290A18A54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

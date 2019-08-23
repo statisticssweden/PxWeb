@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="fi">
+  <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Muuta tekstejä" />
+  <sentence name="CtrlChangeTextsHeading" value="Muuta tekstejä" />
+  <sentence name="CtrlChangeTextsText" value="Tee tekstimuutokset ja paina Jatka-painiketta" />
+  <sentence name="CtrlChangeTextsContinueButton" value="Jatka " />
+  <sentence name="CtrlChangeTextsContentsHeading" value="Sisältö" />
+  <sentence name="CtrlChangeTextsUnitsHeading" value="Yksikkö" />
+  <sentence name="CtrlChangeTextsVariablesHeading" value="Muuttujat" />
+  <sentence name="CtrlChangePresentationContinueButton" value="Jatka " />
+  <sentence name="CtrlChangePresentationContentsHeading" value="Sisältö" />
+  <sentence name="CtrlChangePresentationUnitsHeading" value="Yksikkö" />
+  <sentence name="CtrlChangePresentationVariablesHeading" value="Muuttujat" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Valitse teksti tai koodi" />
+  <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Valitse teksti tai koodi" />
+  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Valitse haluamasi esitysmuoto muuttujittain" />
+  <sentence name="CtrlChangeCodeTextPresentationText" value="Teksti" />
+  <sentence name="CtrlChangeCodeTextPresentationCode" value="Koodi" />
+  <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Koodi ja teksti" />
+  <sentence name="CtrlChangeDecimalContinueButton" value="Jatka " />
+  <sentence name="CtrlChangeDecimalHeading" value="Muuta desimaaleja" />
+  <sentence name="CtrlChangeDecimalHeaderLabel" value="Syötä haluttu desimaalimäärä ja paina Jatka-painiketta" />
+  <sentence name="CtrlChangeDecimalDecimalLabel" value="Desimaalien määrä (0-6)" />
+  <sentence name="CtrlChangeDecimalRangeError" value="Syötä kokonaisluku 0-6 väliltä " />
+  <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Muuta desimaaleja" />
+  <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Poista muuttuja" />
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Merkitse muuttuja ja sen poistossa käytettävä arvo." />
+  <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Lisää arvo taulukon otsikkoon" />
+  <sentence name="CtrlDeleteVariableContinueButton" value="Jatka " />
+  <sentence name="CtrlDeleteVariableErrorDescription" value="Valitse ainakin yksi muuttuja ja arvo" />
+  <sentence name="CtrlDeleteVariableOneVariable" value="Kaikkia muuttujia ei voi poistaa, jätä vähintään yksi. " />
+  <sentence name="CtrlCommandBarFunctionDeleteValue" value="Poista muuttujan arvo" />
+  <sentence name="CtrlDeleteValueHeaderLabel" value="Valitse yksi tai useampia arvoja poistettaviksi. Kaikkia muuttujan arvoja ei voi valita. Muuttujan poistoon on oma toiminto." />
+  <sentence name="CtrlDeleteValueErrorDescription" value="Et voi poistaa muuttujan kaikkia arvoja." />
+  <sentence name="CtrlDeleteValueContinueButton" value="Jatka " />
+  <sentence name="CtrlCommandBarFunctionPerPart" value="Prosenttilaskenta" />
+  <sentence name="CtrlPerPartContinueButton" value="Jatka " />
+  <sentence name="CtrlPerPartNewValueName" value="Uuden arvon nimi" />
+  <sentence name="CtrlPerPartKeepData" value="Näytä alkuperäiset tiedot ja prosenttiluvut" />
+  <sentence name="CtrlPerPartPerCentOnly" value="Näytä vain prosenttiluvut" />
+  <sentence name="CtrlPerPartOneVariableAllValues" value="Valitse prosenttilaskennassa käytettävä kantalukumuuttuja" />
+  <sentence name="CtrlPerPartOneVariableOneValue" value="Valitse kantalukumuuttuja" />
+  <sentence name="CtrlPerPartOneMatrixValue" value="Valitse jokaisesta muuttujasta yksi soluarvo" />
+  <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Muuta ja laske" />
+  <sentence name="CtrlCommandBarSaveAsCaption" value="Tallenna nimellä" />
+  <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Esitysnäkymät" />
+  <sentence name="CtrlCommandBarActionButtonCaption" value="Lähetä" />
+  <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="OK" />
+  <sentence name="CtrlCommandBarDownloadFileTitle" value="Tallenna tiedosto" />
+  <sentence name="CtrlCommandBarDownloadFileInformation" value="Napauta Tallenna tiedosto -linkkiä ladataksesi tiedoston tietokoneellesi" />
+  <sentence name="CtrlCommandBarDownloadFileLink" value="Tallenna tiedosto" />
+  <sentence name="CtrlCommandBarFunctionPivotManual" value="Käännä manuaalisesti" />
+  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Käännä manuaalisesti" />
+  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Käännä manuaalisesti" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Käännä myötäpäivään" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Käännä myötäpäivään" />
+  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Käännä myötäpäivään" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Käännä vastapäivään" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Käännä vastapäivään" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Käännä vastapäivään" />
+  <sentence name="CtrlCommandBarFunctionShowAllRows" value="Näytä kaikki rivit" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Näytä kaikki rivit" />
+  <sentence name="CtrlCommandBarFunctionShowAllRowsAlt" value="Näytä kaikki rivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZero" value="Poista nollarivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroTitle" value="Poista nollarivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAlt" value="Poista nollarivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphen" value="Poista nolla- ja viivarivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenTitle" value="Poista nolla- ja viivarivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroAndHyphenAlt" value="Poista nolla- ja viivarivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveDots" value="Poista pistekoodirivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsTitle" value="Poista pistekoodirivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveDotsAlt" value="Poista pistekoodirivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" value="Poista nolla-, viiva- ja pistekoodirivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsTitle" value="Poista nolla-, viiva- ja pistekoodirivit" />
+  <sentence name="CtrlCommandBarFunctionRemoveZeroHyphenAndDotsAlt" value="Poista nolla-, viiva- ja pistekoodirivit" />
+  <sentence name="CtrlCommandBarFunctionSort" value="Lajittele" />
+  <sentence name="CtrlCommandBarFunctionSortTitle" value="Lajittele" />
+  <sentence name="CtrlCommandBarFunctionSum" value="Summaa muuttujan arvoja" />
+  <sentence name="CtrlCommandBarFunctionSumTitle" value="Summaa muuttujan arvoja" />
+  <sentence name="CtrlCommandBarFunctionSumAlt" value="Summaa muuttujan arvoja" />
+  <sentence name="CtrlCommandBarFunctionSubtract" value="Vähennä muuttujan arvoja" />
+  <sentence name="CtrlCommandBarFunctionDivide" value="Jaa muuttujan arvoja" />
+  <sentence name="CtrlCommandBarFunctionMultiply" value="Kerro muuttujan arvoja" />
+  <sentence name="CtrlCommandBarFunctionSortAlt" value="Lajittele" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayout" value="Näytä taulukko, uusi näkymä" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutAlt" value="Näytä taulukko, uusi näkymä" />
+  <sentence name="CtrlCommandBarFunctionSwitchLayoutTitle" value="Näytä taulukko, uusi näkymä" />
+  <sentence name="CtrlCommandBarFunctionLinkGoogle" value="Google (testilinkki)" />
+  <sentence name="CtrlCommandBarFunctionChangeValueOrder" value="Muuta muuttujan arvojen järjestystä" />
+  <sentence name="CtrlCommandBarFileTypeXlsTitle" value="Tallenna Excel-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeXlsAlt" value="Tallenna Excel-muodossa" />
+  <sentence name="CtrlCommandBarFileTypePxTitle" value="Tallenna PC-Axis-muodossa" />
+  <sentence name="CtrlCommandBarFileTypePXAlt" value="Tallenna PC-Axis-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeJsonStatTitle" value="Tallenna JSON-stat-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeJsonStatAlt" value="Tallenna JSON-stat-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeTxtTitle" value="Tallenna tekstinä" />
+  <sentence name="CtrlCommandBarFileTypeTxtAlt" value="Tallenna tekstinä" />
+  <sentence name="CtrlCommandBarFileTypeCsvTitle" value="Tallenna CSV-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeCsvAlt" value="Tallenna CSV-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeHtmlTitle" value="Tallenna HTML-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeHtmlAlt" value="Tallenna HTML-muodossa" />
+  <sentence name="CtrlCommandBarFileTypeRelationalTitle" value="Tallenna relaatiomuodossa" />
+  <sentence name="CtrlCommandBarFileTypeRelationallAlt" value="Tallenna relaatiomuodossa" />
+  <sentence name="CtrlPresentationViewTableLayout1" value="Taulukkonäkymä 1" />
+  <sentence name="CtrlPresentationViewTableLayout2" value="Taulukkonäkymä 2" />
+  <sentence name="CtrlPresentationViewTableSorted" value="Lajiteltu taulukko" />
+  <sentence name="CtrlPresentationViewChartColumn" value="Pylväskuvio" />
+  <sentence name="CtrlPresentationViewChartColumnStacked" value="Pinottu pylväskuvio" />
+  <sentence name="CtrlPresentationViewChartColumnStacked100" value="Pinottu pylväskuvio (100 %)" />
+  <sentence name="CtrlPresentationViewChartBar" value="Vaakapylväskuvio" />
+  <sentence name="CtrlPresentationViewChartBarStacked" value="Pinottu vaakapylväskuvio" />
+  <sentence name="CtrlPresentationViewChartBarStacked100" value="Pinottu vaakapylväskuvio (100 %)" />
+  <sentence name="CtrlPresentationViewChartLine" value="Viivakuvio" />
+  <sentence name="CtrlPresentationViewChartColumnLine" value="Viiva- ja pylväskuvio" />
+  <sentence name="CtrlPresentationViewChartPopulationPyramid" value="Väestöpyramidikuvio" />
+  <sentence name="CtrlPresentationViewChartPie" value="Piirakkakuvio" />
+  <sentence name="CtrlPresentationViewChartArea" value="Aluekuvio" />
+  <sentence name="CtrlPresentationViewChartAreaStacked" value="Pinottu aluekuvio" />
+  <sentence name="CtrlPresentationViewChartAreaStacked100" value="Pinottu aluekuvio (100 %)" />
+  <sentence name="CtrlPresentationViewChartPoint" value="Pistekuvio" />
+  <sentence name="CtrlPresentationViewChartRadar" value="Tutkakuvio" />
+  <sentence name="CtrlCommandBarLinkFootnoteTitle" value="Alaviitteet" />
+  <sentence name="CtrlCommandBarLinkFootnoteAlt" value="Alaviitteet" />
+  <sentence name="CtrlCommandBarLinkGraphTitle" value="Kuvio" />
+  <sentence name="CtrlCommandBarLinkGraphAlt" value="Kuvio" />
+  <sentence name="CtrlCommandBarLinkInformationTitle" value="Kuvaus" />
+  <sentence name="CtrlCommandBarLinkInformationAlt" value="Kuvaus" />
+  <sentence name="CtrlCommandBarLinkPrintTitle" value="Tulosta" />
+  <sentence name="CtrlCommandBarLinkPrintAlt" value="Tulosta" />
+  <sentence name="CtrlCommandBarLinkGoogleTitle" value="Google" />
+  <sentence name="CtrlCommandBarLinkGoogleAlt" value="Google" />
+  <sentence name="CtrlCommandBarFileDownLoadLink" value="Lataa tiedosto" />
+  <sentence name="CtrlFootnoteFootnoteLabel" value="Alaviitteet" />
+  <sentence name="CtrlFootnoteNoFootnotesLabel" value="Ei alaviitteitä" />
+  <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Valitse kaikki" />
+  <sentence name="CtrlHierarchicalVariableUnselectAllButton" value="Poista valinnat" />
+  <sentence name="CtrlHierarchicalVariableOpenAllNodesButton" value="Avaa kaikki" />
+  <sentence name="CtrlHierarchicalVariableCloseAllNodesButton" value="Sulje kaikki" />
+  <sentence name="CtrlHierarchicalVariableContinueButtonText" value="Jatka" />
+  <sentence name="CtrlHierarchicalVariableErrorMessage" value="Virhetilanne. Palaa aloitussivulle ja tee valinta uudestaan" />
+  <sentence name="CtrlInformationInformationLabel" value="Kuvaus" />
+  <sentence name="CtrlInformationOfficialStatisticsLabel" value="Virallinen tilasto" />
+  <sentence name="CtrlInformationUnitLabel" value="Yksikkö" />
+  <sentence name="CtrlInformationContactLabel" value="Yhteystiedot" />
+  <sentence name="CtrlInformationLastUpdatedLabel" value="Viimeksi päivitetty" />
+  <sentence name="CtrlInformationRefPeriodLabel" value="Viiteaika" />
+  <sentence name="CtrlInformationStockFaLabel" value="Tietotyyppi" />
+  <sentence name="CtrlInformationCFPricesLabel" value="Hintatyyppi" />
+  <sentence name="CtrlInformationDayAdjLabel" value="Päivätasoitettu" />
+  <sentence name="CtrlInformationSeasAdjLabel" value="Kausitasoitettu" />
+  <sentence name="CtrlInformationBasePeriodLabel" value="Perusajankohta" />
+  <sentence name="CtrlInformationUpdateFrequencyLabel" value="Päivitystiheys" />
+  <sentence name="CtrlInformationNextUpdateLabel" value="Seuraava päivitys" />
+  <sentence name="CtrlInformationSurveyLabel" value="Tutkimus" />
+  <sentence name="CtrlInformationLinkLabel" value="Linkki" />
+  <sentence name="CtrlInformationCreationDateLabel" value="Luontipäivä" />
+  <sentence name="CtrlInformationCopyrightLabel" value="Tekijänoikeus" />
+  <sentence name="CtrlInformationSourceLabel" value="Lähde" />
+  <sentence name="CtrlInformationMatrixLabel" value="Kuutio" />
+  <sentence name="CtrlInformationDatabaseLabel" value="Tilastotietokannat" />
+  <sentence name="CtrlInformationYesValue" value="Kyllä" />
+  <sentence name="CtrlInformationNoValue" value="Ei" />
+  <sentence name="CtrlInformationFixedPricesValue" value="Kiinteisiin hintoihin" />
+  <sentence name="CtrlInformationCurrentPricesValue" value="Käypiin hintoihin" />
+  <sentence name="CtrlInformationFlowValue" value="Virta" />
+  <sentence name="CtrlInformationAverageValue" value="Keskiarvo" />
+  <sentence name="CtrlInformationStockValue" value="Kanta" />
+  <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Valitse muuttuja:" />
+  <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Valitse muuttujajärjestys siirtämällä muuttujannimiä listasta toiseen. Lähtölistalle jäävät muuttujat tulevat tulostaulukkoon ensimmäisiksi." />
+  <sentence name="CtrlChangeValueOrderCancelButton" value="Kumoa" />
+  <sentence name="CtrlChangeValueOrderContinueButton" value="Jatka " />
+  <sentence name="CtrlChangeValueOrderMoveRight" value="Siirry oikealle" />
+  <sentence name="CtrlChangeValueOrderMoveLeft" value="Siirry vasempaan" />
+  <sentence name="CtrlChangeValueOrderMoveDown" value="Siirry alaspäin" />
+  <sentence name="CtrlChangeValueOrderFromOrder" value="Lähtölista" />
+  <sentence name="CtrlChangeValueOrderToOrder" value="Tuloslista" />
+  <sentence name="CtrlPivotContinueButton" value="Jatka " />
+  <sentence name="CtrlPivotStubLabel" value="Rivejä" />
+  <sentence name="CtrlPivotHeadingLabel" value="Sarakkeita" />
+  <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Tallenna tiedostomuotoon:" />
+  <sentence name="CtrlSaveAsDelimiterListHeadLabel" value="Valitse erotinmerkki:" />
+  <sentence name="CtrlSaveAsPageSetupHeadLabel" value="Valitse tekstitiedostoihin myös:" />
+  <sentence name="CtrlSaveAsLineLengthControl" value="Rivinpituus:" />
+  <sentence name="CtrlSaveAsPageLengthControl" value="Sivunpituus:" />
+  <sentence name="CtrlSaveAsMarginControl" value="Marginaali" />
+  <sentence name="CtrlSaveAsContinueButton" value="Tallenna" />
+  <sentence name="CtrlSaveAsCancelButton" value="Kumoa" />
+  <sentence name="CtrlSaveAsButtonLabel" value="Valitse ja paina" />
+  <sentence name="CtrlSaveAsSaveTypeDropDown" value="Tallenna tiedostomuodossa" />
+  <sentence name="CtrlSaveAsDelimiterDropDown" value="Valitse erotinmerkki " />
+  <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Jatka " />
+  <sentence name="SumInvalidValuename" value="Uuden arvon tulee olla yksilöivä (muuttujassa)" />
+  <sentence name="CtrlSumHeading" value="Summaa muuttujan arvot" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Uusi muuttujannimi:" />
+  <sentence name="CtrlSumAllValuesText" value="Summaa kaikki arvot" />
+  <sentence name="CtrlSumSelectedValuesText" value="Summaa valitut arvot" />
+  <sentence name="CtrlSumSelectedVariabelTitle" value="Valitse summattavat arvot" />
+  <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Valitse summattavat arvot" />
+  <sentence name="CtrlSumVariableNameRequired" value="Uuden arvon nimi tarvitaan" />
+  <sentence name="CtrlSumDifferentOperandsRequired" value="Tarvitaan kaksi eri kohdetta." />
+  <sentence name="CtrlSumContinueButton" value="Summa" />
+  <sentence name="CtrlSumKeepValuesText" value="Näytä myös alkuperäiset arvot" />
+  <sentence name="CtrlFirstOperandLabel" value="Ensimmäinen arvo:" />
+  <sentence name="CtrlSecondOperandLabel" value="Toinen arvo:" />
+  <sentence name="CtrlSubtractHeading" value="Vähennä muuttujan arvoja" />
+  <sentence name="CtrlSubtractTotalVariabelNameText" value="Syötä tuloksen arvoteksti" />
+  <sentence name="CtrlSubtractSelectedVariabelTitle" value="Valitse vähennettävä" />
+  <sentence name="CtrlSubtractSelectedVariabelValuesTitle" value="Valitse kaksi arvoa vähennysjärjestyksessä" />
+  <sentence name="CtrlSubtractContinueButton" value="Vähennyslasku" />
+  <sentence name="CtrlDivideHeading" value="Jaa muuttujan arvoja" />
+  <sentence name="CtrlDivideTotalVariabelNameText" value="Syötä tuloksen arvoteksti" />
+  <sentence name="CtrlDivideSelectedVariabelTitle" value="Valitse jakaja" />
+  <sentence name="CtrlDivideSelectedVariabelValuesTitle" value="Valitse kaksi arvoa jakojärjestyksessä" />
+  <sentence name="CtrlDivideErrorSameVariable" value="Et voi jakaa samoja muuttuja-arvoja. Valitse kaksi eri muuttujaa." />
+  <sentence name="CtrlDivideContinueButton" value="Jakolasku" />
+  <sentence name="CtrlMultiplyHeading" value="Kerro muuttujan arvoja" />
+  <sentence name="CtrlMultiplyTotalVariabelNameText" value="Syötä tuloksen arvoteksti" />
+  <sentence name="CtrlMultiplySelectedVariabelTitle" value="Valitse kerroinmuuttuja" />
+  <sentence name="CtrlMultiplySelectedVariabelValuesTitle" value="Valitse kaksi kerrottavaa arvoa" />
+  <sentence name="CtrlMultiplyContinueButton" value="Kertolasku" />
+  <sentence name="CtrlTableDecimalDelimiter" value="," />
+  <sentence name="CtrlTableThousandDelimiter" value="," />
+  <sentence name="CtrlTableDefaultAttributesLabel" value="Määritteiden oletusarvot:" />
+  <sentence name="CtrlTableCellInformationDialogTitle" value="Solun tiedot" />
+  <sentence name="CtrlTableCellInformationCell" value="Solu" />
+  <sentence name="CtrlTableCellInformationAttributes" value="Määritteet" />
+  <sentence name="CtrlTableCellInformationNotes" value="Merkinnät" />
+  <sentence name="CtrlTableInformationTableLabel" value="Taulukko:" />
+  <sentence name="CtrlVariableSelectorInstructionLabel" value="Merkitse valintasi ja valitse esitysmuoto (taulukko ruutuun tai tiedostomuoto)" />
+  <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Valintaohje" />
+  <sentence name="CtrlVariableSelectorEliminationTooltip" value="Valitse ainakin yksi arvo" />
+  <sentence name="CtrlVariableSelectorSelectValues" value="--- Valitse luokitus ---" />
+  <sentence name="CtrlVariableSelectorEliminationLabel" value="{image}-merkityille muuttujille tarvitaan ainakin yksi arvo" />
+  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Valitse kaikki" />
+  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Poista valinnat" />
+  <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Valitse arvot ryhmästä" />
+  <sentence name="CtrlVariableSelectorMetadataImformationTooltip" value="Määritelmät muuttujille ja arvoille" />
+  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Laskeva lajittelu" />
+  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Nouseva lajittelu" />
+  <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Hierarkiavalinta" />
+  <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Etsi arvoja" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Yhteensä" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valittu" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Etsi" />
+  <sentence name="CtrlVariableSelectorSearchTooltip" value="Etsi" />
+  <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Rivin alusta" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Selailunäkymä on rajoitettu {0} riviin ja {1} sarakkeeseen" />
+  <sentence name="CtrlVariableSelectorSelectionLimitsCellsLabel" value="Selailunäkymä on rajoitettu {0} soluun" />
+  <sentence name="CtrlVariableSelectorSelectionLimitCellsExceeded" value="Valittujen solujen määrä ylittää  enimmäismäärän {0}" />
+  <sentence name="CtrlVariableSelectorSelectionLimitRowsExceeded" value="Valittujen rivien määrä ylittää enimmäismäärän {0}. " />
+  <sentence name="CtrlVariableSelectorSelectionLimitColsExceeded" value="Valittujen sarakkeiden määrä ylittää enimmäismäärän {0}." />
+  <sentence name="CtrlVariableSelectorSelectedRowsLabel" value="Valittuja taulukkorivejä" />
+  <sentence name="CtrlVariableSelectorSelectedColumnsLabel" value="Valittuja taulukkosarakkeita" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Valittuja taulukkosoluja:" />
+  <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(enimmäisraja on {0})" />
+  <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Ainakin yksi arvo on valittava muuttujasta:" />
+  <sentence name="CtrlVariableSelectorContinueLabel" value="Valitse ja paina" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Jatka " />
+  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Arvojen määrä ylittää 500, joten niitä ei näytetä automaattisesti" />
+  <sentence name="CtrlVariableSelectorShowAll" value="Näytä kaikki" />
+  <sentence name="CtrlVariableSelectorShowHierarchy" value="Näytä hierarkia" />
+  <sentence name="CtrlVariableSelectorSearch" value="Etsi" />
+  <sentence name="CtrlVariableSelectorOutputFormatsOutputScreen" value="Näytä taulukko ruudulla" />
+  <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Etsi" />
+  <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Rivin alusta" />
+  <sentence name="CtrlVariableSelectorManyValues" value="Arvoja on enemmän kuin {0}, joten niitä ei näytetä automaattisesti. Käytä etsintätoimintoa." />
+  <sentence name="CtrlVariableSelectorLargeValueset" value="(Suuri taulukko)" />
+  <sentence name="CtrlVariableSelectorActionButton" value="Lähetä" />
+  <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Pilko aikamuuttuja" />
+  <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Muuta tallennettuja taulukkomäärityksiä" />
+  <sentence name="CtrlSaveQueryListEditHeaderLine1" value="Poistettavat tallennusmääritykset merkitään määritysrivin perässä olevaan ruutuun." />
+  <sentence name="CtrlSaveQueryListEditHeaderLine2" value="Jos haluat muuttaa taulukon nimeä tai kuvausta, syötä uudet kuvaukset." />
+  <sentence name="CtrlSaveQueryListEditRemove" value="Poista" />
+  <sentence name="CtrlSaveQueryListEditTableCode" value="Taulukon koodi" />
+  <sentence name="CtrlSaveQueryListEditDescription" value="Kuvaus" />
+  <sentence name="CtrlSaveQueryListEditOutput" value="Tuloste" />
+  <sentence name="CtrlSaveQueryListEditUpdate" value="Päivitä" />
+  <sentence name="CtrlTextSearchButtonText" value="Etsi" />
+  <sentence name="CtrlTextSearchOptionAll" value="Kaikki" />
+  <sentence name="CtrlTextSearchOptionAnd" value="ja" />
+  <sentence name="CtrlTextSearchOptionOr" value="tai" />
+  <sentence name="CtrlTextSearchSelect" value="Valitse osataulukko" />
+  <sentence name="CtrlTextSearchDownload" value="Lataa koko taulukko PC-Axis-muodossa" />
+  <sentence name="CtrlTextSearchView" value="Selaa taulukkoa" />
+  <sentence name="CtrlTextSearchResultText" value="Haun tulokset" />
+  <sentence name="CtrlTextSearchAttributeModified" value="Päivitetty:" />
+  <sentence name="CtrlTextSearchAttributeSize" value="Koko:" />
+  <sentence name="CtrlTableOfContentSizeHeading" value="Koko:" />
+  <sentence name="CtrlTableOfContentSizeKilobytes" value="K" />
+  <sentence name="CtrlTableOfContentModifiedHeading" value="Päivitetty:" />
+  <sentence name="CtrlTableOfContentUpdatedHeading" value="Tiedosto tallennettu" />
+  <sentence name="CtrlTableOfContentActionButton" value="Javascript on poistettu käytöstä, napautamalla lataat koko hakemistopuun" />
+  <sentence name="CtrlTableOfContentExternalLinkTooltip" value="Lisätietoja" />
+  <sentence name="CtrlTableListSizeHeading" value="Koko:" />
+  <sentence name="CtrlTableListModifiedHeading" value="Päivitetty:" />
+  <sentence name="CtrlTableListUpdatedHeading" value="Tiedosto tallennettu" />
+  <sentence name="CtrlTableListVariablesAndValuesHeading" value="Muuttujat:" />
+  <sentence name="CtrlTableListSelectOption_Select" value="Valitse osataulukko:" />
+  <sentence name="CtrlTableListSelectOption_Download" value="Lataa:" />
+  <sentence name="CtrlTableListSelectOption_Downloadsmallfile" value="Lataa:" />
+  <sentence name="CtrlTableListSelectOption_View" value="Näytä taulukko:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValues" value="Näytä taulukko:" />
+  <sentence name="CtrlTableListSelectOption_ViewWithCommandbar" value="Näytä taulukko:" />
+  <sentence name="CtrlTableListSelectOption_ViewDefaultValuesWithCommandbar" value="Näytä taulukko:" />
+  <sentence name="CtrlCsvFileTypeFileWithHeading" value="Eroteltu tiedosto (otsikollinen)" />
+  <sentence name="CtrlCsvFileTypeFileWithoutHeading" value="Eroteltu tiedosto (otsikoton)" />
+  <sentence name="CtrlCsvFileTypeFileTabulator" value="Sarkain" />
+  <sentence name="CtrlCsvFileTypeFileComma" value="Pilkku" />
+  <sentence name="CtrlCsvFileTypeFileSpace" value="Väli" />
+  <sentence name="CtrlCsvFileTypeFileSemicolon" value="Puolipiste" />
+  <sentence name="CtrlExcelInformationLevelNone" value="Ei yhtään" />
+  <sentence name="CtrlExcelInformationLevelMandatoryFootnotes" value="Vain pakolliset taulukon alaviitteet " />
+  <sentence name="CtrlExcelInformationLevelAllFootnotes" value="Kaikki taulukon alaviitteet" />
+  <sentence name="CtrlExcelInformationLevelAll" value="Kaikki tiedot" />
+  <sentence name="CtrlExcelDoubleColumn" value="Koodi ja teksti eri sarakkeille" />
+  <sentence name="FileTypePX" value="PC-Axis-tiedosto" />
+  <sentence name="FileTypeJsonStat" value="JSON-stat-tiedosto" />
+  <sentence name="FileTypeExcel" value="Excel-työkirja (xml)" />
+  <sentence name="FileTypeExcelDoubleColumn" value="Excel-työkirja (xml) (koodi ja teksti)" />
+  <sentence name="FileTypeExcelCompleteInfoFile" value="Excel-tiedosto ruudulta" />
+  <sentence name="FileTypeCsvWithHeadingAndTabulator" value="Sarkaineroteltu (otsikollinen)" />
+  <sentence name="FileTypeCsvWithoutHeadingAndTabulator" value="Sarkaineroteltu (otsikoton)" />
+  <sentence name="FileTypeCsvWithHeadingAndComma" value="Pilkkueroteltu (otsikollinen)" />
+  <sentence name="FileTypeCsvWithoutHeadingAndComma" value="Pilkkueroteltu (otsikoton)" />
+  <sentence name="FileTypeCsvWithHeadingAndSpace" value="Välilyöntieroteltu (otsikollinen)" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Välilyöntieroteltu (otsikoton)" />
+  <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Puolipiste-eroteltu (otsikollinen)" />
+  <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Puolipiste-eroteltu (otsikoton)" />
+  <sentence name="FileTypeText" value="Tekstitiedosto (txt)" />
+  <sentence name="FileTypeHtml" value="HTML-tiedosto (htm)" />
+  <sentence name="FileTypeRelational" value="Relaatiotiedosto (txt)" />
+  <sentence name="FileTypeChartPng" value="PNG-kuvio (png)" />
+  <sentence name="FileTypeChartGif" value="GIF-kuvio (gif)" />
+  <sentence name="FileTypeChartJpeg" value="JPEG-kuvio (jpg)" />
+  <sentence name="FileTypeExcelX" value="Excel (xlsx)" />
+  <sentence name="FileTypeExcelXDoubleColumn" value="Excel (xlsx) (koodi ja teksti sarakkeilla)" />
+  <sentence name="CtrlSearchVariableValuesAddButton" value="Lisää" />
+  <sentence name="CtrlSearchVariableValuesSearchHeader" value="Etsi" />
+  <sentence name="CtrlSearchVariableValuesSearchForCode" value="Etsi koodilla:" />
+  <sentence name="CtrlSearchVariableValuesSearchForValue" value="Etsi tekstillä:" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeBeginning" value="Etsi koodin tai tekstin alusta" />
+  <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Etsi teksteistä" />
+  <sentence name="CtrlSearchVariableValuesSearch" value="Etsi" />
+  <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Lisää valitut tulokset" />
+  <sentence name="CtrlSearchValuesHeader" value="Etsi arvoja muuttujasta" />
+  <sentence name="CtrlSearchValuesSearchCode" value="Etsi koodi:" />
+  <sentence name="CtrlSearchValuesSearchValue" value="Etsi arvo:" />
+  <sentence name="CtrlSearchValuesSearchValueOrCode" value="Etsi koodi tai arvo" />
+  <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Etsi tekstin alusta" />
+  <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Etsi teksteistä" />
+  <sentence name="CtrlSearchValuesShowAllValues" value="Näytä kaikki arvot" />
+  <sentence name="CtrlSearchValuesSearch" value="Etsi" />
+  <sentence name="CtrlSearchValuesSelectionTips" value="Valitse kaikki löydetyt tekstit napauttamalla ylintä tekstiä, painamalla vaihtonäppäintä ja napauttamalla listan viimeistä tekstiriviä" />
+  <sentence name="CtrlSearchValuesSearchResultHeader" value="Hakutulokset" />
+  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(osumia: {0})" />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Valitse kaikki" />
+  <sentence name="CtrlSearchValuesChoosenValues" value="Valitut arvot" />
+  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Lisää valittuihin" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Poista valituista" />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(määrä: {0})" />
+  <sentence name="CtrlSearchValuesNoValuesFound" value="Ei tuloksia" />
+  <sentence name="CtrlSearchValuesNoValuesSelected" value="Ei valittuja arvoja" />
+  <sentence name="CtrlSearchValuesCancel" value="Kumoa" />
+  <sentence name="CtrlSearchValuesClear" value="Poista arvot" />
+  <sentence name="CtrlSearchValuesAddToVariableSelector" value="OK" />
+  <sentence name="CtrlSearchValuesSearchLabel" value="Etsi" />
+  <sentence name="CtrlSearchValuesCode" value="Koodi" />
+  <sentence name="CtrlSearchValuesValue" value="Arvo" />
+  <sentence name="CtrlSearchValuesAllValues" value="Näytä kaikki arvot" />
+  <sentence name="CtrlSearchValuesSearchText" value="Teksti:" />
+  <sentence name="CtrlSearchValuesSearchButton" value="Haku" />
+  <sentence name="CtrlSearchValuesPagerFirstPage" value="Ensimmäinen sivu" />
+  <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Sivuja yhteensä" />
+  <sentence name="CtrlSearchValuesPagerLastPage" value="Viimeinen sivu" />
+  <sentence name="CtrlSearchValuesPagerForward" value="Eteen" />
+  <sentence name="CtrlSearchValuesPagerBackward" value="Taakse" />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Valitse kaikki käytettävissä olevat arvot" />
+  <sentence name="CtrlTableQueryShowInformation" value="Lisää taulukko sovellukseesi" />
+  <sentence name="CtrlTableQueryShowInformationTooltip" value="Tietoa siitä, kuinka voit yhdistää taulukon sovellukseesi" />
+  <sentence name="CtrlTableQueryHideInformation" value="Piilota tiedot" />
+  <sentence name="CtrlTableQueryInformationText" value="Liittääksesi taulukon sovellukseesi, lähetä seuraava JSON query-koodi alla olevaan URL-osoitteeseen POST-komennolla." />
+  <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
+  <sentence name="CtrlTableQueryQueryCaption" value="JSON query:" />
+  <sentence name="CtrlTableQueryMoreInformation" value="Lisätietoja" />
+  <sentence name="CtrlNavigationFlowStep1" value="Valitse taulukko" />
+  <sentence name="CtrlNavigationFlowStep2" value="Valitse muuttujat" />
+  <sentence name="CtrlNavigationFlowStep3" value="Näytä taulukko" />
+  <sentence name="CtrlSaveQueryChoosetimeperiod" value="Päivitysasetukset" />
+  <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="Jos tallennetun poiminnan aikajaksoja päivitetään, mitä tehdään?" />
+  <sentence name="CtrlSaveQueryTimeWarning" value="Tallennettua poimintaa ei voi päivittää, sillä aikajaksoja on yhdistelty manuaalisesti." />
+  <sentence name="CtrlSaveQueryNoTimeValWarning" value="Poimintaa ei voi päivittää, sillä taulukon aikamuuttujaa ei ole määritelty." />
+  <sentence name="CtrlSaveQuerylnkSaveQuery" value="Tallenna poiminta" />
+  <sentence name="CtrlSaveQueryAsCaption" value="Tallenna poiminta muodossa" />
+  <sentence name="CtrlSaveQueryForScreen" value="Taulukko näytöllä" />
+  <sentence name="CtrlSaveQueryCancelSaveQuery" value="Peruuta" />
+  <sentence name="CtrlSaveQuerybtnCreateQuery" value="Tallenna poiminta" />
+  <sentence name="CtrlSaveQueryFloatingTimePeriod" value="Sama määrä jaksoja, joista viimeisin päivitetty" />
+  <sentence name="CtrlSaveQuerySelectedTimePeriod" value="Sama valittu aikajakso kuin ruudulla" />
+  <sentence name="CtrlSaveQueryExtendedTimePeriod" value="Kiinteä aloitusaika, johon lisätään päivitetyt jaksot" />
+  <sentence name="CtrlSaveQuerySelectFormat" value="Valitse tallennusmuoto" />
+  <sentence name="CtrlSaveQuerySelectFormatMissing" value="Valitse lopuksi tallennusmuoto" />
+  <sentence name="CtrlSaveQuerybtnBack" value="Takaisin" />
+  <sentence name="CtrlSaveQueryBookmark" value="Bookmark" />
+  <sentence name="CtrlSaveQueryCopyLink" value="Kopioi" />
+  <sentence name="CtrlSaveQueryMailQuery" value="Sähköposti" />
+  <sentence name="CtrlSaveQueryFailedSave" value="Poiminnan tallennus epäonnistui" />
+  <sentence name="CtrlSaveQueryURLInfo" value="Linkki, jolla voit palata tähän poimintaan" />
+  <sentence name="CtrlSaveQueryHeadingExplanationText" value="Poiminnan tallentamisesta" />
+  <sentence name="CtrlSaveQueryExplanationText" value="Tallentaa poiminnan, jolloin voit palata taulukkoon myöhemmin URL-osoitteen kautta" />
+  <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Aikajakso" />
+  <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Tallennusmuoto" />
+  <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Valitse ryhmittely ---" />
+  <sentence name="CtrlSelectFromGroupHeading" value="Valitse arvot ryhmästä" />
+  <sentence name="CtrlSelectFromGroupShowAggregatedValues" value="Näytä ryhmitellyt arvot" />
+  <sentence name="CtrlSelectFromGroupShowSingleValues" value="Näytä yksittäiset arvot" />
+  <sentence name="CtrlSelectFromGroupGroups" value="Ryhmät:" />
+  <sentence name="CtrlSelectFromGroupValues" value="Arvot:" />
+  <sentence name="CtrlSelectFromGroupSelectGroupsAggregated" value="Valitse ryhmiteltyinä arvoina" />
+  <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Valitse yksittäisinä arvoina" />
+  <sentence name="CtrlSelectFromGroupSelectAndReturn" value="Valise arvot ja palaa valintasivulle" />
+  <sentence name="CtrlSelectFromGroupCancel" value="Peruuta" />
+  <sentence name="PxcYear" value="vuosi" />
+  <sentence name="PxcHalfyear" value="puolivuosi" />
+  <sentence name="PxcQuarter" value="neljännes" />
+  <sentence name="PxcMonth" value="kuukausi" />
+  <sentence name="PxcWeek" value="viikko" />
+  <sentence name="PxcMetaTitleBy" value="muuttujina" />
+  <sentence name="PxcMetaTitleAnd" value="ja" />
+  <sentence name="PxcOpSplitTimeVarYear" value="vuosi" />
+  <sentence name="PxcOpSplitTimeVarQuarter" value="neljännes" />
+  <sentence name="PxcOpSplitTimeVarMonth" value="kuukausi" />
+  <sentence name="PxcOpSplitTimeVarJanuary" value="tammikuu" />
+  <sentence name="PxcOpSplitTimeVarFebruary" value="helmikuu" />
+  <sentence name="PxcOpSplitTimeVarMarch" value="maaliskuu" />
+  <sentence name="PxcOpSplitTimeVarApril" value="huhtikuu" />
+  <sentence name="PxcOpSplitTimeVarMay" value="toukokuu" />
+  <sentence name="PxcOpSplitTimeVarJune" value="kesäkuu" />
+  <sentence name="PxcOpSplitTimeVarJuly" value="heinäkuu" />
+  <sentence name="PxcOpSplitTimeVarAugust" value="elokuu" />
+  <sentence name="PxcOpSplitTimeVarSeptember" value="syyskuu" />
+  <sentence name="PxcOpSplitTimeVarOctober" value="lokakuu" />
+  <sentence name="PxcOpSplitTimeVarNovember" value="marraskuu" />
+  <sentence name="PxcOpSplitTimeVarDecember" value="joulukuu" />
+  <sentence name="PxcOpSplitTimeVarQuarter1" value="I neljännes" />
+  <sentence name="PxcOpSplitTimeVarQuarter2" value="II neljännes" />
+  <sentence name="PxcOpSplitTimeVarQuarter3" value="III neljännes" />
+  <sentence name="PxcOpSplitTimeVarQuarter4" value="IV neljännes" />
+  <sentence name="ERROR_MISSING_TIMEVALUE" value="Aikamuuttuja puuttuu" />
+  <sentence name="PxcErrCellNoteValueMissing" value="Epäkelpo arvo: {0}" />
+  <sentence name="PxcErrToManyCodes" value="Liian monta määriteltyä koodia {0}:lle" />
+  <sentence name="PxcGroupedValuesMissing" value="Ryhmiteltyjä {0}-arvoja puuttuu" />
+  <sentence name="PxcGroupingVariableWithNoValues" value="Ryhmämuuttujalla {0} ei ole arvoja" />
+  <sentence name="PxcSortVariable" value="yksikkömuuttuja" />
+  <sentence name="PxcContactPhone" value="Puhelin" />
+  <sentence name="PxcContactFax" value="Faksi" />
+  <sentence name="PxcContactEMail" value="Sähköposti" />
+  <sentence name="PxcPercent" value="prosenttia" />
+  <sentence name="PxcPermil" value="promillea" />
+  <sentence name="PxcPercentUnitVarExists" value="Prosenttien laskenta ei ole mahdollista, koska yksikkömuuttuja on jo olemassa" />
+  <sentence name="PxcPermilUnitVarExists" value="Promillien laskenta ei ole mahdollista, koska yksikkömuuttuja on jo olemassa" />
+  <sentence name="PxcErr103" value="UNITS-virhe" />
+  <sentence name="PxcErr106" value="STUB-virhe" />
+  <sentence name="PxcErr107" value="HEADING-virhe " />
+  <sentence name="PxcErr108" value="VALUES-virhe" />
+  <sentence name="PxcErr109" value="CODES-virhe" />
+  <sentence name="PxcErr111" value="Muuttujan NOTE- tai NOTEX-virhe" />
+  <sentence name="PxcErr112" value="VALUENOTE- tai VALUENOTEX-virhe" />
+  <sentence name="PxcErr113" value="CELLNOTE- tai CELLNOTEX-virhe" />
+  <sentence name="PxcErr115" value="ELIMINATION-virhe (yes/no)" />
+  <sentence name="PxcErr117" value="PARTITION-virhe" />
+  <sentence name="PxcErr121" value="KEYS-virhe" />
+  <sentence name="PxcErr123" value="PRECISION-virhe" />
+  <sentence name="PxcErr124" value="DOMAIN-virhe" />
+  <sentence name="PxcErr130" value="TITLE tai DESCRIPTION puuttuu" />
+  <sentence name="PxcErr131" value="MATRIX puuttuu" />
+  <sentence name="PxcErr132" value="SUBJECT-AREA puuttuu" />
+  <sentence name="PxcErr133" value="SUBJECT-CODE puuttuu" />
+  <sentence name="PxcErr134" value="STUB tai HEADING puuttuu" />
+  <sentence name="PxcErr135" value="UNITS puuttuu" />
+  <sentence name="PxcErr136" value="CONTENTS puuttuu" />
+  <sentence name="PxcErr137" value="DECIMALS puuttuu" />
+  <sentence name="PxcErr138" value="SHOWDECIMALS puuttuu" />
+  <sentence name="PxcErr142" value="COPYRIGHT on väärin" />
+  <sentence name="PxcErr143" value="DAYADJ on väärin" />
+  <sentence name="PxcErr144" value="SEASADJ on väärin" />
+  <sentence name="PxcErr146" value="CONTACT on väärin" />
+  <sentence name="PxcErr147" value="REFPERIOD on väärin" />
+  <sentence name="PxcErr149" value="LAST-UPDATED on väärin" />
+  <sentence name="PxcErr151" value="STOCKFA on väärin" />
+  <sentence name="PxcErr152" value="CFPRICES on väärin" />
+  <sentence name="PxcErr153" value="TIMEVAL on väärin" />
+  <sentence name="PxcErr154" value="BASEPERIOD on väärin" />
+  <sentence name="PxcErr160" value="CONTVARIABLE-avainsanaan liittyvän avainsanan arvo ei vastaa CONTVARIABLEa" />
+  <sentence name="PxcErr161" value="Virhe CONTVARIABLEssa tai siihen liittyvässä avainsanassa" />
+  <sentence name="PxcErr162" value="PRESTEXT-virhe" />
+  <sentence name="PxcErr164" value="MAP-virhe" />
+  <sentence name="PxcErr166" value="AGGREGALLOWED-virhe" />
+  <sentence name="PxcErr167" value="AUTOPEN-virhe" />
+  <sentence name="PxcErr168" value="DOUBLECOLUMN-virhe" />
+  <sentence name="PxcErr169" value="DESCRIPTIONDEFAULT-virhe" />
+  <sentence name="PxcErr176" value="DATANOTE-virhe" />
+  <sentence name="PxcErr180" value="DATA puuttuu " />
+  <sentence name="PxcErr201" value="HIERARCHYLEVELSOPEN-virhe" />
+  <sentence name="PxcErr202" value="HIERARCHYLEVELS-virhe" />
+  <sentence name="PxcErr203" value="HIERARCHYNAMES-virhe" />
+  <sentence name="PxcErr204" value="HIERARCHIES-virhe" />
+  <sentence name="PxcErr205" value="OFFICIAL-STATISTICS-virhe" />
+  <sentence name="PxcErr206" value="ATTRIBUTE-ID-virhe" />
+  <sentence name="PxcErr207" value="ATTRIBUTE-TEXT-virhe" />
+  <sentence name="PxcErr208" value="ATTRIBUTES-virhe" />
+  <sentence name="PxcErr300" value="VALUE-TEXT-OPTION-virhe" />
+  <sentence name="PxcKeywordError" value="{0}-virhe" />
+  <sentence name="PxcKeywordLastUpdated" value="Päivitetty viimeksi" />
+  <sentence name="PxcKeywordSource" value="Lähde" />
+  <sentence name="PxcKeywordContact" value="Yhteystiedot" />
+  <sentence name="PxcKeywordCopyright" value="Tekijänoikeus" />
+  <sentence name="PxcKeywordOfficialStatistics" value="Virallinen tilasto" />
+  <sentence name="PxcKeywordUnits" value="Yksikkö" />
+  <sentence name="PxcKeywordStockfa" value="Datatyyppi" />
+  <sentence name="PxcKeywordStockfaValueStock" value="Kanta" />
+  <sentence name="PxcKeywordStockfaValueFlow" value="Virta" />
+  <sentence name="PxcKeywordStockfaValueAverage" value="Keskiarvo" />
+  <sentence name="PxcKeywordRefPeriod" value="Viiteajankohta" />
+  <sentence name="PxcKeywordBasePeriod" value="Perusjakso" />
+  <sentence name="PxcKeywordCFPricesValueCurrent" value="Käyvät hinnat" />
+  <sentence name="PxcKeywordCFPricesValueFixed" value="Kiinteät hinnat" />
+  <sentence name="PxcKeywordDayAdj" value="Päivätasoitettu" />
+  <sentence name="PxcKeywordSeasAdj" value="Kausitasoitettu" />
+  <sentence name="PxcKeywordDatabase" value="Tilastotietokannat" />
+  <sentence name="PxcKeywordMatrix" value="Sisäinen viitekoodi" />
+  <sentence name="PXWebSearchLink" value="Etsi" />
+  <sentence name="PXWebGenXMLLink" value="Luo xml-menu" />
+  <sentence name="PageViewFootnoteDialogTitle" value="Alaviite" />
+  <sentence name="PageViewDataSortDescription" value="Napauta sarakeotsikkoa lajitellaksesi taulukon. Monen sarakkeen valinta sujuu pitämällä vaihtonäppäintä alhaalla napautettaessa." />
+  <sentence name="PageViewDataSortCopyInstructions" value="Taulukon kopiointi: valitse muokkausvalikosta Valitse kaikki ja sen jälkeen Kopioi. Näppäinkomennoin sama hoituu painamalla ensiksi Ctrl+A ja sen jälkeen Ctrl+C." />
+  <sentence name="CancelButton" value="Kumoa" />
+  <sentence name="PxWebApplicationTitle" value="Tilastokeskuksen PxWeb-tietokannat" />
+  <sentence name="PxWebApplicationName" value="Tilastokeskuksen PxWeb-tietokannat" />
+  <sentence name="PxWebLogoAlt" value="Tilastokeskuksen PxWeb-tietokannat" />
+  <sentence name="PxWebHome" value="Tietokannat" />
+  <sentence name="PxWebMenu" value="Valikko" />
+  <sentence name="PxWebSelection" value="Valinta" />
+  <sentence name="PxWebInformation" value="Tietoja" />
+  <sentence name="PxWebDetailedInformation" value="Taulukkoseloste" />
+  <sentence name="PxWebFootnotes" value="Alaviitteet" />
+  <sentence name="PxWebMarkingTips" value="Valintaohje" />
+  <sentence name="PxWebMarkingTipsHeader" value="Tietojen valintaohjeita" />
+  <sentence name="PxWebMarkingTipsText" value="Muuttujien valintalaatikosta valitaan tiedot joko selaimella nähtäväksi, tai sitten &#xD;&#xA;vaihtoehtoisesti valitut tiedot voi siirtää suoraan haluttuun tiedostomuotoon sivun &#xD;&#xA;alaosassa olevasta alasvetovalikosta.&#xD;&#xA;&#xD;&#xA;Jokaisesta valintalaatikosta tulee olla ainakin yksi rivi (arvo) valittuna, jotta &#xD;&#xA;taulukko voidaan muodostaa. Tähdellä (*) merkittyjen muuttujien kohdalla rivi täytyy &#xD;&#xA;itse valita ja muiden muuttujien kohdalla valintaan tulee automaattisesti mukaan &#xD;&#xA;yhteensä-luokka. Tiedot valitaan merkitsemällä (maalamalla) halutut rivit.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;RIVIVALINNAN TEKEMINEN / POISTAMINEN&#xD;&#xA;&#xD;&#xA;Valitse rivi painamalla hiiren vasenta näppäintä haluamasi rivin kohdalla. Useimpia &#xD;&#xA;rivejä voi valita painamalla Ctrl-näppäin pohjaan ja painamalla samalla hiiren vasenta &#xD;&#xA;näppäintä valittujen rivien kohdalla. Rivin valinta poistetaan painamalla Ctrl-näppäin &#xD;&#xA;pohjaan ja painamalla samalla hiiren vasenta näppäintä valittujen rivien kohdalla. &#xD;&#xA;Rivivalinnat voi poistaa myös valintalaatikon yläosassa olevasta toisesta vihreästä painikkeesta.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;USEIDEN RIVIEN VALITSEMINEN&#xD;&#xA;&#xD;&#xA;Valitse useita peräkkäisiä rivejä pitämällä vasenta hiirinäppäintä alhaalla ja maalamalla &#xD;&#xA;rivit. Vaihtoehtoisesti voit myös merkitä ensimmäisen rivin listassa ja sitten painaa &#xD;&#xA;Shift-painiketta samalla kun painat nuolinäppäintä alas tai ylös. &#xD;&#xA;&#xD;&#xA;Voit valita ei-peräkkäisiä rivejä pitämällä Ctrl-näppäin pohjassa ja vasemmalla hiirinäppäimellä &#xD;&#xA;klikkaamalla haluamasi rivit. &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;KAIKKIEN RIVIEN VALINTA / POISTAMINEN&#xD;&#xA;&#xD;&#xA;Valintalaatikon ensimmäisestä painikkeesta saa valituksi kaikki listan rivit ja valinnan voi &#xD;&#xA;perua seuraavasta painikkeesta. Kaikki valintalaatikon arvot saa valittua myös klikkaamalla &#xD;&#xA;ensimmäistä riviä ja sen jälkeen painamalla samanaikaisesti näppäimiä Shift ja End.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;TIETYN ARVON (RIVIN) ETSIMINEN&#xD;&#xA;&#xD;&#xA;Klikkaa ensimmäistä riviä siinä valintalaatikossa, jossa haluat arvoa etsiä. Paina sen jälkeen &#xD;&#xA;sitä näppäintä, joka vastaa etsimäsi rivin ensimmäistä merkkiä. Jos et löydä haluamasi riviä, &#xD;&#xA;toista näppäinpainallusta kunnes löydät haluamasi arvon tai käytä hiirinäppäintä tai hiirtä &#xD;&#xA;jatkaaksesi etsimistä.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;TIETYN ARVON ETSIMINEN ETSI-TOIMINNOLLA&#xD;&#xA;&#xD;&#xA;Valintalaatikon lopussa on ETSI-toiminto. ETSI-laatikkoon kirjoitetaan haluttu arvo tai sen osa, &#xD;&#xA;minkä jälkeen painamalla &quot;Etsi&quot;-painiketta haku käynnistyy. Toiminto hakee myös rivin keskellä &#xD;&#xA;olevat kaikki vastaavat arvot (myös vastaavat isot ja pienet kirjaimet). Valitsemalla kohdan &#xD;&#xA;&quot;Rivin alusta&quot;, haku rajoittuu vain rivin alkuihin.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;VALITUN TAULUKON TOTEUTUS&#xD;&#xA;&#xD;&#xA;Kun olet tehnyt muuttujavalinnat valintalaatikosta, klikkaa &quot;Jatka&quot;-painiketta.&#xD;&#xA;&#xD;&#xA;Selainnäkymä on rajoitettu noin 1 000 riviin ja 300 sarakkeeseen, mutta valitun taulukon voi &#xD;&#xA;viedä kokonaisena esimerkiksi xlsx-tiedostoksi Tallenna nimellä -vetovalikon kautta tai sen &#xD;&#xA;alla olevan xlsx-pikanäppäimen kautta. Excel (xlsx) -valinta on vetovalikon lopussa ja toiminto &#xD;&#xA;edellyttää xlsx-tiedostomuodon kanssa yhteensopivia sovelluksia.   " />
+  <sentence name="PxWebPresentation" value="Esitys" />
+  <sentence name="PxWebTable" value="Taulukko" />
+  <sentence name="PxWebTableUserSettingsShow" value="Taulukon asetukset" />
+  <sentence name="PxWebTableUserSettingsHide" value="Piilota asetukset" />
+  <sentence name="PxWebTableUserSettingsZeroOption" value="Rivit, joilla nollia:" />
+  <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Näytä kaikki rivit" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZero" value="Piilota rivit, joilla ainoastaan nollia" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroAndNil" value="Piilota rivit, joilla ainoastaan nollia, tai '-'" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoSymbols" value="Piilota rivit, joilla ainoastaan pisteitä" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol" value="Piilota rivit, joilla ainoastaan nollia, '-', tai pisteitä" />
+  <sentence name="PxWebTableUserSettingsCancel" value="Peruuta" />
+  <sentence name="PxWebTableUserSettingsApply" value="Tallenna asetukset" />
+  <sentence name="PxWebChart" value="Kuvio" />
+  <sentence name="PxWebChartUserSettingsTitle" value="Otsikko:" />
+  <sentence name="PxWebChartUserSettingsHeight" value="Korkeus:" />
+  <sentence name="PxWebChartUserSettingsWidth" value="Leveys:" />
+  <sentence name="PxWebChartUserSettingsLineThickness" value="Viivan paksuus:" />
+  <sentence name="PxWebChartUserSettingsSortTime" value="Lajitteluaika:" />
+  <sentence name="PxWebChartUserSettingsSortTimeAscending" value="Nouseva" />
+  <sentence name="PxWebChartUserSettingsSortTimeDescending" value="Laskeva" />
+  <sentence name="PxWebChartUserSettingsSortTimeNone" value="Ei yhtään" />
+  <sentence name="PxWebChartUserSettingsLabelOrientation" value="Nimiöiden asemointi" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationHorizontal" value="Vaakasuoraan" />
+  <sentence name="PxWebChartUserSettingsLabelOrientationVertical" value="Pystysuoraan" />
+  <sentence name="PxWebChartUserSettingsGuidelines" value="Hilaviivat:" />
+  <sentence name="PxWebChartUserSettingsGuidelinesHorizontal" value="Vaakasuoraan" />
+  <sentence name="PxWebChartUserSettingsGuidelinesVertical" value="Pystysuoraan" />
+  <sentence name="PxWebChartUserSettingsLegend" value="Selite:" />
+  <sentence name="PxWebChartUserSettingsLegendShow" value="Näytä" />
+  <sentence name="PxWebChartUserSettingsLegendHeight" value="Korkeus (% kuviosta):" />
+  <sentence name="PxWebChartUserSettingsCancel" value="Peruuta" />
+  <sentence name="PxWebChartUserSettingsApply" value="Aseta" />
+  <sentence name="PxWebChartUserSettingsShow" value="Kuvioasetukset" />
+  <sentence name="PxWebChartUserSettingsHide" value="Piilota asetukset" />
+  <sentence name="PxWebChartPieChartTitle" value="Piirakkakuviota ei voi näyttää" />
+  <sentence name="PxWebChartPieChartInformation" value="Piirakkakuvio voi sisältää vain yhden muuttujan arvoja. Muokkaa ja laske -valikon toiminnoilla voit tarvittaessa poistaa ylimääräiset muuttujat tai arvot." />
+  <sentence name="PxWebChartPyramidChartTitle" value="Väestöpyramidia ei voi näyttää" />
+  <sentence name="PxWebChartPyramidChartInformation" value="Väestöpyramidikuviossa käytetään kahta muuttujaa, joista toisella saa olla vain kaksi arvoa. Muilla muuttujilla saa olla vain yksi arvo tai ne tulee poistaa. Muokkaa ja laske -valikon toiminnoilla voit tarvittaessa poistaa ylimääräiset muuttujat tai arvot." />
+  <sentence name="PxWebChartTooManyValues" value="Liian monta valittua data-arvoa" />
+  <sentence name="PxWebChartTooManyValuesInformation" value="Taulukosta on valittu liian monta data-arvoa. Valita voi enintään {0} arvoa. Pienennä valintaa Muokkaa ja laske -valikon toiminnoin." />
+  <sentence name="PxWebChartUserSettingsLargeValue" value="Enimmäismäärä on {0}" />
+  <sentence name="PxWebChartLeftScale" value="(vasen asteikko)" />
+  <sentence name="PxWebChartRightScale" value="(oikea asteikko)" />
+  <sentence name="PxWebChartPercent" value="%" />
+  <sentence name="PxWebDataSort" value="Lajittele tiedot" />
+  <sentence name="PxWebSelectDb" value="Valitse tietokanta:" />
+  <sentence name="PxWebTableCropped" value="Huomautus: taulukkoa on typistetty (ainoastaan näytöllä), koska taulukon enimmäiskoko ({0} riviä ja {1} saraketta) on ylitetty." />
+  <sentence name="PxWebPopupDialogOk" value="Ok" />
+  <sentence name="PxWebPopupDialogClose" value="Sulje" />
+  <sentence name="PxWebSelectVariable" value="Valitse muuttujat" />
+  <sentence name="PxWebAboutTable" value="Tietoja taulukosta" />
+  <sentence name="PxWebAboutTableContact" value="Yhteystiedot ja lisätietoja" />
+  <sentence name="PxWebAboutTableFootnotes" value="Alaviitteet" />
+  <sentence name="PxWebAboutTableDefinitions" value="Määritelmät muuttujille ja arvoille" />
+  <sentence name="PxWebShowTable" value="Näytä taulukko" />
+  <sentence name="PxWebSearchControlLabel" value="Etsi {0}:" />
+  <sentence name="PxWebSearchControlButtonText" value="Etsi" />
+  <sentence name="PxWebSearchAllFields" value="Etsi kaikista kentistä" />
+  <sentence name="PxWebSearchSelection" value="Etsi ainoastaan" />
+  <sentence name="PxWebSearchFieldTitle" value="Taulukon otsikko" />
+  <sentence name="PxWebSearchFieldValue" value="Arvoteksti" />
+  <sentence name="PxWebSearchFieldCode" value="Arvokoodi" />
+  <sentence name="PxWebSearchResultText" value="Tulokset: ({0} tulosta)" />
+  <sentence name="PxWebSearchResultColumnTable" value="Taulukko" />
+  <sentence name="PxWebSearchResultColumnPublished" value="Julkaistu" />
+  <sentence name="PxWebTitleDefault" value="PxWeb - Valitse tietokanta" />
+  <sentence name="PxWebTitleApiHelp" value="PxWeb - API help" />
+  <sentence name="PxWebTitleChart" value="PxWeb - Kaavio" />
+  <sentence name="PxWebTitleDataSort" value="PxWeb - Järjestele" />
+  <sentence name="PxWebTitleErrorGeneral" value="PxWeb - Hups!" />
+  <sentence name="PxWebTitleFootnotesPresentation" value="PxWeb - Lisätietoja" />
+  <sentence name="PxWebTitleFootnotesSelection" value="PxWeb - Lisätietoja" />
+  <sentence name="PxWebTitleInformationPresentation" value="PxWeb - Tietoja" />
+  <sentence name="PxWebTitleInformationSelection" value="PxWeb - Tietoja" />
+  <sentence name="PxWebTitleMarkingTips" value="PxWeb - Vinkkejä" />
+  <sentence name="PxWebTitleMenu" value="PxWeb - Valitse taulukko" />
+  <sentence name="PxWebTitleSearch" value="PxWeb - Etsi" />
+  <sentence name="PxWebTitleSelection" value="PxWeb - Valitse muuttuja ja arvot" />
+  <sentence name="PxWebTitleTable" value="PxWeb - Taulukko" />
+  <sentence name="PxWebSavedQueryUnsafeMessage" value="Taulukon teksti eroaa tietokannassa olevasta, sillä sitä on muokattu manuaalisesti" />
+  <sentence name="PxWebGeneralErrorMessage" value="Virhetilanne. Virheestä on tehty merkintä." />
+  <sentence name="PxWebSavedQueryExecuteErrorMessage" value="Tallennettua hakua ei voida suorittaa. Virheestä on tehty merkintä." />
+  <sentence name="PxWebReturnToStartpage" value="Palaa aloitussivulle" />
+  <sentence name="PxWebIllegalQuerystringErrorMessage" value="Hakulausekkeessa epäkelpoja merkkejä" />
+  <sentence name="PxWebIllegalCharactersErrorMessage" value="Sisältää epäkelpoja merkkejä" />
+  <sentence name="PxWebMetadataSelectVariable" value="-- Valitse muuttuja --" />
+  <sentence name="PxWebMetadataVariableHeader" value="Muuttuja:" />
+  <sentence name="PxWebMetadataValuesHeader" value="Arvot:" />
+  <sentence name="PxWebMetadataNoVariableMeta" value="Tälle muuttujalle ei ole määrittelyä" />
+  <sentence name="PxWebMetadataNoValueMeta" value="Näille määrittelyille ei ole arvoja" />
+  <sentence name="PxWebAdminLogout" value="Kirjaudu ulos" />
+  <sentence name="PxWebAdminHeading" value="PxWeb-ylläpito" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2019 v1" />
+  <sentence name="PxWebAdminHomePage" value="PxWeb-kotisivu" />
+  <sentence name="PxWebAdminSaveButton" value="Tallenna" />
+  <sentence name="PxWebAdminGenerateButton" value="Luo" />
+  <sentence name="PxWebAdminMenuHome" value="Koti" />
+  <sentence name="PxWebAdminMenuSettings" value="Asetukset" />
+  <sentence name="PxWebAdminMenuSettingsGeneral" value="Yleiset" />
+  <sentence name="PxWebAdminMenuSettingsGeneralSite" value="Palvelu" />
+  <sentence name="PxWebAdminMenuSettingsGeneralLanguage" value="Kieli" />
+  <sentence name="PxWebAdminMenuSettingsGeneralPaths" value="Polut" />
+  <sentence name="PxWebAdminMenuSettingsGeneralFileFormats" value="Tiedostomuodot" />
+  <sentence name="PxWebAdminMenuSettingsGeneralModules" value="Moduulit" />
+  <sentence name="PxWebAdminMenuSettingsGeneralGlobal" value="Yleiset" />
+  <sentence name="PxWebAdminMenuSettingsGeneralDatabases" value="Tietokannat" />
+  <sentence name="PxWebAdminMenuSettingsGeneralAdministration" value="Ylläpito" />
+  <sentence name="PxWebAdminMenuSettingsMenu" value="Valikko" />
+  <sentence name="PxWebAdminMenuSettingsSelection" value="Valinta" />
+  <sentence name="PxWebAdminMenuSettingsPresentation" value="Esitys" />
+  <sentence name="PxWebAdminMenuSettingsPresentationGeneral" value="Yleiset" />
+  <sentence name="PxWebAdminMenuSettingsPresentationTable" value="Taulukko" />
+  <sentence name="PxWebAdminMenuSettingsPresentationCommandBar" value="Komentopalkki" />
+  <sentence name="PxWebAdminMenuTools" value="Työkalut" />
+  <sentence name="PxWebAdminMenuToolsGenerateDb" value="Luo tietokanta" />
+  <sentence name="PxWebAdminMenuSettingsNavigation" value="Navigointi" />
+  <sentence name="PxWebAdminMenuToolsLanguageManager" value="Kielten ylläpito" />
+  <sentence name="PxWebAdminMenuToolsReset" value="Alusta" />
+  <sentence name="PxWebAdminMenuToolsChangePassword" value="Muuta salasana" />
+  <sentence name="PxWebAdminMenuFeatures" value="Ominaisuudet" />
+  <sentence name="PxWebAdminMenuFeaturesGeneral" value="Yleiset" />
+  <sentence name="PxWebAdminMenuFeaturesCharts" value="Kuviot" />
+  <sentence name="PxWebAdminMenuFeaturesChartsGeneral" value="Yleiset" />
+  <sentence name="PxWebAdminMenuFeaturesApi" value="API" />
+  <sentence name="PxWebAdminMenuFeaturesApiGeneral" value="Yleiset" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQuery" value="Tallenna haku" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQueryGeneral" value="Yleistä" />
+  <sentence name="PxWebAdminMenuFeaturesSearch" value="Etsi" />
+  <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="Yleistä" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Taustatyöprosessi" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="Yleistä" />
+  <sentence name="PxWebPxLogin" value="PxWeb-kirjautuminen" />
+  <sentence name="PxWebLogin" value="Kirjautuminen" />
+  <sentence name="PxWebUsername" value="Käyttäjätunnus" />
+  <sentence name="PxWebPassword" value="Salasana" />
+  <sentence name="PxWebWrongLogin" value="Väärä käyttäjätunnus tai salasana" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PxWeb-tietokannat" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Valitut PxWeb-tietokannat näytetään PxWeb-palvelussa" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="CNMM-tietokannat (Common Nordic Meta Model)" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Valitut CNMM-tietokannat näytetään PxWeb-palvelussa" />
+  <sentence name="PxWebAdminSettingsDatabasesEnabled" value="Valittu" />
+  <sentence name="PxWebAdminSettingsDatabasesDbCreated" value="Db luotu" />
+  <sentence name="PxWebAdminSettingsDatabasesIndexStatus" value="Indeksin tila" />
+  <sentence name="PxWebAdminSettingsDatabasesAction" value="Toiminto" />
+  <sentence name="PxWebAdminSettingsDatabasesCreateIndex" value="Luo indeksi" />
+  <sentence name="PxWebAdminSettingsDatabasesConfirmCreateIndex" value="Haluatko luoda uuden hakuindeksin?" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePath" value="Kielipolku" />
+  <sentence name="PxWebAdminSettingsPathsLanguagePathInfo" value="Polku kielitiedostohakemistoon" />
+  <sentence name="PxWebAdminSettingsPathsImagePath" value="Kuvapolku" />
+  <sentence name="PxWebAdminSettingsPathsImagePathInfo" value="Polku kuvahakemistoon" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePath" value="PX-tietokantapolku" />
+  <sentence name="PxWebAdminSettingsPathsPxDatabasePathInfo" value="Polku PX-tietokantahakemistoon" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPath" value="Ryhmittelytiedostopolku" />
+  <sentence name="PxWebAdminSettingsPathsAggregationPathInfo" value="Polku ryhmittelytiedostohakemistoon" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Solujen enimmäismäärä" />
+  <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Ladattavien solujen enimmäismäärä" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevel" value="Tietotaso" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelInfo" value="Excelissä esitettävien lisätietojen hallinta" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelNone" value="Ei yhtään" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelMandantoryFootnotesOnly" value="Vain pakolliset alaviitteet" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllFootnotes" value="Kaikki alaviitteet" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllInformation" value="Kaikki lisätiedot" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumn" value="Koodisarake" />
+  <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumnInfo" value="Näytetäänkö koodit omassa sarakkeessaan?" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOption" value="Salaustapa" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionInfo" value="Salataanko tietoja taulukkoa näytettäessä?" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionNone" value="Ei lainkaan" />
+  <sentence name="PxWebAdminSettingsGlobalSecrecyOptionSimple" value="Yksinkertainen" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRule" value="Pyöristyssääntö" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleBankersRounding" value="Pankkiiripyöristys" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleRoundUp" value="Aritmeettinen (suositeltava)" />
+  <sentence name="PxWebAdminSettingsGlobalRoundingRuleInfo" value="Pyöristyssääntö (Pankkiiripyöristys tai Aritmeettinen)" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1" value="Pistekoodi 1" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol1Info" value="Yhden pisteen pistekoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2" value="Pistekoodi 2" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol2Info" value="Kahden pisteen pistekoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3" value="Pistekoodi 3" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol3Info" value="Kolmen pisteen pistekoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4" value="Pistekoodi 4" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol4Info" value="Neljän pisteen pistekoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5" value="Pistekoodi 5" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol5Info" value="Viiden pisteen pistekoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6" value="Pistekoodi 6" />
+  <sentence name="PxWebAdminSettingsGlobalSymbol6Info" value="Kuuden pisteen pistekoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNil" value="Viivakoodi" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolNilInfo" value="Viivakoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSum" value="Pistesummakoodi" />
+  <sentence name="PxWebAdminSettingsGlobalDataSymbolSumInfo" value="Pistesummakoodin esitysmuoto" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescription" value="Näytä lähde" />
+  <sentence name="PxWebAdminSettingsGlobalShowSourceDescriptionInfo" value="Näytetäänkö taulukon lähdetiedot?" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevel" value="Taulukkotietotaso" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelInfo" value="Mitä lisätietoja esitetään taulukosta?" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelNone" value="Ei mitään" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelMandantoryFootnotesOnly" value="Vain pakolliset alaviitteet" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllFootnotes" value="Kaikki alaviitteet" />
+  <sentence name="PxWebAdminSettingsGlobalTableInformationLevelAllInformation" value="Kaikki tiedot" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCase" value="Isot kirjaimet" />
+  <sentence name="PxWebAdminSettingsGlobalUpperCaseInfo" value="Kirjoitetaanko arvotekstien ensimmäinen kirjain isolla?" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacement" value="Soluviitteen sijainti" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementInfo" value="Kuinka soluviite sijoitetaan soluarvon yhteyteen?" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementBeforeValue" value="Ennen arvoa" />
+  <sentence name="PxWebAdminSettingsGlobalDataNotePlacementAfterValue" value="Arvon jälkeen" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContent" value="Poista yksittäinen sisältömuuttuja" />
+  <sentence name="PxWebAdminSettingsGlobalRemoveSingleContentInfo" value="Poista sisältömuuttuja, jos sillä on vain yksi arvo" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheck" value="Tiukka ryhmittelytarkistus" />
+  <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheckInfo" value="Suoritetaanko ryhmittelytiedostoille tiukka tarkistus vai ei. Mikäli kyllä, ryhmittelytiedostoissa (.agg) täytyy olla avainsana 'valueset' asetettuna tämänhetkisen arvojoukon nimeen. Jos tämä ei toteudu, ryhmittelyä ei suoriteta." />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypes" value="Näytettävät tietotyypit" />
+  <sentence name="PxWebAdminSettingsGlobalShowInformationTypesInfo" value="Mitä tietoja näytetään taulukon yhteydessä?" />
+  <sentence name="PxWebAdminSettingsGlobalShowInfoFile" value="InfoFile" />
+  <sentence name="PxWebAdminSettingsGlobalDetailedInformationInfo" value="Näytetäänkö linkki infotiedostoon. Jos metatiedot näytetään linkkeinä, linkki infotiedostoon näytetään alaviite-linkin vieressä. Jos metatiedot näytetään välilehdillä,  infotiedoston linkki näytetään Tiedot-osiossa Lisätietoja-välilehdellä. Linkki infotiedostoon näytetään ainoastaan valintasivulla." />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilter" value="Käytä IP-suodatinta" />
+  <sentence name="PxWebAdminSettingsAdministrationUseIPFilterInfo" value="Käytetäänkö IP-suodatinta ylläpitosivuille kirjauduttaessa?" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddresses" value="IP-osoitteet" />
+  <sentence name="PxWebAdminSettingsAdministrationIPAddressesInfo" value="Lista sallituista ylläpitosivujen kirjautumis-IP-osoitteista. Asetus on mahdollinen vain silloin, jos Käytä IP-suodatinta -asetus on voimassa." />
+  <sentence name="PxWebAdminSettingsAdministrationAddNewIPAddress" value="Lisää IP-osoite" />
+  <sentence name="PxWebAdminSettingsAdministrationInvalidIPAddress" value="Epäkelpo IP-osoite" />
+  <sentence name="PxWebAdminSettingsMenuMenuMode" value="Valikkotyyppi" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeInfo" value="Valikon esitystapa" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeList" value="Listanäkymä" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithoutFiles" value="Puunäkymä tiedostoitta" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewWithFiles" value="Puunäkymä tiedostoilla" />
+  <sentence name="PxWebAdminSettingsMenuMenuModeTreeViewAndFiles" value="Puunäkymä ja tiedostot" />
+  <sentence name="PxWebAdminSettingsMenuShowRoot" value="Näytä tietokantahakemisto" />
+  <sentence name="PxWebAdminSettingsMenuShowRootInfo" value="Näytetäänkö juurihakemisto?" />
+  <sentence name="PxWebAdminSettingsMenuExpandAll" value="Avaa kaikki" />
+  <sentence name="PxWebAdminSettingsMenuExpandAllInfo" value="Avataanko vai suljetaanko puunäkymä?" />
+  <sentence name="PxWebAdminSettingsMenuSortByAlias" value="Lajittele aliaksen mukaan" />
+  <sentence name="PxWebAdminSettingsMenuSortByAliasInfo" value="Lajitellaanko puu aliasnimien mukaan?" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLink" value="Näytä valintalinkki" />
+  <sentence name="PxWebAdminSettingsMenuShowSelectionLinkInfo" value="Näytetäänkö linkki muuttujien valintaikkunaan?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLink" value="Näytä latauslinkki" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkInfo" value="Näytetäänkö taulukon latauslinkki?" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysHide" value="Piilota aina" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkAlwaysShow" value="Näytä aina" />
+  <sentence name="PxWebAdminSettingsMenuShowDownloadLinkShowIfSmallFile" value="Näytä jos tiedosto on pieni" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkMode" value="Linkinkatselutapa" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeInfo" value="Linkinkatselutavan valinta. Tapa voi olla joku seuraavista: Oletusarvot = näytetään taulukon oletusarvot, Kaikki arvot = näytetään kaikki tai Piilossa = ei näytetä mitään." />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeDefaultValues" value="Oletusarvot" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeAllValues" value="Kaikki arvot" />
+  <sentence name="PxWebAdminSettingsMenuViewLinkModeHidden" value="Piilossa" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultView" value="Oletusarvojen määrä" />
+  <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultViewInfo" value="Arvojen enimmäismäärä silloin, kun linkinkatselutavaksi on valittu Oletusarvot. Arvot valitaan automaattisesti. " />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDate" value="Näytä muutosaikaleima" />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDateInfo" value="Näytetäänkö muutosaikaleima?" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdated" value="Näytä päivitysaikaleima" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdatedInfo" value="Näytetäänkö viimeisen päivityksen aikaleima?" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSize" value="Näytä tiedoston koko" />
+  <sentence name="PxWebAdminSettingsMenuShowFileSizeInfo" value="Näytetäänkö tiedoston koko?" />
+  <sentence name="PxWebAdminSettingsMenuShowTableCategory" value="Näytä taulukon luokitus" />
+  <sentence name="PxWebAdminSettingsMenuShowTableCategoryInfo" value="Näytetäänkö taulukon luokitus" />
+  <sentence name="PxWebAdminSettingsMenuShowTableUpdatedAfterPublish" value="Näytä päivitettynä julkaisun jälkeen" />
+  <sentence name="PxWebAdminSettingsMenuShowTableUpdatedAfterPublishInfo" value="Merkitäänko julkaisun jälkeen päivitetyksi valikossa" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValues" value="Näytä muuttujat ja arvot" />
+  <sentence name="PxWebAdminSettingsMenuShowVariablesAndValuesInfo" value="Näytetäänkö muuttujien ja arvojen tietoja taulukoiden yhteydessä?" />
+  <sentence name="PxWebAdminSettingsMenuMetadataAsIcons" value="Metadata kuvakkeina" />
+  <sentence name="PxWebAdminSettingsMenuMetadataAsIconsInfo" value="Näytetäänkö metadata kuvakkeina taulukon nimen jälkeen. Mikäli 'Kyllä', kuvakkeet näytetään. Jos 'Ei', metadata näkyy tekstinä." />
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadata" value="Näytetäänko metatietojen vierellä selite" />
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadataInfo" value="Näytä taulukon metatietoihin liittyvä selite. Esimerkki: Mikäli 'Kyllä', teksti 'Muokattu' liitetään taulukon metatietojen muokkauspäivämäärän eteen. Mikäli 'Ei', tätä tekstiä ei näytetä." />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreen" value="Solurajoitusikkuna" />
+  <sentence name="PxWebAdminSettingsSelectionCellLimitScreenInfo" value="Ruudulla esitettävien solujen enimmäismäärä" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMark" value="Näytä pakollisuusmerkintä" />
+  <sentence name="PxWebAdminSettingsSelectionShowMandatoryMarkInfo" value="Merkitäänkö pakolliset muuttujat?" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregations" value="Käytä ryhmittelytiedostoja" />
+  <sentence name="PxWebAdminSettingsSelectionAllowAggregationsInfo" value="Käytetäänkö muuttuja-arvojen ryhmittelytiedostoja?" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchies" value="Näytä hierarkiat" />
+  <sentence name="PxWebAdminSettingsSelectionShowHierarchiesInfo" value="Näytetäänkö hierarkiat?" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpen" value="Avatut hierarkiatasot" />
+  <sentence name="PxWebAdminSettingsSelectionHierarchicalLevelsOpenInfo" value="Kuinka syvä hierarkiataso avataan oletuksena" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTips" value="Näytä merkintävihjeet" />
+  <sentence name="PxWebAdminSettingsSelectionShowMarkingTipsInfo" value="Näytetäänkö merkintävihjeet?" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURL" value="Merkintävihjelinkki (url)" />
+  <sentence name="PxWebAdminSettingsSelectionMarkingTipsURLInfo" value="Merkintävihjeiden nettiosoite" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearch" value="Rivien enimmäismäärä ilman hakua" />
+  <sentence name="PxWebAdminSettingsSelectionMaxRowsWithoutSearchInfo" value="Muuttujan arvojen enimmäismäärä valintalaatikossa. Jos muuttujalla on tätä enemmän arvoja, käyttäjän tulee käyttää hakutoimintoa arvojen valintaan." />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowTimeVariableWithoutSearch" value="Näytä aikamuuttuja ilman etsi-toimintoa." />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowTimeVariableWithoutSearchInfo" value="Näytä aikamuuttuja aina ilman etsi-toimintoa. Myös silloin kun arvojen määrä ylittää sallitun rivimäärän ilman etsi-toimintoa." />
+  <sentence name="PxWebAdminSettingsSelectionListSize" value="Listan koko" />
+  <sentence name="PxWebAdminSettingsSelectionListSizeInfo" value="Muuttujavalintaikkunan rivien määrä (korkeus)" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimits" value="Näytä valintarajat" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectionLimitsInfo" value="Näytetäänkö valintarajatiedot?" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormats" value="Tulostemuodot" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormatsInfo" value="Valitut tulostemuodot (näkymät ja tiedostomuodot) ovat PxWebissä käytettävissä." />
+  <sentence name="PxWebAdminSettingsSelectionPresentationViews" value="Näkymät:" />
+  <sentence name="PxWebAdminSettingsSelectionFileFormats" value="Tiedostomuodot:" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirst" value="Valitse joku arvojoukko" />
+  <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirstInfo" value="Jos muuttujalla on arvojoukkoja, niitä tulee olla valittuna ennen kuin arvoja voidaan valita" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButton" value="Näytä Kaikki saatavissa olevat arvot -painike" />
+  <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButtonInfo" value="Onko hakuikkunassa Kaikki saatavissa olevat arvot -painike? HUOM: tämän asetuksen seurauksena selain voi joutua lataamaan todella isoja taulukoita!" />
+  <sentence name="PxWebAdminSettingsSelectionTitleFromMenu" value="Otsikko valikon kautta" />
+  <sentence name="PxWebAdminSettingsSelectionTitleFromMenuInfo" value="Mikäli tosi, taulukon otsikko näytetään samoin kuin valikossa" />
+  <sentence name="PxWebAdminSettingsSelectionMetadataAsLinks" value="Metadata linkkeinä" />
+  <sentence name="PxWebAdminSettingsSelectionMetadataAsLinksInfo" value="Näytetäänkö metadata (alaviitteet ja tiedot) linkkeinä, vai suoraan valintasivulla" />
+  <sentence name="PxWebAdminSettingsSelectionShowSelectValuesFromGroup" value="Valinta ryhmästä" />
+  <sentence name="PxWebAdminSettingsSelectionSelectValuesFromGroupInfo" value="Jos asetuksena tosi, muuttujavalitsimen painike näytetään. Käyttäjän klikatessa sitä näytetään valintaikkuna, josta käyttäjä voi valita yksittäisiä, tai ryhmiteltyjä arvoja." />
+  <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariable" value="Painikkeet sisältömuuttujalle" />
+  <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariableInfo" value="Näytetäänkö painikkeet (Valitse kaikki, poista valinnat, lajittele nousevasti...) sisältömuutujille." />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Näytä navigointivirta" />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Näytä navigointivirta murupolun alla. Näyttää taulukkovalinnan, muuttujavalinnan ja taulukon näyttövalinnan" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Hakupainiketila" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeManyValues" value="Monta arvoa" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeAlways" value="Aina" />
+  <sentence name="PxWebAdminSettingsSelectionSearchButtonModeInfo" value="Arvohakupainikkeiden näkymisen hallinta" />
+  <sentence name="PxWebAdminSettingsValidationMandatorySetting" value="Pakollinen kenttä" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentPath" value="Polkua ei löydy" />
+  <sentence name="PxWebAdminSettingsValidationNonexistentImage" value="Kuvaa ei löydy" />
+  <sentence name="PxWebAdminSettingsValidationIntegerValue" value="Syötä kokonaisluku" />
+  <sentence name="PxWebAdminSettingsValidationTooLargeIntegerValue" value="Tulee olla pienempi kuin 2147483647" />
+  <sentence name="PxWebAdminSettingsValidationGreaterThanZero" value="Nollaa suurempi" />
+  <sentence name="PxWebAdminSettingsValidationIllegalCharacter" value="Sisältää epäkelpoja merkkejä" />
+  <sentence name="PxWebAdminSettingsValidationBiggerThanMaxSetting" value="Ei voi olla enimmäisasetusta ({0}) suurempi" />
+  <sentence name="PxWebAdminSettingsValidationMaximumValue" value="Enimmäisarvo on {0}" />
+  <sentence name="PxWebAdminSettingsValidationIllegalColorCode" value="Epäkelpo värikoodi (pitäisi olla muotoa #AAAAAA)" />
+  <sentence name="PxWebAdminSettingsValidationIllegalTimeSeries" value="Epäkelpo aika (pitäisi olla hh:mm,hh:mm)" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperations" value="Toiminnot" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="Valitut toiminnot ovat käytettävissä PxWebissä" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformats" value="Tiedostomuodot" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformatsInfo" value="Valitut tiedostomuodot ovat käytettävissä PxWebissä" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton" value="Painike" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButtonInfo" value="Valitut toiminnot ovat käytettävissä PxWebissä" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcut" value="Oikopolku" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcutInfo" value="Oikopolkuselite" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViews" value="Esitysnäkymät" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewsInfo" value="Valitut esitysnäkymät ovat käytettävissä PxWebissä" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeText" value="Näkymätyyppi" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeDropDown" value="Pudotus" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeImageButtons" value="Painike" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeHidden" value="Piilotettu" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderSetting" value="Toiminto" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderDropDown" value="Pudotusvalikko" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton2" value="Painike" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationShortcut" value="Oikopolku" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationView" value="Esitysnäkymä" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewShortcut" value="Oikopolku" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderCommandbarShortcut" value="Komentopalkkioikopolku" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormat" value="Tiedostomuoto" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatDropDown" value="Pudotus" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatShortcut" value="Oikopolku" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotes" value="Näytä pakolliset alaviitteet" />
+  <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotesInfo" value="Näytetäänkö pakolliset alaviitteet taulukon yhteydessä?" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Taulukkomuunnos" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="Muunnetaanko taulukko automaattisesti ennen sen näyttämistä?" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformNoTransformation" value="Ei taulukkomuunnosta" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirst" value="Yksittäiset arvot ensin" />
+  <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirstAndHeaderOnlyOneMultiple" value="Vain yksi moniarvoinen muuttuja otsikkoon" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayout" value="Oletusnäkymä" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutInfo" value="Taulukon oletusnäkymä" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout1" value="Näkymä 1" />
+  <sentence name="PxWebAdminSettingsPresentationDefaultLayoutLayout2" value="Näkymä 2" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRows" value="Rivejä enintään" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxRowsInfo" value="Taulukon kerralla näytettävien rivien enimmäismäärä. Jos taulukossa on enemmän rivejä kuin voidaan esittää, taulukko typistetään." />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumns" value="Sarakkeita enintään" />
+  <sentence name="PxWebAdminSettingsPresentationTableMaxColumnsInfo" value="Taulukon kerralla näytettävien sarakkeiden enimmäismäärä. Jos taulukossa on enemmän sarakkeita kuin voidaan esittää, taulukko typistetään." />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisible" value="Näytä otsikko" />
+  <sentence name="PxWebAdminSettingsPresentationTableTitleVisibleInfo" value="Näytetäänkö taulukko-otsikko taulun yhteydessä?" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayAttributes" value="Näytä solun tiedot" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayAttributesInfo" value="Näytetäänkö solujen tiedot taulukossa? Näytettävänä ovat määritteet ja merkinnät solun tasolla." />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayDefaultAttributes" value="Näytä oletusasetukset" />
+  <sentence name="PxWebAdminSettingsPresentationTableDisplayDefaultAttributesInfo" value="Näytetäänkö taulukon määritteiden oletusarvot taulukon alla?" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Luo PX-tietokanta" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Luo CNMM-tietokanta" />
+  <sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Valitse tietokanta kuvaustiedoston luomista varten" />
+  <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Valitse tietokanta kuvaustiedoston luomista varten" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Kieliriippuvainen" />
+  <sentence name="PxWebAdminToolsGenerateDbLanguageDependentInfo" value="Näytä kaikki tiedostot valitusta kielestä riippumatta" />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Lajittelujärjestys" />
+  <sentence name="PxWebAdminSortOrderFileName" value="Tiedostonimi" />
+  <sentence name="PxWebAdminSortOrderMatrix" value="Kuutio" />
+  <sentence name="PxWebAdminSortOrderTitle" value="Otsikko" />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Valitse taulukoiden sorttaamisessa käytettävä näppäin." />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Luo hakuindeksi" />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="Luodaanko hakuindeksi automaattisesti tietokannan luomisen jälkeen" />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInitiated" value="Hakuindeksin luominen on aloitettu" />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguage" value="--- Valitse kieli ---" />
+  <sentence name="PxWebAdminToolsLanguageManagerInfo" value="Valitse muokattava kieli. Tunnus = lausekkeen tunnistuskoodi, Varmiste = teksti, jota käytetään ellei käännöstä ole tehty, Käännös = valitulle kielelle käännetty lauseke." />
+  <sentence name="PxWebAdminToolsLanguageManagerSelectLanguageError" value="Kielivalinta on pakollinen" />
+  <sentence name="PxWebAdminToolsLanguageManagerKey" value="Tunnus" />
+  <sentence name="PxWebAdminToolsLanguageManagerFallback" value="Varmiste" />
+  <sentence name="PxWebAdminToolsLanguageManagerLanguage" value="Käännös" />
+  <sentence name="PxWebAdminToolsResetAll" value="Alusta kaikki" />
+  <sentence name="PxWebAdminToolsResetAllInfo" value="Alusta kaikki PxWebin staattiset listat" />
+  <sentence name="PxWebAdminToolsResetLanguage" value="Alusta kieli" />
+  <sentence name="PxWebAdminToolsResetLanguageInfo" value="Alusta kielilista " />
+  <sentence name="PxWebAdminToolsResetAggregation" value="Alusta ryhmittelyt" />
+  <sentence name="PxWebAdminToolsResetAggregationInfo" value="Vapauttaa muistiin ladatun ryhmittelytiedostolistan" />
+  <sentence name="PxWebAdminToolsResetDatabases" value="Alusta tietokannat" />
+  <sentence name="PxWebAdminToolsResetDatabasesInfo" value="Alusta välimuistissa oleva px-tietokantarakenne" />
+  <sentence name="PxWebAdminToolsResetSavedQueryCache" value="Tyhjennä tallennettujen hakujen välimuisti" />
+  <sentence name="PxWebAdminToolsResetSavedQueryCacheInfo" value="Poistaa kaikki tallennetut haut välimuistista" />
+  <sentence name="PxWebAdminToolsChangePasswordOld" value="Vanha salasana" />
+  <sentence name="PxWebAdminToolsChangePasswordNew" value="Uusi salasana" />
+  <sentence name="PxWebAdminToolsChangePasswordVerify" value="Vahvista uusi salasana" />
+  <sentence name="PxWebAdminToolsChangePasswordChange" value="Muuta!" />
+  <sentence name="PxWebAdminToolsChangePasswordWrongPassword" value="Väärä salasana" />
+  <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Salasana on epäkelpo" />
+  <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Salasana on muutettu" />
+  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Ominaisuus" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Valitut ominaisuudet ovat käytössä ylläpitotyökalussa ja PxWebissä." />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Kuviot" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureApi" value="API" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureSavedQuery" value="Tallennettu haku" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureUserFriendlyUrls" value="User-friendly URLit" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureUserStatistics" value="Käyttäjätilastot" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureSearch" value="Etsi" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureBackgroundWorker" value="Taustatyöprosessi" />
+  <sentence name="PxWebAdminFeaturesGeneralClearCache" value="Tyhjennä välimuisti" />
+  <sentence name="PxWebAdminFeaturesGeneralClearCacheInfo" value="Mikäli määritelty, tallennettujen hakujen välimuisti tyhjennetään tiettyinä aikoina. Erottele ajat pilkulla. Esimerkiksi: 09:30,12:00,13:49" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralChartSettings" value="Kuvioasetukset" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralUserSettings" value="Oletusasetukset" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontName" value="Kirjasimen nimi" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontNameInfo" value="Kuviossa käytettävä kirjasin" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitle" value="Otsikon kirjasinkoko " />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeTitleInfo" value="Kuvion otsikkokirjasimen koko" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxis" value="Asteikkokirjasimen koko" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralFontSizeAxisInfo" value="Kuvion asteikkokirjasimen koko" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeight" value="Korkeus" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralHeightInfo" value="Kuviokorkeuden oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxHeight" value="Enimmäiskorkeus" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxHeightInfo" value="Kuvio ei voi olla tätä korkeampi" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralWidth" value="Leveys" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralWidthInfo" value="Kuvioleveyden oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxWidth" value="Enimmäisleveys" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxWidthInfo" value="Kuvio ei voi olla tätä leveämpi" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThickness" value="Viivanpaksuus" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessInfo" value="Kuvion viivanpaksuuden oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxLineThickness" value="Viivojen enimmäispaksuus" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxLineThicknessInfo" value="Viivat eivät voi olla tätä paksumpia" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientation" value="Nimiöiden asettelu" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationHorizontal" value="Vaakasuora" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationVertical" value="Pystysuora" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLabelOrientationInfo" value="Kuvion nimiöiden oletusasettelu" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrder" value="Aikalajittelu" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderAscending" value="Nouseva" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderDescending" value="Laskeva" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderNone" value="Ei yhtään" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralTimeSortOrderInfo" value="Kuvion aikalajittelun oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLegend" value="Näytä selite" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLegendInfo" value="Kuvion selitenäytön oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendHeight" value="Selitteen korkeus" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendHeightInfo" value="Kuvion seliteosan oletuskorkeus" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendFontSize" value="Selitteen kirjasinkoko" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLegendFontSizeInfo" value="Kuvion selitteen kirjasinkoko" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesColor" value="Hilaviivaväri" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesColorInfo" value="Kuvion hilaviivojen väri" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesHorizontal" value="Vaakahilaviivoja" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesHorizontalInfo" value="Kuvion vaakahilaviivojen oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesVertical" value="Pystyhilaviivoja" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralGuidelinesVerticalInfo" value="Kuvion pystyhilaviivojen oletusarvo" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxValues" value="Solujen enimmäismäärä" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralMaxValuesInfo" value="Solujen enimmäismäärä (kaikkien valittujen arvojen tulo), joka voidaan valita kuviota muodostettaessa. Jos soluja valitaan enemmän, kuviota ei näytetä. Asetuksen tarkoituksena on säästää palvelimen laskentatehoa." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralColors" value="Värit" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralColorsInfo" value="Kuviovärit" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralAddColor" value="Lisää väri" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralDeleteColor" value="Poista" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowSourse" value="Näytä lähde" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowSourseInfo" value="Näytä kuvion lähde" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLogo" value="Näytä logotyyppi" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralShowLogoInfo" value="Näytä logotyypin kuva" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLogoImg" value="Valitse logotyyppi" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLogoImgInfo" value="Valitse kuvioon liitettävä logotyyppi" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineColorPhrame" value="Kehyksen väri" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineColorPhrameInfo" value="Valitse kuvion kehyksen väri. Mikäli viivanpaksuutta ei ole asetettu, kehystä ei ole." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessPhrame" value="Kehyksen viivanpaksuus." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessPhrameInfo" value="Valitse kehyksen viivanpaksuus. Mikäli viivanpaksuutta ei ole asetettu, kehystä ei ole." />
+  <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphs" value="Taustavärikartta" />
+  <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphsInfo" value="Valitse kuvion taustaväri." />
+  <sentence name="PxWebChartsSourceLabel" value="Lähde:" />
+  <sentence name="PxWebChartsSource" value="Tilastokeskus" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiSettings" value="API-asetukset" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiPxDatabases" value="PxWeb-tietokannat" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiPxDatabasesInfo" value="Määrittelee mitkä PxWeb-tietokannat ovat saatavilla APIn kautta ja millä kielillä." />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiCnmmDatabases" value="CNMM-tietokannat" />
+  <sentence name="PxWebAdminFeaturesApiGeneralApiCnmmDatabasesInfo" value="Määrittelee mitkä CNMM-tietokannat ovat saatavilla APIn kautta ja millä kielillä." />
+  <sentence name="PxWebAdminFeaturesApiGeneralRoutePrefix" value="Polun etuliite" />
+  <sentence name="PxWebAdminFeaturesApiGeneralRoutePrefixInfo" value="URL-polku API-pyyntöjen yksilöintiin" />
+  <sentence name="PxWebAdminFeaturesApiGeneralMaxValuesReturned" value="Palautuvien arvojen maksimimäärä" />
+  <sentence name="PxWebAdminFeaturesApiGeneralMaxValuesReturnedInfo" value="Pyynnön myötä palautuvien arvojen maksimimäärä" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterRequests" value="Rajoitinpyynnöt" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterRequestsInfo" value="Pyyntöjen maksimimäärä (toimii yhdessä rajoitinjakson kanssa)" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterTimespan" value="Rajoitinjakso" />
+  <sentence name="PxWebAdminFeaturesApiGeneralLimiterTimespanInfo" value="Aikajakso tehtäville pyynnöille (katso rajoitinpyynnöt)" />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCORS" value="Ota CORS käyttöön." />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCORSInfo" value="Onko Cross-Origin-Resource-Sharing sallittu?" />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCache" value="Ota välimuisti käyttöön." />
+  <sentence name="PxWebAdminFeaturesApiGeneralEnableCacheInfo" value="Tallennetaanko pyynnöt välimuistiin?" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformation" value="Näytä API-ohjeet" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="Mikäli valittuna, lisätietolinkki näytetään PxWebin esitysnäkymissä. Linkkiä klikatessa kerrotaan kuinka lukea tämänhetkinen taulukko APIn kautta." />
+  <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimitInformationInfo" value="Pyyntö tuotti maksimimäärän soluja" />
+  <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimit" value="Tuloksena maksimimäärä soluja" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQuerySettings" value="Tallenna hakuasetukset" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageType" value="Tallennemuoto" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeFile" value="Tiedosto" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeDatabase" value="Tietokanta" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeInfo" value="Määrittelee, tallennetaanko haut palvelimen tiedostoihin, vaiko tietokantaan" />
+  <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableCache" value="Ota välimuisti käyttöön" />
+  <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableCacheInfo" value="Viedäänkö tallennetut haut välimuistiin, vaiko ei" />
+  <sentence name="PxWebAdminFeaturesSavedQueryGeneralClearCache" value="Tyhjennä välimuisti" />
+  <sentence name="PxWebAdminFeaturesSavedQueryGeneralClearCacheInfo" value="Mikäli määritelty, tallennettujen hakujen välimuisti tyhjennetään tiettyinä aikoina. Erottele ajat pilkulla. Esimerkiksi: 09:30,12:00,13:49" />
+  <sentence name="PxWebAdminFeaturesSavedQueryGeneralCacheTime" value="Välimuistin aika" />
+  <sentence name="PxWebAdminFeaturesSavedQueryGeneralCacheTimeInfo" value="Kuinka pitkään tallennettu haku säilytetään välimuistissa (aika minuutteina)" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabases" value="PX-tietokannat" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabasesInfo" value="Määrittelee PX-tietokannat, joissa haun tallentaminen on mahdollista" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabases" value="CNMM-tietokannat" />
+  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabasesInfo" value="Määrittelee CNMM-tietokannat, joissa haun tallentaminen on mahdollista" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralSearchSettings" value="Hakuasetukset" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralCacheTime" value="Välimuistin kesto" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralCacheTimeInfo" value="Välimuistin kesto minuutteina" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralResultListLength" value="Listan maksimipituus" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralResultListLengthInfo" value="Hakutuloksissa näytettävien taulukoiden maksimimäärä" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperator" value="Oletusoperaattori" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorInfo" value="Kun hakulausekkeessa on enemmän kuin yksi sana, AND/OR-operaattori on käytössä oletuksena" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorAnd" value="AND" />
+  <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorOr" value="OR" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSettings" value="Taustatyöprosessin asetukset" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSleepTime" value="Taukoaika" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSleepTimeInfo" value="Iterointien välillä olevien taukojen kesto sekunteina." />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralStatus" value="Tila:" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralStatusInfo" value="Taustatyöprosessin tämänhetkinen tila" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralCurrentActivity" value="Tämänhetkinen toiminta:" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralCurrentActivityInfo" value="Mitä taustatyöprosessi tekee parhaillaan" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerStop" value="Pysäytä" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerRestart" value="Käynnistä uudelleen" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerWakeUp" value="Herätä" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStop" value="Haluatko pysäyttää taustatyöprosessin?" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStart" value="Haluatko käynnistää taustatyöprosessin?" />
+  <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmWakeUp" value="Haluatko herättää taustatyöprosessin?" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationName" value="Sovelluksen nimi" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="PxWeb-asennuksen nimi" />
+  <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Logon hakemistopolku" />
+  <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Kuvatiedoston nimi" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Oletuskieli" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="PxWeb-palvelun oletuskieli" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Kieli" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguagesInfo" value="Valitut kielet ovat käytettävissä PxWeb-palvelussa." />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparator" value="Desimaalierotin" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorInfo" value="Desimaalierotinmerkki" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorPoint" value="Piste" />
+  <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorComma" value="Pilkku" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparator" value="Tuhaterotin" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorInfo" value="Tuhaterotinmerkki" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorNone" value="Ei mitään" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorSpace" value="Välilyönti" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorPoint" value="Piste" />
+  <sentence name="PxWebAdminSettingsLanguageThousandSeparatorComma" value="Pilkku" />
+  <sentence name="PxWebAdminSettingsLanguageDateFormat" value="Aikaleima" />
+  <sentence name="PxWebAdminSettingsLanguageDateFormatInfo" value="Aikaleiman muoto" />
+  <sentence name="PxWebAdminYes" value="Kyllä" />
+  <sentence name="PxWebAdminNo" value="Ei" />
+  <sentence name="PxWebAdminConfirmSaveSettings" value="Tallennetaanko asetukset?" />
+  <sentence name="PxWebAdminConfirmGenerateDb" value="Luodaanko uusi tietokanta?" />
+  <sentence name="PxWebAdminSettingsImplementedInComingVersions" value="Tämä toiminto lisätään tulevaan PxWeb-versioon " />
+  <sentence name="UnauthorizedTableMessage" value="Sinulla ei ole käyttöoikeutta taulukkoon" />
+  <sentence name="UnauthorizedTableTitle" value="Ei käyttöoikeutta" />
+  <sentence name="UnauthorizedDatabaseMessage" value="Sinulla ei ole käyttöoikeutta tietokantaan" />
+  <sentence name="UnauthorizedDatabaseTitle" value="Ei käyttöoikeutta" />
+  <sentence name="PxWebAdminUsers" value="Käyttäjät" />
+  <sentence name="PxWebAdminUsersGeneral" value="Yleistä" />
+  <sentence name="PxWebAdminUsersUsername" value="Käyttäjätunnus" />
+  <sentence name="PxWebAdminUsersPassword" value="Salasana" />
+  <sentence name="PxWebAdminUsersLoginFailure" value="Sisäänkirjautumisesi ei onnistunut. Tarkista kirjautumistietosi ja yritä uudelleen." />
+  <sentence name="PxWebAdminUsersMail" value="Sähköposti" />
+  <sentence name="PxWebAdminUsersLocked" value="Lukittu" />
+  <sentence name="PxWebAdminUsersExpires" value="Umpeutuu" />
+  <sentence name="PxWebAdminUsersNeverExpires" value="Ei koskaan" />
+  <sentence name="PxWebAdminUsersHasExpired" value="Umpeutunut" />
+  <sentence name="PxWebAdminUsersRenew" value="Uusi" />
+  <sentence name="PxWebAdminUsersLicense" value="Lisenssi" />
+  <sentence name="PxWebAdminUsersLicenseMustBeNumber" value="Lisenssin tulee olla numeroina" />
+  <sentence name="PxWebAdminUsersCreateNewUser" value="Luo uusi käyttäjä" />
+  <sentence name="PxWebAdminUsersCreateNew" value="Luo" />
+  <sentence name="PxWebAdminUsersAdmin" value="Ylläpito" />
+  <sentence name="PxWebAdminUsersDelete" value="Poista" />
+  <sentence name="PxWebAdminUsersEdit" value="Muokkaa" />
+  <sentence name="PxWebAdminUsersUpdate" value="Päivitä" />
+  <sentence name="PxWebAdminUsersCancel" value="Peruuta" />
+  <sentence name="PxWebAdminUsersErrorMail" value="Sähköposti ei kelpaa" />
+  <sentence name="PxWebAdminUsersLogin" value="Kirjaudu" />
+  <sentence name="PxWebAdminUsersAddedUser" value="on lisätty käyttäjäksi" />
+</language>

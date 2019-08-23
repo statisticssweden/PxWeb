@@ -1,0 +1,671 @@
+<Codes>
+<!--Code codeName="CFPricesC" codeValue="C"/-->
+<!--Code codeName="CFPricesF" codeValue="F"/-->
+<!--Code codeName="StockFAS" codeValue="S"/-->
+<!--Code codeName="StockFAF" codeValue="F"/-->
+<!--Code codeName="StockFAA" codeValue="A"/-->
+<!--Code codeName="Copyright1" codeValue="1"/-->
+<!--Code codeName="Copyright2" codeValue="2"/-->
+<!--Code codeName="Copyright3" codeValue="3"/-->
+<!--Code codeName="DataCellFilledOptional" codeValue="F"/-->
+<!--Code codeName="DataCellFilledValue" codeValue="V"/-->
+<!--Code codeName="DataCellFilledZero" codeValue="0"/-->
+<!--Code codeName="VariableTypeC" codeValue="C"/-->
+<!--Code codeName="VariableTypeT" codeValue="T"/-->
+<!--Code codeName="VariableTypeG" codeValue="G"/-->
+<!--Code codeName="FootnoteM" codeValue="M"/-->
+<!--Code codeName="FootnoteR" codeValue="R"/-->
+<!--Code codeName="FootnoteB" codeValue="B"/-->
+<!--Code codeName="FootnoteN" codeValue="N"/-->
+<!--Code codeName="LinkFormatURL" codeValue="U"/-->
+<!--Code codeName="LinkFormatMainTable" codeValue="M"/-->
+<!--Code codeName="LinkTypeTableF" codeValue="TableF"/-->
+<!--Code codeName="LinkTypeTableB" codeValue="TableB"/-->
+<!--Code codeName="LinkTypeTableRel" codeValue="TableRel"/-->
+<!--Code codeName="LinkTypeTableProc" codeValue="TableProc"/-->
+<!--Code codeName="LinkTypeDok" codeValue="Dok"/-->
+<!--Code codeName="LinkTypeTableRelEx" codeValue="TableRelEx"/-->
+<!--Code codeName="LinkTypeWebsite" codeValue="Website"/-->
+<!--Code codeName="LinkTypeTemasite" codeValue="Temasite"/-->
+<!--Code codeName="LinkTypeAnalys" codeValue="Analys"/-->
+<!--Code codeName="LinkPresDirect" codeValue="D"/-->
+<!--Code codeName="LinkPresIndirect" codeValue="I"/-->
+<!--Code codeName="LinkPresBoth" codeValue="B"/-->
+<!--Code codeName="PresCategoryInternal" codeValue="I"/-->
+<!--Code codeName="PresCategoryPrivate" codeValue="P"/-->
+<!--Code codeName="PresCategoryPublic" codeValue="O"/-->
+<!--Code codeName="PresActive" codeValue="A"/-->
+<!--Code codeName="PresPassive" codeValue="P"/-->
+<!--Code codeName="PresNo" codeValue="N"/-->
+<!--Code codeName="TimeUnitA" codeValue="Y"/-->
+<!--Code codeName="TimeUnitH" codeValue="H"/-->
+<!--Code codeName="TimeUnitQ" codeValue="Q"/-->
+<!--Code codeName="TimeUnitM" codeValue="M"/-->
+<!--Code codeName="TimeUnitW" codeValue="W"/-->
+<!--Code codeName="ValueTextExistsS" codeValue="S"/-->
+<!--Code codeName="ValueTextExistsL" codeValue="L"/-->
+<!--Code codeName="ValueTextExistsB" codeValue="B"/-->
+<!--Code codeName="ValueTextExistsN" codeValue="N"/-->
+<!--Code codeName="ValuePresC" codeValue="C"/-->
+<!--Code codeName="ValuePresT" codeValue="T"/-->
+<!--Code codeName="ValuePresB" codeValue="B"/-->
+<!--Code codeName="ValuePresA" codeValue="A"/-->
+<!--Code codeName="ValuePresS" codeValue="S"/-->
+<!--Code codeName="ValuePresV" codeValue="V"/-->
+<!--Code codeName="EliminationA" codeValue="A"/-->
+<!--Code codeName="EliminationN" codeValue="N"/-->
+<!--Code codeName="GroupPresA" codeValue="A"/-->
+<!--Code codeName="GroupPresI" codeValue="I"/-->
+<!--Code codeName="GroupPresB" codeValue="B"/-->
+<!--Code codeName="HierarchyNon" codeValue="N"/-->
+<!--Code codeName="HierarchyBalanced" codeValue="B"/-->
+<!--Code codeName="HierarchyUnbalanced" codeValue="U"/-->
+<!--Code codeName="SpecialSignColumnY" codeValue="Y"/-->
+<!--Code codeName="SpecialSignColumnN" codeValue="N"/-->
+<!--Code codeName="SpecialSignColumnE" codeValue="E"/-->
+<!--Code codeName="Yes" codeValue="Y"/-->
+<!--Code codeName="No" codeValue="N"/-->
+<!--Code codeName="StatusAll" codeValue="A"/-->
+<!--Code codeName="StatusEmpty" codeValue="E"/-->
+<!--Code codeName="StatusNew" codeValue="N"/-->
+<!--Code codeName="StatusMeta" codeValue="M"/-->
+<!--Code codeName="StatusOrder" codeValue="O"/-->
+<!--Code codeName="StatusUpdate" codeValue="U"/-->
+<!--Code codeName="StatusEng" codeValue="T"/-->
+<!--Code codeName="StatusTranslated" codeValue="T"/-->
+<!--Code codeName="RoleMain" codeValue="M"/-->
+<!--Code codeName="RoleContact" codeValue="C"/-->
+<!--Code codeName="RoleUpdate" codeValue="U"/-->
+<!--Code codeName="RoleVerify" codeValue="V"/-->
+<!--Code codeName="RoleInternationalReporting" codeValue="V"/-->
+<!--Code codeName="FootnoteShowS" codeValue="S"/-->
+<!--Code codeName="FootnoteShowP" codeValue="P"/-->
+<!--Code codeName="FootnoteShowB" codeValue="B"/-->
+</Codes>
+<Keywords>
+<!--Keyword modelName="ContentVariable" keywordName="CONTENTVARIABLE"/-->
+<!--Keyword modelName="MenuLevels" keywordName="MENULEVELS"/-->
+<!--Keyword modelName="Macro" keywordName="MACRO"/-->
+<!--Keyword modelName="DataNotAvailable" keywordName="DATANOTAVAILABLE"/-->
+<!--Keyword modelName="DataNoteSum" keywordName="DATANOTESUM"/-->
+<!--Keyword modelName="DataSymbolNIL" keywordName="DATASYMBOLNIL"/-->
+<!--Keyword modelName="DataSymbolSum" keywordName="DATASYMBOLSUM"/-->
+<!--Keyword modelName="DefaultCodeMissingLine" keywordName="DEFAULTCODEMISSINGLINE"/-->
+<!-- AllwaysUseMaintablePrestextSInDynamicTitle represent an optional property, which has a default property value ( the others have a default property name ). -->
+<!--Keyword modelName="AllwaysUseMaintablePrestextSInDynamicTitle" keywordName="ALLWAYSUSEMAINTABLEPRESTEXTSINDYNAMICTITLE"/-->
+<!-- PXCodepage represent an optional property, which has a default property value ( the others have a default property name ). -->
+<!--Keyword modelName="PXCodepage" keywordName="PXCODEPAGE"/-->
+<!-- PXDescriptionDefault represent an optional property, which has a default property value ( the others have a default property name ). -->
+<!--Keyword modelName="PXDescriptionDefault" keywordName="PXDESCRIPTIONDEFAULT"/-->
+<!-- PXCharset represent an optional property, which has a default property value ( the others have a default property name ). -->
+<!--Keyword modelName="PXCharset" keywordName="PXCHARSET"/-->
+<!-- PXAxisVersion represent an optional property, which has a default property value ( the others have a default property name ). -->
+<!--Keyword modelName="PXAxisVersion" keywordName="PXAXISVERSION"/-->
+</Keywords>
+<Tables>
+<!-- To uncomment a column you need to uncomment the table as well -->
+<!--Table modelName="Attribute" tableName="ATTRIBUTE" alias="ATT">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Attribute" columnName="ATTRIBUTE"/-->
+<!--Column modelName="AttributeColumn" columnName="ATTRIBUTECOLUMN"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="SequenceNo" columnName="SEQUENCENO"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="ColumnLength" columnName="COLUMNLENGTH"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="AttributeLang2" tableName="ATTRIBUTE_" alias="AT2">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Attribute" columnName="ATTRIBUTE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Contents" tableName="CONTENTS" alias="CNT">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="PresTextS" columnName="PRESTEXTS"/-->
+<!--Column modelName="PresCode" columnName="PRESCODE"/-->
+<!--Column modelName="Copyright" columnName="COPYRIGHT"/-->
+<!--Column modelName="StatAuthority" columnName="STATAUTHORITY"/-->
+<!--Column modelName="Producer" columnName="PRODUCER"/-->
+<!--Column modelName="LastUpdated" columnName="LASTUPDATED"/-->
+<!--Column modelName="Published" columnName="PUBLISHED"/-->
+<!--Column modelName="Unit" columnName="UNIT"/-->
+<!--Column modelName="PresDecimals" columnName="PRESDECIMALS"/-->
+<!--Column modelName="PresCellsZero" columnName="PRESCELLSZERO"/-->
+<!--Column modelName="PresMissingLine" columnName="PRESMISSINGLINE"/-->
+<!--Column modelName="AggregPossible" columnName="AGGREGPOSSIBLE"/-->
+<!--Column modelName="RefPeriod" columnName="REFPERIOD"/-->
+<!--Column modelName="StockFA" columnName="STOCKFA"/-->
+<!--Column modelName="BasePeriod" columnName="BASEPERIOD"/-->
+<!--Column modelName="CFPrices" columnName="CFPRICES"/-->
+<!--Column modelName="DayAdj" columnName="DAYADJ"/-->
+<!--Column modelName="SeasAdj" columnName="SEASADJ"/-->
+<!--Column modelName="StoreColumnNo" columnName="STORECOLUMNNO"/-->
+<!--Column modelName="StoreFormat" columnName="STOREFORMAT"/-->
+<!--Column modelName="StoreNoChar" columnName="STORENOCHAR"/-->
+<!--Column modelName="StoreDecimals" columnName="STOREDECIMALS"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ContentsLang2" tableName="CONTENTS_" alias="CN2">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="PresTextS" columnName="PRESTEXTS"/-->
+<!--Column modelName="Unit" columnName="UNIT"/-->
+<!--Column modelName="RefPeriod" columnName="REFPERIOD"/-->
+<!--Column modelName="BasePeriod" columnName="BASEPERIOD"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ContentsTime" tableName="CONTENTSTIME" alias="CTM">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="TimePeriod" columnName="TIMEPERIOD"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="DataStorage" tableName="DATASTORAGE" alias="DST">
+<Columns-->
+<!--Column modelName="ProductCode" columnName="PRODUCTCODE"/-->
+<!--Column modelName="ServerName" columnName="SERVERNAME"/-->
+<!--Column modelName="DatabaseName" columnName="DATABASENAME"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Footnote" tableName="FOOTNOTE" alias="FNT">
+<Columns-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--Column modelName="FootnoteType" columnName="FOOTNOTETYPE"/-->
+<!--Column modelName="ShowFootnote" columnName="SHOWFOOTNOTE"/-->
+<!--Column modelName="MandOpt" columnName="MANDOPT"/-->
+<!--Column modelName="FootnoteText" columnName="FOOTNOTETEXT"/-->
+<!--Column modelName="PresCharacter" columnName="PRESCHARACTER"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteLang2" tableName="FOOTNOTE_" alias="FN2">
+<Columns-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--Column modelName="FootnoteText" columnName="FOOTNOTETEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteContTime" tableName="FOOTNOTECONTTIME" alias="FCT">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="TimePeriod" columnName="TIMEPERIOD"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--Column modelName="Cellnote" columnName="CELLNOTE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteContValue" tableName="FOOTNOTECONTVALUE" alias="FCA">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--Column modelName="Cellnote" columnName="CELLNOTE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteContVbl" tableName="FOOTNOTECONTVBL" alias="FCB">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteContents" tableName="FOOTNOTECONTENTS" alias="FCO">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Contents" columnName="CONTENTS"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteGrouping" tableName="FOOTNOTEGROUPING" alias="FCO">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteMainTable" tableName="FOOTNOTEMAINTABLE" alias="FMT">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteMaintTime" tableName="FOOTNOTEMAINTTIME" alias="FNM">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="TimePeriod" columnName="TIMEPERIOD"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteMaintValue" tableName="FOOTNOTEMAINTVALUE" alias="FMV">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteMenuSel" tableName="FOOTNOTEMENUSEL" alias="FMS">
+<Columns-->
+<!--Column modelName="Menu" columnName="MENU"/-->
+<!--Column modelName="Selection" columnName="SELECTION"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteSubTable" tableName="FOOTNOTESUBTABLE" alias="FST">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="SubTable" columnName="SUBTABLE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteValue" tableName="FOOTNOTEVALUE" alias="FVL">
+<Columns-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteValueSetValue" tableName="FOOTNOTEVALUESETVALUE" alias="FVS">
+<Columns-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="FootnoteVariable" tableName="FOOTNOTEVARIABLE" alias="FVB">
+<Columns-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="FootnoteNo" columnName="FOOTNOTENO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Grouping" tableName="GROUPING" alias="GRP">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Hierarchy" columnName="HIERARCHY"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="GroupPres" columnName="GROUPPRES"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="GroupingLang2" tableName="GROUPING_" alias="GR2">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="GroupingLevel" tableName="GROUPINGLEVEL" alias="GRP">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="LevelNo" columnName="LEVELNO"/-->
+<!--Column modelName="LevelText" columnName="LEVELTEXT"/-->
+<!--Column modelName="GeoAreaNo" columnName="GEOAREANO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="GroupingLevelLang2" tableName="GROUPINGLEVEL_" alias="GR2">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="LevelNo" columnName="LEVELNO"/-->
+<!--Column modelName="LevelText" columnName="LEVELTEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Link" tableName="LINK" alias="LNK">
+<Columns-->
+<!--Column modelName="LinkId" columnName="LINKID"/-->
+<!--Column modelName="Link" columnName="LINK"/-->
+<!--Column modelName="LinkType" columnName="LINKTYPE"/-->
+<!--Column modelName="LinkFormat" columnName="LINKFORMAT"/-->
+<!--Column modelName="LinkText" columnName="LINKTEXT"/-->
+<!--Column modelName="PresCategory" columnName="PRESCATEGORY"/-->
+<!--Column modelName="LinkPres" columnName="LINKPRES"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="LinkLang2" tableName="LINK_" alias="LN2">
+<Columns-->
+<!--Column modelName="LinkId" columnName="LINKID"/-->
+<!--Column modelName="Link" columnName="LINK"/-->
+<!--Column modelName="LinkText" columnName="LINKTEXT"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="LinkMenuSelection" tableName="LINKMENUSELECTION" alias="LMS">
+<Columns-->
+<!--Column modelName="Menu" columnName="MENU"/-->
+<!--Column modelName="Selection" columnName="SELECTION"/-->
+<!--Column modelName="LinkId" columnName="LINKID"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MainTable" tableName="MAINTABLE" alias="MTA">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="TableStatus" columnName="TABLESTATUS"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="PresTextS" columnName="PRESTEXTS"/-->
+<!--Column modelName="ContentsVariable" columnName="CONTENTSVARIABLE"/-->
+<!--Column modelName="TableId" columnName="TABLEID"/-->
+<!--Column modelName="PresCategory" columnName="PRESCATEGORY"/-->
+<!--Column modelName="FirstPublished" columnName="FIRSTPUBLISHED"/-->
+<!--Column modelName="SpecCharExists" columnName="SPECCHAREXISTS"/-->
+<!--Column modelName="SubjectCode" columnName="SUBJECTCODE"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--Column modelName="ProductCode" columnName="PRODUCTCODE"/-->
+<!--Column modelName="TimeScale" columnName="TIMESCALE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MainTableLang2" tableName="MAINTABLE_" alias="MT2">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="PresTextS" columnName="PRESTEXTS"/-->
+<!--Column modelName="ContentsVariable" columnName="CONTENTSVARIABLE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MainTablePerson" tableName="MAINTABLEPERSON" alias="MTP">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="PersonCode" columnName="PERSONCODE"/-->
+<!--Column modelName="RolePerson" columnName="ROLEPERSON"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MainTableVariableHierarchy" tableName="MAINTABLEVARIABLEHIERARCHY" alias="MTP">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="ShowLevels" columnName="SHOWLEVELS"/-->
+<!--Column modelName="AllLevelsStored" columnName="ALLLEVELSSTORED"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MenuSelection" tableName="MENUSELECTION" alias="MSL">
+<Columns-->
+<!--Column modelName="Menu" columnName="MENU"/-->
+<!--Column modelName="Selection" columnName="SELECTION"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="PresTextS" columnName="PRESTEXTS"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--Column modelName="LevelNo" columnName="LEVELNO"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="Presentation" columnName="PRESENTATION"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MenuSelectionLang2" tableName="MENUSELECTION_" alias="MS2">
+<Columns-->
+<!--Column modelName="Menu" columnName="MENU"/-->
+<!--Column modelName="Selection" columnName="SELECTION"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="PresTextS" columnName="PRESTEXTS"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="Presentation" columnName="PRESENTATION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MetaAdm" tableName="METAADM" alias="MAD">
+<Columns-->
+<!--Column modelName="Property" columnName="PROPERTY"/-->
+<!--Column modelName="Value" columnName="VALUE"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="MetabaseInfo" tableName="METABASEINFO" alias="MBI">
+<Columns-->
+<!--Column modelName="Model" columnName="MODEL"/-->
+<!--Column modelName="ModelVersion" columnName="MODELVERSION"/-->
+<!--Column modelName="DatabaseRole" columnName="DATABASEROLE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Organization" tableName="ORGANIZATION" alias="ORG">
+<Columns-->
+<!--Column modelName="OrganizationCode" columnName="ORGANIZATIONCODE"/-->
+<!--Column modelName="OrganizationName" columnName="ORGANIZATIONNAME"/-->
+<!--Column modelName="Department" columnName="DEPARTMENT"/-->
+<!--Column modelName="Unit" columnName="UNIT"/-->
+<!--Column modelName="WebAddress" columnName="WEBADDRESS"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="OrganizationLang2" tableName="ORGANIZATION_" alias="OR2">
+<Columns-->
+<!--Column modelName="OrganizationCode" columnName="ORGANIZATIONCODE"/-->
+<!--Column modelName="OrganizationName" columnName="ORGANIZATIONNAME"/-->
+<!--Column modelName="Department" columnName="DEPARTMENT"/-->
+<!--Column modelName="Unit" columnName="UNIT"/-->
+<!--Column modelName="WebAddress" columnName="WEBADDRESS"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Person" tableName="PERSON" alias="PRS">
+<Columns-->
+<!--Column modelName="PersonCode" columnName="PERSONCODE"/-->
+<!--Column modelName="OrganizationCode" columnName="ORGANIZATIONCODE"/-->
+<!--Column modelName="Forename" columnName="FORENAME"/-->
+<!--Column modelName="Surname" columnName="SURNAME"/-->
+<!--Column modelName="PhonePrefix" columnName="PHONEPREFIX"/-->
+<!--Column modelName="PhoneNo" columnName="PHONENO"/-->
+<!--Column modelName="FaxNo" columnName="FAXNO"/-->
+<!--Column modelName="Email" columnName="EMAIL"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="SecondaryLanguage" tableName="SECONDARYLANGUAGE" alias="SLA">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="Language" columnName="LANGUAGE"/-->
+<!--Column modelName="CompletelyTranslated" columnName="COMPLETELYTRANSLATED"/-->
+<!--Column modelName="Published" columnName="PUBLISHED"/-->
+<!--Column modelName="UserId" columnName="USERID"/-->
+<!--Column modelName="LogDate" columnName="LOGDATE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="SpecialCharacter" tableName="SPECIALCHARACTER" alias="SPC">
+<Columns-->
+<!--Column modelName="CharacterType" columnName="CHARACTERTYPE"/-->
+<!--Column modelName="PresCharacter" columnName="PRESCHARACTER"/-->
+<!--Column modelName="AggregPossible" columnName="AGGREGPOSSIBLE"/-->
+<!--Column modelName="DataCellPres" columnName="DATACELLPRES"/-->
+<!--Column modelName="DataCellFilled" columnName="DATACELLFILLED"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="SpecialCharacterLang2" tableName="SPECIALCHARACTER_" alias="SP2">
+<Columns-->
+<!--Column modelName="CharacterType" columnName="CHARACTERTYPE"/-->
+<!--Column modelName="PresCharacter" columnName="PRESCHARACTER"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="SubTable" tableName="SUBTABLE" alias="STB">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="SubTable" columnName="SUBTABLE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="CleanTable" columnName="CLEANTABLE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="SubTableLang2" tableName="SUBTABLE_" alias="ST2">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="SubTable" columnName="SUBTABLE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="SubTableVariable" tableName="SUBTABLEVARIABLE" alias="STV">
+<Columns-->
+<!--Column modelName="MainTable" columnName="MAINTABLE"/-->
+<!--Column modelName="SubTable" columnName="SUBTABLE"/-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="VariableType" columnName="VARIABLETYPE"/-->
+<!--Column modelName="StoreColumnNo" columnName="STORECOLUMNNO"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="TextCatalog" tableName="TEXTCATALOG" alias="TXC">
+<Columns-->
+<!--Column modelName="TextCatalogNo" columnName="TEXTCATALOGNO"/-->
+<!--Column modelName="TextType" columnName="TEXTTYPE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="TextCatalogLang2" tableName="TEXTCATALOG_" alias="TX2">
+<Columns-->
+<!--Column modelName="TextCatalogNo" columnName="TEXTCATALOGNO"/-->
+<!--Column modelName="TextType" columnName="TEXTTYPE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="TimeScale" tableName="TIMESCALE" alias="TSC">
+<Columns-->
+<!--Column modelName="TimeScale" columnName="TIMESCALE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="TimeScalePres" columnName="TIMESCALEPRES"/-->
+<!--Column modelName="Regular" columnName="REGULAR"/-->
+<!--Column modelName="TimeUnit" columnName="TIMEUNIT"/-->
+<!--Column modelName="Frequency" columnName="FREQUENCY"/-->
+<!--Column modelName="StoreFormat" columnName="STOREFORMAT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="TimeScaleLang2" tableName="TIMESCALE_" alias="TS2">
+<Columns-->
+<!--Column modelName="TimeScale" columnName="TIMESCALE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="VSValue" tableName="VSVALUE" alias="VVL">
+<Columns-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="VSValueLang2" tableName="VSVALUE_" alias="VV2">
+<Columns-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Value" tableName="VALUE" alias="VAL">
+<Columns-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="Unit" columnName="UNIT"/-->
+<!--Column modelName="ValueTextS" columnName="VALUETEXTS"/-->
+<!--Column modelName="ValueTextL" columnName="VALUETEXTL"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--Column modelName="Footnote" columnName="FOOTNOTE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValueLang2" tableName="VALUE_" alias="VA2">
+<Columns-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--Column modelName="Unit" columnName="UNIT"/-->
+<!--Column modelName="ValueTextS" columnName="VALUETEXTS"/-->
+<!--Column modelName="ValueTextL" columnName="VALUETEXTL"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValueGroup" tableName="VALUEGROUP" alias="VPL">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="GroupCode" columnName="GROUPCODE"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="GroupLevel" columnName="GROUPLEVEL"/-->
+<!--Column modelName="ValueLevel" columnName="VALUELEVEL"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValueGroupLang2" tableName="VALUEGROUP_" alias="VL2">
+<Columns-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--Column modelName="GroupCode" columnName="GROUPCODE"/-->
+<!--Column modelName="ValueCode" columnName="VALUECODE"/-->
+<!--Column modelName="SortCode" columnName="SORTCODE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValuePool" tableName="VALUEPOOL" alias="VPL">
+<Columns-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValuePoolAlias" columnName="VALUEPOOLALIAS"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--Column modelName="ValueTextExists" columnName="VALUETEXTEXISTS"/-->
+<!--Column modelName="ValuePres" columnName="VALUEPRES"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValuePoolLang2" tableName="VALUEPOOL_" alias="VP2">
+<Columns-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValuePoolAlias" columnName="VALUEPOOLALIAS"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValueSet" tableName="VALUESET" alias="VST">
+<Columns-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--Column modelName="Elimination" columnName="ELIMINATION"/-->
+<!--Column modelName="ValuePool" columnName="VALUEPOOL"/-->
+<!--Column modelName="ValuePres" columnName="VALUEPRES"/-->
+<!--Column modelName="GeoAreaNo" columnName="GEOAREANO"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--Column modelName="SortCodeExists" columnName="SORTCODEEXISTS"/-->
+<!--Column modelName="Footnote" columnName="FOOTNOTE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValueSetLang2" tableName="VALUESET_" alias="VS2">
+<Columns-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="Description" columnName="DESCRIPTION"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="ValueSetGrouping" tableName="VALUESETGROUPING" alias="VBL">
+<Columns-->
+<!--Column modelName="ValueSet" columnName="VALUESET"/-->
+<!--Column modelName="Grouping" columnName="GROUPING"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="Variable" tableName="VARIABLE" alias="VBL">
+<Columns-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--Column modelName="VariableInfo" columnName="VARIABLEINFO"/-->
+<!--Column modelName="MetaId" columnName="METAID"/-->
+<!--Column modelName="Footnote" columnName="FOOTNOTE"/-->
+<!--/Columns>
+</Table-->
+<!--Table modelName="VariableLang2" tableName="VARIABLE_" alias="VB2">
+<Columns-->
+<!--Column modelName="Variable" columnName="VARIABLE"/-->
+<!--Column modelName="PresText" columnName="PRESTEXT"/-->
+<!--/Columns>
+</Table-->
+</Tables>

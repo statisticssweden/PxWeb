@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	 <siteMapNode url="~/Admin/" title="Admin Root"  description="">
+		  <siteMapNode url="~/Admin/Default.aspx" title="PxWebAdminMenuHome"  description="" />
+		  <siteMapNode title="PxWebAdminMenuSettings" description="" >
+				<siteMapNode title="PxWebAdminMenuSettingsGeneral"  description="" >
+					 <siteMapNode url="~/Admin/Settings-General-Site.aspx" title="PxWebAdminMenuSettingsGeneralSite"  description="" />
+					 <siteMapNode url="~/Admin/Settings-General-Language.aspx" title="PxWebAdminMenuSettingsGeneralLanguage"  description="" />
+					 <siteMapNode url="~/Admin/Settings-General-Paths.aspx" title="PxWebAdminMenuSettingsGeneralPaths"  description="" />
+					 <siteMapNode url="~/Admin/Settings-General-FileFormats.aspx" title="PxWebAdminMenuSettingsGeneralFileFormats"  description="" />
+					 <siteMapNode url="~/Admin/Settings-General-Global.aspx" title="PxWebAdminMenuSettingsGeneralGlobal"  description="" />
+					 <siteMapNode url="~/Admin/Settings-General-Databases.aspx" title="PxWebAdminMenuSettingsGeneralDatabases"  description="" />
+					 <siteMapNode url="~/Admin/Settings-General-Administration.aspx" title="PxWebAdminMenuSettingsGeneralAdministration"  description="" />
+				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuSettingsMenu"  description="" >
+					 <siteMapNode title="PxWebAdminMenuSettingsMenu"  description="" >
+	 					 <siteMapNode url="~/Admin/Settings-Menu.aspx" title="PxWebAdminMenuSettingsMenu"  description="" />
+					 </siteMapNode>
+				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuSettingsSelection"  description="" >
+					 <siteMapNode url="~/Admin/Settings-Selection.aspx" title="PxWebAdminMenuSettingsSelection"  description="" />
+				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuSettingsPresentation"  description="" >
+					 <siteMapNode url="~/Admin/Settings-Presentation-General.aspx" title="PxWebAdminMenuSettingsPresentationGeneral"  description="" />
+					 <siteMapNode url="~/Admin/Settings-Presentation-Table.aspx" title="PxWebAdminMenuSettingsPresentationTable"  description="" />
+					 <siteMapNode url="~/Admin/Settings-Presentation-CommandBar.aspx" title="PxWebAdminMenuSettingsPresentationCommandBar"  description="" />
+				</siteMapNode>
+        <siteMapNode title="PxWebAdminMenuSettingsNavigation"  description="" >
+          <siteMapNode url="~/Admin/Settings-Navigation.aspx" title="PxWebAdminMenuSettingsNavigation"  description="" />
+        </siteMapNode>
+		  </siteMapNode>
+
+     <siteMapNode title="PxWebAdminMenuTools"  description="" >
+				<siteMapNode title="PxWebAdminMenuToolsGenerateDb"  description="" >
+					 <siteMapNode url="~/Admin/Tools-GenerateDb.aspx" title="PxWebAdminMenuToolsGenerateDb"  description="" />
+				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuToolsLanguageManager"  description="" >
+					 <siteMapNode url="~/Admin/Tools-LanguageManager.aspx" title="PxWebAdminMenuToolsLanguageManager"  description="" />
+				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuToolsReset"  description="" >
+					 <siteMapNode url="~/Admin/Tools-Reset.aspx" title="PxWebAdminMenuToolsReset"  description="" />
+				</siteMapNode>
+		  </siteMapNode>
+		  <siteMapNode title="PxWebAdminMenuFeatures"  description="" >
+				<siteMapNode title="PxWebAdminMenuFeaturesGeneral"  description="" >
+					 <siteMapNode url="~/Admin/Features-General.aspx" title="PxWebAdminMenuFeaturesGeneral"  description="" />
+				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuFeaturesCharts"  description="" >
+					 <siteMapNode url="~/Admin/Features-Charts-General.aspx" title="PxWebAdminMenuFeaturesChartsGeneral"  description="" />
+				</siteMapNode>
+        <siteMapNode title="PxWebAdminMenuFeaturesApi"  description="" >
+          <siteMapNode url="~/Admin/Features-Api-General.aspx" title="PxWebAdminMenuFeaturesApiGeneral"  description="" />
+        </siteMapNode>
+        <siteMapNode title="PxWebAdminMenuFeaturesSaveQuery"  description="" >
+          <siteMapNode url="~/Admin/Features-SaveQuery-General.aspx" title="PxWebAdminMenuFeaturesSaveQueryGeneral"  description="" />
+        </siteMapNode>
+        <siteMapNode title="PxWebAdminMenuFeaturesSearch"  description="" >
+          <siteMapNode url="~/Admin/Features-Search-General.aspx" title="PxWebAdminMenuFeaturesSearchGeneral"  description="" />
+        </siteMapNode>
+        <siteMapNode title="PxWebAdminMenuFeaturesBackgroundWorker"  description="" >
+          <siteMapNode url="~/Admin/Features-BackgroundWorker-General.aspx" title="PxWebAdminMenuFeaturesBackgroundWorkerGeneral"  description="" />
+        </siteMapNode>
+      </siteMapNode>
+       <siteMapNode title="PxWebAdminUsers">
+         <siteMapNode title="PxWebAdminUsersGeneral">
+           <siteMapNode title="PxWebAdminUsersGeneral" url="~/Admin/Users-General.aspx" />
+         </siteMapNode>
+       </siteMapNode>
+	 </siteMapNode>
+</siteMap>
