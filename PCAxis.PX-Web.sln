@@ -61,8 +61,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PXWeb.SavedQuery.MsSql", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat.Web.Controls", "PCAxis.JsonStat.Web.Controls\PCAxis.JsonStat.Web.Controls.csproj", "{6C558014-E4DB-4399-A759-12E916F0BA4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Metadata", "PCAxis.Metadata\PCAxis.Metadata.csproj", "{4F2D88BA-0D5E-4406-86F6-B6F0186286D6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Encryption", "PCAxis.Encryption\PCAxis.Encryption.csproj", "{1B73B10F-8F52-449E-B5A1-8AAEABF42706}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Serializers.JsonStat2Serializer", "PCAxis.Serializers.JsonStat2\JsonStat2Serializer\JsonStat2Serializer\PCAxis.Serializers.JsonStat2Serializer.csproj", "{C33C6D4D-C95C-441E-862D-E8B55354A096}"
@@ -202,10 +200,6 @@ Global
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F2D88BA-0D5E-4406-86F6-B6F0186286D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F2D88BA-0D5E-4406-86F6-B6F0186286D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F2D88BA-0D5E-4406-86F6-B6F0186286D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F2D88BA-0D5E-4406-86F6-B6F0186286D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Release|Any CPU.ActiveCfg = Release|Any CPU
