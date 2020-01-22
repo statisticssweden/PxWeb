@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\dev\Slask\Github\PCAxis.Core\bin\Debug\netstandard2.0\PCAxis.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -50,10 +54,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
-      <Project>{630041bc-4531-4547-9820-fe4290a18a54}</Project>
-      <Name>PCAxis.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Html5Table\PCAxis.Html5Table.csproj">
       <Project>{10f26c50-39bc-467b-9707-a84fe329534a}</Project>
       <Name>PCAxis.Html5Table</Name>

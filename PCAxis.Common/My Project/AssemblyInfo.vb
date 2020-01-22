@@ -33,5 +33,4 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("1.1.0.0")> 
 <Assembly: AssemblyFileVersion("1.1.0.0")> 
-<Assembly: CLSCompliant(True)> 
-<Assembly: log4net.Config.XmlConfigurator(Watch:=True)> 
+<Assembly: CLSCompliant(True)>

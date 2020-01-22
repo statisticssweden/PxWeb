@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.Core", "PCAxis.Core\PCAxis.Core.vbproj", "{630041BC-4531-4547-9820-FE4290A18A54}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.Common", "PCAxis.Common\PCAxis.Common.vbproj", "{923414B2-36AD-48E1-919A-B92418E6A2FC}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.PX.Core", "PCAxis.PX.Core\PCAxis.PX.Core.vbproj", "{69CD4248-077E-4E3C-A83B-70F883C8D305}"
@@ -91,19 +89,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Security", "PX.Security\PX.Security.csproj", "{DCB50C42-C3D0-48F9-9C1F-8D5AF99DDB95}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = False
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{630041BC-4531-4547-9820-FE4290A18A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{630041BC-4531-4547-9820-FE4290A18A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{630041BC-4531-4547-9820-FE4290A18A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{630041BC-4531-4547-9820-FE4290A18A54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{923414B2-36AD-48E1-919A-B92418E6A2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{923414B2-36AD-48E1-919A-B92418E6A2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{923414B2-36AD-48E1-919A-B92418E6A2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -262,5 +252,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {196A0825-4ED3-425E-A91F-9155D72CA094}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = False
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

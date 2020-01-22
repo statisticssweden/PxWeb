@@ -1,0 +1,172 @@
+2020-01-20 14:00:38,144 [1] INFO  Global -  === Application start ===
+2020-01-20 14:00:38,154 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:00:38,203 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 14:00:38,214 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:00:38,216 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:00:38,225 [1] INFO  PXWeb.DatabasesSettings - Loading of CNMM databases started
+2020-01-20 14:00:38,394 [1] INFO  PXWeb.DatabasesSettings - CNMM database ssd added
+2020-01-20 14:00:38,396 [1] INFO  PXWeb.DatabasesSettings - Loading of CNMM databases ended
+2020-01-20 14:00:38,396 [1] INFO  PXWeb.DatabasesSettings - Loading of PX databases started
+2020-01-20 14:00:38,419 [1] INFO  PXWeb.DatabasesSettings - PX database Example added
+2020-01-20 14:00:38,419 [1] INFO  PXWeb.DatabasesSettings - Loading of PX databases ended
+2020-01-20 14:00:38,421 [1] INFO  PCAxis.Paxiom.GroupRegistry - GroupRegistry created
+2020-01-20 14:00:38,421 [1] WARN  PCAxis.Paxiom.GroupRegistry - Groupingdirectory does not exists C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\PX\Aggregations\
+2020-01-20 14:00:38,429 [1] INFO  PCAxis.Search.SearchManager - Search index base directory successfully set to 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\PX\Databases\'
+2020-01-20 14:00:38,437 [1] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker has been successfully started
+2020-01-20 14:00:38,450 [13] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker iteration started
+2020-01-20 14:00:38,451 [13] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - HandleSearchIndex called for database:Example
+2020-01-20 14:00:38,451 [13] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - No action taken for  database:Example
+2020-01-20 14:00:38,451 [13] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker iteration ended - going to sleep
+2020-01-20 14:00:41,563 [11] INFO  PCAxis.Paxiom.Localization.PxResourceReader - Loading language from C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\Languages\pxlang.sv.xml
+2020-01-20 14:00:49,080 [11] INFO  PCAxis.Paxiom.Localization.PxResourceReader - Loading language from C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\Languages\pxlang.xml
+2020-01-20 14:01:05,141 [11] INFO  PCAxis.Web.Controls.VisitorStatisticsHelper - Visitor statistics logger of type 'PxDefaultLogger' was created successfully
+2020-01-20 14:22:51,521 [1] INFO  Global -  === Application start ===
+2020-01-20 14:22:51,530 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:22:51,571 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:24:02,859 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:24:20,262 [1] INFO  Global -  === Application start ===
+2020-01-20 14:24:20,274 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:24:20,313 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:25:24,516 [1] INFO  Global -  === Application start ===
+2020-01-20 14:25:24,525 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:25:24,566 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:26:15,726 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:26:34,537 [1] INFO  Global -  === Application start ===
+2020-01-20 14:26:34,546 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:26:34,589 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:27:15,795 [1] INFO  Global -  === Application start ===
+2020-01-20 14:27:15,804 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:28:13,406 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:28:16,410 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:28:30,551 [1] INFO  Global -  === Application start ===
+2020-01-20 14:28:30,561 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:29:18,182 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:29:20,282 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:29:32,886 [1] INFO  Global -  === Application start ===
+2020-01-20 14:29:32,897 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:29:54,389 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:29:56,800 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:30:09,525 [1] INFO  Global -  === Application start ===
+2020-01-20 14:30:09,535 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:30:51,686 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:30:52,866 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:31:08,791 [1] INFO  Global -  === Application start ===
+2020-01-20 14:31:08,805 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:32:23,232 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:32:25,508 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:32:37,990 [1] INFO  Global -  === Application start ===
+2020-01-20 14:32:38,002 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:35:44,315 [1] INFO  Global -  === Application start ===
+2020-01-20 14:35:44,324 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:37:37,041 [1] ERROR PXWeb.Settings - ::LoadSettings() : Error when loading settings : Typinitieraren för PCAxis.Paxiom.Settings utlöste ett undantag.
+2020-01-20 14:37:52,176 [1] ERROR Global - System.NullReferenceException: Objektreferensen har inte angetts till en instans av ett objekt.
+   vid PXWeb.Settings.GetDatabasePath() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 394
+   vid PXWeb.Settings.LoadDatabaseSettings() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 165
+   vid PXWeb.Settings..ctor(String path) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 285
+   vid PXWeb.Settings.get_Current() i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Code\Settings\Settings.cs:rad 528
+   vid PXWeb.Global.Application_Start(Object sender, EventArgs e) i C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Global.asax.cs:rad 185
+2020-01-20 14:38:09,867 [1] INFO  Global -  === Application start ===
+2020-01-20 14:38:09,876 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:39:37,064 [1] INFO  Global -  === Application start ===
+2020-01-20 14:39:37,075 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:44:01,204 [1] INFO  Global -  === Application start ===
+2020-01-20 14:44:01,215 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:44:09,620 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 14:44:10,296 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:44:10,313 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:44:14,174 [1] ERROR Global - System.TypeInitializationException: Typinitieraren för PCAxis.Paxiom.Localization.PxResourceReader utlöste ett undantag. ---> System.IO.FileNotFoundException: Det går inte att läsa in filen eller sammansättningen System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51 eller ett av dess beroenden. Det går inte att hitta filen.
+   vid PCAxis.Paxiom.Localization.PxResourceReader..cctor()
+   --- Slut på stackspårning för interna undantag ---
+2020-01-20 14:44:47,518 [1] INFO  Global -  === Application start ===
+2020-01-20 14:44:47,529 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:45:46,646 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 14:45:56,244 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:46:00,905 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:48:17,835 [1] INFO  Global -  === Application start ===
+2020-01-20 14:48:17,845 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:48:21,777 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 14:48:22,418 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:48:22,434 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:48:23,054 [1] ERROR Global - System.TypeInitializationException: Typinitieraren för PCAxis.Paxiom.GroupRegistry utlöste ett undantag. ---> System.IO.FileLoadException: Det går inte att läsa in filen eller sammansättningen PCAxis.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null eller ett av dess beroenden. Det krävs en sammansättning med ett starkt namn. (Undantag från HRESULT: 0x80131044)
+   vid PCAxis.Paxiom.GroupRegistry..cctor()
+   --- Slut på stackspårning för interna undantag ---
+2020-01-20 14:48:53,678 [1] INFO  Global -  === Application start ===
+2020-01-20 14:48:53,690 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:48:58,424 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 14:49:09,212 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:49:09,231 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:52:44,417 [1] INFO  Global -  === Application start ===
+2020-01-20 14:52:44,428 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 14:52:44,453 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 14:52:44,458 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:52:44,474 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 14:52:44,493 [1] INFO  PXWeb.DatabasesSettings - Loading of CNMM databases started
+2020-01-20 14:52:44,654 [1] INFO  PXWeb.DatabasesSettings - CNMM database ssd added
+2020-01-20 14:52:44,656 [1] INFO  PXWeb.DatabasesSettings - Loading of CNMM databases ended
+2020-01-20 14:52:44,656 [1] INFO  PXWeb.DatabasesSettings - Loading of PX databases started
+2020-01-20 14:52:44,681 [1] INFO  PXWeb.DatabasesSettings - PX database Example added
+2020-01-20 14:52:44,681 [1] INFO  PXWeb.DatabasesSettings - Loading of PX databases ended
+2020-01-20 14:52:44,704 [1] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker has been successfully started
+2020-01-20 14:52:44,715 [17] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker iteration started
+2020-01-20 14:52:44,717 [17] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - HandleSearchIndex called for database:Example
+2020-01-20 14:52:44,717 [17] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - No action taken for  database:Example
+2020-01-20 14:52:44,717 [17] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker iteration ended - going to sleep
+2020-01-20 14:52:49,275 [5] INFO  PCAxis.Paxiom.Localization.PxResourceReader - Loading language from C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\Languages\pxlang.sv.xml
+2020-01-20 14:53:08,276 [6] INFO  PCAxis.Paxiom.Localization.PxResourceReader - Loading language from C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\Languages\pxlang.xml
+2020-01-20 18:24:54,673 [1] INFO  Global -  === Application start ===
+2020-01-20 18:24:54,686 [1] INFO  PXWeb.Settings - Load settings file (settings.config) started
+2020-01-20 18:24:54,731 [1] INFO  PXWeb.Settings - Settings-file 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\setting.config' was loaded successfully
+2020-01-20 18:24:54,745 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 18:24:54,749 [1] INFO  PXWeb.ProtectionSettings - Using DefaultAuthorization
+2020-01-20 18:24:54,775 [1] INFO  PXWeb.DatabasesSettings - Loading of CNMM databases started
+2020-01-20 18:24:54,945 [1] INFO  PXWeb.DatabasesSettings - CNMM database ssd added
+2020-01-20 18:24:54,946 [1] INFO  PXWeb.DatabasesSettings - Loading of CNMM databases ended
+2020-01-20 18:24:54,946 [1] INFO  PXWeb.DatabasesSettings - Loading of PX databases started
+2020-01-20 18:24:54,974 [1] INFO  PXWeb.DatabasesSettings - PX database Example added
+2020-01-20 18:24:54,974 [1] INFO  PXWeb.DatabasesSettings - Loading of PX databases ended
+2020-01-20 18:24:54,977 [1] INFO  PCAxis.Paxiom.GroupRegistry - GroupRegistry created
+2020-01-20 18:24:54,977 [1] WARN  PCAxis.Paxiom.GroupRegistry - Groupingdirectory does not exists C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\PX\Aggregations\
+2020-01-20 18:24:54,988 [1] INFO  PCAxis.Search.SearchManager - Search index base directory successfully set to 'C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\PX\Databases\'
+2020-01-20 18:24:55,005 [1] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker has been successfully started
+2020-01-20 18:24:55,016 [11] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker iteration started
+2020-01-20 18:24:55,017 [11] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - HandleSearchIndex called for database:Example
+2020-01-20 18:24:55,017 [11] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - No action taken for  database:Example
+2020-01-20 18:24:55,017 [11] INFO  PXWeb.BackgroundWorker.PxWebBackgroundWorker - PX-Web background worker iteration ended - going to sleep
+2020-01-20 18:24:59,757 [5] INFO  PCAxis.Paxiom.Localization.PxResourceReader - Loading language from C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\Languages\pxlang.sv.xml
+2020-01-20 18:30:56,885 [8] INFO  PCAxis.Paxiom.Localization.PxResourceReader - Loading language from C:\Users\scblikp\Source\Repos\PxWeb\PXWeb\Resources\Languages\pxlang.xml
+2020-01-20 18:31:16,325 [19] INFO  PCAxis.Web.Controls.VisitorStatisticsHelper - Visitor statistics logger of type 'PxDefaultLogger' was created successfully

@@ -70,9 +70,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ext\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\dev\Slask\Github\PCAxis.Core\bin\Debug\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -485,6 +488,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
     <None Include="Strong Name Key.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -495,10 +499,6 @@
     <ProjectReference Include="..\PCAxis.Common\PCAxis.Common.vbproj">
       <Project>{923414B2-36AD-48E1-919A-B92418E6A2FC}</Project>
       <Name>PCAxis.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
-      <Project>{630041BC-4531-4547-9820-FE4290A18A54}</Project>
-      <Name>PCAxis.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
       <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
