@@ -25,7 +25,7 @@ Public Class TableOfContentCodebehind
     Inherits PaxiomControlBase(Of TableOfContentCodebehind, TableOfContent)
 
 #Region "Private fields"
-    Private _menu As PxMenuBase
+    Private _menu As Item
     Private _pathHandler As PathHandler
 #End Region
 
@@ -86,26 +86,30 @@ Public Class TableOfContentCodebehind
                 Dim node As New TreeNode()
                 node.SelectAction = TreeNodeSelectAction.Expand
                 node.PopulateOnDemand = True
-                node.Text = _menu.RootItem.Text
+                node.Text = _menu.Text
                 node.Value = GetRootNodeValue()
-                If IsTableListLink(_menu.RootItem) Then
-                    SetTableListLink(_menu.RootItem, node)
+                If IsTableListLink(_menu) Then
+                    SetTableListLink(_menu, node)
                 End If
                 If Marker.UrlLinkMode = UrlLinkModeType.Image Then
-                    AddImageLinks(_menu.RootItem, node)
+                    If TypeOf _menu Is PxMenuItem Then
+                        AddImageLinks(CType(_menu, PxMenuItem), node)
+                    End If
                 End If
 
                 MenuNavigationTree.Nodes.Add(node)
             Else
-                If IsTableListLink(_menu.RootItem) Then
-                    Dim node As New TreeNode(_menu.RootItem.Text)
-                    SetTableListLink(_menu.RootItem, node)
+                If IsTableListLink(_menu) Then
+                    Dim node As New TreeNode(_menu.Text)
+                    SetTableListLink(_menu, node)
                     MenuNavigationTree.Nodes.Add(node)
                 Else
                     MenuNavigationTree.ExpandDepth = 0
-                    For Each Item As Item In _menu.RootItem.SubItems
-                        AddTreeViewNode(Item, Nothing)
-                    Next
+                    If TypeOf _menu Is PxMenuItem Then
+                        For Each Item As Item In CType(_menu, PxMenuItem).SubItems
+                            AddTreeViewNode(Item, Nothing)
+                        Next
+                    End If
                 End If
             End If
 
@@ -132,7 +136,7 @@ Public Class TableOfContentCodebehind
                 rootValue = Marker.StartNode
             Else
                 'rootValue = _menu.RootItem.ID.AsString()
-                rootValue = _pathHandler.Combine("", _menu.RootItem.ID)
+                rootValue = _pathHandler.Combine("", _menu.ID)
             End If
         End If
 
@@ -241,8 +245,8 @@ Public Class TableOfContentCodebehind
             Exit Sub
         End If
 
-        If TypeOf (_menu.CurrentItem) Is PxMenuItem Then
-            Dim menuitem As PxMenuItem = CType(_menu.CurrentItem, PxMenuItem)
+        If TypeOf (_menu) Is PxMenuItem Then
+            Dim menuitem As PxMenuItem = CType(_menu, PxMenuItem)
 
             For Each item As PCAxis.Menu.Item In menuitem.SubItems
                 'If e.Node.Value <> item.Selection Then
@@ -279,17 +283,11 @@ Public Class TableOfContentCodebehind
 
         _menu = Marker.GetMenu(id)
 
-        If Not id Is Nothing Then
-            'Dim cid As ItemSelection = ItemSelectionHelper.CreateFromString(id)
-            Dim cid As ItemSelection = _pathHandler.GetSelection(id)
-            _menu.SetCurrentItemBySelection(cid.Menu, cid.Selection)
-        End If
-
-        If TypeOf (_menu.CurrentItem) Is PxMenuItem Then
+        If TypeOf (_menu) Is PxMenuItem Then
             Dim _MenuItemList As New List(Of MenuLink)
             Dim _MenuLinkList As New List(Of MenuLink)
 
-            For Each childItem As Item In CType(_menu.CurrentItem, PxMenuItem).SubItems
+            For Each childItem As Item In CType(_menu, PxMenuItem).SubItems
 
                 Dim MenuLinkItem As New MenuLink
 
@@ -414,28 +412,15 @@ Public Class TableOfContentCodebehind
     ''' <remarks></remarks>
     Private Sub AddImageLinks(ByVal item As PxMenuItem, ByVal node As TreeNode)
         If Marker.UrlLinkMode = UrlLinkModeType.Image Then
-            'If Not CType(item, PxMenuItem).HasSubItems Then
-            '    If Not String.IsNullOrEmpty(item.Parent.Selection) Then
-            '        'Set item as the current item to explicitly load its subitems
-            '        _menu.SetCurrentItemBySelection(item.Selection)
-            '        'Restore the current item
-            '        _menu.SetCurrentItemBySelection(item.Parent.Selection)
-            '    End If
-            'End If
+
 
             For Each url As PCAxis.Menu.Url In item.Urls
-                'If TypeOf subitem Is PCAxis.Menu.Link Then
-                '    If CType(subitem, PCAxis.Menu.Link).Type = LinkType.URL Then
-                '        'Not all URL-links shall be displayed within the tree
-                '        If CType(subitem, PCAxis.Menu.Url).LinkPres = LinkPres.Icon Then
-                '            'node.Text = node.Text & "<a href=""" & GetMenuItemURL(subitem) & """ class='tableofcontent_urllink' target='_new'>&nbsp;</a>"
+
                 If url.LinkPres = LinkPres.Icon Then
                     node.Text = node.Text & "|" & GetMenuItemURL(url)
                     node.ToolTip = GetLocalizedString("CtrlTableOfContentExternalLinkTooltip")
                 End If
-                '        End If
-                '    End If
-                'End If
+
             Next
         End If
 
@@ -486,12 +471,16 @@ Public Class TableOfContentCodebehind
         Dim px As Boolean = False
         Dim folder As Boolean = False
 
-        If Not Item.HasSubItems Then
-            'Load subitems
-            _menu.SetCurrentItemBySelection(Item.ID.Menu, Item.ID.Selection)
-            'Set the current item
-            _menu.SetCurrentItemBySelection(Item.ID.Menu, Item.Parent.ID.Selection)
+        Dim pHandler As PathHandler = PathHandlerFactory.Create(Marker.DatabaseType)
+
+        Dim nodeid As String = pHandler.Combine(Item.ID.Menu, Item.ID)
+
+        Dim i As Item = Marker.GetMenu(nodeid)
+
+        If TypeOf i Is PxMenuItem Then
+            Item = CType(i, PxMenuItem)
         End If
+
 
         For Each childItem As Item In Item.SubItems
             If TypeOf (childItem) Is PCAxis.Menu.Link Then

@@ -18,6 +18,7 @@ using PCAxis.Menu.Implementations;
 using System.Diagnostics;
 using PCAxis.Web.Controls;
 using log4net;
+using PX.Web.Interfaces.Cache;
 
 namespace PXWeb.Management
 {
@@ -28,6 +29,11 @@ namespace PXWeb.Management
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(PxContext));
 
+        public static ICacheService CacheService { get; set; }
+        
+        //Controller for all of the PxWeb caches
+        public static IPxCacheController CacheController { get; set; }
+
         /// <summary>
         /// Get the Paxiom model built for selection (only metadata)
         /// </summary>
@@ -36,7 +42,7 @@ namespace PXWeb.Management
         /// <param name="table">Table name (PX-file or CNMM datatable)</param>
         /// <param name="prefLang">Preferred language</param>
         /// <returns>The Paxiom model built for selection</returns>
-        public static PCAxis.Paxiom.PXModel GetPaxiomForSelection(string db, string path, string table, string prefLang)
+        public static PCAxis.Paxiom.PXModel GetPaxiomForSelection(string db, string path, string table, string prefLang, bool clearModel)
         {
             //Verify that user is authorized to view the table
             if (!AuthorizationUtil.IsAuthorized(db, path, table)) //TODO: Should be dbid, menu and selection. Only works for SCB right now... (2018-11-14)
@@ -76,9 +82,9 @@ namespace PXWeb.Management
                     newpath = tablePath;
                 }
 
-                if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder.Path.Equals(newpath))
+                if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder.Path.Equals(newpath) && (clearModel == false)) 
                 {
-                   // Existing builder is built against the wanted table
+                    // Existing builder is built against the wanted table
                     builder = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder;
                 }
                 else
@@ -260,6 +266,18 @@ namespace PXWeb.Management
         /// <returns></returns>
         public static PCAxis.Menu.Item GetMenuItem(string db, string nodeId, string lang)
         {
+            Item item = null;
+            if (PxContext.CacheService != null)
+            {
+                string key = $"pxc_menu_{db}_{lang}_{nodeId}";
+                item = PxContext.CacheService.Get<Item>(key);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
+            
+           
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
 
             if (dbi == null)
@@ -267,17 +285,28 @@ namespace PXWeb.Management
                 return null;
             }
 
+            
+
             try
             {
                 if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.PX)
                 {
-                    return GetPxMenuItem(db, nodeId, lang);
+                    item = GetPxMenuItem(db, nodeId, lang);
                 }
                 else if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM)
                 {
-                    return GetCnmmMenuItem(db, nodeId, lang);
+                    item = GetCnmmMenuItem(db, nodeId, lang);
                 }
-                return null;
+                if (PxContext.CacheService != null)
+                {
+                    string key = $"pxc_menu_{db}_{lang}_{nodeId}";
+                    
+                    if (item != null)
+                    {
+                        PxContext.CacheService.Set(key, item);
+                    }
+                }
+                return item;
             }
             catch (Exception)
             {
@@ -370,7 +399,7 @@ namespace PXWeb.Management
             currentItem = null;
             return null;
         }
-        
+
         private static PxMenuBase GetCnmmMenuAndItem(string dbid, string nodeId, string lang, out PCAxis.Menu.Item currentItem)
         {
 
@@ -410,12 +439,12 @@ namespace PXWeb.Management
                                         // Store date in the PC-Axis date format
                                         tbl.SetAttribute("modified", tbl.Published.Value.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT));
                                     }
-                                    if (string.Compare(tblId + item.ID.Menu, PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Selection + PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Menu , true) == 0)
+                                    if (string.Compare(tblId + item.ID.Menu, PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Selection + PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId).Menu, true) == 0)
                                     {
                                         tblFix = tbl;
                                     }
                                 }
-                                
+
                                 if (String.IsNullOrEmpty(item.SortCode))
                                 {
                                     item.SortCode = item.Text;
@@ -440,6 +469,8 @@ namespace PXWeb.Management
 
             return menu;
         }
+
+
 
         /// <summary>
         /// Customize the table title

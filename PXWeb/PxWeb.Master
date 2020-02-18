@@ -12,7 +12,8 @@
 <head runat="server">
     <%--<title ><asp:Literal ID="litTitle" EnableViewState="false" runat="server" /></title>--%>
     <title><%= HeadTitle %></title>
-    <link href="Resources/Styles/reset.css" rel="stylesheet" type="text/css" media="screen" />  
+    <meta name="viewport" content="width=device-width"/>
+    <link href="Resources/Styles/reset.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/PxWeb.css" rel="stylesheet" type="text/css" media="screen" />  
     <link href="Resources/Styles/CommandBar.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/variableselector.css" rel="stylesheet" type="text/css" media="screen" />
@@ -33,13 +34,14 @@
     <link href="Resources/Styles/navigationFlow.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/breadcrumb.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/search.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/jQuery/redmond/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="Resources/Styles/jQuery/redmond/jquery-ui.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/jQuery/tablesorter/style.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/Custom.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/savequery.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="Resources/Styles/selectfromgroup.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="Resources/Styles/responsive.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-1.10.2.min.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-ui-1.10.3.custom.min.js") %>" type="text/javascript"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-ui-1.12.1.min.js") %>" type="text/javascript"></script>
     <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.client.js") %>" type="text/javascript"></script>
     <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.controls.js") %>" type="text/javascript"></script>
     <script src="<%= ResolveUrl("~/Resources/Scripts/jquery.tablesorter.min.js") %>" type="text/javascript"></script>

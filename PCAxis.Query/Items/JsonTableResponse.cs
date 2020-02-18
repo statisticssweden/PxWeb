@@ -8,12 +8,16 @@ namespace PCAxis.Query
 {
     public class TableResponse
     {
-        public TableResponse()
+		
+
+		public TableResponse()
         {
+
             Columns = new List<TableResponseColumn>();
             Comments = new List<TableResponseComment>();
             Data = new List<TableResponseData>();
-        }
+			Metadata = new List<TableResponseMetadata>();
+		}
 
         [JsonProperty("columns")]
         public List<TableResponseColumn> Columns { get; set; }
@@ -23,7 +27,10 @@ namespace PCAxis.Query
 
         [JsonProperty("data")]
         public List<TableResponseData> Data { get; set; }
-    }
+
+		[JsonProperty("metadata")]
+		public List<TableResponseMetadata> Metadata { get; set; }
+	}
 
     public class TableResponseColumn
     {
@@ -71,4 +78,27 @@ namespace PCAxis.Query
         [JsonProperty("comments", DefaultValueHandling=DefaultValueHandling.Ignore)]
         public List<string> Comments { get; set; }
     }
+
+	public class TableResponseMetadata
+	{
+		private DateTime _updated;
+
+		[JsonProperty("infofile")]
+		public string Infofile { get; set; }
+
+		[JsonProperty("updated")]
+		public string Updated
+		{
+			get { return _updated.ToString("yyyy-MM-ddTHH:mm:ssZ"); }
+			set { _updated = DateTime.Parse(value).ToUniversalTime(); }
+		}
+
+		[JsonProperty("label")]
+		public string Label { get; set; }
+
+		[JsonProperty("source")]
+		public string Source { get; set; }
+
+		
+	}
 }

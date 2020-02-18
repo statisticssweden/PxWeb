@@ -52,6 +52,7 @@ namespace PXWeb.Admin
             cboSelectValuesFromGroup.SelectedValue = PXWeb.Settings.Current.Selection.SelectValuesFromGroup.ToString();
             cboButtonsForContentVariable.SelectedValue = PXWeb.Settings.Current.Selection.ButtonsForContentVariable.ToString();
             cboDefaultSearch.SelectedValue = PXWeb.Settings.Current.Selection.SearchValuesBeginningOfWordCheckBoxDefaultChecked.ToString();
+            cboPreSelectFirstContentAndTime.SelectedValue = PXWeb.Settings.Current.Selection.PreSelectFirstContentAndTime.ToString();
 
             if (PXWeb.Settings.Current.Selection.SearchButtonMode != PCAxis.Web.Controls.VariableSelectorSearchButtonViewMode.ManyValues)
             {
@@ -209,6 +210,7 @@ namespace PXWeb.Admin
                         sel.SelectValuesFromGroup = bool.Parse(cboSelectValuesFromGroup.SelectedValue);
                         sel.ButtonsForContentVariable = bool.Parse(cboButtonsForContentVariable.SelectedValue);
                         sel.SearchValuesBeginningOfWordCheckBoxDefaultChecked = bool.Parse(cboDefaultSearch.SelectedValue);
+                        sel.PreSelectFirstContentAndTime = bool.Parse(cboPreSelectFirstContentAndTime.SelectedValue);
                         SetSelectedPresentationViews((List<String>)sel.PresentationViews);
                         SetSelectedOutputFormats((List<String>)sel.OutputFormats);
 
@@ -444,6 +446,10 @@ namespace PXWeb.Admin
         protected void DefaultSearchInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsSelectionDefaultSearch", "PxWebAdminSettingsSelectionDefaultSearchInfo");
+        }
+        protected void PreSelectFirstContentAndTimeInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsSelectionPreSelectFirstContentAndTime", "PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo");
         }
     }
 }

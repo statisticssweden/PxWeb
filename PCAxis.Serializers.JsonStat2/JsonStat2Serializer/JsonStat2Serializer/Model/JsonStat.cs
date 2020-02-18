@@ -72,22 +72,17 @@
             }
         }
 
+
+
         /// <summary>
         /// It contains the update time of the dataset. It is a string representing a date in an ISO 8601 format recognized by the Javascript Date.parse method.
         /// http://json-stat.org/format/#updated
         /// </summary>
         [JsonProperty("updated")]
-        public DateTime Updated
+        public string Updated
         {
-            get
-            {
-                return _updated;
-            }
-
-            set
-            {
-                _updated = value;
-            }
+            get { return _updated.ToString("yyyy-MM-ddTHH:mm:ssZ"); }
+            set { _updated = DateTime.Parse(value).ToUniversalTime(); }
         }
 
         /// <summary>

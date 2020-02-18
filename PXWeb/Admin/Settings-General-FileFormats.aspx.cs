@@ -33,6 +33,7 @@ namespace PXWeb.Admin
             txtCellLimitDownload.Text = PXWeb.Settings.Current.General.FileFormats.CellLimitDownloads.ToString();
             cboExcelInformationLevel.SelectedValue = PXWeb.Settings.Current.General.FileFormats.Excel.InformationLevel.ToString();
             cboExcelDoubleColumn.SelectedValue = PXWeb.Settings.Current.General.FileFormats.Excel.DoubleColumn.ToString();
+            cboFileBaseName.SelectedValue = PXWeb.Settings.Current.General.FileFormats.FileBaseName.ToString().ToLower();
         }
 
         /// <summary>
@@ -48,10 +49,24 @@ namespace PXWeb.Admin
                 {
                     try
                     {
-                        PXWeb.FileFormatsSettings fileFormats = (PXWeb.FileFormatsSettings)PXWeb.Settings.NewSettings.General.FileFormats;
+                        PXWeb.FileFormatsSettings fileFormats = (PXWeb.FileFormatsSettings)PXWeb.Settings.NewSettings.General.FileFormats;                       
                         PXWeb.ExcelSettings excel = (PXWeb.ExcelSettings)PXWeb.Settings.NewSettings.General.FileFormats.Excel;
 
                         fileFormats.CellLimitDownloads = int.Parse(txtCellLimitDownload.Text);
+
+                        switch (cboFileBaseName.SelectedValue.ToString().ToLower())
+                        {
+                            case "matrix":
+                                fileFormats.FileBaseName = PCAxis.Paxiom.FileBaseNameType.Matrix;
+                                break;
+                            case "tableid":
+                                fileFormats.FileBaseName = PCAxis.Paxiom.FileBaseNameType.TableID;
+                                break;
+                            default:
+                                fileFormats.FileBaseName = PCAxis.Paxiom.FileBaseNameType.Matrix;
+                                break;
+                        }
+
                         switch (cboExcelInformationLevel.SelectedValue)
                         {
                             case "None":
@@ -125,6 +140,10 @@ namespace PXWeb.Admin
         protected void CellLimitDownloadInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsFileFormatsCellLimitDownload", "PxWebAdminSettingsFileFormatsCellLimitDownloadInfo");
+        }
+        protected void FileBaseNameInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsFileFormatsFileBaseName", "PxWebAdminSettingsFileFormatsFileBaseNameInfo");
         }
         protected void ExcelInformationLevelInfo(object sender, ImageClickEventArgs e)
         {

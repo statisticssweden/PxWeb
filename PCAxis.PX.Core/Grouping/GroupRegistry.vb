@@ -279,7 +279,7 @@ Namespace PCAxis.Paxiom
                 dir = New DirectoryInfo(_groupingDir)
 
 
-                For Each f As FileInfo In dir.GetFiles
+                For Each f As FileInfo In dir.GetFiles("*", SearchOption.AllDirectories)
                     'Get avaliable groupings from the vs-files in the directory
                     If f.Extension.ToLower.Equals(".vs") Then
                         ReadValuesetFile(f, _valuesets, _domains, _groupingInfoMeta, True)

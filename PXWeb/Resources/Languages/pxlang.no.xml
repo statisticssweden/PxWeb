@@ -786,6 +786,8 @@
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchInfo" value="Bestemmer om søket skal være fritekst søk eller søk i starten av varibelnavn." />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchFreeText" value="Fritekstsøk" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Starten av ord" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Forhåndsvalgt første verdi" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Bestemmer om første verdi for statistikkvariabel og tid skal være forhåndsvalgt" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Vis navigasjonssti" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Vis navigasjonssti under brødsmule. &#xD;&#xA;Vis valgt tabell, valgt variabel, vis tabell" />
   <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Søkeknappmodus" />

@@ -109,5 +109,10 @@ namespace PXWeb
         /// Decides default search option. If false the search is a inside text search
         /// </summary>
         bool SearchValuesBeginningOfWordCheckBoxDefaultChecked { get; }
+
+        /// <summary>
+        /// Decides if first value for content and time are pre selected
+        /// </summary>
+        bool PreSelectFirstContentAndTime { get; }
     }
 }

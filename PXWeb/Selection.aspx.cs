@@ -109,9 +109,22 @@ namespace PXWeb
             if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
             {
                 _previousModel = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel;
+                VariableSelector1.PreSelectFirstContentAndTime = false;
+            }
+            else
+            {
+                VariableSelector1.PreSelectFirstContentAndTime = PXWeb.Settings.Current.Selection.PreSelectFirstContentAndTime;
             }
 
-            PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = PXWeb.Management.PxContext.GetPaxiomForSelection(db, path, table, lang);
+            // Check if we are being called from a saved query with the ?select switch. If that is the case we should always clear the PxModel.
+            bool clearModel = false;
+            if (HttpContext.Current.Session["SelectionClearPxModel"] != null)
+            {
+                clearModel = (bool)HttpContext.Current.Session["SelectionClearPxModel"];
+                HttpContext.Current.Session.Remove("SelectionClearPxModel");
+            }
+
+            PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = PXWeb.Management.PxContext.GetPaxiomForSelection(db, path, table, lang, clearModel);
             
             if (!IsPostBack)
             {
@@ -276,12 +289,14 @@ namespace PXWeb
         private void InitializeMetatags()
         {
             //Set value on metatags
-            //Retrieve text for the meta tag title from the menu or table heading
-            IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
-            PCAxis.Menu.Item currentItem = PXWeb.Management.PxContext.GetMenuItem(url.Database, url.TablePath);
+
             //Meta name/property Title
             if (PXWeb.Settings.Current.Selection.TitleFromMenu)
             {
+                //Retrieve text for the meta tag title from the menu or table heading
+                IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
+                PCAxis.Menu.Item currentItem = PXWeb.Management.PxContext.GetMenuItem(url.Database, url.TablePath);
+
                 TableTitle = currentItem.Text;
             }
             else 

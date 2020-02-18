@@ -119,6 +119,9 @@ namespace PXWeb
 
             xpath = "./searchValuesBeginningOfWordCheckBoxDefaultChecked";
             SearchValuesBeginningOfWordCheckBoxDefaultChecked = SettingsHelper.GetSettingValue(xpath, selectionNode, false);
+
+            xpath = "./preSelectFirstContentAndTime";
+            PreSelectFirstContentAndTime = SettingsHelper.GetSettingValue(xpath, selectionNode, false);
         }
         
         /// <summary>
@@ -191,6 +194,9 @@ namespace PXWeb
 
             xpath = "./searchValuesBeginningOfWordCheckBoxDefaultChecked";
             SettingsHelper.SetSettingValue(xpath, selectionNode, SearchValuesBeginningOfWordCheckBoxDefaultChecked.ToString());
+
+            xpath = "./preSelectFirstContentAndTime";
+            SettingsHelper.SetSettingValue(xpath, selectionNode, PreSelectFirstContentAndTime.ToString());
         }
 
         #endregion
@@ -236,6 +242,7 @@ namespace PXWeb
         public bool SelectValuesFromGroup { get; set; }
         public bool ButtonsForContentVariable { get; set; }
         public bool SearchValuesBeginningOfWordCheckBoxDefaultChecked { get; set; }
+        public bool PreSelectFirstContentAndTime { get; set; }
 
         #endregion
 

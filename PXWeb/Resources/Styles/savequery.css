@@ -33,14 +33,15 @@
     display: inline-block;
     padding-right: 10px;
 }
-.savequery_informationtext
-{
+.savequery_informationtext {
+    margin-top: 5px;
 }
 .savequery_timeperioddiv
 {
     float:left; 
     width: 50%; 
-    margin-top:5px;  
+    margin-top:0px;  
+    padding-right: 10px;
 }
 .savequery_saveasdiv
 {

@@ -206,6 +206,10 @@ Namespace PCAxis.Paxiom.Operations
 
             newModel.Data.CurrentIndex = oldModel.Data.CurrentIndex
 
+            If oldMeta.ContentVariable IsNot Nothing Then
+                newMeta.ContentVariable = newMeta.Variables.GetByCode(oldMeta.ContentVariable.Code)
+            End If
+
             'newModel = New PXModel(newMeta, newData)
             newModel.Meta.CreateTitle()
             newModel.IsComplete = True

@@ -301,7 +301,8 @@ namespace PCAxis.Query
 
             if (s.ValueCodes.Count != query.Selection.Values.Length)
             {
-                //TODO Error missmatch between the number of values
+                //Error missmatch between the number of values
+                return null;
             }
 
             return s;
@@ -330,8 +331,8 @@ namespace PCAxis.Query
 
         public static bool TryParseSavedQueryOutputFormat(string desiredFormat, out string formatString)
         {
-            SavedQueryOutputFormatType newFormat;
-            if (Enum.TryParse(desiredFormat, out newFormat))
+
+            if (Enum.TryParse(desiredFormat, out SavedQueryOutputFormatType newFormat))
             {
                 switch (newFormat)
                 {
@@ -374,7 +375,10 @@ namespace PCAxis.Query
                     case SavedQueryOutputFormatType.json_stat:
                         formatString = "FileTypeJsonStat";
                         break;
-                    case SavedQueryOutputFormatType.json:
+					case SavedQueryOutputFormatType.json_stat2:
+						formatString = "FileTypeJsonStat2";
+						break;
+					case SavedQueryOutputFormatType.json:
                         formatString = "FileTypeJson";
                         break;
                     case SavedQueryOutputFormatType.html5_table:

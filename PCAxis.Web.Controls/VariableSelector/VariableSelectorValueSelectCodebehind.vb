@@ -214,6 +214,10 @@ Public Class VariableSelectorValueSelectCodebehind
                 NumberValuesTotal.Text = DataFormatter.NumericToString(Marker.Variable.Values.Count, 0, LocalizationManager.GetTwoLetterLanguageCode())
         End Select
 
+        If (Marker.PreSelectFirstContentAndTime) Then
+            SelectFirstContentAndTimeValue()
+        End If
+
         'If Me.ValuesListBox.Items.Count < Marker.JavascriptRowLimit Then
         ValuesListBox.Attributes.Add("onchange", "UpdateNumberSelected('" + ValuesListBox.ClientID + "', '" + NumberValuesSelected.ClientID + "', '" + Marker.Variable.Placement.ToString() + "','" + Marker.LimitSelectionsBy + "')")
         'End If
@@ -1121,6 +1125,16 @@ Public Class VariableSelectorValueSelectCodebehind
         End If
         UpdateSelectedStats()
 
+    End Sub
+
+    ''' <summary>
+    ''' Select first content and time value in listbox
+    ''' </summary>
+    ''' <remarks></remarks>
+    Protected Sub SelectFirstContentAndTimeValue()
+        If Marker.Variable.IsContentVariable Or Marker.Variable.IsTime Then
+            ValuesListBox.SelectedIndex = 0
+        End If
     End Sub
 
 End Class

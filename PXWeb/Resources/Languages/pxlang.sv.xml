@@ -498,9 +498,9 @@
   <sentence name="PageViewDataSortDescription" value="Klicka på kolumnernas rubrik för att sortera tabellen. Håll inne shift för att sortera efter flera kolumner." />
   <sentence name="PageViewDataSortCopyInstructions" value="För att kopiera tabellen: Välj 'Markera allt' i Redigera-menyn och sedan 'Kopiera'. Alternativt tryck Ctrl+A och sedan Ctrl+C" />
   <sentence name="CancelButton" value="Avbryt" />
-  <sentence name="PxWebApplicationTitle" value="PxWeb 2019 v1" />
-  <sentence name="PxWebApplicationName" value="PxWeb 2019 v1" />
-  <sentence name="PxWebLogoAlt" value="PxWeb 2019 v1" />
+  <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v1" />
+  <sentence name="PxWebApplicationName" value="PxWeb 2020 v1" />
+  <sentence name="PxWebLogoAlt" value="PxWeb 2020 v1" />
   <sentence name="PxWebHome" value="Hem" />
   <sentence name="PxWebMenu" value="Meny" />
   <sentence name="PxWebSelection" value="Val" />
@@ -606,7 +606,7 @@
 
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2019 v1" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2020 v1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb hemsida" />
   <sentence name="PxWebAdminSaveButton" value="Spara" />
   <sentence name="PxWebAdminGenerateButton" value="Generera" />
@@ -664,8 +664,14 @@
   <sentence name="PxWebAdminSettingsPathsPxDatabasePathInfo" value="Sökväg till katalog som innehåller PX databaser" />
   <sentence name="PxWebAdminSettingsPathsAggregationPath" value="Sökväg aggregering" />
   <sentence name="PxWebAdminSettingsPathsAggregationPathInfo" value="Sökväg till katalog som innehåller aggregeringsfiler" />
+  
   <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Max nedladdningsbara celler" />
   <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Maximalt antal celler som kan laddas ned till fil för en tabell" />
+  <sentence name="PxWebAdminSettingsFileBaseName" value="Hämta filnamn från"/>
+  <sentence name="PxWebAdminSettingsFileBaseNameTableId" value="Tabell id"/>
+  <sentence name="PxWebAdminSettingsFileBaseNameMatrix" value="Matrix"/>
+  <sentence name="PxWebAdminSettingsFileFormatsFileBaseName" value="Filnamn" />
+  <sentence name="PxWebAdminSettingsFileFormatsFileBaseNameInfo" value="Hämta namn på filen från matrix eller tabell id när en tabell laddas ned, till exempel Excel, csv. För att skapa ett unikt filnamn så konkateneras filnamnet med datum och tid." />
   <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel" />
   <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevel" value="Informationsnivå" />
   <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelInfo" value="Vilken information som ska visas i Excelfilen" />
@@ -675,6 +681,7 @@
   <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllInformation" value="All information" />
   <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumn" value="Separat kodkolumn" />
   <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumnInfo" value="Om kod alltid ska visas i separat kolumn eller inte" />
+  
   <sentence name="PxWebAdminSettingsGlobalSecrecyOption" value="Sekretesskydd" />
   <sentence name="PxWebAdminSettingsGlobalSecrecyOptionInfo" value="Om datavärden ska förvrängas då de presenteras" />
   <sentence name="PxWebAdminSettingsGlobalSecrecyOptionNone" value="Inget" />
@@ -811,6 +818,8 @@
   <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariableInfo" value="Om knappar (Välj alla, avmarkera alla, sortera fallande...) ska visas för innehållsvariabler eller inte."/>
   <sentence name="PxWebAdminSettingsSelectionDefaultSearch" value="Standard sökemetod" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchInfo" value="Bestämmer om sökningen skal vara fritextsök eller sök i början av varibelnamnet." />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Förvälj första värdet" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Bestämmer om första värdet för innehålls- samt tidsvariabeln ska förväljas på valsidan" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchFreeText" value="Fritextsök" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Början av ord" />
 
@@ -882,7 +891,7 @@
   <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sorteringsordning"/>
   <sentence name="PxWebAdminSortOrderFileName" value="Filnamn"/>
   <sentence name="PxWebAdminSortOrderMatrix" value="Matrix"/>
-  <sentence name="PxWebAdminSortOrderTitle" value="Titel"/>
+  <sentence name="PxWebAdminSortOrderTitle" value="Beskrivning/Titel"/>
   <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Välj vad som ska styra sorteringsordningen på tabellerna i databasen"/>
   <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Skapa sökindex"/>
   <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="Om valt så kommer skapande av sökindex att automatiskt initeras efter att databasen har blivit genererad."/>
@@ -902,8 +911,8 @@
   <sentence name="PxWebAdminToolsResetAggregationInfo" value="Omläsning av aggregeringar genomförs." />
   <sentence name="PxWebAdminToolsResetDatabases" value="Ladda om databaser" />
   <sentence name="PxWebAdminToolsResetDatabasesInfo" value="Omläsning av befintliga databaser genomförs." />
-  <sentence name="PxWebAdminToolsResetSavedQueryCache" value="Töm sparad fråga cache" />
-  <sentence name="PxWebAdminToolsResetSavedQueryCacheInfo" value="Tömmer cachen för av sparade frågor." />
+  <sentence name="PxWebAdminToolsResetClearCaches" value="Töm cachar" />
+  <sentence name="PxWebAdminToolsResetClearCachesInfo" value="Tömmer alla PxWeb cachar" />
   <sentence name="PxWebAdminToolsChangePasswordOld" value="Gammalt lösenord" />
   <sentence name="PxWebAdminToolsChangePasswordNew" value="Nytt lösenord" />
   <sentence name="PxWebAdminToolsChangePasswordVerify" value="Verifiera nytt lösenord" />

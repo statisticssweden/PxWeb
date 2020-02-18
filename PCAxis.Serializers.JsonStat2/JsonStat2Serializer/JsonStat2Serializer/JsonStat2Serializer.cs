@@ -1,10 +1,14 @@
-﻿using log4net;
+﻿using System;
+using log4net;
 using Newtonsoft.Json;
 using PCAxis.Paxiom;
-using System;
+using PCAxis.Metadata;
+using PCAxis.Paxiom.Extensions;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
+
 
 namespace PCAxis.Serializers.JsonStat2
 {
@@ -20,6 +24,13 @@ namespace PCAxis.Serializers.JsonStat2
         private const string GEO = "geo";
         private const string SIZE = "size";
         private const string DECIMALS = "decimals";
+        private const string EXTENSION = "extension";
+        private const string DESCRIBEDBY = "describedby";
+
+		//Field in JSON-Stat, used for PX extention 
+		private const string PX = "px";
+
+		private MetaLinkManager metaLinkManager = new MetaLinkManager();
 
         private Dictionary<double, string> BuildDataSymbolMap(PXMeta meta)
         {
@@ -32,34 +43,56 @@ namespace PCAxis.Serializers.JsonStat2
             dataSymbolMap.Add(PXConstant.DATASYMBOL_4, string.IsNullOrEmpty(meta.DataSymbol4) ? PXConstant.DATASYMBOL_4_STRING : meta.DataSymbol4);
             dataSymbolMap.Add(PXConstant.DATASYMBOL_5, string.IsNullOrEmpty(meta.DataSymbol5) ? PXConstant.DATASYMBOL_5_STRING : meta.DataSymbol5);
             dataSymbolMap.Add(PXConstant.DATASYMBOL_6, string.IsNullOrEmpty(meta.DataSymbol6) ? PXConstant.DATASYMBOL_6_STRING : meta.DataSymbol6);
-            dataSymbolMap.Add(PXConstant.DATASYMBOL_7, string.IsNullOrEmpty(meta.DataSymbol7) ? PXConstant.DATASYMBOL_7_STRING : meta.DataSymbol7);
+            dataSymbolMap.Add(PXConstant.DATASYMBOL_7, string.IsNullOrEmpty(meta.DataSymbolSum) ? PXConstant.DATASYMBOL_7_STRING : meta.DataSymbolSum); //Strange code due to lagacy which has been addressed but not fixed
             dataSymbolMap.Add(PXConstant.DATASYMBOL_NIL, string.IsNullOrEmpty(meta.DataSymbolNIL) ? PXConstant.DATASYMBOL_NIL_STRING : meta.DataSymbolNIL);
 
             return dataSymbolMap;
         }
 
-        private void ExtractValueAndStatus(PXMeta meta, double[] matrix, out double?[] value, out Dictionary<int, string> status)
+  
+        
+        private void ExtractValueAndStatus(PXModel model, out double?[] value, out Dictionary<int, string> status)
         {
-            value = new double?[matrix.Length];
+            int matrixSize = model.Data.MatrixColumnCount * model.Data.MatrixRowCount;
+            value = new double?[matrixSize];
+            var buffer = new double[model.Data.MatrixColumnCount];
+            var dataSymbolMap = BuildDataSymbolMap(model.Meta);
+            var formatter = new DataFormatter(model);
+            string note = string.Empty;
+            string dataNote = string.Empty;
             status = new Dictionary<int, string>();
-
-            var datasymbol = BuildDataSymbolMap(meta);
-
-            for (var i = 0; i < matrix.Length; i++)
+            int n = 0;
+            var numberFormatInfo = new System.Globalization.NumberFormatInfo();
+            for (int i = 0; i < model.Data.MatrixRowCount; i++)
             {
-                string symbol = null;
+                model.Data.ReadLine(i, buffer);
+                for (int j = 0; j < model.Data.MatrixColumnCount; j++)
+                {
+                    string symbol = null;
 
-                if (datasymbol.TryGetValue(matrix[i], out symbol))
-                {
-                    value[i] = null;
-                    status.Add(i, symbol);
-                }
-                else
-                {
-                    value[i] = matrix[i];
+                    if (dataSymbolMap.TryGetValue(buffer[j], out symbol))
+                    {
+                        value[n] = null;
+                        status.Add(n, symbol);
+                    }
+                    else
+                    {
+                        value[n] = Convert.ToDouble(formatter.ReadElement(i, j, ref note, ref dataNote, ref numberFormatInfo), numberFormatInfo);
+                        if (!string.IsNullOrEmpty(dataNote))
+                        {
+                            status.Add(n, dataNote);
+                        }
+                    }
+                    n++;
                 }
             }
+
+
         }
+
+ 
+
+
 
         public string BuildJsonStructure(PXModel model)
         {
@@ -76,13 +109,23 @@ namespace PCAxis.Serializers.JsonStat2
             var roleMetricList = new List<string>();
             var roleGeoList = new List<string>();
 
-            ExtractValueAndStatus(model.Meta, model.Data.Matrix, out value, out status);
+            ExtractValueAndStatus(model, out value, out status);
 
             jsonStat.Value = value;
             jsonStat.Status = status.Count == 0 ? null : status;
             jsonStat.Source = model.Meta.Source;
             jsonStat.Label = model.Meta.Title;
-            jsonStat.Updated = DateTime.Now;
+
+
+            if (model.Meta.ContentVariable != null && model.Meta.ContentVariable.Values.Count > 0)
+            {
+                var lastUpdatedContentsVariable = model.Meta.ContentVariable.Values.OrderByDescending(x => x.ContentInfo.LastUpdated).FirstOrDefault();
+                jsonStat.Updated = lastUpdatedContentsVariable.ContentInfo.LastUpdated.PxDateStringToDateTime().ToString();
+            }
+            else
+            {
+                jsonStat.Updated = model.Meta.CreationDate.PxDateStringToDateTime().ToString();
+            }
 
             // Dimension
             jsonStat.Dimension = new Dictionary<string, object>();
@@ -90,7 +133,7 @@ namespace PCAxis.Serializers.JsonStat2
             for (var i = 0; i < model.Meta.Variables.Count; i++)
             {
                 var variable = model.Meta.Variables[i];
-
+                var link = new Dictionary<string, object>();
                 var dimension = new Model.Dimension();
                 dimension.Label = variable.Name;
 
@@ -130,7 +173,12 @@ namespace PCAxis.Serializers.JsonStat2
 
                 dimension.Category = new Model.Category();
                 dimension.Category = category;
-
+                var extensions = GetAllSerializedMetaIdsForVariable(variable);
+                if (extensions.Count > 0)
+                {
+                    link.Add(DESCRIBEDBY, new List<object> { extensions });
+                    dimension.Link = link;
+                }
                 jsonStat.Dimension.Add(variable.Code, dimension);
 
                 size.Add(variable.Values.Count);
@@ -146,10 +194,12 @@ namespace PCAxis.Serializers.JsonStat2
                 {
                     roleMetricList.Add(variable.Code);
                 }
-
-                if (String.IsNullOrEmpty(variable.Map) == false)
+                if (variable.VariableType != null)
                 {
-                    roleGeoList.Add(variable.Code);
+                    if (variable.VariableType.ToUpper() == "G" || (variable.Map != null))
+                    {
+                        roleGeoList.Add(variable.Code);
+                    }
                 }
             }
 
@@ -164,12 +214,31 @@ namespace PCAxis.Serializers.JsonStat2
             // Role
             jsonStat.Role = new Dictionary<string, string[]>();
 
-            if (roleTimeList.Count > 0) { jsonStat.Role.Add(TIME, roleTimeList.ToArray()); }
+			//Extension, PX 
+			if (model.Meta.InfoFile != null || model.Meta.TableID != null || model.Meta.Decimals != -1)
+			{
+				jsonStat.Extension = new Dictionary<string, object>();
+				var px = new Model.Px();
+
+				px.infofile = model.Meta.InfoFile;
+				px.tableid = model.Meta.TableID;
+				//If not Showdecimal has value use Decimal
+				var decimals = model.Meta.ShowDecimals < 0 ? model.Meta.Decimals : model.Meta.ShowDecimals;
+				px.decimals = decimals;
+
+				jsonStat.Extension.Add(PX, px);
+			}
+
+
+			if (roleTimeList.Count > 0) { jsonStat.Role.Add(TIME, roleTimeList.ToArray()); }
             if (roleMetricList.Count > 0) { jsonStat.Role.Add(METRIC, roleMetricList.ToArray()); }
             if (roleGeoList.Count > 0) { jsonStat.Role.Add(GEO, roleGeoList.ToArray()); }
 
-            string result = JsonConvert.SerializeObject(jsonStat, Formatting.Indented);
 
+
+            // override converter to stop adding ".0" after interger values.
+            string result = JsonConvert.SerializeObject(jsonStat,new DecimalJsonConverter());
+ 
             return result;
         }
 
@@ -188,6 +257,43 @@ namespace PCAxis.Serializers.JsonStat2
             var fileName = model.Meta.MainTable + ".json";
 
             File.WriteAllText(path + fileName, result, encoding);
+        }
+
+        private Dictionary<string, object> GetAllSerializedMetaIdsForVariable(Variable variable)
+        {
+            var metaIds = new Dictionary<string, object>();
+            var extension = new Dictionary<string, object>();
+            if (!string.IsNullOrWhiteSpace(variable.MetaId))
+            {
+                metaIds.Add(variable.Code, SerializeMetaIds(variable.MetaId));
+            }
+            foreach (var value in variable.Values)
+            {
+                if (!string.IsNullOrWhiteSpace(value.MetaId))
+                {
+                    metaIds.Add(value.Code, SerializeMetaIds(value.MetaId));
+                }
+            }
+            if (metaIds.Count > 0)
+            {
+                extension.Add(EXTENSION, metaIds);
+            }
+            return extension;
+        }
+
+        private string SerializeMetaIds(string metaId)
+        {
+            var metaIds = metaId.Split(metaLinkManager.GetSystemSeparator(), StringSplitOptions.RemoveEmptyEntries);
+            List<string> metaIdsAsString = new List<string>();
+            foreach (var meta in metaIds)
+            {
+                var metaLinks = meta.Split(metaLinkManager.GetParamSeparator(), StringSplitOptions.RemoveEmptyEntries);
+                if (metaLinks.Length > 0)
+                {
+                    metaIdsAsString.Add(meta);
+                }
+            }
+            return (string.Join(" ", metaIdsAsString));
         }
     }
 
