@@ -384,8 +384,9 @@ namespace PXWeb.UserControls
             string appPath = String.Empty;
             System.Web.HttpContext context = System.Web.HttpContext.Current;
 
+            // UrlReferrer handles the case when PxWeb is installed on load balanced servers
             appPath = String.Format("{0}://{1}{2}{3}",
-                                        context.Request.Url.Scheme,
+                                        !string.IsNullOrWhiteSpace(context.Request.UrlReferrer.Scheme) ? context.Request.UrlReferrer.Scheme : context.Request.Url.Scheme,
                                         context.Request.Url.Host,
                                         context.Request.Url.Port.Equals(80) ? string.Empty : ":" + context.Request.Url.Port,
                                         context.Request.ApplicationPath);

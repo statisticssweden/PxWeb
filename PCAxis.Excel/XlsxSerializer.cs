@@ -169,23 +169,24 @@ namespace PCAxis.Excel
 						value = fmt.ReadElement(i, j, ref n, ref dataNote);
                         //*Decimal valueDecimal = Decimal.Parse(value.ToString());
                         //*string valueDecimal = "70,0";
-						//if (!value.IsNumeric())
-						//{
-						//    sheet.Cell(row, column + dataNoteValueOffset).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
-						//    sheet.Cell(row, column + dataNoteValueOffset).Style.Fill.BackgroundColor = XLColor.LightSalmon;
-						//}
-						//else
-						//{
-						//    sheet.Cell(row, column + dataNoteValueOffset).DataType = XLCellValues.Number;
-						//}
-						//sheet.Cell(row, column + dataNoteValueOffset).Value = value;
+                        //if (!value.IsNumeric())
+                        //{
+                        //    sheet.Cell(row, column + dataNoteValueOffset).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                        //    sheet.Cell(row, column + dataNoteValueOffset).Style.Fill.BackgroundColor = XLColor.LightSalmon;
+                        //}
+                        //else
+                        //{
+                        //    sheet.Cell(row, column + dataNoteValueOffset).DataType = XLCellValues.Number;
+                        //}
+                        //sheet.Cell(row, column + dataNoteValueOffset).Value = value;
 
+                        //2019-01-09 Removed background Color color in cell, lightsalmon. Do not add background color when cell contains a non numeric value.
                         setCell(
                             sheet.Cell(row, column + dataNoteValueOffset),                           
                             CellContentType.Data,
                             value,
                             !value.IsNumeric() ?
-                                (FormatCellDescription)(c => { c.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right; c.Style.Fill.BackgroundColor = XLColor.LightSalmon; })
+                                (FormatCellDescription)(c => { c.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;  }) 
                                 :
                                 (FormatCellDescription)(c => { c.DataType = XLCellValues.Number; c.Style.NumberFormat.Format = FormatNumericCell(GetDecimalPrecision(value, fmt.DecimalSeparator)); })
                         );

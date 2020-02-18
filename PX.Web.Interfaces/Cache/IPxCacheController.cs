@@ -9,6 +9,7 @@ namespace PX.Web.Interfaces.Cache
     public interface IPxCacheController
     {
         void Initialize(List<IPxCache> lstCache);
+        void Clear();
         //bool CanEnable();
     }
 }

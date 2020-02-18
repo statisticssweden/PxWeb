@@ -21,9 +21,14 @@ namespace PCAxis.Api
         public byte[] ResponseData { get; set; }
 
         public DateTime CreationTime { get; set; }
- 
+
+        public MenuObject Menu { get; set; }
+
+        public int HttpResponseCode { get; set; }
+
         public ResponseBucket()
         {
+            HttpResponseCode = 200;
             CreationTime = DateTime.Now;
         }
     }

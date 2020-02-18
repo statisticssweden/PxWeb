@@ -130,10 +130,37 @@ function VariableSelector_DeselectAllAndUpdateNrSelected(ListBoxID, StatsSpanID,
 // Deselect all elements in a listbox
 function VariableSelector_DeselectAll(ListBoxID) {
     var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
+    var currentOrder = new Array();
+
     for (var i = 0; i < selectbox.length; i++) {
         selectbox.options[i].selected = false;
+        currentOrder.push(selectbox.options[i].value)
     }
+
+    if ((ListBoxID in sessionStorage)) {
+        VariableSelector_OrignalOrder(ListBoxID, currentOrder)
+    }
+
     return false;
+}
+
+// Restore original order
+function VariableSelector_OrignalOrder(ListBoxID, currentOrder) {
+    var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
+    var originalOrder = JSON.parse(sessionStorage.getItem(ListBoxID));
+    var sortedOption;
+    var originalOption = new Array();
+    
+    for (var i = 0; i < originalOrder.length; i++) {
+        sortedOption = selectbox.options[currentOrder.indexOf(originalOrder[i])];
+        originalOption.push(sortedOption);
+    }
+
+    selectbox.options.length = 0;
+
+    for (var i = 0; i < originalOrder.length; i++) {
+        selectbox.add(originalOption[i], i);
+    }
 }
 
 // Sort all elements in a listbox in descending order and updates number selected
@@ -171,6 +198,13 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
     var lst;
     var contains;
 
+    var storeOriginalOrder = false;
+
+    if (!(ListBoxID in sessionStorage)) {
+        storeOriginalOrder = true;
+        var order = new Array();
+    }
+        
     //Get text
     sc = jQuery("#" + TextBoxID).prop("value");
 
@@ -198,6 +232,7 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
     sc = r;
 
     var cmplength = sc.length;
+    var rex = RegExp(sc, "gi");
 
     // Old browsers might not support startsWith
     if (!String.prototype.startsWith) {
@@ -207,27 +242,55 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
     }
 
     var searchStr = sc.toLowerCase();
+    var selected = new Array();
+    var originPos = new Array();    
 
     for (i = lst.options.length - 1; i > -1; i--) {
         var currentOption = lst.options[i];
 
+        //var result = currentOption.text.toLowerCase().search(rex);
+
+        if (storeOriginalOrder) {
+            order.unshift(currentOption.value);
+        }
+
         if (contains) {
-            if (currentOption.text.toLowerCase().indexOf(searchStr) !== -1) {
+            if (currentOption.text.toLowerCase().indexOf(searchStr) !== -1 || currentOption.text.toLowerCase().search(rex) > -1) {
                 currentOption.selected = true;
+                selected.unshift(currentOption);
+                originPos.unshift(currentOption.index);
             }
         } else {
             var optionText = currentOption.text.toLowerCase();
 
-            if (optionText.startsWith(searchStr) || optionText.indexOf(' ' + searchStr) !== -1) {
+            if ((optionText.startsWith(searchStr) || optionText.indexOf(' ' + searchStr) !== -1) || (optionText.substr(0, cmplength).search(rex) > -1) )
+            {
                 currentOption.selected = true;
+                selected.unshift(currentOption);
+                originPos.unshift(currentOption.index);
             }
         }
     }
 
+    if (storeOriginalOrder) {
+        sessionStorage.setItem(ListBoxID, JSON.stringify(order));
+    }
+
     UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy);
+    MoveSelectedToTop(lst, selected, originPos);
+    lst.scrollTop = 0;
 
     return false;
 }
+
+function MoveSelectedToTop(lst, selected, originPos) {
+    var options = lst.getElementsByTagName("OPTION");
+    
+    for (var i = 0; i < selected.length; i++) {
+        lst.removeChild(options[originPos[i]]);
+        lst.insertBefore(selected[i], options[i]);
+    }
+};
 
 // Compare helper used to sort text in ascending order
 function compareOptionTextAscending(a, b) {

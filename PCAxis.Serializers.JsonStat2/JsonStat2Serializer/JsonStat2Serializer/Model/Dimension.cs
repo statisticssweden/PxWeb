@@ -12,6 +12,7 @@
         private Dictionary<string, object> _extension;
         private string _label;
         private Model.Category _category;
+        private Dictionary<string, object> _link;
 
         /// <summary>
         /// extension allows JSON-stat to be extended for particular needs. Providers are free to define where they include this property and what children are allowed in each case.
@@ -63,5 +64,21 @@
             }
         }
 
+        /// <summary>
+        /// https://json-stat.org/format/#link
+        /// </summary>
+        [JsonProperty("link", NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, object> Link
+        {
+            get
+            {
+                return _link;
+            }
+
+            set
+            {
+                _link = value;
+            }
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace PXWeb
                 _requestLimiter = new PCAxis.Api.RequestLimiter("RQLIMIT_SQ:", Settings.Current.Features.SavedQuery.LimiterTimespan, Settings.Current.Features.SavedQuery.LimiterRequests, PCAxis.Api.Settings.Current.LimiterHttpHeaderName);
         }
 
+        private string _format;
         private string _language;
         private string _originaleSavedQuerylanguage;
 
@@ -96,7 +97,10 @@ namespace PXWeb
             }
 
             // ----- Handle changed output format -----
-            string format = GetChangedOutputFormat(routeData);
+            _format = GetChangedOutputFormat(routeData);
+
+            // ----- Handle changed language -----
+            HandleChangedLanguage();
 
             //Load saved query
             SavedQuery sq = null;
@@ -108,34 +112,53 @@ namespace PXWeb
                 if (PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File)
                 {
                     string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/queries/");
-                    queryName = System.IO.Path.Combine(path, queryName);
 
                     if (!queryName.ToLower().EndsWith(".pxsq"))
                     {
-                        string fullName = queryName + ".pxsq";
-
-                        if (System.IO.File.Exists(queryName))
-                        {
-                            //The saved query file is saved without the .pxsq extension
-                            //Rename saved query file with the .pxsq extension
-                            System.IO.File.Move(queryName, fullName);
-                        }
-
-                        queryName = fullName;
+                        queryName = queryName + ".pxsq";
                     }
 
-                    if (!System.IO.File.Exists(queryName))
+                    string[] allfiles = Directory.GetFiles(path, queryName, SearchOption.AllDirectories);
+
+                    if (allfiles.Length == 0)
                     {
-                        throw new SystemException();
+                        throw new HttpException(404, "HTTP/1.1 404 Not Found ");
                     }
+
+                    queryName = allfiles[0];
                 }
-                
+
+                //Check if the database is active. 
+                //It should not be possible to run a saved query if the database is not active
                 sq = PCAxis.Query.SavedQueryManager.Current.Load(queryName);
+				IEnumerable<string> db;
+				TableSource src = sq.Sources[0];
 
-                TableSource src = sq.Sources[0];
+				if (src.Type.ToLower() == "cnmm")
+				{
+					db = PXWeb.Settings.Current.General.Databases.CnmmDatabases;
+				}
+				else
+				{
+					db = PXWeb.Settings.Current.General.Databases.PxDatabases;
+				}
+				bool activeDatabase = false;
+				foreach (var item in db)
+				{
+					if (item.ToLower() == src.DatabaseId.ToLower())
+					{
+						activeDatabase = true;
+						break;
+					}					
+				}
+				if (!activeDatabase)
+				{
+					throw new SystemException();
+				}
 
-                //Validate that the user has the rights to access the table
-                string tableName = QueryHelper.GetTableName(src);
+
+				//Validate that the user has the rights to access the table
+				string tableName = QueryHelper.GetTableName(src);
                 //if (!AuthorizationUtil.IsAuthorized(src.DatabaseId, null, src.Source))
                 if (!AuthorizationUtil.IsAuthorized(src.DatabaseId, null, tableName)) //TODO: Should be dbid, menu and selection. Only works for SCB right now... (2018-11-14)
                 {
@@ -150,16 +173,16 @@ namespace PXWeb
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(format))
+                if (string.IsNullOrWhiteSpace(_format))
                 {
                     //Output format is not changed - use output format in the saved query
-                    format = sq.Output.Type;
+                    _format = sq.Output.Type;
                 }
 
                 // "Pre-flight" request from MS Office application
                 var userAgent = context.Request.Headers["User-Agent"];
                 //if (userAgent.ToLower().Contains("ms-office") && sq.Output.Type == PxUrl.VIEW_TABLE_IDENTIFIER)
-                if (userAgent.ToLower().Contains("ms-office"))
+                if (userAgent != null && userAgent.ToLower().Contains("ms-office"))
                 {
                     context.Response.Write("<html><body>ms office return</body></html>");
                     HttpContext.Current.ApplicationInstance.CompleteRequest();
@@ -170,19 +193,30 @@ namespace PXWeb
                 //We need to store to be able to run workflow due to variables are referenced with name and not ids
                 _originaleSavedQuerylanguage = sq.Sources[0].Language;
 
-                //Set language based on request if it is other than stored language
-                if (!string.IsNullOrEmpty(_language) && sq.Sources[0].Language != _language)
+                // Check from saved query output type is on screen. If so createCopy shall be true, else false
+                bool createCopy = CreateCopyOfCachedPaxiom(_format);
+
+                // Create cache key
+                string cacheKey = "";
+                if (_language != null)
                 {
-                    sq.Sources[0].Language = _language;
+                    cacheKey = string.Format("{0}_{1}", queryName, _language);
+                }
+                else
+                {
+                    cacheKey = string.Format("{0}_{1}", queryName, _originaleSavedQuerylanguage);
                 }
 
-                // Check from saved query output type is on screen. If so createCopy shall be true, else false
-                bool createCopy = CreateCopyOfCachedPaxiom(format);
+                // Handle redirects to the selection page in a special way. The model object will only contain metadata and no data
+                if (_format.Equals(PxUrl.PAGE_SELECT))
+                {
+                    cacheKey = string.Format("{0}_{1}", cacheKey, PxUrl.PAGE_SELECT);
+                }
 
                 // Try to get model from cache
-                model = PXWeb.Management.SavedQueryPaxiomCache.Current.Fetch(queryName, createCopy);
-                PaxiomManager.QueryModel = PXWeb.Management.SavedQueryPaxiomCache.Current.FetchQueryModel(queryName, createCopy);
-                
+                model = PXWeb.Management.SavedQueryPaxiomCache.Current.Fetch(cacheKey, createCopy);
+                PaxiomManager.QueryModel = PXWeb.Management.SavedQueryPaxiomCache.Current.FetchQueryModel(cacheKey, createCopy);
+
                 if (model == null)
                 {
                     DateTime timeStamp = DateTime.Now;
@@ -196,18 +230,24 @@ namespace PXWeb
                         model.Meta.SetLanguage(_originaleSavedQuerylanguage);
                     }
 
-                    model = QueryHelper.RunWorkflow(sq, model);
+                    // No need to run workflow if we are redirecting to the selection page
+                    if (!_format.Equals(PxUrl.PAGE_SELECT))
+                    {
+                        model = QueryHelper.RunWorkflow(sq, model);
+                    }
 
                     //Set back to requested langauge after workflow operations
                     if (!string.IsNullOrEmpty(_language) && _language != _originaleSavedQuerylanguage)
                     {
-                        model.Meta.SetLanguage(_language);
-                        sq.Sources[0].Language = _language;
+                        if (model.Meta.HasLanguage(_language))
+                        {
+                            model.Meta.SetLanguage(_language);
+                        }
                     }
-                    
+
                     // Store model in cache
-                    PXWeb.Management.SavedQueryPaxiomCache.Current.Store(queryName, model, timeStamp);
-                    PXWeb.Management.SavedQueryPaxiomCache.Current.StoreQueryModel(queryName, PaxiomManager.QueryModel, timeStamp);
+                    PXWeb.Management.SavedQueryPaxiomCache.Current.Store(cacheKey, model, timeStamp);
+                    PXWeb.Management.SavedQueryPaxiomCache.Current.StoreQueryModel(cacheKey, PaxiomManager.QueryModel, timeStamp);
                 }
 
                 if (!sq.Safe)
@@ -216,7 +256,7 @@ namespace PXWeb
                 }
             }
             catch (Exception ex)
-            {
+                {
 
                 if ((PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File && System.IO.File.Exists(queryName)) || 
                     (PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.Database))
@@ -230,8 +270,14 @@ namespace PXWeb
 
             sq.LoadedQueryName = queryName;
             PCAxis.Query.SavedQueryManager.Current.MarkAsRunned(queryName);
-            
-            ViewSerializerCreator.GetSerializer(format).Render(format, sq, model, safe);
+
+            // Tell the selection page that it sholud clear the PxModel
+            if (_format.Equals(PxUrl.PAGE_SELECT))
+            {
+                HttpContext.Current.Session.Add("SelectionClearPxModel", true);
+            }
+
+            ViewSerializerCreator.GetSerializer(_format).Render(_format, sq, model, safe);
         }
 
         /// <summary>
@@ -270,6 +316,19 @@ namespace PXWeb
             }
 
             return format;
+        }
+
+        /// <summary>
+        /// This method handles if the language for the saved query is overridden in the URL
+        /// </summary>
+        private void HandleChangedLanguage()
+        {
+            string lang = QuerystringManager.GetQuerystringParameter("lang");
+
+            if (lang != null)
+            {
+                _language = lang;
+            }
         }
 
         /// <summary>
@@ -524,10 +583,57 @@ namespace PXWeb
             PCAxis.Query.TableQuery tbl = new PCAxis.Query.TableQuery(builder.Model, selection);
             PaxiomManager.QueryModel = tbl;
 
-
-            builder.BuildForPresentation(selection);
+            BuildModelForPresentation(builder, selection);
 
             return builder.Model;
+        }
+
+        /// <summary>
+        /// Calls BuildForPresentation and handles special case when we have the following condition:
+        /// 1. Redirect to the selection page is demanded for the saved query using the ?select switch
+        /// 2. The setting "Remove single content" is set to True
+        /// 3. There is only one value selected for the content variable
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="selection"></param>
+        private void BuildModelForPresentation(IPXModelBuilder builder, PCAxis.Paxiom.Selection[] selection)
+        {
+            if (_format.Equals(PxUrl.PAGE_SELECT) && PCAxis.Paxiom.Settings.Metadata.RemoveSingleContent && (builder.Model.Meta.ContentVariable != null))
+            {
+                // Handle the special case...
+                Variable contentVar = builder.Model.Meta.ContentVariable.CreateCopyWithValues();
+                bool inHeading = (builder.Model.Meta.Heading.GetByCode(contentVar.Code) != null);
+                bool addContent = false;
+
+                PCAxis.Paxiom.Selection selCont = selection.First(s => s.VariableCode.Equals(contentVar.Code));
+                if (selCont.ValueCodes.Count == 1)
+                {
+                    // Remove all values except the one selected
+                    contentVar.Values.RemoveAll(x => x.Code != selCont.ValueCodes[0]);
+                    addContent = true;
+                }
+
+                // The content variable will be eliminated in BuildForPresentation ...
+                builder.BuildForPresentation(selection);
+
+                // ... but we need it on the selection page so we add it manually to the model after the call to BuildForPresentation
+                if (addContent)
+                {
+                    builder.Model.Meta.Variables.Add(contentVar);
+                    if (inHeading)
+                    {
+                        builder.Model.Meta.Heading.Add(contentVar);
+                    }
+                    else
+                    {
+                        builder.Model.Meta.Stub.Add(contentVar);
+                    }
+                }
+            }
+            else
+            {
+                builder.BuildForPresentation(selection);
+            }
         }
 
 

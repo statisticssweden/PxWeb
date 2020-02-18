@@ -115,10 +115,10 @@ Public Class FileTypeMarkerControlBase(Of TControl As FileTypeControlBase(Of TCo
         r.Clear()
         r.ContentType = mimeType
         r.AppendHeader("Content-Length", slength.ToString())
-        Dim a As String = PaxiomManager.PaxiomModel.Meta.Matrix
+        ''Dim a As String = PaxiomManager.PaxiomModel.Meta.Matrix
         'a.en(System.Text.Encoding.GetEncoding(model.Meta.CodePage))
         r.HeaderEncoding = (System.Text.Encoding.GetEncoding(PaxiomManager.PaxiomModel.Meta.CodePage))
-        r.AppendHeader("Content-Disposition", "attachment; filename=" + PaxiomManager.PaxiomModel.Meta.Matrix + "." + fileExtension)
+        r.AppendHeader("Content-Disposition", "attachment; filename=" + FileBaseName() + "." + fileExtension)
         r.BinaryWrite(buffer)
         'r.End()
 
@@ -133,4 +133,23 @@ Public Class FileTypeMarkerControlBase(Of TControl As FileTypeControlBase(Of TCo
         'Page.Response.BinaryWrite(buffer)
         'Page.Response.End()
     End Sub
+
+    ''' <summary>
+    ''' Create filename from selection in the settings-file
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function FileBaseName() As String
+
+        If Settings.Files.FileBaseName.Equals(PCAxis.Paxiom.FileBaseNameType.Matrix) AndAlso Not String.IsNullOrEmpty(PaxiomManager.PaxiomModel.Meta.Matrix) Then
+            Return PaxiomManager.PaxiomModel.Meta.Matrix + "_" + DateTime.Now.ToString("yyyyMMdd-HHmmss")
+
+        ElseIf Settings.Files.FileBaseName.Equals(PCAxis.Paxiom.FileBaseNameType.TableID) AndAlso Not String.IsNullOrEmpty(PaxiomManager.PaxiomModel.Meta.TableID) Then
+            Return PaxiomManager.PaxiomModel.Meta.TableID + "_" + DateTime.Now.ToString("yyyyMMdd-HHmmss")
+
+        Else
+            Return PaxiomManager.PaxiomModel.Meta.Matrix + "_" + DateTime.Now.ToString("yyyyMMdd-HHmmss")
+        End If
+
+
+    End Function
 End Class

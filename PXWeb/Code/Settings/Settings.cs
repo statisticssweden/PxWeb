@@ -471,7 +471,20 @@ namespace PXWeb
             PCAxis.Paxiom.Settings.DataNotes.Placment = _generalSettings.Global.DataNotePlacement;
             PCAxis.Paxiom.Settings.Metadata.RemoveSingleContent = _generalSettings.Global.RemoveSingleContent;
 
-            PCAxis.Paxiom.Settings.Files.CompleteInfoFile = _generalSettings.FileFormats.Excel.InformationLevel;
+            PCAxis.Paxiom.Settings.Files.CompleteInfoFile = _generalSettings.FileFormats.Excel.InformationLevel;            
+
+            switch (_generalSettings.FileFormats.FileBaseName)
+            {
+                case PCAxis.Paxiom.FileBaseNameType.Matrix:
+                    PCAxis.Paxiom.Settings.Files.FileBaseName = PCAxis.Paxiom.FileBaseNameType.Matrix;
+                    break;
+                case PCAxis.Paxiom.FileBaseNameType.TableID:
+                    PCAxis.Paxiom.Settings.Files.FileBaseName = PCAxis.Paxiom.FileBaseNameType.TableID;
+                    break;
+                default:
+                    PCAxis.Paxiom.Settings.Files.FileBaseName = PCAxis.Paxiom.FileBaseNameType.Matrix;
+                    break;
+            }
 
             if (_generalSettings.FileFormats.Excel.DoubleColumn)
             {

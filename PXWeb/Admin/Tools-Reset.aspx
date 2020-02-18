@@ -30,9 +30,10 @@
 </div>
 
 <div class="setting-field">
-    <asp:LinkButton ID="btnResetSavedQuery" runat="server" 
-                Text="<%$ PxString: PxWebAdminToolsResetSavedQueryCache %>" 
-                onclick="btnResetSavedQueryCache_Click" />
-    <asp:ImageButton ID="ImageButton1" runat="server" onclick="imgResetSavedQueryCache_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    <asp:LinkButton ID="btnClearCaches" runat="server" 
+                Text="<%$ PxString: PxWebAdminToolsResetClearCaches %>" 
+                onclick="btnClearCaches_Click" />
+    <asp:ImageButton ID="imgClearCaches" runat="server" onclick="imgClearCaches_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
 </div>
+
 </asp:Content>
