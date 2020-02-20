@@ -35,6 +35,7 @@ namespace PXWeb
 
     public class InMemoryCache : ICacheService, IPxCache
     {
+        static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(InMemoryCache));
         private bool _isEnabled = true;
         private int _cacheExpirationInMinutes;
         private HashSet<string> _cacheKeys = new HashSet<string>();
@@ -108,6 +109,7 @@ namespace PXWeb
                 finally
                 {
                     inCacheCleanProcess = false;
+                    _logger.Info("Cache cleared");
                 }
             }
         }
@@ -145,6 +147,7 @@ namespace PXWeb
         static log4net.ILog _logger = log4net.LogManager.GetLogger("Global");
         private ICacheService _metaCacheService = null;
         private IPxCache _metaPxCache = null;
+        private IPxCacheController _cacheController = null;
 
         public static void InitializeChartSettings(PCAxis.Chart.ChartSettings settings)
         {
@@ -209,6 +212,8 @@ namespace PXWeb
                     _metaCacheService = cacheService;
                     _metaPxCache = cacheService;
                 }
+
+                PXWeb.Management.PxContext.CacheService = _metaCacheService;
             }
 
             if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["RouteExtender"]))
@@ -441,12 +446,12 @@ namespace PXWeb
         /// </summary>
         private void InitializeCacheController()
         {
-            IPxCacheController controller;
+            //IPxCacheController controller;
             string strCacheController = ConfigurationManager.AppSettings["pxCacheController"]; // Do we have a customized cache controller?
 
             if (string.IsNullOrEmpty(strCacheController))
             {
-                controller = new PXWeb.Management.CacheController(); // Use the default cache controller
+                _cacheController = new PXWeb.Management.CacheController(); // Use the default cache controller
             }
             else
             {
@@ -456,11 +461,11 @@ namespace PXWeb
                     var parts = typeString.Split(',');
                     var typeName = parts[0].Trim();
                     var assemblyName = parts[1].Trim();
-                    controller = (IPxCacheController)Activator.CreateInstance(assemblyName, typeName).Unwrap(); // Use the customized cache controller
+                    _cacheController = (IPxCacheController)Activator.CreateInstance(assemblyName, typeName).Unwrap(); // Use the customized cache controller
                 }
                 catch (Exception)
                 {
-                    controller = new PXWeb.Management.CacheController();
+                    _cacheController = new PXWeb.Management.CacheController();
                 }
             }
 
@@ -475,7 +480,8 @@ namespace PXWeb
                 lstCache.Add(_metaPxCache);
             }
 
-            controller.Initialize(lstCache);
+            _cacheController.Initialize(lstCache);
+            PXWeb.Management.PxContext.CacheController = _cacheController;
         }
     }
 }

@@ -6,9 +6,9 @@
 <head runat="server">
     <title>PX-Web Administration</title>
     <link href="../Resources/Styles/Admin.css" rel="stylesheet" type="text/css" media="screen" /> 
-    <link href="../Resources/Styles/jQuery/smoothness/jquery-ui-1.10.3.custom.min.css" rel="Stylesheet" type="text/css" media="screen" />
+    <link href="../Resources/Styles/jQuery/redmond/jquery-ui.css" rel="Stylesheet" type="text/css" media="screen" />
     <script src="../Resources/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="../Resources/Scripts/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="../Resources/Scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="ContentPlaceHolderAdminHead" runat="server" />  
 </head>
 <body>

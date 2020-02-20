@@ -51,6 +51,10 @@
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCAxis.Metadata.1.0.0-beta1\lib\net461\PCAxis.Metadata.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ext\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -79,11 +83,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DecimalJsonConverter.cs" />
     <Compile Include="Model\JsonStatDimension.cs" />
     <Compile Include="Model\JsonStat.cs" />
     <Compile Include="Model\JsonStatDatasetExtended.cs" />
     <Compile Include="Model\JsonStatDatasetBase.cs" />
     <Compile Include="JsonStatSerializer.cs" />
+    <Compile Include="Model\JsonStatPx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

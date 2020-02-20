@@ -207,6 +207,22 @@ Partial Public Class VariableSelector
         End Set
     End Property
 
+    Private _preSelectFirstContentAndTime As Boolean
+    ''' <summary>
+    ''' Decides if first content and time value are pre selected
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property PreSelectFirstContentAndTime() As Boolean
+        Get
+            Return _preSelectFirstContentAndTime
+        End Get
+        Set(ByVal value As Boolean)
+            _preSelectFirstContentAndTime = value
+        End Set
+    End Property
 
     Private _metadataInformation As Boolean
     ''' <summary>

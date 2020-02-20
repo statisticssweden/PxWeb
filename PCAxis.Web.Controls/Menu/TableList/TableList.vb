@@ -23,7 +23,7 @@ Public Partial Class TableList
     ''' <param name="nodeId">Id of node in the menu</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Delegate Function GetMenuDelegate(ByVal nodeId As String) As PCAxis.Menu.PxMenuBase
+    Public Delegate Function GetMenuDelegate(ByVal nodeId As String) As PCAxis.Menu.Item
 
 
 #Region " Properties "

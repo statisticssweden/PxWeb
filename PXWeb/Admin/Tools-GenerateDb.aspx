@@ -51,10 +51,10 @@
             </ItemTemplate>
             <FooterTemplate/>
         </asp:Repeater>--%>
-    <asp:GridView ID="grdResult" runat="server" AutoGenerateColumns="false">
+    <asp:GridView ID="grdResult" runat="server" AutoGenerateColumns="false" class="generateDbResultTable">
     <Columns>
     <asp:BoundField DataField="MessageType"  />
-    <asp:BoundField DataField="Message"  />
+    <asp:BoundField DataField="Message" ItemStyle-CssClass="generateDbResultTableMessage"  />
     </Columns>
     </asp:GridView>
 

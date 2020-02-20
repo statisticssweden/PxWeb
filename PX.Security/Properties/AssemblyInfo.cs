@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PXWeb.Security")]
+[assembly: AssemblyTitle("PX.Security")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("scb")]
-[assembly: AssemblyProduct("PXWeb.Security")]
-[assembly: AssemblyCopyright("Copyright © scb 2014")]
+[assembly: AssemblyProduct("PX.Security")]
+[assembly: AssemblyCopyright("Copyright © scb 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3f27583b-aea3-4840-b35a-ca7133d155b4")]
+[assembly: Guid("c444451c-a695-440f-ad3c-bd18ccfbaa75")]
 
 // Version information for an assembly consists of the following four values:
 //

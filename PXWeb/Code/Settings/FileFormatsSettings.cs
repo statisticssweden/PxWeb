@@ -42,6 +42,9 @@ namespace PXWeb
             xpath = "./cellLimitDownloads";
             CellLimitDownloads = SettingsHelper.GetSettingValue(xpath, fileFormatsNode, 10000);
 
+            xpath = "./fileBaseName";
+            FileBaseName = SettingsHelper.GetSettingValue(xpath, fileFormatsNode, PCAxis.Paxiom.FileBaseNameType.Matrix );
+
             xpath = "./excel";
             node = fileFormatsNode.SelectSingleNode(xpath);
             _excelSettings = new ExcelSettings(node);
@@ -59,6 +62,9 @@ namespace PXWeb
             xpath = "./cellLimitDownloads";
             SettingsHelper.SetSettingValue(xpath, fileFormatsNode, CellLimitDownloads.ToString());
 
+            xpath = "./fileBaseName";
+            SettingsHelper.SetSettingValue(xpath, fileFormatsNode, FileBaseName.ToString());
+
             xpath = "./excel";
             node = fileFormatsNode.SelectSingleNode(xpath);
             _excelSettings.Save(node);
@@ -75,6 +81,8 @@ namespace PXWeb
         {
             get { return _excelSettings; }
         }
+
+        public PCAxis.Paxiom.FileBaseNameType FileBaseName { get; set; }
 
         #endregion
     }
