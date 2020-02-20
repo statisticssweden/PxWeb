@@ -65,7 +65,7 @@
       <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCAxis.Core.1.0.0-beta1\lib\net461\PCAxis.Core.dll</HintPath>
+      <HintPath>..\..\packages\PCAxis.Core.1.0.0-beta2\lib\net461\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -45,8 +45,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ext\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Core">
-      <HintPath>..\..\..\PCAxis.Core\bin\$(Configuration)\PCAxis.Core.dll</HintPath>
+    <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\PCAxis.Core.1.0.0-beta2\lib\net461\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
