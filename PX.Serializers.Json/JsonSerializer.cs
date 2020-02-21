@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCAxis.Paxiom;
+using PCAxis.Paxiom.Extensions;
 using PCAxis.Paxiom.Operations;
 using PCAxis.Query;
 
@@ -22,15 +23,31 @@ namespace PX.Serializers.Json
         {
             //using (var writer = new StreamWriter(stream, Encoding.UTF8))
             //{
-            var writer = new StreamWriter(stream, Encoding.UTF8);
+            var writer = new StreamWriter(stream, new UTF8Encoding(false));
                 var tableResponse = new TableResponse();
                 PXModel pivotedModel = RearrangeValues(model);
                 var formatter = new DataFormatter(pivotedModel);
                 formatter.DecimalSeparator = ".";
                 formatter.ThousandSeparator = "";
 
-                // Add stub
-                tableResponse.Columns.AddRange(pivotedModel.Meta.Stub.Select(s => new TableResponseColumn
+
+			var lastUpdatedContentsVariable = new Value();
+			if (model.Meta.ContentVariable != null && model.Meta.ContentVariable.Values.Count > 0)
+			{
+				lastUpdatedContentsVariable = model.Meta.ContentVariable.Values.OrderByDescending(x => x.ContentInfo.LastUpdated).FirstOrDefault();
+			}			
+			// Add Metadata
+			tableResponse.Metadata.Add(new TableResponseMetadata
+			{
+				Infofile = pivotedModel.Meta.InfoFile,
+				Source = pivotedModel.Meta.Source,
+				Label = pivotedModel.Meta.Title,
+				Updated = model.Meta.ContentVariable != null && model.Meta.ContentVariable.Values.Count > 0 ? lastUpdatedContentsVariable.ContentInfo.LastUpdated.PxDateStringToDateTime().ToString() : model.Meta.CreationDate.PxDateStringToDateTime().ToString()
+
+			});
+
+			// Add stub
+			tableResponse.Columns.AddRange(pivotedModel.Meta.Stub.Select(s => new TableResponseColumn
                 {
                     Code = s.Code,
                     Text = s.Name,

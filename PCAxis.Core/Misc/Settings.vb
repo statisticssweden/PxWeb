@@ -237,6 +237,18 @@ Namespace PCAxis.Paxiom
                     _completeInfoFile = value
                 End Set
             End Property
+            ''' <summary>
+            ''' What the filename will start with
+            ''' </summary>
+            Private Shared _fileBaseName As PCAxis.Paxiom.FileBaseNameType = FileBaseNameType.Matrix
+            Public Shared Property FileBaseName() As PCAxis.Paxiom.FileBaseNameType
+                Get
+                    Return _fileBaseName
+                End Get
+                Set(ByVal value As PCAxis.Paxiom.FileBaseNameType)
+                    _fileBaseName = value
+                End Set
+            End Property
 
             ''' <summary>
             ''' How doublecolumn will work when saving files

@@ -455,21 +455,21 @@
 
             Dim prec As Integer
             Dim variableCode As String
-            Dim valueCode As String
-            If _indexer.HeadingIndecies IsNot Nothing Then
-                prec = _defaultNumberFormat.NumberDecimalDigits
-                For i As Integer = 0 To _indexer.HeadingIndecies.Length - 1
-                    variableCode = _model.Meta.Heading(i).Code
-                    If _subPrecisions.ContainsKey(variableCode) Then
-                        valueCode = _model.Meta.Heading(i).Values(_indexer.HeadingIndecies(i)).Code
-                        If _subPrecisions(variableCode).ContainsKey(valueCode) Then
-                            prec = Math.Max(prec, _subPrecisions(variableCode)(valueCode))
-                        End If
-                    End If
-                Next
-            End If
+			Dim valueCode As String
+			prec = _defaultNumberFormat.NumberDecimalDigits
+			If _indexer.HeadingIndecies IsNot Nothing Then
+				For i As Integer = 0 To _indexer.HeadingIndecies.Length - 1
+					variableCode = _model.Meta.Heading(i).Code
+					If _subPrecisions.ContainsKey(variableCode) Then
+						valueCode = _model.Meta.Heading(i).Values(_indexer.HeadingIndecies(i)).Code
+						If _subPrecisions(variableCode).ContainsKey(valueCode) Then
+							prec = Math.Max(prec, _subPrecisions(variableCode)(valueCode))
+						End If
+					End If
+				Next
+			End If
 
-            If _indexer.StubIndecies IsNot Nothing Then
+			If _indexer.StubIndecies IsNot Nothing Then
                 For i As Integer = 0 To _indexer.StubIndecies.Length - 1
                     variableCode = _model.Meta.Stub(i).Code
                     If _subPrecisions.ContainsKey(variableCode) Then

@@ -165,7 +165,14 @@
         </asp:DropDownList>
         <asp:ImageButton ID="imgDefaultSearch" runat="server" onclick="DefaultSearchInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
-
+    <div class="setting-field">
+        <asp:Label ID="lblPreSelectFirstContentAndTime" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionPreSelectFirstContentAndTime %>"></asp:Label>
+        <asp:DropDownList ID="cboPreSelectFirstContentAndTime" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgPreSelectFirstContentAndTime" runat="server" onclick="PreSelectFirstContentAndTimeInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
     <asp:Label ID="lblOutputFormats" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionOutputFormats %>" CssClass="setting_keyword"></asp:Label>
     <asp:ImageButton ID="imgOutputFormats" runat="server" onclick="OutputFormatsInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" /><br />
     <p>

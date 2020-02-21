@@ -70,20 +70,20 @@ namespace PXWeb
         /// Gets the menu object
         /// </summary>
         /// <returns>returns the menu object</returns>
-        private PxMenuBase GetMenu(string nodeId)
+        private Item GetMenu(string nodeId)
         {
             var pxUrl = RouteInstance.PxUrlProvider.Create(null);
 
             //Checks that the necessary parameters are present
             if (String.IsNullOrEmpty(pxUrl.Database))
-            { 
+            {
                 //if parameters is missing redirect to the start page
                 Response.Redirect("Default.aspx", false);
             }
-                       
+
             try
             {
-                return PXWeb.Management.PxContext.GetMenu(pxUrl.Database, nodeId);
+                return PXWeb.Management.PxContext.GetMenuItem(pxUrl.Database, nodeId);
             }
             catch (Exception)
             {

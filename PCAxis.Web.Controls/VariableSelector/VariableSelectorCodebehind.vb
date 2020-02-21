@@ -179,6 +179,7 @@ Public Class VariableSelectorCodebehind
                 VariableSelect.MetadataInformationButtonMode = Marker.MetadataInformationMode
                 VariableSelect.ButtonsForContentVariable = Marker.ButtonsForContentVariable
                 VariableSelect.SearchValuesBeginningOfWordCheckBoxDefaultChecked = Marker.SearchValuesBeginningOfWordCheckBoxDefaultChecked
+                VariableSelect.PreSelectFirstContentAndTime = Marker.PreSelectFirstContentAndTime
                 ValueSelectPlaceHolder.Controls.Add(VariableSelect)
                 AddHandler VariableSelect.SelectHierarchicalButtonClicked, AddressOf VariableSelector_SelectHierarchicalValueButtonClicked
                 AddHandler VariableSelect.SearchLargeNumberOfValuesButtonClicked, AddressOf VariableSelector_SearchLargeNumberOfValuesButtonClicked

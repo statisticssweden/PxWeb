@@ -108,6 +108,7 @@
     <Compile Include="Enums\DoubleColumnType.vb" />
     <Compile Include="Enums\GroupingIncludesType.vb" />
     <Compile Include="Enums\HeaderPresentation.vb" />
+    <Compile Include="Enums\FileBaseNameType.vb" />
     <Compile Include="Enums\KeysTypes.vb" />
     <Compile Include="Enums\SecrecyOptionType.vb" />
     <Compile Include="Enums\TimeScaleType.vb" />

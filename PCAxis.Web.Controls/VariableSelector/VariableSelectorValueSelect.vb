@@ -257,6 +257,23 @@ Partial Public Class VariableSelectorValueSelect
         End Set
     End Property
 
+    Private _preSelectFirstContentAndTime As Boolean
+    ''' <summary>
+    ''' Select first content and time value
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property PreSelectFirstContentAndTime() As Boolean
+        Get
+            Return _preSelectFirstContentAndTime
+        End Get
+        Set(ByVal value As Boolean)
+            _preSelectFirstContentAndTime = value
+        End Set
+    End Property
+
 
     ''' <summary>
     ''' Controls when the meta data button shall be displayed

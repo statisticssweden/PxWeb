@@ -57,7 +57,7 @@ namespace PXWeb.Views
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.TABLE_KEY, tableName));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.PATH_KEY, path.ToString()));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.DB_KEY, src.DatabaseId));
-                linkItems.Add(new LinkManager.LinkItem(PxUrl.LANGUAGE_KEY, src.Language));
+                linkItems.Add(new LinkManager.LinkItem(PxUrl.LANGUAGE_KEY, model.Meta.CurrentLanguage));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.LAYOUT_KEY, layout));
 
                 url = LinkManager.CreateLink(page, false, linkItems.ToArray());
@@ -107,7 +107,7 @@ namespace PXWeb.Views
                 }
             }
 
-            PCAxis.Web.Core.Management.LocalizationManager.ChangeLanguage(src.Language);
+            PCAxis.Web.Core.Management.LocalizationManager.ChangeLanguage(model.Meta.CurrentLanguage);
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = model;
 
             PaxiomManager.OperationsTracker = new OperationsTracker(query.Workflow.ToArray());

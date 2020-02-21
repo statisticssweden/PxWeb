@@ -9,6 +9,14 @@
         ControlToValidate="txtCellLimitDownload" OnServerValidate="ValidateCellLimitDownload"
         ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
     </div>
+    <div class="setting-field">
+        <asp:Label ID="lbFileBaseName" runat="server" Text="<%$ PxString: PxWebAdminSettingsFileBaseName %>"></asp:Label>
+        <asp:DropDownList ID="cboFileBaseName" runat="server">            
+            <asp:ListItem Value="matrix" Text="<%$ PxString: PxWebAdminSettingsFileBaseNameMatrix %>"></asp:ListItem>
+            <asp:ListItem Value="tableid" Text="<%$ PxString: PxWebAdminSettingsFileBaseNameTableId %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgFileBaseName" runat="server" onclick="FileBaseNameInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
     <p>
         <asp:Label ID="lblExcel" runat="server" Text="<%$ PxString: PxWebAdminSettingsFileFormatsExcel %>" CssClass="setting_keyword"></asp:Label>
     </p>

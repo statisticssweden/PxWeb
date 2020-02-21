@@ -117,6 +117,18 @@
                 return false;
             });
         });
+
+        jQuery(function () {
+            jQuery(window).bind('beforeunload', function (e) {
+                for (let i = 0; i < sessionStorage.length; i++) {
+                    let key = sessionStorage.key(i);
+                    if (key.indexOf("ValuesListBox") != -1) {
+                        sessionStorage.removeItem(key);
+                        i--;
+                    }
+                }
+            });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentPlaceHolderFooter" runat="server">

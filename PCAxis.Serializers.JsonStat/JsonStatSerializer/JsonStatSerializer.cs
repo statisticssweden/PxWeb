@@ -9,8 +9,9 @@ namespace PCAxis.Serializers.JsonStat
     using PCAxis.Paxiom.Extensions;
     using PCAxis.Metadata;
     using System.Collections;
+	using Newtonsoft.Json;
 
-    public class JsonStatSerializer : PCAxis.Paxiom.IPXModelStreamSerializer
+	public class JsonStatSerializer : PCAxis.Paxiom.IPXModelStreamSerializer
     {
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(JsonStatSerializer));
 
@@ -37,7 +38,10 @@ namespace PCAxis.Serializers.JsonStat
         private const string DESCRIBEDBY = "describedby";
         private const string EXTENSION = "extension";
 
-        private string datasetTitle;
+		//Field in JSON-Stat, used for PX extention 
+		private const string PX = "px";
+
+		private string datasetTitle;
 
         /// <summary>
         /// Set an alternative title to the dataset instead of the generated one
@@ -113,7 +117,22 @@ namespace PCAxis.Serializers.JsonStat
             dataset.updated = meta.CreationDate.PxDateStringToDateTime().ToString();
             dataset.dimension = new Dictionary<string, object>();
 
-            if (DatasetTitle != null)
+			//Extension, PX 
+			if (meta.InfoFile != null || meta.TableID != null || meta.Decimals != -1)
+			{
+				dataset.extension = new Dictionary<string, object>();
+				var px = new JsonStat.Model.JsonStatPx();
+
+				px.infofile = meta.InfoFile;
+				px.tableid = meta.TableID;
+				//If not Showdecimal has value use Decimal
+				var decimals = meta.ShowDecimals < 0 ? meta.Decimals : meta.ShowDecimals;
+				px.decimals = decimals;
+
+				dataset.extension.Add(PX, px);
+			}
+
+			if (DatasetTitle != null)
             {
                 dataset.label = DatasetTitle;
             }
@@ -266,11 +285,11 @@ namespace PCAxis.Serializers.JsonStat
 
             #endregion
 
-            var s = new System.Web.Script.Serialization.JavaScriptSerializer();
-            s.MaxJsonLength = 50000000; //TDO: Should this be in web.config?
-            var result = s.Serialize(jsonResult);
+  		    // override converter to stop adding ".0" after interger values.
+			string result = JsonConvert.SerializeObject(jsonResult, new DecimalJsonConverter());
 
-            return result;
+
+			return result;
         }
 
         private Dictionary<string, object> GetAllSerializedMetaIdsForVariable(Variable variable)

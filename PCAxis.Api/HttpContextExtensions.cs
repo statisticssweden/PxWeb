@@ -30,6 +30,9 @@ namespace PCAxis.Api
         /// <param name="doCache"></param>
         public static void Send(this HttpContext context, ResponseBucket cacheResponse, bool doCache)
         {
+
+            context.Response.StatusCode = cacheResponse.HttpResponseCode;
+
             context.Send(cacheResponse.ContentType, cacheResponse.ResponseData);
 
             // Store request in cache
@@ -49,6 +52,13 @@ namespace PCAxis.Api
         {
             context.Response.StatusCode = code;
             Send(context, "application/json", context.Response.ContentEncoding.GetBytes(data));
+        }
+
+        public static void SendJSONError(this HttpContext context, ResponseBucket data, int code, bool doCache)
+        {
+            data.HttpResponseCode = code;
+            data.ContentType = "application/json";
+            Send(context, data, doCache);
         }
     }
 }

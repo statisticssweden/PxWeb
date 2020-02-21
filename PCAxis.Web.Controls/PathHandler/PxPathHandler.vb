@@ -131,4 +131,34 @@ Public Class PxPathHandler
         Return tablePath
     End Function
 
+    Public Overrides Function GetNodeIds(itemId As String) As List(Of String)
+        Dim nodes As New List(Of String)
+
+        Dim parts() As String
+        Dim separator() As String = {NODE_DIVIDER}
+        Dim id As New System.Text.StringBuilder
+        Dim first As Boolean = True
+
+        If Not String.IsNullOrEmpty(itemId) Then
+            parts = itemId.Split(separator, System.StringSplitOptions.RemoveEmptyEntries)
+
+            If parts.Length > 0 Then
+                For Each part As String In parts
+                    If Not first Then
+                        id.Append(NODE_DIVIDER)
+                    Else
+                        first = False
+                    End If
+
+                    id.Append(part)
+                    nodes.Add(id.ToString())
+
+                Next
+            End If
+        End If
+
+        Return nodes
+
+    End Function
+
 End Class

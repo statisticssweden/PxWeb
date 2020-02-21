@@ -63,10 +63,14 @@ namespace PCAxis.Query
         /// Get result as json-stat-file
         /// </summary>
         json_stat,
-        /// <summary>
-        /// Get result as json-file
-        /// </summary>
-        json,
+		/// <summary>
+		/// Get result as json-stat2-file
+		/// </summary>
+		json_stat2,
+		/// <summary>
+		/// Get result as json-file
+		/// </summary>
+		json,
         /// <summary>
         /// Get result as html5-table
         /// </summary>

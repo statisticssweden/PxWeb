@@ -82,8 +82,8 @@ namespace PXWeb
             //resets aggregation information
             PCAxis.Paxiom.GroupRegistry.GetRegistry().ReloadGroupingsAsync();
 
-            //reset/clear saved cache
-            PXWeb.Management.SavedQueryPaxiomCache.Current.Reset();
+            // Clear all caches
+            PXWeb.Management.PxContext.CacheController.Clear();
 
         }
     }

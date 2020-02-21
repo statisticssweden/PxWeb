@@ -36,9 +36,10 @@ namespace PXWeb.Admin
         {
             PCAxis.Paxiom.GroupRegistry.GetRegistry().ReloadGroupingsAsync();
         }
-        protected void btnResetSavedQueryCache_Click(object sender, EventArgs e)
+        protected void btnClearCaches_Click(object sender, EventArgs e)
         {
-            PXWeb.Management.SavedQueryPaxiomCache.Current.Reset();
+            // Clear all caches
+            PXWeb.Management.PxContext.CacheController.Clear();
         }
 
         protected void btnResetDatabases_Click(object sender, EventArgs e)
@@ -69,9 +70,9 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminToolsResetDatabases", "PxWebAdminToolsResetDatabasesInfo");
         }
 
-        protected void imgResetSavedQueryCache_Click(object sender, ImageClickEventArgs e)
+        protected void imgClearCaches_Click(object sender, ImageClickEventArgs e)
         {
-            Master.ShowInfoDialog("PxWebAdminToolsResetSavedQueryCache", "PxWebAdminToolsResetSavedQueryCacheInfo");
+            Master.ShowInfoDialog("PxWebAdminToolsResetClearCaches", "PxWebAdminToolsResetClearCachesInfo");
         }
     }
 }
