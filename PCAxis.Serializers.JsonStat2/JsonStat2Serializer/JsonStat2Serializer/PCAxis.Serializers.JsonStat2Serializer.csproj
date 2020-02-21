@@ -48,6 +48,9 @@
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\PCAxis.Core.1.0.0-beta2\lib\net461\PCAxis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\PCAxis.Metadata.1.0.0-beta1\lib\net461\PCAxis.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -71,12 +74,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\PCAxis.Metadata\PCAxis.Metadata.csproj">
-      <Project>{4f2d88ba-0d5e-4406-86f6-b6f0186286d6}</Project>
-      <Name>PCAxis.Metadata</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

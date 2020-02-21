@@ -58,6 +58,9 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Common.1.0.0-beta1\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta2\lib\net461\PCAxis.Core.dll</HintPath>
     </Reference>
@@ -126,10 +129,6 @@
     <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
       <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
       <Name>PCAxis.Chart</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Common\PCAxis.Common.vbproj">
-      <Project>{923414B2-36AD-48E1-919A-B92418E6A2FC}</Project>
-      <Name>PCAxis.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Excel\PCAxis.Excel.csproj">
       <Project>{6CC55F46-4B41-4EB9-B775-4F740C3D3599}</Project>
