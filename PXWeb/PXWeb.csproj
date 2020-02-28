@@ -69,6 +69,9 @@
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta2\lib\net461\PCAxis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.1.0.0-beta\lib\net461\PCAxis.Menu.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta1\lib\net461\PCAxis.Metadata.dll</HintPath>
     </Reference>
@@ -730,10 +733,6 @@
     <ProjectReference Include="..\PCAxis.Menu\ConfigDatamodelMenu\PCAxis.Menu.Implementations.ConfigDatamodelMenu.csproj">
       <Project>{5B3B610A-DFDB-4B2F-8509-DA4591864DCA}</Project>
       <Name>PCAxis.Menu.Implementations.ConfigDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
-      <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
-      <Name>PCAxis.Menu</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Menu\MsSqlDatamodelMenu\PCAxis.Menu.Implementations.MsSqlDatamodelMenu.csproj">
       <Project>{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}</Project>

@@ -68,6 +68,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta\lib\net461\PCAxis.Menu.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Sql.Exceptions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\PCAxis.Sql.Exceptions.dll</HintPath>
@@ -96,10 +102,6 @@
     <ProjectReference Include="..\..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
       <Project>{db47af85-69b1-4d57-8ef4-b2a28a820d30}</Project>
       <Name>PCAxis.Sql.DbConfig</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Menu\PCAxis.Menu.csproj">
-      <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
-      <Name>PCAxis.Menu</Name>
     </ProjectReference>
     <ProjectReference Include="..\MsSqlDatamodelMenu\PCAxis.Menu.Implementations.MsSqlDatamodelMenu.csproj">
       <Project>{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}</Project>
@@ -134,6 +136,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
