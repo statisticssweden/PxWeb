@@ -82,6 +82,9 @@
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.1.0.0-beta\lib\net461\PCAxis.Menu.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta\lib\net461\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -110,6 +113,9 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -518,10 +524,6 @@
     <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
       <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
       <Name>PCAxis.Chart</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
-      <Project>{69CD4248-077E-4E3C-A83B-70F883C8D305}</Project>
-      <Name>PCAxis.PX.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
       <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>

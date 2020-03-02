@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.PX.Core", "PCAxis.PX.Core\PCAxis.PX.Core.vbproj", "{69CD4248-077E-4E3C-A83B-70F883C8D305}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.Web.Core", "PCAxis.Web.Core\PCAxis.Web.Core.vbproj", "{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.Web.Controls", "PCAxis.Web.Controls\PCAxis.Web.Controls.vbproj", "{0F886CCB-3476-4756-816C-7792A9C73FE2}"
@@ -88,10 +86,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{69CD4248-077E-4E3C-A83B-70F883C8D305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69CD4248-077E-4E3C-A83B-70F883C8D305}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69CD4248-077E-4E3C-A83B-70F883C8D305}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69CD4248-077E-4E3C-A83B-70F883C8D305}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
