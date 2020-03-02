@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Sql.DbConfig", "PCAx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Sql", "PCAxis.Sql\PCAxis.Sql.csproj", "{43D337F6-29E8-465F-82A2-18389EA4C48D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu", "PCAxis.Menu\Menu\PCAxis.Menu.csproj", "{F5405866-B6BA-43CD-9DD1-AD6961167AFF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations.MsSqlDatamodelMenu", "PCAxis.Menu\MsSqlDatamodelMenu\PCAxis.Menu.Implementations.MsSqlDatamodelMenu.csproj", "{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations.OracleDatamodelMenu", "PCAxis.Menu\OracleDatamodelMenu\PCAxis.Menu.Implementations.OracleDatamodelMenu.csproj", "{79CD0AEA-E236-4E95-9032-FEDCC95D0664}"
@@ -122,10 +120,6 @@ Global
 		{43D337F6-29E8-465F-82A2-18389EA4C48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D337F6-29E8-465F-82A2-18389EA4C48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D337F6-29E8-465F-82A2-18389EA4C48D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5405866-B6BA-43CD-9DD1-AD6961167AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5405866-B6BA-43CD-9DD1-AD6961167AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5405866-B6BA-43CD-9DD1-AD6961167AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5405866-B6BA-43CD-9DD1-AD6961167AFF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
