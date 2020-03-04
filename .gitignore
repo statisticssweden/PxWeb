@@ -328,5 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-
-PxWeb/logs/
+/PXWeb/App_Data/Queries
+/PXWeb/logs
