@@ -1,102 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <commandBar xmlns="http://www.pc-axis.scb.se/CommandBarPluginSchema.xsd">
   <plugins>
-		<plugin name="tableViewLayout1" type="PCAxis.Web.Controls.TableView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewTableLayout1" Image="button_layout_1.png" ShortcutImage="small_button_layout_1.png" SortOrder="0">
+		<plugin name="tableViewLayout1" type="PCAxis.Web.Controls.TableView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewTableLayout1" Image="button_layout_1.png" ShortcutImage="small_button_layout_1.png" SortOrder="0">
 			 <properties>
 				  <property key="layout" value="tableViewLayout1" />
 			 </properties>
 		</plugin>
-		<plugin name="tableViewLayout2" type="PCAxis.Web.Controls.TableView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewTableLayout2" Image="button_layout_2.png" ShortcutImage="small_button_layout_2.png" SortOrder="1">
+		<plugin name="tableViewLayout2" type="PCAxis.Web.Controls.TableView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewTableLayout2" Image="button_layout_2.png" ShortcutImage="small_button_layout_2.png" SortOrder="1">
 			 <properties>
 				  <property key="layout" value="tableViewLayout2" />
 			 </properties>
 		</plugin>
-		<plugin name="tableViewSorted" type="PCAxis.Web.Controls.SortedTableView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewTableSorted" Image="button_sort.png" ShortcutImage="sort.gif" SortOrder="2">
+		<plugin name="tableViewSorted" type="PCAxis.Web.Controls.SortedTableView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewTableSorted" Image="button_sort.png" ShortcutImage="sort.gif" SortOrder="2">
 			 <properties>
 				  <property key="layout" value="tableViewSorted" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewColumn" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartColumn" Image="button_chart_column.png" ShortcutImage="small_button_chart_column.png" SortOrder="3">
+		<plugin name="chartViewColumn" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartColumn" Image="button_chart_column.png" ShortcutImage="small_button_chart_column.png" SortOrder="3">
 			 <properties>
 				  <property key="layout" value="chartViewColumn" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewColumnStacked" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartColumnStacked" Image="button_chart_column_stacked.png" ShortcutImage="small_button_chart_column_stacked.png" SortOrder="4">
+		<plugin name="chartViewColumnStacked" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartColumnStacked" Image="button_chart_column_stacked.png" ShortcutImage="small_button_chart_column_stacked.png" SortOrder="4">
 			 <properties>
 				  <property key="layout" value="chartViewColumnStacked" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewColumnStacked100" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartColumnStacked100" Image="button_chart_column_stacked_100.png" ShortcutImage="small_button_chart_column_stacked_100.png" SortOrder="5">
+		<plugin name="chartViewColumnStacked100" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartColumnStacked100" Image="button_chart_column_stacked_100.png" ShortcutImage="small_button_chart_column_stacked_100.png" SortOrder="5">
 			 <properties>
 				  <property key="layout" value="chartViewColumnStacked100" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewBar" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartBar" Image="button_chart_bar.png" ShortcutImage="small_button_chart_bar.png" SortOrder="6">
+		<plugin name="chartViewBar" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartBar" Image="button_chart_bar.png" ShortcutImage="small_button_chart_bar.png" SortOrder="6">
 			 <properties>
 				  <property key="layout" value="chartViewBar" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewBarStacked" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartBarStacked" Image="button_chart_bar_stacked.png" ShortcutImage="small_button_chart_bar_stacked.png" SortOrder="7">
+		<plugin name="chartViewBarStacked" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartBarStacked" Image="button_chart_bar_stacked.png" ShortcutImage="small_button_chart_bar_stacked.png" SortOrder="7">
 			 <properties>
 				  <property key="layout" value="chartViewBarStacked" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewBarStacked100" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartBarStacked100" Image="button_chart_bar_stacked_100.png" ShortcutImage="small_button_chart_bar_stacked_100.png" SortOrder="8">
+		<plugin name="chartViewBarStacked100" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartBarStacked100" Image="button_chart_bar_stacked_100.png" ShortcutImage="small_button_chart_bar_stacked_100.png" SortOrder="8">
 			 <properties>
 				  <property key="layout" value="chartViewBarStacked100" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewLine" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartLine" Image="button_chart_line.png" ShortcutImage="small_button_chart_line.png" SortOrder="9">
+		<plugin name="chartViewLine" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartLine" Image="button_chart_line.png" ShortcutImage="small_button_chart_line.png" SortOrder="9">
 			 <properties>
 				  <property key="layout" value="chartViewLine" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewColumnLine" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartColumnLine" Image="button_chart_line_and_column.png" ShortcutImage="small_button_chart_line_and_column.png" SortOrder="10">
+		<plugin name="chartViewColumnLine" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartColumnLine" Image="button_chart_line_and_column.png" ShortcutImage="small_button_chart_line_and_column.png" SortOrder="10">
 			 <properties>
 				  <property key="layout" value="chartViewColumnLine" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewPopulationPyramid" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartPopulationPyramid" Image="button_chart_pyramid.png" ShortcutImage="small_button_chart_pyramid.png" SortOrder="11">
+		<plugin name="chartViewPopulationPyramid" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartPopulationPyramid" Image="button_chart_pyramid.png" ShortcutImage="small_button_chart_pyramid.png" SortOrder="11">
 			 <properties>
 				  <property key="layout" value="chartViewPopulationPyramid" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewPie" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartPie" Image="button_chart_pie.png" ShortcutImage="small_button_chart_pie.png" SortOrder="12">
+		<plugin name="chartViewPie" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartPie" Image="button_chart_pie.png" ShortcutImage="small_button_chart_pie.png" SortOrder="12">
 			 <properties>
 				  <property key="layout" value="chartViewPie" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewArea" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartArea" Image="button_chart_area.png" ShortcutImage="small_button_chart_area.png" SortOrder="13">
+		<plugin name="chartViewArea" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartArea" Image="button_chart_area.png" ShortcutImage="small_button_chart_area.png" SortOrder="13">
 			 <properties>
 				  <property key="layout" value="chartViewArea" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewAreaStacked" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartAreaStacked" Image="button_chart_area_stacked.png" ShortcutImage="small_button_chart_area_stacked.png" SortOrder="14">
+		<plugin name="chartViewAreaStacked" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartAreaStacked" Image="button_chart_area_stacked.png" ShortcutImage="small_button_chart_area_stacked.png" SortOrder="14">
 			 <properties>
 				  <property key="layout" value="chartViewAreaStacked" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewAreaStacked100" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartAreaStacked100" Image="button_chart_area_stacked_100.png" ShortcutImage="small_button_chart_area_stacked_100.png" SortOrder="15">
+		<plugin name="chartViewAreaStacked100" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartAreaStacked100" Image="button_chart_area_stacked_100.png" ShortcutImage="small_button_chart_area_stacked_100.png" SortOrder="15">
 			 <properties>
 				  <property key="layout" value="chartViewAreaStacked100" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewPoint" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartPoint" Image="button_chart_point.png" ShortcutImage="small_button_chart_point.png" SortOrder="16">
+		<plugin name="chartViewPoint" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlPresentationViewChartPoint" Image="button_chart_point.png" ShortcutImage="small_button_chart_point.png" SortOrder="16">
 			 <properties>
 				  <property key="layout" value="chartViewPoint" />
 			 </properties>
 		</plugin>
-		<plugin name="chartViewRadar" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlPresentationViewChartRadar" Image="button_chart_radar.png" ShortcutImage="small_button_chart_radar.png" SortOrder="17">
+		<plugin name="chartViewRadar" category="chart" type="PCAxis.Web.Controls.ChartView, PCAxis.Web.Controls" hasUI="false" nameCode="CtrlPresentationViewChartRadar" Image="button_chart_radar.png" ShortcutImage="small_button_chart_radar.png" SortOrder="17">
 			 <properties>
 				  <property key="layout" value="chartViewRadar" />
 			 </properties>
 		</plugin>
-		<plugin name="footnoteView" type="PCAxis.Web.Controls.FootnoteView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarLinkFootnoteTitle" Image="button_footnote.png" ShortcutImage="footnote.gif" SortOrder="18">
+		<plugin name="footnoteView" type="PCAxis.Web.Controls.FootnoteView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarLinkFootnoteTitle" Image="button_footnote.png" ShortcutImage="footnote.gif" SortOrder="18">
 			 <properties>
 				  <property key="layout" value="footnoteView" />
 			 </properties>
 		</plugin>
-		<plugin name="informationView" type="PCAxis.Web.Controls.InformationView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarLinkInformationTitle" Image="button_information.png" ShortcutImage="info.gif" SortOrder="19">
+		<plugin name="informationView" type="PCAxis.Web.Controls.InformationView, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarLinkInformationTitle" Image="button_information.png" ShortcutImage="info.gif" SortOrder="19">
 			 <properties>
 				  <property key="layout" value="informationView" />
 			 </properties>
