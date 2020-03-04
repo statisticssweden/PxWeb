@@ -75,6 +75,9 @@
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta1\lib\net461\PCAxis.Metadata.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -113,6 +116,9 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -741,10 +747,6 @@
     <ProjectReference Include="..\PCAxis.Menu\OracleDatamodelMenu\PCAxis.Menu.Implementations.OracleDatamodelMenu.csproj">
       <Project>{79CD0AEA-E236-4E95-9032-FEDCC95D0664}</Project>
       <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
-      <Project>{69CD4248-077E-4E3C-A83B-70F883C8D305}</Project>
-      <Name>PCAxis.PX.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
       <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>

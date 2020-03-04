@@ -42,11 +42,17 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\ext\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Common.1.0.0-beta4\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta4\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.1.0.0-beta2\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -75,6 +81,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -92,10 +101,6 @@
     <Compile Include="TableUpdate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
-      <Project>{69cd4248-077e-4e3c-a83b-70f883c8d305}</Project>
-      <Name>PCAxis.PX.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Sql\PCAxis.Sql.csproj">
       <Project>{43d337f6-29e8-465f-82a2-18389ea4c48d}</Project>
       <Name>PCAxis.Sql</Name>
