@@ -728,10 +728,6 @@
       <Project>{4B66B6A5-FC81-4943-9C55-DDBCD69ACA4E}</Project>
       <Name>PCAxis.Charting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Charting\PxExtend\PCAxis.PxExtend.csproj">
-      <Project>{2F54F347-48BA-4F00-B541-DCD10BD9FE0A}</Project>
-      <Name>PCAxis.PxExtend</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
       <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
       <Name>PCAxis.Chart</Name>
