@@ -72,6 +72,15 @@
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCAxis.Core.1.0.0-beta4\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta2\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.PxExtend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCAxis.PxExtend.1.0.0-beta\lib\netstandard2.0\PCAxis.PxExtend.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -105,6 +114,9 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -120,12 +132,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\PxExtend\PCAxis.PxExtend.csproj">
-      <Project>{2F54F347-48BA-4F00-B541-DCD10BD9FE0A}</Project>
-      <Name>PCAxis.PxExtend</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
