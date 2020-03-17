@@ -250,9 +250,9 @@ namespace PXWeb.UserControls
 
                 string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/queries/");
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
-                parameters.Add(PXWeb.Management.SavedQueryManager.SAVE_PARAMETER_PATH, path); // Save query to this directory
+                parameters.Add(PCAxis.Query.SavedQueryManager.SAVE_PARAMETER_PATH, path); // Save query to this directory
                 
-                string name = PXWeb.Management.SavedQueryManager.Current.Save(sq, parameters);
+                string name = PCAxis.Query.SavedQueryManager.Current.Save(sq, parameters);
 
                 if (!string.IsNullOrWhiteSpace(name))
                 {

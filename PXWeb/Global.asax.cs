@@ -248,8 +248,8 @@ namespace PXWeb
                                             PXWeb.Settings.Current.Features.Search.CacheTime,
                                             PXWeb.Settings.Current.Features.Search.DefaultOperator);
 
-            PXWeb.Management.SavedQueryManager.StorageType = PXWeb.Settings.Current.Features.SavedQuery.StorageType;
-            PXWeb.Management.SavedQueryManager.Reset();
+            PCAxis.Query.SavedQueryManager.StorageType = PXWeb.Settings.Current.Features.SavedQuery.StorageType;
+            PCAxis.Query.SavedQueryManager.Reset();
 
             InitializeCacheController();
 

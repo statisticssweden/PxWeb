@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Web;
 
-namespace PXWeb.Management
+namespace PCAxis.Query
 {
     public class SavedQueryManager
     {
