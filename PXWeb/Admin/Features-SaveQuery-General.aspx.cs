@@ -74,7 +74,7 @@ namespace PXWeb.Admin
                         PXWeb.Settings.EndUpdate();
 
                         PCAxis.Query.SavedQueryManager.StorageType = PXWeb.Settings.Current.Features.SavedQuery.StorageType;
-                        
+
                         PCAxis.Query.SavedQueryManager.Reset();
                         PXWeb.Management.SavedQueryPaxiomCache.Current.Reset();
                     }

@@ -1,12 +1,11 @@
-﻿using PCAxis.Query;
+﻿using Newtonsoft.Json;
+using PCAxis.Query;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
-using Newtonsoft.Json;
-using System.Web.Hosting;
 using System.Runtime.Caching;
+using System.Web;
 
 namespace PCAxis.Query
 {
