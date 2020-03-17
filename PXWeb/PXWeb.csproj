@@ -447,6 +447,7 @@
     <Compile Include="Code\Management\PxImageExpressionBuilder.cs" />
     <Compile Include="Code\Management\PxSettingExpressionBuilder.cs" />
     <Compile Include="Code\Management\PxUrl.cs" />
+    <Compile Include="Code\Management\SavedQueryManager.cs" />
     <Compile Include="Code\Management\SavedQueryPaxiomCache.cs" />
     <Compile Include="Code\Management\UserFriendlyLinkManager.cs" />
     <Compile Include="Code\Management\RouteManager.cs" />

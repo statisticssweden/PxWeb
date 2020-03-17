@@ -109,7 +109,7 @@ namespace PXWeb
 
             try
             {
-                if (PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File)
+                if (PXWeb.Management.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File)
                 {
                     string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/queries/");
 
@@ -130,7 +130,7 @@ namespace PXWeb
 
                 //Check if the database is active. 
                 //It should not be possible to run a saved query if the database is not active
-                sq = PCAxis.Query.SavedQueryManager.Current.Load(queryName);
+                sq = PXWeb.Management.SavedQueryManager.Current.Load(queryName);
 				IEnumerable<string> db;
 				TableSource src = sq.Sources[0];
 
@@ -258,10 +258,10 @@ namespace PXWeb
             catch (Exception ex)
                 {
 
-                if ((PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File && System.IO.File.Exists(queryName)) || 
-                    (PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.Database))
+                if ((PXWeb.Management.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File && System.IO.File.Exists(queryName)) || 
+                    (PXWeb.Management.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.Database))
                 {
-                    PCAxis.Query.SavedQueryManager.Current.MarkAsFailed(queryName);
+                    PXWeb.Management.SavedQueryManager.Current.MarkAsFailed(queryName);
                 }
 
                 throw new HttpException(404, "HTTP/1.1 404 Not Found");
@@ -269,7 +269,7 @@ namespace PXWeb
             }
 
             sq.LoadedQueryName = queryName;
-            PCAxis.Query.SavedQueryManager.Current.MarkAsRunned(queryName);
+            PXWeb.Management.SavedQueryManager.Current.MarkAsRunned(queryName);
 
             // Tell the selection page that it sholud clear the PxModel
             if (_format.Equals(PxUrl.PAGE_SELECT))
