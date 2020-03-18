@@ -74,6 +74,9 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Common.1.0.0-beta4\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
     </Reference>
@@ -88,6 +91,9 @@
     </Reference>
     <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta\lib\net461\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Query.1.0.0-beta\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -527,10 +533,6 @@
     <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
       <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
       <Name>PCAxis.Chart</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
-      <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>
-      <Name>PCAxis.Query</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Web.Core\PCAxis.Web.Core.vbproj">
       <Project>{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}</Project>

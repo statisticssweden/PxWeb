@@ -58,6 +58,9 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Common.1.0.0-beta4\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
     </Reference>
@@ -69,6 +72,9 @@
     </Reference>
     <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Query.1.0.0-beta\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -155,10 +161,6 @@
       <Project>{79CD0AEA-E236-4E95-9032-FEDCC95D0664}</Project>
       <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
-      <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>
-      <Name>PCAxis.Query</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Sdmx\PCAxis.Sdmx.csproj">
       <Project>{7C7D7F81-CDD0-404C-9109-7A141EA17E15}</Project>
       <Name>PCAxis.Sdmx</Name>
@@ -214,6 +216,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
