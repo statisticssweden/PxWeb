@@ -85,6 +85,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=2.0.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.Core.2.19.60\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Common.1.0.0-beta4\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
     </Reference>
@@ -96,6 +99,9 @@
     </Reference>
     <Reference Include="PCAxis.Menu.MsSqlDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu.OracleDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
@@ -190,10 +196,6 @@
     <ProjectReference Include="..\PCAxis.Menu\ConfigDatamodelMenu\PCAxis.Menu.Implementations.ConfigDatamodelMenu.csproj">
       <Project>{5B3B610A-DFDB-4B2F-8509-DA4591864DCA}</Project>
       <Name>PCAxis.Menu.Implementations.ConfigDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\OracleDatamodelMenu\PCAxis.Menu.Implementations.OracleDatamodelMenu.csproj">
-      <Project>{79CD0AEA-E236-4E95-9032-FEDCC95D0664}</Project>
-      <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Sdmx\PCAxis.Sdmx.csproj">
       <Project>{7C7D7F81-CDD0-404C-9109-7A141EA17E15}</Project>

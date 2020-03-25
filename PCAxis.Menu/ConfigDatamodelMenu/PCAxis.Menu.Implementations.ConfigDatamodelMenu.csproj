@@ -98,11 +98,17 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=2.0.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Oracle.ManagedDataAccess.Core.2.19.60\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta2\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu.MsSqlDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu.OracleDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sql.Exceptions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -148,10 +154,6 @@
     <ProjectReference Include="..\OleDbDatamodelMenu\PCAxis.Menu.Implementations.OleDbDatamodelMenu.csproj">
       <Project>{c7e4dd21-fdec-4409-9a19-a514f687884c}</Project>
       <Name>PCAxis.Menu.Implementations.OleDbDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OracleDatamodelMenu\PCAxis.Menu.Implementations.OracleDatamodelMenu.csproj">
-      <Project>{79cd0aea-e236-4e95-9032-fedcc95d0664}</Project>
-      <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
     </ProjectReference>
     <ProjectReference Include="..\SybaseDatamodelMenu\PCAxis.Menu.Implementations.SybaseDatamodelMenu.csproj">
       <Project>{1c90eafe-a2b3-4f46-8aa3-66a5c61406b7}</Project>
