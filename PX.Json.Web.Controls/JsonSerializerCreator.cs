@@ -11,8 +11,8 @@ namespace PX.Json.Web.Controls
     {
         public IPXModelStreamSerializer Create(string fileInfo)
         {
-            PX.Serializers.Json.JsonSerializer ser;
-            ser = new Serializers.Json.JsonSerializer();
+            PXSerializers.Json.JsonSerializer ser;
+            ser = new PXSerializers.Json.JsonSerializer();
 
             return ser;
         }

@@ -20,8 +20,8 @@ namespace PX.Json.Web.Controls
         {
             using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
             {
-                PX.Serializers.Json.JsonSerializer ser;
-                ser = new Serializers.Json.JsonSerializer();
+                PXSerializers.Json.JsonSerializer ser;
+                ser = new PXSerializers.Json.JsonSerializer();
                 
                 
                 ser.Serialize(PaxiomManager.PaxiomModel, stream);
