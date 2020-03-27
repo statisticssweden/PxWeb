@@ -43,8 +43,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations.SybaseDatamodelMenu", "PCAxis.Menu\SybaseDatamodelMenu\PCAxis.Menu.Implementations.SybaseDatamodelMenu.csproj", "{1C90EAFE-A2B3-4F46-8AA3-66A5C61406B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PXWeb.SavedQuery.MsSql", "PXWeb.SavedQuery.MsSql\PXWeb.SavedQuery.MsSql.csproj", "{DE38C0CF-A383-4874-8033-7E81C074679F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat.Web.Controls", "PCAxis.JsonStat.Web.Controls\PCAxis.JsonStat.Web.Controls.csproj", "{6C558014-E4DB-4399-A759-12E916F0BA4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Encryption", "PCAxis.Encryption\PCAxis.Encryption.csproj", "{1B73B10F-8F52-449E-B5A1-8AAEABF42706}"
@@ -150,10 +148,6 @@ Global
 		{1C90EAFE-A2B3-4F46-8AA3-66A5C61406B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C90EAFE-A2B3-4F46-8AA3-66A5C61406B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C90EAFE-A2B3-4F46-8AA3-66A5C61406B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE38C0CF-A383-4874-8033-7E81C074679F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE38C0CF-A383-4874-8033-7E81C074679F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE38C0CF-A383-4874-8033-7E81C074679F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE38C0CF-A383-4874-8033-7E81C074679F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU

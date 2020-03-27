@@ -12,7 +12,7 @@ namespace PXWeb.Views
 {
     public class SelectionViewSerializer : ScreenViewSerializerAdapter
     {
-        public override void Render(string format, SavedQuery query, PXModel model, bool safe)
+        public override void Render(string format, PCAxis.Query.SavedQuery query, PXModel model, bool safe)
         {
             RenderToScreen(query, model, "", "Selection.aspx", safe);
         }
