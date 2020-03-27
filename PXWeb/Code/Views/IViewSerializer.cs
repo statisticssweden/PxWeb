@@ -22,7 +22,7 @@ namespace PXWeb.Views
         /// Restores the presntation view and layout from a Output object
         /// </summary>
         /// <returns></returns>
-        void Render(string format, SavedQuery query, PXModel model, bool safe);
+        void Render(string format, PCAxis.Query.SavedQuery query, PXModel model, bool safe);
 
     }
 }

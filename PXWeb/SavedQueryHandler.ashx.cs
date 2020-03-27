@@ -103,7 +103,7 @@ namespace PXWeb
             HandleChangedLanguage();
 
             //Load saved query
-            SavedQuery sq = null;
+            PCAxis.Query.SavedQuery sq = null;
             PXModel model = null;
             bool safe = true;
 
@@ -373,7 +373,7 @@ namespace PXWeb
             return false;
         }
 
-        private string CreateUrlForScreenRendering(SavedQuery sq, PXModel model)
+        private string CreateUrlForScreenRendering(PCAxis.Query.SavedQuery sq, PXModel model)
         {
             if (sq.Sources.Count < 1) throw new Exception("No source specified"); //TODO fix message
             
@@ -413,7 +413,7 @@ namespace PXWeb
 
     
 
-        private void SerializeResult(SavedQuery sq, PXModel model, HttpContext context)
+        private void SerializeResult(PCAxis.Query.SavedQuery sq, PXModel model, HttpContext context)
         {
             var info = PCAxis.Web.Controls.CommandBar.Plugin.CommandBarPluginManager.GetFileType(sq.Output.Type);
 
