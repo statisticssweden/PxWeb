@@ -198,10 +198,6 @@
       <Project>{79CD0AEA-E236-4E95-9032-FEDCC95D0664}</Project>
       <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Sdmx\PCAxis.Sdmx.csproj">
-      <Project>{7C7D7F81-CDD0-404C-9109-7A141EA17E15}</Project>
-      <Name>PCAxis.Sdmx</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
       <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
       <Name>PCAxis.Search</Name>
