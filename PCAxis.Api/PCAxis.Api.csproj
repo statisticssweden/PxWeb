@@ -109,6 +109,12 @@
     <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Query.1.0.0-beta\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Sdmx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Sdmx.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Serializers.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PX.Serializers.Json.1.0.0-beta\lib\netstandard2.0\PX.Serializers.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -197,10 +203,6 @@
       <Project>{5B3B610A-DFDB-4B2F-8509-DA4591864DCA}</Project>
       <Name>PCAxis.Menu.Implementations.ConfigDatamodelMenu</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Sdmx\PCAxis.Sdmx.csproj">
-      <Project>{7C7D7F81-CDD0-404C-9109-7A141EA17E15}</Project>
-      <Name>PCAxis.Sdmx</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
       <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
       <Name>PCAxis.Search</Name>
@@ -224,10 +226,6 @@
     <ProjectReference Include="..\PCAxis.Sql\PCAxis.Sql.csproj">
       <Project>{43D337F6-29E8-465F-82A2-18389EA4C48D}</Project>
       <Name>PCAxis.Sql</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PX.Serializers.Json\PX.Serializers.Json.csproj">
-      <Project>{5a8e1898-37c2-463e-a2dc-a00ca1db73eb}</Project>
-      <Name>PX.Serializers.Json</Name>
     </ProjectReference>
     <ProjectReference Include="..\PX.Web.Interfaces\PX.Web.Interfaces.csproj">
       <Project>{01468f9c-f679-49fe-9c9f-b127868d86a6}</Project>
