@@ -37,6 +37,9 @@
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta4\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Html5Table, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Html5Table.1.0.0-beta\lib\netstandard2.0\PCAxis.Html5Table.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -76,10 +79,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCAxis.Html5Table\PCAxis.Html5Table.csproj">
-      <Project>{10f26c50-39bc-467b-9707-a84fe329534a}</Project>
-      <Name>PCAxis.Html5Table</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Web.Controls\PCAxis.Web.Controls.vbproj">
       <Project>{0f886ccb-3476-4756-816c-7792a9c73fe2}</Project>
       <Name>PCAxis.Web.Controls</Name>
