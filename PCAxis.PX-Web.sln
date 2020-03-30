@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Chart", "PCAxis.Char
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Api", "PCAxis.Api\PCAxis.Api.csproj", "{8EB90826-A01B-494D-A596-E5C5F9815C3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Excel", "PCAxis.Excel\PCAxis.Excel.csproj", "{6CC55F46-4B41-4EB9-B775-4F740C3D3599}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Excel.Web.Controls", "PCAxis.Excel.Web.Controls\PCAxis.Excel.Web.Controls.csproj", "{30D1FC66-E47B-4417-8BD5-1693F09E028B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Serializers.JsonStat", "PCAxis.Serializers.JsonStat\JsonStatSerializer\PCAxis.Serializers.JsonStat.csproj", "{82889591-AFF6-4127-83EE-84A96D9964D7}"
@@ -122,10 +120,6 @@ Global
 		{8EB90826-A01B-494D-A596-E5C5F9815C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EB90826-A01B-494D-A596-E5C5F9815C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EB90826-A01B-494D-A596-E5C5F9815C3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CC55F46-4B41-4EB9-B775-4F740C3D3599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CC55F46-4B41-4EB9-B775-4F740C3D3599}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CC55F46-4B41-4EB9-B775-4F740C3D3599}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CC55F46-4B41-4EB9-B775-4F740C3D3599}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30D1FC66-E47B-4417-8BD5-1693F09E028B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30D1FC66-E47B-4417-8BD5-1693F09E028B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30D1FC66-E47B-4417-8BD5-1693F09E028B}.Release|Any CPU.ActiveCfg = Release|Any CPU
