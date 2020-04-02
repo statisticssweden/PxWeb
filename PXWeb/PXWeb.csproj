@@ -110,6 +110,9 @@
     <Reference Include="PCAxis.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Excel.1.0.0-beta\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Html5Table, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Html5Table.1.0.0-beta\lib\netstandard2.0\PCAxis.Html5Table.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.1.0.0-beta2\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>

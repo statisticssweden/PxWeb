@@ -12,7 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PXWeb", "PXWeb\PXWeb.csproj", "{15F0B569-43EF-4391-92A0-693AD70F3E7B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C21F6414-06B0-406C-9864-B6C72D2009BB} = {C21F6414-06B0-406C-9864-B6C72D2009BB}
-		{10F26C50-39BC-467B-9707-A84FE329534A} = {10F26C50-39BC-467B-9707-A84FE329534A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Sql.Exceptions", "PCAxis.Sql.Exceptions\PCAxis.Sql.Exceptions.csproj", "{41701C12-278E-4721-ABED-66CB2A4CAB03}"
@@ -57,8 +56,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Sql.DbConfig.Tests", "PCAxis.Sql.DbConfig.Tests\PCAxis.Sql.DbConfig.Tests.csproj", "{BDDF52AD-5607-428F-A22A-2F08534A852B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PXWeb.SavedQuery.Oracle", "PXWeb.SavedQuery.Oracle\PXWeb.SavedQuery.Oracle.csproj", "{981A3256-13E7-4B5D-BDF5-95B83337BF9C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Html5Table", "PCAxis.Html5Table\PCAxis.Html5Table.csproj", "{10F26C50-39BC-467B-9707-A84FE329534A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Html5Table.Web.Controls", "PCAxis.Html5Table.Web.Controls\PCAxis.Html5Table.Web.Controls.csproj", "{C21F6414-06B0-406C-9864-B6C72D2009BB}"
 EndProject
@@ -166,10 +163,6 @@ Global
 		{981A3256-13E7-4B5D-BDF5-95B83337BF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{981A3256-13E7-4B5D-BDF5-95B83337BF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{981A3256-13E7-4B5D-BDF5-95B83337BF9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10F26C50-39BC-467B-9707-A84FE329534A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10F26C50-39BC-467B-9707-A84FE329534A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10F26C50-39BC-467B-9707-A84FE329534A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10F26C50-39BC-467B-9707-A84FE329534A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C21F6414-06B0-406C-9864-B6C72D2009BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C21F6414-06B0-406C-9864-B6C72D2009BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21F6414-06B0-406C-9864-B6C72D2009BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
