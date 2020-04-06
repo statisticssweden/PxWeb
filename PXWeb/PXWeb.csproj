@@ -123,7 +123,7 @@
       <HintPath>..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta1\lib\net461\PCAxis.Metadata.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta3\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
