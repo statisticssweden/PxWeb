@@ -40,8 +40,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat.Web.Controls", "PCAxis.JsonStat.Web.Controls\PCAxis.JsonStat.Web.Controls.csproj", "{6C558014-E4DB-4399-A759-12E916F0BA4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Encryption", "PCAxis.Encryption\PCAxis.Encryption.csproj", "{1B73B10F-8F52-449E-B5A1-8AAEABF42706}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Serializers.JsonStat2Serializer", "PCAxis.Serializers.JsonStat2\JsonStat2Serializer\JsonStat2Serializer\PCAxis.Serializers.JsonStat2Serializer.csproj", "{C33C6D4D-C95C-441E-862D-E8B55354A096}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E255536D-7C9F-42A7-9C95-2CBD7E216CFE}"
@@ -135,10 +133,6 @@ Global
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B73B10F-8F52-449E-B5A1-8AAEABF42706}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Release|Any CPU.ActiveCfg = Release|Any CPU
