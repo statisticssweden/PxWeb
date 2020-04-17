@@ -40,8 +40,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat.Web.Controls", "PCAxis.JsonStat.Web.Controls\PCAxis.JsonStat.Web.Controls.csproj", "{6C558014-E4DB-4399-A759-12E916F0BA4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Serializers.JsonStat2Serializer", "PCAxis.Serializers.JsonStat2\JsonStat2Serializer\JsonStat2Serializer\PCAxis.Serializers.JsonStat2Serializer.csproj", "{C33C6D4D-C95C-441E-862D-E8B55354A096}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E255536D-7C9F-42A7-9C95-2CBD7E216CFE}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
@@ -58,6 +56,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Json.Web.Controls", "PX.Json.Web.Controls\PX.Json.Web.Controls.csproj", "{CD8B2DC6-72C2-4459-9BC8-EB5291877316}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Security", "PX.Security\PX.Security.csproj", "{DCB50C42-C3D0-48F9-9C1F-8D5AF99DDB95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat2.Web.Controls", "PCAxis.JsonStat2.Web.Controls\PCAxis.JsonStat2.Web.Controls.csproj", "{6E74C29D-772B-40B8-868F-DC74711E052D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,10 +133,6 @@ Global
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C558014-E4DB-4399-A759-12E916F0BA4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C33C6D4D-C95C-441E-862D-E8B55354A096}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01468F9C-F679-49FE-9C9F-B127868D86A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{01468F9C-F679-49FE-9C9F-B127868D86A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01468F9C-F679-49FE-9C9F-B127868D86A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -161,6 +157,10 @@ Global
 		{DCB50C42-C3D0-48F9-9C1F-8D5AF99DDB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCB50C42-C3D0-48F9-9C1F-8D5AF99DDB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCB50C42-C3D0-48F9-9C1F-8D5AF99DDB95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E74C29D-772B-40B8-868F-DC74711E052D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E74C29D-772B-40B8-868F-DC74711E052D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E74C29D-772B-40B8-868F-DC74711E052D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E74C29D-772B-40B8-868F-DC74711E052D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

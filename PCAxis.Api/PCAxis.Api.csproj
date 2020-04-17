@@ -118,6 +118,9 @@
     <Reference Include="PCAxis.Menu.OracleDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta3\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
     </Reference>
@@ -126,6 +129,9 @@
     </Reference>
     <Reference Include="PCAxis.Sdmx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Sdmx.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0-beta3\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
     </Reference>
     <Reference Include="PX.Serializers.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PX.Serializers.Json.1.0.0-beta\lib\netstandard2.0\PX.Serializers.Json.dll</HintPath>
@@ -225,10 +231,6 @@
     <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
       <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
       <Name>PCAxis.Search</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Serializers.JsonStat2\JsonStat2Serializer\JsonStat2Serializer\PCAxis.Serializers.JsonStat2Serializer.csproj">
-      <Project>{c33c6d4d-c95c-441e-862d-e8b55354a096}</Project>
-      <Name>PCAxis.Serializers.JsonStat2Serializer</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Serializers.JsonStat\JsonStatSerializer\PCAxis.Serializers.JsonStat.csproj">
       <Project>{82889591-AFF6-4127-83EE-84A96D9964D7}</Project>
