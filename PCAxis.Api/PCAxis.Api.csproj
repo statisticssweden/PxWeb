@@ -130,6 +130,9 @@
     <Reference Include="PCAxis.Sdmx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Sdmx.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0-beta\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0-beta3\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
     </Reference>
@@ -231,10 +234,6 @@
     <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
       <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
       <Name>PCAxis.Search</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Serializers.JsonStat\JsonStatSerializer\PCAxis.Serializers.JsonStat.csproj">
-      <Project>{82889591-AFF6-4127-83EE-84A96D9964D7}</Project>
-      <Name>PCAxis.Serializers.JsonStat</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
       <Project>{DB47AF85-69B1-4D57-8EF4-B2A28A820D30}</Project>

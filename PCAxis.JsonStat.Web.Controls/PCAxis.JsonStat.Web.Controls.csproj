@@ -36,8 +36,17 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta4\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta3\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0-beta\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -77,10 +86,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCAxis.Serializers.JsonStat\JsonStatSerializer\PCAxis.Serializers.JsonStat.csproj">
-      <Project>{82889591-aff6-4127-83ee-84a96d9964d7}</Project>
-      <Name>PCAxis.Serializers.JsonStat</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Web.Controls\PCAxis.Web.Controls.vbproj">
       <Project>{0f886ccb-3476-4756-816c-7792a9c73fe2}</Project>
       <Name>PCAxis.Web.Controls</Name>
