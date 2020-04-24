@@ -45,7 +45,7 @@
       <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta2\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+      <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta3\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
