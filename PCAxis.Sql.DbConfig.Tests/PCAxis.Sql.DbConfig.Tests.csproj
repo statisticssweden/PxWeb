@@ -57,10 +57,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
-      <Project>{db47af85-69b1-4d57-8ef4-b2a28a820d30}</Project>
-      <Name>PCAxis.Sql.DbConfig</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Sql.Exceptions\PCAxis.Sql.Exceptions.csproj">
       <Project>{41701c12-278e-4721-abed-66cb2a4cab03}</Project>
       <Name>PCAxis.Sql.Exceptions</Name>

@@ -74,8 +74,8 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Data.SqlClient, Version=1.11.20045.2, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.SqlClient.1.1.1\lib\net46\Microsoft.Data.SqlClient.dll</HintPath>
+    <Reference Include="Microsoft.Data.SqlClient, Version=1.12.20106.1, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.1.1.2\lib\net46\Microsoft.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Identity.Client, Version=3.0.8.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Identity.Client.3.0.8\lib\net45\Microsoft.Identity.Client.dll</HintPath>
@@ -107,6 +107,9 @@
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta4\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="PCAxis.Encryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Encryption.1.0.0-beta\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
+    </Reference>
     <Reference Include="PCAxis.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Excel.1.0.0-beta\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
     </Reference>
@@ -130,6 +133,9 @@
     </Reference>
     <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Query.1.0.0-beta\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Sql.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
     <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.0-beta2\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>
@@ -164,6 +170,9 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.4.7.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
@@ -814,14 +823,6 @@
     <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
       <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
       <Name>PCAxis.Search</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
-      <Project>{DB47AF85-69B1-4D57-8EF4-B2A28A820D30}</Project>
-      <Name>PCAxis.Sql.DbConfig</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Sql\PCAxis.Sql.csproj">
-      <Project>{43D337F6-29E8-465F-82A2-18389EA4C48D}</Project>
-      <Name>PCAxis.Sql</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Web.Controls\PCAxis.Web.Controls.vbproj">
       <Project>{0f886ccb-3476-4756-816c-7792a9c73fe2}</Project>
