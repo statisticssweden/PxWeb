@@ -131,10 +131,10 @@
       <HintPath>..\packages\PCAxis.Sdmx.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0-beta\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0-beta4\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0-beta3\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0-beta6\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
     </Reference>
     <Reference Include="PX.Serializers.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PX.Serializers.Json.1.0.0-beta\lib\netstandard2.0\PX.Serializers.Json.dll</HintPath>
