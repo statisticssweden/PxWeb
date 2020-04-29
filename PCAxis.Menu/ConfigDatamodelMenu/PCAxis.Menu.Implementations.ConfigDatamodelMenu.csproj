@@ -108,7 +108,7 @@
       <HintPath>..\..\packages\PCAxis.Encryption.1.0.0-beta\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta3\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+      <HintPath>..\..\packages\PCAxis.Menu.1.0.0-beta4\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu.MsSqlDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
@@ -204,6 +204,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
