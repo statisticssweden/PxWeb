@@ -84,7 +84,7 @@
       <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Sql.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Sql.1.0.0-beta4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

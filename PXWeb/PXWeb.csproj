@@ -135,7 +135,7 @@
       <HintPath>..\packages\PCAxis.Query.1.0.0-beta\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Sql.1.0.0-beta2\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Sql.1.0.0-beta4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
     <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.0-beta2\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>
