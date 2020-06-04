@@ -43,7 +43,7 @@
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta5\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta3\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta4\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0-beta4\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
