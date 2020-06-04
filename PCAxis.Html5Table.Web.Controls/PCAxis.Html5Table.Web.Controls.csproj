@@ -38,7 +38,7 @@
       <HintPath>..\packages\PCAxis.Core.1.0.0-beta5\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Html5Table, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Html5Table.1.0.0-beta\lib\netstandard2.0\PCAxis.Html5Table.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Html5Table.1.0.0-beta2\lib\netstandard2.0\PCAxis.Html5Table.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
