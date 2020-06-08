@@ -141,10 +141,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
-      <Project>{db47af85-69b1-4d57-8ef4-b2a28a820d30}</Project>
-      <Name>PCAxis.Sql.DbConfig</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OleDbDatamodelMenu\PCAxis.Menu.Implementations.OleDbDatamodelMenu.csproj">
       <Project>{c7e4dd21-fdec-4409-9a19-a514f687884c}</Project>
       <Name>PCAxis.Menu.Implementations.OleDbDatamodelMenu</Name>
