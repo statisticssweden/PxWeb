@@ -173,7 +173,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)*.dll" "$(SolutionDir)PXWeb\bin"</PostBuildEvent>
   </PropertyGroup>
 </Project>
