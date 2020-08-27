@@ -106,8 +106,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+
+  <!-- Copy Json dll files to PxWeb project -->
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <mydlls Include="$(TargetDir)\**\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\bin" ContinueOnError="true" SkipUnchangedFiles="true"/>
+  </Target>
+
 </Project>

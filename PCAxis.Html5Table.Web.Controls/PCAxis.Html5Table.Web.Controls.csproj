@@ -101,4 +101,13 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+
+  <!-- Copy Html5Table dll files to PxWeb project -->
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <mydlls Include="$(TargetDir)\**\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\bin" ContinueOnError="true" SkipUnchangedFiles="true"/>
+  </Target>
+
 </Project>
