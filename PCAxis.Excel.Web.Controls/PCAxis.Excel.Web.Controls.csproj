@@ -165,15 +165,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
+
+  <!-- Copy Excel dll files to PxWeb project -->
   <Target Name="AfterBuild">
+    <ItemGroup>
+      <mydlls Include="$(TargetDir)\**\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\bin" SkipUnchangedFiles="true"/>
   </Target>
-  -->
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+
 </Project>

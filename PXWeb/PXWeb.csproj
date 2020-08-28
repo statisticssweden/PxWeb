@@ -110,12 +110,6 @@
     <Reference Include="PCAxis.Encryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Encryption.1.0.0-beta2\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Excel.1.0.0-beta2\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="PCAxis.Html5Table, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Html5Table.1.0.0-beta2\lib\netstandard2.0\PCAxis.Html5Table.dll</HintPath>
-    </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.1.0.0-beta4\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>
@@ -136,9 +130,6 @@
     </Reference>
     <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Query.1.0.0-beta2\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
-    </Reference>
-    <Reference Include="PCAxis.Sdmx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Sdmx.1.0.0-beta3\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Sql.1.0.0-beta4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
