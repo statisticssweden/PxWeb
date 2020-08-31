@@ -107,7 +107,7 @@
     <ItemGroup>
       <mydlls Include="$(TargetDir)\**\*.dll" />
     </ItemGroup>
-    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\$(OutDir)" SkipUnchangedFiles="true"/>
+    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\bin" SkipUnchangedFiles="true"/>
   </Target>
 
 </Project>

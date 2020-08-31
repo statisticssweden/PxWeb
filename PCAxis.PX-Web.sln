@@ -10,9 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSSFriendly", "CSSFriendly\CSSFriendly.csproj", "{1439911B-BE4E-48A0-9208-927321992C67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PXWeb", "PXWeb\PXWeb.csproj", "{15F0B569-43EF-4391-92A0-693AD70F3E7B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C21F6414-06B0-406C-9864-B6C72D2009BB} = {C21F6414-06B0-406C-9864-B6C72D2009BB}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Charting", "PCAxis.Charting\PxChart\PCAxis.Charting.csproj", "{4B66B6A5-FC81-4943-9C55-DDBCD69ACA4E}"
 EndProject
