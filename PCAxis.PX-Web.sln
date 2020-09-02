@@ -27,6 +27,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Menu.Implementations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat.Web.Controls", "PCAxis.JsonStat.Web.Controls\PCAxis.JsonStat.Web.Controls.csproj", "{6C558014-E4DB-4399-A759-12E916F0BA4E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E255536D-7C9F-42A7-9C95-2CBD7E216CFE}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Web.Interfaces", "PX.Web.Interfaces\PX.Web.Interfaces.csproj", "{01468F9C-F679-49FE-9C9F-B127868D86A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Html5Table.Web.Controls", "PCAxis.Html5Table.Web.Controls\PCAxis.Html5Table.Web.Controls.csproj", "{C21F6414-06B0-406C-9864-B6C72D2009BB}"
