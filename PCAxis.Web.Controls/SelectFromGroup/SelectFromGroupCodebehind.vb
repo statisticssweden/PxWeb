@@ -15,6 +15,7 @@ Public Class SelectFromGroupCodebehind
 
 #Region "Fields"
     Protected lblHeading As Label
+    Protected lblVariableDesc As Label
     Protected lblVariable As Label
     Protected WithEvents cboGrouping As DropDownList
     Protected WithEvents rblType As RadioButtonList
@@ -25,6 +26,7 @@ Public Class SelectFromGroupCodebehind
     Protected pnlValues As Panel
     Protected lblValues As Label
     Protected lstValues As ListBox
+    Protected pnlForRbl As Panel
     Protected WithEvents btnSelectionDone As Button
     Protected WithEvents btnCancel As Button
 #End Region
@@ -81,6 +83,11 @@ Public Class SelectFromGroupCodebehind
         lblValues.Text = Me.GetLocalizedString("CtrlSelectFromGroupValues")
         btnSelectionDone.Text = Me.GetLocalizedString("CtrlSelectFromGroupSelectAndReturn")
         btnCancel.Text = Me.GetLocalizedString("CtrlSelectFromGroupCancel")
+        cboGrouping.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupSelectGroupingScreenReaderText"))
+        lstGroups.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupGroupsScreenReaderText"))
+        lstValues.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupValuesScreenReaderText"))
+        pnlForRbl.GroupingText = Me.GetLocalizedString("CtrlSelectFromGroupRadiobuttonListLegend")
+        lblVariableDesc.Text = Me.GetLocalizedString("CtrlSelectFromGroupVariableDesc")
 
         btnSelectionDone.Enabled = False
     End Sub

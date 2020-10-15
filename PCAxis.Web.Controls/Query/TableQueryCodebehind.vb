@@ -11,10 +11,13 @@ Imports System.Web.UI.HtmlControls
 Imports PCAxis.Web.Core.Management
 Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Query
+Imports System.IO
 
-<ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")> _
+<ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")>
 Public Class TableQueryCodebehind
     Inherits PaxiomControlBase(Of TableQueryCodebehind, TableQuery)
+
+    Private Shared Logger As log4net.ILog = log4net.LogManager.GetLogger(GetType(TableQueryCodebehind))
 
 #Region "fields"
     Protected lnkTableQueryInformation As HyperLink
@@ -27,6 +30,7 @@ Public Class TableQueryCodebehind
     Protected lblQuery As Label
     Protected txtQuery As TextBox
     Protected lnkMoreInfo As HyperLink
+    Protected WithEvents btnSaveQuery As Button
 #End Region
 
 #Region "Localized strings"
@@ -37,6 +41,7 @@ Public Class TableQueryCodebehind
     Private Const LOC_TABLEQUERY_URL_CAPTION As String = "CtrlTableQueryUrlCaption"
     Private Const LOC_TABLEQUERY_QUERY_CAPTION As String = "CtrlTableQueryQueryCaption"
     Private Const LOC_TABLEQUERY_MORE_INFORMATION As String = "CtrlTableQueryMoreInformation"
+    Private Const LOC_TABLEQUERY_SAVE_QUERY As String = "CtrlTableQuerySaveQuery"
 #End Region
 
 #Region "Events"
@@ -51,6 +56,7 @@ Public Class TableQueryCodebehind
                 Localize()
                 lnkTableQueryInformation.NavigateUrl = BuildLink(True)
                 lnkHideInformation.NavigateUrl = BuildLink(False)
+                btnSaveQuery.Visible = Marker.ShowSaveApiQueryButton
             Else
                 Me.Visible = False
             End If
@@ -170,6 +176,7 @@ Public Class TableQueryCodebehind
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
         lnkMoreInfo.Text = GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)
+        btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
     End Sub
 
     ''' <summary>
@@ -179,7 +186,7 @@ Public Class TableQueryCodebehind
     Private Sub ShowApiURL()
         Dim sb As New System.Text.StringBuilder()
 
-        If context Is Nothing Then
+        If Context Is Nothing Then
             Me.Visible = False
             Exit Sub
         End If
@@ -295,6 +302,59 @@ Public Class TableQueryCodebehind
             End If
         End If
     End Sub
+
+    Private Sub BtnSaveQuery_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveQuery.Click
+        Try
+            Dim postUrl = txtUrl.Text.Trim()
+
+            If (postUrl.EndsWith("/")) Then
+                postUrl = postUrl.Remove(postUrl.Length - 1)
+            End If
+
+            Dim apiQuery = txtQuery.Text
+            Dim tableId = postUrl.Split({"/"c}).Last()
+            Dim jsonString = String.Concat("{""queryObj"":", apiQuery, ",""tableIdForQuery"":""", tableId, """}")
+
+            Using stream = GenerateStreamFromString(jsonString)
+                Response.Clear()
+                Response.ContentType = "application/octet-stream"
+                Response.AddHeader("Content-Disposition", CreateHeaderValue(tableId))
+                stream.CopyTo(Response.OutputStream)
+                Response.Flush()
+                Response.SuppressContent = True
+                System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest()
+            End Using
+        Catch ex As Exception
+            Logger.Error(ex.Message)
+        End Try
+    End Sub
+
+    Private Function CreateHeaderValue(ByVal tableId As String) As String
+        Dim firstPartOfFilename As String
+
+        If Not String.IsNullOrEmpty(Marker.SaveApiQueryText) Then
+            firstPartOfFilename = Marker.SaveApiQueryText
+        Else
+            firstPartOfFilename = "px-web"
+        End If
+
+        Return String.Format("attachment; filename=""{0}api_table_{1}.json"";", firstPartOfFilename, tableId)
+    End Function
+
+    Private Function GenerateStreamFromString(ByVal queryString As String) As Stream
+        Dim memoryStream As New MemoryStream()
+
+        Try
+            Dim writer As New StreamWriter(memoryStream)
+            writer.Write(queryString)
+            writer.Flush()
+            memoryStream.Position = 0
+            Return memoryStream
+        Catch ex As Exception
+            memoryStream.Dispose()
+            Throw ex
+        End Try
+    End Function
 #End Region
 
 End Class

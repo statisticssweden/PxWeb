@@ -6,7 +6,7 @@ Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core.Enums
 Imports PCAxis.Web.Controls.CommandBar.Plugin
-
+Imports PCAxis.Metadata
 
 
 ''' <summary>
@@ -39,6 +39,16 @@ Partial Public Class VariableSelector
     '    RaiseEvent SearchLargeNumberOfValuesButtonClicked(sender, e, variable)
     'End Sub
 
+    Public Event LeaveVariableSelectorMain(ByVal sender As Object, ByVal e As EventArgs)
+    Friend Sub OnLeaveVariableSelectorMain(ByVal e As EventArgs)
+        RaiseEvent LeaveVariableSelectorMain(Me, e)
+    End Sub
+
+    Public Event ReenterVariableSelectorMain(ByVal sender As Object, ByVal e As EventArgs)
+    Friend Sub OnReenterVariableSelectorMain(ByVal e As EventArgs)
+        RaiseEvent ReenterVariableSelectorMain(Me, e)
+    End Sub
+
     Public Event ViewTableAutomatically(ByVal sender As Object, ByVal e As EventArgs)
     Friend Sub OnViewTableAutomatically()
         RaiseEvent ViewTableAutomatically(Me, New EventArgs())
@@ -47,7 +57,6 @@ Partial Public Class VariableSelector
     ''' <summary>
     ''' Event used to signal when a button for meta data information is clickt.
     ''' </summary>
-    'Public Event MetadataInformationSelected As EventHandler
     Public Event MetadataInformationSelected(ByVal sender As Object, ByVal e As MatadataInformationEventArgs)
     ''' <summary>
     ''' Raises an event to signal when value meta data button is clickt
@@ -223,6 +232,7 @@ Partial Public Class VariableSelector
             _preSelectFirstContentAndTime = value
         End Set
     End Property
+
 
     Private _metadataInformation As Boolean
     ''' <summary>
@@ -610,21 +620,21 @@ Partial Public Class VariableSelector
         End Set
     End Property
 
-    Private _presentationViews As New List(Of String)
+    Private _presentationView As String
     ''' <summary>
-    ''' Presentation views available as output
+    ''' Presentation view
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
     <PropertyPersistState(PersistStateType.PerControlAndPage), _
     Editor("System.Windows.Forms.Design.StringCollectionEditor, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", GetType(System.Drawing.Design.UITypeEditor))> _
-    Public Property PresentationViews() As List(Of String)
+    Public Property PresentationView() As String
         Get
-            Return _presentationViews
+            Return _presentationView
         End Get
-        Set(ByVal value As List(Of String))
-            _presentationViews = value
+        Set(ByVal value As String)
+            _presentationView = value
         End Set
     End Property
 
@@ -793,6 +803,22 @@ Partial Public Class VariableSelector
         End Get
         Set(ByVal value As ScreenMethod)
             _screenMethod = value
+        End Set
+    End Property
+
+    Private _metaLinkProvider As IMetaIdProvider
+    ''' <summary>
+    ''' MetaLinkProvider to use
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MetaLinkProvider() As IMetaIdProvider
+        Get
+            Return _metaLinkProvider
+        End Get
+        Set(ByVal value As IMetaIdProvider )
+            _metaLinkProvider = value
         End Set
     End Property
 

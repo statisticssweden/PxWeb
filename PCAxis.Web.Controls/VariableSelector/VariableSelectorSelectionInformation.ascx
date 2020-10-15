@@ -3,26 +3,41 @@
 <input id="SelectionLimitation" class="variableselector_selection_limits_number" runat="server" type="hidden" />
 <input id="NumberFormat" class="variableselector_selection_limits_numberformat" runat="server" type="hidden" />
 <asp:PlaceHolder runat="server" ID="SelectionMadeInformationPlaceHolder">
-    <p>
-        <asp:PlaceHolder runat="server" ID="RowColSelectionInformationPlaceHolder">
+    <%--<p>--%>
+        <div class="variableselector_selected_rows">
+        <asp:PlaceHolder runat="server" ID="RowColSelectionInformationPlaceHolder" >
+            <div class="variableselector_selected_rows_one">
             <asp:Label runat="server" ID="SelectedRowsLabel" CssClass="variableselector_selected_rows_label"/>
             <asp:Label runat="server" ID="SelectedRowsLabelSelected" CssClass="variableselector_selected_rows_label_selected"/>
+                </div>
+<div class="variableselector_selected_rows_two">
             <asp:Label runat="server" ID="SelectedColumnsLabel" CssClass="variableselector_selected_columns_label"/>
             <asp:Label runat="server" ID="SelectedColumnsLabelSelected" CssClass="variableselector_selected_columns_label_selected"/> 
+    </div>
         </asp:PlaceHolder>
+            </div>
+
+
+
+        <div class="variableselector_selected_cells">
         <asp:PlaceHolder runat="server" ID="CellSelectionInformationPlaceHolder">
+            <div class="variableselector_selected_cells_one">
             <asp:Label runat="server" ID="SelectedCellsLabel" CssClass="variableselector_selected_cells_label"/>
-            <asp:Label runat="server" ID="SelectedCellsLabelSelected" CssClass="variableselector_selected_cells_label_selected"/>
-            <asp:Label runat="server" ID="SelectedCellsNumberLabel" CssClass="variableselector_selected_cells_number_label"/>
-            <asp:Label runat="server" ID="SelectedCellsLimitLabel" CssClass="variableselector_selected_cells_limit_label"/>
+            <%--<asp:Label runat="server" ID="SelectedCellsLabelSelected" CssClass="variableselector_selected_cells_label_selected"/>                --%>
+            <asp:Label runat="server" ID="SelectedCellsNumberLabel" CssClass="variableselector_selected_cells_number_label"/>                
+            </div>
+             <div class="variableselector_selected_cells_two">
+                  <asp:Label runat="server" ID="SelectedCellsLimitLabel" CssClass="variableselector_selected_cells_limit_label"/>
+           </div>
         </asp:PlaceHolder>
-    </p>
+            </div>
+<%--    </p>--%>
 </asp:PlaceHolder>
 <asp:PlaceHolder ID="SelectionLimitsInformationPlaceHolder" runat="server">
      <p><asp:Label runat="server" ID="SelectionLimitationLabel" CssClass="variableselector_selection_limits_label"/></p>
 </asp:PlaceHolder>
 
-<script type="text/javascript">
+<script>
     var StubListboxes = new Array();
     var HeadingListboxes = new Array();
     var _selectedInStub = 0;

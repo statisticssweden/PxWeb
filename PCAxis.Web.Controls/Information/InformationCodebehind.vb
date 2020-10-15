@@ -116,8 +116,8 @@ Public Class InformationCodebehind
     ''' </summary>
     Private Sub InformationRepeater_ItemDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.RepeaterItemEventArgs) Handles InformationRepeater.ItemDataBound
         Select Case e.Item.ItemType
-            Case ListItemType.Header
-                SetLiteralText(e, "Header", GetLocalizedString(INFORMATIONLABEL))
+            'Case ListItemType.Header
+            '    SetLiteralText(e, "Header", GetLocalizedString(INFORMATIONLABEL))
             Case ListItemType.Item, ListItemType.AlternatingItem
                 Dim li As InformationListItem = DirectCast(e.Item.DataItem, InformationListItem)
                 SetLiteralText(e, "MainTerm", GetMainTermText(li.InformationType))

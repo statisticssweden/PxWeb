@@ -61,21 +61,22 @@ Public Class VariableSelectorValueSelectCodebehind
 
     Protected VariableTitleSecond As Label
     Protected VariableTitle As Label
+    Protected VariableTitleMetadata As Label
     Protected WithEvents GroupingDropDown As DropDownList
     Protected ValuesListBox As ListBox
+    Protected MustSelect As RequiredFieldValidator
+    Protected MustSelectCustom As CustomValidator
 
-    Protected EliminationImage As Image
-    Protected WithEvents SearchButton As ImageButton
-    Protected WithEvents SortASCButton As ImageButton
-    Protected WithEvents SortDescButton As ImageButton
+
+    Protected WithEvents SearchButton As LinkButton
     Protected WithEvents HierarchicalSelectButton As ImageButton
-    Protected WithEvents SelectAllButton As ImageButton
-    Protected WithEvents DeselectAllButton As ImageButton
-    Protected WithEvents SelectionFromGroupButton As ImageButton
-    Protected WithEvents MetadataInformationButton As ImageButton
+    Protected WithEvents SelectAllButton As Button
+    Protected WithEvents DeselectAllButton As Button
+    Protected WithEvents SelectionFromGroupButton As LinkButton
 
     Protected SearchValuesHeading As Label
-    Protected WithEvents SearchValuesButton As ImageButton
+    'Protected WithEvents SearchValuesButton As ImageButton
+    Protected WithEvents SearchValuesButton As LinkButton
     Protected SearchValuesTextbox As TextBox
     Protected SearchValuesBeginningOfWordCheckBox As CheckBox
 
@@ -93,16 +94,27 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected ManyValues As Literal
     Protected ContentVariable As Panel
     Protected SelectedStatistics As Panel
+    Protected OptionalVariablePanel As Panel
+    Protected MetadataPanel As Panel
+
+
     'Protected VariableTitleMaxRows As Literal
     'Protected MaxRowsWithoutSearchContainerPanel As Panel
 
     Protected NumberValuesTotalTitel As Literal
     Protected NumberValuesTotal As Literal
     Protected NumberValuesSelectedTitel As Literal
-    Protected NumberValuesSelected As TextBox
+    Protected NumberValuesSelected As Label
+    Protected MandatoryText As Label
+    Protected MandatoryStar As Label
+    Protected OptionalVariableText As Label
+    Protected MetadataCloseLabel As Label
+
 
     Protected ActionButton As Button
 
+    Protected WithEvents VariableValueLinksRepeater As Repeater
+    Protected WithEvents VariableValueRepeater As Repeater
 #End Region
 
 #Region "Properties"
@@ -145,6 +157,9 @@ Public Class VariableSelectorValueSelectCodebehind
 
         If (Marker.Variable IsNot Nothing) Then
             FillControls()
+            If (Marker.MetaLinkProvider IsNot Nothing) Then
+                FillMetaData()
+            End If
         Else
             Visible = False
         End If
@@ -158,8 +173,6 @@ Public Class VariableSelectorValueSelectCodebehind
         If Me.ValuesListBox.Items.Count <= Marker.MaxRowsWithoutSearch Then 'Marker.JavascriptRowLimit is obsolete
             SelectAllButton.OnClientClick = String.Format("return VariableSelector_SelectAllAndUpdateNrSelected('{0}','{1}','{2}','{3}')", ValuesListBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
             DeselectAllButton.OnClientClick = String.Format("return VariableSelector_DeselectAllAndUpdateNrSelected('{0}','{1}','{2}','{3}')", ValuesListBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
-            SortDescButton.OnClientClick = String.Format("return VariableSelector_SortDescendingAndUpdateNrSelected('{0}','{1}','{2}','{3}')", ValuesListBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
-            SortASCButton.OnClientClick = String.Format("return VariableSelector_SortAscendingAndUpdateNrSelected('{0}','{1}','{2}','{3}')", ValuesListBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
             SearchValuesButton.OnClientClick = String.Format("return VariableSelector_SearchValues('{0}','{1}','{2}','{3}','{4}','{5}')", ValuesListBox.ClientID, SearchValuesTextbox.ClientID, SearchValuesBeginningOfWordCheckBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
         End If
         'Used to hide the action button if javascripts is enabled
@@ -182,15 +195,9 @@ Public Class VariableSelectorValueSelectCodebehind
 
         'Set ImageUrl for buttons from embedded resource
         Dim imgurl As String = Page.ClientScript.GetWebResourceUrl(GetType(VariableSelectorValueSelectCodebehind), "PCAxis.Web.Controls.spacer.gif")
-        SelectAllButton.ImageUrl = imgurl
-        DeselectAllButton.ImageUrl = imgurl
-        SortDescButton.ImageUrl = imgurl
-        SortASCButton.ImageUrl = imgurl
-        SearchValuesButton.ImageUrl = imgurl
-        SearchButton.ImageUrl = imgurl
         HierarchicalSelectButton.ImageUrl = imgurl
-        SelectionFromGroupButton.ImageUrl = imgurl
-        MetadataInformationButton.ImageUrl = imgurl
+        'Add CSSClass for checkbox label
+        SearchValuesBeginningOfWordCheckBox.LabelAttributes.Add("class", "checkbox-label")
 
         ' --- Visibility for select hierarcical button
         If (Not Marker.Variable.Hierarchy.IsHierarchy) Or (Not Marker.ShowHierarchies) Then
@@ -223,6 +230,8 @@ Public Class VariableSelectorValueSelectCodebehind
         'End If
         UpdateSelectedStats()
 
+        ' MustSelect.Enabled = False
+        MustSelectCustom.Enabled = False
         SetElimination()
 
         If Marker.AllowAggreg Then
@@ -310,17 +319,47 @@ Public Class VariableSelectorValueSelectCodebehind
     End Sub
 
 
+    Protected Sub ValidateListBox_ServerValidate(source As Object, args As ServerValidateEventArgs)
+        Dim is_valid As Boolean = ValuesListBox.SelectedIndex > -1
+        args.IsValid = is_valid
+        If (Not is_valid) Then
+            If Not Page.ClientScript.IsClientScriptBlockRegistered(Me.GetType(), "CreateResetScrollPosition") Then
+                'Create the ResetScrollPosition() function
+                Page.ClientScript.RegisterClientScriptBlock(Me.GetType(), "CreateResetScrollPosition",
+                                 "function ResetScrollPosition() {" & vbCrLf &
+                                 " var scrollX = document.getElementById('__SCROLLPOSITIONX');" & vbCrLf &
+                                 " var scrollY = document.getElementById('__SCROLLPOSITIONY');" & vbCrLf &
+                                 " if (scrollX && scrollY) {" & vbCrLf &
+                                 "    scrollX.value = 0;" & vbCrLf &
+                                 "    scrollY.value = 0;" & vbCrLf &
+                                 " }" & vbCrLf &
+                                 "}", True)
+
+                'Add the call to the ResetScrollPosition() function
+                Page.ClientScript.RegisterStartupScript(Me.GetType(), "CallResetScrollPosition", "ResetScrollPosition();", True)
+            End If
+        End If
+    End Sub
+
+
     ''' <summary>
     ''' Mark images for which at least one value must be selected
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub SetElimination()
         If Marker.ShowElimMark And Not Marker.Variable.Elimination Then
-            EliminationImage.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, Marker.EliminationImagePath)
-            EliminationImage.AlternateText = Me.GetLocalizedString("CtrlVariableSelectorEliminationTooltip")
-            EliminationImage.Visible = True
+            MandatoryText.Visible = True
+            MandatoryStar.Visible = True
+            Me.MustSelectCustom.ErrorMessage = Marker.Variable.Name
+            Me.MustSelectCustom.Enabled = True
+            Me.MustSelectCustom.EnableClientScript = False
+            'Me.MustSelectCustom.EnableClientScript = True ' If we want to validate on select/deselect in listbox. Should maybe be possible to configurate.
+            OptionalVariablePanel.Visible = False
         Else
-            EliminationImage.Visible = False
+            MandatoryText.Visible = False
+            MandatoryStar.Visible = False
+            Me.MustSelectCustom.Enabled = False
+            OptionalVariablePanel.Visible = True
         End If
     End Sub
 
@@ -370,6 +409,7 @@ Public Class VariableSelectorValueSelectCodebehind
         ValuesListBox.SelectionMode = ListSelectionMode.Multiple
         ValuesListBox.Rows = Marker.ListSize
 
+
         Dim valuesToShow As Values = Nothing
 
         Select Case _displayMode
@@ -381,8 +421,6 @@ Public Class VariableSelectorValueSelectCodebehind
                     valuesToShow.Add(value)
                 Next
             Case DisplayModeType.ManyValuesListbox
-                Dim value As Value
-
                 Dim valueByCode As New Dictionary(Of String, Value)
 
                 For Each valueItem As Value In Marker.Variable.Values
@@ -430,7 +468,9 @@ Public Class VariableSelectorValueSelectCodebehind
 
         ValuesListBox.DataSource = valuesToShow
         ValuesListBox.DataBind()
-
+        If ValuesListBox.Items.Count >= ValuesListBox.Rows Then
+            ValuesListBox.Style.Add("overflow-y", "scroll")
+        End If
         RenderSelection()
         'End If
 
@@ -470,51 +510,52 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' </summary>
     Private Sub SetLocalizedText()
 
-        ' --- Search values button
-        SearchButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
-        SearchButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
+        ' --- Search values link button
+        SearchButton.Text = String.Format("<i class='icon-wrapper'><svg focusable='false' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class=''><line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg></i>" + "<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSearchLabel"))
 
         ' --- Hierarchical selection button
         HierarchicalSelectButton.ToolTip = GetLocalizedString("CtrlVariableSelectorHierarchicalTooltip")
         HierarchicalSelectButton.AlternateText = GetLocalizedString("CtrlVariableSelectorHierarchicalTooltip")
 
-        ' --- Sort asc button
-        SortASCButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSortAscTooltip")
-        SortASCButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSortAscTooltip")
-
-        ' --- Sort desc button
-        SortDescButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSortDescTooltip")
-        SortDescButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSortDescTooltip")
-
         ' --- Select all button
         SelectAllButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSelectAllTooltip")
-        SelectAllButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSelectAllTooltip")
+        SelectAllButton.Text = GetLocalizedString("CtrlVariableSelectorSelectAllButton")
 
         ' --- Deselect all button
         DeselectAllButton.ToolTip = GetLocalizedString("CtrlVariableSelectorDeSelectAllTooltip")
-        DeselectAllButton.AlternateText = GetLocalizedString("CtrlVariableSelectorDeSelectAllTooltip")
+        DeselectAllButton.Text = GetLocalizedString("CtrlVariableSelectorDeSelectAllButton")
 
-        ' --- Select from groups button
-        SelectionFromGroupButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSelectFromGroupTooltip")
-        SelectionFromGroupButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSelectFromGroupTooltip")
-
-        ' --- Show tab with links to meta data system for varibles and values
-        MetadataInformationButton.ToolTip = GetLocalizedString("CtrlVariableSelectorMetadataImformationTooltip")
-        MetadataInformationButton.AlternateText = GetLocalizedString("CtrlVariableSelectorMetadataImformationTooltip")
+        ' --- Select from groups link button
+        SelectionFromGroupButton.Text = String.Format("<i class='icon-wrapper'><svg focusable='false' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class=''><line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg></i>" + "<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSelectFromGroupTooltip"))
 
         ' --- Search panel
-        SearchValuesHeading.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesHeading")
+        'SearchValuesHeading.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesHeading")
         SearchValuesBeginningOfWordCheckBox.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox")
+
+        'wcag says: label element or title attribute  
+        SearchValuesTextbox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReaderText"))
+
+
+        ValuesListBox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSelectValuesListboxScreenReaderText"))
+
+        SearchValuesTextbox.Attributes.Add("placeholder", GetLocalizedString("CtrlVariableSelectorSearchValuesTextbox"))
 
         ' --- Search values button
         SearchValuesButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
-        SearchValuesButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
+        'SearchValuesButton.AlternateText = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
+
+        '--- Dropdownlist for grouping
+        GroupingDropDown.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSelectDropdownGroupingLabel"))
+
 
         ' --- Many values text
         ManyValues.Text = String.Format(GetLocalizedString("CtrlVariableSelectorManyValues"), Marker.MaxRowsWithoutSearch)
 
         ' --- Action button shown if script is disabled
         ActionButton.Text = String.Format(GetLocalizedString("CtrlVariableSelectorActionButton"), Marker.MaxRowsWithoutSearch)
+
+        ' --- Validator message
+        MustSelectCustom.Text = GetLocalizedString("CtrlVariableSelectorValidationMessage")
 
         ' --- Statistics on value selection
         If Not (Marker.HideTitlesForValueSelectionStatistics) Then
@@ -529,6 +570,12 @@ Public Class VariableSelectorValueSelectCodebehind
                 NumberValuesTotal.Text = DataFormatter.NumericToString(Marker.Variable.Values.Count, 0, LocalizationManager.GetTwoLetterLanguageCode())
         End Select
 
+        ' --- MandatoryText
+        MandatoryText.Text = GetLocalizedString("CtrlVariableSelectorMandatoryText")
+
+        OptionalVariableText.Text = GetLocalizedString("CtrlVariableSelectorOptionalVariableText")
+
+        MetadataCloseLabel.Text = GetLocalizedString("CtrlVariableSelectorMetadataCloseButton")
     End Sub
 
     ''' <summary>
@@ -604,32 +651,28 @@ Public Class VariableSelectorValueSelectCodebehind
         Select Case _displayMode
             Case DisplayModeType.Standard
                 ValuesSelectPanel.Visible = True
-                SearchPanel.Visible = True
+                SetSearchPanelVisibility()
                 ManyValuesPanel.Visible = False
 
                 SearchButton.Visible = False
                 SelectAllButton.Visible = True
                 DeselectAllButton.Visible = True
-                SortASCButton.Visible = True
-                SortDescButton.Visible = True
                 SetSelectionFromGroupVisibility()
-                SetMetaDataInformationVisibility()
                 SelectedStatistics.Visible = True
                 VariableTitle.Text = Marker.Variable.Name
+                VariableTitleMetadata.Text = Marker.Variable.Name
             Case DisplayModeType.ManyValuesListbox
                 ValuesSelectPanel.Visible = True
-                SearchPanel.Visible = True
+                SetSearchPanelVisibility()
                 ManyValuesPanel.Visible = False
 
                 SearchButton.Visible = True
                 SelectAllButton.Visible = True
                 DeselectAllButton.Visible = True
-                SortASCButton.Visible = True
-                SortDescButton.Visible = True
                 SetSelectionFromGroupVisibility()
-                SetMetaDataInformationVisibility()
                 SelectedStatistics.Visible = True
                 VariableTitle.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
+                VariableTitleMetadata.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
             Case DisplayModeType.ManyValuesText
                 ValuesSelectPanel.Visible = False
                 SearchPanel.Visible = False
@@ -638,13 +681,10 @@ Public Class VariableSelectorValueSelectCodebehind
                 SearchButton.Visible = True
                 SelectAllButton.Visible = False
                 DeselectAllButton.Visible = False
-                SortASCButton.Visible = False
-                SortDescButton.Visible = False
-                'SelectionFromGroupButton.Visible = False
                 SetSelectionFromGroupVisibility()
-                MetadataInformationButton.Visible = False
                 SelectedStatistics.Visible = True
                 VariableTitle.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
+                VariableTitleMetadata.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
             Case DisplayModeType.SelectValueset
                 ValuesSelectPanel.Visible = False
                 SearchPanel.Visible = False
@@ -652,13 +692,14 @@ Public Class VariableSelectorValueSelectCodebehind
                 SearchButton.Visible = False
                 SelectAllButton.Visible = False
                 DeselectAllButton.Visible = False
-                SortASCButton.Visible = False
-                SortDescButton.Visible = False
                 SelectionFromGroupButton.Visible = False
-                MetadataInformationButton.Visible = False
+
                 SelectedStatistics.Visible = False
                 VariableTitle.Text = Marker.Variable.Name
+                VariableTitleMetadata.Text = Marker.Variable.Name
         End Select
+
+        SetMetaDataInformationVisibility()
 
         If Marker.SearchButtonMode = VariableSelectorSearchButtonViewMode.Always Then
             SearchButton.Visible = True
@@ -714,7 +755,8 @@ Public Class VariableSelectorValueSelectCodebehind
             End If
         End If
 
-        MetadataInformationButton.Visible = metadata
+        MetadataPanel.Visible = metadata
+        VariableTitle.Visible = Not metadata
     End Sub
 
     ''' <summary>
@@ -788,7 +830,7 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Protected Sub SelectAllButton_Click(ByVal sender As Object, ByVal e As ImageClickEventArgs) Handles SelectAllButton.Click
+    Protected Sub SelectAllButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SelectAllButton.Click
         SelectAllValues()
         NumberValuesSelected.Text = ValuesListBox.Items.Count.ToString()
     End Sub
@@ -799,40 +841,13 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Protected Sub DeselectAllButton_Click(ByVal sender As Object, ByVal e As ImageClickEventArgs) Handles DeselectAllButton.Click
+    Protected Sub DeselectAllButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeselectAllButton.Click
         'For Each item As ListItem In ValuesListBox.Items
         '    item.Selected = False
         'Next
         'NumberValuesSelected.Text = "0"
         DeselectAllValues()
     End Sub
-
-
-    ''' <summary>
-    ''' Sort the ListBox items descending by text.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Protected Sub sortDescImageButton_Click(ByVal sender As Object, ByVal e As ImageClickEventArgs) Handles SortDescButton.Click
-        Marker.IsSortDirectionSet = True
-        Marker.ValuesSortDirection = SortDirection.Descending
-        RenderValuesListbox()
-    End Sub
-
-
-    ''' <summary>
-    ''' Sort the ListBox items ascending by text.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Protected Sub sortAscImageButton_Click(ByVal sender As Object, ByVal e As ImageClickEventArgs) Handles SortASCButton.Click
-        Marker.IsSortDirectionSet = True
-        Marker.ValuesSortDirection = SortDirection.Ascending
-        RenderValuesListbox()
-    End Sub
-
 
 
     ''' <summary>
@@ -853,22 +868,9 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub selectionFromGroupButton_Click(ByVal sender As Object, ByVal e As ImageClickEventArgs) Handles SelectionFromGroupButton.Click
+    Private Sub selectionFromGroupButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SelectionFromGroupButton.Click
 
         Marker.OnSelectFromGroupButtonClicked(sender, e, Marker.Variable)
-
-    End Sub
-
-    ''' <summary>
-    ''' Meta data button clickt for a variable
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub metadataInformation_Click(ByVal sender As Object, ByVal e As ImageClickEventArgs) Handles MetadataInformationButton.Click
-
-        'RaiseEvent
-        Marker.OnMetadataInformationButtonClicked(sender, e, Marker.Variable)
 
     End Sub
 
@@ -960,7 +962,7 @@ Public Class VariableSelectorValueSelectCodebehind
                 'Marker.VariableTitleSecond = GroupingDropDown.Items(GroupingDropDown.SelectedIndex).Text
                 'VariableTitleSecond.Text = Marker.VariableTitleSecond
                 'VariableTitleSecond.Visible = True
-                VariableTitle.Visible = True
+                VariableTitle.Visible = Not MetadataPanel.Visible
                 'GroupingDropDown.Visible = False
                 ActionButton.Visible = False
             End If
@@ -978,7 +980,7 @@ Public Class VariableSelectorValueSelectCodebehind
                 HierarchicalSelectButton.Visible = False
             End If
 
-            VariableTitle.Visible = True
+            VariableTitle.Visible = Not MetadataPanel.Visible
             ActionButton.Visible = False
         End If
     End Sub
@@ -1012,7 +1014,7 @@ Public Class VariableSelectorValueSelectCodebehind
                 HierarchicalSelectButton.Visible = False
             End If
 
-            VariableTitle.Visible = True
+            VariableTitle.Visible = Not MetadataPanel.Visible
             ActionButton.Visible = False
         End If
 
@@ -1084,7 +1086,7 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub SearchButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles SearchButton.Click
+    Private Sub SearchButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SearchButton.Click
         'Marker.ShowAllValues = True
         Marker.OnSearchLargeNumberOfValuesButtonClicked(sender, e, Marker.Variable)
     End Sub
@@ -1098,10 +1100,7 @@ Public Class VariableSelectorValueSelectCodebehind
                 SearchButton.Visible = False
                 SelectAllButton.Visible = False
                 DeselectAllButton.Visible = False
-                SortASCButton.Visible = False
-                SortDescButton.Visible = False
                 SelectionFromGroupButton.Visible = False
-                MetadataInformationButton.Visible = False
 
                 SelectedStatistics.Visible = False
 
@@ -1124,7 +1123,6 @@ Public Class VariableSelectorValueSelectCodebehind
 
         End If
         UpdateSelectedStats()
-
     End Sub
 
     ''' <summary>
@@ -1134,6 +1132,115 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected Sub SelectFirstContentAndTimeValue()
         If Marker.Variable.IsContentVariable Or Marker.Variable.IsTime Then
             ValuesListBox.SelectedIndex = 0
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Set visibility for search panel
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub SetSearchPanelVisibility()
+        If Marker.Variable.Values.Count > Marker.ListSize Then
+            SearchPanel.Visible = True
+        Else
+            SearchPanel.Visible = False
+        End If
+    End Sub
+
+    Protected Sub VariableValueLinksRepeater_ItemDataBound(ByVal sender As Object, ByVal e As RepeaterItemEventArgs)
+        CreateLink(e,"divVarValLink")
+    End Sub
+
+    private Sub CreateLink(Byval e As RepeaterItemEventArgs , byval placeholder As String)
+        Dim itm As RepeaterItem = e.Item
+
+        Dim currentItem As Metadata.MetaLink = TryCast(e.Item.DataItem, Metadata.MetaLink)
+
+        Dim ph As HtmlGenericControl = TryCast(itm.FindControl(placeholder), HtmlGenericControl)
+        if (currentItem IsNot Nothing)
+            Dim lnk As HyperLink = New HyperLink()
+            lnk.Text = currentItem.LinkText
+            lnk.NavigateUrl = currentItem.Link
+            lnk.Target = currentItem.Target
+            lnk.CssClass = currentItem.CssClass
+            ph.Controls.Add(lnk)
+        End If
+    End Sub
+
+    protected Sub VariableValueRepeater_ItemDataBound(ByVal sender As Object, ByVal e As RepeaterItemEventArgs)
+
+        Dim itm As RepeaterItem = e.Item
+        Dim currentItem As MetaItem = TryCast(e.Item.DataItem, MetaItem)
+
+        Dim lbl As Label = TryCast(itm.FindControl("lblVariableValueName"),Label)
+        lbl.Text = currentItem.Name
+
+        Dim rep As Repeater = TryCast(itm.FindControl("VariableValueLinksRepeater"), Repeater)
+        rep.DataSource = currentItem.Links
+        rep.DataBind()
+    End Sub
+
+    Private Class MetaItem
+        ''' <summary>
+        ''' Variable/Value name
+        ''' </summary>
+        public Name As String
+        ''' <summary>
+        ''' List of links
+        ''' </summary>
+        public Links As List(Of PCAxis.Metadata.MetaLink)
+
+        ''' <summary>
+        ''' Constructor
+        ''' </summary>
+        Public Sub MetaItem()
+            Links = New List(of PCAxis.Metadata.Metalink)
+        End Sub
+    End Class
+
+    Private Function GetVariableLinks() As List(Of MetaItem)
+        Dim lst = New List(Of MetaItem)
+        Dim itm = New MetaItem()
+        itm.Name = Marker.Variable.Name
+
+        If Not String.IsNullOrWhiteSpace(Marker.Variable.MetaId)
+            itm.Links = Marker.MetaLinkProvider.GetVariableLinks(Marker.Variable.MetaId, LocalizationManager.CurrentCulture.Name).ToList()
+        End If
+        
+        If itm.Links IsNot Nothing
+            lst.Add(itm)
+        End If
+
+        Return lst
+    End Function
+
+    Private Function GetValueLinks() As List(Of MetaItem)
+        Dim links = New List(Of MetaItem)
+        For Each value As Value In Marker.Variable.Values
+            If Not String.IsNullOrWhiteSpace(value.MetaId)
+                Dim itm = new MetaItem()
+                itm.Name = value.Text
+                itm.Links = Marker.MetaLinkProvider.GetValueLinks(value.MetaId,LocalizationManager.CurrentCulture.Name).ToList()
+                ' Only display value if it has metadata links
+                If itm.Links.Count > 0Then
+                    links.Add(itm)
+                End If
+            End If
+        Next  
+
+        Return links
+    End Function
+
+    Private Sub FillMetaData()
+        Dim lstVariableValueLinks As List(Of MetaItem) = GetVariableLinks()
+        lstVariableValueLinks.AddRange(GetValueLinks())
+
+        If  lstVariableValueLinks.Count > 0
+            VariableValueRepeater.DataSource = lstVariableValueLinks
+            VariableValueRepeater.DataBind()
+            VariableValueRepeater.Visible = true
+        Else
+            VariableValueRepeater.Visible = false
         End If
     End Sub
 

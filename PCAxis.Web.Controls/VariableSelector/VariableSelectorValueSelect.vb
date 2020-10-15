@@ -5,6 +5,7 @@ Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core.Enums
+Imports PCAxis.Metadata
 
 
 
@@ -534,6 +535,22 @@ Partial Public Class VariableSelectorValueSelect
         End Get
         Set(ByVal value As GroupingIncludesType)
             _selectedGroupingPresentation = value
+        End Set
+    End Property
+
+    Private _metaLinkProvider As IMetaIdProvider
+    ''' <summary>
+    ''' MetaLinkProvider to use
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MetaLinkProvider() As IMetaIdProvider
+        Get
+            Return _metaLinkProvider
+        End Get
+        Set(ByVal value As IMetaIdProvider )
+            _metaLinkProvider = value
         End Set
     End Property
 

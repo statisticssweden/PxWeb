@@ -33,7 +33,7 @@ Public Class VariableSelectorEliminationInformationCodebehind
     End Sub
 
     Private Sub CreateEliminationInformationText()
-
+        Exit Sub 'Drop the Sub?
         Dim divider As String() = New String() {"{image}"}
         'Get string from language handling and try to split it up
         Dim texts() As String = Me.GetLocalizedString(LOC_ELIMINATION_LABEL).Split(divider, StringSplitOptions.None)

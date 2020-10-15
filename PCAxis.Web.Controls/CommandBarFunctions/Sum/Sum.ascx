@@ -12,10 +12,10 @@
             <asp:ListItem Text="Summera alla värden" Value="SumAll" Selected="True" />
             <asp:ListItem Text="Summera utvalda värden" Value="SumSelected" />
         </asp:RadioButtonList>
-        <p class="commandbar_button_row">
-            <asp:Button runat="server" ID="ContinueButtonSelectVariables" />
-            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton" />
-        </p>
+        <div class="commandbar_button_row">
+            <asp:Button runat="server" ID="ContinueButtonSelectVariables" CssClass="pxweb-btn primary-btn"/>
+            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+        </div>
     </asp:Panel>
     
     <!-- Select values -->
@@ -33,10 +33,10 @@
             <asp:CompareValidator runat="server" EnableClientScript="false" ID="OperandsValidator" ControlToValidate="FirstOperandDropDown" ControlToCompare="SecondOperandDropDown" Operator="NotEqual" ErrorMessage="Operation requires two different operands." CssClass="commandbar_sum_errormessage"/>
             </p>       
         </asp:Panel>
-        <p class="commandbar_button_row">
-            <asp:Button ID="ContinueButtonSelectValues" runat="server" CssClass="commandbar_sum_continuebutton" />            
-            <asp:Button ID="CancelButton2" runat="server" CssClass="commandbar_cancelbutton" />
-        </p>
+        <div class="commandbar_button_row">
+            <asp:Button ID="ContinueButtonSelectValues" runat="server" CssClass="commandbar_sum_continuebutton pxweb-btn primary-btn" />            
+            <asp:Button ID="CancelButton2" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+        </div>
     </asp:Panel>
     
     <!-- Name on new variable -->
@@ -53,10 +53,10 @@
         </p>
         
         
-        <p>
-            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_sum_continuebutton"/>            
-            <asp:Button ID="CancelButton3" runat="server" CssClass="commandbar_cancelbutton" />
-        </p>
+        <div class="commandbar_button_row">
+            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_sum_continuebutton pxweb-btn primary-btn"/>            
+            <asp:Button ID="CancelButton3" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+        </div>
         <asp:RequiredFieldValidator ID="TotalVariableNameRequired" EnableClientScript="false" runat="server" ControlToValidate="TotalVariableName" ErrorMessage="Name for new value is required" CssClass="commandbar_sum_errormessage"/>
     </asp:Panel>
     

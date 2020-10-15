@@ -13,6 +13,7 @@
             <asp:Label ID="lblQuery" runat="server" Text="" CssClass="tablequery_querycaption"></asp:Label>
             <asp:TextBox ID="txtQuery" runat="server" ReadOnly="true" TextMode="MultiLine" Rows="20" CssClass="tablequery_query"></asp:TextBox>
             <asp:HyperLink ID="lnkMoreInfo" runat="server" CssClass="tablequery_moreinformation"></asp:HyperLink>    
+            <asp:Button ID="btnSaveQuery" runat="server" CssClass="tablequery_savequery"></asp:Button>
         </asp:Panel>
 </div>   
 
