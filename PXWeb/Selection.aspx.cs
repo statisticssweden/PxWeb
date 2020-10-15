@@ -217,14 +217,14 @@ namespace PXWeb
             VariableSelector1.ButtonsForContentVariable = PXWeb.Settings.Current.Selection.ButtonsForContentVariable;
             VariableSelector1.SearchValuesBeginningOfWordCheckBoxDefaultChecked = PXWeb.Settings.Current.Selection.SearchValuesBeginningOfWordCheckBoxDefaultChecked;
 
-            foreach (string presView in PXWeb.Settings.Current.Selection.PresentationViews)
-            {
-                VariableSelector1.PresentationViews.Add(presView);
-            }
-            foreach (string outputFormat in PXWeb.Settings.Current.Selection.OutputFormats)
-            {
-                VariableSelector1.OutputFormats.Add(outputFormat);
-            }
+            //foreach (string presView in PXWeb.Settings.Current.Selection.PresentationViews)
+            //{
+            //    //VariableSelector1.PresentationViews.Add(presView);
+            //}
+            //foreach (string outputFormat in PXWeb.Settings.Current.Selection.OutputFormats)
+            //{
+            //    VariableSelector1.OutputFormats.Add(outputFormat);
+            //}
 
             VariableSelector1.NumberOfValuesInDefaultView = PXWeb.Settings.Current.Menu.NumberOfValuesInDefaultView;
 
