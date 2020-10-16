@@ -30,6 +30,8 @@ But befor doing so please have a look at [Github's issues](https://github.com/st
 - What actually happens
 - Attachments e.g. sample file, and logs etc.
 
+We review all new issues once a month, which means that you might not receive any immediate feedback.
+
 ## Commit code
 We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). 
