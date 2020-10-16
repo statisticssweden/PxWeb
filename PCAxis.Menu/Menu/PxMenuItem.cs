@@ -156,8 +156,8 @@ namespace PCAxis.Menu
 			foreach (Item curItem in subItems)
 			{
 				if (curItem is PxMenuItem)
-				{
-					m = curItem.Cast<PxMenuItem>().FindSelection(menu, selection);
+				{                    
+                    m = curItem.Cast<PxMenuItem>().FindSelection(menu, selection);
 
 					if (m != null)
 						return m;
@@ -166,7 +166,7 @@ namespace PCAxis.Menu
                 {
                     Link l = (Link)curItem;
 
-                    if (l.ID.Selection.Equals(selection))
+                    if (l.ID.Selection.Equals(selection, StringComparison.OrdinalIgnoreCase))
                         return l;
                 }
 			}

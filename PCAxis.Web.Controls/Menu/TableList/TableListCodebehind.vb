@@ -83,10 +83,10 @@ Public Class TableListCodebehind
             End If
 
             If Not String.IsNullOrEmpty(_pxPath) Then
-                Dim menu As PxMenuBase = Marker.GetMenu(_pxPath)
+                Dim menu As Item = Marker.GetMenu(_pxPath)
 
-                If TypeOf (menu.CurrentItem) Is PxMenuItem Then
-                    RenderMenuList(CType(menu.CurrentItem, PxMenuItem))
+                If TypeOf (menu) Is PxMenuItem Then
+                    RenderMenuList(CType(menu, PxMenuItem))
                 Else
                     Page.Response.Redirect("~/" + Marker.DefaultPageURL)
                 End If
@@ -157,11 +157,6 @@ Public Class TableListCodebehind
                             If (CType(childItem, TableLink).HasAttribute("size")) Then
                                 MenuLinkItem.Size = CType(childItem, TableLink).GetAttribute("size").ToString()
 
-                                'If (CType(MenuLinkItem.Size.Split(CChar(" "))(0), Integer) < Marker.MaxFileziseForSmallFile) Then
-                                '    MenuLinkItem.IsSmallFile = True
-                                'Else
-                                '    MenuLinkItem.IsSmallFile = False
-                                'End If
                             End If
 
                             'Determine if it a small file
@@ -575,7 +570,7 @@ Public Class TableListCodebehind
 
             If (_showSelectOption_View AndAlso (Not IsNothing(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect")))) Then
                 link = CType(e.Item.FindControl("lnkTableListSelectOption_View"), HyperLink)
-                link.NavigateUrl = DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString() & "&action=selectall&commandbar=false"
+                link.NavigateUrl = CheckNativeUrl(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString()) & "action=selectall&commandbar=false"
                 link.Target = Marker.LinkTarget
                 link.Text = GetLocalizedString("CtrlTableListSelectOption_View")
                 link.Visible = True
@@ -583,7 +578,7 @@ Public Class TableListCodebehind
 
             If (_showSelectOption_ViewDefaultValues AndAlso (Not IsNothing(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect")))) Then
                 link = CType(e.Item.FindControl("lnkTableListSelectOption_ViewDefaultValues"), HyperLink)
-                link.NavigateUrl = DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString() & "&action=selectdefault&commandbar=false"
+                link.NavigateUrl = CheckNativeUrl(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString()) & "action=selectdefault&commandbar=false"
                 link.Target = Marker.LinkTarget
                 link.Text = GetLocalizedString("CtrlTableListSelectOption_ViewDefaultValues")
                 link.Visible = True
@@ -591,7 +586,7 @@ Public Class TableListCodebehind
 
             If (_showSelectOption_ViewWithCommandbar AndAlso (Not IsNothing(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect")))) Then
                 link = CType(e.Item.FindControl("lnkTableListSelectOption_ViewWithCommandbar"), HyperLink)
-                link.NavigateUrl = DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString() & "&action=selectall"
+                link.NavigateUrl = CheckNativeUrl(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString()) & "action=selectall"
                 link.Target = Marker.LinkTarget
                 link.Text = GetLocalizedString("CtrlTableListSelectOption_ViewWithCommandbar")
                 link.Visible = True
@@ -599,7 +594,7 @@ Public Class TableListCodebehind
 
             If (_showSelectOption_ViewDefaultValuesWithCommandbar AndAlso (Not IsNothing(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect")))) Then
                 link = CType(e.Item.FindControl("lnkTableListSelectOption_ViewDefaultValuesWithCommandbar"), HyperLink)
-                link.NavigateUrl = DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString() & "&action=selectdefault"
+                link.NavigateUrl = CheckNativeUrl(DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString()) & "action=selectdefault"
                 link.Target = Marker.LinkTarget
                 link.Text = GetLocalizedString("CtrlTableListSelectOption_ViewDefaultValuesWithCommandbar")
                 link.Visible = True
@@ -634,5 +629,14 @@ Public Class TableListCodebehind
         End If
     End Sub
 
-
+    Private Function CheckNativeUrl(ByRef uriToCheck As String) As String
+        If Not IsDBNull(uriToCheck) Then
+            If (uriToCheck.Contains("?")) Then
+                Return uriToCheck + "&"
+            Else
+                Return uriToCheck + "?"
+            End If
+        End If
+        Return String.Empty
+    End Function
 End Class

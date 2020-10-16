@@ -72,6 +72,9 @@ namespace PXWeb.Admin
                 langDependent = true;
             }
 
+            // Clear all caches
+            PXWeb.Management.PxContext.CacheController.Clear();
+
             grdResult.DataSource = AdminTool.GenerateDatabase(path, langDependent, cboSortOrder.SelectedValue);
             grdResult.DataBind();
 

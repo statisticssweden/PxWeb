@@ -604,9 +604,9 @@
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
-	 <sentence name="PxWebApplicationTitle" value="PxWeb 2019 v1"/>
-	 <sentence name="PxWebApplicationName" value="PxWeb 2019 v1"/>
-   <sentence name="PxWebLogoAlt" value="PxWeb 2019 v1"/>
+	 <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v1"/>
+	 <sentence name="PxWebApplicationName" value="PxWeb 2020 v1"/>
+   <sentence name="PxWebLogoAlt" value="PxWeb 2020 v1"/>
    <sentence name="PxWebHome" value="Home"/>
 	 <sentence name="PxWebMenu" value="Menu"/>
    <sentence name="PxWebMenuExplanation" value="Character in brackets shows the lowest regional level. (C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement" />
@@ -717,7 +717,7 @@
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
-	 <sentence name="PxWebAdminVersion" value="PxWeb 2019 v1"/>
+	 <sentence name="PxWebAdminVersion" value="PxWeb 2020 v1"/>
 	 <sentence name="PxWebAdminHomePage" value="PxWeb Homepage"/>
 	 <sentence name="PxWebAdminSaveButton" value="Save"/>
 	 <sentence name="PxWebAdminGenerateButton" value="Generate"/>
@@ -790,7 +790,12 @@
 
 	 <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Cell limit download"/>
 	 <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Max number of downloadable cells in resulting table"/>
-	 <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel"/>
+   <sentence name="PxWebAdminSettingsFileBaseName" value="Get filename from"/>
+   <sentence name="PxWebAdminSettingsFileBaseNameTableId" value="Table id"/>
+   <sentence name="PxWebAdminSettingsFileBaseNameMatrix" value="Matrix"/>
+   <sentence name="PxWebAdminSettingsFileFormatsFileBaseName" value="Filename" />
+   <sentence name="PxWebAdminSettingsFileFormatsFileBaseNameInfo" value="Get filename from matrix or table id when a file is downloaded, for exemple to Excel, csv. To create a unique file name, the file name is concatenated with date and time." />
+   <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel"/>
 	 <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevel" value="Information level"/>
 	 <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelInfo" value="Controls which information that are displayed in the Excel file"/>
 	 <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelNone" value="None"/>
@@ -943,6 +948,8 @@
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchInfo" value="Choose if search is set to free text or beginning of word." />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchFreeText" value="Free text search" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Beginning of word" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Select first value" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Decide if first value for content and time should be selected as default" />
   
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Show Navigation flow" />
    <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Show Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
@@ -1024,7 +1031,7 @@
   <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sort order"/>
   <sentence name="PxWebAdminSortOrderFileName" value="File name"/>
   <sentence name="PxWebAdminSortOrderMatrix" value="Matrix"/>
-  <sentence name="PxWebAdminSortOrderTitle" value="Title"/>
+  <sentence name="PxWebAdminSortOrderTitle" value="Description/Title"/>
   <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Select the key that will be used to create the sort order for the tables."/>
   <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Create search index"/>
   <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="If selected, search index creation will be automatically initiated after the database has been generated."/>
@@ -1045,9 +1052,9 @@
 	 <sentence name="PxWebAdminToolsResetAggregationInfo" value="Releases aggregations list that is loaded into memory" />
 	 <sentence name="PxWebAdminToolsResetDatabases" value="Reset databases"/>
 	 <sentence name="PxWebAdminToolsResetDatabasesInfo" value="Reset the cached px databases structure"/>
-   <sentence name="PxWebAdminToolsResetSavedQueryCache" value="Clear saved query cache" />
-   <sentence name="PxWebAdminToolsResetSavedQueryCacheInfo" value="Removes all saved queries from the cache." />
-	 <sentence name="PxWebAdminToolsChangePasswordOld" value="Old password" />
+   <sentence name="PxWebAdminToolsResetClearCaches" value="Clear caches" />
+   <sentence name="PxWebAdminToolsResetClearCachesInfo" value="Clear all PxWeb caches" />
+   <sentence name="PxWebAdminToolsChangePasswordOld" value="Old password" />
 	 <sentence name="PxWebAdminToolsChangePasswordNew" value="New password" />
 	 <sentence name="PxWebAdminToolsChangePasswordVerify" value="Verify new password" />
 	 <sentence name="PxWebAdminToolsChangePasswordChange" value="Change!" />

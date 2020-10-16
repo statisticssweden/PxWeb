@@ -535,6 +535,33 @@ namespace PXWeb.Admin {
         protected global::System.Web.UI.WebControls.ImageButton imgDefaultSearch;
         
         /// <summary>
+        /// lblPreSelectFirstContentAndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPreSelectFirstContentAndTime;
+        
+        /// <summary>
+        /// cboPreSelectFirstContentAndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboPreSelectFirstContentAndTime;
+        
+        /// <summary>
+        /// imgPreSelectFirstContentAndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgPreSelectFirstContentAndTime;
+        
+        /// <summary>
         /// lblOutputFormats control.
         /// </summary>
         /// <remarks>

@@ -14,6 +14,8 @@ namespace PXWeb.Management
     /// </summary>
     public class CacheController : IPxCacheController
     {
+        static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(CacheController));
+
         /// <summary>
         /// List of PX caches that shall be handled by the cache controller
         /// </summary>
@@ -32,6 +34,14 @@ namespace PXWeb.Management
         {
             _caches = lstCache;
             InitializeSchedualClear();
+        }
+
+        /// <summary>
+        /// Clear all caches
+        /// </summary>
+        public void Clear()
+        {
+            ClearCaches();
         }
 
         /// <summary>
@@ -87,6 +97,7 @@ namespace PXWeb.Management
                     t = t.Value.AddDays(1);
                 }
                 HttpRuntime.Cache.Add(Guid.NewGuid().ToString(), t.Value, null, t.Value, Cache.NoSlidingExpiration, CacheItemPriority.NotRemovable, new CacheItemRemovedCallback(RemovedCallback));
+                _logger.InfoFormat("Next scheduled clear at {0}", t.Value.ToString());
             }
         }
         
@@ -98,15 +109,27 @@ namespace PXWeb.Management
         /// <param name="r"></param>
         private void RemovedCallback(String k, Object v, CacheItemRemovedReason r)
         {
-            foreach (IPxCache cache in _caches)
+            ClearCaches();
+            SchedualNextClear();
+        }
+
+        /// <summary>
+        /// Clear all the caches
+        /// </summary>
+        private void ClearCaches()
+        {
+            if (_caches != null)
             {
-                if (cache.DefaultEnabled)
+                _logger.InfoFormat("Clear all caches ({0})", _caches.Count.ToString());
+
+                foreach (IPxCache cache in _caches)
                 {
-                    cache.Clear();
+                    if (cache.DefaultEnabled)
+                    {
+                        cache.Clear();
+                    }
                 }
             }
-
-            SchedualNextClear();
         }
     }
 }

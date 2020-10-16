@@ -108,8 +108,13 @@ namespace PCAxis.Api
         /// Stores a object in the cache
         /// </summary>
         /// <param name="data"></param>
-        public void Store(ResponseBucket data)
+        public void Store(ResponseBucket data, TimeSpan ?time = null)
         {
+            if (time == null)
+            {
+                time = new TimeSpan(0, 2, 0);
+            }
+            
             //Check if caching is enabled
             if (!Settings.Current.EnableCache) return;
 
@@ -124,7 +129,7 @@ namespace PCAxis.Api
                 {
                     if (System.Web.HttpRuntime.Cache[data.Key] == null)
                     {
-                        System.Web.HttpRuntime.Cache.Add(data.Key, data, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, 2, 0), System.Web.Caching.CacheItemPriority.Normal, null);
+                        System.Web.HttpRuntime.Cache.Add(data.Key, data, null, System.Web.Caching.Cache.NoAbsoluteExpiration, time.Value, System.Web.Caching.CacheItemPriority.Normal, null);
                     }
                 }
             }

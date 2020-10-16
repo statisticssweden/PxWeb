@@ -20,5 +20,6 @@ Public MustInherit Class PathHandler
     Public MustOverride Function GetPathString(ByVal menuItem As ItemSelection) As String Implements IPathHandler.GetPathString
     Public MustOverride Function GetTable(ByVal item As ItemSelection) As String Implements IPathHandler.GetTable
     Public MustOverride Function CombineTable(ByVal db As String, ByVal path As String, ByVal table As String) As String Implements IPathHandler.CombineTable
+    Public MustOverride Function GetNodeIds(itemId As String) As List(Of String) Implements IPathHandler.GetNodeIds
 
 End Class

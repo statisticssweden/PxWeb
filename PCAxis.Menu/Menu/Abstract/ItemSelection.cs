@@ -48,15 +48,17 @@ namespace PCAxis.Menu
 		/// <param name="selection"></param>
 		public bool Match(string menu, string selection)
 		{
-			return Menu == menu && Selection == selection;
-		}
+           // return Menu == menu && Selection == selection;
+            return string.Compare(Menu, menu, true) == 0 && string.Compare(Selection, selection, true) == 0;
 
-		/// <summary>
-		/// Set values for this ItemSelection
-		/// </summary>
-		/// <param name="menu"></param>
-		/// <param name="selection"></param>
-		public void Set(string menu, string selection)
+        }
+
+        /// <summary>
+        /// Set values for this ItemSelection
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="selection"></param>
+        public void Set(string menu, string selection)
 		{
 			this.Menu = menu;
 			this.Selection = selection;

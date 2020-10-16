@@ -35,7 +35,15 @@ namespace PXWeb.Views
         public override void Render(string format, PCAxis.Query.SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe)
         {
             ChartManager.Settings.UseSettingTitle = true;
-            ChartManager.Settings.Title = CheckParameter(query, "chart_title") ? query.Output.Params["chart_title"] : ChartManager.Settings.Title;
+            //Custom chart title only works for the language that was selected when the saved query was created.
+            if (query.Sources[0].Language.ToLower() == model.Meta.CurrentLanguage.ToLower())
+            {
+                ChartManager.Settings.Title = CheckParameter(query, "chart_title") ? query.Output.Params["chart_title"] : ChartManager.Settings.Title;
+            }
+            else
+            {
+                ChartManager.Settings.Title = model.Meta.Title;
+            }
             ChartManager.Settings.Width = CheckParameter(query, "chart_width") ? int.Parse(query.Output.Params["chart_width"]) : ChartManager.Settings.Width;
             ChartManager.Settings.Height = CheckParameter(query, "chart_height") ? int.Parse(query.Output.Params["chart_height"]) : ChartManager.Settings.Height;
             ChartManager.Settings.LineThickness = CheckParameter(query, "chart_linethickness") ? int.Parse(query.Output.Params["chart_linethickness"]) : ChartManager.Settings.LineThickness;

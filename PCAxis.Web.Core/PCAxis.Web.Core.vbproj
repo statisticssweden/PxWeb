@@ -19,7 +19,7 @@
     <SccProvider>
     </SccProvider>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Strong Name Key.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Strong Name Key.pfx</AssemblyOriginatorKeyFile>
     <OptionStrict>On</OptionStrict>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -167,6 +167,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Strong Name Key.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">

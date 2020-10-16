@@ -231,6 +231,38 @@ namespace PXWeb
             return returnValue;
         }
 
+        /// <summary>
+        /// Selects single node from passed XmlNode and returns corresponding InformationLevelType, if the node is not found the given defaultvalue is returned
+        /// </summary>
+        /// <param name="xpath">Expression to select node containing setting value</param>
+        /// <param name="selectionNode">Node to apply xpath expression on</param>
+        /// <param name="defaultValue">Value to return if node is not found or not possible to parse as a InformationLevelType</param>
+        /// <returns>Setting value as InformationLevelType</returns>
+        public static PCAxis.Paxiom.FileBaseNameType GetSettingValue(string xpath, XmlNode selectionNode, PCAxis.Paxiom.FileBaseNameType defaultValue)
+        {
+            PCAxis.Paxiom.FileBaseNameType returnValue = defaultValue;
+            XmlNode node = null;
+            if (selectionNode != null)
+            {
+                node = selectionNode.SelectSingleNode(xpath);
+            }
+            if (node != null)
+            {
+                switch (node.InnerText.ToString().ToLower())
+                {
+                    case "matrix":
+                        returnValue = PCAxis.Paxiom.FileBaseNameType.Matrix;
+                        break;
+                    case "tableid":
+                        returnValue = PCAxis.Paxiom.FileBaseNameType.TableID;
+                        break;
+                    default:
+                        returnValue = PCAxis.Paxiom.FileBaseNameType.Matrix;
+                        break;
+                }
+            }
+            return returnValue;
+        }
 
         /// <summary>
         /// Selects single node from passed XmlNode and returns corresponding InformationLevelType, if the node is not found the given defaultvalue is returned

@@ -505,9 +505,9 @@ namespace PCAxis.Menu.Implementations
 
 			if (menuItem.ID.Selection != "START")
 			{
-				self = items.FirstOrDefault(i => i is PxMenuItem && i.ID.Equals(menuItem.ID));
+                self = items.FirstOrDefault(i => i is PxMenuItem && i.ID.ToString().Equals(menuItem.ID.ToString(), StringComparison.OrdinalIgnoreCase));
 
-				if (self == null)
+                if (self == null)
 				{
 					menuItem.ID.Set("", "");
 					return;

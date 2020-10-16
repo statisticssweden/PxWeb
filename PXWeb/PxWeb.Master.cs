@@ -125,7 +125,7 @@ namespace PXWeb
                 breadcrumb1.GetMenu = GetMenu;
             }
             
-            navigationFlowControl.GetMenu = GetMenu;
+            //navigationFlowControl.GetMenu = GetMenu;
         }
 
         private bool DoNotUseBreadCrumb()
@@ -152,16 +152,19 @@ namespace PXWeb
 
             if (languageChanged)
             {
-                List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
-                linkItems.Add(new LinkManager.LinkItem("px_language", cboSelectLanguages.SelectedValue));
-                if (!string.IsNullOrEmpty(PxUrlObj.Layout))
+                if (ValidationManager.CheckValue(cboSelectLanguages.SelectedValue))
                 {
-                    linkItems.Add(new LinkManager.LinkItem(PxUrl.LAYOUT_KEY, PxUrlObj.Layout));
+                    List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
+                    linkItems.Add(new LinkManager.LinkItem("px_language", cboSelectLanguages.SelectedValue));
+                    if (!string.IsNullOrEmpty(PxUrlObj.Layout))
+                    {
+                        linkItems.Add(new LinkManager.LinkItem(PxUrl.LAYOUT_KEY, PxUrlObj.Layout));
+                    }
+                    //Replaced Request.Url.AbsolutePath with Request.AppRelativeCurrentExecutionFilePath
+                    //so that the links will be right even if the site is running without UserFriendlyURL
+                    string url = PCAxis.Web.Core.Management.LinkManager.CreateLink(Request.AppRelativeCurrentExecutionFilePath, false, linkItems.ToArray());
+                    Response.Redirect(url);
                 }
-                //Replaced Request.Url.AbsolutePath with Request.AppRelativeCurrentExecutionFilePath
-                //so that the links will be right even if the site is running without UserFriendlyURL
-                string url = PCAxis.Web.Core.Management.LinkManager.CreateLink(Request.AppRelativeCurrentExecutionFilePath, false, linkItems.ToArray());
-                Response.Redirect(url);
             }
         }
 
@@ -220,7 +223,6 @@ namespace PXWeb
             else
             {
                 cboSelectLanguages.SelectedValue = LocalizationManager.CurrentCulture.Parent.Name;
-
             }
             
             //Footer
@@ -485,28 +487,31 @@ namespace PXWeb
         /// Gets the menu object
         /// </summary>
         /// <returns>returns the menu object</returns>
-        private PxMenuBase GetMenu(string nodeId)
-         {
-             //Checks that the necessary parameters are present
-             if (String.IsNullOrEmpty(PxUrlObj.Database))
-             {
-                 //if parameters is missing redirect to the start page
-                 Response.Redirect("Default.aspx", false);
-             }
+        private Item GetMenu(string nodeId)
+        {
+            //Checks that the necessary parameters are present
+            if (String.IsNullOrEmpty(PxUrlObj.Database))
+            {
+                //if parameters is missing redirect to the start page
+                Response.Redirect("Default.aspx", false);
+            }
 
-             try
-             {
-                 string db = PxUrlObj.Database;
-                 return PXWeb.Management.PxContext.GetMenu(db, nodeId);
-             }
-             catch (Exception e)
-             {
-                 log.Error("An error occured in GetMenu(string nodeId). So it returns null after logging this message.", e);
-                 return null;
-             }
-      
+            try
+            {
+                string db = PxUrlObj.Database;
+                return PXWeb.Management.PxContext.GetMenuItem(db, nodeId);
+            }
+            catch (Exception e)
+            {
+                log.Error("An error occured in GetMenu(string nodeId). So it returns null after logging this message.", e);
+                return null;
+            }
 
-         }
-          
+
+        }
+
+
+
+
     }
 }

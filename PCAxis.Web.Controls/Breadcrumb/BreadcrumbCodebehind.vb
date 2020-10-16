@@ -61,7 +61,7 @@ Public Class BreadcrumbCodebehind
     ''' <remarks></remarks>
     Public Sub Update(ByVal mode As Breadcrumb.BreadcrumbMode, Optional ByVal subpage As String = "")
         Dim linkItems As List(Of LinkManager.LinkItem)
-        Dim menu As PxMenuBase = Nothing
+        Dim menu As Item = Nothing
         Dim pHandler As PathHandler = PathHandlerFactory.Create(Marker.DatabaseType)
 
         'If mode = Breadcrumb.BreadcrumbMode.Menu Then
@@ -102,95 +102,7 @@ Public Class BreadcrumbCodebehind
         End If
 
         If mode >= Breadcrumb.BreadcrumbMode.Selection Then
-            'Dim path As List(Of ItemSelection)
-            'Dim pathParam As New System.Text.StringBuilder
 
-            'linkItems = New List(Of LinkManager.LinkItem)
-            'linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, ""))
-            'lnkDb.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-
-            'If Marker.TablePath.Equals("-") Then
-            '    Marker.TablePath = Marker.DatabaseId
-            'End If
-
-            'path = pHandler.GetPath(Marker.TablePath)
-
-            'If path Is Nothing Then
-            '    Exit Sub
-            'End If
-
-            'If path.Count > 0 Then
-            '    menu = Marker.GetMenu(path(0).Menu)
-            'End If
-
-            'If menu Is Nothing Then
-            '    Exit Sub
-            'End If
-
-            'If path.Count > 1 Then
-            '    If Not menu.SetCurrentItemBySelection(path(1).Menu, path(1).Selection) Then
-            '        Exit Sub
-            '    End If
-
-            '    lblSep2.Visible = True
-
-            '    If Not menu Is Nothing Then
-            '        lnkPath1.Text = menu.CurrentItem.Text
-            '        lnkPath1.Visible = True
-            '    End If
-            '    linkItems = New List(Of LinkManager.LinkItem)
-            '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-            '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(1).Selection)))
-            '    Else
-            '        pathParam.Append(path(0).Selection)
-            '        pathParam.Append(PathHandler.NODE_DIVIDER)
-            '        pathParam.Append(path(1).Selection)
-            '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            '    End If
-            '    lnkPath1.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            'End If
-
-            'If path.Count > 2 Then
-            '    If Not menu Is Nothing Then
-            '        If Not menu.SetCurrentItemBySelection(path(2).Menu, path(2).Selection) Then
-            '            Exit Sub
-            '        End If
-
-            '        lnkPath2.Text = menu.CurrentItem.Text
-            '        lnkPath2.Visible = True
-            '    End If
-            '    linkItems = New List(Of LinkManager.LinkItem)
-            '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-            '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(2).Selection)))
-            '    Else
-            '        pathParam.Append(PathHandler.NODE_DIVIDER)
-            '        pathParam.Append(path(2).Selection)
-            '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            '    End If
-            '    lnkPath2.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            '    lblSep3.Visible = True
-            'End If
-
-            'If path.Count > 3 Then
-            '    If Not menu Is Nothing Then
-            '        If Not menu.SetCurrentItemBySelection(path(3).Menu, path(3).Selection) Then
-            '            Exit Sub
-            '        End If
-
-            '        lnkPath3.Text = menu.CurrentItem.Text
-            '        lnkPath3.Visible = True
-            '    End If
-            '    linkItems = New List(Of LinkManager.LinkItem)
-            '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-            '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(3).Selection)))
-            '    Else
-            '        pathParam.Append(PathHandler.NODE_DIVIDER)
-            '        pathParam.Append(path(3).Selection)
-            '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            '    End If
-            '    lnkPath3.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            '    lblSep4.Visible = True
-            'End If
 
             If menu Is Nothing Then
                 menu = DisplayPath(menu, pHandler)
@@ -200,14 +112,22 @@ Public Class BreadcrumbCodebehind
                 Dim tablePath As String
                 Dim cid As ItemSelection
 
-                tablePath = Marker.TablePath & PathHandler.NODE_DIVIDER & Marker.Table
+                Dim table As String = Marker.Table
+
+                Dim index As Integer = table.IndexOf(":"c)
+                If index >= 0 Then
+                    table = table.Substring(index + 1)
+                End If
+
+                tablePath = Marker.TablePath & PathHandler.NODE_DIVIDER & table
                 cid = pHandler.GetSelection(tablePath)
-                If Not menu.SetCurrentItemBySelection(cid.Menu, cid.Selection) Then
+                menu = Marker.GetMenu(tablePath)
+                If menu Is Nothing Then
                     Exit Sub
                 End If
 
                 lblSepBeforeTable.Visible = True
-                lnkTable.Text = menu.CurrentItem.Text
+                lnkTable.Text = menu.Text
                 lnkTable.Visible = True
             End If
 
@@ -215,7 +135,7 @@ Public Class BreadcrumbCodebehind
 
         If mode >= Breadcrumb.BreadcrumbMode.SelectionSubPage Then
             If Not menu Is Nothing Then
-                lnkTable.Text = menu.CurrentItem.Text
+                lnkTable.Text = menu.Text
                 linkItems = New List(Of LinkManager.LinkItem)
                 linkItems.Add(New LinkManager.LinkItem(Marker.LayoutParam, ""))
                 lnkTable.NavigateUrl = LinkManager.CreateLink(Marker.SelectionPage, linkItems.ToArray())
@@ -245,10 +165,11 @@ Public Class BreadcrumbCodebehind
     ''' <param name="pHandler"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Private Function DisplayPath(ByVal menu As PxMenuBase, ByVal pHandler As PathHandler) As PxMenuBase
+    Private Function DisplayPath(ByVal menu As Item, ByVal pHandler As PathHandler) As Item
         Dim path As List(Of ItemSelection)
         Dim pathParam As New System.Text.StringBuilder
         Dim linkItems As List(Of LinkManager.LinkItem)
+        Dim nodeId As String
 
         linkItems = New List(Of LinkManager.LinkItem)
         linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, ""))
@@ -258,142 +179,192 @@ Public Class BreadcrumbCodebehind
             Marker.TablePath = Marker.DatabaseId
         End If
 
+        Dim nodes As List(Of String) = pHandler.GetNodeIds(Marker.TablePath)
         path = pHandler.GetPath(Marker.TablePath)
 
-        If path Is Nothing Then
+        If nodes Is Nothing Then
             Return Nothing
         End If
 
+
+        If path.Count <> nodes.Count Then
+            Return Nothing
+        End If
+
+        nodeId = pHandler.Combine("", path(0))
+
         If path.Count > 0 Then
-            menu = Marker.GetMenu(path(0).Menu)
+            menu = Marker.GetMenu(nodeId)
         End If
 
         If menu Is Nothing Then
             Return Nothing
         End If
 
-        If path.Count > 1 Then
-            If Not menu.SetCurrentItemBySelection(path(1).Menu, path(1).Selection) Then
+        Dim lnkPaths As HyperLink() = {lnkPath1, lnkPath2, lnkPath3, lnkPath4, lnkPath5}
+        Dim lblSeps As Label() = {lblSep2, lblSep3, lblSep4, lblSep5, lblSep6}
+
+        pathParam.Append(path(0).Selection)
+
+        For index = 1 To Math.Min(path.Count - 1, 5)
+
+            menu = Marker.GetMenu(nodes(index))
+            If menu Is Nothing Then
                 Return Nothing
             End If
 
-            lblSep2.Visible = True
+            lnkPaths(index - 1).Text = menu.Text
+            lnkPaths(index - 1).Visible = True
 
-            If Not menu Is Nothing Then
-                lnkPath1.Text = menu.CurrentItem.Text
-                lnkPath1.Visible = True
-            End If
             linkItems = New List(Of LinkManager.LinkItem)
             If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(1).Selection)))
-            Else
-                pathParam.Append(path(0).Selection)
-                pathParam.Append(PathHandler.NODE_DIVIDER)
-                pathParam.Append(path(1).Selection)
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            End If
-            If (Marker.UseTableList AndAlso path.Count = 2) Then
-                linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
-            End If
-            lnkPath1.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-        End If
-
-        If path.Count > 2 Then
-            If Not menu Is Nothing Then
-                If Not menu.SetCurrentItemBySelection(path(2).Menu, path(2).Selection) Then
-                    Return Nothing
-                End If
-
-                lnkPath2.Text = menu.CurrentItem.Text
-                lnkPath2.Visible = True
-            End If
-            linkItems = New List(Of LinkManager.LinkItem)
-            If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(2).Selection)))
+                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(index).Selection)))
             Else
                 pathParam.Append(PathHandler.NODE_DIVIDER)
-                pathParam.Append(path(2).Selection)
+                pathParam.Append(path(index).Selection)
                 linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
             End If
-            If (Marker.UseTableList AndAlso path.Count = 3) Then
+            If (Marker.UseTableList AndAlso path.Count = index - 1) Then
                 linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
             End If
 
-            lnkPath2.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            lblSep3.Visible = True
-        End If
+            lnkPaths(index - 1).NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+            lblSeps(index - 1).Visible = True
 
-        If path.Count > 3 Then
-            If Not menu Is Nothing Then
-                If Not menu.SetCurrentItemBySelection(path(3).Menu, path(3).Selection) Then
-                    Return Nothing
-                End If
+        Next
 
-                lnkPath3.Text = menu.CurrentItem.Text
-                lnkPath3.Visible = True
-            End If
-            linkItems = New List(Of LinkManager.LinkItem)
-            If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(3).Selection)))
-            Else
-                pathParam.Append(PathHandler.NODE_DIVIDER)
-                pathParam.Append(path(3).Selection)
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            End If
-            If (Marker.UseTableList) Then
-                linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
-            End If
-            lnkPath3.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            lblSep4.Visible = True
-        End If
+        'If path.Count > 1 Then
+        '    nodeId = pHandler.Combine(nodeId, path(1))
+        '    menu = Marker.GetMenu(nodeId)
+        '    If menu Is Nothing Then
+        '        Return Nothing
+        '    End If
 
-        If path.Count > 4 Then
-            If Not menu Is Nothing Then
-                If Not menu.SetCurrentItemBySelection(path(4).Menu, path(4).Selection) Then
-                    Return Nothing
-                End If
+        '    lblSep2.Visible = True
 
-                lnkPath4.Text = menu.CurrentItem.Text
-                lnkPath4.Visible = True
-            End If
-            linkItems = New List(Of LinkManager.LinkItem)
-            If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(4).Selection)))
-            Else
-                pathParam.Append(PathHandler.NODE_DIVIDER)
-                pathParam.Append(path(4).Selection)
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            End If
-            If (Marker.UseTableList) Then
-                linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
-            End If
-            lnkPath4.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            lblSep5.Visible = True
-        End If
+        '    If Not menu Is Nothing Then
+        '        lnkPath1.Text = menu.Text
+        '        lnkPath1.Visible = True
+        '    End If
+        '    linkItems = New List(Of LinkManager.LinkItem)
+        '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(1).Selection)))
+        '    Else
+        '        pathParam.Append(path(0).Selection)
+        '        pathParam.Append(PathHandler.NODE_DIVIDER)
+        '        pathParam.Append(path(1).Selection)
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
+        '    End If
+        '    If (Marker.UseTableList AndAlso path.Count = 2) Then
+        '        linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
+        '    End If
+        '    lnkPath1.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+        'End If
 
-        If path.Count > 5 Then
-            If Not menu Is Nothing Then
-                If Not menu.SetCurrentItemBySelection(path(5).Menu, path(5).Selection) Then
-                    Return Nothing
-                End If
+        'If path.Count > 2 Then
+        '    If Not menu Is Nothing Then
+        '        nodeId = pHandler.Combine(nodeId, path(2))
+        '        menu = Marker.GetMenu(nodeId)
+        '        If menu Is Nothing Then
+        '            Return Nothing
+        '        End If
 
-                lnkPath5.Text = menu.CurrentItem.Text
-                lnkPath5.Visible = True
-            End If
-            linkItems = New List(Of LinkManager.LinkItem)
-            If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(5).Selection)))
-            Else
-                pathParam.Append(PathHandler.NODE_DIVIDER)
-                pathParam.Append(path(5).Selection)
-                linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
-            End If
-            If (Marker.UseTableList) Then
-                linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
-            End If
-            lnkPath5.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
-            lblSep6.Visible = True
-        End If
+        '        lnkPath2.Text = menu.Text
+        '        lnkPath2.Visible = True
+        '    End If
+        '    linkItems = New List(Of LinkManager.LinkItem)
+        '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(2).Selection)))
+        '    Else
+        '        pathParam.Append(PathHandler.NODE_DIVIDER)
+        '        pathParam.Append(path(2).Selection)
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
+        '    End If
+        '    If (Marker.UseTableList AndAlso path.Count = 3) Then
+        '        linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
+        '    End If
+
+        '    lnkPath2.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+        '    lblSep3.Visible = True
+        'End If
+
+        'If path.Count > 3 Then
+        '    nodeId = pHandler.Combine(nodeId, path(3))
+        '    menu = Marker.GetMenu(nodeId)
+        '    If Not menu Is Nothing Then
+        '        If menu Is Nothing Then
+        '            Return Nothing
+        '        End If
+
+        '        lnkPath3.Text = menu.Text
+        '        lnkPath3.Visible = True
+        '    End If
+        '    linkItems = New List(Of LinkManager.LinkItem)
+        '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(3).Selection)))
+        '    Else
+        '        pathParam.Append(PathHandler.NODE_DIVIDER)
+        '        pathParam.Append(path(3).Selection)
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
+        '    End If
+        '    If (Marker.UseTableList) Then
+        '        linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
+        '    End If
+        '    lnkPath3.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+        '    lblSep4.Visible = True
+        'End If
+
+        'If path.Count > 4 Then
+        '    If Not menu Is Nothing Then
+        '        nodeId = pHandler.Combine(nodeId, path(4))
+        '        menu = Marker.GetMenu(nodeId)
+        '        If menu Is Nothing Then
+        '            Return Nothing
+        '        End If
+
+        '        lnkPath4.Text = menu.Text
+        '        lnkPath4.Visible = True
+        '    End If
+        '    linkItems = New List(Of LinkManager.LinkItem)
+        '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(4).Selection)))
+        '    Else
+        '        pathParam.Append(PathHandler.NODE_DIVIDER)
+        '        pathParam.Append(path(4).Selection)
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
+        '    End If
+        '    If (Marker.UseTableList) Then
+        '        linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
+        '    End If
+        '    lnkPath4.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+        '    lblSep5.Visible = True
+        'End If
+
+        'If path.Count > 5 Then
+        '    If Not menu Is Nothing Then
+        '        nodeId = pHandler.Combine(nodeId, path(5))
+        '        menu = Marker.GetMenu(nodeId)
+        '        If menu Is Nothing Then
+        '            Return Nothing
+        '        End If
+
+        '        lnkPath5.Text = menu.Text
+        '        lnkPath5.Visible = True
+        '    End If
+        '    linkItems = New List(Of LinkManager.LinkItem)
+        '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(path(5).Selection)))
+        '    Else
+        '        pathParam.Append(PathHandler.NODE_DIVIDER)
+        '        pathParam.Append(path(5).Selection)
+        '        linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, UrlPath(pathParam.ToString())))
+        '    End If
+        '    If (Marker.UseTableList) Then
+        '        linkItems.Add(New LinkManager.LinkItem("tablelist", "true"))
+        '    End If
+        '    lnkPath5.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+        '    lblSep6.Visible = True
+        'End If
 
         Return menu
     End Function
@@ -403,7 +374,13 @@ Public Class BreadcrumbCodebehind
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub FixMenuPath()
-        If lnkPath3.Visible Then
+        If lnkPath5.Visible Then
+            lnkPath5.NavigateUrl = ""
+            lnkPath5.CssClass = "breadcrumb_text_nolink"
+        ElseIf lnkPath4.Visible Then
+            lnkPath4.NavigateUrl = ""
+            lnkPath4.CssClass = "breadcrumb_text_nolink"
+        ElseIf lnkPath3.Visible Then
             lnkPath3.NavigateUrl = ""
             lnkPath3.CssClass = "breadcrumb_text_nolink"
         ElseIf lnkPath2.Visible Then
