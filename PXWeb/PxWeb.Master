@@ -1,85 +1,104 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PxWeb.master.cs" Inherits="PXWeb.PxWeb" %>
 
 <%@ Register Src="~/UserControls/Login.ascx" TagPrefix="uc1" TagName="Login" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<!--[if lt IE 7 ]> <html xmlns="http://www.w3.org/1999/xhtml" class="ie6"> <![endif]-->
-<!--[if IE 7 ]> <html xmlns="http://www.w3.org/1999/xhtml" class="ie7"> <![endif]-->
-<!--[if IE 8 ]> <html xmlns="http://www.w3.org/1999/xhtml" class="ie8"> <![endif]-->
-<!--[if IE 9 ]> <html xmlns="http://www.w3.org/1999/xhtml" class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
-<head runat="server">
-    <%--<title ><asp:Literal ID="litTitle" EnableViewState="false" runat="server" /></title>--%>
-    <title><%= HeadTitle %></title>
-    <meta name="viewport" content="width=device-width"/>
-    <link href="Resources/Styles/reset.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/PxWeb.css" rel="stylesheet" type="text/css" media="screen" />  
-    <link href="Resources/Styles/CommandBar.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/variableselector.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/datasort.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/excel.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/footnote.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/tablequery.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/hierarchical.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/information.css" rel="stylesheet" type="text/css" media="screen" />   
-    <link href="Resources/Styles/login.css" rel="stylesheet" type="text/css" media="screen" />   
-    <link href="Resources/Styles/searchvalues.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/table.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/tableinformation.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/tablelist.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/tableofcontent.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/textsearch.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/TreeView.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/navigationFlow.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/breadcrumb.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/search.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/jQuery/redmond/jquery-ui.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/jQuery/tablesorter/style.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/Custom.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/savequery.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/selectfromgroup.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="Resources/Styles/responsive.css" rel="stylesheet" type="text/css" media="screen" />
-    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-1.10.2.min.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-ui-1.12.1.min.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.client.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.controls.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery.tablesorter.min.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery.metadata.js") %>" type="text/javascript"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/format.20110630-1100.min.js") %>" type="text/javascript"></script>
+<html lang="<%= HtmlLang %>">
+  <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><asp:Literal runat="server" ID="LiteralTitle"></asp:Literal></title>
+    <link href="<%= ResolveUrl("~/Resources/Styles/reset.css") + "?v=" + DisplayVersion  %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/designSystem.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/PxWeb.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/CommandBar.css") +"?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/variableselector.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/variableOverview.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/datasort.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/excel.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/footnote.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/tablequery.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/hierarchical.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/information.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/login.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/searchvalues.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/table.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/tableinformation.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/tablelist.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/tableofcontent.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/textsearch.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/TreeView.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/navigationFlow.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/breadcrumb.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/search.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/jQuery/redmond/jquery-ui.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/jQuery/tablesorter/style.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/savequery.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/selectfromgroup.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+	<link href="<%= ResolveUrl("~/Resources/Styles/metadata.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/Custom.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
+        
+    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-1.10.2.min.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-ui-1.12.1.min.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.client.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.controls.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery.tablesorter.min.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery.metadata.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/format.20110630-1100.min.js") %>?v=<%= DisplayVersion %>"></script>
 
     <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+<div id="pxwebcontent" role="main">
     <form id="form1" runat="server">
+        <asp:LinkButton ID="ToTheTopButton" runat="server" CssClass="top-link pxweb-btn negative hide" Text="">
+            <svg class="icon-top-link-button" viewBox="0 0 24 24" width="40" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" >
+                <circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line>
+            </svg><asp:Literal ID="ToTheTopButtonLiteralText" runat="server"/>
+        </asp:LinkButton>
         <div id="wrap"> 
             <div id="header" class="header">
-                <div class="headerleft">
+                <div class="headerleft" role="banner">
                         <img id="imgSiteLogo"  enableviewstate="false" runat="server" src="" alt="" class="imgSiteLogo" />
                         <span class="siteLogoText"><asp:Literal ID="litAppName" EnableViewState="false" runat="server" /></span>
                 </div>
                 <div class="headerright">
-                    <asp:DropDownList ID="cboSelectLanguages" EnableViewState="false" CssClass="cboSelectLanguages" 
-                        runat="server" AutoPostBack="true" />
+                    <div class="px-change-lang-div">
+                          <asp:Literal ID="ChangeLanguageLiteral" EnableViewState="false" runat="server" />
+                    </div>
                 </div>
 
                 <div style="clear: both;"> </div>
             </div>
+            <% if (PXWeb.Settings.Current.General.Modules.ShowLogin)
+                { %>
+            <div id="loginBanner" class="login">
+                <h1 class="loginBannerHeader">PxWeb</h1>
+                <div id="logindiv" class="logindiv">
+                    <uc1:Login ID="login"  runat="server"></uc1:Login>
+                </div>
+            </div>
+            <%  } %>
             <div id="breadcrumb">    
                <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>                       
-            </div>  
+            </div>
+            <div id="table-title">
+                <div id="place-holder-title">
+                    <asp:contentplaceholder id="TitlePlaceHolder" runat="server">
+                    </asp:contentplaceholder>
+                </div>
+            </div>
             <div id="navigationFlow" >        
                 <pxc:NavigationFlow ID="navigationFlowControl" runat="server" Visible="false" /> 
             </div>      
         
-            <div id="content"> 
+            <div id="pxcontent"> 
                 <div id="place-holder">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-            <div id="footer">
+            <div id="pxfooter">
                 <div class="footerleft">
                     <asp:Label runat="server" EnableViewState="false" ID="lblFooterText" />
                 </div>
@@ -91,5 +110,37 @@
             </div>
         </div>
     </form>
+</div>
+    <script>
+        "use strict";
+        // Set a variable for our button element.
+        var scrollToTopButton = document.getElementById('<%=ToTheTopButton.ClientID%>');
+        var lastScrollYPos = 0;
+
+        scrollToTopButton.className = "top-link pxweb-btn negative hidden";
+
+        // Let's set up a function that shows our scroll-to-top button if we scroll beyond the height of the initial window.
+        var scrollFunc = function scrollFunc(lastScrollYPos) {
+            // Get the current scroll value
+            var y = window.pageYOffset; // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
+
+            if (y > 300 && y < lastScrollYPos) {
+                scrollToTopButton.className = "top-link pxweb-btn negative show";
+            } else {
+                scrollToTopButton.className = "top-link pxweb-btn negative hidden";
+                scrollToTopButton.blur();
+            }
+        };
+
+        window.addEventListener('scroll', function (e) {
+            scrollFunc(lastScrollYPos);
+            lastScrollYPos = window.scrollY;
+        });
+
+        scrollToTopButton.onclick = function (e) {
+            e.preventDefault();
+            document.documentElement.scrollTop = 0;
+        };
+</script>
 </body>
 </html>

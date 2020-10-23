@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb {
-    
-    
-    public partial class PxWeb {
-        
+namespace PXWeb
+{
+
+
+    public partial class PxWeb
+    {
+
+        /// <summary>
+        /// LiteralTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LiteralTitle;
+
         /// <summary>
         /// ContentPlaceHolderHead control.
         /// </summary>
@@ -20,7 +31,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderHead;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +40,25 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
+        /// <summary>
+        /// ToTheTopButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ToTheTopButton;
+
+        /// <summary>
+        /// ToTheTopButtonLiteralText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ToTheTopButtonLiteralText;
+
         /// <summary>
         /// imgSiteLogo control.
         /// </summary>
@@ -38,7 +67,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage imgSiteLogo;
-        
+
         /// <summary>
         /// litAppName control.
         /// </summary>
@@ -47,16 +76,17 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litAppName;
-        
+
         /// <summary>
-        /// cboSelectLanguages control.
+        /// ChangeLanguageLiteral control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboSelectLanguages;
-        
+        protected global::System.Web.UI.WebControls.Literal ChangeLanguageLiteral;
+
+       
         /// <summary>
         /// breadcrumb1 control.
         /// </summary>
@@ -67,6 +97,15 @@ namespace PXWeb {
         protected global::PCAxis.Web.Controls.Breadcrumb breadcrumb1;
         
         /// <summary>
+        /// TitlePlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder TitlePlaceHolder;
+
+        /// <summary>
         /// navigationFlowControl control.
         /// </summary>
         /// <remarks>
@@ -74,7 +113,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.NavigationFlow navigationFlowControl;
-        
+
         /// <summary>
         /// ContentPlaceHolderMain control.
         /// </summary>
@@ -83,7 +122,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderMain;
-        
+
         /// <summary>
         /// lblFooterText control.
         /// </summary>
@@ -92,7 +131,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFooterText;
-        
+
         /// <summary>
         /// ContentPlaceHolderFooter control.
         /// </summary>
