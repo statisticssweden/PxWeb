@@ -1,493 +1,426 @@
 /* ----  General -----------------*/
-.commandbar
-{
-    float:left;
-    clear:both;
-    width:100%;
-    padding: 0 0 10px 0;
-    /*height:60px;*/
+.commandbar {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: 0 0 10px 0;
+  /*height:60px;*/
 }
 
-.commandbar_action
-{
+.commandbar_action {
 }
 
-.commandbar_container
-{
-    border: solid 2px #3086d0;
-    padding: 10px 40px 10px 10px;    
-    clear:both;
-    float:left;
-    margin: 0 0 10px 0;
+.commandbar_container {
+  border: solid 2px #3086d0;
+  padding: 10px 40px 10px 10px;
+  clear: both;
+  float: left;
+  margin: 0 0 10px 0;
 }
 
-.commandbar_function_dropdownlist
-{
-}
-.commandbar_saveas_dropdownlist
-{
-}
-.commandbar_link_dropdownlist
-{
+.commandbar_function_dropdownlist {
 }
 
-.commandbar_mainshortcut
-{
-    float:left;
+.commandbar_saveas_dropdownlist {
+}
+
+.commandbar_link_dropdownlist {
+}
+
+.commandbar_mainshortcut {
+  float: left;
 }
 
 
-.commandbar_shortcut
-{
-    padding-top: 5px;
+.commandbar_shortcut {
+  padding-top: 5px;
 }
 
-.commandbar_radioButtonList td
-{
-    padding : 0 0 3px 0;
-    vertical-align : middle;
+.commandbar_radioButtonList td {
+  padding: 0 0 3px 0;
+  vertical-align: middle;
 }
 
-.commandbar_radioButtonList label
-{
-    padding : 0 0 0 5px;
-    vertical-align : text-bottom;
+.commandbar_radioButtonList label {
+  padding: 0 0 0 5px;
+  vertical-align: text-bottom;
 }
 
-.commandbar_button_row
-{
-    padding : 5px 0 0 0;
+.commandbar_button_row {
+  padding: 5px 0 0 0;
 }
 
-.commandbar_dropdown
-{
-    height:50px;
-    width:900px;
+.commandbar_dropdown {
+  height: 50px;
+  width: 900px;
 }
 
-.commandbar_dropdown div
-{    
-    float:left;
-    margin : 2px 5px 2px 0;
-}
+  .commandbar_dropdown div {
+    float: left;
+    margin: 2px 5px 2px 0;
+  }
 
-.commandbar_dropdown select
-{
-    width:250px;
+  .commandbar_dropdown select {
+    width: 250px;
     display: block;
+  }
+
+.commandbar_images {
+  height: 50px;
+  float: left;
 }
 
-.commandbar_images
-{
-    height:50px;
-    float:left;
+.commandbar_cancelbutton {
 }
 
-.commandbar_cancelbutton
-{
-    
-}
-
-.commandbar_pluginbutton
-{
-    margin : 0 3px 3px 0;
+.commandbar_pluginbutton {
+  margin: 0 3px 3px 0;
 }
 
 /* Use to set width of file download dialog */
-.commandbar_download_file_dialog
-{
-    width: 240px;
+.commandbar_download_file_dialog {
+  width: 240px;
 }
 /* Use to set height of file download dialog*/
-.commandbar_download_file_container
-{
-    height: 120px;
+.commandbar_download_file_container {
+  height: 120px;
 }
 
-.commandbar_download_file_information
-{
-    margin: 10px 0px 0px 0px;
-    display: block;
+.commandbar_download_file_information {
+  margin: 10px 0px 0px 0px;
+  display: block;
 }
 
-.commandbar_download_file_link
-{
-    display: block;
-    font-weight: bold;
-    font-size: 150%;
-    margin: 30px 0px 30px 0px;
-    text-align: center;
-    text-decoration: underline;
+.commandbar_download_file_link {
+  display: block;
+  font-weight: bold;
+  font-size: 150%;
+  margin: 30px 0px 30px 0px;
+  text-align: center;
+  text-decoration: underline;
 }
 
 /* ----  Summary function -----------*/
 
-.commandbar_sum_titletext
-{
-    font-weight:bold;
-}
-.commandbar_sum_sumallvaluestitle
-{ 
-
-}
-.commandbar_sum_sumallvaluestext
-{
-
-}
-.commandbar_sum_sumallvaluesnewvariabelname_dropdown
-{
-    padding : 0 2 0 5px;
-}
-.commandbar_sum_continuebutton
-{
-}
-.commandbar_sum_sumallvaluestitle
-{ 
-}
-.commandbar_sum_sumallvaluestitle
-{
-
-}
-.commandbar_sum_selectvaluestosumlabel
-{
-    
-}
-.commandbar_sum_valuestosum_listbox
-{
-    padding: 0 0 0 6px;
-}
-.commandbar_sum_sumallvaluesnewvariabelname_checkbox
-{
-}
-.commandbar_sum_errormessage
-{
-    color : Red;
+.commandbar_sum_titletext {
+  font-weight: bold;
 }
 
-.commandbar_sum_radiobuttonlist
-{
+.commandbar_sum_sumallvaluestitle {
 }
 
-.commandbar_sum_radiobuttonlist label
-{
-    margin-left  : 5px;
-    vertical-align : text-bottom;
+.commandbar_sum_sumallvaluestext {
 }
 
-.commandbar_sum_radiobuttonlist input[type="radio"]
-{
-    margin-left  : 7px;
+.commandbar_sum_sumallvaluesnewvariabelname_dropdown {
+  padding: 0 2 0 5px;
 }
 
-.commandbar_sum_operandspanel_row
-{
-    padding : 5px 0 0 5px;
+.commandbar_sum_continuebutton {
+}
+
+.commandbar_sum_sumallvaluestitle {
+}
+
+.commandbar_sum_sumallvaluestitle {
+}
+
+.commandbar_sum_selectvaluestosumlabel {
+}
+
+.commandbar_sum_valuestosum_listbox {
+  padding: 0 0 0 6px;
+}
+
+.commandbar_sum_sumallvaluesnewvariabelname_checkbox {
+}
+
+.commandbar_sum_errormessage {
+  color: Red;
+}
+
+.commandbar_sum_radiobuttonlist {
+}
+
+  .commandbar_sum_radiobuttonlist label {
+    margin-left: 5px;
+    vertical-align: text-bottom;
+  }
+
+  .commandbar_sum_radiobuttonlist input[type="radio"] {
+    margin-left: 7px;
+  }
+
+.commandbar_sum_operandspanel_row {
+  padding: 5px 0 0 5px;
 }
 
 /* ----  Pivot function -----------*/
-.commandbar_pivot_container
-{
-    float:left;
-}
-.commandbar_pivot_container_buttons
-{
-    float:left;
-    padding:15px 10px 0px 10px;
-}
-.commandbar_pivot_button
-{
-    display:inline;
-    margin-top: 10px;
-}
-.commandbar_pivot_continuebutton
-{
-    margin-top: 15px;
-}
-.commandbar_pivot_heading
-{
-    width: 100%;
-    float: none;
-    font-weight: bold;
-}
-.commandbar_pivot_title
-{
-    font-weight:bold;
-}
-.commandbar_pivot_listbox
-{
-    
-}
-/* ----  ChangeValueOrder function ---- */
-.commandbar_changevalueorder_container_main
-{
-    width:600px;
-}
-.commandbar_changevalueorder_caption
-{
-    width: 100%;
-    float: none;
-    font-weight: bold;
-}
-.commandbar_changevalueorder_instructions
-{
-    width: 65%;
-    float: left;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.commandbar_changevalueorder_mainbuttons
-{
-    width: 30%;
-    float:right;
-    vertical-align:top;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-}
-.commandbar_changevalueorder_variablelist
-{
-    float:left;
-}
-.commandbar_changevalueorder_fromorder_container
-{
-    width: 54%; 
-    float: left
-}
-.commandbar_changevalueorder_fromorder_downbutton
-{
-    float: left;
-    width: 8%;
-}
-.commandbar_changevalueorder_fromorder_controls
-{
-    float: left; 
-    width: 89%
-}
-.commandbar_changevalueorder_fromorder_list
-{
-    width: 89%;
-    float: left;
-}
-.commandbar_changevalueorder_fromorder_listbox
-{
-    width: 100%
-}
-.commandbar_changevalueorder_fromorder_movebuttons
-{
-    width: 7%;
-    float: right;
-    padding-left: 6px;
-    padding-right: 0px;
-    margin-top: 25px;
-}
-.commandbar_changevalueorder_toorder_container
-{
-    width: 44%; 
-    float: left
-}
-.commandbar_changevalueorder_toorder_list
-{
-    width: 90%;
-    float: left;
-}
-.commandbar_changevalueorder_toorder_listbox
-{
-    width: 100%
-}
-.commandbar_changevalueorder_toorder_downbutton
-{
-    float: left; 
-    width: 7%;
-    padding-left: 7px;    
+.commandbar_pivot_container {
+  float: left;
 }
 
-.break
-{
-    clear:both;
+.commandbar_pivot_container_buttons {
+  float: left;
+  padding: 15px 10px 0px 10px;
+}
+
+.commandbar_pivot_button {
+  display: inline;
+  margin-top: 10px;
+}
+
+.commandbar_pivot_continuebutton {
+  margin-top: 15px;
+}
+
+.commandbar_pivot_heading {
+  width: 100%;
+  float: none;
+  font-weight: bold;
+}
+
+.commandbar_pivot_title {
+  font-weight: bold;
+}
+
+.commandbar_pivot_listbox {
+}
+/* ----  ChangeValueOrder function ---- */
+.commandbar_changevalueorder_container_main {
+  width: 600px;
+}
+
+.commandbar_changevalueorder_caption {
+  width: 100%;
+  float: none;
+  font-weight: bold;
+}
+
+.commandbar_changevalueorder_instructions {
+  width: 65%;
+  float: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.commandbar_changevalueorder_mainbuttons {
+  width: 30%;
+  float: right;
+  vertical-align: top;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.commandbar_changevalueorder_variablelist {
+  float: left;
+}
+
+.commandbar_changevalueorder_fromorder_container {
+  width: 54%;
+  float: left
+}
+
+.commandbar_changevalueorder_fromorder_downbutton {
+  float: left;
+  width: 8%;
+}
+
+.commandbar_changevalueorder_fromorder_controls {
+  float: left;
+  width: 89%
+}
+
+.commandbar_changevalueorder_fromorder_list {
+  width: 89%;
+  float: left;
+}
+
+.commandbar_changevalueorder_fromorder_listbox {
+  width: 100%
+}
+
+.commandbar_changevalueorder_fromorder_movebuttons {
+  width: 7%;
+  float: right;
+  padding-left: 6px;
+  padding-right: 0px;
+  margin-top: 25px;
+}
+
+.commandbar_changevalueorder_toorder_container {
+  width: 44%;
+  float: left
+}
+
+.commandbar_changevalueorder_toorder_list {
+  width: 90%;
+  float: left;
+}
+
+.commandbar_changevalueorder_toorder_listbox {
+  width: 100%
+}
+
+.commandbar_changevalueorder_toorder_downbutton {
+  float: left;
+  width: 7%;
+  padding-left: 7px;
+}
+
+.break {
+  clear: both;
 }
 
 
 /* ----  ChangeDecimal function ---- */
 
-.commandbar_changedecimal_titletext
-{
-    font-weight:bold;
+.commandbar_changedecimal_titletext {
+  font-weight: bold;
 }
-.commandbar_changedecimal_selectvaluetitle
-{ 
 
+.commandbar_changedecimal_selectvaluetitle {
 }
-.commandbar_changedecimal_selectvaluetext
-{
 
+.commandbar_changedecimal_selectvaluetext {
 }
-.commandbar_changedecimal_selectvalue_textbox
-{
-    
+
+.commandbar_changedecimal_selectvalue_textbox {
 }
-.commandbar_changedecimal_continuebutton
-{
-    
+
+.commandbar_changedecimal_continuebutton {
 }
 
 
 /* ---- ChangeTexts --- */
 
-.commandbar_changetexts_titletext
-{
-    font-weight:bold;
+.commandbar_changetexts_titletext {
+  font-weight: bold;
 }
 
 /* ----  DeleteValue function ---- */
 
-.commandbar_deletevalue_titletext
-{
-    font-weight:bold;
+.commandbar_deletevalue_titletext {
+  font-weight: bold;
 }
-.commandbar_deletevalue_deletevaluetitle
-{ 
-    padding : 0 0 3px 0;
+
+.commandbar_deletevalue_deletevaluetitle {
+  padding: 0 0 3px 0;
 }
-.commandbar_deletevalue_continuebutton
-{
-    
+
+.commandbar_deletevalue_continuebutton {
 }
-.commandbar_deletevalue_errordescription
-{
-	color: #FF0000;
+
+.commandbar_deletevalue_errordescription {
+  color: #FF0000;
 }
 
 
 /* ----  DeleteVariable function ---- */
 
-.commandbar_deletevariable_titletext
-{
-    font-weight:bold;
-}
-.commandbar_deletevariable_nametext
-{
-    font-weight:bold;
+.commandbar_deletevariable_titletext {
+  font-weight: bold;
 }
 
-.commandbar_deletevariable_nametext label
-{
-    padding : 0 0 0 5px;
-    vertical-align : text-bottom;
+.commandbar_deletevariable_nametext {
+  font-weight: bold;
 }
 
-   
+  .commandbar_deletevariable_nametext label {
+    padding: 0 0 0 5px;
+    vertical-align: text-bottom;
+  }
 
-.commandbar_deletevariable_deletevaluetitle
-{ 
 
+
+.commandbar_deletevariable_deletevaluetitle {
 }
-.commandbar_deletevariable_continuebutton
-{
-    
+
+.commandbar_deletevariable_continuebutton {
 }
-.commandbar_deletevariable_errormessage
-{
-    color : Red;
+
+.commandbar_deletevariable_errormessage {
+  color: Red;
 }
 
 /* ----  PerPart function ---- */
 
-.commandbar_perpart_titletext
-{
-    font-weight:bold;
+.commandbar_perpart_titletext {
+  font-weight: bold;
 }
 
-.commandbar_perpart_perparttext
-{ 
-
-}
-.commandbar_perpart_perparttextbox
-{ 
-
-}
-.commandbar_perpart_radio_horisontal
-{ 
-
+.commandbar_perpart_perparttext {
 }
 
-.commandbar_perpart_radio_horisontal label
-{ 
-    padding : 0 5px 0 5px;
-    vertical-align : text-bottom;
+.commandbar_perpart_perparttextbox {
 }
 
-.commandbar_perpart_continuebutton
-{
-    
+.commandbar_perpart_radio_horisontal {
 }
-.commandbar_perpart_errormessage
-{
-    color : Red;
+
+  .commandbar_perpart_radio_horisontal label {
+    padding: 0 5px 0 5px;
+    vertical-align: text-bottom;
+  }
+
+.commandbar_perpart_continuebutton {
+}
+
+.commandbar_perpart_errormessage {
+  color: Red;
 }
 
 
 /* ----  ChangePresentation function ---- */
 
-.commandbar_changepresentation_titletext
-{
-    font-weight : bold;
-}
-.commandbar_changepresentation_headertext
-{
-    font-weight:bold;
-}
-.commandbar_changepresentation_changetext
-{ 
-
-}
-.commandbar_changepresentation_textbox
-{ 
-}
-.commandbar_changepresentation_radio
-{ 
-    padding : 0 0 3px 0;
+.commandbar_changepresentation_titletext {
+  font-weight: bold;
 }
 
-.commandbar_changepresentation_radio label
-{ 
-    padding : 0 7px 0 3px;
-    vertical-align : text-bottom;
-}
-.commandbar_changepresentation_continuebutton
-{
-    
+.commandbar_changepresentation_headertext {
+  font-weight: bold;
 }
 
-.commandbar_changepresentation_inputrow
-{
-    padding : 0 0 5px 0;
+.commandbar_changepresentation_changetext {
 }
 
-.commandbar_changepresentation_errormessage
-{
-    color : Red;
+.commandbar_changepresentation_textbox {
+}
+
+.commandbar_changepresentation_radio {
+  padding: 0 0 3px 0;
+}
+
+  .commandbar_changepresentation_radio label {
+    padding: 0 7px 0 3px;
+    vertical-align: text-bottom;
+  }
+
+.commandbar_changepresentation_continuebutton {
+}
+
+.commandbar_changepresentation_inputrow {
+  padding: 0 0 5px 0;
+}
+
+.commandbar_changepresentation_errormessage {
+  color: Red;
 }
 
 
 /* ---- Save as PRN ---- */
-.commandbar_saveas_prn_headingvalues
-{
-    
+.commandbar_saveas_prn_headingvalues {
 }
 
-.commandbar_saveas_prn_separatorvalues
-{
-    
+.commandbar_saveas_prn_separatorvalues {
 }
 
 /* ---- Save as Excel ---- */
-.commandbar_saveas_excel_informationtype
-{
-    
+.commandbar_saveas_excel_informationtype {
 }
 
-.commandbar_savefilelink
-{
-    font-weight: bold;
-    font-size: medium;
+.commandbar_savefilelink {
+  font-weight: bold;
+  font-size: medium;
 }

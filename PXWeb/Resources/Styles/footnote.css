@@ -1,65 +1,60 @@
 ﻿/* Used for Footnote webcontrol */
-.footnotes_container
-{
-    margin-top:10px;
-}
-.footnote_heading 
-{
-    font-weight: bold;
+.footnotes_container {
+  margin-top: 10px;
 }
 
-dl.footnote_definitionlist dt
-{
-    font-size:90%;
-    margin-top:1em;
-    font-weight:bold;
-    line-height:120%;
-    font-style: italic;
+.footnote_heading {
+  font-weight: bold;
 }
 
-dl.footnote_definitionlist dd
-{   
-    font-size:90%;
-    margin-left:2em;
-    line-height:120%;
-    font-style: italic;
+dl.footnote_definitionlist dt {
+  font-size: 90%;
+  margin-top: 1em;
+  font-weight: bold;
+  line-height: 120%;
+  font-style: italic;
 }
 
-.footnote_mandatory
-{
-    color: #800000;
+dl.footnote_definitionlist dd {
+  font-size: 90%;
+  margin-left: 2em;
+  line-height: 120%;
+  font-style: italic;
+}
+
+.footnote_mandatory {
+  color: #800000;
 }
 
 /* Define if specific style should be assigned to the title and definition of a type of footnote */
-.footnote_note_key
-{
+.footnote_note_key {
 }
-.footnote_note_value
-{
+
+.footnote_note_value {
 }
-.footnote_varnote_key
-{
+
+.footnote_varnote_key {
 }
-.footnote_varnote_value
-{
+
+.footnote_varnote_value {
 }
-.footnote_valuenote_header
-{
+
+.footnote_valuenote_header {
 }
-.footnote_valuenote_key
-{
-    margin-left:2em;
+
+.footnote_valuenote_key {
+  margin-left: 2em;
 }
-.footnote_valuenote_value
-{
+
+.footnote_valuenote_value {
 }
-.footnote_cellnote_key
-{
+
+.footnote_cellnote_key {
 }
-.footnote_cellnote_value
-{
+
+.footnote_cellnote_value {
 }
-.footnote_no_footnotes
-{
-    font-style: italic
+
+.footnote_no_footnotes {
+  font-style: italic
 }

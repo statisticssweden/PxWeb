@@ -1,80 +1,79 @@
-﻿.selectfromgroup_container
-{
-    border: solid 4px #3086d0;
-    padding: 10px 40px 10px 10px;    
-    clear:both;
-    /*float:none;*/
-    margin: 0 0 10px 0;
-    overflow: hidden;
+﻿.selectfromgroup_container {
+  border: solid 4px #3086d0;
+  padding: 10px 40px 10px 10px;
+  clear: both;
+  /*float:none;*/
+  margin: 0 0 10px 0;
+  overflow: hidden;
 }
-.selectfromgroup_left
-{
-    float: left;
-    width: 50%;
+
+.selectfromgroup_left {
+  float: left;
+  width: 50%;
 }
-.selectfromgroup_right
-{
-    float:right; 
-    margin-top: 2em;
-    width: 50%;
+
+.selectfromgroup_right {
+  float: right;
+  margin-top: 2em;
+  width: 50%;
 }
-.selectfromgroup_heading
-{
-    font-weight: bold;
-    display: block;
-    margin-bottom: 1em;
+
+.selectfromgroup_heading {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1em;
 }
-.selectfromgroup_variable
-{
-    font-weight: bold;
-    display: block;
-    margin-bottom: 1em;
+
+.selectfromgroup_variable {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1em;
 }
-.selectfromgroup_selectgrouping
-{
-    margin-bottom: 1em;
+
+.selectfromgroup_selectgrouping {
+  margin-bottom: 1em;
 }
-.selectfromgroup_groupspanel
-{
+
+.selectfromgroup_groupspanel {
 }
-.selectfromgroup_groupsheading
-{
-    display:block;
+
+.selectfromgroup_groupsheading {
+  display: block;
 }
-.selectfromgroup_groupslist
-{
-    width: 100%;
-    height: 10em;
-    display:block;
-    margin-bottom: 0.5em;
+
+.selectfromgroup_groupslist {
+  width: 100%;
+  height: 10em;
+  display: block;
+  margin-bottom: 0.5em;
 }
-.selectfromgroup_groupsbutton
-{
-    display:block;
-    margin-bottom: 1em;
+
+.selectfromgroup_groupsbutton {
+  display: block;
+  margin-bottom: 1em;
 }
-.selectfromgroup_valuespanel
-{
-    display:block;
+
+.selectfromgroup_valuespanel {
+  display: block;
 }
-.selectfromgroup_valuesheading
-{
+
+.selectfromgroup_valuesheading {
 }
-.selectfromgroup_valueslist
-{
-    width: 100%;
-    height: 10em;
-    display:block;
-    margin-bottom: 0.5em;
+
+.selectfromgroup_valueslist {
+  width: 100%;
+  height: 10em;
+  display: block;
+  margin-bottom: 0.5em;
 }
-.selectfromgroup_returnbutton
-{
+
+.selectfromgroup_returnbutton {
 }
-.selectfromgroup_cancel
-{
-    margin-left: 0.2em;
+
+.selectfromgroup_cancel {
+  margin-left: 0.2em;
 }
-.selectfromgroup_selecttype
-{
-    margin-left: 1em;
+
+.selectfromgroup_selecttype {
+  margin-left: 1em;
 }

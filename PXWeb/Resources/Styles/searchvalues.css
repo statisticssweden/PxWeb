@@ -1,145 +1,123 @@
-﻿.searchvalues_container
-{
-    border: solid 4px #3086d0;
-    padding: 10px 40px 10px 10px;    
-    clear:both;
-    /*float:none;*/
-    margin: 0 0 10px 0;
+﻿.searchvalues_container {
+  border: solid 4px #3086d0;
+  padding: 10px 40px 10px 10px;
+  clear: both;
+  /*float:none;*/
+  margin: 0 0 10px 0;
 }
 
-.searchvalues_title
-{
-    font-weight:bold;
-    margin-bottom: 1em;
+.searchvalues_title {
+  font-weight: bold;
+  margin-bottom: 1em;
 }
 
-.searchvalues_options_container
-{
-    float:left;
-    width: 300px;
-    
+.searchvalues_options_container {
+  float: left;
+  width: 300px;
 }
 
-.searchvalues_selectiontips
-{
-    padding: 20px;
-    background-color: #eeeeee;
-    margin-right: 20px;
-    font-size: 95%;
+.searchvalues_selectiontips {
+  padding: 20px;
+  background-color: #eeeeee;
+  margin-right: 20px;
+  font-size: 95%;
 }
 
 /* Search results grid */
 
-.searchvalues_searchresults_container
-{
-    /*float: right;*/
-    height: 250px;
-    width: 500px;
-    float:left; 
-    overflow:auto;
-    border-color: #7f9db9;
-    border-style: solid;
-    border-width: 1px;
-    margin: 0 0 10px 0;
+.searchvalues_searchresults_container {
+  /*float: right;*/
+  height: 250px;
+  width: 500px;
+  float: left;
+  overflow: auto;
+  border-color: #7f9db9;
+  border-style: solid;
+  border-width: 1px;
+  margin: 0 0 10px 0;
 }
 
-.search_results_header
-{
-    font-weight: bold;
+.search_results_header {
+  font-weight: bold;
 }
 
-.paged_grid_cell
-{
-   
+.paged_grid_cell {
 }
 
-.select_cell
-{
-    width : 20px;
-    padding-left: 5px;
-}
-.code_cell
-{
-    width : 100px;
-}
-.value_cell
-{
-    width : 380px;
+.select_cell {
+  width: 20px;
+  padding-left: 5px;
 }
 
-.only_value_cell 
-{
-    width : 480px;
+.code_cell {
+  width: 100px;
 }
 
-.alternating_row
-{
-    background-color: #cde9ee;
+.value_cell {
+  width: 380px;
 }
 
-.selected_row
-{
-    background-color: #68becd;
+.only_value_cell {
+  width: 480px;
+}
+
+.alternating_row {
+  background-color: #cde9ee;
+}
+
+.selected_row {
+  background-color: #68becd;
 }
 
 
-.hide
-{
-  display:none; 
-  visibility:hidden;
+.hide {
+  display: none;
+  visibility: hidden;
 }
 
-.searchvalues_searchresults
-{
-    font-weight:bold;
+.searchvalues_searchresults {
+  font-weight: bold;
 }
 
-.searchvalues_searchresultsnumberofhits
-{
+.searchvalues_searchresultsnumberofhits {
 }
 
-.searchvalues_searchresults_grid
-{
+.searchvalues_searchresults_grid {
 }
 
-.pagerFooter a 
-{
-    background-color :  White;
-    color : #3086d0;
-    border : 0;
-    border-style : none;
-    font-family : Verdana;
-    font-size : 8pt;
-    font-weight : bold;
-    text-decoration : none;
-    margin-right : 1px;
+.pagerFooter a {
+  background-color: White;
+  color: #3086d0;
+  border: 0;
+  border-style: none;
+  font-family: Verdana;
+  font-size: 8pt;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 1px;
 }
 
-.pagerFooter a:hover
-{
-    color : Blue;
-    text-decoration : underline;
+  .pagerFooter a:hover {
+    color: Blue;
+    text-decoration: underline;
+  }
+
+.pagerFooterJavascript {
 }
 
-.pagerFooterJavascript
-{
-}
-
-.pagerFooterNonJavascript
-{
+.pagerFooterNonJavascript {
 }
 
 
-.pagerFooter span
-{
-    background-color :  White;
-    color : Gray;
-    border : 0;
-    border-style : none;
-    font-family : Verdana;
-    font-size : 8pt;
-    font-weight : bold;
-    margin-right : 1px;
+.pagerFooter span {
+  background-color: White;
+  color: Gray;
+  border: 0;
+  border-style: none;
+  font-family: Verdana;
+  font-size: 8pt;
+  font-weight: bold;
+  margin-right: 1px;
 }
 
 /*
@@ -152,87 +130,74 @@
 }
 */
 
-.searchvalues_leftdivider
-{
-    width: 520px;
-    height: 2px;
-    vertical-align: middle;
-    background: url(../images/blue.gif);
- 	 outline: none;
+.searchvalues_leftdivider {
+  width: 520px;
+  height: 2px;
+  vertical-align: middle;
+  background: url(../images/blue.gif);
+  outline: none;
 }
 
-.searchvalues_removebutton
-{
-    vertical-align: middle;
-    width:19px;
-    height:17px;
-    background: url(../images/MoveUp.gif) no-repeat;
-	 outline: none;
+.searchvalues_removebutton {
+  vertical-align: middle;
+  width: 19px;
+  height: 17px;
+  background: url(../images/MoveUp.gif) no-repeat;
+  outline: none;
 }
 
-.searchvalues_addbutton
-{
-    vertical-align: middle;
-    width:19px;
-    height:17px;
-    background: url(../images/MoveDown.gif) no-repeat;
- 	 outline: none;
+.searchvalues_addbutton {
+  vertical-align: middle;
+  width: 19px;
+  height: 17px;
+  background: url(../images/MoveDown.gif) no-repeat;
+  outline: none;
 }
 
-.searchvalues_rightdivider
-{
-    width: 300px;
-    height: 2px;
-    vertical-align: middle;
-    background: url(../images/blue.gif);
- 	 outline: none;
+.searchvalues_rightdivider {
+  width: 300px;
+  height: 2px;
+  vertical-align: middle;
+  background: url(../images/blue.gif);
+  outline: none;
 }
 
-.searchvalues_choosenvalues_container
-{
-    /*float: right;*/
-    margin-top: 20px;
+.searchvalues_choosenvalues_container {
+  /*float: right;*/
+  margin-top: 20px;
 }
 
-.searchvalues_leftdiv
-{
-    float:left;
-    width: 300px;
-    height: 200px;
+.searchvalues_leftdiv {
+  float: left;
+  width: 300px;
+  height: 200px;
 }
 
-.searchvalues_choosenvalues
-{
-    font-weight: bold;
+.searchvalues_choosenvalues {
+  font-weight: bold;
 }
 
-.searchvalues_numberofchoosenvalues
-{
+.searchvalues_numberofchoosenvalues {
 }
 
-.searchvalues_selectedvalues_listbox
-{
-    width: 500px;
-    height: 150px;
-    margin-bottom: 10px;
-    overflow: auto;
+.searchvalues_selectedvalues_listbox {
+  width: 500px;
+  height: 150px;
+  margin-bottom: 10px;
+  overflow: auto;
 }
 
-.searchvalues_buttonscontainer
-{
-    width: 800px;
-    text-align: right;
+.searchvalues_buttonscontainer {
+  width: 800px;
+  text-align: right;
 }
 
-.searchvalues_cancelbutton
-{
+.searchvalues_cancelbutton {
 }
 
-.searchvalues_clearbutton
-{
+.searchvalues_clearbutton {
 }
 
-.searchvalues_addtovariableselectorbutton
-{
-    margin-right: 0px;
+.searchvalues_addtovariableselectorbutton {
+  margin-right: 0px;
 }

@@ -1,29 +1,24 @@
-﻿div.excelcontainer
-{
-    width:10em;    
+﻿div.excelcontainer {
+  width: 10em;
 }
 
-div.excelcontainer div.description
-{
-    float:left;
-    width:4em;
-    height:1.8em;
-    padding-bottom:1px;
-}
+  div.excelcontainer div.description {
+    float: left;
+    width: 4em;
+    height: 1.8em;
+    padding-bottom: 1px;
+  }
 
-div.excelcontainer div.value
-{
-    float:right;
-    width:4em;
-    height:1.8em;
-    padding-bottom:0.1em;
-}
+  div.excelcontainer div.value {
+    float: right;
+    width: 4em;
+    height: 1.8em;
+    padding-bottom: 0.1em;
+  }
 
-div.excelcontainer div.value input
-{
-    width: 2em;
-}
+    div.excelcontainer div.value input {
+      width: 2em;
+    }
 
-.exceldoublecolumn
-{
+.exceldoublecolumn {
 }

@@ -1,22 +1,19 @@
-﻿.tableinformation_container
-{
-    margin: 10px 0 10px 0;
-    display: inline-block;
+﻿.tableinformation_container {
+  margin: 10px 0 10px 0;
+  display: inline-block;
 }
-.tableinformation_title
-{
-    font-family: Arial;
-    font-size:130%;
-    font-weight:normal;
-    line-height:150%;
+
+.tableinformation_title {
+  font-family: Arial;
+  font-size: 130%;
+  font-weight: normal;
+  line-height: 150%;
 }
-.tableinformation_description
-{
-    font-weight:bold;
+
+.tableinformation_description {
+  font-weight: bold;
 }
 
 
-.tableinformation_link
-{
-    
+.tableinformation_link {
 }
