@@ -95,3 +95,12 @@ jQuery(function () {
         });
     }
 });
+function isSelectionLayoutCompact() {
+    var Selectionlayout = getCookie("layoutCookie");
+    return Boolean(Selectionlayout == "compact")
+}
+function getCookie(key) {
+    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+    return keyValue ? keyValue[2] : null;
+}  
+
