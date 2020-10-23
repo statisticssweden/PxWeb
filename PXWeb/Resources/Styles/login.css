@@ -1,55 +1,66 @@
-﻿.login {
+﻿#pxwebcontent .login {
   position: relative;
   padding: 3em 0em 3em 0em;
-  /*border-top: thin solid #2870ae;*/
   overflow: hidden;
-  display: none;
 }
 
-.loginBannerHeader {
+#pxwebcontent .loginBannerHeader {
   float: left;
   font-size: 3em;
 }
 
-.logindiv {
+#pxwebcontent .logindiv {
   float: right;
+  margin-right:10px;
 }
 
-.box {
+#pxwebcontent #logindiv legend {
+  padding-left: 0.25em;
+}
+
+#pxwebcontent .box {
   padding: 0em 0em;
   width: 16em;
   border: thin solid #2870ae;
 }
 
-.box-top {
+#pxwebcontent .box-top {
   margin-bottom: 0em;
   width: 16em;
 }
 
-  .box-top input {
+  #pxwebcontent .box-top input {
     border: none !important;
     background-color: #2870ae;
     color: white;
     height: 3.4em;
-    width: 14.55em;
+    width: 17em;
   }
 
-    .box-top input:hover {
+    #pxwebcontent .box-top input:hover {
       background-color: #b30086;
       transition: .1s ease-out;
     }
 
-.wrap {
+    #pxwebcontent .box-top input:focus {
+      outline: #9272fc solid 2px;
+      outline-offset: 2px;
+    }
+
+#pxwebcontent .wrap {
   padding: 1em 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0px;
 }
 
-  .wrap input {
-    float: right;
-    margin-top: 1em;
+  #pxwebcontent .wrap input {
     height: 1.7em;
   }
 
-.row {
+#pxwebcontent .row {
   clear: both;
+}
+
+#pxwebcontent .px-login-hjelp {
+  margin-top: 14px;
+  margin-left: 14px;
 }

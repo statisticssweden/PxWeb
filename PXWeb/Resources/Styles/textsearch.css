@@ -1,5 +1,4 @@
-﻿
-.textsearch select {
+﻿#pxwebcontent .textsearch select {
   margin: 10px 0;
   height: 100px;
   width: 164px;
@@ -7,30 +6,26 @@
   display: block;
 }
 
-
-
-
-.textsearch input[type=text] {
+#pxwebcontent .textsearch input[type=text] {
   width: 160px;
 }
 
-.textsearch ol {
+#pxwebcontent .textsearch ol {
   list-style-type: decimal;
   list-style-position: outside;
   padding-left: 30px;
 }
 
-
-  .textsearch ol li {
+  #pxwebcontent .textsearch ol li {
     margin-bottom: 10px;
   }
 
-.textsearch a {
+#pxwebcontent .textsearch a {
   color: black;
   font-size: 1em;
 }
 
-.textsearch-attributes {
+#pxwebcontent .textsearch-attributes {
   color: Gray;
   font-size: 0.8em;
   font-style: italic;

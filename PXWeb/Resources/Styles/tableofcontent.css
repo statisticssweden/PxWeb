@@ -1,49 +1,38 @@
-﻿
-.tableofcontent_action {
-}
+﻿/* ---- listmenu style ----- */
+/* ---- treeviewmenu style ----- */
+/* ---- adaption of treeview style ----- */
 
-/* ---- listmenu style ----- */
-.tableofcontent_ul {
+#pxwebcontent .tableofcontent_ul {
   margin: 2em 0 2em 2em;
   padding: 0;
   line-height: 120%;
 }
 
-.tableofcontent_li_menuitem {
+#pxwebcontent .tableofcontent_li_menuitem {
   list-style-position: outside;
-  list-style-image: url('../images/Arrow_Right_Gray.gif');
+  list-style-image: url("../images/Arrow_Right_Gray.gif");
 }
 
-  .tableofcontent_li_menuitem a {
-  }
-
-.tableofcontent_li_linkitem {
+#pxwebcontent .tableofcontent_li_linkitem {
   margin: 1em 0 1em 0;
   list-style-position: outside;
-  list-style-image: url('../images/Document.gif');
+  list-style-image: url("../images/Document.gif");
 }
 
-  .tableofcontent_li_linkitem a {
-  }
-
-
-/* ---- treeviewmenu style ----- */
-
-
-.tableofcontent_link {
+#pxwebcontent .tableofcontent_link {
   background: url(../images/Document.gif) 0 0 no-repeat;
   /*text-indent: 20px;*/
   padding: 0 0 0 20px;
   display: block;
 }
 
-.tableofcontent_tablelistlink {
+#pxwebcontent .tableofcontent_tablelistlink {
   background: url(../images/folder.png) 0 0 no-repeat;
   /*text-indent: 20px;*/
   padding: 0 0 0 20px;
 }
 
-.tableofcontent_urllink {
+#pxwebcontent .tableofcontent_urllink {
   background: url(../images/Knapp_info.gif) 0 0 no-repeat;
   display: inline-block;
   width: 17px;
@@ -51,47 +40,45 @@
   margin-left: 5px;
 }
 
-.tableofcontent_metaicon {
+#pxwebcontent .tableofcontent_metaicon {
   padding: 0 0 0 5px;
 }
 
-#TableOfContent a em {
+#pxwebcontent #TableOfContent a em {
   color: #b1b1b1;
 }
 
-/* ---- adaption of treeview style ----- */
-
-#TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse {
+#pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse {
   background: url(../images/folder.png) 0 0 no-repeat;
   float: none;
   cursor: pointer;
   padding: 0 12px 0 0;
 }
 
-#TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand {
+#pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand {
   background: url(../images/folder.png) 0 0 no-repeat;
   float: none;
   cursor: pointer;
   padding: 0 12px 0 0;
 }
 
-#TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
-  /*background:  url(../images/Document.gif) 0 0 no-repeat;
-    padding: 0 0 5px 20px;*/
-  /*width: 750px;*/
+#pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
+  /*background:  url(../../images/Document.gif) 0 0 no-repeat;
+  padding: 0 0 5px 20px;*/
+  width: 750px;
   white-space: normal;
 }
 
-  #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf a {
+  #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf a {
     cursor: pointer;
   }
 
-  #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf span.AspNet-TreeView-NonLink {
+  #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf span.AspNet-TreeView-NonLink {
     text-decoration: none;
     font-weight: bold;
     background: none;
   }
 
-.AspNet-TreeView-ClickableNonLink {
+#pxwebcontent .AspNet-TreeView-ClickableNonLink {
   font-weight: bold;
 }

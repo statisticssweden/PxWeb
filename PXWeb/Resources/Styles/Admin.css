@@ -136,7 +136,6 @@ input {
   /*border:solid 1px;*/
 }
 
-
 #navigation-fontsize {
   /*vertical-align:top;*/
 }
@@ -152,8 +151,6 @@ input {
   margin-right: 20px;
   font-weight: bold;
 }
-
-
 
 #footer {
   float: left;
@@ -174,7 +171,6 @@ input {
     #footer a:hover {
       text-decoration: underline;
     }
-
 
 .setting-field {
   margin-bottom: 5px;
@@ -270,7 +266,6 @@ a:hover, a:active {
   margin-right: 1%;
 }
 
-
 .settingsListingTextCommandBar {
   width: 20%;
   display: inline-block;
@@ -322,7 +317,6 @@ a:hover, a:active {
   padding: 2px;
   vertical-align: top;
 }
-
 
 .evenRow {
   width: 100%;
@@ -412,7 +406,6 @@ input.colorTextField {
 .apiDatabaseCell {
   width: 100px;
 }
-
 
 /* Database settings page*/
 .databaseHeaderCell {

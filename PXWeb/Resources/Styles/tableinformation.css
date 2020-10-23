@@ -1,19 +1,24 @@
-﻿.tableinformation_container {
+﻿#pxwebcontent .tableinformation_container {
   margin: 10px 0 10px 0;
   display: inline-block;
 }
 
-.tableinformation_title {
+#pxwebcontent .tableinformation_title {
   font-family: Arial;
   font-size: 130%;
   font-weight: normal;
   line-height: 150%;
 }
 
-.tableinformation_description {
+#pxwebcontent .tableinformation_description {
   font-weight: bold;
 }
 
+#pxwebcontent .ui-corner-top {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
 
-.tableinformation_link {
+#pxwebcontent .ui-tabs-tab li {
+  background-color: #274247;
 }

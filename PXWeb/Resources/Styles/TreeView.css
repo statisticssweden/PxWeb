@@ -1,74 +1,64 @@
-﻿.foo {
-}
-/* W3C CSS validator likes CSS files to start with a class rather than a comment. Soooooo.... */
-
+﻿/* W3C CSS validator likes CSS files to start with a class rather than a comment. Soooooo....  2020: ok now it seems :-)*/
 /* This style sheet is intended to contain RARELY CHANGED rules used when the TreeView control adapter is enabled. */
 /* Empty rules are provided merely as a convenience for your future use or experimentation. */
+/* Consider changing the cursor value (below) to something like */
+/*     cursor: n-resize;                                        */
+/* Consider changing the cursor value (below) to something like */
+/*     cursor: n-resize;                                        */
+/* Consider changing the cursor value (below) to something like */
+/*     cursor: n-resize;                                        */
 
-div.AspNet-TreeView {
+
+#pxwebcontent div.AspNet-TreeView {
   margin: 0;
   padding: 0;
 }
 
-  div.AspNet-TreeView ul {
+  #pxwebcontent div.AspNet-TreeView ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-.AspNet-TreeView-Show {
-}
-
-.AspNet-TreeView-Hide {
+#pxwebcontent .AspNet-TreeView-Hide {
   display: none;
 }
 
-div.AspNet-TreeView ul li {
+#pxwebcontent div.AspNet-TreeView ul li {
   white-space: nowrap;
   padding: 3px 0 2px 0;
   font-size: small;
   font-family: Tahoma;
 }
 
-div.AspNet-TreeView ul ul {
+#pxwebcontent div.AspNet-TreeView ul ul {
   margin: 2px 0 2px 10px;
 }
 
-div.AspNet-TreeView ul li img {
+#pxwebcontent div.AspNet-TreeView ul li img {
   border: none;
   vertical-align: middle;
   margin: 0 2px 0 0;
 }
 
-div.AspNet-TreeView li a {
+#pxwebcontent div.AspNet-TreeView li a {
   text-decoration: none;
 }
 
-div.AspNet-TreeView li.AspNet-TreeView-Root {
-}
-
-div.AspNet-TreeView li.AspNet-TreeView-Parent {
+#pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Parent {
   margin-left: 10px;
 }
 
-div.AspNet-TreeView li.AspNet-TreeView-Leaf {
+#pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
   margin-left: 10px;
 }
 
-/* Consider changing the cursor value (below) to something like */
-
-/*     cursor: n-resize;                                        */
-
-div.AspNet-TreeView .AspNet-TreeView-ClickableNonlink {
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-ClickableNonlink {
   cursor: pointer;
 }
 
-/* Consider changing the cursor value (below) to something like */
-
-/*     cursor: n-resize;                                        */
-
-div.AspNet-TreeView .AspNet-TreeView-Collapse {
-  background-image: url(../images/collapse.gif);
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Collapse {
+  background-image: url(../../images/collapse.gif);
   background-repeat: no-repeat;
   background-position: center left;
   width: 15px;
@@ -77,12 +67,8 @@ div.AspNet-TreeView .AspNet-TreeView-Collapse {
   cursor: pointer;
 }
 
-/* Consider changing the cursor value (below) to something like */
-
-/*     cursor: n-resize;                                        */
-
-div.AspNet-TreeView .AspNet-TreeView-Expand {
-  background: url(../images/expand.gif);
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Expand {
+  background: url(../../images/expand.gif);
   background-repeat: no-repeat;
   background-position: center left;
   width: 15px;
@@ -91,25 +77,25 @@ div.AspNet-TreeView .AspNet-TreeView-Expand {
   cursor: pointer;
 }
 
-div.AspNet-TreeView a,
-div.AspNet-TreeView a:visited,
-div.AspNet-TreeView a:active,
-div.AspNet-TreeView a:hover,
-div.AspNet-TreeView a:link {
+#pxwebcontent div.AspNet-TreeView a,
+#pxwebcontent div.AspNet-TreeView a:visited,
+#pxwebcontent div.AspNet-TreeView a:active,
+#pxwebcontent div.AspNet-TreeView a:hover,
+#pxwebcontent div.AspNet-TreeView a:link {
   color: #000000;
 }
 
-div.AspNet-TreeView .AspNet-TreeView-Selected a {
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected a {
   font-weight: bold !important;
   color: #8A2BE2 !important;
 }
 
-div.AspNet-TreeView .AspNet-TreeView-Selected ul a {
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected ul a {
   font-weight: normal !important;
   color: #000000 !important;
 }
 
-div.AspNet-TreeView .AspNet-TreeView-SelectExpand {
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-SelectExpand {
   cursor: pointer;
   color: #000000;
 }

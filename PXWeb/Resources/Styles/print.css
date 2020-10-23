@@ -1,9 +1,9 @@
 ﻿@media print {
-  #breadcrumb, #navigationFlow, .headerright, .ui-tabs-nav, .commandbar, .headerleft {
+  #pxwebcontent #breadcrumb, #pxwebcontent #navigationFlow, #pxwebcontent .headerright, #pxwebcontent .ui-tabs-nav, #pxwebcontent .commandbar, #pxwebcontent .headerleft {
     display: none;
   }
 
-  table {
+  #pxwebcontent table {
     text-align: left;
   }
 }

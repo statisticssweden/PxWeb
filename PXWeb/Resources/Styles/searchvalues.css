@@ -1,203 +1,67 @@
-﻿.searchvalues_container {
-  border: solid 4px #3086d0;
-  padding: 10px 40px 10px 10px;
-  clear: both;
-  /*float:none;*/
-  margin: 0 0 10px 0;
+﻿#pxwebcontent .searchvalues-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #274247;
+  color: #ffffff;
+  padding: 12px;
+  border: solid 1px #000000;
 }
 
-.searchvalues_title {
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-
-.searchvalues_options_container {
-  float: left;
-  width: 300px;
-}
-
-.searchvalues_selectiontips {
-  padding: 20px;
+#pxwebcontent .searchvalues-usage-tips {
+  padding: 12px;
   background-color: #eeeeee;
   margin-right: 20px;
+  margin-bottom: 10px;
   font-size: 95%;
+  color: black;
 }
 
-/* Search results grid */
+#pxwebcontent .fetch-all-button {
+  margin-top: 0px;
+  align-self: flex-start;
+}
 
-.searchvalues_searchresults_container {
-  /*float: right;*/
-  height: 250px;
-  width: 500px;
-  float: left;
+#pxwebcontent hr.green-rule {
+  width: 100%;
+  border-color: #b6e8b8;
+}
+
+#pxwebcontent .searchvalues-listbox-container {
+  margin-top: 10px;
+}
+
+#pxwebcontent .searchvalues-listbox {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   overflow: auto;
-  border-color: #7f9db9;
-  border-style: solid;
-  border-width: 1px;
-  margin: 0 0 10px 0;
+  font-size: 100%;
 }
 
-.search_results_header {
-  font-weight: bold;
-}
-
-.paged_grid_cell {
-}
-
-.select_cell {
-  width: 20px;
-  padding-left: 5px;
-}
-
-.code_cell {
-  width: 100px;
-}
-
-.value_cell {
-  width: 380px;
-}
-
-.only_value_cell {
-  width: 480px;
-}
-
-.alternating_row {
-  background-color: #cde9ee;
-}
-
-.selected_row {
-  background-color: #68becd;
-}
-
-
-.hide {
-  display: none;
-  visibility: hidden;
-}
-
-.searchvalues_searchresults {
-  font-weight: bold;
-}
-
-.searchvalues_searchresultsnumberofhits {
-}
-
-.searchvalues_searchresults_grid {
-}
-
-.pagerFooter a {
-  background-color: White;
-  color: #3086d0;
-  border: 0;
-  border-style: none;
-  font-family: Verdana;
-  font-size: 8pt;
-  font-weight: bold;
-  text-decoration: none;
-  margin-right: 1px;
-}
-
-  .pagerFooter a:hover {
-    color: Blue;
-    text-decoration: underline;
+  #pxwebcontent .searchvalues-listbox:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px;
   }
 
-.pagerFooterJavascript {
-}
+  #pxwebcontent .searchvalues-listbox:disabled {
+    background-color: #ffffff;
+    opacity: 1;
+  }
 
-.pagerFooterNonJavascript {
-}
-
-
-.pagerFooter span {
-  background-color: White;
-  color: Gray;
-  border: 0;
-  border-style: none;
-  font-family: Verdana;
-  font-size: 8pt;
-  font-weight: bold;
-  margin-right: 1px;
-}
-
-/*
-.searchvalues_searchresults_listbox
-{
-    width: 500px;
-    height: 200px;
-    margin-bottom: 20px;
-    overflow: auto;
-}
-*/
-
-.searchvalues_leftdivider {
-  width: 520px;
-  height: 2px;
-  vertical-align: middle;
-  background: url(../images/blue.gif);
-  outline: none;
-}
-
-.searchvalues_removebutton {
-  vertical-align: middle;
-  width: 19px;
-  height: 17px;
-  background: url(../images/MoveUp.gif) no-repeat;
-  outline: none;
-}
-
-.searchvalues_addbutton {
-  vertical-align: middle;
-  width: 19px;
-  height: 17px;
-  background: url(../images/MoveDown.gif) no-repeat;
-  outline: none;
-}
-
-.searchvalues_rightdivider {
-  width: 300px;
-  height: 2px;
-  vertical-align: middle;
-  background: url(../images/blue.gif);
-  outline: none;
-}
-
-.searchvalues_choosenvalues_container {
-  /*float: right;*/
-  margin-top: 20px;
-}
-
-.searchvalues_leftdiv {
+#pxwebcontent .searchvalues_options_container {
   float: left;
   width: 300px;
-  height: 200px;
 }
 
-.searchvalues_choosenvalues {
-  font-weight: bold;
+#pxwebcontent .searchvalues-cancel {
+  align-self: flex-end;
 }
 
-.searchvalues_numberofchoosenvalues {
+#pxwebcontent .done-container {
+  justify-content: center;
 }
 
-.searchvalues_selectedvalues_listbox {
-  width: 500px;
-  height: 150px;
-  margin-bottom: 10px;
-  overflow: auto;
-}
-
-.searchvalues_buttonscontainer {
-  width: 800px;
-  text-align: right;
-}
-
-.searchvalues_cancelbutton {
-}
-
-.searchvalues_clearbutton {
-}
-
-.searchvalues_addtovariableselectorbutton {
-  margin-right: 0px;
+#pxwebcontent .margin-left-20 {
+  margin-left: 20px;
 }

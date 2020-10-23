@@ -1,18 +1,20 @@
 /* Used for SaveQuery webcontrol */
-.savequery_container a {
+/*Old css. Remove?   was placed over floatleft 3 classes from the end*/
+
+#pxwebcontent .savequery_container a {
   cursor: pointer;
   /*text-decoration: underline; */
 }
 
-.savequery_container input {
+#pxwebcontent .savequery_container input {
   cursor: pointer;
 }
 
-.savequery_container savequery_url input {
+#pxwebcontent .savequery_container savequery_url input {
   cursor: help;
 }
 
-.savequery_readmore_expandimage {
+#pxwebcontent .savequery_readmore_expandimage {
   width: 16px;
   height: 16px;
   background: url(../images/plus-16.gif) no-repeat;
@@ -20,7 +22,7 @@
   outline: none;
 }
 
-.savequery_readmore_collapseimage {
+#pxwebcontent .savequery_readmore_collapseimage {
   width: 16px;
   height: 16px;
   background: url(../images/minus-16.gif) no-repeat;
@@ -28,39 +30,47 @@
   outline: none;
 }
 
-.savequery_informationpanel {
+#pxwebcontent .savequery_informationpanel {
   display: inline-block;
   padding-right: 10px;
 }
 
-.savequery_informationtext {
+#pxwebcontent .savequery_timeperioddiv {
+  float: left;
+  width: 50%;
   margin-top: 5px;
 }
 
-.savequery_timeperioddiv {
-  float: left;
-  width: 50%;
-  margin-top: 0px;
-  padding-right: 10px;
-}
-
-.savequery_saveasdiv {
+#pxwebcontent .savequery_saveasdiv {
   margin-top: 10px;
   width: 100%;
 }
 
-.savequery_informationpanelwidth {
+#pxwebcontent .savequery_informationpanelwidth {
   width: 100%;
 }
 
-.savequery_create {
-}
-
-.savequery_cancel {
+#pxwebcontent .savequery_cancel {
   margin-right: 15px;
+  background: #25a23c;
+  color: white;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  padding: 2px 4px 2px 5px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-.savequery_functionbtn {
+#pxwebcontent .savequery_create {
+  margin-right: 15px;
+  background: #25a23c;
+  color: white;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  padding: 2px 4px 2px 5px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#pxwebcontent .savequery_functionbtn {
   float: left;
   margin-top: 25px;
   margin-right: 3px;
@@ -68,77 +78,74 @@
   border-color: #B0272E;
 }
 
-.savequery_rblist {
+#pxwebcontent .savequery_rblist input[type="radio"] {
+  margin-top: 7px;
 }
 
-  .savequery_rblist input[type="radio"] {
-    margin-top: 7px;
-  }
-
-.saveas_dropdownlist {
+#pxwebcontent .saveas_dropdownlist {
   width: 250px;
 }
 
-.saveas_dropdownlist_error {
+#pxwebcontent .saveas_dropdownlist_error {
   border-color: #B0272E;
 }
 
-.savequery_heading {
+#pxwebcontent .savequery_heading {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
 }
 
-.querySummary {
+#pxwebcontent .querySummary {
   width: 100%;
   margin-bottom: 10px;
 }
 
-.querySummaryItem {
+#pxwebcontent .querySummaryItem {
   display: inline-block;
 }
 
-.savequery_urlcaption {
+#pxwebcontent .savequery_urlcaption {
   display: block;
   font-weight: bold;
   margin-top: 5px;
 }
 
-.savequery_url {
+#pxwebcontent .savequery_url {
   display: block;
   width: 700px;
-  font-family: Courier New;
+  font-family: 'Courier New';
 }
 
-.savequery_querycaption {
+#pxwebcontent .savequery_querycaption {
   display: block;
   font-weight: bold;
   margin-top: 5px;
 }
 
-.savequery_query {
+#pxwebcontent .savequery_query {
   display: block;
   width: 700px;
   margin-bottom: 10px;
 }
 
-.savequery_error {
+#pxwebcontent .savequery_error {
   color: #B0272E;
   margin-left: 5px;
 }
 
-.savequery_novisibility {
+#pxwebcontent .savequery_novisibility {
   display: none;
 }
-/*Old css. Remove?*/
-.floatleft {
+
+#pxwebcontent .floatleft {
   float: left;
 }
 
-.time_warning_panel {
+#pxwebcontent .time_warning_panel {
   margin-bottom: 10px;
 }
 
-.savequery_function {
+#pxwebcontent .savequery_function {
   margin-right: 15px;
 }

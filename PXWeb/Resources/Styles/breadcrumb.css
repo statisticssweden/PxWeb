@@ -1,41 +1,46 @@
-﻿.breadcrumb_container {
+﻿#pxwebcontent .breadcrumb_container {
   background: #eee;
 }
 
-.breadcrumb_text {
+#pxwebcontent .breadcrumb_text {
   color: #2870ae;
   font-family: Verdana;
   font-size: 0.9em;
   display: inline-block;
 }
 
-  .breadcrumb_text:hover {
+  #pxwebcontent .breadcrumb_text:hover {
     color: #2870ae;
     font-family: Verdana;
     font-size: 0.9em;
   }
 
-.breadcrumb_text_nolink {
+  #pxwebcontent .breadcrumb_text:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px;
+  }
+
+#pxwebcontent .breadcrumb_text_nolink {
   color: black;
   font-family: Verdana;
   font-size: 0.9em;
   display: inline-block;
 }
 
-  .breadcrumb_text_nolink:hover {
+  #pxwebcontent .breadcrumb_text_nolink:hover {
     color: black;
     font-family: Verdana;
     text-decoration: none;
     font-size: 0.9em;
   }
 
-.breadcrumb_sep {
+#pxwebcontent .breadcrumb_sep {
   color: #2870ae;
   font-family: Verdana;
   font-size: 0.8em;
 }
 
-.breadcrumb_homebutton {
+#pxwebcontent .breadcrumb_homebutton {
   width: 14px;
   height: 10px;
   background: url(../images/House.gif) no-repeat;

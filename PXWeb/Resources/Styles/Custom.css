@@ -24,3 +24,50 @@
 .login-form div {
   margin-bottom: 10px;
 }
+
+.commandbar_shortcut {
+  overflow: hidden;
+  width: auto;
+  display: inline;
+}
+
+#pxwebcontent .variableselector_valuesselect_variabletitle::first-letter {
+  text-transform: capitalize;
+}
+
+#pxwebcontent .selectfromgroup-variable::first-letter {
+  text-transform: capitalize;
+}
+
+#pxwebcontent .hidden {
+  display: none;
+}
+
+.ui-widget.ui-widget-content {
+  border: none;
+}
+
+/*Temp fix before rewrite of presentation page*/
+#pxwebcontent .ui-widget-content a {
+  color: #333333 !important;
+}
+
+#pxwebcontent .ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab.ui-state-hover {
+  background: white !important;
+}
+
+#pxwebcontent .ui-tabs-tab.ui-corner-top.ui-state-active.ui-tab.ui-state-hover {
+  background: #333333 !important;
+}
+
+#pxwebcontent .ui-tabs-active.ui-state-active a {
+  color: white !important;
+}
+
+#pxwebcontent .savequery_functionbtn .savequery_cancel span {
+  color: white !important;
+}
+#pxwebcontent .px_settings_buttons .px_settings_cancel span {
+  color: white !important;
+}
+

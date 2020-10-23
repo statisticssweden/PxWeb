@@ -1,7 +1,6 @@
-﻿#pcaxis_tablediv .table-title {
+﻿#pxwebcontent #pcaxis_tablediv .table-title {
   font-size: 150%;
   line-height: 200%;
-  /*font-variant: small-caps;*/
   text-transform: none;
   font-weight: bold;
   padding: 5px 5px 5px 5px;
@@ -11,18 +10,17 @@
   padding-top: 15px;
 }
 
-.table-class {
+#pxwebcontent .table-class {
   border-right: none;
   border-top: none;
   border-left: none;
   border-bottom: #a9a9a9 1px solid;
-  border-collapse: collapse;
-  font-size: 90%;
+  border-collapse: separate;
+  font-size: 14px;
   clear: both;
 }
 
-
-  .table-class td {
+  #pxwebcontent .table-class td {
     margin: 0px;
     text-align: right;
     border-right: #a9a9a9 1px solid;
@@ -31,17 +29,16 @@
     border-bottom: #a9a9a9 1px solid;
     background-color: #ffffff;
     color: #000000;
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
-
-.table-sort-header {
+#pxwebcontent .table-sort-header {
   background-color: #EEEEEE;
   font-weight: bold;
   cursor: pointer;
 }
 
-.table-class th, .table-class td.left {
+#pxwebcontent .table-class th, #pxwebcontent .table-class td.left {
   margin: 0px;
   text-align: left;
   border-right: #a9a9a9 1px solid;
@@ -51,11 +48,11 @@
   background-color: #e1e1e1;
 }
 
-td.right {
+#pxwebcontent td.right {
   text-align: right;
 }
 
-.table-class input {
+#pxwebcontent .table-class input {
   background: none;
   border: none;
   cursor: pointer;
@@ -70,33 +67,35 @@ td.right {
   width: 100%;
 }
 
-.table-class tfoot td {
+#pxwebcontent .table-class tfoot td {
   margin: 0px;
   text-align: left;
 }
 
-.table-header-first {
+#pxwebcontent th.table-header-first {
   font-weight: bold;
   background-color: #e1e1e1;
   padding: 5px 5px 5px 5px;
+  text-align: center;
 }
 
-.table-class td.table-header-first {
+#pxwebcontent .table-class td.table-header-first {
   font-weight: bold;
   background-color: #e1e1e1;
 }
 
-.table-header-middle {
+#pxwebcontent .table-header-middle {
   font-weight: bold;
   padding: 5px 5px 5px 5px;
 }
 
-.table-header-last {
+#pxwebcontent .table-header-last {
   font-weight: bold;
   padding: 5px 5px 5px 5px;
+  text-align: right;
 }
 
-.table-data-filled {
+#pxwebcontent .table-data-filled {
   border-right: black 1px;
   border-top: black 1px;
   font-size: 0.75em;
@@ -108,381 +107,396 @@ td.right {
   padding: 5px 5px 5px 5px;
 }
 
-.attribute-cell {
-  background-image: URL('../images/attribute.gif');
+#pxwebcontent .attribute-cell {
+  background-image: URL("../images/attribute.gif");
   background-repeat: no-repeat;
   background-position: top right;
   cursor: pointer;
 }
 
-  .attribute-cell a {
+  #pxwebcontent .attribute-cell a {
     color: Black;
   }
 
-/*Layout2*/
-
-.layout2-table-stub {
+#pxwebcontent .layout2-table-stub {
   font-weight: bold;
 }
 
-.layout2-table-stub1 {
+#pxwebcontent .layout2-table-stub1 {
   padding-left: 3px;
   padding-right: 3px;
   font-weight: bold;
 }
 
-.layout2-table-stub2 {
+#pxwebcontent .layout2-table-stub2 {
   padding-left: 5px;
   padding-right: 3px;
 }
 
-.layout2-table-stub3 {
+#pxwebcontent .layout2-table-stub3 {
   padding-left: 10px;
   padding-right: 3px;
 }
 
-.layout2-table-stub4 {
+#pxwebcontent .layout2-table-stub4 {
   padding-left: 15px;
   padding-right: 3px;
 }
 
-.layout2-table-stub5 {
+#pxwebcontent .layout2-table-stub5 {
   padding-left: 15px;
   padding-right: 3px;
 }
 
-.layout2-table-stub6 {
+#pxwebcontent .layout2-table-stub6 {
   padding-left: 15px;
   padding-right: 3px;
 }
 
-.layout2-table-stub7 {
+#pxwebcontent .layout2-table-stub7 {
   padding-left: 15px;
   padding-right: 3px;
 }
 
-.layout2-table-stub8 {
+#pxwebcontent .layout2-table-stub8 {
   padding-left: 15px;
   padding-right: 3px;
 }
 
-.layout2-table-stub1h1 {
+#pxwebcontent .layout2-table-stub1h1 {
   padding-left: 0px;
 }
 
-.layout2-table-stub1h2 {
+#pxwebcontent .layout2-table-stub1h2 {
   padding-left: 10px;
 }
 
-.layout2-table-stub1h3 {
+#pxwebcontent .layout2-table-stub1h3 {
   padding-left: 15px;
 }
 
-.layout2-table-stub1h4 {
+#pxwebcontent .layout2-table-stub1h4 {
   padding-left: 20px;
 }
 
-.layout2-table-stub2h1 {
+#pxwebcontent .layout2-table-stub2h1 {
   padding-left: 5px;
 }
 
-.layout2-table-stub2h2 {
+#pxwebcontent .layout2-table-stub2h2 {
   padding-left: 15px;
 }
 
-.layout2-table-stub2h3 {
+#pxwebcontent .layout2-table-stub2h3 {
   padding-left: 25px;
 }
 
-.layout2-table-stub2h4 {
+#pxwebcontent .layout2-table-stub2h4 {
   padding-left: 35px;
 }
 
-.layout2-table-stub3h1 {
+#pxwebcontent .layout2-table-stub3h1 {
   padding-left: 10px;
 }
 
-.layout2-table-stub3h2 {
+#pxwebcontent .layout2-table-stub3h2 {
   padding-left: 20px;
 }
 
-.layout2-table-stub3h3 {
+#pxwebcontent .layout2-table-stub3h3 {
   padding-left: 30px;
 }
 
-.layout2-table-stub3h4 {
+#pxwebcontent .layout2-table-stub3h4 {
   padding-left: 40px;
 }
 
-.layout2-table-stub4h1 {
+#pxwebcontent .layout2-table-stub4h1 {
   padding-left: 10px;
 }
 
-.layout2-table-stub4h2 {
+#pxwebcontent .layout2-table-stub4h2 {
   padding-left: 20px;
 }
 
-.layout2-table-stub4h3 {
+#pxwebcontent .layout2-table-stub4h3 {
   padding-left: 30px;
 }
 
-.layout2-table-stub4h4 {
+#pxwebcontent .layout2-table-stub4h4 {
   padding-left: 40px;
 }
 
-.layout2-table-stub5h1 {
+#pxwebcontent .layout2-table-stub5h1 {
   padding-left: 10px;
 }
 
-.layout2-table-stub5h2 {
+#pxwebcontent .layout2-table-stub5h2 {
   padding-left: 20px;
 }
 
-.layout2-table-stub5h3 {
+#pxwebcontent .layout2-table-stub5h3 {
   padding-left: 30px;
 }
 
-.layout2-table-stub5h4 {
+#pxwebcontent .layout2-table-stub5h4 {
   padding-left: 40px;
 }
 
-.layout2-table-stub6h1 {
+#pxwebcontent .layout2-table-stub6h1 {
   padding-left: 10px;
 }
 
-.layout2-table-stub6h2 {
+#pxwebcontent .layout2-table-stub6h2 {
   padding-left: 20px;
 }
 
-.layout2-table-stub6h3 {
+#pxwebcontent .layout2-table-stub6h3 {
   padding-left: 30px;
 }
 
-.layout2-table-stub6h4 {
+#pxwebcontent .layout2-table-stub6h4 {
   padding-left: 40px;
 }
 
-.layout2-table-stub7h1 {
+#pxwebcontent .layout2-table-stub7h1 {
   padding-left: 10px;
 }
 
-.layout2-table-stub7h2 {
+#pxwebcontent .layout2-table-stub7h2 {
   padding-left: 20px;
 }
 
-.layout2-table-stub7h3 {
+#pxwebcontent .layout2-table-stub7h3 {
   padding-left: 30px;
 }
 
-.layout2-table-stub7h4 {
+#pxwebcontent .layout2-table-stub7h4 {
   padding-left: 40px;
 }
 
-.layout2-table-stub8h1 {
+#pxwebcontent .layout2-table-stub8h1 {
   padding-left: 10px;
 }
 
-.layout2-table-stub8h2 {
+#pxwebcontent .layout2-table-stub8h2 {
   padding-left: 20px;
 }
 
-.layout2-table-stub8h3 {
+#pxwebcontent .layout2-table-stub8h3 {
   padding-left: 30px;
 }
 
-.layout2-table-stub8h4 {
+#pxwebcontent .layout2-table-stub8h4 {
   padding-left: 40px;
 }
 
-/*Layout1*/
-
-.layout1-table-stub {
-}
-
-.layout1-table-stub1 {
+#pxwebcontent .layout1-table-stub1 {
   padding: 5px 5px 5px 5px;
 }
 
-.layout1-table-stub2 {
+#pxwebcontent .layout1-table-stub2 {
   padding: 5px 5px 5px 10px;
 }
 
-.layout1-table-stub3 {
+#pxwebcontent .layout1-table-stub3 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub4 {
+#pxwebcontent .layout1-table-stub4 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub5 {
+#pxwebcontent .layout1-table-stub5 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub6 {
+#pxwebcontent .layout1-table-stub6 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub7 {
+#pxwebcontent .layout1-table-stub7 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub8 {
+#pxwebcontent .layout1-table-stub8 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub1h1 {
+#pxwebcontent .layout1-table-stub1h1 {
   padding: 5px 5px 5px 5px;
 }
 
-.layout1-table-stub1h2 {
+#pxwebcontent .layout1-table-stub1h2 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub1h3 {
+#pxwebcontent .layout1-table-stub1h3 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub1h4 {
+#pxwebcontent .layout1-table-stub1h4 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub2h1 {
+#pxwebcontent .layout1-table-stub2h1 {
   padding: 5px 5px 5px 10px;
 }
 
-.layout1-table-stub2h2 {
+#pxwebcontent .layout1-table-stub2h2 {
   padding: 5px 5px 5px 20px;
 }
 
-.layout1-table-stub2h3 {
+#pxwebcontent .layout1-table-stub2h3 {
   padding: 5px 5px 5px 30px;
 }
 
-.layout1-table-stub2h4 {
+#pxwebcontent .layout1-table-stub2h4 {
   padding: 5px 5px 5px 40px;
 }
 
-.layout1-table-stub3h1 {
+#pxwebcontent .layout1-table-stub3h1 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub3h2 {
+#pxwebcontent .layout1-table-stub3h2 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub3h3 {
+#pxwebcontent .layout1-table-stub3h3 {
   padding: 5px 5px 5px 35px;
 }
 
-.layout1-table-stub3h4 {
+#pxwebcontent .layout1-table-stub3h4 {
   padding: 5px 5px 5px 45px;
 }
 
-.layout1-table-stub4h1 {
+#pxwebcontent .layout1-table-stub4h1 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub4h2 {
+#pxwebcontent .layout1-table-stub4h2 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub4h3 {
+#pxwebcontent .layout1-table-stub4h3 {
   padding: 5px 5px 5px 35px;
 }
 
-.layout1-table-stub4h4 {
+#pxwebcontent .layout1-table-stub4h4 {
   padding: 5px 5px 5px 45px;
 }
 
-.layout1-table-stub5h1 {
+#pxwebcontent .layout1-table-stub5h1 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub5h2 {
+#pxwebcontent .layout1-table-stub5h2 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub5h3 {
+#pxwebcontent .layout1-table-stub5h3 {
   padding: 5px 5px 5px 35px;
 }
 
-.layout1-table-stub5h4 {
+#pxwebcontent .layout1-table-stub5h4 {
   padding: 5px 5px 5px 45px;
 }
 
-.layout1-table-stub6h1 {
+#pxwebcontent .layout1-table-stub6h1 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub6h2 {
+#pxwebcontent .layout1-table-stub6h2 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub6h3 {
+#pxwebcontent .layout1-table-stub6h3 {
   padding: 5px 5px 5px 35px;
 }
 
-.layout1-table-stub6h4 {
+#pxwebcontent .layout1-table-stub6h4 {
   padding: 5px 5px 5px 45px;
 }
 
-.layout1-table-stub7h1 {
+#pxwebcontent .layout1-table-stub7h1 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub7h2 {
+#pxwebcontent .layout1-table-stub7h2 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub7h3 {
+#pxwebcontent .layout1-table-stub7h3 {
   padding: 5px 5px 5px 35px;
 }
 
-.layout1-table-stub7h4 {
+#pxwebcontent .layout1-table-stub7h4 {
   padding: 5px 5px 5px 45px;
 }
 
-.layout1-table-stub8h1 {
+#pxwebcontent .layout1-table-stub8h1 {
   padding: 5px 5px 5px 15px;
 }
 
-.layout1-table-stub8h2 {
+#pxwebcontent .layout1-table-stub8h2 {
   padding: 5px 5px 5px 25px;
 }
 
-.layout1-table-stub8h3 {
+#pxwebcontent .layout1-table-stub8h3 {
   padding: 5px 5px 5px 35px;
 }
 
-.layout1-table-stub8h4 {
+#pxwebcontent .layout1-table-stub8h4 {
   padding: 5px 5px 5px 45px;
 }
 
-.table_cellinformation_cell {
-  font-weight: bold;
+#pxwebcontent #pcaxis_tablediv {
+  width: 100%;
+  overflow: auto;
 }
 
-.table_cellinformation_attributes {
-  font-weight: bold;
-}
-
-.table_cellinformation_notes {
-  font-weight: bold;
-}
-
-.table_defaultattributes_label {
-}
-
-.spinner {
+#pxwebcontent .spinner {
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-left: -50px; /* half width of the spinner gif */
-  margin-top: -50px; /* half height of the spinner gif */
+  margin-left: -50px;
+  /* half width of the spinner gif */
+  margin-top: -50px;
+  /* half height of the spinner gif */
   text-align: center;
   z-index: 1234;
   overflow: auto;
-  width: 100px; /* width of the spinner gif */
-  height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
+  width: 100px;
+  /* width of the spinner gif */
+  height: 102px;
+  /*hight of the spinner gif +2px to fix IE8 issue */
+}
+
+/* The below selectors are for a separate html tag from TableCodeBehind.vb in
+  Private Sub DisplayCellInformationDialog(ByVal cellInfo As CellInformation) */
+
+.table_cellinformation_cell {
+  font-weight: bold !important;
+  font-size: 14px !important;
+  padding-bottom: 4px !important;
+}
+
+.table_cellinformation_attributes {
+  font-weight: bold !important;
+  font-size: 12px !important;
+}
+
+.table_cellinformation_notes {
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+
+.table_cellinformation_text {
+  color: #222222 !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.table_defaultattributes_label {
 }

@@ -1,0 +1,175 @@
+﻿/*CSS for box with external metadata links*/
+
+#pxwebcontent .metadata-toggle {
+  display: flex;
+  flex-direction: row;
+  flex: 0 1 250px;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+#pxwebcontent .variableselector_valuesselect_variabletitle.metadata-text-wrap {
+  padding-right: 0px;
+}
+
+#pxwebcontent .metadata-container {
+  margin-right: 40px;
+}
+
+#pxwebcontent .metadata-text-wrap {
+  border-bottom: 1px dotted #00824d;
+  display: inline-block;
+  line-height: inherit;
+}
+
+#pxwebcontent .metadata-open-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  transition: all .5s ease-out;
+}
+
+  #pxwebcontent .metadata-open-btn:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px;
+  }
+
+  #pxwebcontent .metadata-open-btn:focus, #pxwebcontent .metadata-open-btn:hover {
+    background-color: #00824d;
+  }
+
+#pxwebcontent .metadata-logo {
+  color: #B6E8B8;
+  margin: 2px;
+  transition: color .2s;
+  vertical-align: top;
+  padding-left: 12px;
+}
+
+#pxwebcontent .metadata-open-btn:hover .metadata-logo, #pxwebcontent .metadata-open-btn:focus .metadata-logo {
+  color: #FFFFFF;
+}
+
+#pxwebcontent .metadata-popup {
+  font-family: 'Open Sans', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  animation: fadein .2s;
+  display: none;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity .18s;
+  border: 1.5px solid #B6E8B8;
+}
+
+  #pxwebcontent .metadata-popup.open {
+    display: inline-block;
+    opacity: 1;
+    display: flex;
+    margin-top: 20px;
+  }
+
+#pxwebcontent .metadata-content {
+  background-color: #274247;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+  #pxwebcontent .metadata-content:after {
+    bottom: 100%;
+    left: 30%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #b6e8b8;
+    border-width: 16px;
+    margin-left: -20px;
+  }
+
+#pxwebcontent .metadata-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#pxwebcontent .metadata-itemname {
+  display: inline-block;
+}
+
+  #pxwebcontent .metadata-itemname::first-letter {
+    text-transform: capitalize;
+  }
+
+#pxwebcontent .metadata-variable {
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+#pxwebcontent .metadata-links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+  width: auto;
+}
+
+  #pxwebcontent .metadata-links .pxweb-link {
+    margin-bottom: 8px;
+    margin-top: 0px;
+  }
+
+  #pxwebcontent .metadata-links a {
+    color: #FFFFFF !important;
+    padding-left: 4px;
+    background: url(../images/svg/external-link.svg) no-repeat scroll left 1px transparent;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+
+    #pxwebcontent .metadata-links a:focus {
+      outline: #9272fc solid 2px;
+      outline-offset: 2px;
+    }
+
+#pxwebcontent .metadata-close-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #274247;
+  color: #b6e8b8;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  align-self: center;
+}
+
+  #pxwebcontent .metadata-close-btn:hover {
+    background-color: #00824d;
+    color: #ffffff;
+  }
+
+  #pxwebcontent .metadata-close-btn:focus {
+    background-color: #00824d;
+    outline: #9272fc solid 2px;
+    outline-offset: 2px;
+    color: #ffffff;
+  }
+
+#pxwebcontent .metadata-close-text {
+  color: #ffffff;
+  padding: 4px;
+}
