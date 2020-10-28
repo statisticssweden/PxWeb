@@ -11,6 +11,11 @@ using PCAxis.Web.Core.Management;
 
 namespace PXWeb
 {
+    public enum LayoutFormat
+    {
+        simple = 0,
+        compact = 1,
+    }
     public partial class Selection : System.Web.UI.Page
     {
         /// Used to initialize selected values from previous selection
@@ -18,6 +23,10 @@ namespace PXWeb
         private String _pageUrl = String.Empty;
         private String _tableTitle = String.Empty;
         private String _lastModified = String.Empty;
+        private String _switchToCompactTxt;
+        private String _switchToListTxt;
+
+        private PCAxis.Metadata.IMetaIdProvider _linkManager;
 
         //Class Properties used for metatags
         public string TableTitle
@@ -50,6 +59,14 @@ namespace PXWeb
                 return _pxUrl;
             }
         }
+
+        private LayoutFormat _selectionLayout;
+        public LayoutFormat SelectionLayout
+        {
+            get { return _selectionLayout; }
+            set { _selectionLayout = value; }
+        }
+        const string layoutCookie="layoutCookie";
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -93,6 +110,9 @@ namespace PXWeb
 
             string partTable = "";
 
+            _switchToCompactTxt = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebSwitchToCompactView");
+            _switchToListTxt = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebSwitchToListView");
+            
             //Check if the queryStrings contains partTable 
             if (QuerystringManager.GetQuerystringParameter("partTable") != null)
             {
@@ -106,7 +126,7 @@ namespace PXWeb
                 VariableSelector1.ReloadGroupings = true;
             }
 
-            if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
+            if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null && PaxiomManager.QueryModel != null)
             {
                 _previousModel = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel;
                 VariableSelector1.PreSelectFirstContentAndTime = false;
@@ -125,21 +145,23 @@ namespace PXWeb
             }
 
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = PXWeb.Management.PxContext.GetPaxiomForSelection(db, path, table, lang, clearModel);
-            
+           _linkManager = PXWeb.Settings.Current.Database[PxUrl.Database].Metadata.MetaLinkMethod;
+            InitializeLayoutFormat();
+
             if (!IsPostBack)
             {
                 Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTitleSelection");
-                imgShowInformationExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
-                imgShowFootnotesExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
-                imgShowMetadataExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
+                //imgShowInformationExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
+                //imgShowFootnotesExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
+                //imgShowMetadataExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Selection);
                 Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Second);
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
                 InitializeVariableSelector();
                 InitializeTableInformation();
+                SelectionFootnotes.ShowNoFootnotes = PXWeb.Settings.Current.Selection.ShowNoFootnoteForSelection;
                 InitializeMetatags();
                 InitializeMetadata(path);
-
                 //Check if the queryStrings contains partTable and the database type is CNMM
                 //if so download subtable variables
                 if (!string.IsNullOrEmpty(partTable))
@@ -152,14 +174,18 @@ namespace PXWeb
                 }
             }
 
+            VariableSelector1.MetaLinkProvider = _linkManager;
             DisplayTableMetadataLinks();
             VariableSelector1.PxActionEvent += new PCAxis.Web.Controls.PxActionEventHandler(HandlePxAction);
             VariableSelector1.MetadataInformationSelected += new VariableSelector.MetadataInformationSelectedEventHandler(HandleMetaDataInformationAction);
+            VariableSelector1.LeaveVariableSelectorMain += new VariableSelector.LeaveVariableSelectorMainEventHandler(HandleLeaveVariableSelectorMain);
+            VariableSelector1.ReenterVariableSelectorMain += new VariableSelector.ReenterVariableSelectorMainEventHandler(HandleReenterVariableSelectorMain);
 
             if (_previousModel != null && _previousModel.IsComplete && !IsPostBack)
             {
                 VariableSelector1.InitializeSelectedValuesetsAndGroupings(_previousModel);
             }
+
         }
 
         
@@ -217,14 +243,7 @@ namespace PXWeb
             VariableSelector1.ButtonsForContentVariable = PXWeb.Settings.Current.Selection.ButtonsForContentVariable;
             VariableSelector1.SearchValuesBeginningOfWordCheckBoxDefaultChecked = PXWeb.Settings.Current.Selection.SearchValuesBeginningOfWordCheckBoxDefaultChecked;
 
-            //foreach (string presView in PXWeb.Settings.Current.Selection.PresentationViews)
-            //{
-            //    //VariableSelector1.PresentationViews.Add(presView);
-            //}
-            //foreach (string outputFormat in PXWeb.Settings.Current.Selection.OutputFormats)
-            //{
-            //    VariableSelector1.OutputFormats.Add(outputFormat);
-            //}
+            SetPresentationView();
 
             VariableSelector1.NumberOfValuesInDefaultView = PXWeb.Settings.Current.Menu.NumberOfValuesInDefaultView;
 
@@ -353,14 +372,9 @@ namespace PXWeb
                 InformationLinks.Visible = true;
                 SelectionFootnotes.Visible = false;
                 SelectionInformation.Visible = false;
-                PanelTabs.Visible = false;
-                ucMetadataSystem.Visible = false;
-                divMetadata.Visible = false;
-                lnkMetadata.Visible = false;
-                lnkShowFootnotes.Visible = false;
                 divFootnotes.Visible = false;
-                lnkShowInformation.Visible = false;
-                divInformation.Visible = false;
+                InformationBox.Visible = false;
+
             }
             else
             {
@@ -369,13 +383,10 @@ namespace PXWeb
                 InformationLinks.Visible = false;
                 SelectionFootnotes.Visible = true;
                 SelectionInformation.Visible = true;
-                PanelTabs.Visible = true;
-
+                InformationBox.Visible = true;
+                lblInfo.Text= PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebAboutTable");
                 IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
                 bool bMeta = PXWeb.Settings.Current.Database[url.Database].Metadata.UseMetadata;
-                ucMetadataSystem.Visible = bMeta;
-                divMetadata.Visible = bMeta;
-                lnkMetadata.Visible = bMeta;
             }
 
         }
@@ -389,18 +400,26 @@ namespace PXWeb
                 {
                     if (!string.IsNullOrWhiteSpace(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.MetaId))
                     {
-                        PCAxis.Metadata.IMetaIdProvider man = PXWeb.Settings.Current.Database[url.Database].Metadata.MetaLinkMethod;
-
-                        List<PCAxis.Metadata.MetaLink> links = man.GetTableLinks(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.MetaId, LocalizationManager.CurrentCulture.Name).ToList();
-
-                        foreach (PCAxis.Metadata.MetaLink link in links)
+                        List<PCAxis.Metadata.MetaLink> links = _linkManager.GetTableLinks(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.MetaId, LocalizationManager.CurrentCulture.Name).ToList();
+                        if (links.Count > 0) 
                         {
-                            HyperLink lnk = new HyperLink();
-                            lnk.Text = link.LinkText;
-                            lnk.NavigateUrl = link.Link;
-                            lnk.Target = link.Target;
-                            lnk.CssClass = "meta_tablelink";
-                            divTableLinks.Controls.Add(lnk);
+                            String icon_out = "<i class='icon-wrapper'><svg focusable='false' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-external-link'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg></i>";
+                            /*If we get other use cases for TableLink, we need to take a look at how we do this, but for now we can put everything here */
+                            Literal div = new Literal();
+                            div.Text = "<div class=\"pxweb_about_the_statistics\">";
+                            divTableLinks.Controls.Add(div);
+                            foreach (PCAxis.Metadata.MetaLink link in links)
+                            {
+                                HyperLink lnk = new HyperLink();
+                                lnk.Text = icon_out  + String.Format("<span class=\"link-text\">{0}</span>", Server.HtmlEncode(link.LinkText));
+                                lnk.NavigateUrl = link.Link;
+                                lnk.Target = link.Target;
+                                lnk.CssClass = "pxweb-link with-icon";
+                                divTableLinks.Controls.Add(lnk);
+                            }
+                            Literal divend = new Literal();
+                            divend.Text = "</div>";
+                            divTableLinks.Controls.Add(divend);
                         }
                     }
                 }
@@ -602,10 +621,136 @@ namespace PXWeb
         public void HandleMetaDataInformationAction(object sender, PCAxis.Web.Controls.VariableSelector.MatadataInformationEventArgs e)
         {
             //MetadataTab.Attributes["aria-selected"] = "true";
-            PageElementsSelectedTab.Value = "1";
             AboutTableSelectedAccordion.Value = "metadata";
-            ucMetadataSystem.SelectVariable(e.Variable);
+            //ucMetadataSystem.SelectVariable(e.Variable);
         }
+
+        private void HandleLeaveVariableSelectorMain(object sender, EventArgs e)
+        {
+            ucVariableOverview.Visible = false;
+            Master.SetNavigationFlowVisibility(false);
+            InformationBox.Visible = false;
+            SwitchLayout.Visible = false;
+            SelectionFootnotes.Visible = false;
+            MaintainScrollPositionOnPostBack = false;
+        }
+
+        private void HandleReenterVariableSelectorMain(object sender, EventArgs e)
+        {
+            ucVariableOverview.Visible = SelectionLayout == LayoutFormat.simple ? true : false;
+            Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
+            InformationBox.Visible = true;
+            SwitchLayout.Visible = true;
+            SelectionFootnotes.Visible = PXWeb.Settings.Current.Selection.MetadataAsLinks != true;
+            MaintainScrollPositionOnPostBack = false;
+        }
+
+        private void SetPresentationView()
+        {
+            string defaultLayout = PXWeb.Settings.Current.Presentation.Table.DefaultLayout.ToString();
+
+            switch (defaultLayout)
+            {
+                case "Layout1":
+                {
+                    VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT1;
+                    break;
+                }
+                case "Layout2":
+                {
+                    VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT2;
+                    break;
+                }
+                default:
+                {
+                    VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT1;
+                    break;
+                }
+            }
+        }
+        protected void ShowHideAboutTablePanel(object sender, EventArgs e)
+        {
+            LinkButton clickedButton = (LinkButton)sender;
+            if (clickedButton.ID== "aboutTablePanelButton")
+            {
+                ShowAboutTablePanel();
+            }
+            else
+            {
+                HideAboutTablePane();
+            }
+            //if (AboutTablePanel.Visible)
+            //{
+
+            //    HideAboutTablePane();
+
+            //}
+            //else
+            //{
+            //    ShowAboutTablePanel();
+            //    // ViewState["ShowPresentationViewPanel"] = "true";
+            //}
+        }
+
+            public void ShowAboutTablePanel()
+        {
+            //AboutTablePanelExpanded.Visible = true;
+            //AboutTablePanelCollapsed.Visible = false;
+        }
+
+        public void HideAboutTablePane()
+        {
+            //AboutTablePanelExpanded.Visible = false;
+            //AboutTablePanelCollapsed.Visible = true;
+        }
+
+        public void InitializeLayoutFormat()
+        {
+            HttpCookie myLayoutCookie = Request.Cookies[layoutCookie];
+
+            if (myLayoutCookie == null)
+                _selectionLayout = LayoutFormat.simple;
+            else
+            {
+                _selectionLayout = Request.Cookies[layoutCookie].Value.ToString() == "compact" ? LayoutFormat.compact : LayoutFormat.simple;
+            }
+            if (_selectionLayout== LayoutFormat.compact)
+            {
+                SwitchLayout.Text = _switchToListTxt;
+                SwitchLayout.CssClass = "variableselector-list-view  pxweb-btn icon-placement variableselector-buttons";
+                ucVariableOverview.Visible = false;
+            }
+            else
+            {
+                SwitchLayout.Text = _switchToCompactTxt; ;
+                SwitchLayout.CssClass = "variableselector-compact-view  pxweb-btn icon-placement variableselector-buttons";
+                ucVariableOverview.Visible = true;
+            }
+
+            
+        }
+         protected void SwitchLayout_Click(object sender, EventArgs e)
+        {
+            HttpCookie myLayoutCookie = new HttpCookie(layoutCookie);
+            if (SelectionLayout == LayoutFormat.simple)
+            {
+                myLayoutCookie.Value = LayoutFormat.compact.ToString();
+                SwitchLayout.Text = _switchToListTxt;
+                SwitchLayout.CssClass = "variableselector-list-view  pxweb-btn icon-placement variableselector-buttons";
+                ucVariableOverview.Visible = false;
+            }
+            else
+            {
+                myLayoutCookie.Value = LayoutFormat.simple.ToString();             
+                SwitchLayout.Text = _switchToCompactTxt;
+                SwitchLayout.CssClass = "variableselector-compact-view  pxweb-btn icon-placement variableselector-buttons";
+                ucVariableOverview.Visible = true;
+            }
+            myLayoutCookie.Expires = DateTime.Now.AddDays(370);
+            Response.Cookies.Add(myLayoutCookie);
+        }
+
+
 
     }
 }

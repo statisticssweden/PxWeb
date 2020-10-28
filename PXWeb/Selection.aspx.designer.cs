@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb {
-    
-    
-    public partial class Selection {
-        
-        /// <summary>
-        /// TableInformationSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PCAxis.Web.Controls.TableInformation TableInformationSelect;
-        
+namespace PXWeb
+{
+
+
+    public partial class Selection
+    {
+
         /// <summary>
         /// MenuTitle control.
         /// </summary>
@@ -29,7 +22,25 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MenuTitle;
-        
+
+        /// <summary>
+        /// SwitchLayout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SwitchLayout;
+
+        /// <summary>
+        /// TableInformationSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PCAxis.Web.Controls.TableInformation TableInformationSelect;
+
         /// <summary>
         /// InformationLinks control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl InformationLinks;
-        
+
         /// <summary>
         /// lnkInformation control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkInformation;
-        
+
         /// <summary>
         /// lnkFootnotes control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkFootnotes;
-        
+
         /// <summary>
         /// lnkDetailedInformation control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkDetailedInformation;
-        
+
         /// <summary>
         /// litDetailedInformation control.
         /// </summary>
@@ -74,25 +85,25 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litDetailedInformation;
-        
+
         /// <summary>
-        /// PanelTabs control.
+        /// InformationBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelTabs;
-        
+        protected global::System.Web.UI.WebControls.Panel InformationBox;
+
         /// <summary>
-        /// VariableSelector1 control.
+        /// lblInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PCAxis.Web.Controls.VariableSelector VariableSelector1;
-        
+        protected global::System.Web.UI.WebControls.Label lblInfo;
+
         /// <summary>
         /// divTableLinks control.
         /// </summary>
@@ -101,43 +112,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTableLinks;
-        
-        /// <summary>
-        /// lnkShowInformation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkShowInformation;
-        
-        /// <summary>
-        /// imgShowInformationExpander control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowInformationExpander;
-        
-        /// <summary>
-        /// imgShowInformation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowInformation;
-        
-        /// <summary>
-        /// divInformation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInformation;
-        
+
         /// <summary>
         /// SelectionInformation control.
         /// </summary>
@@ -146,7 +121,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.Information SelectionInformation;
-        
+
         /// <summary>
         /// litDetailedInformation2 control.
         /// </summary>
@@ -155,7 +130,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litDetailedInformation2;
-        
+
         /// <summary>
         /// lnkDetailedInformation2 control.
         /// </summary>
@@ -164,34 +139,25 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkDetailedInformation2;
-        
+
         /// <summary>
-        /// lnkShowFootnotes control.
+        /// ucVariableOverview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkShowFootnotes;
-        
+        protected global::PXWeb.UserControls.VariableOverviewControl ucVariableOverview;
+
         /// <summary>
-        /// imgShowFootnotesExpander control.
+        /// VariableSelector1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowFootnotesExpander;
-        
-        /// <summary>
-        /// imgShowFootnotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowFootnotes;
-        
+        protected global::PCAxis.Web.Controls.VariableSelector VariableSelector1;
+
         /// <summary>
         /// divFootnotes control.
         /// </summary>
@@ -200,7 +166,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFootnotes;
-        
+
         /// <summary>
         /// SelectionFootnotes control.
         /// </summary>
@@ -209,61 +175,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.Footnote SelectionFootnotes;
-        
-        /// <summary>
-        /// lnkMetadata control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkMetadata;
-        
-        /// <summary>
-        /// imgShowMetadataExpander control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowMetadataExpander;
-        
-        /// <summary>
-        /// imgShowMetadata control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowMetadata;
-        
-        /// <summary>
-        /// divMetadata control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMetadata;
-        
-        /// <summary>
-        /// ucMetadataSystem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PXWeb.UserControls.MetadataSystemControl ucMetadataSystem;
-        
-        /// <summary>
-        /// PageElementsSelectedTab control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField PageElementsSelectedTab;
-        
+
         /// <summary>
         /// AboutTableSelectedAccordion control.
         /// </summary>
@@ -272,15 +184,17 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField AboutTableSelectedAccordion;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.PxWeb Master {
-            get {
+        public new PXWeb.PxWeb Master
+        {
+            get
+            {
                 return ((PXWeb.PxWeb)(base.Master));
             }
         }

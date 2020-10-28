@@ -292,6 +292,7 @@
     <Content Include="UserControls\MetadataSystemControl.ascx" />
     <Content Include="UserControls\SaveQueryCreate.ascx" />
     <Content Include="UserControls\SearchControl.ascx" />
+    <Content Include="UserControls\VariableOverviewControl.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -797,6 +798,13 @@
     </Compile>
     <Compile Include="UserControls\SearchControl.ascx.designer.cs">
       <DependentUpon>SearchControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VariableOverviewControl.ascx.cs">
+      <DependentUpon>VariableOverviewControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\VariableOverviewControl.ascx.designer.cs">
+      <DependentUpon>VariableOverviewControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

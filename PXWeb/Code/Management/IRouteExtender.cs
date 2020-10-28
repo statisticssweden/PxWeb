@@ -31,5 +31,7 @@ namespace PXWeb
         bool DoesSelectionPathContainTableName(System.Web.UI.Page page);
         bool HasTableData(string tableId);
         string GetRedirectNoDataPath(string tableId);
+        bool IsParentMenuItemDeprecated(string menu, string selection);
+        string GetSelectionRedirectUrl(string tableId);
     }
 }

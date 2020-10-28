@@ -65,7 +65,7 @@ namespace PXWeb.Views
             else
             {
                 string tableId = RouteInstance.RouteExtender.GetTableIdByName(tableName);
-                url = RouteInstance.RouteExtender.GetPresentationRedirectUrl(tableId, layout);
+                url = page == "Selection.aspx" ? RouteInstance.RouteExtender.GetSelectionRedirectUrl(tableId) : RouteInstance.RouteExtender.GetPresentationRedirectUrl(tableId, layout);
             }
 
             //info about loaded saved query in query string

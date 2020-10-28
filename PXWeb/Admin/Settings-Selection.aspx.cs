@@ -96,7 +96,7 @@ namespace PXWeb.Admin
                 rw["PresentationViewText"] = Master.GetLocalizedString(plugin.Value.NameCode);
                 rw["PresentationViewSelect"] = false;
 
-                    foreach (string presentationView in PXWeb.Settings.Current.Selection.PresentationViews)
+                    /*foreach (string presentationView in PXWeb.Settings.Current.Selection.PresentationViews)
                     {
                         if (CommandBarPluginManager.Views.ContainsKey(presentationView))
                         {
@@ -105,7 +105,7 @@ namespace PXWeb.Admin
                                 rw["PresentationViewSelect"] = true;
                             }
                         }
-                    }
+                    }*/
                 tbl.Rows.Add(rw);
             }
 
@@ -159,13 +159,13 @@ namespace PXWeb.Admin
                 rw["FileFormatText"] = this.Master.GetLocalizedString(format);
                 rw["FileFormatSelect"] = false;
 
-                foreach (string fileFormat in PXWeb.Settings.Current.Selection.OutputFormats)
+               /* foreach (string fileFormat in PXWeb.Settings.Current.Selection.OutputFormats)
                 {
                     if (fileFormat == format)
                     {
                         rw["FileFormatSelect"] = true;
                     }
-                }
+                }*/
                 tbl.Rows.Add(rw);
             }
 
@@ -211,8 +211,8 @@ namespace PXWeb.Admin
                         sel.ButtonsForContentVariable = bool.Parse(cboButtonsForContentVariable.SelectedValue);
                         sel.SearchValuesBeginningOfWordCheckBoxDefaultChecked = bool.Parse(cboDefaultSearch.SelectedValue);
                         sel.PreSelectFirstContentAndTime = bool.Parse(cboPreSelectFirstContentAndTime.SelectedValue);
-                        SetSelectedPresentationViews((List<String>)sel.PresentationViews);
-                        SetSelectedOutputFormats((List<String>)sel.OutputFormats);
+   //                     SetSelectedPresentationViews((List<String>)sel.PresentationViews);
+   //                     SetSelectedOutputFormats((List<String>)sel.OutputFormats);
 
                         PXWeb.Settings.Save();
                     }
