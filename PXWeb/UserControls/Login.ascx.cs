@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using PCAxis.Web.Core.Management;
 using System.Globalization;
+using System.Configuration;
+
 namespace PXWeb.UserControls
 {
     public partial class Login : System.Web.UI.UserControl
@@ -57,6 +59,16 @@ namespace PXWeb.UserControls
                 logInSection.Visible = false;
                 loggedInAsLabel.Text = Server.HtmlEncode(GetLocalizedString("PxWebLoggedIn")) + " " + HttpContext.Current.User.Identity.Name; 
             }
+            
+            Label lblLoggedOutMessage = (Label)LoginControl.FindControl("lblLoggedOutMessage");
+            lblLoggedOutMessage.Text = Server.HtmlEncode(GetLocalizedString("PxWebLoggedOut"));
+            lblLoggedOutMessage.Visible = false;
+
+            if (Session["wasLoggedOutPxWeb"] != null && Session["wasLoggedOutPxWeb"] as bool? == true)
+            {
+                Session["wasLoggedOutPxWeb"] = null;
+                lblLoggedOutMessage.Visible = true;
+            }
         }
 
         protected void LogIn(object sender, AuthenticateEventArgs e)
@@ -72,7 +84,6 @@ namespace PXWeb.UserControls
                 }
                 if (Membership.ValidateUser(LoginControl.UserName, LoginControl.Password))
                 {
-
                     FormsAuthentication.RedirectFromLoginPage(LoginControl.UserName, false);
                     Button showLoginSectionBtn = (Button)LoginControl.FindControl("ShowLoginSection");
                     var showLoginSectionHolder = (Label)LoginControl.FindControl("ShowLoginSectionHolder");
@@ -80,8 +91,18 @@ namespace PXWeb.UserControls
                     loggedInAsLabel.Text = "Logget inn som " + LoginControl.UserName;
                     showLoginSectionHolder.Text = "show";
 
+                    if (Request.Cookies["wasLoggedInPxWeb"] != null)
+                    {
+                        Request.Cookies.Remove("wasLoggedInPxWeb");
+                    }
+
+                    HttpCookie loggedIn = new HttpCookie("wasLoggedInPxWeb");
+                    loggedIn.Values["userName"] = LoginControl.UserName;
+                    loggedIn.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(loggedIn);
+
                     string currentUrl = Request.RawUrl;
-                    Response.Redirect(currentUrl);
+                    Response.Redirect(currentUrl, true);    
                 }
                 else
                 {
@@ -139,11 +160,15 @@ namespace PXWeb.UserControls
         {
             try
             {
+                if (Request.Cookies["wasLoggedInPxWeb"] != null)
+                {
+                    Request.Cookies.Remove("wasLoggedInPxWeb");
+                }
 
                 Button showLoginSectionBtn = (Button)LoginControl.FindControl("ShowLoginSection");
                 FormsAuthentication.SignOut();
                 Session.Clear();
-               Response.Redirect("~/" + PxUrl.PX_START + "/" + PxUrlObj.Language + "/");
+                Response.Redirect("~/" + PxUrl.PX_START + "/" + PxUrlObj.Language + "/");
             }
 
             catch (Exception ex)

@@ -5,7 +5,7 @@
 
     <asp:Login runat="server" ID="LoginControl" OnAuthenticate="LogIn" RenderOuterTable="false">
 	    <LayoutTemplate>
-		    <fieldset>
+		   
 
                 <div id="button" class="box-top">
                     <asp:Button ID="ShowLoginSection" runat="server" Text="LOGG INN" onclick="LoginExpand" />
@@ -13,6 +13,8 @@
                 </div>
 
                 <div class="box" id="LoginSection" runat="server" visible="false">
+                  <fieldset>
+                  <legend>Logg inn for å se upubliserte tall</legend>
                     <div  class="wrap">
                         <asp:Panel runat="server" DefaultButton ="Login">
 			            <div>
@@ -25,21 +27,29 @@
 			            </div>
                         <div id="login-form-buttons">
                             <div class="row">
-    			                <asp:Button ID="Login" runat="server" Text="Logg inn" CommandName="Login"/><asp:ImageButton  ID="loginHelp" runat="server" style="margin-right:12px" Height="15px" Width="15px" OnClientClick="var win = window.open('https://wiki.ssb.no/x/JwLCB', '_blank');win.focus();return false;" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
-                            </div>
+    			                <asp:Button ID="Login" runat="server" Text="Logg inn" CommandName="Login"/>
+                            <a class="pxweb-link px-login-hjelp" href="https://wiki.ssb.no/x/JwLCB">
+                            <span class="link-text">Veiledning</span>
+                                </a>
+                                </div>
                             <div class="row">
                    		        <asp:Label ID="FailureText" runat="server" CssClass="login-form-failure" ></asp:Label>
                             </div>
                          </div>
                             </asp:Panel>
                     </div>
+                      </fieldset>
                 </div>
 
                 <div id="LoggedInDiv" runat="server" class="wrap">
                     <asp:Label ID="LoggedInAs" runat="server" Text="" ></asp:Label>
                 </div>
 
-		    </fieldset>
+                <div id="LoggedOutDiv" class="wrap">
+                    <asp:Label ID="lblLoggedOutMessage" Visible="false" runat="server" ></asp:Label>
+                </div>
+
+		  
 	    </LayoutTemplate>
     </asp:Login>
 
