@@ -127,11 +127,6 @@ namespace PXWeb.Admin
         /// </summary>
         private void RemoveChartSettings()
         {
-            // Remove chart from Selection settings
-            PXWeb.SelectionSettings sel = (PXWeb.SelectionSettings)PXWeb.Settings.NewSettings.Selection;
-           // RemovePresentationViewsByCategory((List<string>)sel.PresentationViews, PCAxis.Web.Controls.Plugins.Categories.CHART);
-           // RemoveFileFormatsByCategory((List<string>)sel.OutputFormats, PCAxis.Web.Controls.Plugins.Categories.CHART);
-
             // Remove chart from Commandbar settings
             CommandBarSettings cmd = (CommandBarSettings)PXWeb.Settings.NewSettings.Presentation.CommandBar;
             RemovePresentationViewsByCategory((List<string>)cmd.PresentationViews, PCAxis.Web.Controls.Plugins.Categories.CHART);

@@ -53,6 +53,7 @@ namespace PXWeb.Admin
             cboButtonsForContentVariable.SelectedValue = PXWeb.Settings.Current.Selection.ButtonsForContentVariable.ToString();
             cboDefaultSearch.SelectedValue = PXWeb.Settings.Current.Selection.SearchValuesBeginningOfWordCheckBoxDefaultChecked.ToString();
             cboPreSelectFirstContentAndTime.SelectedValue = PXWeb.Settings.Current.Selection.PreSelectFirstContentAndTime.ToString();
+            cboShowNoFootnoteForSelection.SelectedValue = PXWeb.Settings.Current.Selection.ShowNoFootnoteForSelection.ToString();
 
             if (PXWeb.Settings.Current.Selection.SearchButtonMode != PCAxis.Web.Controls.VariableSelectorSearchButtonViewMode.ManyValues)
             {
@@ -63,113 +64,6 @@ namespace PXWeb.Admin
             {
                 divHierarchicalLevelsOpen.Visible = false;
             }
-
-            rptPresentationViews.DataSource = GetPresentationViewTable();
-            rptPresentationViews.DataBind();
-
-            rptOutputFormats.DataSource = GetFileFormatsTable();
-            rptOutputFormats.DataBind();
-        }
-
-
-        /// <summary>
-        /// Generate table with saved settings for presentation views
-        /// </summary>
-        private DataTable GetPresentationViewTable()
-        {
-            DataTable tbl = new DataTable();
-            tbl.Columns.Add("PresentationView", typeof(System.String));
-            tbl.Columns.Add("PresentationViewText", typeof(System.String));
-            tbl.Columns.Add("PresentationViewSelect", typeof(System.Boolean));
-
-            ////Plugins
-            foreach (KeyValuePair<string, CommandBarPluginInfo> plugin in CommandBarPluginManager.Views.OrderBy(x => x.Value.SortOrder))
-            {
-                // Check if plugin should be displayed or not
-                if (SettingsHelper.RemovePlugin(plugin.Value))
-                {
-                    continue; // Do not display this plugin
-                }
-
-                DataRow rw = tbl.NewRow();
-                rw["PresentationView"] = plugin.Key;
-                rw["PresentationViewText"] = Master.GetLocalizedString(plugin.Value.NameCode);
-                rw["PresentationViewSelect"] = false;
-
-                    /*foreach (string presentationView in PXWeb.Settings.Current.Selection.PresentationViews)
-                    {
-                        if (CommandBarPluginManager.Views.ContainsKey(presentationView))
-                        {
-                            if (CommandBarPluginManager.Views[presentationView].Name == plugin.Key)
-                            {
-                                rw["PresentationViewSelect"] = true;
-                            }
-                        }
-                    }*/
-                tbl.Rows.Add(rw);
-            }
-
-            return tbl;
-        }
-
-        /// <summary>
-        /// Get table with available file formats
-        /// </summary>
-        /// <returns></returns>
-        private DataTable GetFileFormatsTable()
-        {
-            DataTable tbl = new DataTable();
-
-            tbl.Columns.Add("FileFormat", typeof(System.String));
-            tbl.Columns.Add("FileFormatText", typeof(System.String));
-            tbl.Columns.Add("FileFormatSelect", typeof(System.Boolean));
-
-            //foreach (KeyValuePair<string, string> format in CommandBarPluginManager.FileFormats)
-            //{
-            //    // Check if file format should be displayed or not
-            //    if (SettingsHelper.RemoveFileFormat(format.Key))
-            //    {
-            //        continue; // Do not display this plugin
-            //    }
-
-            //    DataRow rw = tbl.NewRow();
-            //    rw["FileFormat"] = format.Key;
-            //    rw["FileFormatText"] = this.Master.GetLocalizedString( format.Value);
-            //    rw["FileFormatSelect"] = false;
-
-            //    foreach (string fileFormat in PXWeb.Settings.Current.Selection.OutputFormats)
-            //    {
-            //        if (fileFormat == format.Key)
-            //        {
-            //            rw["FileFormatSelect"] = true;
-            //        }
-            //    }
-            //    tbl.Rows.Add(rw);
-            //}
-            foreach (string format in CommandBarPluginManager.FileFormatsSorted)
-            {
-                // Check if file format should be displayed or not
-                if (SettingsHelper.RemoveFileFormat(format))
-                {
-                    continue; // Do not display this plugin
-                }
-
-                DataRow rw = tbl.NewRow();
-                rw["FileFormat"] = format;
-                rw["FileFormatText"] = this.Master.GetLocalizedString(format);
-                rw["FileFormatSelect"] = false;
-
-               /* foreach (string fileFormat in PXWeb.Settings.Current.Selection.OutputFormats)
-                {
-                    if (fileFormat == format)
-                    {
-                        rw["FileFormatSelect"] = true;
-                    }
-                }*/
-                tbl.Rows.Add(rw);
-            }
-
-            return tbl;
         }
 
         /// <summary>
@@ -211,64 +105,13 @@ namespace PXWeb.Admin
                         sel.ButtonsForContentVariable = bool.Parse(cboButtonsForContentVariable.SelectedValue);
                         sel.SearchValuesBeginningOfWordCheckBoxDefaultChecked = bool.Parse(cboDefaultSearch.SelectedValue);
                         sel.PreSelectFirstContentAndTime = bool.Parse(cboPreSelectFirstContentAndTime.SelectedValue);
-   //                     SetSelectedPresentationViews((List<String>)sel.PresentationViews);
-   //                     SetSelectedOutputFormats((List<String>)sel.OutputFormats);
+                        sel.ShowNoFootnoteForSelection = bool.Parse(cboShowNoFootnoteForSelection.SelectedValue);
 
                         PXWeb.Settings.Save();
                     }
                     finally
                     {
                         PXWeb.Settings.EndUpdate();
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Set selected presentation views
-        /// </summary>
-        /// <param name="lst">List containing selected presentation views</param>
-        private void SetSelectedPresentationViews(List<string> lst)
-        {
-            lst.Clear();
-
-            foreach (RepeaterItem itm in rptPresentationViews.Items)
-            {
-                CheckBox chk = (CheckBox)itm.FindControl("cbxSelect");
-                if (chk != null)
-                {
-                    if (chk.Checked)
-                    {
-                        HiddenField hid = (HiddenField)itm.FindControl("hidPresentationView");
-                        if (hid != null)
-                        {
-                            lst.Add(hid.Value);
-                        }
-                    }
-                }
-            }
-        }
-        /// <summary>
-        /// Set selected output formats
-        /// </summary>
-        /// <param name="lst">List containing selected output formats</param>
-        private void SetSelectedOutputFormats(List<string> lst)
-        {
-            lst.Clear();
-
-            // File formats
-            foreach (RepeaterItem itm in rptOutputFormats.Items)
-            {
-                CheckBox chk = (CheckBox)itm.FindControl("chkOutputFormat");
-                if (chk != null)
-                {
-                    if (chk.Checked)
-                    {
-                        HiddenField hid = (HiddenField)itm.FindControl("hidOutputFormat");
-                        if (hid != null)
-                        {
-                            lst.Add(hid.Value);
-                        }
                     }
                 }
             }
@@ -406,10 +249,6 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminSettingsSelectionShowSelectionLimits", "PxWebAdminSettingsSelectionShowSelectionLimitsInfo");
         }
-        protected void OutputFormatsInfo(object sender, ImageClickEventArgs e)
-        {
-            Master.ShowInfoDialog("PxWebAdminSettingsSelectionOutputFormats", "PxWebAdminSettingsSelectionOutputFormatsInfo");
-        }
         protected void ValuesetMustBeSelectedFirstInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsSelectionValuesetMustBeSelectedFirst", "PxWebAdminSettingsSelectionValuesetMustBeSelectedFirstInfo");
@@ -447,9 +286,15 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminSettingsSelectionDefaultSearch", "PxWebAdminSettingsSelectionDefaultSearchInfo");
         }
+
         protected void PreSelectFirstContentAndTimeInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsSelectionPreSelectFirstContentAndTime", "PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo");
+        }
+
+        protected void ShowNoFootnoteForSelectionInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsSelectionShowNoFootnoteForSelection", "PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo");
         }
     }
 }

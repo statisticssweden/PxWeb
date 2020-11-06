@@ -173,34 +173,12 @@
         </asp:DropDownList>
         <asp:ImageButton ID="imgPreSelectFirstContentAndTime" runat="server" onclick="PreSelectFirstContentAndTimeInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
-    <asp:Label ID="lblOutputFormats" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionOutputFormats %>" CssClass="setting_keyword"></asp:Label>
-    <asp:ImageButton ID="imgOutputFormats" runat="server" onclick="OutputFormatsInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" /><br />
-    <p>
-        <asp:Label ID="lblPresentationViews" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionPresentationViews %>" ></asp:Label><br />
-        <asp:Repeater ID="rptPresentationViews" runat="server">
-            <HeaderTemplate>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <asp:HiddenField ID="hidPresentationView" runat="server" value='<%# Bind("PresentationView") %>' />
-                <asp:CheckBox ID="cbxSelect" runat="server" Checked='<%# Bind("PresentationViewSelect") %>' Text='<%# Bind("PresentationViewText") %>'/>
-                <br />
-            </ItemTemplate>
-            <FooterTemplate/>
-        </asp:Repeater>
-    </p>
-    <p>
-        <asp:Label ID="lblFileFormats" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionFileFormats %>" ></asp:Label><br />
-<%--        <asp:CheckBox ID="chkScreen" runat="server" Text="<%$ PxString: CtrlVariableSelectorOutputFormatsOutputScreen %>" />
-        <br />
---%>        <asp:Repeater ID="rptOutputFormats" runat="server">
-            <HeaderTemplate>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <asp:HiddenField ID="hidOutputFormat" runat="server" Value='<%# Bind("FileFormat") %>' />
-                <asp:CheckBox ID="chkOutputFormat" runat="server" Checked='<%# Bind("FileFormatSelect") %>' Text='<%# Bind("FileFormatText") %>' />
-                <br />
-            </ItemTemplate>
-            <FooterTemplate/>
-        </asp:Repeater>
-    </p>
+    <div class="setting-field">
+        <asp:Label ID="lblShowNoFootnoteForSelection" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionShowNoFootnoteForSelection %>"></asp:Label>
+        <asp:DropDownList ID="cboShowNoFootnoteForSelection" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgShowNoFootnoteForSelection" runat="server" onclick="ShowNoFootnoteForSelectionInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
 </asp:Content>
