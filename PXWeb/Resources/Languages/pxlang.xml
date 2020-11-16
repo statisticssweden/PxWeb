@@ -616,9 +616,9 @@
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
-	 <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v1"/>
-	 <sentence name="PxWebApplicationName" value="PxWeb 2020 v1"/>
-   <sentence name="PxWebLogoAlt" value="PxWeb 2020 v1"/>
+	 <sentence name="PxWebApplicationTitle" value="Next PxWeb (Beta)"/>
+	 <sentence name="PxWebApplicationName" value="Next PxWeb (Beta)"/>
+   <sentence name="PxWebLogoAlt" value="Next PxWeb (Beta)"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReaderText" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="Error, PxWebChangeToThisLanguage not tranlated" />
@@ -732,7 +732,7 @@
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
-	 <sentence name="PxWebAdminVersion" value="PxWeb 2020 v1"/>
+	 <sentence name="PxWebAdminVersion" value="Next PxWeb (Beta)"/>
 	 <sentence name="PxWebAdminHomePage" value="PxWeb Homepage"/>
 	 <sentence name="PxWebAdminSaveButton" value="Save"/>
 	 <sentence name="PxWebAdminGenerateButton" value="Generate"/>
