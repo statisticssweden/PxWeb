@@ -72,10 +72,10 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Core.1.0.0-beta5\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Core.1.0.0\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Excel.1.0.0-beta3\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Excel.1.0.0\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

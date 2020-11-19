@@ -37,13 +37,13 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Core.1.0.0-beta5\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Core.1.0.0\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta4\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0-beta6\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -102,13 +102,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <!-- Copy JsonStat2 dll files to PxWeb project -->
   <Target Name="AfterBuild">
     <ItemGroup>
       <mydlls Include="$(TargetDir)\**\*.dll" />
     </ItemGroup>
-    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\bin" SkipUnchangedFiles="true"/>
+    <Copy SourceFiles="@(mydlls)" DestinationFolder="$(SolutionDir)PXWeb\bin" SkipUnchangedFiles="true" />
   </Target>
-
 </Project>

@@ -101,52 +101,52 @@
       <HintPath>..\packages\Oracle.ManagedDataAccess.Core.2.19.60\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Common.1.0.0-beta5\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Common.1.0.0\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Core.1.0.0-beta5\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Core.1.0.0\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Encryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Encryption.1.0.0-beta2\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Encryption.1.0.0\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Excel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Excel.1.0.0-beta3\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Excel.1.0.0\lib\netstandard2.0\PCAxis.Excel.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Menu.1.0.0-beta4\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Menu.1.0.0\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Menu.ConfigDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Menu.ConfigDatamodelMenu.1.0.0-beta\lib\netstandard2.0\PCAxis.Menu.ConfigDatamodelMenu.dll</HintPath>
+    <Reference Include="PCAxis.Menu.ConfigDatamodelMenu, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.ConfigDatamodelMenu.1.0.1\lib\netstandard2.0\PCAxis.Menu.ConfigDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu.MsSqlDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0-beta2\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu.OracleDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0-beta3\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Metadata.1.0.0-beta4\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.PX.Core.1.0.0-beta3\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.0\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Query.1.0.0-beta2\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Query.1.0.0\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sdmx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Sdmx.1.0.0-beta3\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Sdmx.1.0.0\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0-beta4\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.0\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0-beta6\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.0\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Sql.1.0.0-beta4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Sql.1.0.0\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
     <Reference Include="PX.Serializers.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PX.Serializers.Json.1.0.0-beta\lib\netstandard2.0\PX.Serializers.Json.dll</HintPath>
+      <HintPath>..\packages\PX.Serializers.Json.1.0.0\lib\netstandard2.0\PX.Serializers.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
