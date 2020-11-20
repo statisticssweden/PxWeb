@@ -115,8 +115,8 @@
     <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.1.0.0\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Menu.ConfigDatamodelMenu, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Menu.ConfigDatamodelMenu.1.0.1\lib\netstandard2.0\PCAxis.Menu.ConfigDatamodelMenu.dll</HintPath>
+    <Reference Include="PCAxis.Menu.ConfigDatamodelMenu, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.ConfigDatamodelMenu.1.0.2\lib\netstandard2.0\PCAxis.Menu.ConfigDatamodelMenu.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu.MsSqlDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
