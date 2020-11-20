@@ -16,7 +16,7 @@
                     <dl>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <div class="information_atom">
+                    <div class="flex-column">
                       <dt><asp:Literal ID="VariableTerm" runat="server" /></dt>
                       <dd><asp:Literal ID="VariableDefinition" runat="server" /></dd>
                     </div>

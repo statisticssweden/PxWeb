@@ -45,6 +45,7 @@ Partial Public Class VariableSelectorValueSelect
     Private _maxRowsWithoutSearch As Integer
     Private _alwaysShowTimeVariableWithoutSearch As Boolean
     Private _listSize As Integer
+    Private _clientSideValidation As Boolean
     Private _showElimMark As Boolean
     Private _showHierarchies As Boolean
 
@@ -356,6 +357,22 @@ Partial Public Class VariableSelectorValueSelect
         End Get
         Set(ByVal value As Integer)
             _listSize = value
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' Decide if validaion should be on server or client
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property ClientSideValidation() As Boolean
+        Get
+            Return _clientSideValidation
+        End Get
+        Set(ByVal value As Boolean)
+            _clientSideValidation = value
         End Set
     End Property
 

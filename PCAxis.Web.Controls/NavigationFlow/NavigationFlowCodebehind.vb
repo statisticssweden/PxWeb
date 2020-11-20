@@ -20,11 +20,11 @@ Public Class NavigationFlowCodebehind
 #Region "fields"
     'For language
     Private Const LABEL_FIRSTSTEP As String = "CtrlNavigationFlowStep1"
-    Private Const SCREENREADERTEXT_FIRSTSTEP As String = "CtrlNavigationFlowStep1ScreenReaderText"
+    Private Const SCREENREADERTEXT_FIRSTSTEP As String = "CtrlNavigationFlowStep1ScreenReader"
     Private Const LABEL_SECONDSTEP As String = "CtrlNavigationFlowStep2"
-    Private Const SCREENREADERTEXT_SECONDSTEP As String = "CtrlNavigationFlowStep2ScreenReaderText"
+    Private Const SCREENREADERTEXT_SECONDSTEP As String = "CtrlNavigationFlowStep2ScreenReader"
     Private Const LABEL_THIRDSTEP As String = "CtrlNavigationFlowStep3"
-    Private Const SCREENREADERTEXT_THIRDSTEP As String = "CtrlNavigationFlowStep3ScreenReaderText"
+    Private Const SCREENREADERTEXT_THIRDSTEP As String = "CtrlNavigationFlowStep3ScreenReader"
     'constants for style
     Private Const ACTIVE As String = "active"
     Private Const FUTURE As String = "future"

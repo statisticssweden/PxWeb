@@ -14,9 +14,17 @@ Public Class SelectFromGroupCodebehind
     Inherits PaxiomControlBase(Of SelectFromGroupCodebehind, SelectFromGroup)
 
 #Region "Fields"
+    Protected UserManualGroupingRegion As Panel
+    Protected UserManualGrouping As Panel
+    Protected GroupingRegion As Panel
+    Protected GroupRegion As Panel
+    Protected ValuesRegion As Panel
+
+
     Protected lblHeading As Label
-    Protected lblVariableDesc As Label
-    Protected lblVariable As Label
+    Protected lblGrouping As Label
+
+
     Protected WithEvents cboGrouping As DropDownList
     Protected WithEvents rblType As RadioButtonList
     Protected pnlGroups As Panel
@@ -46,8 +54,8 @@ Public Class SelectFromGroupCodebehind
         lstGroups.Items.Clear()
         lstValues.Items.Clear()
 
-        lblHeading.Text = Me.GetLocalizedString("CtrlSelectFromGroupHeading")
-        lblVariable.Text = Marker.Variable.Name
+        lblHeading.Text = String.Format(Me.GetLocalizedString("CtrlSelectFromGroupHeading"), Marker.Variable.Name)
+        lblGrouping.Text = Me.GetLocalizedString("CtrlSelectFromGroupGrouping")
 
         li = New ListItem(Me.GetLocalizedString("CtrlSelectFromGroupSelectGrouping"), "")
         li.Selected = True
@@ -79,18 +87,31 @@ Public Class SelectFromGroupCodebehind
             btnSelectGroups.Text = Me.GetLocalizedString("CtrlSelectFromGroupSelectGroupsSingle")
         End If
 
-
         lblValues.Text = Me.GetLocalizedString("CtrlSelectFromGroupValues")
         btnSelectionDone.Text = Me.GetLocalizedString("CtrlSelectFromGroupSelectAndReturn")
         btnCancel.Text = Me.GetLocalizedString("CtrlSelectFromGroupCancel")
-        cboGrouping.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupSelectGroupingScreenReaderText"))
-        lstGroups.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupGroupsScreenReaderText"))
-        lstValues.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupValuesScreenReaderText"))
-        pnlForRbl.GroupingText = Me.GetLocalizedString("CtrlSelectFromGroupRadiobuttonListLegend")
-        lblVariableDesc.Text = Me.GetLocalizedString("CtrlSelectFromGroupVariableDesc")
+        pnlForRbl.GroupingText = "<h3> <span class='pxweb-title negative'>" + Me.GetLocalizedString("CtrlSelectFromGroupRadiobuttonListLegend") + "</span></h3>"
+
 
         btnSelectionDone.Enabled = False
+        setWCAG()
+
     End Sub
+
+    Protected Sub setWCAG()
+        UserManualGroupingRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupSelectUserManualScreenReaderRegion"))
+        UserManualGrouping.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupSelectUserManualScreenReader"))
+
+        GroupingRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupGroupingScreenReaderRegion"))
+        GroupRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupGroupScreenReaderRegion"))
+        ValuesRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupValuesScreenReaderRegion"))
+
+        cboGrouping.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupSelectGroupingScreenReader"))
+        lstGroups.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupGroupsScreenReader"))
+        lstValues.Attributes.Add("aria-label", GetLocalizedString("CtrlSelectFromGroupValuesScreenReader"))
+
+    End Sub
+
 
     Protected Sub btnSelectionDone_Click(sender As Object, e As EventArgs) Handles btnSelectionDone.Click
         Dim variable As Variable = CType(Session("SelectFromGroupVariable"), Variable)

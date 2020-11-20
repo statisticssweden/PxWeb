@@ -412,7 +412,7 @@ Public Class BreadcrumbCodebehind
     Private Sub SetHomepageLink()
         If Marker.HomePageImage Then
             imgHome.ImageUrl = Page.ClientScript.GetWebResourceUrl(GetType(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif")
-            imgHome.AlternateText = Marker.HomePageName
+            imgHome.AlternateText = LocalizationManager.GetLocalizedString("PxWebHomeImageScreenReader")
             imgHome.ToolTip = Marker.HomePageName
         Else
             imgHome.Visible = False

@@ -63,8 +63,7 @@ Public Class VariableSelectorSelectionInformationCodebehind
 
         'Show/hide selection limits
         If (Marker.ShowSelectionLimits) Then
-            'SelectionLimitsInformationPlaceHolder.Visible = True
-            SelectionLimitsInformationPlaceHolder.Visible = False
+            SelectionLimitsInformationPlaceHolder.Visible = True
         Else
             SelectionLimitsInformationPlaceHolder.Visible = False
         End If
