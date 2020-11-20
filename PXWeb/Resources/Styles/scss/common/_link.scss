@@ -1,0 +1,91 @@
+@include file-header("common/_link.scss");
+
+$default-font-size: 16px;
+$profiled-font-size: 18px;
+$header-font-size: 20px;
+$icon-padding: 8px;
+
+#{$selector_prefix}-link a:hover {
+  text-decoration: none;
+}
+
+#{$selector_prefix}-link {
+  @include open-sans;
+  align-items: center;
+  background-image: linear-gradient(120deg, $pxweb-link-hover-background 0%, $pxweb-link-hover-background 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+  border-bottom: 1px solid $pxweb-link-first-ink;
+  color: $pxweb-link-first-ink;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: $default-font-size;
+  line-height: 1.25;
+  margin-top: -3px;
+  margin-bottom: -2px;
+  padding: 0 1px 2px 1px;
+  position: relative;
+  text-decoration: none;
+  transition: background-size .2s ease-in, color .1s;
+
+  .icon-wrapper {
+    display: flex;
+    margin-right: 4px;
+  }
+
+  &.header {
+    @include roboto;
+    border-bottom-width: 2px;
+    font-size: $header-font-size;
+    font-weight: bold;
+
+    .link-text {
+      color: $pxweb-link-text-ink;
+    }
+  }
+
+  &:hover, &:focus {
+    background-size: 100% 100%;
+    color: $pxweb-link-hover-ink;
+    outline: 0;
+    text-decoration: none;
+    border-bottom-color: $pxweb-link-hover-background;
+
+    .link-text {
+      text-decoration: none;
+      color: $pxweb-link-hover-ink;
+    }
+  }
+
+  &.with-icon {
+    padding: 2px 2px 0;
+    border-bottom: none;
+
+    i {
+      font-size: 16px;
+    }
+
+    .link-text {
+      color: $pxweb-link-text-ink;
+    }
+
+    &:hover, &:focus {
+      color: $pxweb-link-hover-ink;
+
+      .link-text {
+        color: $pxweb-link-hover-ink;
+      }
+    }
+  }
+
+  .link-text {
+    color: $pxweb-link-first-ink;
+    transition: color .1s;
+
+    &:hover, &:focus {
+      color: $pxweb-link-hover-ink;
+      outline: 0;
+    }
+  }
+}

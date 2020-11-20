@@ -1,0 +1,8 @@
+@include file-header("common/_title-pxbox.scss");
+
+#{$selector_prefix-pxbox}-title {
+  color: $pxbox-dark-6;
+  &.negative {
+    color: $pxbox-ink;
+  }
+}

@@ -1,0 +1,40 @@
+@include file-header("_global-styles-on-elements.scss");
+// This file is for selectors that uses only html-elements.
+
+#{$selector_prefix2} body {
+  @include open-sans;
+}
+
+#{$selector_prefix2} a {
+  text-decoration: none;
+}
+
+#pxwebcontent html {
+  /* Always display scroll. This prevents the auto-centering of the page to jump around between pages 
+    /* where one page has scrollbar and the other one don´t*/
+  height: 102%;
+}
+
+#pxwebcontent p {
+  margin-bottom: 4px;
+}
+
+#pxwebcontent a:focus {
+  @include focus-ring;
+}
+
+#pxwebcontent select:focus {
+  @include focus-ring;
+}
+
+#pxwebcontent img {
+  border: none;
+}
+
+#pxwebcontent a {
+  text-decoration: none;
+}
+
+#pxwebcontent a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,162 @@
+@include file-header("common/_input-pxbox.scss");
+
+#{$selector_prefix-pxbox}-input {
+    &:hover {
+
+        input {
+            border: 1px solid $pxbox-green-2;
+            outline: 1px solid $pxbox-green-2;
+
+            &:disabled {
+                border: 1px solid $pxbox-dark-5;
+            }
+        }
+    }
+
+    .input-wrapper {
+	
+        ::placeholder {
+            color: $pxbox-dark-4;
+        }
+
+        :-ms-input-placeholder {
+            color: $pxbox-dark-4;
+        }
+
+        ::-ms-input-placeholder {
+            color: $pxbox-dark-4;
+        }
+    }
+
+    label {
+        color: $pxbox-dark-6;
+    }
+
+    input {
+        background: $pxbox-white;
+        border: 1px solid $pxbox-dark-5;
+        color: $pxbox-dark-4;
+
+        &:disabled {
+            border: 1px solid $pxbox-dark-5;
+        }
+    }
+
+    &.negative {
+
+        .input-wrapper {
+
+            ::placeholder {
+                color: $pxbox-white;
+            }
+
+            :-ms-input-placeholder {
+                color: $pxbox-white;
+            }
+
+            ::-ms-input-placeholder {
+                color: $pxbox-white;
+            }
+        }
+
+        &:hover {
+
+            input {
+                border: 1px solid $pxbox-green-2;
+                outline: 1px solid $pxbox-green-2;
+
+                &:disabled {
+                    border: 1px solid $pxbox-white;
+                }
+            }
+        }
+
+        label {
+            color: $pxbox-white;
+        }
+
+        input {
+            border: 1px solid $pxbox-white;
+            color: $pxbox-white;
+
+            &:disabled {
+                border: 1px solid $pxbox-white;
+            }
+
+            &:focus {
+                border: 1px solid $pxbox-green-2;
+                outline: 1px solid $pxbox-green-2;
+            }
+        }
+
+        .icon-wrapper {
+
+            & > * {
+                color: $pxbox-green-2;
+            }
+
+            &.search-icon {
+
+                &:hover, &:focus {
+                    background: $pxbox-white;
+
+                    & > * {
+                        color: $pxbox-dark-5;
+                    }
+                }
+            }
+        }
+
+        &.error {
+
+            input {
+                border: 1px solid $pxbox-red-3;
+                outline: 1px solid $pxbox-red-3;
+            }
+
+            .icon-wrapper {
+
+                & > * {
+                    color: $pxbox-red-3;
+                }
+            }
+        }
+    }
+
+    &.error {
+
+        input {
+            border: 1px solid $pxbox-red-3;
+            outline: 1px solid $pxbox-red-3;
+        }
+
+        .icon-wrapper {
+
+            & > * {
+                color: $pxbox-red-3;
+            }
+        }
+    }
+
+    .icon-wrapper {
+        & > * {
+            color: $pxbox-green-4;
+        }
+
+        &.search-icon {
+            background-repeat: no-repeat;
+            background-image: get-icon( 'search', $pxbox-green-4);
+            background-position: center;
+
+            &:hover, &:focus {
+                background: $pxbox-green-4;
+                background-repeat: no-repeat;
+                background-image: get-icon( 'search', $pxbox-white);
+                background-position: center;
+                & > * {
+                    color: $pxbox-white;
+                }
+            }
+        }
+    }
+}

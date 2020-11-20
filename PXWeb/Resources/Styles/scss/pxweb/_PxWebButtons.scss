@@ -1,0 +1,110 @@
+﻿@include file-header("_PxWebButtons.scss");
+#pxwebcontent .pxweb-buttons {
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+
+  &.key-icon {
+    background-image: get-icon( 'key', $btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'key', $btn-icon-hover);
+    }
+  }
+
+  &.database-icon {
+    background-image: get-icon( 'database', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'database', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.checked-icon {
+    background-image: get-icon( 'select-all', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'select-all', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.cancel-icon {
+    background-image: get-icon( 'cancel', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'cancel', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.arrow-down-icon {
+    background-image: get-icon( 'arrow-down', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'arrow-down', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.arrow-up-icon {
+    background-image: get-icon( 'arrow-up', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'arrow-up', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.selectfromgroup-groupsbutton {
+    background-image: get-icon( 'select-all', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'select-all', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.selectfromgroup-cancel {
+    background-image: get-icon( 'cancel', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'cancel', $pxbox-btn-icon-hover);
+    }
+  }
+}
+
+#pxwebcontent .variableselector-buttons {
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+
+  &.variableselector_valuesselect_deselect_all_button {
+    background-image: get-icon( 'deselect-all', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'deselect-all', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.variableselector_valuesselect_select_all_button {
+    background-image: get-icon( 'select-all', $pxbox-btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'select-all', $pxbox-btn-icon-hover);
+    }
+  }
+
+  &.variableselector-list-view {
+    background-image: get-icon( 'list-view', $btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'list-view', $btn-icon-hover);
+    }
+  }
+
+  &.variableselector-compact-view {
+    background-image: get-icon( 'compact-view', $btn-icon);
+
+    &:hover, &:focus {
+      background-image: get-icon( 'compact-view', $btn-icon-hover);
+    }
+  }
+}

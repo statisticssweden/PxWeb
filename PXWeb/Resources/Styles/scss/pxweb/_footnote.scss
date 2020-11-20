@@ -1,0 +1,65 @@
+﻿@include file-header("_footnote.scss");
+/* Used for Footnote webcontrol */
+/* Define if specific style should be assigned to the title and definition of a type of footnote */
+#pxwebcontent .footnotes_container {
+  margin:10px 0 10px 0;
+  @include just-open-sans;
+}
+
+#pxwebcontent .footnote_heading {
+  @include just-open-sans;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#pxwebcontent dl.footnote_definitionlist dt {
+  margin-top: 1em;
+  font-weight: bold;
+  line-height: 120%;
+}
+
+#pxwebcontent dl.footnote_definitionlist dd {
+  margin-left: 2em;
+  line-height: 120%;
+}
+
+#pxwebcontent .footnote_mandatory {
+  font-weight: bold;
+}
+
+#pxwebcontent .footnote_valuenote_key {
+  margin-left: 2em;
+}
+
+#pxwebcontent .footnote_no_footnotes {
+  font-style: italic;
+}
+
+#pxwebcontent .footnotes_container a {
+  @include open-sans;
+
+  align-items: center;
+  background-image: linear-gradient(120deg, $pxweb-green-4 0%, $pxweb-green-4 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+  border-bottom: 1px solid $pxweb-green-4;
+  color: $pxweb-green-4;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 1.25;
+  margin-top: -3px;
+  margin-bottom: -2px;
+  padding: 0 1px 2px 1px;
+  position: relative;
+  text-decoration: none;
+  transition: background-size .2s ease-in, color .1s;
+}
+
+  #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
+    background-size: 100% 100%;
+    color: $pxweb-white;
+    outline: 0;
+    text-decoration: none;
+  }

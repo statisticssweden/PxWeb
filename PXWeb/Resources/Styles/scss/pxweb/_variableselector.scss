@@ -1,0 +1,292 @@
+﻿@include file-header("_variableselector.scss");
+
+/*  ---------  VariableSelector ---------------------------- */
+/*  ---------  VariableSelectorSelectionInformation ---------- */
+/*  ---------  VariableSelectorOutputFormats ----------------- */
+/*  ---------  VariableSelectorMarkingTips ------------------- */
+/*  ---------  VariableSelectorEliminationInformation -------- */
+/*  ---------  VariableSelectorValueSelect ------------------- */
+
+#pxwebcontent .variableselector_clearboth {
+    clear: both;
+}
+
+#pxwebcontent .variableselector_selectionerror_label {
+    color: $pxweb-red-3;
+}
+
+#pxwebcontent .variableselector_selectionerror_label_text {
+    display: none;
+}
+
+/*TO DO - start*/
+#pxwebcontent .variableselector_error_summary {
+    display: flex;
+    flex-direction: column;
+    background: url('../../images/error_red.png') no-repeat;
+    color: black;
+    text-align: left;
+    padding-left: 60px !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-position-x: 10px;
+    background-position-y: 10px;
+    border: 2px solid $pxweb-red-3 !important;
+    border-left: 4px solid $pxweb-red-3 !important;
+    width: auto;
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-size: 20px;
+}
+
+    #pxwebcontent .variableselector_error_summary ul {
+        border-style: none;
+    }
+
+    #pxwebcontent .variableselector_error_summary li {
+        font-size: 16px;
+        list-style-type: disc;
+        list-style-position: inside;
+        color: black
+    }
+/*TO DO - end*/
+
+#pxwebcontent .variableselector_continue_button {
+    height: 86px;
+    width: 294px;
+    font-size: 28px;
+}
+
+#pxwebcontent .variableselector_valuesselect_box {
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#pxwebcontent .variableselector_valuesselect_box_compact {
+    margin-right: 20px;
+}
+
+@media screen and (min-width: 400px) {
+    #pxwebcontent .variableselector_valuesselect_box_compact {
+        margin-right: 20px;
+        width: 350px;
+        min-width: 350px;
+    }
+}
+
+#pxwebcontent .variableselector_valuesselect_box_list {
+    width: 100%;
+}
+
+
+/* TODO errorhandeling */
+#pxwebcontent .variableselector_valuesselect_box_error {
+    border: solid 2px red;
+}
+
+#pxwebcontent .variableselector_valuesselect_variabletitle_panel {
+    padding: 3px;
+    overflow: hidden;
+    min-height: 45px;
+}
+
+#pxwebcontent .variableselector_valuesselect_variabletitle {
+    @include roboto-condenced;
+    font-size: 28px;
+    display: inline-block;
+    padding-right: 40px;
+    overflow-wrap: break-word;
+}
+
+#pxwebcontent .variableselector_valuesselect_aggregations {
+    width: 100%;
+    @include roboto;
+    font-size: 16px;
+    color: $pxbox-dark-6;
+    cursor: pointer;
+}
+
+#pxwebcontent select.variableselector_valuesselect_aggregations {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: get-icon( 'dropdown-down', $pxbox-green-4);
+  padding: .6em 1.4em .5em 2.2em;
+  border: 1px solid $pxbox-white;
+  background-color: $pxbox-white;
+  background-repeat: no-repeat;
+  background-position: left .4em top 50%, 0 0;
+  background-size: 24px auto, 100%;
+
+  &:hover {
+    border: 1px solid $pxbox-green-2;
+    outline: $pxbox-green-2 solid 1px;
+  }
+
+  &:focus {
+    background-image: get-icon( 'dropdown-up', $pxbox-green-4);
+    @include focus-ring;
+  }
+}
+
+#pxwebcontent .variableselector_valuesselect_variabletitlesecond {
+    font-weight: normal;
+    font-size: smaller;
+}
+
+#pxwebcontent .variableselector_valuesselect_hiddeneventbutton_panel {
+    height: 22px;
+}
+
+#pxwebcontent .variableselector_valuesselect_statistics_panel {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#pxwebcontent .variableselector_valuesselect_valueslistbox {
+    width: 100%;
+    min-width: 140px;
+    min-height: 90px;
+    font-size: 100%;
+    @include open-sans;
+    overflow: auto;
+    color: $pxbox-black-1;
+    text-indent: 2px;
+}
+
+    #pxwebcontent .variableselector_valuesselect_valueslistbox:focus {
+        @include focus-ring;
+    }
+
+#pxwebcontent .search-panel {
+    flex: 1 0 250px;
+    padding-right: 20px;
+}
+
+#pxwebcontent .variableselector_valuesselect_statistics {
+    width: 3em;
+    border: none;
+    display: inline;
+    @include open-sans;
+    font-size: 14px;
+    color: $pxbox-ink;
+}
+
+#pxwebcontent .variableselector_valuesselect_search_textstart_checkbox {
+    margin-top: 6px;
+}
+
+#pxwebcontent .variableselector_valuesselect_search_imagebutton {
+    background: $pxbox-white url(../../images/search.gif) no-repeat;
+    outline: none;
+    vertical-align: middle;
+    width: 19px;
+    height: 17px;
+}
+   
+#pxwebcontent .switch-layout-container {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    #pxwebcontent .switch-layout-container {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+    }
+}
+
+#pxwebcontent .variableselector_valuesselect_selectionFromGroup_imagebutton {
+    width: 19px;
+    height: 17px;
+    background: $pxbox-white url(../../images/small_button_select_by_group.gif) no-repeat;
+    vertical-align: middle;
+    outline: none;
+}
+
+#pxwebcontent .variableselector_valuesselect_metadataInformation_imagebutton {
+    width: 19px;
+    height: 17px;
+    background: $pxbox-white url(../../images/info.gif) no-repeat;
+    vertical-align: middle;
+    outline: none;
+}
+
+#pxwebcontent .variableselector_valuesselect_select_hierarcical_imagebutton {
+    width: 19px;
+    height: 17px;
+    background: $pxbox-white url(../../images/Hierarchy.gif) no-repeat;
+    vertical-align: middle;
+    outline: none;
+}
+
+#pxwebcontent .variableselector_valuesselect_manyvalues_panel {
+    max-width: 300px;
+    color: $pxbox-white;
+}
+
+#pxwebcontent .variableselector_searchinformationlink {
+    background: url(../../images/Arrow_Right_Gray.gif) 0 0 no-repeat;
+    padding-left: 10px;
+    line-height: 80px;
+}
+
+#pxwebcontent .icon-placement {
+    background-position: 8px 8px;
+    padding-left: 40px !important;
+}
+
+/*Green background color inside valuelist*/
+#pxwebcontent .pxbox select[multiple] option:checked {
+  background: $pxweb-green-4 linear-gradient(0deg, $pxweb-green-4 0%, $pxweb-green-4 100%);
+  -webkit-text-fill-color: $pxweb-white;
+  //background for unselected values is always white from user agent style
+}
+
+#pxwebcontent .pxbox .variableselector_valuesselect_search_textstart_checkbox.pxweb-checkbox input[type=checkbox] {
+  border-color: $pxbox-green-2;
+}
+
+
+#pxwebcontent .mandatory_container {
+    @include roboto-condenced;
+}
+
+#pxwebcontent .variableselector_valuesselect_mandatory_text {
+    font-size: 12px;
+}
+
+#pxwebcontent .variableselector_valuesselect_mandatory_star {
+    font-size: 28px;
+}
+
+
+#pxwebcontent .link-buttons-container {
+    flex-basis: 100%;
+}
+
+
+#pxwebcontent .pxbox .go-to-advanced-search {
+  margin-bottom: 12px;
+}
+
+#pxwebcontent .optional-variable-panel {
+    background-color: $pxbox-white;
+    box-sizing: border-box;
+    border: solid $pxbox-blue-3 1px;
+}
+
+#pxwebcontent .optional-variable-text {
+  color: $pxbox-black-1;
+  padding-left: 5px;
+  font-size: 14px;
+  @include roboto-condenced;
+}
+
+#pxwebcontent .optional-variable-icon-panel {
+    background-color: $pxbox-blue-3;
+    box-sizing: border-box;
+    width: 22px;
+    height: 21px;
+    border: solid $pxbox-blue-3 2px;
+}

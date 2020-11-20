@@ -1,0 +1,18 @@
+#{$selector_prefix}-checkbox-group {
+  @include roboto;
+  display: inline-block;
+
+  .boxes {
+    display: flex;
+  }
+
+  .checkbox-group-header{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 8px;
+  }
+
+  input {
+    margin: 3px 3px 3px 4px;
+  }
+}

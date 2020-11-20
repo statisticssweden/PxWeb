@@ -125,6 +125,9 @@ namespace PXWeb
 
             xpath = "./showNoFootnoteForSelection";
             ShowNoFootnoteForSelection = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
+
+            xpath = "./clientsideValidation";
+            ClientSideValidation = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
         }
         
         /// <summary>
@@ -197,6 +200,9 @@ namespace PXWeb
 
             xpath = "./showNoFootnoteForSelection";
             SettingsHelper.SetSettingValue(xpath, selectionNode, ShowNoFootnoteForSelection.ToString());
+
+            xpath = "./clientsideValidation";
+            SettingsHelper.SetSettingValue(xpath, selectionNode, ClientSideValidation.ToString());
         }
 
         #endregion
@@ -236,6 +242,7 @@ namespace PXWeb
         public bool PreSelectFirstContentAndTime { get; set; }
 
         public bool ShowNoFootnoteForSelection { get; set; }
+        public bool ClientSideValidation { get; set; }
 
         #endregion
 

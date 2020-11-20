@@ -1,0 +1,90 @@
+@include file-header("common/_button.scss");
+
+#{$selector_prefix}-btn {
+  @include focus-marker;
+  @include roboto;
+  @include reset-button;
+  align-items: center;
+  background-color: $pxweb-btn-bg;
+  border: 2px solid $pxweb-btn-color;
+  border-radius: 2px;
+  color: $pxweb-btn-color;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  height: fit-content;
+  line-height: 1.25;
+  min-height: 40px;
+  padding: 12px 20px;
+  text-align: center;
+  text-underline-position: under;
+  transition: background .18s, color .18s;
+  white-space: normal;
+
+  &:hover, &:active {
+    cursor: pointer;
+  }
+
+  &:hover, &:focus {
+    background-color: $pxweb-btn-color;
+    color: $pxweb-btn-bg;
+    text-decoration: underline;
+  }
+
+  &:active {
+    background-color: $pxweb-dark-5;
+    color: $pxweb-white;
+  }
+
+  &:disabled {
+    background-color: $pxweb-white;
+    border-color: $pxweb-dark-2;
+    color: $pxweb-dark-2;
+    cursor: not-allowed;
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+
+  &.negative {
+    &:disabled {
+      opacity: 0.3;
+
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.primary-btn {
+    background: transparent;
+    background-color: $pxweb-primary-btn-bg;
+    color: $pxweb-primary-btn-color;
+    border: 2px solid $pxweb-primary-btn-color;
+
+    &:hover, &:active, &:focus {
+      background-color: $pxweb-primary-btn-bg-hover;
+      border: 2px solid $pxweb-primary-btn-bg-hover;
+      text-decoration: underline;
+    }
+
+    &:disabled {
+      background: $pxweb-dark-2;
+      border: 2px solid $pxweb-dark-2;
+      color: $pxweb-white;
+      cursor: not-allowed;
+      font-weight: normal;
+
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .sb-icon {
+    display: inline-flex;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}

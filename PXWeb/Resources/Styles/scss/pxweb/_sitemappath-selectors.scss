@@ -1,0 +1,25 @@
+﻿@include file-header("_sitemappath-selectors.scss");
+/*Are these in use?*/
+#pxwebcontent #sitemappath {
+  font-family: Verdana;
+  font-size: 0.9em;
+  color: $pxweb-white;
+}
+
+#pxwebcontent .sitemappath_pathseparator {
+  color: $pxweb-black-2;
+  font-weight: bold;
+}
+
+#pxwebcontent .sitemappath_currentnode {
+  color: $pxweb-black-2;
+  font-weight: bold;
+}
+
+#pxwebcontent .sitemappath_node {
+  color: $pxweb-black-2;
+}
+
+#pxwebcontent .sitemappath_rootnode {
+  color: $pxweb-black-2;
+}

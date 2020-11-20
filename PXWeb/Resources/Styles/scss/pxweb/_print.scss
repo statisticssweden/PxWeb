@@ -1,0 +1,10 @@
+﻿@include file-header("_print.scss");
+@media print {
+  #pxwebcontent #breadcrumb, #pxwebcontent #navigationFlow, #pxwebcontent .headerright, #pxwebcontent .ui-tabs-nav, #pxwebcontent .commandbar, #pxwebcontent .headerleft {
+    display: none;
+  }
+
+  #pxwebcontent table {
+    text-align: left;
+  }
+}

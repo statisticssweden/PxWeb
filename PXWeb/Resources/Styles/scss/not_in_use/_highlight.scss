@@ -1,0 +1,33 @@
+.ssb-mark {
+  @include open-sans;
+  background-color: $pxweb-green-1;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.6;
+
+  &.negative {
+    background-color: $pxweb-green-5;
+    color: $pxweb-white;
+  }
+}
+
+// code below is added for screen reader support and makes the screen readers announce where highlight starts and ends.
+// Todo: remove when support for <mark> is more widespread among screenreaders
+
+mark::before, mark::after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+mark::before {
+  content: " [highlight start] ";
+}
+
+mark::after {
+  content: " [highlight end] ";
+}

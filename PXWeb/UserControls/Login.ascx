@@ -1,14 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Login.ascx.cs" Inherits="PXWeb.UserControls.Login" %>
 
-
-
-
     <asp:Login runat="server" ID="LoginControl" OnAuthenticate="LogIn" RenderOuterTable="false">
 	    <LayoutTemplate>
-		   
-
+               
+        <div id="logindiv" class="logindiv flex-column align-flex-end">
                 <div id="button" class="box-top">
-                    <asp:Button ID="ShowLoginSection" runat="server" Text="LOGG INN" onclick="LoginExpand" />
+                    <asp:Button ID="ShowLoginSection" runat="server" Text="LOGG INN" class = "pxweb-buttons key-icon pxweb-btn icon-placement" onclick="LoginExpand" />
                     <asp:Label runat="server" Visible="false" ID="ShowLoginSectionHolder" Text="show"></asp:Label>
                 </div>
 
@@ -49,7 +46,7 @@
                     <asp:Label ID="lblLoggedOutMessage" Visible="false" runat="server" ></asp:Label>
                 </div>
 
-		  
+		      </div>
 	    </LayoutTemplate>
     </asp:Login>
 

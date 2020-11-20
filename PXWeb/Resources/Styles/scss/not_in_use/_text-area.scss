@@ -1,0 +1,107 @@
+#{$selector_prefix}-text-area {
+    @include roboto;
+    cursor: text;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    position: relative;
+
+    &:hover {
+
+        textarea {
+            border: 1px solid $pxweb-green-4;
+            outline: 1px solid $pxweb-green-4;
+
+            &:disabled {
+                border: 1px solid $pxweb-dark-5;
+            }
+        }
+    }
+
+    textarea {
+        @include roboto;
+        background: $pxweb-white;
+        border: 1px solid $pxweb-dark-5;
+        box-sizing: border-box;
+        color: $pxweb-dark-6;
+        font-size: 16px;
+        line-height: 1.25;
+        min-height: $input-field-height;
+        min-width: 200px;
+        padding: 11px 12px;
+        width: 100%;
+
+        &:focus {
+            border: 1px solid $pxweb-green-4;
+            outline: 1px solid $pxweb-green-4;
+            outline-offset: 0;
+        }
+    }
+
+    &.negative {
+
+        .text-area-wrapper {
+
+            ::placeholder {
+                color: $pxweb-white;
+                opacity: 1;
+            }
+
+            :-ms-input-placeholder {
+                color: $pxweb-white;
+            }
+
+            ::-ms-input-placeholder {
+                color: $pxweb-white;
+            }
+        }
+
+        &:hover {
+
+            textarea {
+                border: 1px solid $pxweb-green-2;
+                outline: 1px solid $pxweb-green-2;
+
+                &:disabled {
+                    border: 1px solid $pxweb-white;
+                }
+            }
+        }
+
+        label {
+            color: $pxweb-white;
+        }
+
+        textarea {
+            background: transparent;
+            border: 1px solid $pxweb-white;
+            color: $pxweb-white;
+
+            &:disabled {
+                border: 1px solid $pxweb-white;
+            }
+
+            &:focus {
+                border: 1px solid $pxweb-green-2;
+                outline: 1px solid $pxweb-green-2;
+                outline-offset: 0;
+            }
+        }
+
+        &.error {
+
+            textarea {
+                border: 1px solid $pxweb-red-3;
+                outline: 1px solid $pxweb-red-3;
+            }
+        }
+    }
+
+    &.error {
+
+        input {
+            border: 1px solid $pxweb-red-3;
+            outline: 1px solid $pxweb-red-3;
+        }
+    }
+}

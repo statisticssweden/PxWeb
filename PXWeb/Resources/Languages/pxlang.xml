@@ -249,6 +249,7 @@
 	 <sentence name="CtrlVariableSelectorInstructionLabel" value="Mark your selections and choose between table on screen and file format"/>
 	 <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Marking tips"/>
 	 <sentence name="CtrlVariableSelectorEliminationTooltip" value="Select at least one value"/>
+   <sentence name="CtrlVariableSelectorSelectScreenReaderRegion" value="Variable, " />
 	 <sentence name="CtrlVariableSelectorSelectValues" value="--- Select classification ---"/>
 	 <sentence name="CtrlVariableSelectorEliminationLabel" value="For variables marked {image} you need to select at least one value"/>
 	 <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Select all"/>
@@ -277,7 +278,7 @@
 	 <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Number of selected data cells are:"/>
 	 <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(maximum number allowed is {0})" />
 	 <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="At least one value has to be selected for variable: " />
-   <sentence name="CtrlVariableSelectorValidationSummary" value="Error in following fields:" />
+   <sentence name="CtrlVariableSelectorValidationSummary" value="Select at least one value from these variables:" />
    <sentence name="CtrlVariableSelectorValidationMessage" value="Select at least one value" />
    <sentence name="CtrlVariableSelectorMandatoryText" value="Mandatory" />
    <sentence name="CtrlVariableSelectorContinueLabel" value="Select an option and press"/>
@@ -293,8 +294,13 @@
 	 <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Inside word" />
    <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Beginning of word" />
    <sentence name="CtrlVariableSelectorSearchValuesTextbox" value="Search" />
-   <sentence name="CtrlVariableSelectorSearchValuesTextboxScreenReaderText" value="Field for searching for a specific value in the list box" />
-   <sentence name="CtrlVariableSelectorSelectValuesListboxScreenReaderText" value="List box of selectable values for a variabel. Click to mark one or more values." />
+   <sentence name="CtrlVariableSelectorSearchValuesTextboxScreenReader" value="Field for searching for a specific value in the list box. This is examples of values you can search for." />
+   <sentence name="CtrlVariableSelectorSelectValuesListboxScreenReader" value="List box of selectable values for a variabel. Click to mark one or more values." />
+   <sentence name="CtrlVariableSelectorSearchResultSearchWordScreenReader" value="Search for , " />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader1" value=", resulted in , " />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader2" value=", hits, " />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader3" value=", Results" />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader4" value=", value, " />
 	 <sentence name="CtrlVariableSelectorManyValues" value="There are more than {0} values and therefore they are not shown automatically. Use links for &quot;Advanced search&quot; or &quot;Select values from group&quot;." />
 	 <sentence name="CtrlVariableSelectorLargeValueset" value="(Large valueset)" />
    <sentence name="CtrlVariableSelectorMetadataCloseButton" value="Close" />
@@ -416,7 +422,7 @@
    <sentence name="CtrlSearchValuesSearchLabel" value="Search" />
   
 	 <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="Number of hits: {0}" />
-	 <sentence name="CtrlSearchValuesSearchResultListboxScreenReaderText" value="List of hits from the search" />
+	 <sentence name="CtrlSearchValuesSearchResultListboxScreenReader" value="List of hits from the search" />
 	
 	 <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Select all" />
    <sentence name="CtrlSearchValuesAddToChoosenValues" value="Add to selected values" />
@@ -426,10 +432,15 @@
    <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Remove unmarked values" />
    <sentence name="CtrlSearchValuesRemoveFromChoosenValuesToolTip" value="Removes the Unmarked values from the list of selected values" />
    <sentence name="CtrlSearchValuesNumberOfChoosenValues2" value="Number of values: {0} out of {1}" />
-	 <sentence name="CtrlSearchValuesChoosenValuesListboxScreenReaderText" value="List of values to be shown for the variable." />
+	 <sentence name="CtrlSearchValuesChoosenValuesListboxScreenReader" value="List of values to be shown for the variable." />
 	
 	 <sentence name="CtrlSearchValuesCancel" value="Cancel" />
 	 <sentence name="CtrlSearchValuesAddToVariableSelector" value="OK, return to the main page with the selected values." />
+   <sentence name="CtrlSearchValuesUserManualScreenReaderRegion" value="User manual for advanced." />
+   <sentence name="CtrlSearchValuesUserManualScreenReader" value="The 'Advanced search' screen is used to search in long lists that contain over 1500 values. You can choose to fetch all values, or search for single values. If you use the search function, all matches will appear in a list where you can select one or more of the matches. (The selected values are displayed at the bottom of the screen. If you have selected too many, you can unmark these values and remove them.) You can repeat the search as many times as you want before returning to the main page with the selected values." />
+   <sentence name="CtrlSearchValuesSearchScreenReaderRegion" value="Search and results " />
+   <sentence name="CtrlSearchValuesSelectedValuesScreenReaderRegion" value="Selected values from search " />
+   <sentence name="CtrlSearchValuesSearchFieldScreenReader" value="Enter search key, code or description" />
 	
 
 
@@ -443,11 +454,11 @@
 	 <sentence name="CtrlTableQueryMoreInformation" value="More information" />
     <sentence name="CtrlTableQuerySaveQuery" value="Save API query (json)" />
    <sentence name="CtrlNavigationFlowStep1" value="Choose table" />
-   <sentence name="CtrlNavigationFlowStep1ScreenReaderText" value="Icon representing the page where you Choose table" />   
+   <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Icon representing the page where you Choose table" />   
    <sentence name="CtrlNavigationFlowStep2" value="Choose variable" />
-   <sentence name="CtrlNavigationFlowStep2ScreenReaderText" value="Icon representing the page where you Choose variable" />  
+   <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Icon representing the page where you Choose variable" />  
    <sentence name="CtrlNavigationFlowStep3" value="Show result" />
-   <sentence name="CtrlNavigationFlowStep3ScreenReaderText" value="Icon representing the page where you Show Result" />
+   <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Icon representing the page where you Show Result" />
 
    <sentence name="CtrlSaveQueryChoosetimeperiod" value="Update options" />
    <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="What do you want to do with your saved query if the tables are updated with new time periods?" />
@@ -479,21 +490,31 @@
    <sentence name="MasterPageSaveQueryInfoLatest" value="{0} most recent time periods" />
    <sentence name="MasterPageSaveQueryInfoFromTime" value="Fixed start time point {0} and all newer time periods" />
    <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Unchanged table" />
-   <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Select grouping ---" />
-  <sentence name="CtrlSelectFromGroupSelectGroupingScreenReaderText" value="Dropdownlist with groupings" />
-  <sentence name="CtrlSelectFromGroupHeading" value="Select values from group" />
+   
+ <sentence name="CtrlSelectFromGroupHeading" value="Select values from group for variable: {0}" />
+   <sentence name="CtrlSelectFromGroupSelectUserManualScreenReaderRegion" value="User manual for select values from group." />
+   <sentence name="CtrlSelectFromGroupSelectUserManualScreenReader" value="The 'Select values from group' screen can be used for variables where the values are grouped. You must first select grouping and then group. You can choose to display the single values in the group or (in some tables) aggregated values, before returning to the main page." />
+  
+  <sentence name="CtrlSelectFromGroupGroupingScreenReaderRegion" value="Selection of the grouping"/>
+  <sentence name="CtrlSelectFromGroupGrouping" value="Grouping:" />
+  <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Select grouping ---" />
+  <sentence name="CtrlSelectFromGroupSelectGroupingScreenReader" value="Dropdownlist with groupings" />
+  
+  <sentence name="CtrlSelectFromGroupGroupScreenReaderRegion" value="Processing the groups"/>
+  <sentence name="CtrlSelectFromGroupGroups" value="Groups:" />
+  <sentence name="CtrlSelectFromGroupGroupsScreenReader" value="List of groups in the currently selected grouping." />
+  <sentence name="CtrlSelectFromGroupRadiobuttonListLegend" value="Display values" />
   <sentence name="CtrlSelectFromGroupShowAggregatedValues" value="Show aggregated values" />
   <sentence name="CtrlSelectFromGroupShowSingleValues" value="Show single values" />
-  <sentence name="CtrlSelectFromGroupVariableDesc" value="Variable:" />
-  <sentence name="CtrlSelectFromGroupRadiobuttonListLegend" value="Display values" />
-  <sentence name="CtrlSelectFromGroupGroups" value="Groups:" />
-  <sentence name="CtrlSelectFromGroupGroupsScreenReaderText" value="List with available groups" />
-  <sentence name="CtrlSelectFromGroupValues" value="Values:" />
-  <sentence name="CtrlSelectFromGroupValuesScreenReaderText" value="List with available values" />
   <sentence name="CtrlSelectFromGroupSelectGroupsAggregated" value="Select as aggregated values" />
-  <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Select as single values" />
+  <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Select as single values" /> 
+
+  <sentence name="CtrlSelectFromGroupValuesScreenReaderRegion" value="Resulting values"/>  
+  <sentence name="CtrlSelectFromGroupValues" value="Values:" />
+  <sentence name="CtrlSelectFromGroupValuesScreenReader" value="List with available values" /> 
   <sentence name="CtrlSelectFromGroupSelectAndReturn" value="Select values and return to selection page" />
   <sentence name="CtrlSelectFromGroupCancel" value="Cancel" />
+
 
   <sentence name="PxcYear" value="year" />
 	 <sentence name="PxcHalfyear" value="halfyear" />
@@ -620,7 +641,7 @@
 	 <sentence name="PxWebApplicationName" value="Next PxWeb (Beta)"/>
    <sentence name="PxWebLogoAlt" value="Next PxWeb (Beta)"/>
    <sentence name="PxWebHome" value="Home"/>
-   <sentence name="PxWebHomeImageScreenReaderText" value="Icon representing home" />
+   <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="Error, PxWebChangeToThisLanguage not tranlated" />
    <sentence name="PxWebMenu" value="Menu"/>
    <sentence name="PxWebMenuExplanation" value="(C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement. Character in brackets shows the lowest regional level." />
@@ -725,10 +746,13 @@
   <sentence name="PxWebMetadataValuesHeader" value ="Values:"/>
   <sentence name="PxWebMetadataNoVariableMeta" value ="There is no definition for this variable"/>
   <sentence name="PxWebMetadataNoValueMeta" value ="There are no values with definitions"/>
-  <sentence name="PxWebToTheTopButtonLiteralText" value ="To the Top"/> 
-
-
-  <!-- PxWeb Administration -->
+  <sentence name="PxWebToTheTopButtonLiteralText" value ="To the Top"/>
+  <sentence name="PxWebSkipToMainContentLinkText" value="Jump to main content" />
+  <sentence name="PxWebSkipToMainContentLinkScreenReader" value="Press enter to go directly to main content" />
+  <sentence name="PxWebSkipToSelectionLinkText" value="Go to first variable" />
+  <sentence name="PxWebSkipToSelectionLinkScreenReader" value="Now you have come to the page, Choose variable. This page give you the oportunity to select which variables and values you want to display in your result of the table. A variable is a property of a statistical unit. The page is divided into several boxes, one for each variable, where you can select values by click to highlight one or more values. It always starts with the statistics variable which is the main value counted in the table." />
+  <sentence name="PxWebRegionSelectionUserManualScreenReader" value="User manual for selection page" />
+   <!-- PX-Web Administration -->
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
