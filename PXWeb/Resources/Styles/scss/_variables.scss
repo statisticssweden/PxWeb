@@ -20,18 +20,6 @@ $scrollbar-color: #b0b0b0;
 //temp color - delete after result are done.
 $pxweb-green-5: #E9F3E9;
 
-/*All pxbox links has icon.*/
-$pxbox-link-icon-ink: $pxweb-green-2; //corespons to pxweb-link-first-ink 
-$pxbox-link-text-ink: white;
-$pxbox-link-hover-ink: $pxweb-dark-6;
-$pxbox-link-hover-background: $pxweb-green-2;
-
-$pxweb-link-first-ink: $pxweb-green-4;  //for the icons and for text for links without icons 
-$pxweb-link-text-ink: $pxweb-dark-6;    //for text ink for links with icons
-$pxweb-link-hover-ink: white;
-$pxweb-link-hover-background: $pxweb-green-4;
-
-
 $mobile-screen: 576px;
 $tablet-screen: 768px;
 $desktop-screen: 992px;

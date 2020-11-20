@@ -54,29 +54,40 @@ $pxbox-green-2*/
 $pxweb-background: $pxweb-white;
 $pxweb-ink-main: $pxweb-black-1;
 
+//box
+$pxbox-background: $pxbox-dark-5;
+$pxbox-border: $pxbox-black-2;
+$pxbox-ink: $pxbox-white;
+
+/*#region Buttons */
 //buttons
 $pxweb-btn-color: $pxbox-green-4;
 $pxweb-btn-bg: $pxbox-white;
+$btn-icon: $pxweb-btn-color;
+$btn-icon-hover: $pxweb-btn-bg;
 
 //primary button
 $pxweb-primary-btn-color: $pxbox-white;
 $pxweb-primary-btn-bg: $pxweb-green-4;
 $pxweb-primary-btn-bg-hover: $pxweb-dark-5;
 
-//box
-$pxbox-background: $pxbox-dark-5;
-$pxbox-border: $pxbox-black-2;
-$pxbox-ink: $pxbox-white;
-
 //buttons inside box
 $pxbox-btn-color: $pxbox-white;
 $pxbox-btn-bg: $pxbox-dark-5;
-/*#endregion*/
-
-/*#region color for icons in buttons */
 $pxbox-btn-icon: $pxbox-btn-color;
 $pxbox-btn-icon-hover: $pxbox-btn-bg;
-$btn-icon: $pxweb-btn-color;
-$btn-icon-hover: $pxweb-btn-bg;
 /*#endregion*/
 
+/*#region Links */
+//All pxbox links has icon.
+$pxbox-link-icon-ink: $pxbox-green-2; //corespons to pxweb-link-first-ink
+$pxbox-link-text-ink: $pxbox-ink;
+$pxbox-link-hover-ink: $pxbox-dark-6;
+$pxbox-link-hover-background: $pxbox-green-2;
+
+$pxweb-link-first-ink: $pxweb-green-4; //for the icons and for text for links without icons
+$pxweb-link-text-ink: $pxweb-dark-6; //for text ink for links with icons
+$pxweb-link-hover-ink: $pxweb-white;
+$pxweb-link-hover-background: $pxweb-green-4;
+/*#endregion*/
+/*#endregion*/
