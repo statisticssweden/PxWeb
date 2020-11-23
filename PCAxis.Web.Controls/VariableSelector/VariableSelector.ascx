@@ -2,9 +2,13 @@
 <%@ Register Assembly="PCAxis.Web.Controls" Namespace="PCAxis.Web.Controls" TagPrefix="pxc" %>
 <%@ Import Namespace="PCAxis.Paxiom"%>
 <asp:Panel ID="VariableSelectorPanel" runat="server" >
-    
+    <div id="pxcontent"> 
+        <asp:Panel runat="server" ID="UserManualMainRegion" role="region">
+            <asp:Panel ID="UserManualMain" runat="server" CssClass="screenreader-only"></asp:Panel>
+        </asp:Panel>
+    </div>
     <pxc:VariableSelectorMarkingTips runat="server" ID="VariableSelectorMarkingTips"  />    
-    <asp:ValidationSummary ID="SelectionValidationSummary" runat="server" DisplayMode="BulletList"  ShowValidationErrors="true"  ShowMessageBox="false"  ShowSummary="true" CssClass="variableselector_error_summary"  ForeColor=""  ValidationGroup="ChangeStatus"  />
+    <asp:ValidationSummary ID="SelectionValidationSummary" runat="server" DisplayMode="BulletList" role="alert" ShowValidationErrors="true" ShowMessageBox="false" ShowSummary="true" CssClass="variableselector_error_summary" ForeColor="" />   
 <asp:Repeater ID="VariableSelectorValueSelectRepeater" runat="server" EnableViewState="true">      
         <HeaderTemplate>
             <div class="variableselector_variable_box_container">
@@ -19,21 +23,18 @@
     </asp:Repeater>    
  
    
-    <div class ="variableselector_show_table_container">
-        <asp:Button ID="ButtonViewTable" runat="server" CssClass="pxweb-btn primary-btn variableselector_continue_button" ValidationGroup="ChangeStatus"/>
+    <div class ="flex-row justify-center m-margin-top">
+        <asp:Button ID="ButtonViewTable" runat="server" CssClass="pxweb-btn primary-btn variableselector_continue_button justify-center" CausesValidation="true"/>
             </div>
-    <div class ="variableselector_info_selected_cells">
+    <div class ="flex-row justify-center">
      <pxc:VariableSelectorSelectionInformation runat="server" ID="VariableSelectorSelectionInformation" />
-                        </div>
- 
+    </div>
+    <div class="flex-row justify-center">
         <asp:Label ID="SelectionErrorlabel" runat="server" visible="true" CssClass="variableselector_selectionerror_label"/>
         <asp:Label ID="SelectionErrorlabelTextCells" runat="server" CssClass="variableselector_selectionerror_label_text" />
         <asp:Label ID="SelectionErrorlabelTextColumns" runat="server" CssClass="variableselector_selectionerror_label_text" />
         <asp:Label ID="SelectionErrorlabelTextRows" runat="server" CssClass="variableselector_selectionerror_label_text" />
-
-     
- 
-
+    </div>
 </asp:Panel>
 
 <asp:Panel ID="SearchVariableValuesPanel" runat="server" Visible="false">
@@ -82,7 +83,8 @@
     if(containerclass.length > 0 && boxelement.length > 0)
     {
             if (isSelectionLayoutCompact()) {
-                containerclass[0].classList.add('variableselector_variable_box_container_compact');
+                containerclass[0].classList.add('flex-row');
+                containerclass[0].classList.add('flex-wrap');
                 for (index = 0; index < boxelement.length; ++index) {
                     boxelement[index].classList.add('variableselector_valuesselect_box_compact');
                 }  
@@ -91,7 +93,7 @@
                 delayedEqualHeight(group);
             }
             else {
-                containerclass[0].classList.add('variableselector_variable_box_container_list');
+                containerclass[0].classList.add('flex-column');
                 for (index = 0; index < boxelement.length; ++index) {
                     boxelement[index].classList.add('variableselector_valuesselect_box_list');
                 }   
@@ -128,4 +130,10 @@
 //     }
 //}
 
+    function ValidateAll()
+    {
+        var isValid = false;
+        isValid = Page_ClientValidate();
+        return isValid;
+    }
 </script>    

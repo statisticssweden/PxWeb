@@ -1,0 +1,50 @@
+﻿@include file-header("_tablequery.scss");
+/* Used for TableQuery webcontrol, displays api query on resultpage */
+#pxwebcontent .tablequery_informationpanel {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: $pxweb-green-4;
+}
+
+#pxwebcontent .tablequery_informationtext {
+  display: block;
+}
+
+#pxwebcontent .tablequery_urlcaption {
+  display: block;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#pxwebcontent .tablequery_url {
+  display: block;
+  width: 700px;
+  font-family: 'Courier New';
+}
+
+#pxwebcontent .tablequery_querycaption {
+  display: block;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#pxwebcontent .tablequery_query {
+  display: block;
+  width: 700px;
+  margin-bottom: 10px;
+}
+
+.tablequery_moreinformation {
+  color: black !important;
+  float: right;
+}
+
+#pxwebcontent .tablequery_savequery {
+  @include roboto-condenced;
+  float: left;
+  background: $pxweb-green-4;
+  color: $pxweb-white;
+}

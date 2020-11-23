@@ -13,7 +13,7 @@ Public Class SearchValuesCodebehind
 
     Private Const LOC_SEARCH_LABEL As String = "CtrlSearchValuesSearchLabel"
     Private Const LOC_SEARCH_RESULTS_NUMBER_OF_HITS As String = "CtrlSearchValuesSearchResultNumberOfHits"
-    Private Const LOC_SEARCH_RESULTS_LISTBOX_ARIA_LABEL As String = "CtrlSearchValuesSearchResultListboxScreenReaderText"
+    Private Const LOC_SEARCH_RESULTS_LISTBOX_ARIA_LABEL As String = "CtrlSearchValuesSearchResultListboxScreenReader"
     Private Const LOC_SEARCH_ILLEGAL_CHARACTERS_ERROR As String = "PxWebIllegalCharactersErrorMessage"
     Private Const LOC_SEARCH_RESULTS_SELECT_ALL As String = "CtrlSearchValuesSearchResultSelectAll"
     Private Const LOC_SEARCH_ADD_TO_CHOOSEN_VALUES As String = "CtrlSearchValuesAddToChoosenValues"
@@ -23,12 +23,12 @@ Public Class SearchValuesCodebehind
     Private Const LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES As String = "CtrlSearchValuesRemoveFromChoosenValues"
     Private Const LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES_TOOLTIP As String = "CtrlSearchValuesRemoveFromChoosenValuesToolTip"
     Private Const LOC_SEARCH_NUMBER_OF_CHOOSEN_VALUES As String = "CtrlSearchValuesNumberOfChoosenValues2"
-    Private Const LOC_SEARCH_CHOOSEN_VALUES_LISTBOX_ARIA_LABEL As String = "CtrlSearchValuesChoosenValuesListboxScreenReaderText"
+    Private Const LOC_SEARCH_CHOOSEN_VALUES_LISTBOX_ARIA_LABEL As String = "CtrlSearchValuesChoosenValuesListboxScreenReader"
     Private Const LOC_SEARCH_CANCEL As String = "CtrlSearchValuesCancel"
     Private Const LOC_SEARCH_ADD_TO_VARIABLESELECTOR As String = "CtrlSearchValuesAddToVariableSelector"
 
     'These are also used:
-    ' "aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReaderText"))
+    ' "aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReader"))
     ' SearchValuesTextbox     ... ("placeholder", GetLocalizedString("CtrlVariableSelectorSearchValuesTextbox"))
     ' GetLocalizedString("CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox")
 #End Region
@@ -61,6 +61,12 @@ Public Class SearchValuesCodebehind
     Protected SelectedVariableValues As ListBox
     Protected WithEvents CancelButton As Button
     Protected WithEvents DoneButton As Button
+
+    'regions
+    Protected UserManualSearchRegion As Panel
+    Protected UserManualSearch As Panel
+    Protected SearchRegion As Panel
+    Protected SelectedValuesRegion As Panel
 #End Region
 
 
@@ -107,12 +113,11 @@ Public Class SearchValuesCodebehind
         litSelectionTips.Text = "<span>" + Me.GetLocalizedString(LOC_SEARCH_SELECTION_TIPS).Replace("\n", "</span><span>") + "</span>"
 
         'These 3 are from the "main selection" page, so they have no LOC_ constant.
-        SearchValuesTextbox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReaderText"))
         SearchValuesTextbox.Attributes.Add("placeholder", GetLocalizedString("CtrlVariableSelectorSearchValuesTextbox"))
         SearchValuesBeginningOfWordCheckBox.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox")
+        SearchValuesButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
 
-        SearchResults.Attributes.Add("aria-label", GetLocalizedString(LOC_SEARCH_RESULTS_LISTBOX_ARIA_LABEL))
-        SelectedVariableValues.Attributes.Add("aria-label", GetLocalizedString(LOC_SEARCH_CHOOSEN_VALUES_LISTBOX_ARIA_LABEL))
+
 
         MoveToResultButton.ToolTip = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_CHOOSEN_VALUES_TOOLTIP)
         MoveToResultButton.Text = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_CHOOSEN_VALUES)
@@ -133,7 +138,20 @@ Public Class SearchValuesCodebehind
         ' --- Deselect all button
         DeselectAllButton.ToolTip = GetLocalizedString("CtrlVariableSelectorDeSelectAllTooltip")
         DeselectAllButton.Text = GetLocalizedString("CtrlVariableSelectorDeSelectAllButton")
+
+        setWCAG()
     End Sub
+
+    Protected Sub setWCAG()
+        SearchResults.Attributes.Add("aria-label", GetLocalizedString(LOC_SEARCH_RESULTS_LISTBOX_ARIA_LABEL))
+        SelectedVariableValues.Attributes.Add("aria-label", GetLocalizedString(LOC_SEARCH_CHOOSEN_VALUES_LISTBOX_ARIA_LABEL))
+        UserManualSearchRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesUserManualScreenReaderRegion"))
+        UserManualSearch.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesUserManualScreenReader"))
+        SearchRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesSearchScreenReaderRegion"))
+        SelectedValuesRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesSelectedValuesScreenReaderRegion"))
+        SearchValuesTextbox.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesSearchFieldScreenReader"))
+    End Sub
+
 
 
     ''' <summary>

@@ -1,0 +1,151 @@
+$large-size: 195px;
+$medium-size: 150px;
+$small-size: 108px;
+
+.ssb-key-figures {
+  @include roboto;
+  color: $pxweb-dark-5;
+  display: flex;
+
+  .kf-icon {
+    color: $pxweb-dark-5;
+    display: inline-flex;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .kf-changes {
+    align-items: flex-end;
+    display: flex;
+    margin-top: 12px;
+
+    .changes-icon {
+      margin-right: 4px;
+    }
+
+    .changes-text {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .changes-period {
+      font-size: 16px;
+    }
+  }
+
+  &.large {
+
+    .kf-icon {
+      margin-right: 36px;
+      max-height: $large-size;
+      max-width: $large-size;
+      width: $large-size;
+    }
+
+    .subtitle {
+      margin-bottom: 30px;
+      margin-left: 4px;
+
+      @media #{$mobile} {
+        margin-bottom: 14px;
+      }
+    }
+  }
+
+  &.medium {
+
+    .kf-icon {
+      margin-right: 28px;
+      max-height: $medium-size;
+      max-width: $medium-size;
+      width: $medium-size;
+    }
+
+    .subtitle {
+      margin-bottom: 19px;
+      margin-left: 4px;
+
+      @media #{$mobile} {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &.small {
+
+    .kf-icon {
+      margin-right: 20px;
+      max-height: $small-size;
+      max-width: $small-size;
+      width: $small-size;
+    }
+
+    .subtitle {
+      margin-bottom: 9px;
+      margin-left: 4px;
+    }
+  }
+
+  @media #{$mobile} {
+
+    .kf-icon {
+      display: none;
+    }
+  }
+
+  .number-section {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .kf-time {
+    @include open-sans;
+    font-size: 16px;
+    margin-top: 4px;
+  }
+
+  .kf-title {
+    @include roboto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+
+    &.subtitle {
+      color: $pxweb-dark-5;
+    }
+  }
+
+  .no-number {
+    @include roboto;
+    color: $pxweb-dark-3;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &.green-box {
+    position: relative;
+    background: $pxweb-green-1;
+    padding: 38px 40px;
+    border-radius: 2px;
+    width: 100%;
+
+    &:after {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(229, 254, 230, 0);
+      border-top-color: $pxweb-green-1;
+      border-width: 42px;
+      margin-left: -42px;
+    }
+  }
+}

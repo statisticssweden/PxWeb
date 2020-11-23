@@ -1,0 +1,39 @@
+.ssb-sticky-menu {
+  @include roboto;
+  align-items: center;
+  background-color: $pxweb-white;
+  border: solid 1px $pxweb-dark-2;
+  box-shadow: 2px 2px 10px 0 rgba(206, 205, 205, .5);
+  color: $pxweb-dark-6;
+  display: flex;
+  justify-content: center;
+  line-height: normal;
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  .menu-content {
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .chevron-down-icon {
+    color: $pxweb-green-4;
+    font-size: 18px;
+    margin-right: 2px;
+  }
+
+  input {
+	min-width: 180px;
+	width: 100%;
+  }
+
+  .input-header {
+    color: $pxweb-dark-5;
+    font-size: 18px;
+	font-weight: bold;
+	margin-right: 10px;
+	white-space: nowrap;
+  }
+
+}

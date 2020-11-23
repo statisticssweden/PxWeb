@@ -1,0 +1,88 @@
+$direction-button-height: 30px;
+$direction-button-width: 80px;
+
+.ssb-pagination {
+  @include roboto;
+  align-items: center;
+  display: flex;
+  line-height: 1.25;
+
+  .nav-button-square {
+    @include focus-marker;
+    @include reset-button;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: $pxweb-green-4;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    margin: 0 4px;
+    width: 30px;
+
+    &.selected {
+      background: $pxweb-green-4;
+      color: $pxweb-white;
+      font-weight: bold;
+    }
+
+    &:hover {
+      border: 1px solid $pxweb-green-4;
+      border-radius: 2px;
+      font-weight: bold;
+    }
+  }
+
+  .dotted-indicator {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 4px;
+    width: 30px;
+  }
+
+  .direction-button {
+    @include focus-marker;
+    @include reset-button;
+    align-items: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: $direction-button-height;
+    justify-content: center;
+    padding: 4px 10px;
+    //width: $direction-button-width;
+
+    &:first-of-type {
+      text-align: right;
+    }
+
+    .chevron-icon {
+      color: $pxweb-green-4;
+      font-size: 16px;
+    }
+
+    &:hover {
+      border-radius: 2px;
+      color: $pxweb-green-4;
+      font-weight: bold;
+      border: 1px solid $pxweb-green-4;
+    }
+
+    &.previous {
+
+      .chevron-icon {
+        margin-right: 2px;
+      }
+    }
+
+    &.next {
+
+      .chevron-icon {
+        margin-left: 2px;
+      }
+    }
+  }
+}

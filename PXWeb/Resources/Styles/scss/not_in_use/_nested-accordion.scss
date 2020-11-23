@@ -1,0 +1,59 @@
+#{$selector_prefix}-nested-accordion {
+    @include roboto;
+    display: grid;
+    margin-top: 8px;
+    min-width: 300px;
+    width: 100%;
+
+    .nested-accordion-header {
+        @include focus-marker;
+        @include reset-button;
+
+        .button-grid {
+            align-items: center;
+            cursor: pointer;
+            display: grid;
+            grid-column-gap: 16px;
+            grid-template-columns: 15px 1fr;
+        }
+
+        .expand-icon {
+            color: $pxweb-green-4;
+            font-size: 16px;
+        }
+
+        .header-text {
+            @include roboto;
+            color: $pxweb-dark-6;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.25;
+        }
+
+        &:hover {
+
+            .header-text {
+                color: $pxweb-green-4;
+            }
+        }
+
+        &.open {
+
+            .header-text, .sub-header {
+                color: $pxweb-green-4;
+            }
+        }
+    }
+
+    .nested-accordion-body {
+        @include open-sans;
+        color: $pxweb-dark-6;
+        font-size: 16px;
+        padding: 10px 10px 10px 30px;
+
+        &.closed {
+            display: none;
+            height: 0;
+        }
+    }
+}

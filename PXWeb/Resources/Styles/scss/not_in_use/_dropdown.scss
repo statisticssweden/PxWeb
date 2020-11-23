@@ -1,0 +1,135 @@
+#{$selector_prefix}-dropdown {
+    @include roboto;
+    display: flex;
+    flex-direction: column;
+    transition: all .25s ease-in-out;
+    max-width: 350px;
+    min-width: 150px;
+    position: relative;
+
+    label {
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 5px;
+    }
+
+    .dropdown-interactive-area {
+        @include focus-marker;
+        @include reset-button;
+        cursor: pointer;
+        position: relative;
+
+        button {
+            @include focus-marker;
+            @include reset-button;
+            width: 100%;
+        }
+
+        .dd-icon {
+            color: $pxweb-green-4;
+            font-size: 24px;
+            position: absolute;
+            right: 12px;
+            top: 10px;
+        }
+
+        input {
+            background-color: $pxweb-white;
+            border: 1px solid $pxweb-dark-6;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-size: 16px;
+            height: $input-field-height;
+            padding: 4px $input-field-height 4px 12px;
+            text-overflow: ellipsis;
+            width: 100%;
+
+            &::placeholder {
+                color: $pxweb-dark-6;
+            }
+
+            &:hover {
+                border: 1px solid $pxweb-green-4;
+            }
+
+            &:focus, &.focused {
+                border: 1px solid $pxweb-green-4;
+                outline: $pxweb-green-4 auto 1px;
+            }
+        }
+    }
+
+    .list-of-options {
+        @include roboto;
+        background: $pxweb-white;
+        border: 1px solid $pxweb-dark-6;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        max-height: 235px;
+        min-width: 150px;
+        overflow-y: auto;
+        padding-left: 0;
+        position: absolute;
+        scrollbar-color: $scrollbar-color $scrollbar-color; // Firefox experimental property
+        scrollbar-width: thin;
+        top: $input-field-height;
+        z-index: 9999;
+        width: 100%;
+
+        .option-list-element {
+            @include focus-marker;
+            @include reset-button;
+            @include roboto;
+            background: $pxweb-white;
+            cursor: pointer;
+            display: block;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 1.25;
+            overflow: hidden;
+            padding: 12px;
+            text-overflow: ellipsis;
+            transition: all .18s;
+            width: 100%;
+
+            &:hover, &:focus, &.active {
+                background: $pxweb-dark-5;
+                color: $pxweb-white;
+                z-index: 2;
+            }
+
+            &:disabled {
+                background: $pxweb-white;
+                color: $pxweb-dark-2;
+                cursor: not-allowed;
+                font-weight: normal;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                    background: none;
+                }
+            }
+
+            &.selected {
+                background: $pxweb-green-4;
+                color: $pxweb-white;
+                font-weight: bold;
+            }
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $pxweb-white;
+        border-bottom: 1px solid $pxweb-dark-6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $scrollbar-color;
+        border-radius: 3px;
+    }
+}

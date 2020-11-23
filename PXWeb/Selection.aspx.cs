@@ -175,7 +175,6 @@ namespace PXWeb
             }
 
             VariableSelector1.MetaLinkProvider = _linkManager;
-            DisplayTableMetadataLinks();
             VariableSelector1.PxActionEvent += new PCAxis.Web.Controls.PxActionEventHandler(HandlePxAction);
             VariableSelector1.MetadataInformationSelected += new VariableSelector.MetadataInformationSelectedEventHandler(HandleMetaDataInformationAction);
             VariableSelector1.LeaveVariableSelectorMain += new VariableSelector.LeaveVariableSelectorMainEventHandler(HandleLeaveVariableSelectorMain);
@@ -222,6 +221,7 @@ namespace PXWeb
             VariableSelector1.ShowHierarchies = PXWeb.Settings.Current.Selection.Hierarchies.ShowHierarchies;
             VariableSelector1.HierarchicalSelectionLevelsOpen = PXWeb.Settings.Current.Selection.Hierarchies.HierarchicalLevelsOpen;
             VariableSelector1.ShowMarkingTips = PXWeb.Settings.Current.Selection.MarkingTips.ShowMarkingTips;
+            VariableSelector1.ClientSideValidation  = PXWeb.Settings.Current.Selection.ClientSideValidation;
 
             string markingTipsPage;
             markingTipsPage = PCAxis.Web.Controls.Configuration.ConfigurationHelper.GetPxPage("markingtips");
@@ -371,60 +371,19 @@ namespace PXWeb
                 InitializeDetailedInformation(path);
                 InformationLinks.Visible = true;
                 SelectionFootnotes.Visible = false;
-                SelectionInformation.Visible = false;
                 divFootnotes.Visible = false;
-                InformationBox.Visible = false;
-
             }
             else
             {
-                SelectionInformation.ShowInformationTypes = PXWeb.Settings.Current.General.Global.ShowInformationTypes.GetSelectedInformationTypes();
                 InitializeDetailedInformation(path);
                 InformationLinks.Visible = false;
                 SelectionFootnotes.Visible = true;
-                SelectionInformation.Visible = true;
-                InformationBox.Visible = true;
-                lblInfo.Text= PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebAboutTable");
                 IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
                 bool bMeta = PXWeb.Settings.Current.Database[url.Database].Metadata.UseMetadata;
             }
 
         }
 
-        private void DisplayTableMetadataLinks()
-        {
-            if (!PXWeb.Settings.Current.Selection.MetadataAsLinks)
-            {
-                IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
-                if (PXWeb.Settings.Current.Database[url.Database].Metadata.UseMetadata)
-                {
-                    if (!string.IsNullOrWhiteSpace(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.MetaId))
-                    {
-                        List<PCAxis.Metadata.MetaLink> links = _linkManager.GetTableLinks(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.MetaId, LocalizationManager.CurrentCulture.Name).ToList();
-                        if (links.Count > 0) 
-                        {
-                            String icon_out = "<i class='icon-wrapper'><svg focusable='false' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-external-link'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'></path><polyline points='15 3 21 3 21 9'></polyline><line x1='10' y1='14' x2='21' y2='3'></line></svg></i>";
-                            /*If we get other use cases for TableLink, we need to take a look at how we do this, but for now we can put everything here */
-                            Literal div = new Literal();
-                            div.Text = "<div class=\"pxweb_about_the_statistics\">";
-                            divTableLinks.Controls.Add(div);
-                            foreach (PCAxis.Metadata.MetaLink link in links)
-                            {
-                                HyperLink lnk = new HyperLink();
-                                lnk.Text = icon_out  + String.Format("<span class=\"link-text\">{0}</span>", Server.HtmlEncode(link.LinkText));
-                                lnk.NavigateUrl = link.Link;
-                                lnk.Target = link.Target;
-                                lnk.CssClass = "pxweb-link with-icon";
-                                divTableLinks.Controls.Add(lnk);
-                            }
-                            Literal divend = new Literal();
-                            divend.Text = "</div>";
-                            divTableLinks.Controls.Add(divend);
-                        }
-                    }
-                }
-            }
-        }
 
         /// <summary>
         /// Initializes the link with detailed information about the table
@@ -440,20 +399,20 @@ namespace PXWeb
             lnkDetailedInformation.Visible = false;
             
             if (!string.IsNullOrEmpty(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile) && PXWeb.Settings.Current.General.Global.ShowInfoFile)
-            {                
+            {
                 try
-                {                                  
-                    
+                {
+
                     //Check if infofile is an URL
                     Uri uriResult;
                     if (Uri.TryCreate(PaxiomManager.PaxiomModel.Meta.InfoFile, UriKind.Absolute, out uriResult) && uriResult.Scheme == Uri.UriSchemeHttp)
                     {
                         SetDetailedInformationLink(uriResult.ToString());
                     }
-                    else 
+                    else
                     {
                         path = path.Replace("__", @"\");
-                        
+
                         strPathTmp = Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + path);
 
                         if (Directory.Exists(strPathTmp))
@@ -465,9 +424,9 @@ namespace PXWeb
                                     strInfoFile = file;
                                 }
                             }
-                        }                                     
+                        }
                     }
-               
+
 
                     if (strInfoFile.Length > 0)
                     {
@@ -485,7 +444,7 @@ namespace PXWeb
                             {
                                 strInfoFile = "~" + strInfoFile;
                             }
-                            
+
                             SetDetailedInformationLink(HttpUtility.UrlPathEncode(strInfoFile));
 
                         }
@@ -507,14 +466,6 @@ namespace PXWeb
                             litDetailedInformation.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile.ToLower();
                             lnkDetailedInformation.Visible = false;
                         }
-                        else if (PXWeb.Settings.Current.General.Global.ShowInfoFile)
-                        {
-                            litDetailedInformation2.Visible = true;
-                            litDetailedInformation2.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile.ToLower();
-                            lnkDetailedInformation2.Visible = false;
-                            lnkDetailedInformation2.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebDetailedInformation");
-                        
-                        }
                     }
                     else
                     {
@@ -526,15 +477,6 @@ namespace PXWeb
                             lnkDetailedInformation.Visible = true;
                             lnkDetailedInformation.NavigateUrl = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile;
                             lnkDetailedInformation.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebDetailedInformation");
-                        }
-                        else 
-                        {
-                            litDetailedInformation2.Visible = true;
-                            litDetailedInformation2.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebDetailedInformation");
-
-                            lnkDetailedInformation2.Visible = true;
-                            lnkDetailedInformation2.NavigateUrl = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile;
-                            lnkDetailedInformation2.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile;
                         }
                     }
                 }
@@ -551,16 +493,6 @@ namespace PXWeb
                 lnkDetailedInformation.Visible = true;
                 lnkDetailedInformation.NavigateUrl = link;
             }
-            else if (PXWeb.Settings.Current.General.Global.ShowInfoFile)
-            {
-                lnkDetailedInformation2.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile.ToLower();
-                lnkDetailedInformation2.Visible = true;
-                lnkDetailedInformation2.NavigateUrl = link;
-
-                litDetailedInformation2.Visible = true;
-                litDetailedInformation2.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebDetailedInformation");
-            }
-
         }
 
         public static string RemoveQueryStringByKey(string url, string key)
@@ -629,7 +561,6 @@ namespace PXWeb
         {
             ucVariableOverview.Visible = false;
             Master.SetNavigationFlowVisibility(false);
-            InformationBox.Visible = false;
             SwitchLayout.Visible = false;
             SelectionFootnotes.Visible = false;
             MaintainScrollPositionOnPostBack = false;
@@ -639,7 +570,6 @@ namespace PXWeb
         {
             ucVariableOverview.Visible = SelectionLayout == LayoutFormat.simple ? true : false;
             Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
-            InformationBox.Visible = true;
             SwitchLayout.Visible = true;
             SelectionFootnotes.Visible = PXWeb.Settings.Current.Selection.MetadataAsLinks != true;
             MaintainScrollPositionOnPostBack = false;

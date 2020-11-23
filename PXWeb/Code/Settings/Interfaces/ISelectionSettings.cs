@@ -109,5 +109,7 @@ namespace PXWeb
         /// Decides if text for no footnotes should be displayed
         /// </summary>
         bool ShowNoFootnoteForSelection { get; }
+
+        bool ClientSideValidation { get; }
     }
 }

@@ -1,0 +1,55 @@
+@include file-header("common/_checkbox-pxbox.scss");
+
+#{$selector_prefix-pxbox}-checkbox {
+  /*color: $pxbox-dark-6;*/
+
+  &:hover, &:focus {
+
+    .checkbox-label {
+
+      &:before {
+        border: 2px solid $pxbox-green-4;
+      }
+    }
+  }
+
+  input[type=checkbox] {
+
+    &:focus + .checkbox-label {
+
+      &:before {
+        border: 2px solid $pxbox-green-4;
+      }
+    }
+
+    &:checked + .checkbox-label {
+
+      &:before {
+        background: $pxbox-background;
+      }
+
+      &:after {
+        border: solid $pxbox-white;
+        border-width: 0 2px 2px 0;
+      }
+    }
+
+    &:disabled + .checkbox-label {
+      background: $pxbox-white;
+      color: $pxbox-dark-2;
+
+      &:before {
+        border: 1px solid $pxbox-dark-2;
+      }
+    }
+  }
+
+  .checkbox-label {
+
+    &:before {
+      background: $pxbox-white;
+      border: 1px solid $pxbox-dark-5;
+    }
+
+  }
+}

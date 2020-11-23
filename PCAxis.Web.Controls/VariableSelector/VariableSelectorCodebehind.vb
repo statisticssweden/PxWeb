@@ -42,6 +42,8 @@ Public Class VariableSelectorCodebehind
     Protected WithEvents SelectValuesFromGroup As SelectFromGroup
     Private buttonClicked As Boolean = False 'If the Continue button is clicked or not
     Protected SelectionValidationSummary As ValidationSummary
+    Protected UserManualMainRegion As Panel
+    Protected UserManualMain As Panel
 #End Region
 
 #Region " Properties "
@@ -80,6 +82,15 @@ Public Class VariableSelectorCodebehind
             query = From v In Me.PaxiomModel.Meta.Variables Order By v.IsContentVariable Descending
         End If
 
+
+
+        'Clientsidecalidation if true, else serverside
+
+        If Marker.ClientSideValidation Then
+            ButtonViewTable.OnClientClick = "return ValidateAll()"
+        Else
+            ButtonViewTable.OnClientClick = ""
+        End If
 
         'VariableSelectorValueSelectRepeater.DataSource = Me.PaxiomModel.Meta.Variables
         VariableSelectorValueSelectRepeater.DataSource = query
@@ -165,6 +176,7 @@ Public Class VariableSelectorCodebehind
                 VariableSelect.Variable = var
                 VariableSelect.LimitSelectionsBy = Marker.LimitSelectionsBy
                 VariableSelect.ShowElimMark = Marker.ShowElimMark
+                VariableSelect.ClientSideValidation = Marker.ClientSideValidation
                 VariableSelect.ShowHierarchies = Marker.ShowHierarchies
                 VariableSelect.AllowAggreg = Marker.AllowAggreg
                 VariableSelect.SearchButtonMode = Marker.SearchButtonMode
@@ -214,6 +226,9 @@ Public Class VariableSelectorCodebehind
         Else
             SelectionErrorlabelTextCells.Text = String.Format(Me.GetLocalizedString(CELL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedTotalCellsDownloadLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
         End If
+
+        UserManualMainRegion.Attributes.Add("aria-label", LocalizationManager.GetLocalizedString("PxWebSelectionUserManualScreenReaderRegion"))
+        UserManualMain.Attributes.Add("aria-label", LocalizationManager.GetLocalizedString("PxWebSkipToSelectionLinkUserManualScreenReader"))
 
     End Sub
 
@@ -363,6 +378,7 @@ Public Class VariableSelectorCodebehind
     '''' <remarks></remarks>
     Private Sub ButtonViewTable_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ButtonViewTable.Click
         buttonClicked = True
+        Page.Validate()
         ViewTable()
     End Sub
 

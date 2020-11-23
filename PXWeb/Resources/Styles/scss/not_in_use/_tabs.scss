@@ -1,0 +1,53 @@
+.ssb-tabs {
+  display: flex;
+  flex-direction: row;
+
+  .navigation-item {
+    @include reset-button;
+    @include roboto;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    justify-content: center;
+    line-height: 1.25;
+    outline: none;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background .2s;
+
+    &:not(:last-of-type) {
+      margin-right: $global-padding-size * 2;
+    }
+
+    &:before {
+      background: $pxweb-dark-5;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 0;
+      left: 0;
+      position: absolute;
+      transition: all .2s;
+      width: 100%;
+    }
+
+    &.active {
+
+      &:before {
+        background: $pxweb-green-3;
+        height: 4px;
+      }
+    }
+
+    &:hover, &:focus {
+
+      &:before {
+        height: 4px;
+      }
+    }
+  }
+}

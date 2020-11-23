@@ -1,0 +1,53 @@
+﻿@include file-header("_MetadataSystemControl.scss");
+/*Not all are in use in MetadataSystemControl. And MetadataSystemControl is perhaps no longer needed. */
+/* left most colors unchanged*/
+
+#pxwebcontent .meta_heading {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#pxwebcontent .metadata_selectVariable {
+  margin-top: 10px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  color: $pxweb-black-1;
+}
+
+#pxwebcontent .meta_tablelink {
+  display: block;
+  color: #03649c !important;
+}
+
+#pxwebcontent .meta_header {
+  width: 100%;
+  border-bottom: 3px solid #dddddd;
+}
+
+#pxwebcontent .metadata_header {
+  font-weight: bold;
+  margin-top: 30px;
+  display: block;
+}
+
+#pxwebcontent .meta_row {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+}
+
+#pxwebcontent .meta_left {
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+}
+
+#pxwebcontent .meta_right {
+  display: inline-block;
+}
+
+#pxwebcontent .metadata_no_meta {
+  font-style: italic;
+}

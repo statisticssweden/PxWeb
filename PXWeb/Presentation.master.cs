@@ -53,7 +53,6 @@ namespace PXWeb
                     InitializeInformationAndFootnotes();
                     InitializeTableQuery();
                     InitializeSaveQueryFunction();
-                    this.panelTabs.Visible = ShowTabs();
                 }
                 //lnkSaveQueryInformation.NavigateUrl = PanelLink.BuildLink("savequery1");
                 //lnkHideInformation.NavigateUrl = PanelLink.BuildLink("");
@@ -150,38 +149,24 @@ namespace PXWeb
         private void InitializeInformationAndFootnotes()
         {
             Footnotes.Visible = true;
-            Information.Visible = true;
-            Information.ShowInformationTypes = PXWeb.Settings.Current.General.Global.ShowInformationTypes.GetSelectedInformationTypes();
             Footnotes.ShowMandatoryOnly = false;
             Footnotes.ShowNoFootnotes = false;
 
             switch (PXWeb.Settings.Current.General.Global.TableInformationLevel)
             {
-                case PCAxis.Paxiom.InformationLevelType.AllFootnotes:
-                    Information.Visible = false;
-                    break;
                 case PCAxis.Paxiom.InformationLevelType.AllInformation:
                     break;
                 case PCAxis.Paxiom.InformationLevelType.MandantoryFootnotesOnly:
                     Footnotes.ShowMandatoryOnly = true;
-                    Information.Visible = false;
                     break;
                 case PCAxis.Paxiom.InformationLevelType.None:
                     Footnotes.Visible = false;
-                    Information.Visible = false;
                     break;
                 default:
                     break;
             }
         }
-        /// <summary>
-        /// If Show metadata as link = true then the tabs shall not appear
-        /// </summary>
-        /// <returns></returns>
-        private bool ShowTabs()
-        {
-            return ! PXWeb.Settings.Current.Selection.MetadataAsLinks;
-        }
+
         /// <summary>
         /// Initialize the Table query web component
         /// </summary>

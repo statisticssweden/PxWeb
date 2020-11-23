@@ -1,0 +1,18 @@
+#{$selector_prefix}-text-wrapper {
+    @include open-sans;
+    color: $pxweb-dark-6;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 1.7;
+    max-width: $max-readable-width;
+
+    &.small-text {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    &.negative {
+        color: $pxweb-white;
+    }
+}

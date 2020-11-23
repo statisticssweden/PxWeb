@@ -1,0 +1,41 @@
+.ssb-tag {
+  @include focus-marker;
+  @include roboto;
+  @include reset-button;
+  align-items: center;
+  background: $pxweb-white;
+  border: 1px solid $pxweb-green-4;
+  border-radius: 20px;
+  color: $pxweb-green-4;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  height: 36px;
+  line-height: 1.25;
+  min-height: 26px;
+  padding: 8px 16px;
+  text-align: center;
+  transition: background .18s, color .18s;
+  white-space: nowrap;
+
+  &:hover, &:active {
+    cursor: pointer;
+  }
+
+  &:hover, &:focus {
+    background: $pxweb-green-4;
+    color: $pxweb-white;
+  }
+
+  &:active {
+    background: $pxweb-dark-5;
+    border: 2px solid $pxweb-dark-5;
+    color: $pxweb-white;
+  }
+
+  .st-icon {
+    display: inline-flex;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}
