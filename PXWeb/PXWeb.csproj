@@ -265,6 +265,8 @@
     <Content Include="Resources\Images\svg\deselect-all-hover.svg" />
     <Content Include="Resources\Images\svg\deselect-all.svg" />
     <Content Include="Resources\Images\svg\external-link.svg" />
+    <Content Include="Resources\Images\svg\key-hover.svg" />
+    <Content Include="Resources\Images\svg\key.svg" />
     <Content Include="Resources\Images\svg\list-hover.svg" />
     <Content Include="Resources\Images\svg\list.svg" />
     <Content Include="Resources\Images\svg\mandatory-white.svg" />
@@ -306,14 +308,22 @@
     <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.css" />
     <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.min.css" />
     <Content Include="Resources\Styles\jQuery\redmond\theme.css" />
+    <Content Include="Resources\Styles\main-common.css" />
+    <Content Include="Resources\Styles\main-common.min.css" />
+    <Content Include="Resources\Styles\main-custom.css" />
+    <Content Include="Resources\Styles\main-custom.min.css" />
+    <Content Include="Resources\Styles\main-pxweb.css" />
+    <Content Include="Resources\Styles\main-pxweb.min.css" />
     <Content Include="Resources\Styles\metadata.css" />
     <Content Include="Resources\Styles\navigationFlow.css" />
     <Content Include="Resources\Styles\print.css" />
+    <Content Include="Resources\Styles\scss\not_in_use\_AReadMe.txt" />
     <Content Include="Resources\Styles\search.css" />
     <Content Include="Resources\Styles\selectfromgroup.css" />
     <Content Include="Resources\Styles\login.css" />
     <Content Include="Resources\Styles\variableOverview.css" />
     <Content Include="Search.aspx" />
+    <Content Include="UserControls\AccordianAboutTableControl.ascx" />
     <Content Include="UserControls\Login.ascx" />
     <Content Include="UserControls\MenuExplanation.ascx" />
     <Content Include="UserControls\MetadataSystemControl.ascx" />
@@ -790,6 +800,13 @@
     </Compile>
     <Compile Include="Table.aspx.designer.cs">
       <DependentUpon>Table.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AccordianAboutTableControl.ascx.cs">
+      <DependentUpon>AccordianAboutTableControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AccordianAboutTableControl.ascx.designer.cs">
+      <DependentUpon>AccordianAboutTableControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Login.ascx.cs">
       <DependentUpon>Login.ascx</DependentUpon>
@@ -1319,6 +1336,97 @@
     <None Include="packages.config" />
     <None Include="Resources\Styles\jQuery\tablesorter\blue.zip" />
     <Content Include="SavedQueryHandler.ashx" />
+    <Content Include="Resources\Styles\scss\color-themes\_dark.scss" />
+    <Content Include="Resources\Styles\scss\color-themes\_light.scss" />
+    <Content Include="Resources\Styles\scss\color-themes\_screen-reader.scss" />
+    <Content Include="Resources\Styles\scss\common\_accordion.scss" />
+    <Content Include="Resources\Styles\scss\common\_button-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_button.scss" />
+    <Content Include="Resources\Styles\scss\common\_checkbox-pxbox-override.scss" />
+    <Content Include="Resources\Styles\scss\common\_checkbox-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_checkbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_divider-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_divider.scss" />
+    <Content Include="Resources\Styles\scss\common\_glossary-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_glossary.scss" />
+    <Content Include="Resources\Styles\scss\common\_input-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_input.scss" />
+    <Content Include="Resources\Styles\scss\common\_link-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_link.scss" />
+    <Content Include="Resources\Styles\scss\common\_title-pxbox.scss" />
+    <Content Include="Resources\Styles\scss\common\_title.scss" />
+    <Content Include="Resources\Styles\scss\custom\_Custom-external.scss" />
+    <Content Include="Resources\Styles\scss\custom\_Custom.scss" />
+    <Content Include="Resources\Styles\scss\main-common.scss" />
+    <Content Include="Resources\Styles\scss\main-custom.scss" />
+    <Content Include="Resources\Styles\scss\main-pxweb.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_block-content.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_breadcrumb.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_card.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_checkbox-group.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_dialog.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_dropdown.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_factbox.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_footer.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_form-error.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_header.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_highlight.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_input-error.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_key-figures.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_lead-paragraph.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_nested-accordion.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_number.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_pagination.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_paragraph.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_picture-card.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_quote.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_radio-button.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_radio-group.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_references.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_sticky-menu.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_tableLink.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_tabs.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_tag.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_text-area.scss" />
+    <Content Include="Resources\Styles\scss\not_in_use\_text.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_Admin.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_breadcrumb.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_CommandBar.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_datasort.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_excel.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_footnote.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_hierarchical.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_information.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_login.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_login_admin_from_rev283_.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_menu.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_metadata.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_MetadataSystemControl.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_navigationFlow.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_print.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_PxWeb.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_PxWebButtons.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_savequery.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_search.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_searchvalues.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_searchvariablevalues.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_selectfromgroup.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_sitemappath-selectors.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_table.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_tableinformation.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_tablelist.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_tableofcontent.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_tablequery.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_textsearch.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_top-link.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_TreeView.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_variableOverview.scss" />
+    <Content Include="Resources\Styles\scss\pxweb\_variableselector.scss" />
+    <Content Include="Resources\Styles\scss\_global-styles-on-elements.scss" />
+    <Content Include="Resources\Styles\scss\_global-styles.scss" />
+    <Content Include="Resources\Styles\scss\_icon-backgrounds.scss" />
+    <Content Include="Resources\Styles\scss\_icons.scss" />
+    <Content Include="Resources\Styles\scss\_variables.scss" />
     <None Include="set-rights-2003.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

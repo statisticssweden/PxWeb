@@ -20,10 +20,7 @@ Public Class TableQueryCodebehind
     Private Shared Logger As log4net.ILog = log4net.LogManager.GetLogger(GetType(TableQueryCodebehind))
 
 #Region "fields"
-    Protected lnkTableQueryInformation As HyperLink
-    Protected lnkHideInformation As HyperLink
     Protected pnlQueryInformation As Panel
-    Protected pnlQueryInformationHidden As Panel
     Protected lblInformationText As Label
     Protected lblUrl As Label
     Protected txtUrl As TextBox
@@ -31,12 +28,11 @@ Public Class TableQueryCodebehind
     Protected txtQuery As TextBox
     Protected lnkMoreInfo As HyperLink
     Protected WithEvents btnSaveQuery As Button
+    Protected lblTableQueryInformation As Label
 #End Region
 
 #Region "Localized strings"
     Private Const LOC_TABLEQUERY_SHOW_INFORMATION As String = "CtrlTableQueryShowInformation"
-    Private Const LOC_TABLEQUERY_SHOW_INFORMATION_TOOLTIP As String = "CtrlTableQueryShowInformationTooltip"
-    Private Const LOC_TABLEQUERY_HIDE_INFORMATION As String = "CtrlTableQueryHideInformation"
     Private Const LOC_TABLEQUERY_INFORMATION_TEXT As String = "CtrlTableQueryInformationText"
     Private Const LOC_TABLEQUERY_URL_CAPTION As String = "CtrlTableQueryUrlCaption"
     Private Const LOC_TABLEQUERY_QUERY_CAPTION As String = "CtrlTableQueryQueryCaption"
@@ -54,15 +50,11 @@ Public Class TableQueryCodebehind
                 ShowApiQuery()
                 ShowMoreInfoLink()
                 Localize()
-                lnkTableQueryInformation.NavigateUrl = BuildLink(True)
-                lnkHideInformation.NavigateUrl = BuildLink(False)
                 btnSaveQuery.Visible = Marker.ShowSaveApiQueryButton
             Else
                 Me.Visible = False
             End If
         End If
-
-        SetDisplayMode()
     End Sub
 
     Private Sub Page_LanguageChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.LanguageChanged
@@ -107,24 +99,6 @@ Public Class TableQueryCodebehind
         Return False
     End Function
 
-    ''' <summary>
-    ''' Create URL for the show/hide information link
-    ''' </summary>
-    ''' <remarks></remarks>
-    Private Sub SetDisplayMode()
-        If Me.Visible Then
-            If Not QuerystringManager.GetQuerystringParameter("showtablequery") Is Nothing Then
-                If QuerystringManager.GetQuerystringParameter("showtablequery").Equals("true") Then
-                    pnlQueryInformation.Style.Add("display", "inline-block")
-                    pnlQueryInformationHidden.Style.Add("display", "none")
-                    Exit Sub
-                End If
-            End If
-
-            pnlQueryInformation.Style.Add("display", "none")
-            pnlQueryInformationHidden.Style.Add("display", "inline-block")
-        End If
-    End Sub
 
     ''' <summary>
     ''' Build Link for the show/hide link of API Query information
@@ -169,14 +143,12 @@ Public Class TableQueryCodebehind
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub Localize()
-        lnkTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
-        lnkTableQueryInformation.ToolTip = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION_TOOLTIP)
-        lnkHideInformation.Text = GetLocalizedString(LOC_TABLEQUERY_HIDE_INFORMATION)
         lblInformationText.Text = GetLocalizedString(LOC_TABLEQUERY_INFORMATION_TEXT)
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
         lnkMoreInfo.Text = GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)
         btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
+        lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
     End Sub
 
     ''' <summary>

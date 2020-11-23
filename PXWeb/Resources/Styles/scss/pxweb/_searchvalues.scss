@@ -1,0 +1,51 @@
+﻿@include file-header("_searchvalues.scss");
+/*For advanced search subpage of selection page.*/
+#pxwebcontent .searchvalues-container {
+  padding: 12px;
+}
+
+#pxwebcontent .searchvalues-usage-tips {
+  padding: 12px;
+  background-color: $pxbox-usage-tips; //$tableAlternatingRow-grey;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 95%;
+  color: $pxbox-black-2;
+}
+
+#pxwebcontent .fetch-all-button {
+  margin-top: 0px;
+}
+
+#pxwebcontent hr.green-rule {
+  width: 100%;
+  border-color: $pxbox-green-2;
+}
+
+#pxwebcontent .searchvalues-listbox-container {
+  margin-top: 10px;
+}
+
+#pxwebcontent .searchvalues-listbox {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  overflow: auto;
+  font-size: 100%;
+}
+
+#pxwebcontent .searchvalues-listbox:focus {
+  @include focus-ring;
+}
+
+  #pxwebcontent .searchvalues-listbox:disabled {
+    background-color: $pxbox-white;
+    opacity: 1;
+  }
+
+#pxwebcontent .searchvalues_options_container {
+  float: left;
+  width: 300px;
+}
+

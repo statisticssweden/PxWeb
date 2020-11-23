@@ -1,0 +1,88 @@
+@include file-header("common/_accordion.scss");
+
+#{$selector_prefix}-accordion {
+  display: grid;
+  width: 100%;
+
+  .accordion-header {
+    @include focus-marker;
+    @include reset-button;
+    @include roboto-condenced;
+    font-size: 20px;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+    background-image: get-icon( 'accordion-open', $pxweb-green-4);
+
+    &.closed {
+      background-image: get-icon( 'accordion-closed', $pxweb-green-4);
+    }
+
+    .header-text {
+      color: $pxweb-dark-6;
+      padding-left: 30px;
+    }
+
+    .sub-header {
+      color: $pxweb-green-4;
+    }
+
+    &:hover {
+
+      .header-text, .sub-header {
+        color: $pxweb-green-4;
+      }
+    }
+  }
+
+  &:not(.without-borders) {
+
+    &:before {
+      border-top: 1px solid $pxweb-dark-2;
+      content: '';
+      height: 2px;
+      padding-bottom: 8px;
+      display: block;
+    }
+
+    &:after {
+      border-bottom: 1px solid $pxweb-dark-2;
+      content: '';
+      height: 2px;
+      margin-bottom: -1px;
+      padding-top: 8px;
+      display: block;
+    }
+  }
+
+  &.with-sub-header {
+
+    .button-grid {
+      grid-template-columns: fit-content(100px) auto 20px;
+    }
+
+    .accordion-header {
+
+      .header-text {
+        grid-column-start: 2;
+      }
+
+      .sub-header {
+        align-self: start;
+        grid-column-start: 1;
+      }
+    }
+  }
+
+  .accordion-body {
+    @include roboto;
+    color: $pxweb-dark-6;
+    font-size: 16px;
+    padding: $global-padding-size 50px $global-padding-size 0;
+
+    &.closed {
+      display: none;
+      height: 0;
+    }
+  }
+}

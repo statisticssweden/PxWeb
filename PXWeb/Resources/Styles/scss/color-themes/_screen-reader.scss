@@ -1,0 +1,87 @@
+﻿/*#region  Active colors */
+$pxweb-green-1: #fff;
+$pxweb-green-2: #fff;
+$pxweb-green-3: #fff;
+$pxweb-green-4: #fff;
+$pxweb-red-3: #fff;
+$pxweb-dark-2: #fff;
+$pxweb-dark-4: #fff;
+$pxweb-dark-5: #fff;
+$pxweb-dark-6: #fff;
+$pxweb-white: #fff;
+$pxweb-purple-3: #fff;
+$pxweb-blue-3: #fff;
+$pxweb-black-1: #fff;
+$pxweb-black-2: #fff;
+$pxweb-black-3: #fff;
+$px-messages-border: #fff;
+$header-h1-sort-of-grey: #fff;
+$header-h2-sort-of-grey: #fff; // and more
+$tableAlternatingRow-grey: #fff; //aka #footer grey and the new searchvalues-usage-tips
+$another-errormessage: #fff;
+$breadcrumb-background: #fff;
+$breadcrumb-text: #fff;
+$breadcrumb-text-nolink: #fff;
+/*#endregion*/
+
+/*#region  Active colors inside pxbox*/
+//$pxbox-green-1: #ecfeed;
+$pxbox-green-2: #fff;
+$pxbox-green-3: #fff;
+$pxbox-green-4: #fff;
+$pxbox-red-3: #fff;
+$pxbox-dark-2: #fff;
+$pxbox-dark-4: #fff;
+$pxbox-dark-5: #fff;
+$pxbox-dark-6: #fff;
+$pxbox-white: #fff;
+$pxbox-purple-3: #fff;
+$pxbox-blue-3: #fff;
+$pxbox-black-1: #fff;
+$pxbox-black-2: #fff;
+$pxbox-black-3: #fff;
+$pxbox-usage-tips: #fff; // =$tableAlternatingRow-grey;
+/*#endregion*/
+
+/*#region  Main color scheme */
+//main
+$pxweb-background: $pxweb-white;
+$pxweb-ink-main: $pxweb-black-1;
+
+//box
+$pxbox-background: $pxbox-dark-5;
+$pxbox-border: $pxbox-black-2;
+$pxbox-ink: $pxbox-white;
+
+/*#region Buttons */
+//buttons
+$pxweb-btn-color: $pxbox-green-4;
+$pxweb-btn-bg: $pxbox-white;
+$btn-icon: $pxweb-btn-color;
+$btn-icon-hover: $pxweb-btn-bg;
+
+//primary button
+$pxweb-primary-btn-color: $pxbox-white;
+$pxweb-primary-btn-bg: $pxweb-green-4;
+$pxweb-primary-btn-bg-hover: $pxweb-dark-5;
+
+//buttons inside box
+$pxbox-btn-color: $pxbox-white;
+$pxbox-btn-bg: $pxbox-dark-5;
+$pxbox-btn-icon: $pxbox-btn-color;
+$pxbox-btn-icon-hover: $pxbox-btn-bg;
+/*#endregion*/
+
+/*#region Links */
+//All pxbox links has icon.
+$pxbox-link-icon-ink: $pxweb-green-2; //corespons to pxweb-link-first-ink
+$pxbox-link-text-ink: white;
+$pxbox-link-hover-ink: $pxweb-dark-6;
+$pxbox-link-hover-background: $pxweb-green-2;
+
+$pxweb-link-first-ink: $pxweb-green-4; //for the icons and for text for links without icons
+$pxweb-link-text-ink: $pxweb-dark-6; //for text ink for links with icons
+$pxweb-link-hover-ink: white;
+$pxweb-link-hover-background: $pxweb-green-4;
+/*#endregion*/
+/*#endregion*/

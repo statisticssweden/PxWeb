@@ -156,6 +156,9 @@ namespace PXWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             ToTheTopButtonLiteralText.Text = GetLocalizedString("PxWebToTheTopButtonLiteralText");
+            SkipToMain.Text = GetLocalizedString("PxWebSkipToMainContentLinkText");
+            SkipToMain.Attributes.Add("aria-label", GetLocalizedString("PxWebSkipToMainContentLinkScreenReader"));
+            SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
         }
 
 
@@ -223,7 +226,7 @@ namespace PXWeb
             string langUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink(Request.AppRelativeCurrentExecutionFilePath, false, linkItems.ToArray());
 
             string langText = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebChangeToThisLanguage", new CultureInfo(langName));
-            return String.Format("<a class=\"pxweb-link px-change-lang\" href=\"{0}\"> <span class=\"link-text px-change-lang\">{1}</span></a>  ", langUrl, Server.HtmlEncode(langText));
+            return String.Format("<div class=\"pxweb-link\"> <a class=\"px-change-lang\" href=\"{0}\"> <span class=\"link-text px-change-lang\">{1}</span></a> </div> ", langUrl, Server.HtmlEncode(langText));
         }
 
          /// <summary>

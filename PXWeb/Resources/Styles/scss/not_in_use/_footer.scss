@@ -1,0 +1,40 @@
+#{$selector_prefix}-footer-wrapper {
+  background: $pxweb-dark-5;
+  box-sizing: border-box;
+  color: $pxweb-white;
+  padding: 36px 112px 58px;
+  width: 100%;
+
+  .top-row {
+    border-bottom: 1px solid $pxweb-white;
+    margin-bottom: 36px;
+
+    > * {
+      margin-bottom: 36px;
+    }
+  }
+
+  .bottom-row {
+    margin-top: 100px;
+
+    > * {
+      margin-top: 20px;
+    }
+
+    .global-links {
+
+      > * {
+        margin-right: 20px;
+      }
+    }
+
+    .social-links {
+
+      > * {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+

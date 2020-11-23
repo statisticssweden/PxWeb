@@ -87,58 +87,13 @@ namespace PXWeb
         protected global::System.Web.UI.WebControls.Literal litDetailedInformation;
 
         /// <summary>
-        /// InformationBox control.
+        /// UcAccordianAboutTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel InformationBox;
-
-        /// <summary>
-        /// lblInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfo;
-
-        /// <summary>
-        /// divTableLinks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTableLinks;
-
-        /// <summary>
-        /// SelectionInformation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::PCAxis.Web.Controls.Information SelectionInformation;
-
-        /// <summary>
-        /// litDetailedInformation2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litDetailedInformation2;
-
-        /// <summary>
-        /// lnkDetailedInformation2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkDetailedInformation2;
+        protected global::PXWeb.UserControls.AccordianAboutTableControl UcAccordianAboutTable;
 
         /// <summary>
         /// ucVariableOverview control.

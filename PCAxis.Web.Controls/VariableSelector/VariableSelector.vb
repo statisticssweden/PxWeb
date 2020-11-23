@@ -343,6 +343,27 @@ Partial Public Class VariableSelector
         End Set
     End Property
 
+    Private _clientSideValidation As Boolean = True
+    ''' <summary>
+    ''' Sholud validation of listbox be on client. If false then it will be serverside
+    ''' 
+    ''' The initial value is defined in ControlSettings.xml
+    ''' E.g. True  
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property ClientSideValidation() As Boolean
+        Get
+            Return _clientSideValidation
+        End Get
+        Set(ByVal value As Boolean)
+            _clientSideValidation = value
+        End Set
+    End Property
+
+
     Private _showElimMark As Boolean = True
     ''' <summary>
     ''' Show image indicating that eliminiation of variable selection not is valid.

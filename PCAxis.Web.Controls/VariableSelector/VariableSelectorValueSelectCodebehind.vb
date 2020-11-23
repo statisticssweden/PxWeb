@@ -1,4 +1,5 @@
-﻿Imports PCAxis.Paxiom.Localization
+﻿Imports System.Text
+Imports PCAxis.Paxiom.Localization
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core
@@ -96,6 +97,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected SelectedStatistics As Panel
     Protected OptionalVariablePanel As Panel
     Protected MetadataPanel As Panel
+    Protected VariableTitlePanel As Panel
 
 
     'Protected VariableTitleMaxRows As Literal
@@ -109,6 +111,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected MandatoryStar As Label
     Protected OptionalVariableText As Label
     Protected MetadataCloseLabel As Label
+    Protected SearchTip As Label
 
 
     Protected ActionButton As Button
@@ -173,8 +176,9 @@ Public Class VariableSelectorValueSelectCodebehind
         If Me.ValuesListBox.Items.Count <= Marker.MaxRowsWithoutSearch Then 'Marker.JavascriptRowLimit is obsolete
             SelectAllButton.OnClientClick = String.Format("return VariableSelector_SelectAllAndUpdateNrSelected('{0}','{1}','{2}','{3}')", ValuesListBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
             DeselectAllButton.OnClientClick = String.Format("return VariableSelector_DeselectAllAndUpdateNrSelected('{0}','{1}','{2}','{3}')", ValuesListBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
-            SearchValuesButton.OnClientClick = String.Format("return VariableSelector_SearchValues('{0}','{1}','{2}','{3}','{4}','{5}')", ValuesListBox.ClientID, SearchValuesTextbox.ClientID, SearchValuesBeginningOfWordCheckBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy)
+            SearchValuesButton.OnClientClick = String.Format("return VariableSelector_SearchValues('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", ValuesListBox.ClientID, SearchValuesTextbox.ClientID, SearchValuesBeginningOfWordCheckBox.ClientID, NumberValuesSelected.ClientID, Marker.Variable.Placement.ToString(), Marker.LimitSelectionsBy, GetLocalizedSearchResultTextForScreenReader())
         End If
+
         'Used to hide the action button if javascripts is enabled
         'Page.ClientScript.RegisterStartupScript(Me.GetType, "ValueSelectorValueSelect_HideActionButton", "PCAxis_HideElement("".variableselector_valuesselect_action"");", True)
     End Sub
@@ -321,6 +325,10 @@ Public Class VariableSelectorValueSelectCodebehind
 
     Protected Sub ValidateListBox_ServerValidate(source As Object, args As ServerValidateEventArgs)
         Dim is_valid As Boolean = ValuesListBox.SelectedIndex > -1
+        If TypeOf (source) Is CustomValidator Then
+            Dim myCustom As CustomValidator = CType(source, CustomValidator)
+            myCustom.ValidationGroup = ""
+        End If
         args.IsValid = is_valid
         If (Not is_valid) Then
             If Not Page.ClientScript.IsClientScriptBlockRegistered(Me.GetType(), "CreateResetScrollPosition") Then
@@ -352,7 +360,12 @@ Public Class VariableSelectorValueSelectCodebehind
             MandatoryStar.Visible = True
             Me.MustSelectCustom.ErrorMessage = Marker.Variable.Name
             Me.MustSelectCustom.Enabled = True
-            Me.MustSelectCustom.EnableClientScript = False
+            If (Marker.ClientSideValidation) Then
+                Me.MustSelectCustom.EnableClientScript = True 'set to true for clientsidevalidation
+            Else
+                Me.MustSelectCustom.EnableClientScript = False 'set to false for serversidevalidation
+            End If
+            Me.MustSelectCustom.ValidationGroup = ValuesListBox.ClientID
             'Me.MustSelectCustom.EnableClientScript = True ' If we want to validate on select/deselect in listbox. Should maybe be possible to configurate.
             OptionalVariablePanel.Visible = False
         Else
@@ -511,7 +524,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Private Sub SetLocalizedText()
 
         ' --- Search values link button
-        SearchButton.Text = String.Format("<i class='icon-wrapper'><svg focusable='false' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class=''><line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg></i>" + "<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSearchLabel"))
+        SearchButton.Text = String.Format("<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSearchLabel"))
 
         ' --- Hierarchical selection button
         HierarchicalSelectButton.ToolTip = GetLocalizedString("CtrlVariableSelectorHierarchicalTooltip")
@@ -526,17 +539,18 @@ Public Class VariableSelectorValueSelectCodebehind
         DeselectAllButton.Text = GetLocalizedString("CtrlVariableSelectorDeSelectAllButton")
 
         ' --- Select from groups link button
-        SelectionFromGroupButton.Text = String.Format("<i class='icon-wrapper'><svg focusable='false' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class=''><line x1='5' y1='12' x2='19' y2='12'></line><polyline points='12 5 19 12 12 19'></polyline></svg></i>" + "<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSelectFromGroupTooltip"))
+        SelectionFromGroupButton.Text = String.Format("<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSelectFromGroupTooltip"))
 
         ' --- Search panel
         'SearchValuesHeading.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesHeading")
         SearchValuesBeginningOfWordCheckBox.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox")
 
         'wcag says: label element or title attribute  
-        SearchValuesTextbox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReaderText"))
+        'SearchValuesTextbox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReader"))
+        SearchValuesTextbox.Attributes.Add("aria-labelledby", SearchTip.ClientID)
 
 
-        ValuesListBox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSelectValuesListboxScreenReaderText"))
+        ValuesListBox.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSelectValuesListboxScreenReader"))
 
         SearchValuesTextbox.Attributes.Add("placeholder", GetLocalizedString("CtrlVariableSelectorSearchValuesTextbox"))
 
@@ -576,6 +590,8 @@ Public Class VariableSelectorValueSelectCodebehind
         OptionalVariableText.Text = GetLocalizedString("CtrlVariableSelectorOptionalVariableText")
 
         MetadataCloseLabel.Text = GetLocalizedString("CtrlVariableSelectorMetadataCloseButton")
+
+        ValuesSelectContainerPanel.Attributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSelectScreenReaderRegion") + Marker.Variable.Name)
     End Sub
 
     ''' <summary>
@@ -650,7 +666,11 @@ Public Class VariableSelectorValueSelectCodebehind
     Private Sub SetDisplayModeUI()
         Select Case _displayMode
             Case DisplayModeType.Standard
-                ValuesSelectPanel.Visible = True
+                ShowListBox()
+                'ValuesSelectPanel.Visible = True
+                'ValuesSelectPanel.Enabled = True
+                'ValuesListBox.Attributes.CssStyle.Add("visibility", "visible")
+                'ValuesListBox.Attributes.CssStyle.Clear()
                 SetSearchPanelVisibility()
                 ManyValuesPanel.Visible = False
 
@@ -662,10 +682,13 @@ Public Class VariableSelectorValueSelectCodebehind
                 VariableTitle.Text = Marker.Variable.Name
                 VariableTitleMetadata.Text = Marker.Variable.Name
             Case DisplayModeType.ManyValuesListbox
-                ValuesSelectPanel.Visible = True
+                ShowListBox()
+                ' ValuesSelectPanel.Visible = True
+                'ValuesSelectPanel.Enabled = True
+                'ValuesListBox.Attributes.CssStyle.Add("visibility", "visible")
+                'ValuesListBox.Attributes.CssStyle.Clear()
                 SetSearchPanelVisibility()
                 ManyValuesPanel.Visible = False
-
                 SearchButton.Visible = True
                 SelectAllButton.Visible = True
                 DeselectAllButton.Visible = True
@@ -674,10 +697,9 @@ Public Class VariableSelectorValueSelectCodebehind
                 VariableTitle.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
                 VariableTitleMetadata.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
             Case DisplayModeType.ManyValuesText
-                ValuesSelectPanel.Visible = False
+                HideListBox()
                 SearchPanel.Visible = False
                 ManyValuesPanel.Visible = True
-
                 SearchButton.Visible = True
                 SelectAllButton.Visible = False
                 DeselectAllButton.Visible = False
@@ -686,14 +708,13 @@ Public Class VariableSelectorValueSelectCodebehind
                 VariableTitle.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
                 VariableTitleMetadata.Text = Marker.Variable.Name & " " & Me.GetLocalizedString("CtrlVariableSelectorLargeValueset")
             Case DisplayModeType.SelectValueset
-                ValuesSelectPanel.Visible = False
+                HideListBox()
                 SearchPanel.Visible = False
                 ManyValuesPanel.Visible = False
                 SearchButton.Visible = False
                 SelectAllButton.Visible = False
                 DeselectAllButton.Visible = False
                 SelectionFromGroupButton.Visible = False
-
                 SelectedStatistics.Visible = False
                 VariableTitle.Text = Marker.Variable.Name
                 VariableTitleMetadata.Text = Marker.Variable.Name
@@ -756,7 +777,7 @@ Public Class VariableSelectorValueSelectCodebehind
         End If
 
         MetadataPanel.Visible = metadata
-        VariableTitle.Visible = Not metadata
+        VariableTitlePanel.Visible = Not metadata
     End Sub
 
     ''' <summary>
@@ -1101,14 +1122,13 @@ Public Class VariableSelectorValueSelectCodebehind
                 SelectAllButton.Visible = False
                 DeselectAllButton.Visible = False
                 SelectionFromGroupButton.Visible = False
-
                 SelectedStatistics.Visible = False
-
                 If ValuesListBox.Items.Count = 0 Then
-                    ValuesSelectPanel.Visible = False
+                    HideListBox()
                     SearchPanel.Visible = False
                 End If
             End If
+            ''  SelectAllButton.ValidationGroup = ValuesListBox.ClientID
 
             'Should not be able to get statistics data for aggregated items when aggregation is not allowed
             If Not Marker.Variable.Meta.AggregAllowed And Marker.SelectedGroupingPresentation = GroupingIncludesType.AggregatedValues Then
@@ -1142,9 +1162,25 @@ Public Class VariableSelectorValueSelectCodebehind
     Private Sub SetSearchPanelVisibility()
         If Marker.Variable.Values.Count > Marker.ListSize Then
             SearchPanel.Visible = True
+            SetSearchTipText()
         Else
             SearchPanel.Visible = False
         End If
+    End Sub
+
+    Private Sub SetSearchTipText()
+        Dim searchTipSb as New StringBuilder()
+        searchTipSb.Append(GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReader"))
+        Dim counter As Integer = 0
+        For Each value As Value In Marker.Variable.Values
+            searchTipSb.Append(value.Text + " , ")
+            counter += 1
+            If counter = 3
+                Exit For
+            End If
+        Next
+
+        SearchTip.Text = searchTipSb.ToString()
     End Sub
 
     Protected Sub VariableValueLinksRepeater_ItemDataBound(ByVal sender As Object, ByVal e As RepeaterItemEventArgs)
@@ -1159,10 +1195,10 @@ Public Class VariableSelectorValueSelectCodebehind
         Dim ph As HtmlGenericControl = TryCast(itm.FindControl(placeholder), HtmlGenericControl)
         if (currentItem IsNot Nothing)
             Dim lnk As HyperLink = New HyperLink()
-            lnk.Text = currentItem.LinkText
+            lnk.Text = String.Format("<span class='link-text'>{0}</span>", currentItem.LinkText)
             lnk.NavigateUrl = currentItem.Link
             lnk.Target = currentItem.Target
-            lnk.CssClass = currentItem.CssClass
+            lnk.CssClass = "external-link-pxbox-icon " + currentItem.CssClass
             ph.Controls.Add(lnk)
         End If
     End Sub
@@ -1243,5 +1279,37 @@ Public Class VariableSelectorValueSelectCodebehind
             VariableValueRepeater.Visible = false
         End If
     End Sub
+
+    Private Function GetLocalizedSearchResultTextForScreenReader() As String
+        Dim searchList As New List(Of String) From {
+            GetLocalizedString("CtrlVariableSelectorSearchResultSearchWordScreenReader"),
+            GetLocalizedString("CtrlVariableSelectorSearchResultHitsScreenReader1"),
+            GetLocalizedString("CtrlVariableSelectorSearchResultHitsScreenReader2"),
+            GetLocalizedString("CtrlVariableSelectorSearchResultHitsScreenReader3"),
+            GetLocalizedString("CtrlVariableSelectorSearchResultHitsScreenReader4")
+        }
+
+        Dim jsJoinedString As String
+        jsJoinedString = string.Format(string.Join("|", searchList))
+        Return jsJoinedString
+    End Function
+
+
+
+    Private Sub HideListBox()
+        ValuesSelectPanel.Enabled = False
+        ValuesListBox.Attributes.CssStyle.Add("min-height", "0px")
+        ValuesListBox.Attributes.CssStyle.Add("height", "0px")
+        ValuesListBox.Attributes.CssStyle.Add("visibility", "hidden")
+        'HiddenEventButtons.Visible = False
+
+    End Sub
+
+    Private Sub ShowListBox()
+        ValuesSelectPanel.Enabled = True
+        ValuesListBox.Attributes.CssStyle.Add("visibility", "visible")
+        ValuesListBox.Attributes.CssStyle.Clear()
+    End Sub
+
 
 End Class

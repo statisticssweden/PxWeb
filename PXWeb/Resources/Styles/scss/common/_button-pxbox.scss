@@ -1,0 +1,28 @@
+@include file-header("common/_button-pxbox.scss");
+
+#{$selector_prefix-pxbox}-btn {
+  border: 2px solid pink;
+
+  &:disabled {
+    background-color: $pxbox-white;
+    border-color: $pxbox-dark-2;
+    color: $pxbox-dark-2;
+  }
+
+  &.negative {
+    background-color: $pxbox-btn-bg;
+    color: $pxbox-btn-color;
+    border-color: $pxbox-btn-color;
+
+    &:hover, &:focus {
+      background-color: $pxbox-btn-color;
+      color: $pxbox-btn-bg;
+      border-color: $pxbox-btn-bg;
+    }
+
+    &:active {
+      background-color: $pxbox-btn-color;
+      color: $pxbox-btn-bg;
+    }
+  }
+}

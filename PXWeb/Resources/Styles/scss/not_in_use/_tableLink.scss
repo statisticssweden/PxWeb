@@ -1,0 +1,55 @@
+.ssb-table-link {
+  display: flex;
+  @include focus-marker;
+  text-decoration: none;
+
+  .tl-icon {
+    box-sizing: initial;
+    color: $pxweb-green-4;
+    display: inline-flex;
+    float: left;
+    height: 22px;
+    margin-right: 20px;
+    margin-top: 4px;
+    margin-left: 4px;
+    width: 22px;
+  }
+
+  .tl-info {
+    display: inline-block;
+  }
+
+  .tl-text {
+    @include roboto;
+    color: $pxweb-green-4;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .tl-description {
+    @include roboto;
+    color: $pxweb-dark-6;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  &:hover, &:focus {
+    text-decoration: none;
+
+    .tl-icon {
+      border: 2px solid $pxweb-green-4;
+      border-radius: 50%;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 16px;
+      padding: 2px;
+    }
+
+    .tl-description {
+      color: $pxweb-green-4;
+    }
+  }
+}

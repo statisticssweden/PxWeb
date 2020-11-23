@@ -1,0 +1,182 @@
+﻿@include file-header("_metadata.scss TODO");
+/*CSS for box with external metadata links*/
+
+#pxwebcontent .metadata-toggle {
+  display: flex;
+  flex-direction: row;
+  flex: 0 1 250px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-image: get-icon( 'metadata', $pxbox-green-2);
+  background-position-x: right;
+  background-position-y: top;
+  padding-right: 30px;
+
+  &:hover {
+    background-image: get-icon( 'metadata', $pxbox-white);
+  }
+}
+
+#pxwebcontent .variableselector_valuesselect_variabletitle.metadata-text-wrap {
+  padding-right: 0px;
+}
+
+#pxwebcontent .metadata-container {
+  margin-right: 40px;
+}
+
+#pxwebcontent .metadata-text-wrap {
+  border-bottom: 1px dotted $pxbox-green-4;
+  display: inline-block;
+  line-height: inherit;
+}
+
+#pxwebcontent .metadata-open-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  transition: all .5s ease-out;
+}
+
+#pxwebcontent .metadata-open-btn:focus {
+  @include focus-ring;
+}
+
+#pxwebcontent .metadata-open-btn:focus, #pxwebcontent .metadata-open-btn:hover {
+  background-color: $pxbox-green-4;
+}
+
+#pxwebcontent .metadata-open-btn:hover .metadata-logo, #pxwebcontent .metadata-open-btn:focus .metadata-logo {
+  color: $pxbox-white;
+}
+
+#pxwebcontent .metadata-popup {
+  @include open-sans; 
+  animation: fadein .2s;
+  display: none;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity .18s;
+  border: 1.5px solid $pxbox-green-2;
+}
+
+  #pxwebcontent .metadata-popup.open {
+    display: inline-block;
+    opacity: 1;
+    display: flex;
+    margin-top: 20px;
+  }
+
+#pxwebcontent .metadata-content {
+  background-color: $pxbox-background;
+  color: $pxbox-ink;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+  #pxwebcontent .metadata-content:after {
+    bottom: 100%;
+    left: 30%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: $pxbox-green-2;
+    border-width: 16px;
+    margin-left: -20px;
+  }
+
+#pxwebcontent .metadata-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#pxwebcontent .metadata-itemname {
+  display: inline-block;
+}
+
+  #pxwebcontent .metadata-itemname::first-letter {
+    text-transform: capitalize;
+  }
+
+#pxwebcontent .metadata-variable {
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+#pxwebcontent .metadata-links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+  width: auto;
+}
+
+  #pxwebcontent .metadata-links .pxweb-link {
+    margin-bottom: 8px;
+    margin-top: 0px;
+  }
+
+
+//These get an extra line for separation.
+#pxwebcontent .pxbox .metadata-links .pxweb-link.with-icon {
+  border-bottom: 1px solid $pxbox-link-hover-background;
+}
+
+#pxwebcontent .pxbox .metadata-links .link-text {
+  font-size: 14px;
+}
+
+
+
+#pxwebcontent .metadata-links a:focus {
+  @include focus-ring;
+}
+
+#pxwebcontent .metadata-close-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: $pxbox-dark-5;
+  color: $pxbox-green-2;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  align-self: center;
+  background-repeat: no-repeat;
+  background-image: get-icon( 'x-circle', $pxbox-green-2);
+  background-position-x:4px;
+  background-position-y: center;
+
+  &:hover {
+    background-image: get-icon( 'x-circle', $pxbox-white);
+    background-color: $pxbox-green-4;
+    color: $pxbox-white;
+  }
+}
+
+#pxwebcontent .metadata-close-btn:focus {
+  background-color: $pxbox-green-4;
+  @include focus-ring;
+  color: $pxbox-white;
+}
+
+#pxwebcontent .metadata-close-text {
+  color: $pxbox-ink;
+  padding: 4px;
+  margin-left:15px;
+}

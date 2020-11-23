@@ -1,0 +1,18 @@
+﻿@include file-header("custom/_Custom-external.scss");
+/* Add your overrides of the default styles in this style sheet */
+
+
+#pxwebcontent .pxweb-link.negative.with-icon {
+  /*CSS from CMS has important tag set for links*/
+  color: $pxweb-green-2 !important;
+}
+
+#pxwebcontent .pxweb-link.negative.with-icon:hover {
+  /*CSS from CMS has important tag set for links*/
+  color: $pxweb-dark-5 !important;
+}
+
+
+
+
+

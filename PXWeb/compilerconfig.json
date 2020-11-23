@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Resources/Styles/main-pxweb.css",
+    "inputFile": "Resources/Styles/scss/main-pxweb.scss"
+  },
+  {
+    "outputFile": "Resources/Styles/main-common.css",
+    "inputFile": "Resources/Styles/scss/main-common.scss"
+  },
+  {
+    "outputFile": "Resources/Styles/main-custom.css",
+    "inputFile": "Resources/Styles/scss/main-custom.scss"
+  }
+]

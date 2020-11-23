@@ -1,0 +1,50 @@
+.ssb-dialog {
+  @include open-sans;
+  display: flex;
+  max-width: 1180px;
+  min-width: 100%;
+  min-height: 95px;
+  width: 100%;
+
+  .icon-panel {
+    color: $pxweb-white;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 36px;
+    justify-content: center;
+    padding-top: 20px;
+    width: 90px;
+
+    .icon {
+      font-size: 40px;
+    }
+  }
+
+  .dialog-content {
+    padding: 16px;
+
+    .dialog-title {
+      font-weight: bold;
+    }
+
+    .content {
+      margin-top: 8px;
+    }
+  }
+
+  &.warning {
+    border: 2px solid $pxweb-red-3;
+
+    .icon-panel {
+      background: $pxweb-red-3;
+    }
+  }
+
+  &.info {
+    border: 2px solid $pxweb-blue-3;
+
+    .icon-panel {
+      background: $pxweb-blue-3;
+    }
+  }
+}

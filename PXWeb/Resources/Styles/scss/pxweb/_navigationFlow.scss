@@ -1,0 +1,110 @@
+﻿@include file-header("_navigationFlow.scss");
+
+#pxwebcontent .fullscreen {
+  width: 100%;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  // Removed by comment the 2 below ( . According to stackoverflow: 
+  // *property: value applies the property value in IE 7 and below. It may or may not work in future versions. 
+  // Warning: this uses invalid CSS.
+
+  // *margin-bottom: 0px;
+  // *margin-top: 30px;
+}
+
+#pxwebcontent #navigationFlow {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 5px;
+  padding-bottom: 30px;
+}
+
+#pxwebcontent .navigationFlowArea {
+  margin: 3px 0px 0;
+}
+
+#pxwebcontent .navigation-link {
+}
+
+  #pxwebcontent .navigation-link.third {
+    margin-left: 0px
+  }
+
+  #pxwebcontent .navigation-link.first {
+    margin-right: 0px
+  }
+
+/*the hr goes under the images. The two hr elements has classes not used here, but hope you dont need them :-)*/
+#pxwebcontent .navigationFlowArea hr {
+  flex: 1;
+  margin-top: 25px;
+  z-index: 0;
+  margin-left: -59px;
+  margin-right: -60px;
+}
+
+#pxwebcontent a.navigation-link:hover {
+  text-decoration: none;
+}
+
+#pxwebcontent a.navigation-link.active, a.navigation-link.future {
+  pointer-events: none;
+}
+
+#pxwebcontent .nav-pic {
+  z-index: 1
+}
+
+#pxwebcontent span.pxweb-link.nav-step {
+  @include more-roboto-condenced;
+}
+
+#pxwebcontent span.nav-step {
+  @include more-roboto-condenced;
+  text-decoration: none;
+  border-bottom: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px
+}
+
+#pxwebcontent span.nav-step.active {
+  color: $pxweb-black-3;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+  #pxwebcontent span.nav-step.future {
+    color: $pxweb-dark-5;
+    line-height: 1.25;
+  }
+
+  #pxwebcontent span.nav-step.passive {
+    font-size: 18px;
+    border-bottom-style: solid;
+  }
+
+/*#region  Mobile - small screen*/
+@media only screen and (max-width: 767px) {
+
+  #pxwebcontent .navigationFlowArea {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  #pxwebcontent #navigationFlow {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 20px;
+  }
+
+  #pxwebcontent span.nav-step.passive, #pxwebcontent span.nav-step.future {
+    font-size: 16px;
+  }
+
+  #pxwebcontent span.nav-step.active {
+    font-size: 18px;
+  }
+}
+/*#endregion*/
