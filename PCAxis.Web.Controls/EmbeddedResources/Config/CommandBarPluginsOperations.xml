@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <commandBar xmlns="http://www.pc-axis.scb.se/CommandBarPluginSchema.xsd">
   <plugins>
-    <plugin name="pivotManual" type="PCAxis.Web.Controls.Pivot, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionPivotManual" Image="button_pivot.png" ShortcutImage="small_button_pivot.gif" SortOrder="0">
+    <plugin name="pivotManual" type="PCAxis.Web.Controls.Pivot, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionPivotManual" Image="button_pivot.png" ShortcutImage="small_button_pivot.gif" SortOrder="0">
       <properties>
         <property key="DownButtonImagePath" value="MoveDown.gif" />
         <property key="LeftButtonImagePath" value="ToLeft.gif" />
@@ -9,17 +9,17 @@
         <property key="UpButtonImagePath" value="MoveUp.gif" />
       </properties>
     </plugin>
-    <plugin name="pivotCW" type="PCAxis.Web.Controls.PivotSimpleCalls, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionPivotCW" Image="button_pivot_cw.png" ShortcutImage="small_button_pivot_cw.gif" SortOrder="1">
+    <plugin name="pivotCW" type="PCAxis.Web.Controls.PivotSimpleCalls, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarFunctionPivotCW" Image="button_pivot_cw.png" ShortcutImage="small_button_pivot_cw.gif" SortOrder="1">
       <properties>
         <property key="Direction" value="CW" />
       </properties>
     </plugin>
-    <plugin name="pivotCCW" type="PCAxis.Web.Controls.PivotSimpleCalls, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionPivotCCW" Image="button_pivot_ccw.png" ShortcutImage="small_button_pivot_ccw.gif"  SortOrder="2">
+    <plugin name="pivotCCW" type="PCAxis.Web.Controls.PivotSimpleCalls, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarFunctionPivotCCW" Image="button_pivot_ccw.png" ShortcutImage="small_button_pivot_ccw.gif"  SortOrder="2">
       <properties>
         <property key="Direction" value="CCW" />
       </properties>
     </plugin>
-    <plugin name="changeValueOrder" type="PCAxis.Web.Controls.ChangeValueOrder, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionChangeValueOrder" Image="button_change_value_order.png" ShortcutImage="small_button_change_value_order.gif"  SortOrder="3">
+    <plugin name="changeValueOrder" type="PCAxis.Web.Controls.ChangeValueOrder, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionChangeValueOrder" Image="button_change_value_order.png" ShortcutImage="small_button_change_value_order.gif"  SortOrder="3">
       <properties>
         <property key="LeftButtonImagePath" value="ToLeft.gif" />
         <property key="RightButtonImagePath" value="ToRight.gif" />
@@ -27,61 +27,36 @@
         <property key="ListSize" value="6" />
       </properties>
     </plugin>
-    <plugin name="splitTimeVariable" type="PCAxis.Web.Controls.SplitTimeVariable, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionSplitTimeVar" Image="button_splitt_time.png" ShortcutImage="small_button_Splitt_time_value.gif"  SortOrder="4">
+    <plugin name="splitTimeVariable" type="PCAxis.Web.Controls.SplitTimeVariable, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarFunctionSplitTimeVar" Image="button_splitt_time.png" ShortcutImage="small_button_Splitt_time_value.gif"  SortOrder="4">
       <constraints>
         <constraint property="TimeScale" value="Quartely, Monthly, Weekly"/>
         <constraint property="HasTimeValue" value="true"/>
       </constraints>
     </plugin>
-    <plugin name="changeDecimal" type="PCAxis.Web.Controls.ChangeDecimal, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionChangeDecimal" Image="button_change_decimals.png" ShortcutImage="small_button_change_decimals.gif"  SortOrder="5">
+    <plugin name="changeDecimal" type="PCAxis.Web.Controls.ChangeDecimal, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionChangeDecimal" Image="button_change_decimals.png" ShortcutImage="small_button_change_decimals.gif"  SortOrder="5">
     </plugin>
-    <plugin name="deleteValue" type="PCAxis.Web.Controls.DeleteValue, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionDeleteValue" Image="button_delete_value.png" ShortcutImage="small_button_delete_value.gif"  SortOrder="6">
+    <plugin name="deleteValue" type="PCAxis.Web.Controls.DeleteValue, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionDeleteValue" Image="button_delete_value.png" ShortcutImage="small_button_delete_value.gif"  SortOrder="6">
       <properties>
         <property key="MaxRowsWithoutSearch" value="5" />
         <property key="ListSize" value="5" />
         <property key="NumberOfValuesInDefaultView" value="5" />
       </properties>
     </plugin>
-    <plugin name="deleteVariable" type="PCAxis.Web.Controls.DeleteVariable, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionDeleteVariable" Image="button_delete_variable.png" ShortcutImage="small_button_delete_variable.gif" SortOrder="7">
+    <plugin name="deleteVariable" type="PCAxis.Web.Controls.DeleteVariable, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionDeleteVariable" Image="button_delete_variable.png" ShortcutImage="small_button_delete_variable.gif" SortOrder="7">
       <properties>
         <property key="ListSize" value="10" />
       </properties>
     </plugin>
-    <plugin name="changeTextPresentation" type="PCAxis.Web.Controls.ChangeTexts, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionChangeTextPresentation" Image="button_change_text_presentation.png" ShortcutImage="small_button_change_text_presentation.gif" SortOrder="8">
+    <plugin name="changeTextPresentation" type="PCAxis.Web.Controls.ChangeTexts, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionChangeTextPresentation" Image="button_change_text_presentation.png" ShortcutImage="small_button_change_text_presentation.gif" SortOrder="8">
     </plugin>
-    <plugin name="changeTextCodePresentation" type="PCAxis.Web.Controls.ChangePresentation, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionChangeCodeTextPresentation" Image="button_change_code_text.png" ShortcutImage="small_button_change_code_text.gif" SortOrder="9">
+    <plugin name="changeTextCodePresentation" type="PCAxis.Web.Controls.ChangePresentation, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionChangeCodeTextPresentation" Image="button_change_code_text.png" ShortcutImage="small_button_change_code_text.gif" SortOrder="9">
     </plugin>
-    <plugin name="perPart" type="PCAxis.Web.Controls.PerPart, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionPerPart" Image="button_per_part.png" ShortcutImage="small_button_per_part.gif" SortOrder="10">
+    <plugin name="perPart" type="PCAxis.Web.Controls.PerPart, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionPerPart" Image="button_per_part.png" ShortcutImage="small_button_per_part.gif" SortOrder="10">
       <properties>
         <property key="ListSize" value="10" />
       </properties>
     </plugin>
-    <!--<plugin name="removeNoRows" type="PCAxis.Web.Controls.RemoveZeroRows, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionShowAllRows" Image="button_remove_zero.png" ShortcutImage="small_button_show_all_rows.gif">
-      <properties>
-        <property key="ZeroRowType" value="ShowAll" />
-      </properties>
-    </plugin>
-    <plugin name="removeZeroRows" type="PCAxis.Web.Controls.RemoveZeroRows, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionRemoveZero" Image="button_remove_zero.png" ShortcutImage="small_button_remove_zero.gif">
-      <properties>
-        <property key="ZeroRowType" value="NoZero" />
-      </properties>
-    </plugin>
-    <plugin name="removeZeroAndNilRows" type="PCAxis.Web.Controls.RemoveZeroRows, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionRemoveZeroAndHyphen" Image="button_remove_zero.png" ShortcutImage="small_button_remove_zero.gif">
-      <properties>
-        <property key="ZeroRowType" value="NoZeroAndNil" />
-      </properties>
-    </plugin>
-    <plugin name="removeSymbolRows" type="PCAxis.Web.Controls.RemoveZeroRows, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionRemoveDots" Image="button_remove_zero.png" ShortcutImage="small_button_remove_zero.gif">
-      <properties>
-        <property key="ZeroRowType" value="NoSymbols" />
-      </properties>
-    </plugin>
-    <plugin name="removeZeroNilAndSymbolRows" type="PCAxis.Web.Controls.RemoveZeroRows, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="false" nameCode="CtrlCommandBarFunctionRemoveZeroHyphenAndDots" Image="button_remove_zero.png" ShortcutImage="small_button_remove_zero.gif">
-      <properties>
-        <property key="ZeroRowType" value="NoZeroNilAndSymbol" />
-      </properties>
-    </plugin>-->
-    <plugin name="sum" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionSum" Image="button_sum.png" ShortcutImage="small_button_add.gif" SortOrder="11">
+    <plugin name="sum" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionSum" Image="button_sum.png" ShortcutImage="small_button_add.gif" SortOrder="11">
       <properties>
         <property key="SumOperationType" value="Addition" />
       </properties>
@@ -89,17 +64,17 @@
         <constraint property="AggregAllowed" value="True"/>
       </constraints>
     </plugin>
-    <plugin name="subtract" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionSubtract" Image="button_subtract.png" ShortcutImage="small_button_subtract.gif" SortOrder="12">
+    <plugin name="subtract" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionSubtract" Image="button_subtract.png" ShortcutImage="small_button_subtract.gif" SortOrder="12">
       <properties>
         <property key="SumOperationType" value="Subtraction" />
       </properties>
     </plugin>
-    <plugin name="divide" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionDivide" Image="button_divide.png" ShortcutImage="small_button_divide.gif" SortOrder="13">
+    <plugin name="divide" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionDivide" Image="button_divide.png" ShortcutImage="small_button_divide.gif" SortOrder="13">
       <properties>
         <property key="SumOperationType" value="Division" />
       </properties>
     </plugin>
-    <plugin name="multiply" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30" hasUI="true" nameCode="CtrlCommandBarFunctionMultiply" Image="button_multiply.png" ShortcutImage="small_button_multiply.gif" SortOrder="14">
+    <plugin name="multiply" type="PCAxis.Web.Controls.Sum, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionMultiply" Image="button_multiply.png" ShortcutImage="small_button_multiply.gif" SortOrder="14">
       <properties>
         <property key="SumOperationType" value="Multiplication" />
       </properties>

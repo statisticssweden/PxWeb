@@ -165,9 +165,9 @@ Namespace Management
         ''' </summary>
         ''' <param name="language">The <see cref="Language" /> to add</param>
         ''' <remarks></remarks>
-        Public Shared Sub LoadLanguage(ByVal language As Language)
-            GetResourceManager().LoadLanguage(language)
-        End Sub
+        'Public Shared Sub LoadLanguage(ByVal language As Language)
+        '    GetResourceManager().LoadLanguage(language)
+        'End Sub
 
         ''' <summary>
         ''' Gets an instance <see cref="PxResourceManager" />

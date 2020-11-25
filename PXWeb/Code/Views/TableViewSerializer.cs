@@ -25,7 +25,7 @@ namespace PXWeb.Views
             return output;
         }
 
-        public override void Render(string format, SavedQuery query, PXModel model, bool safe)
+        public override void Render(string format, PCAxis.Query.SavedQuery query, PXModel model, bool safe)
         {
             TableManager.Settings.ZeroOption = CheckParameter(query, "table_zerooption") ? (PCAxis.Paxiom.ZeroOptionType)Enum.Parse(typeof(PCAxis.Paxiom.ZeroOptionType), query.Output.Params["table_zerooption"], true) : ZeroOptionType.ShowAll;
 

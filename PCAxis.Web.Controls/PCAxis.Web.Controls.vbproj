@@ -18,8 +18,9 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Strong Name Key.pfx</AssemblyOriginatorKeyFile>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <OptionStrict>On</OptionStrict>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -70,21 +71,59 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ext\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Common.1.0.0\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Core.1.0.0\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.1.0.0\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.0\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Query.1.0.0\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -485,32 +524,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Strong Name Key.pfx" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
       <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
       <Name>PCAxis.Chart</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Common\PCAxis.Common.vbproj">
-      <Project>{923414B2-36AD-48E1-919A-B92418E6A2FC}</Project>
-      <Name>PCAxis.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
-      <Project>{630041BC-4531-4547-9820-FE4290A18A54}</Project>
-      <Name>PCAxis.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
-      <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
-      <Name>PCAxis.Menu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
-      <Project>{69CD4248-077E-4E3C-A83B-70F883C8D305}</Project>
-      <Name>PCAxis.PX.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
-      <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>
-      <Name>PCAxis.Query</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Web.Core\PCAxis.Web.Core.vbproj">
       <Project>{BC004D40-DDC6-446E-A3DF-5D4BA0AE92B8}</Project>

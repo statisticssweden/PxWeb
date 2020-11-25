@@ -33,6 +33,8 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,18 +58,130 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ext\log4net.dll</HintPath>
+    <Reference Include="ClosedXML, Version=0.95.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.3\lib\net46\ClosedXML.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ext\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.SqlClient, Version=1.13.20136.2, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.1.1.3\lib\net46\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=3.0.8.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.3.0.8\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.5.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.5.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.5.5.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.5.5.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=2.0.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.Core.2.19.60\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Common.1.0.0\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Core.1.0.0\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Encryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Encryption.1.0.0\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.1.0.0\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu.ConfigDatamodelMenu, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.ConfigDatamodelMenu.1.0.2\lib\netstandard2.0\PCAxis.Menu.ConfigDatamodelMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu.MsSqlDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.MsSqlDatamodelMenu.1.0.0\lib\netstandard2.0\PCAxis.Menu.MsSqlDatamodelMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Menu.OracleDatamodelMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Menu.OracleDatamodelMenu.1.0.0\lib\netstandard2.0\PCAxis.Menu.OracleDatamodelMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Metadata, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Metadata.1.0.0\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.0\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Query.1.0.0\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
+    </Reference>
+    <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Sql.1.0.0\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.0\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>
+    </Reference>
+    <Reference Include="PXWeb.SavedQuery.Oracle, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PXWeb.SavedQuery.Oracle.1.0.1\lib\netstandard2.0\PXWeb.SavedQuery.Oracle.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.5.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.4.7.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -85,6 +199,10 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Features-Api-General.aspx" />
@@ -412,6 +530,7 @@
     <Compile Include="Code\Management\PxImageExpressionBuilder.cs" />
     <Compile Include="Code\Management\PxSettingExpressionBuilder.cs" />
     <Compile Include="Code\Management\PxUrl.cs" />
+    <Compile Include="Code\Management\SavedQueryManager.cs" />
     <Compile Include="Code\Management\SavedQueryPaxiomCache.cs" />
     <Compile Include="Code\Management\UserFriendlyLinkManager.cs" />
     <Compile Include="Code\Management\RouteManager.cs" />
@@ -693,61 +812,13 @@
       <Project>{4B66B6A5-FC81-4943-9C55-DDBCD69ACA4E}</Project>
       <Name>PCAxis.Charting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Charting\PxExtend\PCAxis.PxExtend.csproj">
-      <Project>{2F54F347-48BA-4F00-B541-DCD10BD9FE0A}</Project>
-      <Name>PCAxis.PxExtend</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Charts\PCAxis.Chart.csproj">
       <Project>{DF9DA2F6-7942-4834-8B51-8F6358DE8DB8}</Project>
       <Name>PCAxis.Chart</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Common\PCAxis.Common.vbproj">
-      <Project>{923414B2-36AD-48E1-919A-B92418E6A2FC}</Project>
-      <Name>PCAxis.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
-      <Project>{630041BC-4531-4547-9820-FE4290A18A54}</Project>
-      <Name>PCAxis.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\ConfigDatamodelMenu\PCAxis.Menu.Implementations.ConfigDatamodelMenu.csproj">
-      <Project>{5B3B610A-DFDB-4B2F-8509-DA4591864DCA}</Project>
-      <Name>PCAxis.Menu.Implementations.ConfigDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\Menu\PCAxis.Menu.csproj">
-      <Project>{F5405866-B6BA-43CD-9DD1-AD6961167AFF}</Project>
-      <Name>PCAxis.Menu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\MsSqlDatamodelMenu\PCAxis.Menu.Implementations.MsSqlDatamodelMenu.csproj">
-      <Project>{E40FFC98-E7B8-4871-A6EB-5645B44C20CA}</Project>
-      <Name>PCAxis.Menu.Implementations.MsSqlDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Menu\OracleDatamodelMenu\PCAxis.Menu.Implementations.OracleDatamodelMenu.csproj">
-      <Project>{79CD0AEA-E236-4E95-9032-FEDCC95D0664}</Project>
-      <Name>PCAxis.Menu.Implementations.OracleDatamodelMenu</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Metadata\PCAxis.Metadata.csproj">
-      <Project>{4f2d88ba-0d5e-4406-86f6-b6f0186286d6}</Project>
-      <Name>PCAxis.Metadata</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.PX.Core\PCAxis.PX.Core.vbproj">
-      <Project>{69CD4248-077E-4E3C-A83B-70F883C8D305}</Project>
-      <Name>PCAxis.PX.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Query\PCAxis.Query.csproj">
-      <Project>{3C2498D1-6FA7-4E98-8A06-9DE245195D5F}</Project>
-      <Name>PCAxis.Query</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PCAxis.Search\PCAxis.Search.csproj">
       <Project>{dd41bc03-2b7a-4d76-af3c-39830ae8e75d}</Project>
       <Name>PCAxis.Search</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Sql.DbConfig\PCAxis.Sql.DbConfig.csproj">
-      <Project>{DB47AF85-69B1-4D57-8EF4-B2A28A820D30}</Project>
-      <Name>PCAxis.Sql.DbConfig</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PCAxis.Sql\PCAxis.Sql.csproj">
-      <Project>{43D337F6-29E8-465F-82A2-18389EA4C48D}</Project>
-      <Name>PCAxis.Sql</Name>
     </ProjectReference>
     <ProjectReference Include="..\PCAxis.Web.Controls\PCAxis.Web.Controls.vbproj">
       <Project>{0f886ccb-3476-4756-816c-7792a9c73fe2}</Project>
@@ -1210,6 +1281,7 @@
     <Content Include="Resources\Doc\Installation-pxweb.docx" />
     <Content Include="Resources\Doc\pxweb-API.docx" />
     <Content Include="Resources\Doc\Release notes PX-Web 2019 V1.docx" />
+    <None Include="packages.config" />
     <None Include="Resources\Styles\jQuery\tablesorter\blue.zip" />
     <Content Include="SavedQueryHandler.ashx" />
     <None Include="set-rights-2003.bat">
@@ -1260,4 +1332,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
 </Project>

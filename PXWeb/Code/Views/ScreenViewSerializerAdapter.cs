@@ -13,9 +13,9 @@ namespace PXWeb.Views
     {
         public abstract Output Save();
 
-        public abstract void Render(string format, SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe);
+        public abstract void Render(string format, PCAxis.Query.SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe);
 
-        protected void RenderToScreen(SavedQuery query, PXModel model, string defaultLayout, string page, bool safe) {
+        protected void RenderToScreen(PCAxis.Query.SavedQuery query, PXModel model, string defaultLayout, string page, bool safe) {
             if (query.Sources.Count < 1) throw new Exception("No source specified"); //TODO fix message
 
             var src = query.Sources[0];
