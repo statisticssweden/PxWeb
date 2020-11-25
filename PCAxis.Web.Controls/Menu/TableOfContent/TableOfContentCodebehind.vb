@@ -703,7 +703,7 @@ Public Class TableOfContentCodebehind
     ''' <remarks></remarks>
     Public Function GetMenuItemMetaIcon(ByVal ImageUrl As String, ByVal ImageAlt As String) As String
         Dim MetaIcon As String
-        MetaIcon = "<img src='" + ResolveUrl(ImageUrl) + "' title='" + ImageAlt + "' alt='" + ImageAlt + "' class='tableofcontent_metaicon' />"
+        MetaIcon = "<img src='" + ResolveUrl(ImageUrl) + "' title='" + ImageAlt + " ' alt='" + ImageAlt + "' class='tableofcontent_metaicon' />"
 
         Return MetaIcon
     End Function

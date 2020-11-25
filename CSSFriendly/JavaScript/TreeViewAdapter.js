@@ -34,7 +34,27 @@ function handleBtnKeyDown2(event, action) {
         return "";
     }
 }
+function handleBtnKeyDown3(event, treeview, node) {
+    alert(event.key);
+    // Check to see if space or enter were pressed
+    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") { // "Spacebar" for IE11 support
+        alert(treeview);
+        alert(node);
 
+        // Prevent the default action to stop scrolling when space is pressed
+        //event.preventDefault();
+        __doPostBack(treeview, node);
+    }
+}
+function handleBtnKeyDown4(node, event) {
+    alert(event.key);
+    // Check to see if space or enter were pressed
+    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") { // "Spacebar" for IE11 support
+        // Prevent the default action to stop scrolling when space is pressed
+        event.preventDefault();
+        ExpandCollapse__AspNetTreeView(node);
+    }
+}
 function IsExpanded__AspNetTreeView(element)
 {
     return (HasClass__CssFriendlyAdapters(element, collapseClass));
