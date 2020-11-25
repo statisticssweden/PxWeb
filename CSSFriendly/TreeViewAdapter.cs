@@ -345,23 +345,50 @@ namespace CSSFriendly
             }
         }
 
+        //private void WriteNodeExpander(TreeView treeView, TreeNode item, HtmlTextWriter writer)
+        //        {
+        //            writer.WriteBeginTag("span");
+        //    writer.WriteAttribute("class", (item.Expanded.Equals(true) ? "AspNet-TreeView-Collapse" : "AspNet-TreeView-Expand"));
+        //            if (HasChildren(item))
+        //            {
+        //                writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this)");
+        //            }
+        //            else
+        //            {
+        //                writer.WriteAttribute("onclick", Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
+        //            }
+        //            writer.Write(HtmlTextWriter.TagRightChar);
+        //            writer.Write("&nbsp;");
+        //            writer.WriteEndTag("span");
+        //            writer.WriteLine();
+        //        }
         private void WriteNodeExpander(TreeView treeView, TreeNode item, HtmlTextWriter writer)
-                {
-                    writer.WriteBeginTag("span");
+        {
+            writer.WriteBeginTag("span");
             writer.WriteAttribute("class", (item.Expanded.Equals(true) ? "AspNet-TreeView-Collapse" : "AspNet-TreeView-Expand"));
-                    if (HasChildren(item))
-                    {
-                        writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this)");
-                    }
-                    else
-                    {
-                        writer.WriteAttribute("onclick", Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
-                    }
-                    writer.Write(HtmlTextWriter.TagRightChar);
-                    writer.Write("&nbsp;");
-                    writer.WriteEndTag("span");
-                    writer.WriteLine();
-                }
+            writer.WriteAttribute("aria-expanded", (item.Expanded.Equals(true) ? "true" : "false"));
+            if (HasChildren(item))
+            {
+                writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this)");
+                // TODO: Check that the pressed key is Entor or Space
+                writer.WriteAttribute("onKeyDown", "ExpandCollapse__AspNetTreeView(this)");
+            }
+            else
+            {
+                writer.WriteAttribute("onclick", Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
+                // TODO: Check that the pressed key is Entor or Space
+                string postBackStr = Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true);
+                string javascriptStr = "handleBtnKeyDown2(event," + postBackStr + ");";
+                //writer.WriteAttribute("onKeyDown", "if (handleBtnKeyDown(event) == false){return false;}" + Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
+                writer.WriteAttribute("onKeyDown", javascriptStr);
+                writer.WriteAttribute("tabindex", "0");
+                writer.WriteAttribute("role", "button");
+            }
+            writer.Write(HtmlTextWriter.TagRightChar);
+            writer.Write("&nbsp;");
+            writer.WriteEndTag("span");
+            writer.WriteLine();
+        }
 
         private void WriteNodeImage(TreeView treeView, TreeNode item, HtmlTextWriter writer)
         {
