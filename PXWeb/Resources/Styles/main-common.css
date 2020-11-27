@@ -8,8 +8,10 @@
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
 /*#region  Main color scheme */
+/*#region Buttons */
 /*#endregion*/
-/*#region color for icons in buttons */
+/*#region Links */
+/*#endregion*/
 /*#endregion*/
 /*@import './color-themes/_screen-reader.scss';*/
 /*#region  Inactive colors - not in used */
@@ -25,7 +27,6 @@ $pxweb-purple-1: #f2f0ff;
 $scrollbar-color: #b0b0b0;
   */
 /*#endregion*/
-/*All pxbox links has icon.*/
 @keyframes fadein {
   from {
     opacity: 0; }
@@ -719,9 +720,9 @@ $scrollbar-color: #b0b0b0;
 
 /* **********************************  common/_link-pxbox.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-link.negative {
-  background-image: linear-gradient(120deg, #b6e8b8 0%, #b6e8b8 100%);
-  border-bottom: 1px solid white;
-  color: white;
+  background-image: linear-gradient(120deg, #63ace5 0%, #63ace5 100%);
+  border-bottom: 1px solid #2a4d69;
+  color: #2a4d69;
   /*
     &:hover, &:focus {
       color: $pxbox-dark-5;
@@ -732,11 +733,11 @@ $scrollbar-color: #b0b0b0;
     }
     */ }
   #pxwebcontent .pxbox .pxweb-link.negative .link-text {
-    color: white; }
+    color: #2a4d69; }
   #pxwebcontent .pxbox .pxweb-link.negative.with-icon {
     border-bottom: none; }
     #pxwebcontent .pxbox .pxweb-link.negative.with-icon .link-text {
-      color: white; }
+      color: #2a4d69; }
     #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus {
       color: #162327; }
       #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover .link-text, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus .link-text {

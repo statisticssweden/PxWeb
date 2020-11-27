@@ -3,58 +3,6 @@ var expandClass = "AspNet-TreeView-Expand";
 var showClass = "AspNet-TreeView-Show";
 var hideClass = "AspNet-TreeView-Hide";
 
-function micke() {
-    alert('micke');
-    return true;
-}
-
-function handleBtnKeyDown(event) {
-    // Check to see if space or enter were pressed
-    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") { // "Spacebar" for IE11 support
-        // Prevent the default action to stop scrolling when space is pressed
-        event.preventDefault();
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function handleBtnKeyDown2(event, action) {
-    alert(event.key);
-    // Check to see if space or enter were pressed
-    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") { // "Spacebar" for IE11 support
-        alert('1');
-        // Prevent the default action to stop scrolling when space is pressed
-        event.preventDefault();
-        return action;
-    }
-    else {
-        alert('2');
-        return "";
-    }
-}
-function handleBtnKeyDown3(event, treeview, node) {
-    alert(event.key);
-    // Check to see if space or enter were pressed
-    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") { // "Spacebar" for IE11 support
-        alert(treeview);
-        alert(node);
-
-        // Prevent the default action to stop scrolling when space is pressed
-        //event.preventDefault();
-        __doPostBack(treeview, node);
-    }
-}
-function handleBtnKeyDown4(node, event) {
-    alert(event.key);
-    // Check to see if space or enter were pressed
-    if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") { // "Spacebar" for IE11 support
-        // Prevent the default action to stop scrolling when space is pressed
-        event.preventDefault();
-        ExpandCollapse__AspNetTreeView(node);
-    }
-}
 function IsExpanded__AspNetTreeView(element)
 {
     return (HasClass__CssFriendlyAdapters(element, collapseClass));
