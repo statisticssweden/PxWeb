@@ -4,8 +4,10 @@
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
 /*#region  Main color scheme */
+/*#region Buttons */
 /*#endregion*/
-/*#region color for icons in buttons */
+/*#region Links */
+/*#endregion*/
 /*#endregion*/
 /*@import './color-themes/_screen-reader.scss';*/
 /*#region  Inactive colors - not in used */
@@ -21,7 +23,6 @@ $pxweb-purple-1: #f2f0ff;
 $scrollbar-color: #b0b0b0;
   */
 /*#endregion*/
-/*All pxbox links has icon.*/
 @keyframes fadein {
   from {
     opacity: 0; }
@@ -33,14 +34,14 @@ $scrollbar-color: #b0b0b0;
   padding-left: 4px;
   background-repeat: no-repeat;
   padding-left: 25px;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23b6e8b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2363ace5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
   #pxwebcontent .pxbox .arrow-right-pxbox-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23162327" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
 
 #pxwebcontent .external-link-pxbox-icon {
   padding-left: 4px;
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23b6e8b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2363ace5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
   padding-left: 20px; }
   #pxwebcontent .external-link-pxbox-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23162327" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
@@ -1381,7 +1382,7 @@ $scrollbar-color: #b0b0b0;
   margin-top: 0px; }
 
 #pxwebcontent .pxbox .metadata-links .pxweb-link.with-icon {
-  border-bottom: 1px solid #b6e8b8; }
+  border-bottom: 1px solid #63ace5; }
 
 #pxwebcontent .pxbox .metadata-links .link-text {
   font-size: 14px; }
@@ -1646,6 +1647,13 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .search_textbox {
   width: 200px; }
+  #pxwebcontent .search_textbox:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
+
+#pxwebcontent .search_button:focus {
+  outline: #9272fc solid 2px;
+  outline-offset: 2px; }
 
 #pxwebcontent .search_error {
   font-family: Verdana;
@@ -2259,29 +2267,48 @@ $scrollbar-color: #b0b0b0;
   float: none;
   cursor: pointer;
   padding: 0 12px 0 0; }
+  #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand {
   background: url(../images/folder.png) 0 0 no-repeat;
   float: none;
   cursor: pointer;
   padding: 0 12px 0 0; }
+  #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
   /*background:  url(../../images/Document.gif) 0 0 no-repeat;
   padding: 0 0 5px 20px;*/
   width: 750px;
   white-space: normal; }
+  #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf a {
-  cursor: pointer; }
+  cursor: pointer;
+  display: block; }
+  #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf a:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf span.AspNet-TreeView-NonLink {
   text-decoration: none;
   font-weight: bold;
   background: none; }
+  #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf span.AspNet-TreeView-NonLink:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 #pxwebcontent .AspNet-TreeView-ClickableNonLink {
   font-weight: bold; }
+  #pxwebcontent .AspNet-TreeView-ClickableNonLink:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 /* **********************************  _tablequery.scss *********************************** */
 /* Used for TableQuery webcontrol, displays api query on resultpage */

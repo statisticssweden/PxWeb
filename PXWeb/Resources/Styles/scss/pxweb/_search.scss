@@ -14,7 +14,11 @@
 }
 
 #pxwebcontent .search_textbox {
-  width: 200px;
+    width: 200px;
+    @include focus-marker;
+}
+#pxwebcontent .search_button {
+    @include focus-marker;
 }
 
 #pxwebcontent .search_error {

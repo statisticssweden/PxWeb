@@ -4,8 +4,10 @@
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
 /*#region  Main color scheme */
+/*#region Buttons */
 /*#endregion*/
-/*#region color for icons in buttons */
+/*#region Links */
+/*#endregion*/
 /*#endregion*/
 /*@import './color-themes/_screen-reader.scss';*/
 /*#region  Inactive colors - not in used */
@@ -21,7 +23,6 @@ $pxweb-purple-1: #f2f0ff;
 $scrollbar-color: #b0b0b0;
   */
 /*#endregion*/
-/*All pxbox links has icon.*/
 @keyframes fadein {
   from {
     opacity: 0; }

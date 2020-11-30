@@ -346,22 +346,27 @@ namespace CSSFriendly
         }
 
         private void WriteNodeExpander(TreeView treeView, TreeNode item, HtmlTextWriter writer)
-                {
-                    writer.WriteBeginTag("span");
+        {
+            writer.WriteBeginTag("span");
             writer.WriteAttribute("class", (item.Expanded.Equals(true) ? "AspNet-TreeView-Collapse" : "AspNet-TreeView-Expand"));
-                    if (HasChildren(item))
-                    {
-                        writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this)");
-                    }
-                    else
-                    {
-                        writer.WriteAttribute("onclick", Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
-                    }
-                    writer.Write(HtmlTextWriter.TagRightChar);
-                    writer.Write("&nbsp;");
-                    writer.WriteEndTag("span");
-                    writer.WriteLine();
-                }
+            writer.WriteAttribute("aria-expanded", (item.Expanded.Equals(true) ? "true" : "false"));
+            if (HasChildren(item))
+            {
+                writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this)");
+            }
+            else
+            {
+                writer.WriteAttribute("onclick", Page.ClientScript.GetPostBackEventReference(treeView, "p" + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
+            }
+            writer.WriteAttribute("tabindex", "0");
+            //writer.WriteAttribute("role", "button");
+
+
+            writer.Write(HtmlTextWriter.TagRightChar);
+            writer.Write("&nbsp;");
+            writer.WriteEndTag("span");
+            writer.WriteLine();
+        }
 
         private void WriteNodeImage(TreeView treeView, TreeNode item, HtmlTextWriter writer)
         {
@@ -487,23 +492,25 @@ namespace CSSFriendly
         }
 
         private void WriteNodePlain(TreeView treeView, TreeNode item, HtmlTextWriter writer)
-                {
-                    writer.WriteBeginTag("span");
-                    if (IsExpandable(item))
-                    {
-                        writer.WriteAttribute("class", "AspNet-TreeView-ClickableNonLink");
+        {
+            writer.WriteBeginTag("span");
+            if (IsExpandable(item))
+            {
+                writer.WriteAttribute("class", "AspNet-TreeView-ClickableNonLink");
                 if (treeView.ShowExpandCollapse)
                 {
-                        writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this.parentNode.getElementsByTagName('span')[0])");
-                    }
+                    writer.WriteAttribute("onclick", "ExpandCollapse__AspNetTreeView(this.parentNode.getElementsByTagName('span')[0])");
+                    writer.WriteAttribute("tabindex", "0");
+                    //writer.WriteAttribute("role", "button");
+                }
             }
-                    else
-                    {
-                        writer.WriteAttribute("class", "AspNet-TreeView-NonLink");
-                    }
-                    writer.Write(HtmlTextWriter.TagRightChar);
-                    writer.Indent++;
-                    writer.WriteLine();
+            else
+            {
+                writer.WriteAttribute("class", "AspNet-TreeView-NonLink");
+            }
+            writer.Write(HtmlTextWriter.TagRightChar);
+            writer.Indent++;
+            writer.WriteLine();
 
             WriteNodeImage(treeView, item, writer);
             char[] separator = { '|' };
@@ -511,9 +518,9 @@ namespace CSSFriendly
             writer.Write(strings[0]);
             //writer.Write(item.Text);
 
-                    writer.Indent--;
-                    writer.WriteEndTag("span");
-                }
+            writer.Indent--;
+            writer.WriteEndTag("span");
+        }
 
         private void UpdateCheckmarks(TreeNodeCollection items)
         {
