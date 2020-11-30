@@ -254,6 +254,7 @@
     <Content Include="Resources\Images\small_button_select_by_group.gif" />
     <Content Include="Resources\Images\small_button_txt.png" />
     <Content Include="Resources\Images\small_button_xlsx.png" />
+    <Content Include="Resources\Languages\pxlang.en.xml" />
     <Content Include="Resources\Languages\pxlang.kl.xml" />
     <Content Include="Resources\PX\Databases\Example\alias\Alias.txt" />
     <Content Include="Resources\PX\Databases\Example\alias\Alias_en.txt" />
