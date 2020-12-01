@@ -1,4 +1,6 @@
 ﻿/*@import './color-themes/_dark.scss';*/
+/*@import './color-themes/_light.scss';
+*/
 /*#region  Active colors */
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
@@ -97,16 +99,16 @@ $scrollbar-color: #b0b0b0;
 
 /*#region override important! from forside.scss */
 #pxwebcontent .settings_panel a {
-  color: #333 !important; }
+  color: #222 !important; }
 
 #pxwebcontent .information_definitionlist dd a {
   color: #003892 !important; }
 
 #pxwebcontent .tablequery_moreinformation {
-  color: #333 !important; }
+  color: #222 !important; }
 
 #pxwebcontent .footnotes_container a {
-  color: #4b86b4 !important; }
+  color: #00829A !important; }
   #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
     color: #fff !important; }
 

@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap");
 /*@import './color-themes/_dark.scss';*/
+/*@import './color-themes/_light.scss';
+*/
 /*#region  Active colors */
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
@@ -148,27 +150,27 @@ $scrollbar-color: #b0b0b0;
     background-repeat: no-repeat;
     background-position-x: left;
     background-position-y: center;
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>'); }
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>'); }
     #pxwebcontent .pxweb-accordion .accordion-header:focus {
       outline: #9272fc solid 2px;
       outline-offset: 2px; }
     #pxwebcontent .pxweb-accordion .accordion-header.closed {
-      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>'); }
+      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>'); }
     #pxwebcontent .pxweb-accordion .accordion-header .header-text {
-      color: #162327;
+      color: #00778C;
       padding-left: 30px; }
     #pxwebcontent .pxweb-accordion .accordion-header .sub-header {
-      color: #4b86b4; }
+      color: #00829A; }
     #pxwebcontent .pxweb-accordion .accordion-header:hover .header-text, #pxwebcontent .pxweb-accordion .accordion-header:hover .sub-header {
-      color: #4b86b4; }
+      color: #00829A; }
   #pxwebcontent .pxweb-accordion:not(.without-borders):before {
-    border-top: 1px solid #c3dcdc;
+    border-top: 1px solid #949494;
     content: '';
     height: 2px;
     padding-bottom: 8px;
     display: block; }
   #pxwebcontent .pxweb-accordion:not(.without-borders):after {
-    border-bottom: 1px solid #c3dcdc;
+    border-bottom: 1px solid #949494;
     content: '';
     height: 2px;
     margin-bottom: -1px;
@@ -185,7 +187,7 @@ $scrollbar-color: #b0b0b0;
     font-family: 'Roboto', sans-serif !important;
     font-stretch: normal;
     font-weight: normal;
-    color: #162327;
+    color: #00778C;
     font-size: 16px;
     padding: 8px 50px 8px 0; }
     #pxwebcontent .pxweb-accordion .accordion-body.closed {
@@ -208,9 +210,9 @@ $scrollbar-color: #b0b0b0;
   text-align: left;
   align-items: center;
   background-color: #fff;
-  border: 2px solid #4b86b4;
+  border: 2px solid #00829A;
   border-radius: 2px;
-  color: #4b86b4;
+  color: #00829A;
   display: flex;
   font-size: 16px;
   font-weight: bold;
@@ -228,16 +230,16 @@ $scrollbar-color: #b0b0b0;
   #pxwebcontent .pxweb-btn:hover, #pxwebcontent .pxweb-btn:active {
     cursor: pointer; }
   #pxwebcontent .pxweb-btn:hover, #pxwebcontent .pxweb-btn:focus {
-    background-color: #4b86b4;
+    background-color: #00829A;
     color: #fff;
     text-decoration: underline; }
   #pxwebcontent .pxweb-btn:active {
-    background-color: #274247;
+    background-color: #00778C;
     color: #fff; }
   #pxwebcontent .pxweb-btn:disabled {
     background-color: #fff;
-    border-color: #c3dcdc;
-    color: #c3dcdc;
+    border-color: #949494;
+    color: #949494;
     cursor: not-allowed; }
     #pxwebcontent .pxweb-btn:disabled:hover, #pxwebcontent .pxweb-btn:disabled:focus {
       text-decoration: none; }
@@ -247,16 +249,16 @@ $scrollbar-color: #b0b0b0;
       text-decoration: none; }
   #pxwebcontent .pxweb-btn.primary-btn {
     background: transparent;
-    background-color: #4b86b4;
+    background-color: #00829A;
     color: #fff;
     border: 2px solid #fff; }
     #pxwebcontent .pxweb-btn.primary-btn:hover, #pxwebcontent .pxweb-btn.primary-btn:active, #pxwebcontent .pxweb-btn.primary-btn:focus {
-      background-color: #274247;
-      border: 2px solid #274247;
+      background-color: #00778C;
+      border: 2px solid #00778C;
       text-decoration: underline; }
     #pxwebcontent .pxweb-btn.primary-btn:disabled {
-      background: #c3dcdc;
-      border: 2px solid #c3dcdc;
+      background: #949494;
+      border: 2px solid #949494;
       color: #fff;
       cursor: not-allowed;
       font-weight: normal; }
@@ -301,15 +303,15 @@ $scrollbar-color: #b0b0b0;
   text-align: left;
   user-select: none; }
   #pxwebcontent .pxweb-checkbox:hover .checkbox-label:before, #pxwebcontent .pxweb-checkbox:focus .checkbox-label:before {
-    border: 2px solid #4b86b4; }
+    border: 2px solid #00829A; }
   #pxwebcontent .pxweb-checkbox input[type=checkbox] {
     cursor: pointer;
     opacity: 0;
     position: absolute; }
     #pxwebcontent .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
-      border: 2px solid #4b86b4; }
+      border: 2px solid #00829A; }
     #pxwebcontent .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:before {
-      background: #274247; }
+      background: #00778C; }
     #pxwebcontent .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
       border: solid #fff;
       border-width: 0 2px 2px 0;
@@ -323,10 +325,10 @@ $scrollbar-color: #b0b0b0;
       width: 6px; }
     #pxwebcontent .pxweb-checkbox input[type=checkbox]:disabled + .checkbox-label {
       background: #fff;
-      color: #c3dcdc;
+      color: #949494;
       cursor: default; }
       #pxwebcontent .pxweb-checkbox input[type=checkbox]:disabled + .checkbox-label:before {
-        border: 1px solid #c3dcdc; }
+        border: 1px solid #949494; }
   #pxwebcontent .pxweb-checkbox .checkbox-label {
     align-items: center;
     cursor: pointer;
@@ -335,7 +337,7 @@ $scrollbar-color: #b0b0b0;
     position: relative; }
     #pxwebcontent .pxweb-checkbox .checkbox-label:before {
       background: #fff;
-      border: 1px solid #274247;
+      border: 1px solid #00778C;
       border-radius: 2px;
       box-sizing: border-box;
       content: '';
@@ -348,9 +350,9 @@ $scrollbar-color: #b0b0b0;
 #pxwebcontent .pxbox .pxweb-checkbox {
   /*color: $pxbox-dark-6;*/ }
   #pxwebcontent .pxbox .pxweb-checkbox:hover .checkbox-label:before, #pxwebcontent .pxbox .pxweb-checkbox:focus .checkbox-label:before {
-    border: 2px solid #4b86b4; }
+    border: 2px solid #00829A; }
   #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
-    border: 2px solid #4b86b4; }
+    border: 2px solid #00829A; }
   #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:before {
     background: #e7eff6; }
   #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
@@ -363,15 +365,15 @@ $scrollbar-color: #b0b0b0;
       border: 1px solid #c3dcdc; }
   #pxwebcontent .pxbox .pxweb-checkbox .checkbox-label:before {
     background: #fff;
-    border: 1px solid #274247; }
+    border: 1px solid #222; }
 
 /* **********************************  common/_checkbox-pxbox-override.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-checkbox .checkbox-label:before {
   background: #e7eff6;
-  border: 1px solid #63ace5; }
+  border: 1px solid #0090AA; }
 
 #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
-  border: solid #63ace5;
+  border: solid #0090AA;
   border-width: 0 2px 2px 0;
   content: '';
   display: block;
@@ -383,10 +385,10 @@ $scrollbar-color: #b0b0b0;
   width: 6px; }
 
 #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:hover + .checkbox-label:before {
-  background: #63ace5; }
+  background: #0090AA; }
 
 #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked:hover + .checkbox-label:after {
-  background-color: #63ace5;
+  background-color: #0090AA;
   border: solid #e7eff6;
   border-width: 0 2px 2px 0;
   content: '';
@@ -411,10 +413,10 @@ $scrollbar-color: #b0b0b0;
   width: 6px; }
 
 #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
-  background: #63ace5; }
+  background: #0090AA; }
 
 #pxwebcontent .pxbox .pxweb-checkbox:hover .checkbox-label:before, .pxbox #pxwebcontent .pxweb-checkbox:focus .checkbox-label:before {
-  border: 2px solid #63ace5; }
+  border: 2px solid #0090AA; }
 
 #pxwebcontent .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
   outline: 2px solid #9272fc;
@@ -429,14 +431,14 @@ $scrollbar-color: #b0b0b0;
   margin: 0;
   position: relative;
   width: 100%;
-  border-top-color: #274247; }
+  border-top-color: #00778C; }
   #pxwebcontent .pxweb-divider.with-margin {
     margin-top: 8px;
     margin-bottom: 8px; }
 
 /* **********************************  common/_divider-pxbox.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-divider {
-  border-top-color: #63ace5; }
+  border-top-color: #0090AA; }
 
 /*@import './common/_glossary.scss';*/
 /*@import './common/_glossary-pxbox.scss';*/
@@ -455,7 +457,7 @@ $scrollbar-color: #b0b0b0;
     border: 1px solid #b6e8b8;
     outline: 1px solid #b6e8b8; }
     #pxwebcontent .pxweb-input:hover input:disabled {
-      border: 1px solid #274247; }
+      border: 1px solid #00778C; }
   #pxwebcontent .pxweb-input .input-wrapper {
     display: flex; }
     #pxwebcontent .pxweb-input .input-wrapper ::placeholder {
@@ -466,7 +468,7 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .pxweb-input .input-wrapper ::-ms-input-placeholder {
       color: #2d6975; }
   #pxwebcontent .pxweb-input label {
-    color: #162327;
+    color: #00778C;
     cursor: text;
     font-size: 14px;
     margin-bottom: 4px;
@@ -476,7 +478,7 @@ $scrollbar-color: #b0b0b0;
     font-stretch: normal;
     font-weight: normal;
     background: #fff;
-    border: 1px solid #274247;
+    border: 1px solid #00778C;
     box-sizing: border-box;
     color: #2d6975;
     font-size: 14px;
@@ -487,7 +489,7 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .pxweb-input input.with-icon {
       padding: 4px 44px 4px 10px; }
     #pxwebcontent .pxweb-input input:disabled {
-      border: 1px solid #274247;
+      border: 1px solid #00778C;
       cursor: not-allowed; }
     #pxwebcontent .pxweb-input input:focus {
       outline: 2px solid #9272fc;
@@ -523,7 +525,7 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:hover, #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:focus {
       background: #fff; }
       #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:focus > * {
-        color: #274247; }
+        color: #00778C; }
   #pxwebcontent .pxweb-input.negative.error input {
     border: 1px solid #ed5935;
     outline: 1px solid #ed5935; }
@@ -555,21 +557,21 @@ $scrollbar-color: #b0b0b0;
       outline: #9272fc solid 2px;
       outline-offset: 2px; }
     #pxwebcontent .pxweb-input .icon-wrapper > * {
-      color: #4b86b4; }
+      color: #00829A; }
     #pxwebcontent .pxweb-input .icon-wrapper.search-icon {
       cursor: pointer; }
       #pxwebcontent .pxweb-input .icon-wrapper.search-icon:hover, #pxwebcontent .pxweb-input .icon-wrapper.search-icon:focus {
-        background: #4b86b4;
+        background: #00829A;
         outline-offset: 0px; }
         #pxwebcontent .pxweb-input .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxweb-input .icon-wrapper.search-icon:focus > * {
           color: #fff; }
 
 /* **********************************  common/_input-pxbox.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-input:hover input {
-  border: 1px solid #63ace5;
-  outline: 1px solid #63ace5; }
+  border: 1px solid #0090AA;
+  outline: 1px solid #0090AA; }
   #pxwebcontent .pxbox .pxweb-input:hover input:disabled {
-    border: 1px solid #274247; }
+    border: 1px solid #222; }
 
 #pxwebcontent .pxbox .pxweb-input .input-wrapper ::placeholder {
   color: #2d6975; }
@@ -581,14 +583,14 @@ $scrollbar-color: #b0b0b0;
   color: #2d6975; }
 
 #pxwebcontent .pxbox .pxweb-input label {
-  color: #162327; }
+  color: #222; }
 
 #pxwebcontent .pxbox .pxweb-input input {
   background: #fff;
-  border: 1px solid #274247;
+  border: 1px solid #222;
   color: #2d6975; }
   #pxwebcontent .pxbox .pxweb-input input:disabled {
-    border: 1px solid #274247; }
+    border: 1px solid #222; }
 
 #pxwebcontent .pxbox .pxweb-input.negative .input-wrapper ::placeholder {
   color: #fff; }
@@ -600,8 +602,8 @@ $scrollbar-color: #b0b0b0;
   color: #fff; }
 
 #pxwebcontent .pxbox .pxweb-input.negative:hover input {
-  border: 1px solid #63ace5;
-  outline: 1px solid #63ace5; }
+  border: 1px solid #0090AA;
+  outline: 1px solid #0090AA; }
   #pxwebcontent .pxbox .pxweb-input.negative:hover input:disabled {
     border: 1px solid #fff; }
 
@@ -614,16 +616,16 @@ $scrollbar-color: #b0b0b0;
   #pxwebcontent .pxbox .pxweb-input.negative input:disabled {
     border: 1px solid #fff; }
   #pxwebcontent .pxbox .pxweb-input.negative input:focus {
-    border: 1px solid #63ace5;
-    outline: 1px solid #63ace5; }
+    border: 1px solid #0090AA;
+    outline: 1px solid #0090AA; }
 
 #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper > * {
-  color: #63ace5; }
+  color: #0090AA; }
 
 #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:hover, #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:focus {
   background: #fff; }
   #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:focus > * {
-    color: #274247; }
+    color: #222; }
 
 #pxwebcontent .pxbox .pxweb-input.negative.error input {
   border: 1px solid #ed5935;
@@ -640,14 +642,14 @@ $scrollbar-color: #b0b0b0;
   color: #ed5935; }
 
 #pxwebcontent .pxbox .pxweb-input .icon-wrapper > * {
-  color: #4b86b4; }
+  color: #00829A; }
 
 #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon {
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
   background-position: center; }
   #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon:hover, #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon:focus {
-    background: #4b86b4;
+    background: #00829A;
     background-repeat: no-repeat;
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
     background-position: center; }
@@ -663,12 +665,12 @@ $scrollbar-color: #b0b0b0;
   font-stretch: normal;
   font-weight: normal;
   align-items: center;
-  background-image: linear-gradient(120deg, #4b86b4 0%, #4b86b4 100%);
+  background-image: linear-gradient(120deg, #00829A 0%, #00829A 100%);
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 100% 0;
-  border-bottom: 1px solid #4b86b4;
-  color: #4b86b4;
+  border-bottom: 1px solid #00829A;
+  color: #00829A;
   cursor: pointer;
   display: inline-flex;
   font-size: 16px;
@@ -690,13 +692,13 @@ $scrollbar-color: #b0b0b0;
     font-size: 20px;
     font-weight: bold; }
     #pxwebcontent .pxweb-link.header .link-text {
-      color: #162327; }
+      color: #00778C; }
   #pxwebcontent .pxweb-link:hover, #pxwebcontent .pxweb-link:focus {
     background-size: 100% 100%;
     color: white;
     outline: 0;
     text-decoration: none;
-    border-bottom-color: #4b86b4; }
+    border-bottom-color: #00829A; }
     #pxwebcontent .pxweb-link:hover .link-text, #pxwebcontent .pxweb-link:focus .link-text {
       text-decoration: none;
       color: white; }
@@ -706,13 +708,13 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .pxweb-link.with-icon i {
       font-size: 16px; }
     #pxwebcontent .pxweb-link.with-icon .link-text {
-      color: #162327; }
+      color: #00778C; }
     #pxwebcontent .pxweb-link.with-icon:hover, #pxwebcontent .pxweb-link.with-icon:focus {
       color: white; }
       #pxwebcontent .pxweb-link.with-icon:hover .link-text, #pxwebcontent .pxweb-link.with-icon:focus .link-text {
         color: white; }
   #pxwebcontent .pxweb-link .link-text {
-    color: #4b86b4;
+    color: #00829A;
     transition: color .1s; }
     #pxwebcontent .pxweb-link .link-text:hover, #pxwebcontent .pxweb-link .link-text:focus {
       color: white;
@@ -720,9 +722,9 @@ $scrollbar-color: #b0b0b0;
 
 /* **********************************  common/_link-pxbox.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-link.negative {
-  background-image: linear-gradient(120deg, #63ace5 0%, #63ace5 100%);
-  border-bottom: 1px solid #2a4d69;
-  color: #2a4d69;
+  background-image: linear-gradient(120deg, #0090AA 0%, #0090AA 100%);
+  border-bottom: 1px solid #00778C;
+  color: #00778C;
   /*
     &:hover, &:focus {
       color: $pxbox-dark-5;
@@ -733,19 +735,19 @@ $scrollbar-color: #b0b0b0;
     }
     */ }
   #pxwebcontent .pxbox .pxweb-link.negative .link-text {
-    color: #2a4d69; }
+    color: #00778C; }
   #pxwebcontent .pxbox .pxweb-link.negative.with-icon {
     border-bottom: none; }
     #pxwebcontent .pxbox .pxweb-link.negative.with-icon .link-text {
-      color: #2a4d69; }
+      color: #00778C; }
     #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus {
-      color: #162327; }
+      color: #222; }
       #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover .link-text, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus .link-text {
-        color: #162327; }
+        color: #222; }
 
 /* **********************************  common/_title.scss *********************************** */
 #pxwebcontent .pxweb-title {
-  color: #162327;
+  color: #00778C;
   margin-top: 0; }
   #pxwebcontent .pxweb-title.negative {
     color: #fff; }
@@ -801,6 +803,6 @@ $scrollbar-color: #b0b0b0;
 
 /* **********************************  common/_title-pxbox.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-title {
-  color: #162327; }
+  color: #222; }
   #pxwebcontent .pxbox .pxweb-title.negative {
-    color: #2a4d69; }
+    color: #00778C; }

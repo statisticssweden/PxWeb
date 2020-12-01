@@ -1,4 +1,6 @@
 ﻿/*@import './color-themes/_dark.scss';*/
+/*@import './color-themes/_light.scss';
+*/
 /*#region  Active colors */
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
@@ -34,22 +36,22 @@ $scrollbar-color: #b0b0b0;
   padding-left: 4px;
   background-repeat: no-repeat;
   padding-left: 25px;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2363ace5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230090AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
   #pxwebcontent .pxbox .arrow-right-pxbox-icon:hover {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23162327" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
 
 #pxwebcontent .external-link-pxbox-icon {
   padding-left: 4px;
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2363ace5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%230090AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
   padding-left: 20px; }
   #pxwebcontent .external-link-pxbox-icon:hover {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23162327" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
 
 #pxwebcontent .external-link-icon {
   padding-left: 4px;
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
   padding-left: 20px; }
   #pxwebcontent .external-link-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
@@ -59,13 +61,13 @@ $scrollbar-color: #b0b0b0;
   background: #fff;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
-  color: #333;
+  color: #222;
   font-size: 14px; }
 
 #pxwebcontent .pxbox.negative {
   background-color: #e7eff6;
-  border: solid 1px #2a4d69;
-  color: #2a4d69; }
+  border: solid 1px #00778C;
+  color: #00778C; }
 
 #pxwebcontent #wrap {
   margin: 0px auto;
@@ -87,15 +89,15 @@ $scrollbar-color: #b0b0b0;
   padding: 12px 0 5px 10px; }
 
 #pxwebcontent #header h1 a {
-  color: #57626a;
+  color: #222;
   text-decoration: none; }
 
 #pxwebcontent #header h1 a:hover {
-  color: #57626a;
+  color: #222;
   text-decoration: none; }
 
 #pxwebcontent #header h2 {
-  color: #ccc;
+  color: #222;
   font-size: 1.25em;
   font-weight: 100;
   padding: 0 0 0 11px;
@@ -194,7 +196,7 @@ $scrollbar-color: #b0b0b0;
   width: 100%; }
 
 #pxwebcontent .settings_panel a {
-  color: #333; }
+  color: #222; }
 
 #pxwebcontent .chart-links {
   float: right; }
@@ -208,7 +210,7 @@ $scrollbar-color: #b0b0b0;
   padding: 10px 10px 10px 10px;
   margin-top: 5px;
   display: inline-block;
-  border: 1px solid #c3dcdc;
+  border: 1px solid #949494;
   cursor: pointer; }
 
 #pxwebcontent .panelshowlink.savequery {
@@ -240,9 +242,9 @@ $scrollbar-color: #b0b0b0;
 #pxwebcontent .px-settings {
   display: inline-block;
   padding: 10px 10px 10px 10px;
-  border-left: 1px solid #c3dcdc;
-  border-right: 1px solid #c3dcdc;
-  border-bottom: 1px solid #c3dcdc;
+  border-left: 1px solid #949494;
+  border-right: 1px solid #949494;
+  border-bottom: 1px solid #949494;
   width: 100%; }
 
 #pxwebcontent .px_setting_validator {
@@ -300,21 +302,21 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .px_settings_cancel {
   margin-right: 20px;
-  background: #4b86b4;
+  background: #00829A;
   color: #fff;
   padding: 2px 4px 2px 5px;
   font-weight: bold; }
 
 #pxwebcontent .px_setting_apply {
   margin-right: 20px;
-  background: #4b86b4;
+  background: #00829A;
   color: #fff;
   padding: 2px 4px 2px 5px;
   font-weight: bold;
-  border: 1px solid #ccc; }
+  border: 1px solid #222; }
 
 #pxwebcontent .chart_information {
-  background-color: #ccc;
+  background-color: #222;
   padding: 20px 20px 20px 20px;
   display: inline-block;
   width: 731px;
@@ -331,7 +333,7 @@ $scrollbar-color: #b0b0b0;
   display: inline-block;
   background-color: #eee;
   padding: 10px 10px 10px 10px;
-  border: solid 1px #ccc;
+  border: solid 1px #222;
   margin-top: 10px; }
 
 #pxwebcontent .headingtext {
@@ -387,7 +389,7 @@ $scrollbar-color: #b0b0b0;
   margin-top: 10px;
   font-size: 14px; }
   #pxwebcontent .pxweb-buttons.key-icon {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>'); }
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>'); }
     #pxwebcontent .pxweb-buttons.key-icon:hover, #pxwebcontent .pxweb-buttons.key-icon:focus {
       background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>'); }
   #pxwebcontent .pxweb-buttons.database-icon {
@@ -433,11 +435,11 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .variableselector-buttons.variableselector_valuesselect_select_all_button:hover, #pxwebcontent .variableselector-buttons.variableselector_valuesselect_select_all_button:focus {
       background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%232a4d69" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>'); }
   #pxwebcontent .variableselector-buttons.variableselector-list-view {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="5" x2="21" y2="5"></line><line x1="3" y1="11" x2="21" y2="11"></line><line x1="3" y1="17" x2="21" y2="17"></line><line x1="3" y1="23" x2="21" y2="23"></line></svg>'); }
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="5" x2="21" y2="5"></line><line x1="3" y1="11" x2="21" y2="11"></line><line x1="3" y1="17" x2="21" y2="17"></line><line x1="3" y1="23" x2="21" y2="23"></line></svg>'); }
     #pxwebcontent .variableselector-buttons.variableselector-list-view:hover, #pxwebcontent .variableselector-buttons.variableselector-list-view:focus {
       background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="5" x2="21" y2="5"></line><line x1="3" y1="11" x2="21" y2="11"></line><line x1="3" y1="17" x2="21" y2="17"></line><line x1="3" y1="23" x2="21" y2="23"></line></svg>'); }
   #pxwebcontent .variableselector-buttons.variableselector-compact-view {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-square"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>'); }
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-square"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>'); }
     #pxwebcontent .variableselector-buttons.variableselector-compact-view:hover, #pxwebcontent .variableselector-buttons.variableselector-compact-view:focus {
       background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-square"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>'); }
 
@@ -516,7 +518,7 @@ $scrollbar-color: #b0b0b0;
   margin-top: 10px;
   font-family: 'Open Sans';
   font-size: 14px;
-  color: #333; }
+  color: #222; }
 
 #pxwebcontent .meta_tablelink {
   display: block;
@@ -576,17 +578,17 @@ $scrollbar-color: #b0b0b0;
   padding-bottom: 10px;
   border-style: dashed;
   border-width: 2px;
-  border-color: #4b86b4; }
+  border-color: #00829A; }
 
 /* **********************************  _top-link.scss *********************************** */
 #pxwebcontent .top-link.pxweb-btn.negative {
   color: #fff;
   border-color: #fff;
-  background-color: #274247; }
+  background-color: #00778C; }
 
 #pxwebcontent .top-link.pxweb-btn.negative:hover, #pxwebcontent top-link.pxweb-btn:focus {
-  color: #274247;
-  border-color: #274247;
+  color: #00778C;
+  border-color: #00778C;
   background-color: #fff; }
 
 #pxwebcontent .top-link {
@@ -615,13 +617,13 @@ $scrollbar-color: #b0b0b0;
   background: breadcrumb-background; }
 
 #pxwebcontent .breadcrumb_text {
-  color: #2870ae;
+  color: #00929A;
   font-family: Verdana;
   font-size: 0.9em;
   display: inline-block; }
 
 #pxwebcontent .breadcrumb_text:hover {
-  color: #2870ae;
+  color: #00929A;
   font-family: Verdana;
   font-size: 0.9em; }
 
@@ -630,32 +632,32 @@ $scrollbar-color: #b0b0b0;
   outline-offset: 2px; }
 
 #pxwebcontent .breadcrumb_text_nolink {
-  color: #000;
+  color: #222;
   font-family: Verdana;
   font-size: 0.9em;
   display: inline-block; }
 
 #pxwebcontent .breadcrumb_text_nolink:hover {
-  color: #000;
+  color: #222;
   font-family: Verdana;
   text-decoration: none;
   font-size: 0.9em; }
 
 #pxwebcontent .breadcrumb_sep {
-  color: #2870ae;
+  color: #00929A;
   font-family: Verdana;
   font-size: 0.8em; }
 
 #pxwebcontent .breadcrumb_homebutton {
   width: 20px;
   height: 20px;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%232870ae" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" > <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" > </path > <polyline points="9 22 9 12 15 12 15 22" > </polyline > </svg >');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2300929A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" > <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" > </path > <polyline points="9 22 9 12 15 12 15 22" > </polyline > </svg >');
   background-repeat: no-repeat;
   vertical-align: middle;
   outline: none; }
 
 #pxwebcontent #breadcrumb {
-  border-top: 3px solid #2870ae;
+  border-top: 3px solid #00929A;
   background: #eee;
   text-transform: none;
   padding: 5px 15px;
@@ -1090,12 +1092,12 @@ $scrollbar-color: #b0b0b0;
   font-stretch: normal;
   font-weight: normal;
   align-items: center;
-  background-image: linear-gradient(120deg, #4b86b4 0%, #4b86b4 100%);
+  background-image: linear-gradient(120deg, #00829A 0%, #00829A 100%);
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 100% 0;
-  border-bottom: 1px solid #4b86b4;
-  color: #4b86b4;
+  border-bottom: 1px solid #00829A;
+  color: #00829A;
   cursor: pointer;
   display: inline-flex;
   font-size: 14px;
@@ -1163,7 +1165,7 @@ $scrollbar-color: #b0b0b0;
   margin-bottom: 20px;
   margin-left: 15px;
   display: block;
-  color: #333; }
+  color: #222; }
 
 #pxwebcontent .hierarchical_tableinformation_description {
   font-weight: bold;
@@ -1275,7 +1277,7 @@ $scrollbar-color: #b0b0b0;
   flex-wrap: wrap;
   cursor: pointer;
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2363ace5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metadata-logo"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230090AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metadata-logo"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>');
   background-position-x: right;
   background-position-y: top;
   padding-right: 30px; }
@@ -1289,7 +1291,7 @@ $scrollbar-color: #b0b0b0;
   margin-right: 40px; }
 
 #pxwebcontent .metadata-text-wrap {
-  border-bottom: 1px dotted #4b86b4;
+  border-bottom: 1px dotted #00829A;
   display: inline-block;
   line-height: inherit; }
 
@@ -1312,7 +1314,7 @@ $scrollbar-color: #b0b0b0;
   outline-offset: 2px; }
 
 #pxwebcontent .metadata-open-btn:focus, #pxwebcontent .metadata-open-btn:hover {
-  background-color: #4b86b4; }
+  background-color: #00829A; }
 
 #pxwebcontent .metadata-open-btn:hover .metadata-logo, #pxwebcontent .metadata-open-btn:focus .metadata-logo {
   color: #fff; }
@@ -1326,7 +1328,7 @@ $scrollbar-color: #b0b0b0;
   font-size: 14px;
   opacity: 0;
   transition: opacity .18s;
-  border: 1.5px solid #63ace5; }
+  border: 1.5px solid #0090AA; }
 
 #pxwebcontent .metadata-popup.open {
   display: inline-block;
@@ -1336,7 +1338,7 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .metadata-content {
   background-color: #e7eff6;
-  color: #2a4d69;
+  color: #00778C;
   padding: 20px;
   position: relative;
   display: flex;
@@ -1351,7 +1353,7 @@ $scrollbar-color: #b0b0b0;
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: #63ace5;
+  border-bottom-color: #0090AA;
   border-width: 16px;
   margin-left: -20px; }
 
@@ -1382,7 +1384,7 @@ $scrollbar-color: #b0b0b0;
   margin-top: 0px; }
 
 #pxwebcontent .pxbox .metadata-links .pxweb-link.with-icon {
-  border-bottom: 1px solid #63ace5; }
+  border-bottom: 1px solid #0090AA; }
 
 #pxwebcontent .pxbox .metadata-links .link-text {
   font-size: 14px; }
@@ -1395,29 +1397,29 @@ $scrollbar-color: #b0b0b0;
   align-items: center;
   display: flex;
   justify-content: center;
-  background-color: #274247;
-  color: #63ace5;
+  background-color: #222;
+  color: #0090AA;
   cursor: pointer;
   background-color: transparent;
   border: none;
   align-self: center;
   background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2363ace5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%230090AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>');
   background-position-x: 4px;
   background-position-y: center; }
   #pxwebcontent .metadata-close-btn:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>');
-    background-color: #4b86b4;
+    background-color: #00829A;
     color: #fff; }
 
 #pxwebcontent .metadata-close-btn:focus {
-  background-color: #4b86b4;
+  background-color: #00829A;
   outline: #9272fc solid 2px;
   outline-offset: 2px;
   color: #fff; }
 
 #pxwebcontent .metadata-close-text {
-  color: #2a4d69;
+  color: #00778C;
   padding: 4px;
   margin-left: 15px; }
 
@@ -1476,7 +1478,7 @@ $scrollbar-color: #b0b0b0;
   font-weight: bold; }
 
 #pxwebcontent span.nav-step.future {
-  color: #274247;
+  color: #00778C;
   line-height: 1.25; }
 
 #pxwebcontent span.nav-step.passive {
@@ -1680,7 +1682,7 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent hr.green-rule {
   width: 100%;
-  border-color: #63ace5; }
+  border-color: #0090AA; }
 
 #pxwebcontent .searchvalues-listbox-container {
   margin-top: 10px; }
@@ -1763,8 +1765,8 @@ $scrollbar-color: #b0b0b0;
   background-size: 24px auto, 100%;
   font-size: 16px; }
   #pxwebcontent select.selectfromgroup-selectgrouping:hover {
-    border: 1px solid #63ace5;
-    outline: #63ace5 solid 1px; }
+    border: 1px solid #0090AA;
+    outline: #0090AA solid 1px; }
   #pxwebcontent select.selectfromgroup-selectgrouping:focus {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dd-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>');
     outline: #9272fc solid 2px;
@@ -2217,7 +2219,7 @@ $scrollbar-color: #b0b0b0;
   border-top-right-radius: 0px; }
 
 #pxwebcontent .ui-tabs-tab li {
-  background-color: #274247; }
+  background-color: #00778C; }
 
 /* **********************************  _tablelist.scss TODO part of menu *********************************** */
 /*Used in PCAxis.Web.Controls\Menu\TableOfContent\TableOfContent.ascx */
@@ -2318,7 +2320,7 @@ $scrollbar-color: #b0b0b0;
   padding: 10px;
   border-style: dashed;
   border-width: 2px;
-  border-color: #4b86b4; }
+  border-color: #00829A; }
 
 #pxwebcontent .tablequery_informationtext {
   display: block; }
@@ -2352,7 +2354,7 @@ $scrollbar-color: #b0b0b0;
   font-stretch: condensed;
   font-weight: bold;
   float: left;
-  background: #4b86b4;
+  background: #00829A;
   color: #fff; }
 
 /* **********************************  _tablequery.scss TODO in real use? *********************************** */
@@ -2582,13 +2584,13 @@ $scrollbar-color: #b0b0b0;
   font-stretch: normal;
   font-weight: normal;
   font-size: 16px;
-  color: #162327;
+  color: #222;
   cursor: pointer; }
 
 #pxwebcontent select.variableselector_valuesselect_aggregations {
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dd-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dd-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>');
   padding: .6em 1.4em .5em 2.2em;
   border: 1px solid #fff;
   background-color: #fff;
@@ -2596,10 +2598,10 @@ $scrollbar-color: #b0b0b0;
   background-position: left .4em top 50%, 0 0;
   background-size: 24px auto, 100%; }
   #pxwebcontent select.variableselector_valuesselect_aggregations:hover {
-    border: 1px solid #63ace5;
-    outline: #63ace5 solid 1px; }
+    border: 1px solid #0090AA;
+    outline: #0090AA solid 1px; }
   #pxwebcontent select.variableselector_valuesselect_aggregations:focus {
-    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234b86b4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dd-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>');
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300829A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dd-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>');
     outline: #9272fc solid 2px;
     outline-offset: 2px; }
 
@@ -2642,7 +2644,7 @@ $scrollbar-color: #b0b0b0;
   font-stretch: normal;
   font-weight: normal;
   font-size: 14px;
-  color: #2a4d69; }
+  color: #00778C; }
 
 #pxwebcontent .variableselector_valuesselect_search_textstart_checkbox {
   margin-top: 6px; }
@@ -2699,11 +2701,11 @@ $scrollbar-color: #b0b0b0;
 
 /*Green background color inside valuelist*/
 #pxwebcontent .pxbox select[multiple] option:checked {
-  background: #4b86b4 linear-gradient(0deg, #4b86b4 0%, #4b86b4 100%);
+  background: #00829A linear-gradient(0deg, #00829A 0%, #00829A 100%);
   -webkit-text-fill-color: #fff; }
 
 #pxwebcontent .pxbox .variableselector_valuesselect_search_textstart_checkbox.pxweb-checkbox input[type=checkbox] {
-  border-color: #63ace5; }
+  border-color: #0090AA; }
 
 #pxwebcontent .mandatory_container {
   font-family: 'Roboto Condensed', sans-serif !important;

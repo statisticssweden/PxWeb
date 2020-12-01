@@ -1428,6 +1428,7 @@
     <Content Include="Resources\Styles\scss\_icon-backgrounds.scss" />
     <Content Include="Resources\Styles\scss\_icons.scss" />
     <Content Include="Resources\Styles\scss\_variables.scss" />
+    <Content Include="Resources\Styles\scss\color-themes\_official.scss" />
     <None Include="set-rights-2003.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
