@@ -108,7 +108,7 @@ $scrollbar-color: #b0b0b0;
   color: #222 !important; }
 
 #pxwebcontent .footnotes_container a {
-  color: #00829A !important; }
+  color: #007694 !important; }
   #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
     color: #fff !important; }
 
@@ -257,7 +257,7 @@ th.pxweb-subheader.collapsible:hover .expandMenuTableList {
 .expandMenuTableList {
   background-image: linear-gradient(transparent, transparent), url("Images/expand-plus.svg");
   background-size: 20px 20px;
-  color: #1a9d49;
+  color: #00A0BD;
   width: 20px;
   height: 20px;
   display: inline-block;
