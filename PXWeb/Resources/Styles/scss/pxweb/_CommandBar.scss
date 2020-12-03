@@ -391,13 +391,13 @@
 }
 
 #pxwebcontent .variableselector_valuesselect_box_commandbar {
-  background-color: #E9F3E9;
-  float: left;
-  border: solid 1px #000000;
-  width: auto;
-  max-width: 800px;
-  height: 100%;
-  margin: 0 6px 2px 0;
+    background-color: $pxbox-background;
+    float: left;
+    border: solid 1px #000000;
+    width: auto;
+    max-width: 800px;
+    height: 100%;
+    margin: 0 6px 2px 0;
 }
 
 #pxwebcontent .variableselector_valuesselect_eventbutton_panel_commandbar {

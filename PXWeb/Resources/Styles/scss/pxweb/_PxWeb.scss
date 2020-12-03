@@ -105,7 +105,7 @@
 
 
 #pxwebcontent .siteLogoText {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 #pxwebcontent .px-change-lang-div {
@@ -189,18 +189,18 @@
 }
 
 #pxwebcontent .panelshowlink {
-  width: 100%;
-  background-color: $pxweb-green-5;
-  padding: 10px 10px 10px 10px;
-  margin-top: 5px;
-  display: inline-block;
-  border: 1px solid $pxweb-dark-2;
-  cursor: pointer;
+    width: 100%;
+    background-color: $pxbox-background;
+    padding: 10px 10px 10px 10px;
+    margin-top: 5px;
+    display: inline-block;
+    border: 1px solid $pxbox-border;
+    cursor: pointer;
 }
 
-  #pxwebcontent .panelshowlink.savequery {
-    background-color: $pxweb-green-5;
-  }
+#pxwebcontent .panelshowlink.savequery {
+    background-color: $pxbox-background;
+}
 
 #pxwebcontent .px-settings-imagelink {
   vertical-align: middle;

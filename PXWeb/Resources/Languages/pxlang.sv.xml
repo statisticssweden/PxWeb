@@ -508,7 +508,7 @@
   <sentence name="PxWebApplicationName" value="Nästa PxWeb (Beta)" />
   <sentence name="PxWebLogoAlt" value="Nästa PxWeb (Beta)" />
   <sentence name="PxWebHome" value="Hem" />
-  <sentence name="PxWebChangeToThisLanguage" value="Svenska, er ni snell" />
+  <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
   <sentence name="PxWebMenu" value="Meny" />
   <sentence name="PxWebSelection" value="Val" />
   <sentence name="PxWebInformation" value="Information" />

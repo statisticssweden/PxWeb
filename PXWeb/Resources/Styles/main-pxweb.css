@@ -206,15 +206,15 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .panelshowlink {
   width: 100%;
-  background-color: #E9F3E9;
+  background-color: #F8F7F6;
   padding: 10px 10px 10px 10px;
   margin-top: 5px;
   display: inline-block;
-  border: 1px solid #949494;
+  border: 1px solid #006885;
   cursor: pointer; }
 
 #pxwebcontent .panelshowlink.savequery {
-  background-color: #E9F3E9; }
+  background-color: #F8F7F6; }
 
 #pxwebcontent .px-settings-imagelink {
   vertical-align: middle;
@@ -617,13 +617,13 @@ $scrollbar-color: #b0b0b0;
   background: breadcrumb-background; }
 
 #pxwebcontent .breadcrumb_text {
-  color: #00929A;
+  color: #006885;
   font-family: Verdana;
   font-size: 0.9em;
   display: inline-block; }
 
 #pxwebcontent .breadcrumb_text:hover {
-  color: #00929A;
+  color: #006885;
   font-family: Verdana;
   font-size: 0.9em; }
 
@@ -644,21 +644,21 @@ $scrollbar-color: #b0b0b0;
   font-size: 0.9em; }
 
 #pxwebcontent .breadcrumb_sep {
-  color: #00929A;
+  color: #006885;
   font-family: Verdana;
   font-size: 0.8em; }
 
 #pxwebcontent .breadcrumb_homebutton {
   width: 20px;
   height: 20px;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2300929A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" > <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" > </path > <polyline points="9 22 9 12 15 12 15 22" > </polyline > </svg >');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23006885" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" > <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" > </path > <polyline points="9 22 9 12 15 12 15 22" > </polyline > </svg >');
   background-repeat: no-repeat;
   vertical-align: middle;
   outline: none; }
 
 #pxwebcontent #breadcrumb {
-  border-top: 3px solid #00929A;
-  background: #eee;
+  border-top: 3px solid #006885;
+  background: #fff;
   text-transform: none;
   padding: 5px 15px;
   min-height: 30px; }
@@ -983,7 +983,7 @@ $scrollbar-color: #b0b0b0;
   color: #333333; }
 
 #pxwebcontent .variableselector_valuesselect_box_commandbar {
-  background-color: #E9F3E9;
+  background-color: #F8F7F6;
   float: left;
   border: solid 1px #000000;
   width: auto;
@@ -1555,8 +1555,8 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .savequery_cancel {
   margin-right: 15px;
-  background: #25a23c;
-  color: white;
+  background: #007694;
+  color: #fff;
   border: 1px solid #ccc;
   font-weight: bold;
   padding: 2px 4px 2px 5px;
@@ -1564,8 +1564,8 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .savequery_create {
   margin-right: 15px;
-  background: #25a23c;
-  color: white;
+  background: #007694;
+  color: #fff;
   border: 1px solid #ccc;
   font-weight: bold;
   padding: 2px 4px 2px 5px;
@@ -1638,7 +1638,7 @@ $scrollbar-color: #b0b0b0;
 /* **********************************  _search.scss TODO  *********************************** */
 /* Used for Search webcontrol */
 #pxwebcontent .search_panel {
-  border: solid 3px #2870ae;
+  border: solid 3px #006885;
   background-color: #eee;
   padding: 3px 10px 10px 10px; }
 

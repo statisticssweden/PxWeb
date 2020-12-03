@@ -12,8 +12,8 @@
             <asp:Label runat="server" ID="RangeLabel" CssClass="commandbar_changedecimal_selectvaluetext"/>
             </p>
         <p class="commandbar_button_row">
-            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_changedecimal_continuebutton" />
-            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton" />
+            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_continuebutton pxweb-btn primary-btn" />
+            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
         </p>
     </asp:Panel>
     <asp:RegularExpressionValidator ID="NumberOfDecimalsValidator" EnableClientScript="false"   runat="server" display="Dynamic" setfocusonerror="True"  ErrorMessage="0-6" ValidationExpression="^[0-6]$" ControlToValidate="NumberOfDecimalsTextBox" />
