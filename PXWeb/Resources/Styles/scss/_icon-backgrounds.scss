@@ -1,35 +1,34 @@
 ﻿@include file-header("_icon-backgrounds.scss");
 
 #pxwebcontent .pxbox .arrow-right-pxbox-icon {
-  padding-left: 4px;
-  background-repeat: no-repeat;
-  // background-size: auto;
   padding-left: 25px;
-  // width: 100%;
+  background-repeat: no-repeat;
+  //background-size: auto;
+  width: 100%;
   background-image: get-icon( 'arrow-right', $pxbox-link-icon-ink);
-
+  background-position-y: center;
   &:hover {
     background-image: get-icon( 'arrow-right', $pxbox-link-hover-ink);
   }
 }
 
 #pxwebcontent .external-link-pxbox-icon {
-  padding-left: 4px;
+  padding-left: 22px;
   background-repeat: no-repeat;
+  width: 100%;
   background-image: get-icon( 'external-link', $pxbox-link-icon-ink);
-  padding-left: 20px;
-
+  background-position-y: center;
   &:hover {
     background-image: get-icon( 'external-link', $pxbox-link-hover-ink)
   }
 }
 
 #pxwebcontent .external-link-icon {
-  padding-left: 4px;
+  padding-left: 22px;
   background-repeat: no-repeat;
+  width: 100%;
   background-image: get-icon( 'external-link', $pxweb-link-first-ink);
-  padding-left: 20px;
-
+  background-position-y: center;
   &:hover {
     background-image: get-icon( 'external-link', $pxweb-link-hover-ink)
   }
