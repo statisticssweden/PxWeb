@@ -37,7 +37,7 @@ div.AspNet-TreeView ul li {
 }*/
 
 #pxwebcontent div.AspNet-TreeView ul ul {
-  margin: 2px 0 2px 10px;
+  margin: 9px 0 -9px 30px;
 }
 
 #pxwebcontent div.AspNet-TreeView ul li img {
@@ -51,20 +51,20 @@ div.AspNet-TreeView ul li {
 }
 
 #pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Parent {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 #pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-ClickableNonlink {
   cursor: pointer;
 }
 
-#pxwebcontent a:hover, #pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+/*#pxwebcontent a:hover, #pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
     text-decoration: underline !important;
-}
+}*/
 
 span.AspNet-TreeView-ClickableNonLink {
     font-family: Verdana,Arial,sans-serif;
@@ -80,6 +80,11 @@ span.AspNet-TreeView-ClickableNonLink {
     font-weight: normal;
     color: $pxweb-dark-5;
 }
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+    text-decoration: underline !important;
+}
+
 /*#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Collapse {
   background-image: url(../../../images/collapse.gif);
   background-repeat: no-repeat;
@@ -145,13 +150,16 @@ span.AspNet-TreeView-Collapse::before {
     font-size: 16px;
     line-height: 26px;
     color: $pxweb-dark-5;
-    text-decoration: normal;
+    /*    text-decoration: normal;*/
 }
 
+#pxwebcontent div.AspNet-TreeView a:hover {
+    text-decoration: underline !important;
+}
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected a {
-  font-weight: bold !important;
-  color: #8A2BE2 !important;
+    font-weight: bold !important;
+    color: #8A2BE2 !important;
 }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected ul a {

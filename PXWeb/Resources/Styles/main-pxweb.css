@@ -62,14 +62,14 @@ $scrollbar-color: #b0b0b0;
 /* **********************************  _PxWeb.scss *********************************** */
 #pxwebcontent {
   background: #fff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', Arial;
   line-height: 1.5;
   color: #222;
   font-size: 14px; }
 
 #pxwebcontent .pxbox.negative {
   background-color: #F8F7F6;
-  border: solid 1px #006885;
+  border: solid 1px #949494;
   color: #222; }
 
 #pxwebcontent #wrap {
@@ -108,9 +108,9 @@ $scrollbar-color: #b0b0b0;
   line-height: 12px; }
 
 #pxwebcontent #header span {
-  font-size: 3.8em;
-  font-weight: 100;
-  letter-spacing: -3px;
+  font-size: 3.0em;
+  font-weight: 700;
+  letter-spacing: -1px;
   padding: 12px 0 0 10px; }
 
 #pxwebcontent .headerleft {
@@ -213,7 +213,7 @@ $scrollbar-color: #b0b0b0;
   padding: 10px 10px 10px 10px;
   margin-top: 5px;
   display: inline-block;
-  border: 1px solid #006885;
+  border: 1px solid #949494;
   cursor: pointer; }
 
 #pxwebcontent .panelshowlink.savequery {
@@ -251,7 +251,7 @@ $scrollbar-color: #b0b0b0;
   width: 100%; }
 
 #pxwebcontent .px_setting_validator {
-  color: #ed5935; }
+  color: #ee0000; }
 
 #pxwebcontent .px_setting_heading {
   font-weight: bold;
@@ -555,7 +555,7 @@ $scrollbar-color: #b0b0b0;
 
 /* **********************************  _menu.scss *********************************** */
 #pxwebcontent .menu_databasename {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Roboto', Arial !important;
   font-stretch: normal;
   font-weight: normal;
   font-size: 200%;
@@ -572,7 +572,7 @@ $scrollbar-color: #b0b0b0;
   vertical-align: top; }
 
 #pxwebcontent .menuExplanation {
-  font-family: 'Open Sans', sans-serif !important; }
+  font-family: 'Roboto', Arial !important; }
 
 #pxwebcontent .menuExplanationDiv {
   padding-top: 10px;
@@ -1065,10 +1065,10 @@ $scrollbar-color: #b0b0b0;
 /* Define if specific style should be assigned to the title and definition of a type of footnote */
 #pxwebcontent .footnotes_container {
   margin: 10px 0 10px 0;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Roboto', Arial; }
 
 #pxwebcontent .footnote_heading {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', Arial;
   font-weight: bold;
   font-size: 20px; }
 
@@ -1091,7 +1091,7 @@ $scrollbar-color: #b0b0b0;
   font-style: italic; }
 
 #pxwebcontent .footnotes_container a {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Roboto', Arial !important;
   font-stretch: normal;
   font-weight: normal;
   align-items: center;
@@ -1219,7 +1219,7 @@ $scrollbar-color: #b0b0b0;
   text-decoration: underline; }
 
 #pxwebcontent div.settingpanel.information {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Roboto', Arial; }
 
 #pxwebcontent .pxweb_about_the_statistics {
   margin-left: 20px;
@@ -1323,7 +1323,7 @@ $scrollbar-color: #b0b0b0;
   color: #fff; }
 
 #pxwebcontent .metadata-popup {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Roboto', Arial !important;
   font-stretch: normal;
   font-weight: normal;
   animation: fadein .2s;
@@ -1465,10 +1465,10 @@ $scrollbar-color: #b0b0b0;
   z-index: 1; }
 
 #pxwebcontent span.pxweb-link.nav-step {
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif !important; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif !important; }
 
 #pxwebcontent span.nav-step {
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif !important;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
   text-decoration: none;
   border-bottom: none;
   font-size: 18px;
@@ -2209,7 +2209,7 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .tableinformation_title {
   /*changed Ariel to open sans*/
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', Arial;
   font-size: 130%;
   font-weight: normal;
   line-height: 150%; }
@@ -2359,8 +2359,8 @@ $scrollbar-color: #b0b0b0;
   float: right; }
 
 #pxwebcontent .tablequery_savequery {
-  font-family: 'Roboto Condensed', sans-serif !important;
-  font-stretch: condensed;
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
   font-weight: bold;
   float: left;
   background: #007694;
@@ -2427,7 +2427,7 @@ div.AspNet-TreeView ul li {
   font-family: Tahoma;
 }*/
 #pxwebcontent div.AspNet-TreeView ul ul {
-  margin: 2px 0 2px 10px; }
+  margin: 9px 0 -9px 30px; }
 
 #pxwebcontent div.AspNet-TreeView ul li img {
   border: none;
@@ -2438,17 +2438,17 @@ div.AspNet-TreeView ul li {
   text-decoration: none; }
 
 #pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Parent {
-  margin-left: 10px; }
+  /*margin-left: 10px;*/ }
 
 #pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
-  margin-left: 10px; }
+  /*margin-left: 10px;*/ }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-ClickableNonlink {
   cursor: pointer; }
 
-#pxwebcontent a:hover, #pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
-  text-decoration: underline !important; }
-
+/*#pxwebcontent a:hover, #pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+    text-decoration: underline !important;
+}*/
 span.AspNet-TreeView-ClickableNonLink {
   font-family: Verdana,Arial,sans-serif;
   cursor: pointer;
@@ -2461,6 +2461,9 @@ span.AspNet-TreeView-ClickableNonLink {
 #pxwebcontent .AspNet-TreeView-ClickableNonLink {
   font-weight: normal;
   color: #006885; }
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+  text-decoration: underline !important; }
 
 /*#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Collapse {
   background-image: url(../../images/collapse.gif);
@@ -2522,7 +2525,10 @@ span.AspNet-TreeView-Collapse::before {
   font-size: 16px;
   line-height: 26px;
   color: #006885;
-  text-decoration: normal; }
+  /*    text-decoration: normal;*/ }
+
+#pxwebcontent div.AspNet-TreeView a:hover {
+  text-decoration: underline !important; }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected a {
   font-weight: bold !important;
@@ -2538,8 +2544,8 @@ span.AspNet-TreeView-Collapse::before {
 
 /* **********************************  _variableOverview.scss *********************************** */
 #pxwebcontent .variable_overview_container {
-  font-family: 'Roboto Condensed', sans-serif !important;
-  font-stretch: condensed;
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
   font-weight: bold;
   padding: 20px 20px;
   padding-left: 10px;
@@ -2570,7 +2576,7 @@ span.AspNet-TreeView-Collapse::before {
   clear: both; }
 
 #pxwebcontent .variableselector_selectionerror_label {
-  color: #ed5935; }
+  color: #ee0000; }
 
 #pxwebcontent .variableselector_selectionerror_label_text {
   display: none; }
@@ -2587,8 +2593,8 @@ span.AspNet-TreeView-Collapse::before {
   padding-bottom: 10px;
   background-position-x: 10px;
   background-position-y: 10px;
-  border: 2px solid #ed5935 !important;
-  border-left: 4px solid #ed5935 !important;
+  border: 2px solid #ee0000 !important;
+  border-left: 4px solid #ee0000 !important;
   width: auto;
   margin-top: 1em !important;
   margin-bottom: 1em !important;
@@ -2636,8 +2642,8 @@ span.AspNet-TreeView-Collapse::before {
   min-height: 45px; }
 
 #pxwebcontent .variableselector_valuesselect_variabletitle {
-  font-family: 'Roboto Condensed', sans-serif !important;
-  font-stretch: condensed;
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
   font-weight: bold;
   font-size: 28px;
   display: inline-block;
@@ -2687,7 +2693,7 @@ span.AspNet-TreeView-Collapse::before {
   min-width: 140px;
   min-height: 90px;
   font-size: 100%;
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Roboto', Arial !important;
   font-stretch: normal;
   font-weight: normal;
   overflow: auto;
@@ -2706,7 +2712,7 @@ span.AspNet-TreeView-Collapse::before {
   width: 3em;
   border: none;
   display: inline;
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Roboto', Arial !important;
   font-stretch: normal;
   font-weight: normal;
   font-size: 14px;
@@ -2774,8 +2780,8 @@ span.AspNet-TreeView-Collapse::before {
   border-color: #007694; }
 
 #pxwebcontent .mandatory_container {
-  font-family: 'Roboto Condensed', sans-serif !important;
-  font-stretch: condensed;
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
   font-weight: bold; }
 
 #pxwebcontent .variableselector_valuesselect_mandatory_text {
@@ -2799,8 +2805,8 @@ span.AspNet-TreeView-Collapse::before {
   color: #333;
   padding-left: 5px;
   font-size: 14px;
-  font-family: 'Roboto Condensed', sans-serif !important;
-  font-stretch: condensed;
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
   font-weight: bold; }
 
 #pxwebcontent .optional-variable-icon-panel {

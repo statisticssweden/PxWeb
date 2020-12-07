@@ -55,31 +55,31 @@ $max-readable-width: 580px;
 
 
 @mixin roboto-condenced {
-  font-family: 'Roboto Condensed', sans-serif !important;
-  font-stretch: condensed;
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
   font-weight: bold;
 }
 
 @mixin more-roboto-condenced {
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif !important;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
 }
 
 @mixin open-sans {
-  font-family: 'Open Sans', sans-serif !important;
-  font-stretch: normal;
-  font-weight: normal;
+    font-family: 'Roboto', Arial !important;
+    font-stretch: normal;
+    font-weight: normal;
 }
 
 @mixin just-open-sans {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', Arial;
 }
 
 @mixin just-open-sans-important {
-  font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Roboto', Arial !important;
 }
 
 @mixin just-open-sans {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', Arial;
 }
 
 @mixin focus-ring {
