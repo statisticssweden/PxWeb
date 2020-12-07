@@ -46,15 +46,15 @@
                 <asp:Label runat="server" ID="MandatoryStar" CssClass="variableselector_valuesselect_mandatory_star" Visible="False">*</asp:Label>
                 </div>
             </div>
-            <asp:DropDownList runat="server" ID="GroupingDropDown" Visible="false" AutoPostBack="true" CssClass="variableselector_valuesselect_aggregations s-margin-top"/>
+            <asp:DropDownList runat="server" ID="GroupingDropDown" Visible="false" AutoPostBack="true" CssClass="variableselector_valuesselect_aggregations s-margin-top" onchange="Remove_BlockSubmit()" />
             <asp:button id="ActionButton" runat="server" Visible="false" cssclass="variableselector_valuesselect_action" /> 
             <div><asp:Label runat="server" ID="VariableTitleSecond" CssClass="variableselector_valuesselect_variabletitlesecond"/></div>
     </asp:Panel>
 
     <asp:Panel runat="server" ID="EventButtons" CssClass="flex-row flex-wrap align-center">
         <asp:ImageButton runat="server" ID="HierarchicalSelectButton" CssClass="variableselector_valuesselect_select_hierarcical_imagebutton"/>
-        <asp:Button runat="server" ID="SelectAllButton" CssClass="variableselector_valuesselect_select_all_button pxweb-btn negative icon-placement variableselector-buttons"/>
-        <asp:Button runat="server" ID="DeselectAllButton" CssClass="variableselector_valuesselect_deselect_all_button pxweb-btn negative icon-placement variableselector-buttons"/>
+        <asp:Button runat="server" ID="SelectAllButton" CssClass="variableselector_valuesselect_select_all_button pxweb-btn negative icon-placement variableselector-buttons" CausesValidation="true"/>
+        <asp:Button runat="server" ID="DeselectAllButton" CssClass="variableselector_valuesselect_deselect_all_button pxweb-btn negative icon-placement variableselector-buttons" CausesValidation="true"/>
 
         <div class="link-buttons-container flex-column s-margin-top">
             <div class="pxweb-link negative with-icon"> 
@@ -134,9 +134,9 @@
         var lb = document.getElementById(source.controltovalidate);
         var is_valid = lb.selectedIndex > -1
         if (!is_valid) {
-            $(lb).addClass("variableselector_valuesselect_box_error")
+            jQuery(lb).addClass("variableselector_valuesselect_box_error")
         } else {
-            $(lb).removeClass("variableselector_valuesselect_box_error")
+            jQuery(lb).removeClass("variableselector_valuesselect_box_error")
         }
         if (!is_valid) {
         }
