@@ -1371,7 +1371,7 @@
     <Content Include="Resources\Styles\scss\not_in_use\_form-error.scss" />
     <Content Include="Resources\Styles\scss\not_in_use\_header.scss" />
     <Content Include="Resources\Styles\scss\not_in_use\_highlight.scss" />
-    <Content Include="Resources\Styles\scss\not_in_use\_input-error.scss" />
+    <Content Include="Resources\Styles\scss\common\_input-error.scss" />
     <Content Include="Resources\Styles\scss\not_in_use\_key-figures.scss" />
     <Content Include="Resources\Styles\scss\not_in_use\_lead-paragraph.scss" />
     <Content Include="Resources\Styles\scss\not_in_use\_nested-accordion.scss" />

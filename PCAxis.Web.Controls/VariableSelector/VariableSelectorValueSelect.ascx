@@ -134,9 +134,9 @@
         var lb = document.getElementById(source.controltovalidate);
         var is_valid = lb.selectedIndex > -1
         if (!is_valid) {
-            $(lb).addClass("variableselector_valuesselect_box_error")
+            jQuery(lb).addClass("variableselector_valuesselect_box_error")
         } else {
-            $(lb).removeClass("variableselector_valuesselect_box_error")
+            jQuery(lb).removeClass("variableselector_valuesselect_box_error")
         }
         if (!is_valid) {
         }
