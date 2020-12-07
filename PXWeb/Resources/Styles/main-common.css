@@ -566,6 +566,30 @@ $scrollbar-color: #b0b0b0;
         #pxwebcontent .pxweb-input .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxweb-input .icon-wrapper.search-icon:focus > * {
           color: #fff; }
 
+#pxwebcontent .pxweb-input-error {
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  background: #ed5935;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  line-height: normal;
+  margin-top: 12px;
+  padding: 4px 8px;
+  position: relative; }
+  #pxwebcontent .pxweb-input-error.negative {
+    color: #006885; }
+  #pxwebcontent .pxweb-input-error:before {
+    border-color: transparent transparent #ed5935 transparent;
+    border-style: solid;
+    border-width: 8px;
+    content: '';
+    position: absolute;
+    top: -16px; }
+
 /* **********************************  common/_input-pxbox.scss *********************************** */
 #pxwebcontent .pxbox .pxweb-input:hover input {
   border: 1px solid #007694;

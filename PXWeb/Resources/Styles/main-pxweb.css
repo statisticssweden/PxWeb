@@ -33,26 +33,29 @@ $scrollbar-color: #b0b0b0;
 
 /* **********************************  _icon-backgrounds.scss *********************************** */
 #pxwebcontent .pxbox .arrow-right-pxbox-icon {
-  padding-left: 4px;
-  background-repeat: no-repeat;
   padding-left: 25px;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
+  background-repeat: no-repeat;
+  width: 100%;
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>');
+  background-position-y: center; }
   #pxwebcontent .pxbox .arrow-right-pxbox-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'); }
 
 #pxwebcontent .external-link-pxbox-icon {
-  padding-left: 4px;
+  padding-left: 22px;
   background-repeat: no-repeat;
+  width: 100%;
   background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
-  padding-left: 20px; }
+  background-position-y: center; }
   #pxwebcontent .external-link-pxbox-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
 
 #pxwebcontent .external-link-icon {
-  padding-left: 4px;
+  padding-left: 22px;
   background-repeat: no-repeat;
+  width: 100%;
   background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >');
-  padding-left: 20px; }
+  background-position-y: center; }
   #pxwebcontent .external-link-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
 
