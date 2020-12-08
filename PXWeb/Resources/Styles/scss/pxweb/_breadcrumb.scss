@@ -5,40 +5,45 @@
 }
 
 #pxwebcontent .breadcrumb_text {
-  color: $breadcrumb-text;
-  font-family: Verdana;
-  font-size: 0.9em;
-  display: inline-block;
+    color: $breadcrumb-text;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.9em;
+    display: inline-block;
 }
 
-  #pxwebcontent .breadcrumb_text:hover {
+#pxwebcontent .breadcrumb_text:hover {
     color: $breadcrumb-text;
-    font-family: Verdana;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
     font-size: 0.9em;
-  }
+}
 
 #pxwebcontent .breadcrumb_text:focus {
   @include focus-ring;
 }
 
 #pxwebcontent .breadcrumb_text_nolink {
-  color: $breadcrumb-text-nolink;
-  font-family: Verdana;
-  font-size: 0.9em;
-  display: inline-block;
+    color: $breadcrumb-text-nolink;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.9em;
+    display: inline-block;
 }
 
-  #pxwebcontent .breadcrumb_text_nolink:hover {
+#pxwebcontent .breadcrumb_text_nolink:hover {
     color: $breadcrumb-text-nolink;
-    font-family: Verdana;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
     text-decoration: none;
     font-size: 0.9em;
-  }
+}
 
 #pxwebcontent .breadcrumb_sep {
-  color: $breadcrumb-text;
-  font-family: Verdana;
-  font-size: 0.8em;
+    color: $breadcrumb-text;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.8em;
 }
 
 #pxwebcontent .breadcrumb_homebutton {

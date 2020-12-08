@@ -2,7 +2,8 @@
 
 #pxwebcontent {
   background: $pxweb-background;
-  @include just-open-sans;
+/*  @include just-open-sans;*/  
+  @include roboto;
   line-height: 1.5;
   color: $pxweb-ink-main;
   font-size: 14px;
