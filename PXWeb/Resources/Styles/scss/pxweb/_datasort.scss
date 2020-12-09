@@ -1,8 +1,8 @@
 ﻿@include file-header("_datasort.scss TODO");
 
 #pxwebcontent #datasort_content {
-  width: 99%;
-  background-color: #f0f8ff;
+/*  width: 99%;  
+background-color: #f0f8ff;*/
 }
 
 #pxwebcontent #datasort_description {
@@ -23,10 +23,11 @@
 }
 
 #pxwebcontent .datasort_tabletitle {
-  font-size: 100%;
+    /*font-size: 100%;
   font-weight: bold;
   line-height: 150%;
-  padding-bottom: 5px;
+  padding-bottom: 5px;*/
+    @include pxweb-table-title;
 }
 
 #pxwebcontent .table-jquerysort-header {
