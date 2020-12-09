@@ -9,6 +9,9 @@
   font-size: 14px;
 }
 
+#pxwebcontent select {
+    @include pxweb-input-list-font;
+}
 
 #pxwebcontent .pxbox.negative {
     background-color: $pxbox-background;
@@ -202,7 +205,6 @@
 
 #pxwebcontent .panelshowlink.savequery {
     background-color: $pxbox-background;
-    margin-bottom: 15px;
 }
 
 #pxwebcontent .px-settings-imagelink {

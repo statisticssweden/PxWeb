@@ -86,17 +86,17 @@ $scrollbar-color: #b0b0b0;
 #pxwebcontent .px_settings_buttons .px_settings_cancel span {
   color: white !important; }
 
-#header.header {
-  background-image: url("../Images/SSB-top-banner.png");
-  background-size: cover;
-  background-repeat: no-repeat; }
-
-#pxwebcontent .imgSiteLogo {
+/*#header.header {
+    background-image: url("../Images/SSB-top-banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+/*#pxwebcontent .imgSiteLogo {
   height: 60px;
   width: unset;
   vertical-align: middle;
-  padding-top: 12px; }
-
+  padding-top: 12px;
+}*/
 /*#region override important! from forside.scss */
 #pxwebcontent .settings_panel a {
   color: #222 !important; }
@@ -114,38 +114,50 @@ $scrollbar-color: #b0b0b0;
 
 /*#endregion*/
 /*#region Dialog kompis */
+/*.kompis {
+}
+
 .kompis_label {
-  font-weight: bold; }
+    font-weight: bold;
+}
 
 .kompis_tittel {
-  font-family: Arial;
-  font-size: 175%;
-  font-weight: normal;
-  line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  display: block; }
+    font-family: Arial;
+    font-size: 175%;
+    font-weight: normal;
+    line-height: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: block;
+}
 
 .kompis_description_heading {
-  font-weight: bold;
-  display: inline-block;
-  border-bottom: 1px solid; }
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 1px solid;
+}
 
 .kompis_description_text {
-  display: block; }
+    display: block;
+}
 
 .kompis_formula_heading {
-  font-weight: bold;
-  display: inline-block;
-  border-bottom: 1px solid; }
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 1px solid;
+}
 
 .kompis_formula_text {
-  display: block; }
+    display: block;
+}
+
+.kompis_value {
+}
 
 .kompis_close {
-  float: right;
-  font-weight: bold; }
-
+    float: right;
+    font-weight: bold;
+}*/
 /*#endregion*/
 .sitewrapper {
   margin: 0 auto;
@@ -156,9 +168,9 @@ $scrollbar-color: #b0b0b0;
   .sitewrapper, .forside #content, .forside .precontent {
     padding: 0px; } }
 
-.statistikkside-metaloft {
-  padding-left: 10px; }
-
+/*.statistikkside-metaloft {
+    padding-left: 10px
+}*/
 #footer {
   padding-left: 10px; }
 

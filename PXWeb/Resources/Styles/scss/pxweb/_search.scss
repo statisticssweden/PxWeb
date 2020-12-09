@@ -27,6 +27,7 @@
 #pxwebcontent .search_button {
     @include focus-marker;
     display: inline-block;
+    cursor: pointer;
 }
 
 #pxwebcontent .search_error {
