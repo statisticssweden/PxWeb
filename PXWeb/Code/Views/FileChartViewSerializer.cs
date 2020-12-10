@@ -40,6 +40,10 @@ namespace PXWeb.Views
 
         public override void Render(string format, PCAxis.Query.SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe)
         {
+            if (query.Output.Params["layout"] == ChartTypes.CHART_COLUMNLINE)
+            {
+                ChartManager.Settings.IsColumnLine = true;
+            }
             ChartManager.Settings.ChartType = ChartSettings.ConvertToChartType(query.Output.Params["layout"], System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column);
             ChartManager.Settings.UseSettingTitle = true;
             //Custom chart title only works for the language that was selected when the saved query was created.
