@@ -100,7 +100,14 @@ namespace PXWeb.Admin
             }
 
             _xmlnodesFallback = GetXmlNodes(_fallbackPath);
-            _languagePath = MapPath(basepath + "." + cboLanguage.SelectedValue + ".xml");
+            if (string.Compare(cboLanguage.SelectedValue, "en", true) == 0)
+            {
+                _languagePath = MapPath(basepath + ".xml");
+            }
+            else
+            {
+                _languagePath = MapPath(basepath + "." + cboLanguage.SelectedValue + ".xml");
+            }
 
         }
 
