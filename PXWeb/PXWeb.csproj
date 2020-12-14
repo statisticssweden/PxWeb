@@ -282,7 +282,6 @@
     <Content Include="Resources\Images\svg\x-square-hover.svg" />
     <Content Include="Resources\Images\svg\x-square.svg" />
     <Content Include="Resources\Languages\pxlang.kl.xml" />
-    <Content Include="Resources\Languages\pxlang.en.xml" />
     <Content Include="Resources\PX\Databases\Example\alias\Alias.txt" />
     <Content Include="Resources\PX\Databases\Example\alias\Alias_en.txt" />
     <Content Include="Resources\PX\Databases\Example\alias\Alias_fi.txt" />
