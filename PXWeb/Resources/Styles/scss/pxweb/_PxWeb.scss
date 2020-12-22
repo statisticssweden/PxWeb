@@ -2,20 +2,25 @@
 
 #pxwebcontent {
   background: $pxweb-background;
-  @include just-open-sans;
+/*  @include just-open-sans;*/  
+  @include roboto;
   line-height: 1.5;
   color: $pxweb-ink-main;
   font-size: 14px;
 }
 
+#pxwebcontent select {
+    @include pxweb-input-list-font;
+}
+
 #pxwebcontent .pxbox.negative {
-  background-color: $pxbox-background;
-  border: solid 1px $pxbox-border;
-  color: $pxbox-ink;
+    background-color: $pxbox-background;
+    border: solid 1px $pxbox-border;
+    color: $pxbox-ink;
 }
 
 
-  #pxwebcontent #wrap {
+#pxwebcontent #wrap {
     margin: 0px auto;
     max-width: 1180px;
   }
@@ -59,9 +64,9 @@
   }
 
   #pxwebcontent #header span {
-    font-size: 3.8em;
-    font-weight: 100;
-    letter-spacing: -3px;
+    font-size: 3.0em;
+    font-weight: 700;
+    letter-spacing: -1px;
     padding: 12px 0 0 10px;
   }
 
@@ -105,7 +110,7 @@
 
 
 #pxwebcontent .siteLogoText {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 #pxwebcontent .px-change-lang-div {
@@ -189,18 +194,18 @@
 }
 
 #pxwebcontent .panelshowlink {
-  width: 100%;
-  background-color: $pxweb-green-5;
-  padding: 10px 10px 10px 10px;
-  margin-top: 5px;
-  display: inline-block;
-  border: 1px solid $pxweb-dark-2;
-  cursor: pointer;
+    width: 100%;
+    background-color: $pxbox-background;
+    padding: 10px 10px 10px 10px;
+    margin-top: 5px;
+    display: inline-block;
+    border: 1px solid $pxbox-border;
+    cursor: pointer;
 }
 
-  #pxwebcontent .panelshowlink.savequery {
-    background-color: $pxweb-green-5;
-  }
+#pxwebcontent .panelshowlink.savequery {
+    background-color: $pxbox-background;
+}
 
 #pxwebcontent .px-settings-imagelink {
   vertical-align: middle;
@@ -388,22 +393,68 @@
 }
 
 
-
-
-
 #pxwebcontent .screenreader-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  color: black;
-  background-color: white;
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    color: black;
+    background-color: white;
 }
 
 #pxwebcontent .screenreader-only:focus {
   position: static;
   width: auto;
   height: auto;
+}
+
+/* jQuery UI controls */
+#PageElements {
+    background: $pxweb-background;
+}
+
+.ui-draggable .ui-dialog-titlebar {
+    background: $pxweb-dark-5;
+    border: $pxweb-dark-5;
+}
+
+.ui-dialog-title {
+    @include pxweb-font;
+}
+
+.ui-widget-content {
+    @include pxweb-font;
+    background: $pxweb-background;
+}
+
+.footnote_heading {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footnote_valuenote_header {
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footnote_valuenote_key {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.footnote_note_value {
+    margin-top: 10px;
+}
+
+.footnote_varnote_key {
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footnote_cellnote_key {
+    font-weight: 700;
+    margin-top: 10px;
 }

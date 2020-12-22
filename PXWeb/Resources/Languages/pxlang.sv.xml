@@ -433,8 +433,8 @@
   <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Uppdateringsalternativ:" />
   <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Format:" />
   <sentence name="MasterPageSaveQueryInfoHeader" value="Sparad sökning {0}" />
-  <sentence name="MasterPageSaveQueryInfoLatest" value="Nyaste {0} tidsperioder" />
-  <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttid {0} och alla senaste tidsperioder" />
+  <sentence name="MasterPageSaveQueryInfoLatest" value="Senaste {0} tidsperioder" />
+  <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttid {0} och alla efterkommande tidsperioder " />
   <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Oförändrad tabell" />
   <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Välj gruppering ---" />
   <sentence name="CtrlSelectFromGroupHeading" value="Välj värden via grupp" />
@@ -508,7 +508,7 @@
   <sentence name="PxWebApplicationName" value="Nästa PxWeb (Beta)" />
   <sentence name="PxWebLogoAlt" value="Nästa PxWeb (Beta)" />
   <sentence name="PxWebHome" value="Hem" />
-  <sentence name="PxWebChangeToThisLanguage" value="Svenska, er ni snell" />
+  <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
   <sentence name="PxWebMenu" value="Meny" />
   <sentence name="PxWebSelection" value="Val" />
   <sentence name="PxWebInformation" value="Information" />

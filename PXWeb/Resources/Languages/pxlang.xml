@@ -642,7 +642,7 @@
    <sentence name="PxWebLogoAlt" value="Next PxWeb (Beta)"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
-   <sentence name="PxWebChangeToThisLanguage" value="Error, PxWebChangeToThisLanguage not tranlated" />
+   <sentence name="PxWebChangeToThisLanguage" value="English" />
    <sentence name="PxWebMenu" value="Menu"/>
    <sentence name="PxWebMenuExplanation" value="(C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement. Character in brackets shows the lowest regional level." />
    <sentence name="PxWebSelection" value="Selection"/>

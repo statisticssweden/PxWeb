@@ -1,15 +1,18 @@
 ﻿@include file-header("_table.scss TODO etter side 3");
 
 #pxwebcontent #pcaxis_tablediv .table-title {
-  font-size: 150%;
+    /*font-size: 150%;
   line-height: 200%;
   text-transform: none;
   font-weight: bold;
   padding: 5px 5px 5px 5px;
-  background-color: $pxweb-white;
-  border-style: none;
   padding-bottom: 1em;
-  padding-top: 15px;
+  */
+    @include pxweb-table-title;
+    background-color: $pxweb-white;
+    border-style: none;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 #pxwebcontent .table-class {

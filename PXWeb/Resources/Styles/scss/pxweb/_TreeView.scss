@@ -25,15 +25,19 @@
   display: none;
 }
 
-#pxwebcontent div.AspNet-TreeView ul li {
+div.AspNet-TreeView ul li {
+    border-top: 1px solid #949494;
+    padding: 9px 0;
+}
+/*#pxwebcontent div.AspNet-TreeView ul li {
   white-space: nowrap;
-  padding: 3px 0 2px 0;
+  padding: 9px 0;
   font-size: small;
   font-family: Tahoma;
-}
+}*/
 
 #pxwebcontent div.AspNet-TreeView ul ul {
-  margin: 2px 0 2px 10px;
+  margin: 9px 0 -9px 30px;
 }
 
 #pxwebcontent div.AspNet-TreeView ul li img {
@@ -47,18 +51,41 @@
 }
 
 #pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Parent {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 #pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-ClickableNonlink {
   cursor: pointer;
 }
 
-#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Collapse {
+/*#pxwebcontent a:hover, #pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+    text-decoration: underline !important;
+}*/
+
+span.AspNet-TreeView-ClickableNonLink {
+    font-family: Verdana,Arial,sans-serif;
+    cursor: pointer;
+    font-family: Roboto;
+    font-weight: normal;
+    padding-top: 0px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink {
+    font-weight: normal;
+    color: $pxweb-dark-5;
+}
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+    text-decoration: underline !important;
+}
+
+/*#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Collapse {
   background-image: url(../../../images/collapse.gif);
   background-repeat: no-repeat;
   background-position: center left;
@@ -76,19 +103,63 @@
   margin-right: 3px;
   float: left;
   cursor: pointer;
+}*/
+span.AspNet-TreeView-Expand, span.AspNet-TreeView-Collapse {
+    background-image: none !important;
+    position: relative;
+    margin-right: 12px !important;
 }
+
+span.AspNet-TreeView-Expand::before, span.AspNet-TreeView-Collapse::before {
+    line-height: 1;
+    font-size: 1.4rem;
+    /*color: #1e00be;*/
+    color: $pxbox-green-4;
+    font-weight: normal;
+    position: absolute;
+    left: 0px;
+    top: -2px;
+    font-family: "Material icons";
+    font-feature-settings: 'liga' 1;
+}
+
+span.AspNet-TreeView-Expand::before {
+    content: "\e148"
+}
+
+span.AspNet-TreeView-Collapse::before {
+    content: "\e15d";
+}
+
+/*#pxwebcontent div.AspNet-TreeView a,
+#pxwebcontent div.AspNet-TreeView a:visited,
+#pxwebcontent div.AspNet-TreeView a:active,
+#pxwebcontent div.AspNet-TreeView a:hover,
+#pxwebcontent div.AspNet-TreeView a:link {
+  color: $pxweb-black-2;
+}*/
 
 #pxwebcontent div.AspNet-TreeView a,
 #pxwebcontent div.AspNet-TreeView a:visited,
 #pxwebcontent div.AspNet-TreeView a:active,
 #pxwebcontent div.AspNet-TreeView a:hover,
 #pxwebcontent div.AspNet-TreeView a:link {
-  color: $pxweb-black-2;
+    font-family: Roboto;
+    font-weight: normal;
+    padding-top: 0px;
+    font-size: 16px;
+    line-height: 26px;
+    color: $pxweb-dark-5;
+    /*    text-decoration: normal;*/
+}
+
+#pxwebcontent div.AspNet-TreeView a:hover {
+    text-decoration: underline !important;
 }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected a {
-  font-weight: bold !important;
-  color: #8A2BE2 !important;
+    font-weight: bold !important;
+    color: #8A2BE2 !important;
 }
 
 #pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected ul a {

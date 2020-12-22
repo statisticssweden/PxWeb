@@ -67,6 +67,7 @@
 #pxwebcontent .commandbar_dropdown {
   height: 50px;
   width: auto;
+  margin-top: 15px;
 }
 
   #pxwebcontent .commandbar_dropdown div {
@@ -373,31 +374,35 @@
 }
 
 #pxwebcontent .commandbar_function_dropdownlist {
-  font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;
   font-size: 12pt;
-  color: #333333;
-}
+  color: #333333;*/
+/*    @include pxweb-input-list-font;
+*/}
 
 #pxwebcontent .commandbar_saveas_dropdownlist {
-  font-family: 'Open Sans', sans-serif;
+    /*  font-family: 'Open Sans', sans-serif;
   font-size: 12pt;
   color: #333333;
-}
+*/
+/*    @include pxweb-input-list-font;
+*/}
 
 #pxwebcontent .commandbar_link_dropdownlist {
-  font-family: 'Open Sans', sans-serif;
+    /*  font-family: 'Open Sans', sans-serif;
   font-size: 12pt;
-  color: #333333;
-}
+  color: #333333;*/
+/*    @include pxweb-input-list-font;
+*/}
 
 #pxwebcontent .variableselector_valuesselect_box_commandbar {
-  background-color: #E9F3E9;
-  float: left;
-  border: solid 1px #000000;
-  width: auto;
-  max-width: 800px;
-  height: 100%;
-  margin: 0 6px 2px 0;
+    background-color: $pxbox-background;
+    float: left;
+    border: solid 1px #000000;
+    width: auto;
+    max-width: 800px;
+    height: 100%;
+    margin: 0 6px 2px 0;
 }
 
 #pxwebcontent .variableselector_valuesselect_eventbutton_panel_commandbar {

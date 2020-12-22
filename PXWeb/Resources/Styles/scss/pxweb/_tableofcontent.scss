@@ -22,13 +22,19 @@
     list-style-image: url("../../images/Document.gif");
 }
 
-#pxwebcontent .tableofcontent_link {
-    background: url(../../images/Document.gif) 0 0 no-repeat;
+/*#pxwebcontent .tableofcontent_link {
+    background: url(../../images/Document.gif) 0 0 no-repeat;*/
     /*text-indent: 20px;*/
+    /*padding: 0 0 0 20px;
+    display: block;
+}*/
+
+#pxwebcontent .tableofcontent_link {
+    background: none;
     padding: 0 0 0 20px;
     display: block;
+    color: $pxweb-dark-5;
 }
-
 #pxwebcontent .tableofcontent_tablelistlink {
     background: url(../../images/folder.png) 0 0 no-repeat;
     /*text-indent: 20px;*/

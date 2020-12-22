@@ -19,8 +19,8 @@
             </FooterTemplate>         
         </asp:Repeater>    
         <p class="commandbar_button_row">
-            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_deletevalue_continuebutton" />
-            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton" />
+            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_continuebutton pxweb-btn primary-btn" />
+            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
         </p>
         <p>
             <asp:Label runat="server" ID="lblError" Visible="false" CssClass="commandbar_deletevalue_errordescription" />

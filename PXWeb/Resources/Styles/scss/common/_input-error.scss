@@ -11,9 +11,9 @@
     padding: 4px 8px;
     position: relative;
 
-    &.negative {
+/*    &.negative {
         color: $pxweb-dark-5;
-    }
+    }*/
 
     &:before {
         border-color: transparent transparent $pxweb-red-3 transparent;

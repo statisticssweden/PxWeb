@@ -13,12 +13,18 @@
 <head id="Head1" runat="server">
 	<title>
 		<asp:Literal ID="litTitle" EnableViewState="false" runat="server" /></title>
-	<link href="Resources/Styles/reset.css" rel="stylesheet" type="text/css" media="screen" />
+<%--	<link href="Resources/Styles/reset.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="Resources/Styles/PxWeb.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="Resources/Styles/Custom.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="Resources/Styles/Custom.css" rel="stylesheet" type="text/css" media="screen" />--%>
+	<link href="<%= ResolveUrl("~/Resources/Styles/reset.css")  %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/main-common.css") %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/main-pxweb.css") %>" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= ResolveUrl("~/Resources/Styles/main-custom.css") %>" rel="stylesheet" type="text/css" media="screen" />
+
 </head>
 
 <body>
+	<div id="pxwebcontent" role="main">
 	<form id="form1" runat="server">
 		<div id="wrap">
 			<div id="header" class="header">
@@ -57,4 +63,5 @@
 			</div>
 		</div>
 	</form>
+		</div>
 </body>
