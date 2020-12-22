@@ -64,5 +64,14 @@ namespace PXWeb
         /// </summary>
         string DefaultExampleResponseFormat { get; }
 
+        /// <summary>
+        /// If save API query button will be displayed
+        /// </summary>
+        bool ShowSaveApiQueryButton { get; }
+
+        /// <summary>
+        /// Text for saved API query
+        /// </summary>
+        string SaveApiQueryText { get; }
     }
 }

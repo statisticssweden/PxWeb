@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/PxWeb.Master" AutoEventWireup="true" CodeBehind="Presentation.master.cs" Inherits="PXWeb.Presentation1" %>
 <%@ MasterType VirtualPath="~/PxWeb.Master" %>
 <%@ Register Src="~/UserControls/SaveQueryCreate.ascx" TagPrefix="ucSaveQuery" TagName="SaveQuery" %>
+<%@ Register Src="~/UserControls/AccordianAboutTableControl.ascx" TagPrefix="ucAccordianAboutTable" TagName="AccordianAboutTable" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
@@ -9,12 +10,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div id="PageElements">
-    <asp:Panel ID="panelTabs" runat="server"  >
-        <ul>    
-            <li><a href="#Presentation"><%= Master.GetLocalizedString("PxWebShowTable") %></a></li>    
-            <li><a href="#AboutTable"><%= Master.GetLocalizedString("PxWebAboutTable") %></a></li>    
-        </ul>
-    </asp:Panel>
+     <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable"/>
         <div id="Presentation">
             <pxc:commandbar id="CommandBar1" runat="server"  />
             <div id="settingsPanel" class="settings_panel">
@@ -54,12 +50,7 @@
             </div>
             <% } %>
                         
-            
-        </div>
-        <div id="AboutTable">
-            <pxc:footnote id="Footnotes" runat="server" />  
-            <br /><br />
-            <pxc:information id="Information" runat="server" ContactForEveryContent="false" LastUpdatedForEveryContent="false" />          
+            <pxc:footnote id="Footnotes" runat="server" /> 
             <pxc:TableQuery id="TableQueryInformation" runat="server" />
         </div>
     </div>

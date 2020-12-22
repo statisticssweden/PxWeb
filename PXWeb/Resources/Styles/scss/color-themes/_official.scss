@@ -1,0 +1,92 @@
+﻿/*#region  Active colors */
+$pxweb-green-1: #ecfeed;
+$pxweb-green-2: #A3E8F5nord;
+$pxweb-green-3: #00A0BD;
+$pxweb-green-4: #007694;
+$pxweb-red-3: #ee0000;
+$pxweb-dark-2: #949494;
+$pxweb-dark-4: #595959;
+$pxweb-dark-5: #006885;
+$pxweb-dark-6: #222;
+$pxweb-white: #fff;
+$pxweb-purple-3: #9272fc;
+$pxweb-blue-3: #3396d2;
+$pxweb-black-1: #222;
+$pxweb-black-2: #000;
+$pxweb-black-3: #222;
+$px-messages-border: #fba504;
+$header-h1-sort-of-grey: #222;
+$header-h2-sort-of-grey: #222; // and more
+$tableAlternatingRow-grey: #eee; //aka #footer grey and the new searchvalues-usage-tips
+$another-errormessage: #B0272E;
+$breadcrumb-background: #fff;
+$breadcrumb-text: $pxweb-dark-5;
+$breadcrumb-text-nolink: #222;
+/*#endregion*/
+
+/*#region  Active colors inside pxbox*/
+//$pxbox-green-1: #ecfeed;
+$pxbox-green-2: #A3E8F5;
+$pxbox-green-3: #00A0BD;
+$pxbox-green-4: #007694;
+$pxbox-red-3: #ee0000;
+$pxbox-dark-2: #c3dcdc;
+$pxbox-dark-4: #2d6975;
+$pxbox-dark-5: #222;
+$pxbox-dark-6: #222;
+$pxbox-white: #fff;
+$pxbox-purple-3: #9272fc;
+$pxbox-blue-3: #3396d2;
+$pxbox-black-1: #333;
+$pxbox-black-2: #000;
+$pxbox-black-3: #222;
+$pxbox-usage-tips: #eee; // =$tableAlternatingRow-grey;
+/*#endregion*/
+
+//most used colors:
+$pxweb-green-4: #007694;
+$pxbox-green-4: #007694;
+$pxbox-green-2: #007694;
+
+/*#region  Main color scheme */
+//main
+$pxweb-background: $pxweb-white;
+$pxweb-ink-main: $pxweb-black-1;
+
+//box
+$pxbox-background: #F8F7F6;
+$pxbox-border: #949494;
+$pxbox-ink: #222;
+
+/*#region Buttons */
+//buttons
+$pxweb-btn-color: $pxbox-green-4;
+$pxweb-btn-bg: $pxbox-white;
+$btn-icon: $pxweb-btn-color;
+$btn-icon-hover: $pxweb-btn-bg;
+
+//primary button
+$pxweb-primary-btn-color: $pxbox-white;
+$pxweb-primary-btn-bg: $pxweb-green-4;
+$pxweb-primary-btn-bg-hover: $pxweb-dark-5;
+
+//buttons inside box
+$pxbox-btn-color: $pxbox-white;
+$pxbox-btn-bg: #007694;
+$pxbox-btn-icon: $pxbox-btn-color;
+$pxbox-btn-icon-hover: $pxbox-btn-bg;
+/*#endregion*/
+
+/*#region Links */
+//All pxbox links has icon.
+$pxbox-link-icon-ink: $pxbox-green-2; //corespons to pxweb-link-first-ink
+$pxbox-link-text-ink: $pxbox-ink;
+$pxbox-link-hover-ink: $pxbox-dark-6;
+$pxbox-link-hover-background: $pxbox-green-2;
+
+$pxweb-link-first-ink: $pxweb-green-4; //for the icons and for text for links without icons
+$pxweb-link-text-ink: $pxweb-dark-6; //for text ink for links with icons
+$pxweb-link-hover-ink: white;
+$pxweb-link-hover-background: $pxweb-green-4;
+/*#endregion*/
+/*#endregion*/

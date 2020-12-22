@@ -27,9 +27,7 @@
             cssclass="commandbar_pivot_button" />
     </div>
 </div>
-<div class="commandbar_pivot_container_buttons">
-    <p>
-        <asp:button id="ContinueButton" runat="server" CssClass="commandbar_continuebutton" />
-        <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton" />
-    </p>    
+<div class="commandbar_button_row">
+    <asp:button id="ContinueButton" runat="server" CssClass="commandbar_continuebutton pxweb-btn primary-btn" />
+    <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
 </div>

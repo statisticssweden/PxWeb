@@ -1,0 +1,26 @@
+#{$selector_prefix}-input-error {
+    @include roboto;
+    background: $pxweb-red-3;
+    color: $pxweb-white;
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    line-height: normal;
+    margin-top: 12px;
+    padding: 4px 8px;
+    position: relative;
+
+/*    &.negative {
+        color: $pxweb-dark-5;
+    }*/
+
+    &:before {
+        border-color: transparent transparent $pxweb-red-3 transparent;
+        border-style: solid;
+        border-width: 8px;
+        content: '';
+        position: absolute;
+        top: -16px;
+    }
+}

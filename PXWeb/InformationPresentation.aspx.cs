@@ -24,7 +24,7 @@ namespace PXWeb
 
             if (!IsPostBack)
             {
-                Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTitleInformaionPresentaion");
+                Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTitleInformationPresentation");
                 if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
                 {
                     InitializeCommandBar();

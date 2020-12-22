@@ -17,6 +17,7 @@ namespace PXWeb
         public bool EnableLimitRequest { get; set; }
         public int LimiterRequests { get; set; }
         public int LimiterTimespan { get; set; }
+        public string LimiterHttpHeaderName { get; }
 
         #region "Public methods"
         /// <summary>
@@ -51,6 +52,8 @@ namespace PXWeb
             xpath = "./limiterTimespan";
             LimiterTimespan = SettingsHelper.GetSettingValue(xpath, sqNode, 10);
 
+            xpath = "./limiterHttpHeaderName";
+            LimiterHttpHeaderName = SettingsHelper.GetSettingValue(xpath, sqNode, "");
 
         }
 

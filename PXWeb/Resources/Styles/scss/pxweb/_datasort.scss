@@ -1,0 +1,35 @@
+﻿@include file-header("_datasort.scss TODO");
+
+#pxwebcontent #datasort_content {
+/*  width: 99%;  
+background-color: #f0f8ff;*/
+}
+
+#pxwebcontent #datasort_description {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+#pxwebcontent .datasort_sortdescription {
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 100%;
+}
+
+#pxwebcontent .datasort_copydescription {
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 100%;
+}
+
+#pxwebcontent .datasort_tabletitle {
+    /*font-size: 100%;
+  font-weight: bold;
+  line-height: 150%;
+  padding-bottom: 5px;*/
+    @include pxweb-table-title;
+}
+
+#pxwebcontent .table-jquerysort-header {
+  display: none;
+}

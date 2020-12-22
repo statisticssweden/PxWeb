@@ -56,16 +56,6 @@ namespace PXWeb
         int ListSize { get; }
 
         /// <summary>
-        /// Available presentation views in the VariableSelector
-        /// </summary>
-        IEnumerable<string> PresentationViews { get; }
-
-        /// <summary>
-        /// Available output formats (file formats) in VariableSelector
-        /// </summary>
-        IEnumerable<string> OutputFormats { get; }
-
-        /// <summary>
         /// If valueset has to be selected before selection of values can be done
         /// </summary>
         bool ValuesetMustBeSelectedFirst { get; }
@@ -114,5 +104,12 @@ namespace PXWeb
         /// Decides if first value for content and time are pre selected
         /// </summary>
         bool PreSelectFirstContentAndTime { get; }
+
+        /// <summary>
+        /// Decides if text for no footnotes should be displayed
+        /// </summary>
+        bool ShowNoFootnoteForSelection { get; }
+
+        bool ClientSideValidation { get; }
     }
 }

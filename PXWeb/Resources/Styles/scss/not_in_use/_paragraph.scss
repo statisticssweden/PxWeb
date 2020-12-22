@@ -1,0 +1,11 @@
+.ssb-paragraph {
+  @include open-sans;
+  color: $pxweb-dark-6;
+  font-size: 16px;
+  line-height: 28px;
+  max-width: $max-readable-width;
+
+  &.negative {
+    color: $pxweb-white;
+  }
+}

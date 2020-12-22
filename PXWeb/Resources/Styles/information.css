@@ -1,143 +1,70 @@
-﻿/* Used for Information webcontrol */
-
+﻿/* Used for Information webcontrol, and also metaid stuff from Selection.aspx*/
 /* generall style for the definitionlist */
-dl.information_definitionlist dt
-{
-    margin-top:1em;
-    line-height:120%;
-}
-
-dl.information_definitionlist dd
-{  
-    margin-left:2em;
-    line-height:120%;
-}
-.information_definitionlist_heading
-{
-    margin-top:10px;
-    font-weight: bold;
-}
-
-.information_definitionlist dd a {
-    color: #03649c;;
-}
-
-
-.information_definitionlist dd a:visited {
-    color: #0493ac;
-}
-
-#0493ac;
 /* Define if specific style is to be used for presentation of a heading or value for some of the information*/
-.information_definitionlist_heading
-{    
+
+#pxwebcontent dl.information_definitionlist dl {
+  margin-top: 10px;
+  line-height: 120%;
+  /*font-weight: bold;*/
+  break-inside: avoid-column;
+  -webkit-column-break-inside: avoid;
 }
-.information_definitionlist_value
-{    
+
+#pxwebcontent dl.information_definitionlist dt {
+  margin-top: 10px;
+  line-height: 120%;
+  font-weight: bold;
+  margin-left: 20px;
 }
-.information_unit_heading
-{
+
+#pxwebcontent dl.information_definitionlist dd {
+  line-height: 120%;
+  margin-left: 20px;
 }
-.information_unit_value
-{
+
+#pxwebcontent .information_definitionlist {
+  /* -webkit-column-count: 2;*/ /* Chrome, Safari, Opera */
+  /* -moz-column-count: 2; */ /* Firefox */
+  column-count: 2;
 }
-.information_contact_heading
-{
+
+#pxwebcontent .information_atom {
+  display: flex;
+  flex-direction: column;
 }
-.information_contact_value
-{
+
+@media only screen and (max-width: 767px) {
+  #pxwebcontent .information_definitionlist {
+    /*  -webkit-column-count: 1;*/ /* Chrome, Safari, Opera */
+    /*  -moz-column-count: 1;*/ /* Firefox */
+    column-count: 1;
+  }
 }
-.information_lastupdated_heading
-{
+
+#pxwebcontent .information_definitionlist_heading {
+  margin-top: 10px;
+  font-weight: bold;
 }
-.information_lastupdated_value
-{
+
+#pxwebcontent .information_definitionlist dd a {
+  color: #003892 !important;
+  text-decoration: underline;
 }
-.information_refperiod_heading
-{
+
+  #pxwebcontent .information_definitionlist dd a:visited {
+    color: #0493ac;
+  }
+
+#pxwebcontent div.settingpanel.information {
+  font-family: 'Open Sans', sans-serif;
 }
-.information_refperiod_value
-{
+
+#pxwebcontent .pxweb_about_the_statistics {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 3px;
 }
-.information_stockfa_heading
-{
-}
-.information_stockfa_value
-{
-}
-.information_cfprices_heading
-{
-}
-.information_cfprices_value
-{
-}
-.information_dayadj_heading
-{
-}
-.information_dayadj_value
-{
-}
-.information_seasadj_heading
-{
-}
-.information_seasadj_value
-{
-}
-.information_baseperiod_heading
-{
-}
-.information_baseperiod_value
-{
-}    
-.information_updatefrequency_heading
-{
-}
-.information_updatefrequency_value
-{
-}
-.information_nextupdate_heading
-{
-} 
-.information_nextupdate_value
-{
-}
-.information_survey_heading
-{
-}
-.information_survey_value
-{
-}
-.information_link_heading
-{
-} 
-.information_link_value
-{
-}        
-.information_creationdate_heading
-{
-} 
-.information_creationdate_value
-{
-}        
-.information_copyright_heading
-{
-}   
-.information_copyright_value
-{
-}      
-.information_source_heading
-{
-}
-.information_copyright_value
-{
-}     
-.information_detailedLink_heading
-{
-}
-.information_detailedLink_value
-{
-}      
-       
-        
-        
-       
+
+  #pxwebcontent .pxweb_about_the_statistics .pxweb-link {
+    margin-top: 3px;
+  }

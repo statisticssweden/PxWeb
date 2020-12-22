@@ -1,0 +1,74 @@
+﻿@include file-header("_selectfromgroup.scss");
+
+#pxwebcontent .selectfromgroup-container {
+  padding: 12px;
+}
+
+#pxwebcontent .selectfromgroup-variable {
+  padding-left: 8px;
+}
+
+#pxwebcontent .selectfromgroup-selectgrouping {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+#pxwebcontent select.selectfromgroup-selectgrouping {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: get-icon( 'dropdown-down', $pxbox-btn-icon);
+  padding: .6em 1.4em .5em 2.2em;
+  border: 1px solid $pxbox-white;
+  background-color: $pxbox-white;
+  background-repeat: no-repeat;
+  background-position: left .4em top 50%, 0 0;
+  background-size: 24px auto, 100%;
+  font-size: 16px;
+
+  &:hover {
+    border: 1px solid $pxbox-green-2;
+    outline: $pxbox-green-2 solid 1px;
+  }
+
+  &:focus {
+    background-image: get-icon( 'dropdown-up', $pxbox-btn-icon);
+    @include focus-ring;
+  }
+}
+
+#pxwebcontent .selectfromgroup-groupslist {
+  width: 100%;
+  height: 10em;
+  display: block;
+  font-size: 14px;
+}
+
+#pxwebcontent .selectfromgroup-radiobuttons {
+  padding: 12px 0 12px 0;
+}
+
+#pxwebcontent .selectfromgroup-groupsbutton {
+  font-size: 14px;
+}
+
+#pxwebcontent .selectfromgroup-valuespanel {
+  padding: 12px 0 12px 0;
+}
+
+#pxwebcontent .selectfromgroup-valueslist {
+  width: 100%;
+  height: 10em;
+  display: block;
+  font-size: 14px;
+}
+
+#pxwebcontent .selectfromgroup-cancel {
+  margin-right: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+#pxwebcontent .selectfromgroup-button-container {
+  padding-top: 20px;
+}

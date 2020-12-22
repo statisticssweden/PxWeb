@@ -92,7 +92,7 @@ namespace PXWeb.Management
             lock (_cacheLock)
             {
                 _cache.ToList().ForEach(a => _cache.Remove(a.Key));
-                _logger.Info("Cache cleared");
+                _logger.Info("Cache was cleared");
 
             }
         }

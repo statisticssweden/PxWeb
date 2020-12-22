@@ -1,41 +1,35 @@
-﻿#datasort_content
-{		
-	width: 99%;	
-	background-color: #f0f8ff;	
+﻿#pxwebcontent #datasort_content {
+  width: 99%;
+  background-color: #f0f8ff;
 }
 
-#datasort_description
-{			
-	padding-top: 5px;
-	padding-bottom: 10px;		
+#pxwebcontent #datasort_description {
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
-.datasort_sortdescription
-{
-	/*font-family: Arial;*/
-	font-size: 100%;
-	font-weight: normal;
-	line-height: 100%;
+#pxwebcontent .datasort_sortdescription {
+  /*font-family: Arial;*/
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 100%;
 }
 
-.datasort_copydescription
-{	
-	/*font-family: Arial;*/
-	font-size: 100%;
-	font-weight: normal;
-	line-height: 100%;	
+#pxwebcontent .datasort_copydescription {
+  /*font-family: Arial;*/
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 100%;
 }
 
-.datasort_tabletitle
-{
-	font-family: Arial;
-	font-size: 100%;
-	font-weight: bold;
-	line-height: 150%;
-	padding-bottom: 5px;			
+#pxwebcontent .datasort_tabletitle {
+  font-family: Arial;
+  font-size: 100%;
+  font-weight: bold;
+  line-height: 150%;
+  padding-bottom: 5px;
 }
 
-.table-jquerysort-header
-{
-    display:none;
+#pxwebcontent .table-jquerysort-header {
+  display: none;
 }

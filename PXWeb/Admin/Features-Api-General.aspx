@@ -115,4 +115,24 @@
         &nbsp;<asp:ImageButton ID="imgDefaultExampleResponseFormat" runat="server" onclick="DefaultExampleResponseFormatInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
 
+    <div class="setting-field">
+        <asp:Label ID="lblShowSaveApiQueryButton" runat="server" Text="<%$ PxString: PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton %>"></asp:Label>
+        <asp:DropDownList ID="cboShowSaveApiQueryButton" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboShowSaveApiQueryButton_SelectedIndexChanged">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        &nbsp;<asp:ImageButton ID="imgShowSaveApiQueryButton" runat="server" onclick="ShowSaveApiQueryButtonInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
+
+    <asp:Panel ID="pnlSaveApiQueryText" runat="server" Visible="false">
+    <div class="setting-field">
+        <asp:Label ID="lblSaveApiQueryText" runat="server" Text="<%$ PxString: PxWebAdminFeaturesApiGeneralSaveApiQueryText %>"></asp:Label>
+        <asp:TextBox ID="txtSaveApiQueryText" runat="server"></asp:TextBox>
+        <asp:ImageButton ID="imgSaveApiQueryText" runat="server" onclick="SaveApiQueryTextInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+        <asp:CustomValidator ID="CustomValidator1" runat="server" 
+        ControlToValidate="txtSaveApiQueryText" OnServerValidate="ValidateRoutePrefix"
+        ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
+    </div>
+    </asp:Panel>
+
 </asp:Content>

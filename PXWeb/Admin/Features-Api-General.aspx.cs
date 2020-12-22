@@ -3,8 +3,14 @@ using PCAxis.Query;
 using PXWeb.Misc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PCAxis.Query;
+using System.Configuration;
+using PCAxis.Paxiom.Configuration;
+using PXWeb.Misc;
 
 namespace PXWeb.Admin
 {
@@ -34,8 +40,8 @@ namespace PXWeb.Admin
         private void ReadSettings()
         {
             GetExposedDatabases();
-			GetDatabasesLanguages();
-			txtRoutePrefix.Text = PXWeb.Settings.Current.Features.Api.RoutePrefix;
+            GetDatabasesLanguages();
+            txtRoutePrefix.Text = PXWeb.Settings.Current.Features.Api.RoutePrefix;
             txtMaxValuesReturned.Text = PXWeb.Settings.Current.Features.Api.MaxValuesReturned.ToString();
             txtLimiterRequests.Text = PXWeb.Settings.Current.Features.Api.LimiterRequests.ToString();
             txtLimiterTimespan.Text = PXWeb.Settings.Current.Features.Api.LimiterTimespan.ToString();
@@ -45,6 +51,9 @@ namespace PXWeb.Admin
             //txtClearCache.Text = PXWeb.Settings.Current.Features.Api.ClearCache;
             cboShowQueryInformation.SelectedValue = PXWeb.Settings.Current.Features.Api.ShowQueryInformation.ToString();
             cboDefaultExampleResponseFormat.SelectedValue = PXWeb.Settings.Current.Features.Api.DefaultExampleResponseFormat;
+            cboShowSaveApiQueryButton.SelectedValue = PXWeb.Settings.Current.Features.Api.ShowSaveApiQueryButton.ToString();
+            txtSaveApiQueryText.Text = PXWeb.Settings.Current.Features.Api.SaveApiQueryText.ToString();
+            ShowHideTextboxForQueryPrefix();
             txtUrlRoot.Text = PXWeb.Settings.Current.Features.Api.UrlRoot;
         }
 
@@ -211,6 +220,9 @@ namespace PXWeb.Admin
                         //api.ClearCache = txtClearCache.Text;
                         api.ShowQueryInformation = bool.Parse(cboShowQueryInformation.SelectedValue);
                         api.DefaultExampleResponseFormat = cboDefaultExampleResponseFormat.SelectedValue;
+                        api.ShowSaveApiQueryButton = bool.Parse(cboShowSaveApiQueryButton.SelectedValue);
+                        api.SaveApiQueryText = txtSaveApiQueryText.Text;
+
                         api.UrlRoot = txtUrlRoot.Text;
 
                         PXWeb.Settings.Save();
@@ -393,6 +405,32 @@ namespace PXWeb.Admin
             }
         }
 
+        /// <summary>
+        /// Is called when the value "Show API query button" changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void cboShowSaveApiQueryButton_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowHideTextboxForQueryPrefix();
+        }
+
+        /// <summary>
+        /// If the setting showApiQueryButton is true then show the control
+        /// for setting text
+        /// </summary>
+        private void ShowHideTextboxForQueryPrefix()
+        {
+            if (bool.Parse(cboShowSaveApiQueryButton.SelectedValue))
+            {
+                pnlSaveApiQueryText.Visible = true;
+            }
+            else
+            {
+                pnlSaveApiQueryText.Visible = false;
+            }
+        }
+
         protected void PxDatabasesInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralApiPxDatabases", "PxWebAdminFeaturesApiGeneralApiPxDatabasesInfo");
@@ -444,5 +482,16 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralUrlRoot", "PxWebAdminFeaturesApiGeneralUrlRootInfo");
         }
+
+        protected void ShowSaveApiQueryButtonInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton", "PxWebAdminFeaturesApiGeneralShowSaveApiQueryButtonInfo");
+        }
+
+        protected void SaveApiQueryTextInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralSaveApiQueryText", "PxWebAdminFeaturesApiGeneralSaveApiQueryTextInfo");
+        }
+
     }
 }

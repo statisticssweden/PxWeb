@@ -45,5 +45,10 @@ namespace PXWeb
         /// </summary>
         int LimiterTimespan { get; }
 
+        /// <summary>
+        /// Use headerfield instead of client ip-address
+        /// </summary>
+        string LimiterHttpHeaderName { get; }
+
     }
 }

@@ -1,0 +1,101 @@
+﻿@include file-header("_tablelist.scss TODO part of menu");
+/*Used in PCAxis.Web.Controls\Menu\TableOfContent\TableOfContent.ascx */
+
+/* ---- listmenu style ----- */
+/* ---- treeviewmenu style ----- */
+/* ---- adaption of treeview style ----- */
+
+#pxwebcontent .tableofcontent_ul {
+    margin: 2em 0 2em 2em;
+    padding: 0;
+    line-height: 120%;
+}
+
+#pxwebcontent .tableofcontent_li_menuitem {
+    list-style-position: outside;
+    list-style-image: url("../../images/Arrow_Right_Gray.gif");
+}
+
+#pxwebcontent .tableofcontent_li_linkitem {
+    margin: 1em 0 1em 0;
+    list-style-position: outside;
+    list-style-image: url("../../images/Document.gif");
+}
+
+/*#pxwebcontent .tableofcontent_link {
+    background: url(../../images/Document.gif) 0 0 no-repeat;*/
+    /*text-indent: 20px;*/
+    /*padding: 0 0 0 20px;
+    display: block;
+}*/
+
+#pxwebcontent .tableofcontent_link {
+    background: none;
+    padding: 0 0 0 20px;
+    display: block;
+    color: $pxweb-dark-5;
+}
+#pxwebcontent .tableofcontent_tablelistlink {
+    background: url(../../images/folder.png) 0 0 no-repeat;
+    /*text-indent: 20px;*/
+    padding: 0 0 0 20px;
+}
+
+#pxwebcontent .tableofcontent_urllink {
+    background: url(../../images/Knapp_info.gif) 0 0 no-repeat;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-left: 5px;
+}
+
+#pxwebcontent .tableofcontent_metaicon {
+    padding: 0 0 0 5px;
+}
+
+#pxwebcontent #TableOfContent a em {
+    color: #b1b1b1;
+}
+
+#pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse {
+    background: url(../../images/folder.png) 0 0 no-repeat;
+    float: none;
+    cursor: pointer;
+    padding: 0 12px 0 0;
+    @include focus-marker;
+}
+
+#pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand {
+    background: url(../../images/folder.png) 0 0 no-repeat;
+    float: none;
+    cursor: pointer;
+    padding: 0 12px 0 0;
+    @include focus-marker;
+}
+
+#pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
+    /*background:  url(../../../images/Document.gif) 0 0 no-repeat;
+  padding: 0 0 5px 20px;*/
+/*    width: 750px; */    
+    white-space: normal;
+    @include focus-marker;
+}
+
+#pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf a {
+    cursor: pointer;
+    display: block;
+    @include focus-marker;
+}
+
+
+#pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf span.AspNet-TreeView-NonLink {
+    text-decoration: none;
+    font-weight: bold;
+    background: none;
+    @include focus-marker;
+}
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink {
+    font-weight: bold;
+    @include focus-marker;
+}

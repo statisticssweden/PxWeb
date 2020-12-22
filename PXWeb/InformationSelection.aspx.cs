@@ -23,7 +23,7 @@ namespace PXWeb
 
             if (!IsPostBack)
             {
-                Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebInforamtionSelection");
+                Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebInformationSelection");
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.SelectionSubPage, Master.GetLocalizedString("PxWebInformation"));
                 InitializeTableInformation();
                 InitializeInformation();

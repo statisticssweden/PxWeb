@@ -1,115 +1,75 @@
-﻿
-
-Imports PCAxis.Web.Core
+﻿Imports PCAxis.Web.Core
 Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Enums
 Imports PCAxis.Web.Core.Management
 
 Public Class SearchValuesCodebehind
     Inherits PaxiomControlBase(Of SearchValuesCodebehind, SearchValues)
 
 #Region "Localized strings"
-    Private Const LOC_SEARCH_HEADER As String = "CtrlSearchValuesHeader"
-    Private Const LOC_SEARCH_SEARCH_FOR_CODE As String = "CtrlSearchValuesSearchCode"
-    Private Const LOC_SEARCH_SEARCH_FOR_VALUE As String = "CtrlSearchValuesSearchValue"
-    Private Const LOC_SEARCH_SEARCH_FOR_VALUE_OR_CODE As String = "CtrlSearchValuesSearchValueOrCode"
-    Private Const LOC_SEARCH_TYPE_BEGINNING As String = "CtrlSearchValuesSearchTypeBeginning"
-    Private Const LOC_SEARCH_TYPE_ANYWHERE As String = "CtrlSearchValuesSearchTypeAnywhere"
-    Private Const LOC_SEARCH_SHOW_ALL_VALUES As String = "CtrlSearchValuesShowAllValues"
-    Private Const LOC_SEARCH As String = "CtrlSearchValuesSearch"
-    Private Const LOC_SEARCH_ILLEGAL_CHARACTERS_ERROR As String = "PxWebIllegalCharactersErrorMessage"
+    Private Const LOC_SEARCH_HEADER As String = "CtrlSearchValuesHeader2"
     Private Const LOC_SEARCH_SELECTION_TIPS As String = "CtrlSearchValuesSelectionTips"
-    Private Const LOC_SEARCH_RESULTS_HEADER As String = "CtrlSearchValuesSearchResultHeader"
-    Private Const LOC_SEARCH_RESULTS_NUMBER_OF_HITS As String = "CtrlSearchValuesSearchResultNumberOfHits"
-    Private Const LOC_SEARCH_RESULTS_SELECT_ALL As String = "CtrlSearchValuesSearchResultSelectAll"
-    Private Const LOC_SEARCH_ADD_TO_CHOOSEN_VALUES As String = "CtrlSearchValuesAddToChoosenValues"
-    Private Const LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES As String = "CtrlSearchValuesRemoveFromChoosenValues"
-    Private Const LOC_SEARCH_CHOOSEN_VALUES As String = "CtrlSearchValuesChoosenValues"
-    Private Const LOC_SEARCH_NUMBER_OF_CHOOSEN_VALUES As String = "CtrlSearchValuesNumberOfChoosenValues"
-    Private Const LOC_SEARCH_NO_VALUES_FOUND As String = "CtrlSearchValuesNoValuesFound"
-    Private Const LOC_SEARCH_NO_VALUES_SELECTED As String = "CtrlSearchValuesNoValuesSelected"
-    Private Const LOC_SEARCH_CANCEL As String = "CtrlSearchValuesCancel"
-    Private Const LOC_SEARCH_CLEAR As String = "CtrlSearchValuesClear"
-    Private Const LOC_SEARCH_ADD_TO_VARIABLESELECTOR As String = "CtrlSearchValuesAddToVariableSelector"
-    Private Const LOC_SEARCH_SELECT_ALL_AVAILABLE_VALUES As String = "CtrlSearchValuesSelectAllAvailableValues"
-
+    Private Const LOC_SEARCH_SELECT_ALL_AVAILABLE_VALUES As String = "CtrlSearchValuesSelectAllAvailableValues2"
 
     Private Const LOC_SEARCH_LABEL As String = "CtrlSearchValuesSearchLabel"
-    Private Const LOC_CODE As String = "CtrlSearchValuesCode"
-    Private Const LOC_VALUE As String = "CtrlSearchValuesValue"
-    Private Const LOC_SHOW_ALL_VALUES As String = "CtrlSearchValuesAllValues"
-    Private Const LOC_SEARCH_TEXT As String = "CtrlSearchValuesSearchText"
-    Private Const LOC_SEARCH_BUTTON As String = "CtrlSearchValuesSearchButton"
-    Private Const LOC_PAGER_FIRSTPAGE As String = "CtrlSearchValuesPagerFirstPage"
-    Private Const LOC_PAGER_NUMBEROFPAGES As String = "CtrlSearchValuesPagerNumberOfPages"
-    Private Const LOC_PAGER_LASTPAGE As String = "CtrlSearchValuesPagerLastPage"
-    Private Const LOC_PAGER_FORWARD As String = "CtrlSearchValuesPagerForward"
-    Private Const LOC_PAGER_BACKWARD As String = "CtrlSearchValuesPagerBackward"
+    Private Const LOC_SEARCH_RESULTS_NUMBER_OF_HITS As String = "CtrlSearchValuesSearchResultNumberOfHits"
+    Private Const LOC_SEARCH_RESULTS_LISTBOX_ARIA_LABEL As String = "CtrlSearchValuesSearchResultListboxScreenReader"
+    Private Const LOC_SEARCH_ILLEGAL_CHARACTERS_ERROR As String = "PxWebIllegalCharactersErrorMessage"
+    Private Const LOC_SEARCH_RESULTS_SELECT_ALL As String = "CtrlSearchValuesSearchResultSelectAll"
+    Private Const LOC_SEARCH_ADD_TO_CHOOSEN_VALUES As String = "CtrlSearchValuesAddToChoosenValues"
+    Private Const LOC_SEARCH_ADD_TO_CHOOSEN_VALUES_TOOLTIP As String = "CtrlSearchValuesAddToChoosenValuesToolTip"
 
+    Private Const LOC_SEARCH_CHOOSEN_VALUES As String = "CtrlSearchValuesChoosenValues"
+    Private Const LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES As String = "CtrlSearchValuesRemoveFromChoosenValues"
+    Private Const LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES_TOOLTIP As String = "CtrlSearchValuesRemoveFromChoosenValuesToolTip"
+    Private Const LOC_SEARCH_NUMBER_OF_CHOOSEN_VALUES As String = "CtrlSearchValuesNumberOfChoosenValues2"
+    Private Const LOC_SEARCH_CHOOSEN_VALUES_LISTBOX_ARIA_LABEL As String = "CtrlSearchValuesChoosenValuesListboxScreenReader"
+    Private Const LOC_SEARCH_CANCEL As String = "CtrlSearchValuesCancel"
+    Private Const LOC_SEARCH_ADD_TO_VARIABLESELECTOR As String = "CtrlSearchValuesAddToVariableSelector"
+
+    'These are also used:
+    ' "aria-label", GetLocalizedString("CtrlVariableSelectorSearchValuesTextboxScreenReader"))
+    ' SearchValuesTextbox     ... ("placeholder", GetLocalizedString("CtrlVariableSelectorSearchValuesTextbox"))
+    ' GetLocalizedString("CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox")
 #End Region
 
 #Region "Fields"
-    Protected Table As Literal
-    Protected SearchHeader As Literal
+    Protected SearchHeader As Label
+    Protected litSelectionTips As Literal
+    Protected WithEvents FetchAllButton As Button
+
+    'first ruler 
     Protected lblSearch As Label
-    Protected lblSearchText As Label
-    Protected rbSearchCode As RadioButton
-    Protected rbSearchValue As RadioButton
-    Protected rbShowAll As RadioButton
-    Protected txtSearchText As TextBox
-    Protected WithEvents cmdSearch As Button
+    Protected SearchValuesTextbox As TextBox
+    Protected WithEvents SearchValuesButton As LinkButton
+    Protected SearchValuesBeginningOfWordCheckBox As CheckBox
     Protected lblSearchError As Label
-    Protected SearchTypeBeginning As RadioButton
-    Protected SearchTypeAnywhere As RadioButton
+    Protected SearchResultNumberOfHitsLabel As Label
+    Protected WithEvents SearchResults As ListBox
+    Protected WithEvents SelectAllButton As Button
+    Protected WithEvents DeselectAllButton As Button
+    Protected WithEvents MoveToResultButton As Button
+    Protected lnkSearchInformation As HyperLink
+
+    'Second ruler
+    Protected ChoosenValuesLabel As Label
+    Protected WithEvents RemoveButton As Button
+
+    Protected NumberOfChoosenValuesLabelPart1 As Label
+    Protected NumberOfChoosenValuesLabelPart2 As Label
+    Protected NumberOfChoosenValuesLabelPart3 As Label
     Protected SelectedVariableValues As ListBox
     Protected WithEvents CancelButton As Button
-    Protected WithEvents ClearButton As Button
-    Protected WithEvents AddToVariableSelectorButton As Button
-    Protected litSelectionTips As Literal
-    Protected SearchResultLabel As Label
-    Protected SearchResultNumberOfHitsLabel As Label
-    Protected ChoosenValuesLabel As Label
-    Protected NumberOfChoosenValuesLabel As Label
-    Protected LeftDividerImage As Image
-    Protected RightDividerImage As Image
-    Protected WithEvents RemoveButton As ImageButton
-    Protected WithEvents AddButton As ImageButton
-    Protected lnkSearchInformation As HyperLink
-    Protected WithEvents grdSearchResult As GridView
-    Protected pnlSecondPager As Panel
-    Protected pnlPagingrow1Second As Panel
-    Protected pnlPagingrow2Second As Panel
-    Protected WithEvents lnkFirstPageSecond As LinkButton
-    Protected lbNumberOfPagesSecond As Label
-    Protected WithEvents lnkLastPageSecond As LinkButton
+    Protected WithEvents DoneButton As Button
 
-    Protected pnlNonJavascriptPager As Panel
-    Protected pnlPagingrow1NonJavascript As Panel
-    Protected pnlPagingrow2NonJavascript As Panel
-    Protected WithEvents cmdFirstPageNonJavascript As Button
-    Protected lblNumberOfPagesNonJavascript As Label
-    Protected WithEvents cmdLastPageNonJavascript As Button
-
-    Protected WithEvents SelectAllAvailableValues As Button
+    'regions
+    Protected UserManualSearchRegion As Panel
+    Protected UserManualSearch As Panel
+    Protected SearchRegion As Panel
+    Protected SelectedValuesRegion As Panel
 #End Region
 
-    ''' <summary>
-    ''' Gets all the selected values.
-    ''' </summary>
-    ''' <value>All selected values as list of strings</value>
-    ''' <returns>List of strings</returns>
-    ''' <remarks></remarks>
-    Friend ReadOnly Property SelectedValues() As List(Of String)
-        Get
-            Dim values As New List(Of String)
-            For Each li As ListItem In SelectedVariableValues.Items
-                values.Add(li.Text)
-            Next
-            Return values
-        End Get
-    End Property
+
 
 
     ''' <summary>
@@ -117,176 +77,208 @@ Public Class SearchValuesCodebehind
     ''' </summary>
     Private Sub SearchVariableValues_Load() Handles Me.Load
         If Not IsPostBack Then
+            'is called when main selectionpage is loaded, so we do not know the variable yet.
+
+            'One could perhaps reset this via Marker (or something) in InitiateSearch(), but why :-).
+            SearchValuesBeginningOfWordCheckBox.Checked = True
+
             SetLocalizedText()
-            HandleButtons()
             lnkSearchInformation.Visible = Marker.ShowSearchInformationLink
             lnkSearchInformation.Text = Marker.SearchInformationLinkText
             lnkSearchInformation.NavigateUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink(Marker.SearchInformationLinkURL)
-            pnlNonJavascriptPager.Visible = False
-            Table.Visible = Marker.ShowTableName
-            If Marker.ShowAllAvailableValuesButton Then
-                SelectAllAvailableValues.Visible = True
-            End If
-        Else
-            For Each ctr As String In Page.Request.Form
-                If ctr.EndsWith("AddButton.x") Or ctr.EndsWith("AddButton.y") Then
-                    Exit Sub
-                End If
-            Next
 
-            BindGrid()
+            If Marker.ShowAllAvailableValuesButton Then
+                FetchAllButton.Visible = True
+            End If
+
+            SearchResults.SelectionMode = ListSelectionMode.Multiple
+            SelectedVariableValues.SelectionMode = ListSelectionMode.Multiple
+
+            SearchResults.Attributes.Add("onchange", "SetButtonEnablePropertyToHasSelected('" + SearchResults.ClientID + "', '" + MoveToResultButton.ClientID + "'); SetButtonEnablePropertyToHasSelected('" + SearchResults.ClientID + "', '" + DeselectAllButton.ClientID + "')")
+            SelectedVariableValues.Attributes.Add("onchange", "SetButtonEnablePropertyToHasDeselected('" + SelectedVariableValues.ClientID + "', '" + RemoveButton.ClientID + "'); SetButtonEnablePropertyToHasSelected('" + SelectedVariableValues.ClientID + "', '" + DoneButton.ClientID + "'); SetNumberSelected('" + SelectedVariableValues.ClientID + "', '" + NumberOfChoosenValuesLabelPart2.ClientID + "')")
+
         End If
 
+        'Bug: partly disapears if not added each time, it seems:
+        SearchValuesBeginningOfWordCheckBox.LabelAttributes.Add("class", "checkbox-label")
+
+        SetBottonsEnabled()
     End Sub
 
 
     ''' <summary>
-    ''' Sets up the buttons
+    ''' Sets up the content that does NOT depend on variable (or properties set in Marker.variable )  , i.e. stuff that only depend on language.
     ''' </summary>
-    ''' <remarks></remarks>
-    Private Sub HandleButtons()
-        'Set ImageUrl for buttons from embedded resource
-        Dim imgurl As String = Page.ClientScript.GetWebResourceUrl(GetType(VariableSelectorValueSelectCodebehind), "PCAxis.Web.Controls.spacer.gif")
+    Private Sub SetLocalizedText()
+        litSelectionTips.Text = "<span>" + Me.GetLocalizedString(LOC_SEARCH_SELECTION_TIPS).Replace("\n", "</span><span>") + "</span>"
 
-        Me.LeftDividerImage.ImageUrl = imgurl
-        Me.RightDividerImage.ImageUrl = imgurl
-        Me.AddButton.ImageUrl = imgurl
-        Me.RemoveButton.ImageUrl = imgurl
+        'These 3 are from the "main selection" page, so they have no LOC_ constant.
+        SearchValuesTextbox.Attributes.Add("placeholder", GetLocalizedString("CtrlVariableSelectorSearchValuesTextbox"))
+        SearchValuesBeginningOfWordCheckBox.Text = GetLocalizedString("CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox")
+        SearchValuesButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSearchValuesTooltip")
+
+
+
+        MoveToResultButton.ToolTip = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_CHOOSEN_VALUES_TOOLTIP)
+        MoveToResultButton.Text = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_CHOOSEN_VALUES)
+
+        RemoveButton.ToolTip = Me.GetLocalizedString(LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES_TOOLTIP)
+        RemoveButton.Text = Me.GetLocalizedString(LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES)
+
+        ChoosenValuesLabel.Text = Me.GetLocalizedString(LOC_SEARCH_CHOOSEN_VALUES)
+
+        CancelButton.Text = Me.GetLocalizedString(LOC_SEARCH_CANCEL)
+
+        DoneButton.Text = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_VARIABLESELECTOR)
+
+        lblSearch.Text = Me.GetLocalizedString(LOC_SEARCH_LABEL)
+
+        SelectAllButton.Text = GetLocalizedString(LOC_SEARCH_RESULTS_SELECT_ALL)
+
+        ' --- Deselect all button
+        DeselectAllButton.ToolTip = GetLocalizedString("CtrlVariableSelectorDeSelectAllTooltip")
+        DeselectAllButton.Text = GetLocalizedString("CtrlVariableSelectorDeSelectAllButton")
+
+        setWCAG()
     End Sub
 
+    Protected Sub setWCAG()
+        SearchResults.Attributes.Add("aria-label", GetLocalizedString(LOC_SEARCH_RESULTS_LISTBOX_ARIA_LABEL))
+        SelectedVariableValues.Attributes.Add("aria-label", GetLocalizedString(LOC_SEARCH_CHOOSEN_VALUES_LISTBOX_ARIA_LABEL))
+        UserManualSearchRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesUserManualScreenReaderRegion"))
+        UserManualSearch.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesUserManualScreenReader"))
+        SearchRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesSearchScreenReaderRegion"))
+        SelectedValuesRegion.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesSelectedValuesScreenReaderRegion"))
+        SearchValuesTextbox.Attributes.Add("aria-label", GetLocalizedString("CtrlSearchValuesSearchFieldScreenReader"))
+    End Sub
+
+
+
     ''' <summary>
-    ''' Initiation of the search control
+    ''' Initiation of the search control for a given/known variable. This is called via in button click in main.  
     ''' </summary>
     ''' <remarks>Consider previous selections done for variable if saved in state-variabel</remarks>
     Public Sub InitiateSearch()
-        ''If the user chooses to stop the search the search text shall be removed from the textbox
-        ClearSearchTxtBox()
-
+        ClearSearch()
         HideAndClearSearchError()
-        grdSearchResult.DataSource = Nothing
-        grdSearchResult.DataBind()
 
-        SelectedVariableValues.SelectionMode = ListSelectionMode.Multiple
-
-        'Add previously selected values to the "Selected values" listbox
+        'Add ("imort") previously selected values to the "Selected values" listbox
         Dim valuesToShow As New Values(Marker.Variable)
         Dim value As Value
-
         For Each val As String In VariableSelector.SelectedVariableValues(Marker.Variable.Code).ValueCodes
             value = Marker.Variable.Values.GetByCode(val)
             If Not value Is Nothing Then
                 valuesToShow.Add(value)
             End If
         Next
-
-
         SelectedVariableValues.DataTextField = "Text"
         SelectedVariableValues.DataValueField = "Code"
-
         SelectedVariableValues.DataSource = valuesToShow
         SelectedVariableValues.DataBind()
+        For Each Item As ListItem In SelectedVariableValues.Items
+            Item.Selected = True
+        Next
 
-        Table.Text = Marker.Variable.Meta.Title & "<br />"
-        SearchHeader.Text = Me.GetLocalizedString(LOC_SEARCH_HEADER) & " " & Marker.Variable.Name
-        SearchResultNumberOfHitsLabel.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_RESULTS_NUMBER_OF_HITS), Me.grdSearchResult.Rows.Count.ToString)
-        NumberOfChoosenValuesLabel.Text = GetNumberOfChoosenValuesText()
 
-        ''if the codes are fictional, the radio button for Codes should not be visible or selectable or default set to selected = true
-        ''Reqtest buggreport #188
-        If Marker.Variable.Values.IsCodesFictional Then
-            rbSearchCode.Visible = False
-            rbSearchValue.Checked = True
-            rbSearchCode.Checked = False
-        Else
-            rbSearchCode.Visible = True
-            rbSearchCode.Checked = True
-        End If
-        FixEmptyListboxes()
+
+        SearchHeader.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_HEADER), Marker.Variable.Name)
+        FetchAllButton.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_SELECT_ALL_AVAILABLE_VALUES), GetNumberOfPossibleValuesText())
+        SetNumberOfChoosenValuesText()
+
+        SetBottonsEnabled()
+    End Sub
+
+
+    Private Sub SetNumberOfChoosenValuesText()
+        'some stringformat with 2 placeholders:  "bla {1} bla {0} bla" , or "{0} bla {1} bla " or ...
+        ' where {1} is the placeholder for the number of possible values and {0} is the placeholder for the number of currently selected values(which needs to be "exposed" to javascript).
+
+        Dim glue() As String = {"{0}"}
+        Dim orgFormatingString As String
+        orgFormatingString = Me.GetLocalizedString(LOC_SEARCH_NUMBER_OF_CHOOSEN_VALUES)
+
+        Dim splitText() As String
+        splitText = orgFormatingString.Split(glue, StringSplitOptions.None)
+        'parts(0) or parts(1) contains {1} , the other is a normal string. None of them contains {0}
+        '  {1} shall be replaced by the value of GetNumberOfPossibleValuesText()
+
+        Dim firstPart As String = String.Format(splitText(0), "Not used", GetNumberOfPossibleValuesText())
+        Dim lastPart As String = String.Format(splitText(1), "Not used", GetNumberOfPossibleValuesText())
+
+
+        NumberOfChoosenValuesLabelPart1.Text = firstPart
+
+        Dim numberOfSelected As Integer
+        numberOfSelected = Me.SelectedVariableValues.GetSelectedIndices.Count
+        NumberOfChoosenValuesLabelPart2.Text = DataFormatter.NumericToString(numberOfSelected, 0, LocalizationManager.GetTwoLetterLanguageCode())
+
+        NumberOfChoosenValuesLabelPart3.Text = lastPart
+
+
     End Sub
 
     ''' <summary>
-    ''' Get the string telling how many values are selected
+    ''' Get the formated string with the count of values in the codelist.
+    ''' So it needs Marker.Variable to be set. 
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Private Function GetNumberOfChoosenValuesText() As String
+    Private Function GetNumberOfPossibleValuesText() As String
         Dim number As Integer
-
-        number = GetNumberOfChoosenValues()
-        Return String.Format(Me.GetLocalizedString(LOC_SEARCH_NUMBER_OF_CHOOSEN_VALUES), DataFormatter.NumericToString(number, 0, LocalizationManager.GetTwoLetterLanguageCode()))
-    End Function
-
-    ''' <summary>
-    ''' Get the number of values that are selected
-    ''' </summary>
-    ''' <returns></returns>
-    ''' <remarks>Handles special case when no value is selected in Epi-Server</remarks>
-    Private Function GetNumberOfChoosenValues() As Integer
-        'Special case for Epi-Server when no value is selected
-        If Me.SelectedVariableValues.Items.Count = 1 Then
-            If String.IsNullOrEmpty(Me.SelectedVariableValues.Items(0).Value) Then
-                Return 0
-            End If
+        If Marker.Variable Is Nothing Then
+            Return ""
         End If
-        Return Me.SelectedVariableValues.Items.Count
+        If Marker.Variable.Values Is Nothing Then
+            Return ""
+        End If
+
+        number = Marker.Variable.Values.Count
+        Return DataFormatter.NumericToString(number, 0, LocalizationManager.GetTwoLetterLanguageCode())
     End Function
+
 
     ''' <summary>
     ''' Gets new language strings.
     ''' </summary>
     Private Sub SearchValues_LanguageChanged(ByVal sender As Object, ByVal e As EventArgs) Handles Me.LanguageChanged
-        SetLocalizedText()
+        SearchResultNumberOfHitsLabel.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_RESULTS_NUMBER_OF_HITS), "0")
     End Sub
 
     ''' <summary>
-    ''' Sets up all localized content.
+    ''' Select all items in the Search-results ListBox
     ''' </summary>
-    Private Sub SetLocalizedText()
-        SearchHeader.Text = Me.GetLocalizedString(LOC_SEARCH_HEADER)
-        SearchTypeBeginning.Text = Me.GetLocalizedString(LOC_SEARCH_TYPE_BEGINNING)
-        SearchTypeAnywhere.Text = Me.GetLocalizedString(LOC_SEARCH_TYPE_ANYWHERE)
-        litSelectionTips.Text = Me.GetLocalizedString(LOC_SEARCH_SELECTION_TIPS)
-        SearchResultLabel.Text = Me.GetLocalizedString(LOC_SEARCH_RESULTS_HEADER)
-        SearchResultNumberOfHitsLabel.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_RESULTS_NUMBER_OF_HITS), Me.grdSearchResult.Rows.Count.ToString)
-        AddButton.ToolTip = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_CHOOSEN_VALUES)
-        AddButton.AlternateText = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_CHOOSEN_VALUES)
-        RemoveButton.ToolTip = Me.GetLocalizedString(LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES)
-        RemoveButton.AlternateText = Me.GetLocalizedString(LOC_SEARCH_REMOVE_FROM_CHOOSEN_VALUES)
-        ChoosenValuesLabel.Text = Me.GetLocalizedString(LOC_SEARCH_CHOOSEN_VALUES)
-        NumberOfChoosenValuesLabel.Text = GetNumberOfChoosenValuesText()
-        CancelButton.Text = Me.GetLocalizedString(LOC_SEARCH_CANCEL)
-        ClearButton.Text = Me.GetLocalizedString(LOC_SEARCH_CLEAR)
-        AddToVariableSelectorButton.Text = Me.GetLocalizedString(LOC_SEARCH_ADD_TO_VARIABLESELECTOR)
-
-        lblSearch.Text = Me.GetLocalizedString(LOC_SEARCH_LABEL)
-        rbSearchCode.Text = Me.GetLocalizedString(LOC_CODE)
-        rbSearchValue.Text = Me.GetLocalizedString(LOC_VALUE)
-        rbShowAll.Text = Me.GetLocalizedString(LOC_SHOW_ALL_VALUES)
-        lblSearchText.Text = Me.GetLocalizedString(LOC_SEARCH_TEXT)
-        cmdSearch.Text = Me.GetLocalizedString(LOC_SEARCH_BUTTON)
-        lnkFirstPageSecond.Text = Me.GetLocalizedString(LOC_PAGER_FIRSTPAGE)
-        lbNumberOfPagesSecond.Text = Me.GetLocalizedString(LOC_PAGER_NUMBEROFPAGES)
-        lnkLastPageSecond.Text = Me.GetLocalizedString(LOC_PAGER_LASTPAGE)
-        cmdFirstPageNonJavascript.Text = Me.GetLocalizedString(LOC_PAGER_FIRSTPAGE)
-        lblNumberOfPagesNonJavascript.Text = Me.GetLocalizedString(LOC_PAGER_NUMBEROFPAGES)
-        cmdLastPageNonJavascript.Text = Me.GetLocalizedString(LOC_PAGER_LASTPAGE)
-
-        SelectAllAvailableValues.Text = Me.GetLocalizedString(LOC_SEARCH_SELECT_ALL_AVAILABLE_VALUES)
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Protected Sub SelectAllButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SelectAllButton.Click
+        For Each item As ListItem In SearchResults.Items
+            item.Selected = True
+        Next
+        SetMoveToResultButtonEnabled()
     End Sub
 
+    Protected Sub DeselectAllButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeselectAllButton.Click
+        For Each item As ListItem In SearchResults.Items
+            item.Selected = False
+        Next
+        SetMoveToResultButtonEnabled()
+        SetDeselectAllButtonEnabled()
+    End Sub
 
     ''' <summary>
-    ''' Raises an event to signal when value selection is finished.
+    ''' Raises an event to signal when value selection is finished. The Done Button is clicked, returning to the main selection page/gui/controll/thing.
     ''' </summary>
-    Protected Sub AddToVariableSelector_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddToVariableSelectorButton.Click
+    Protected Sub AddToVariableSelector_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DoneButton.Click
         Dim selection As New Selection(Marker.Variable.Code)
-        For Each item As ListItem In SelectedVariableValues.Items
+        For Each item_index As Integer In SelectedVariableValues.GetSelectedIndices()
+            Dim item As ListItem
+            item = SelectedVariableValues.Items(item_index)
             If Not String.IsNullOrEmpty(item.Value) Then
                 selection.ValueCodes.Add(item.Value)
             End If
         Next
         VariableSelector.SelectedVariableValues(Marker.Variable.Code) = selection
-
+        ClearSearch()
         Marker.OnSearchVariableValuesAdd(New EventArgs())
     End Sub
 
@@ -297,65 +289,33 @@ Public Class SearchValuesCodebehind
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub CancelButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles CancelButton.Click
-        ''If the user chooses to stop the search the search text shall be removed from the textbox
-        ClearSearchTxtBox()
+        ''If the user cancels and then "back" in the browser, things get inconsistent
+        ClearSearch()
         Marker.OnSearchVariableValuesAdd(New EventArgs())
     End Sub
 
     ''' <summary>
-    ''' Clear values in the selected values list
+    ''' Adds selected values from hitlist to results
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub ClearButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ClearButton.Click
-        VariableSelector.SelectedVariableValues(Marker.Variable.Code).ValueCodes.Clear()
-        SelectedVariableValues.Items.Clear()
-        FixEmptyListboxes()
-        NumberOfChoosenValuesLabel.Text = GetNumberOfChoosenValuesText()
-    End Sub
-
-    ''' <summary>
-    ''' Add selected values to the choosen values listbox
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub AddButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles AddButton.Click
+    Private Sub MoveToResultButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles MoveToResultButton.Click
         Dim liS As ListItem
-        Dim v As Value
-        Dim chk As CheckBox
-        Dim lbl As Label
 
-        If SelectedVariableValues.Items.Count = 1 AndAlso String.IsNullOrEmpty(SelectedVariableValues.Items(0).Value) Then
-            SelectedVariableValues.Items.Clear()
-        End If
-
-        For Each row As GridViewRow In grdSearchResult.Rows
-            chk = CType(row.FindControl("chkSelected"), CheckBox)
-            If Not chk Is Nothing Then
-                If chk.Checked Then
-                    lbl = CType(row.FindControl("lblCode"), Label)
-                    If Not lbl Is Nothing AndAlso Not String.IsNullOrEmpty(lbl.Text) Then
-                        v = Me.Marker.Variable.Values.GetByCode(lbl.Text)
-                        If Not v Is Nothing Then
-                            Select Case Me.Marker.Variable.PresentationText
-                                Case 0
-                                    liS = New ListItem(v.Code, v.Code)
-                                Case Else
-                                    liS = New ListItem(v.Text, v.Code)
-                            End Select
-                            If Not SelectedVariableValues.Items.Contains(liS) Then
-                                SelectedVariableValues.Items.Add(liS)
-                            End If
-                        End If
-                    End If
+        For Each item As ListItem In SearchResults.Items
+            If item.Selected Then
+                liS = New ListItem(item.Text, item.Value)
+                liS.Selected = True
+                If Not SelectedVariableValues.Items.Contains(liS) Then
+                    SelectedVariableValues.Items.Add(liS)
                 End If
             End If
         Next
 
-        NumberOfChoosenValuesLabel.Text = GetNumberOfChoosenValuesText()
-        BindGrid()
+        SetNumberOfChoosenValuesText()
+        SetSelectedVariableValuesEnabled()
+        SetDoneBottonEnabled()
     End Sub
 
     ''' <summary>
@@ -364,382 +324,164 @@ Public Class SearchValuesCodebehind
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub RemoveButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles RemoveButton.Click
+    Private Sub RemoveButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles RemoveButton.Click
         For i As Integer = SelectedVariableValues.Items.Count - 1 To 0 Step -1
-            If SelectedVariableValues.Items(i).Selected Then
+            If Not SelectedVariableValues.Items(i).Selected Then
                 SelectedVariableValues.Items.Remove(SelectedVariableValues.Items(i))
             End If
         Next
-        NumberOfChoosenValuesLabel.Text = GetNumberOfChoosenValuesText()
-        FixEmptyListboxes()
+        SetNumberOfChoosenValuesText()
+        SetRemoveBottonEnabled()
+        SetDoneBottonEnabled()
+        SetSelectedVariableValuesEnabled()
     End Sub
 
 
-    ''' <summary>
-    ''' Enable/disable SearchResultSelectAll and AddToVariableSelectorButton
-    ''' </summary>
-    ''' <remarks></remarks>
-    Private Sub Page_PreRender(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRender
-        AddToVariableSelectorButton.Enabled = (SelectedVariableValues.Items.Count > 0)
+    Private Sub SearchValuesButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SearchValuesButton.Click
+        DoSearch()
+        SetDeselectAllButtonEnabled()
+        SetSelectAllButtonEnabled()
+        SetMoveToResultButtonEnabled()
+        SetSearchResultsEnabled()
+
     End Sub
 
-    Private Sub BindGrid()
-        Dim v As New List(Of Value)
+
+    Private Sub DoSearch()
+        Dim liS As ListItem
+        Dim v1 As New List(Of Value)
+        Dim v2 As New List(Of Value)
+        Dim v3 As New List(Of Value)
+        Dim v4 As New List(Of Value)
+        Dim v_final As New List(Of Value)
         Dim strSearch As String
 
-        If Not PCAxis.Web.Core.Management.ValidationManager.CheckValue(txtSearchText.Text) Then
+        'Check for illegal characters
+        If Not PCAxis.Web.Core.Management.ValidationManager.CheckValue(SearchValuesTextbox.Text) Then
             lblSearchError.Visible = True
             lblSearchError.Text = Me.GetLocalizedString(LOC_SEARCH_ILLEGAL_CHARACTERS_ERROR)
         Else
             HideAndClearSearchError()
         End If
 
-        strSearch = txtSearchText.Text.Trim
+        'Remove leading and trailing blanks
+        strSearch = SearchValuesTextbox.Text.Trim()
 
-        If (Not String.IsNullOrEmpty(strSearch)) Or rbShowAll.Checked Then
-            If rbSearchCode.Checked Then
-                If SearchTypeBeginning.Checked Then
-                    v.AddRange(Marker.Variable.Values.SearchInBeginningOfCode(strSearch))
-                Else
-                    v.AddRange(Marker.Variable.Values.SearchInCode(strSearch))
-                End If
-            ElseIf rbSearchValue.Checked Then
-                If SearchTypeBeginning.Checked Then
-                    v.AddRange(Marker.Variable.Values.SearchInBeginningOfValue(strSearch))
-                Else
-                    v.AddRange(Marker.Variable.Values.SearchInValue(strSearch))
-                End If
-            ElseIf rbShowAll.Checked Then
-                v = Marker.Variable.Values
-            End If
-        End If
+        If (Not String.IsNullOrEmpty(strSearch)) Then
 
 
-        grdSearchResult.DataSource = v
-        grdSearchResult.DataBind()
-        grdSearchResult.RowStyle.CssClass = "pagedGridRow"
+            If SearchValuesBeginningOfWordCheckBox.Checked Then
+                v1.AddRange(Marker.Variable.Values.SearchInBeginningOfCode(strSearch))
+                v2.AddRange(Marker.Variable.Values.SearchInBeginningOfValue(strSearch))
 
-        If grdSearchResult.PageCount < 2 Then
-            pnlSecondPager.Visible = False
-        Else
-            pnlSecondPager.Visible = True
-        End If
-
-        SearchResultNumberOfHitsLabel.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_RESULTS_NUMBER_OF_HITS), DataFormatter.NumericToString(v.Count, 0, LocalizationManager.GetTwoLetterLanguageCode()))
-        ''If the codes are fictional, the column for codes should not be displayed. New css class is added so the row/rows would extend over the entire box
-        ''Reqtest buggreport #188
-        If Not Marker.Variable Is Nothing AndAlso Marker.Variable.Values.IsCodesFictional Then
-            grdSearchResult.Columns(1).Visible = False
-            grdSearchResult.Columns(2).ItemStyle.CssClass = "paged_grid_cell only_value_cell"
-            grdSearchResult.Columns(2).HeaderStyle.CssClass = "only_value_cell search_results_header"
-        Else
-            grdSearchResult.Columns(1).HeaderText = Me.GetLocalizedString(LOC_CODE)
-        End If
-        grdSearchResult.Columns(2).HeaderText = Me.GetLocalizedString(LOC_VALUE)
-        FixEmptyListboxes()
-    End Sub
-
-    Private Sub grdSearchResult_PageIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles grdSearchResult.PageIndexChanging
-        grdSearchResult.PageIndex = e.NewPageIndex
-        BindGrid()
-    End Sub
-
-    Private Sub cmdSearch_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmdSearch.Click
-        grdSearchResult.PageIndex = 0
-        BindGrid()
-        pnlNonJavascriptPager.Visible = True
-
-    End Sub
-
-
-
-    Protected Sub grdPagedGrid_DataBound(ByVal sender As Object, ByVal e As EventArgs)
-        SetSecondPagingLinks(CType(sender, GridView))
-        SetNonJavascriptPagingLinks(CType(sender, GridView))
-    End Sub
-
-    ''' <summary>
-    ''' Used for paging in the grid if that is used
-    ''' </summary>
-    ''' <param name="grid"></param>
-    ''' <remarks></remarks>
-    Protected Sub SetPagingLinks(ByVal grid As GridView)
-
-
-        Dim pagingButton As LinkButton
-        Dim pagingLabel As Label
-
-        'Retrieve the pager row.
-        Dim pagerRow As GridViewRow = grid.BottomPagerRow
-
-        'Retrieve the PageDropDownList DropDownList from the bottom pager row.
-        Dim pageList As Panel = CType(pagerRow.Cells(0).FindControl("pnlPagingrow1"), Panel)
-
-        Dim linksBesideCurrent As Integer = CInt(grid.PagerSettings.PageButtonCount / 2)
-        Dim startVal As Integer = grid.PageIndex - linksBesideCurrent
-        Dim stopVal As Integer = grid.PageIndex + linksBesideCurrent
-
-
-        'Print out back-link
-        If (startVal > 0) Then
-            pagingButton = New LinkButton()
-            pagingButton.Text = Me.GetLocalizedString(LOC_PAGER_BACKWARD)
-            pagingButton.CommandName = "Page"
-            pagingButton.CommandArgument = (startVal - 1).ToString()
-            AddHandler pagingButton.Command, AddressOf PagingButton_Click
-            pagingButton.ID = "pagerBack"
-            pageList.Controls.Add(pagingButton)
-        End If
-
-        'Print out paginglinks
-        For i As Integer = 0 To grid.PageCount - 1 Step 1
-
-            If i >= startVal AndAlso i <= stopVal Then
-
-                If i <> grid.PageIndex Then
-
-                    pagingButton = New LinkButton()
-                    pagingButton.Text = String.Format("{0}&nbsp;", i + 1)
-                    pagingButton.CommandName = "Page"
-                    pagingButton.CommandArgument = i.ToString()
-                    AddHandler pagingButton.Command, AddressOf PagingButton_Click
-                    pagingButton.ID = "Page" & i.ToString()
-                    pageList.Controls.Add(pagingButton)
-
-                Else
-
-                    pagingLabel = New Label()
-                    pagingLabel.Text = String.Format("{0}&nbsp;", i + 1)
-                    pagingLabel.ID = "Page" & i.ToString()
-                    pageList.Controls.Add(pagingLabel)
-                End If
+                v3.AddRange(Marker.Variable.Values.SearchInCode(" " + strSearch))
+                v4.AddRange(Marker.Variable.Values.SearchInValue(" " + strSearch))
+                v_final = v1.Union(v2).Union(v3).Union(v4).ToList()
+            Else
+                v1.AddRange(Marker.Variable.Values.SearchInCode(strSearch))
+                v2.AddRange(Marker.Variable.Values.SearchInValue(strSearch))
+                v_final = v1.Union(v2).ToList()
             End If
 
+
+        End If
+
+        SearchResults.Items.Clear()
+
+        For Each v As Value In v_final
+            Select Case Me.Marker.Variable.PresentationText
+                Case 0
+                    liS = New ListItem(v.Code, v.Code)
+                Case Else
+                    liS = New ListItem(v.Text, v.Code)
+            End Select
+            liS.Selected = True
+            SearchResults.Items.Add(liS)
         Next
 
-        'Print out forward-link
-        If (stopVal + 1 < grid.PageCount) Then
-            pagingButton = New LinkButton()
-            pagingButton.Text = Me.GetLocalizedString(LOC_PAGER_FORWARD)
-            pagingButton.CommandName = "Page"
-            pagingButton.CommandArgument = (stopVal + linksBesideCurrent).ToString()
-            AddHandler pagingButton.Command, AddressOf PagingButton_Click
-            pagingButton.ID = "pagerForward"
-            pageList.Controls.Add(pagingButton)
-        End If
+        SearchResultNumberOfHitsLabel.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_RESULTS_NUMBER_OF_HITS), DataFormatter.NumericToString(v_final.Count, 0, LocalizationManager.GetTwoLetterLanguageCode()))
 
-
-        'Second row
-        Dim lnkFirstPage As LinkButton = CType(pagerRow.Cells(0).FindControl("lnkFirstPage"), LinkButton)
-        lnkFirstPage.CommandName = "Page"
-        lnkFirstPage.CommandArgument = "0"
-        AddHandler lnkFirstPage.Command, AddressOf PagingButton_Click
-        Dim lbNumberOfPages As Label = CType(pagerRow.Cells(0).FindControl("lbNumberOfPages"), Label)
-        lbNumberOfPages.Text = String.Format("|| {0} {1} ||", Me.GetLocalizedString(LOC_PAGER_NUMBEROFPAGES), grid.PageCount.ToString())
-        Dim lnkLastPage As LinkButton = CType(pagerRow.Cells(0).FindControl("lnkLastPage"), LinkButton)
-        lnkLastPage.CommandName = "Page"
-        lnkLastPage.CommandArgument = grid.PageCount.ToString()
-        AddHandler lnkLastPage.Command, AddressOf PagingButton_Click
-
-        SetSecondPagingLinks(grid)
-        SetNonJavascriptPagingLinks(grid)
     End Sub
 
 
-    Protected Sub SetSecondPagingLinks(ByVal grid As GridView)
+    Private Sub FetchAllButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles FetchAllButton.Click
+        Dim liS As ListItem
 
+        SelectedVariableValues.Items.Clear()
 
-        Dim pagingButton As LinkButton
-        Dim pagingLabel As Label
-
-        'Retrieve the pager row.
-        Dim pagerRow As GridViewRow = grid.BottomPagerRow
-
-        'Retrieve the PageDropDownList DropDownList from the bottom pager row.
-        pnlPagingrow1Second.Controls.Clear()
-        Dim pageList As Panel = pnlPagingrow1Second
-
-        Dim linksBesideCurrent As Integer = CInt(grid.PagerSettings.PageButtonCount / 2)
-        Dim startVal As Integer = grid.PageIndex - linksBesideCurrent
-        Dim stopVal As Integer = grid.PageIndex + linksBesideCurrent
-
-
-        'Print out back-link
-        If (startVal > 0) Then
-            pagingButton = New LinkButton()
-            pagingButton.Text = Me.GetLocalizedString(LOC_PAGER_BACKWARD)
-            pagingButton.CommandName = "Page"
-            pagingButton.CommandArgument = (startVal - 1).ToString()
-            AddHandler pagingButton.Command, AddressOf PagingButton_Click
-            pagingButton.ID = "pagerBackNJ"
-            pageList.Controls.Add(pagingButton)
-        End If
-
-        'Print out paginglinks
-        For i As Integer = 0 To grid.PageCount - 1 Step 1
-
-            If i >= startVal AndAlso i <= stopVal Then
-
-                If i <> grid.PageIndex Then
-
-                    pagingButton = New LinkButton()
-                    pagingButton.Text = String.Format("{0}&nbsp;", i + 1)
-                    pagingButton.CommandName = "Page"
-                    pagingButton.CommandArgument = i.ToString()
-                    AddHandler pagingButton.Command, AddressOf PagingButton_Click
-                    pagingButton.ID = "PageNJ" & i.ToString()
-                    pageList.Controls.Add(pagingButton)
-
-                Else
-
-                    pagingLabel = New Label()
-                    pagingLabel.Text = String.Format("{0}&nbsp;", i + 1)
-                    pagingLabel.ID = "PageNJ" & i.ToString()
-                    pageList.Controls.Add(pagingLabel)
-                End If
+        For Each v As Value In Marker.Variable.Values
+            Select Case Me.Marker.Variable.PresentationText
+                Case 0
+                    liS = New ListItem(v.Code, v.Code)
+                Case Else
+                    liS = New ListItem(v.Text, v.Code)
+            End Select
+            If Not SelectedVariableValues.Items.Contains(liS) Then
+                liS.Selected = True
+                SelectedVariableValues.Items.Add(liS)
             End If
-
         Next
 
-        'Print out forward-link
-        If (stopVal + 1 < grid.PageCount) Then
-            pagingButton = New LinkButton()
-            pagingButton.Text = Me.GetLocalizedString(LOC_PAGER_FORWARD)
-            pagingButton.CommandName = "Page"
-            pagingButton.CommandArgument = (stopVal + linksBesideCurrent).ToString()
-            AddHandler pagingButton.Command, AddressOf PagingButton_Click
-            pagingButton.ID = "pagerForwardNJ"
-            pageList.Controls.Add(pagingButton)
-        End If
-
-
-        'Second row
-        Dim lnkFirstPage As LinkButton = lnkFirstPageSecond
-        lnkFirstPage.CommandName = "Page"
-        lnkFirstPage.CommandArgument = "0"
-        AddHandler lnkFirstPage.Command, AddressOf PagingButton_Click
-        Dim lbNumberOfPages As Label = lbNumberOfPagesSecond
-        lbNumberOfPages.Text = String.Format("|| {0} {1} ||", Me.GetLocalizedString(LOC_PAGER_NUMBEROFPAGES), grid.PageCount.ToString())
-        Dim lnkLastPage As LinkButton = lnkLastPageSecond
-        lnkLastPage.CommandName = "Page"
-        lnkLastPage.CommandArgument = grid.PageCount.ToString()
-        AddHandler lnkLastPage.Command, AddressOf PagingButton_Click
-
-    End Sub
-
-    Protected Sub SetNonJavascriptPagingLinks(ByVal grid As GridView)
-
-
-        Dim pagingButton As Button
-        Dim pagingLabel As Label
-
-        'Retrieve the pager row.
-        Dim pagerRow As GridViewRow = grid.BottomPagerRow
-
-        'Retrieve the PageDropDownList DropDownList from the bottom pager row.
-        pnlPagingrow1NonJavascript.Controls.Clear()
-        Dim pageList As Panel = pnlPagingrow1NonJavascript
-
-        Dim linksBesideCurrent As Integer = CInt(grid.PagerSettings.PageButtonCount / 2)
-        Dim startVal As Integer = grid.PageIndex - linksBesideCurrent
-        Dim stopVal As Integer = grid.PageIndex + linksBesideCurrent
-
-
-        'Print out back-link
-        If (startVal > 0) Then
-            pagingButton = New Button()
-            pagingButton.Text = Me.GetLocalizedString(LOC_PAGER_BACKWARD)
-            pagingButton.CommandName = "Page"
-            pagingButton.CommandArgument = (startVal - 1).ToString()
-            AddHandler pagingButton.Command, AddressOf PagingButton_Click
-            pagingButton.ID = "pagerBack"
-            pageList.Controls.Add(pagingButton)
-        End If
-
-        'Print out paginglinks
-        For i As Integer = 0 To grid.PageCount - 1 Step 1
-
-            If i >= startVal AndAlso i <= stopVal Then
-
-                If i <> grid.PageIndex Then
-
-                    pagingButton = New Button()
-                    pagingButton.Text = String.Format("{0}", i + 1)
-                    pagingButton.CommandName = "Page"
-                    pagingButton.CommandArgument = i.ToString()
-                    AddHandler pagingButton.Command, AddressOf PagingButton_Click
-                    pagingButton.ID = "Page" & i.ToString()
-                    pageList.Controls.Add(pagingButton)
-
-                Else
-
-                    pagingLabel = New Label()
-                    pagingLabel.Text = String.Format("{0}", i + 1)
-                    pagingLabel.ID = "Page" & i.ToString()
-                    pageList.Controls.Add(pagingLabel)
-                End If
-            End If
-
-        Next
-
-        'Print out forward-link
-        If (stopVal + 1 < grid.PageCount) Then
-            pagingButton = New Button()
-            pagingButton.Text = Me.GetLocalizedString(LOC_PAGER_FORWARD)
-            pagingButton.CommandName = "Page"
-            pagingButton.CommandArgument = (stopVal + linksBesideCurrent).ToString()
-            AddHandler pagingButton.Command, AddressOf PagingButton_Click
-            pagingButton.ID = "pagerForward"
-            pageList.Controls.Add(pagingButton)
-        End If
-
-
-        'Second row
-        Dim lnkFirstPage As Button = cmdFirstPageNonJavascript
-        lnkFirstPage.CommandName = "Page"
-        lnkFirstPage.CommandArgument = "0"
-        AddHandler lnkFirstPage.Command, AddressOf PagingButton_Click
-        Dim lbNumberOfPages As Label = lblNumberOfPagesNonJavascript
-        lbNumberOfPages.Text = String.Format("|| {0} {1} ||", Me.GetLocalizedString(LOC_PAGER_NUMBEROFPAGES), grid.PageCount.ToString())
-        Dim lnkLastPage As Button = cmdLastPageNonJavascript
-        lnkLastPage.CommandName = "Page"
-        lnkLastPage.CommandArgument = grid.PageCount.ToString()
-        AddHandler lnkLastPage.Command, AddressOf PagingButton_Click
-
+        SetNumberOfChoosenValuesText()
+        SetRemoveBottonEnabled()
+        SetSelectedVariableValuesEnabled()
+        SetDoneBottonEnabled()
     End Sub
 
 
-    Protected Sub PagingButton_Click(ByVal sender As Object, ByVal e As CommandEventArgs)
-        'Set pageindex
-        grdSearchResult.PageIndex = Convert.ToInt32(e.CommandArgument)
-        ' Re-bind the data to refresh the DataGrid control. 
-        BindGrid()
+
+    Private Sub SetBottonsEnabled()
+        SetSearchResultsEnabled()
+        SetMoveToResultButtonEnabled()
+        SetSelectAllButtonEnabled()
+        SetDeselectAllButtonEnabled()
+
+        SetRemoveBottonEnabled()
+        SetSelectedVariableValuesEnabled()
+
+        SetDoneBottonEnabled()
     End Sub
+
+    Private Sub SetRemoveBottonEnabled()
+        RemoveButton.Enabled = SelectedVariableValues.Items.Count - SelectedVariableValues.GetSelectedIndices.Count > 0
+    End Sub
+
+    Private Sub SetDoneBottonEnabled()
+        DoneButton.Enabled = SelectedVariableValues.SelectedIndex > -1
+    End Sub
+
+    Private Sub SetSelectedVariableValuesEnabled()
+        SelectedVariableValues.Enabled = SelectedVariableValues.Items.Count > 0
+    End Sub
+
+    Private Sub SetMoveToResultButtonEnabled()
+        MoveToResultButton.Enabled = SearchResults.SelectedIndex > -1
+    End Sub
+    Private Sub SetDeselectAllButtonEnabled()
+        DeselectAllButton.Enabled = SearchResults.SelectedIndex > -1
+    End Sub
+
+    Private Sub SetSearchResultsEnabled()
+        SearchResults.Enabled = SearchResults.Items.Count > 0
+    End Sub
+
+    Private Sub SetSelectAllButtonEnabled()
+        SelectAllButton.Enabled = SearchResults.Items.Count > 0
+    End Sub
+
 
     ''' <summary>
-    ''' Adds "empty"-rows to the listboxes if they contains no items
+    ''' When called, removes text in textbox 
     ''' </summary>
     ''' <remarks></remarks>
-    Private Sub FixEmptyListboxes()
-        Dim li As ListItem
-
-        If SelectedVariableValues.Items.Count = 0 Then
-            li = New ListItem(Me.GetLocalizedString(LOC_SEARCH_NO_VALUES_SELECTED), "")
-            'li.Enabled = False
-            SelectedVariableValues.Items.Add(li)
-        End If
+    Private Sub ClearSearch()
+        SearchValuesTextbox.Text = ""
+        SearchResults.Items.Clear()
+        SearchResultNumberOfHitsLabel.Text = String.Format(Me.GetLocalizedString(LOC_SEARCH_RESULTS_NUMBER_OF_HITS), "0")
     End Sub
 
     ''' <summary>
-    ''' When called, removes text in textbox
-    ''' </summary>
-    ''' <remarks></remarks>
-    Private Sub ClearSearchTxtBox()
-        txtSearchText.Text = ""
-    End Sub
-
-    ''' <summary>
-    ''' When called, set error lable to visible = false and remove text from lable
+    ''' When called, set error label to visible = false and remove text from label
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub HideAndClearSearchError()
@@ -755,28 +497,8 @@ Public Class SearchValuesCodebehind
     ''' <remarks></remarks>
     Public ReadOnly Property SearchButtonClientID() As String
         Get
-            Return Me.cmdSearch.ClientID
+            Return Me.SearchValuesButton.ClientID
         End Get
     End Property
-
-    Private Sub SelectAllAvailableValues_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SelectAllAvailableValues.Click
-        Dim liS As ListItem
-
-        SelectedVariableValues.Items.Clear()
-
-        For Each v As Value In Marker.Variable.Values
-            Select Case Me.Marker.Variable.PresentationText
-                Case 0
-                    liS = New ListItem(v.Code, v.Code)
-                Case Else
-                    liS = New ListItem(v.Text, v.Code)
-            End Select
-            If Not SelectedVariableValues.Items.Contains(liS) Then
-                SelectedVariableValues.Items.Add(liS)
-            End If
-        Next
-
-        NumberOfChoosenValuesLabel.Text = GetNumberOfChoosenValuesText()
-    End Sub
 
 End Class

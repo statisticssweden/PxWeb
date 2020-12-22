@@ -232,11 +232,11 @@
   <sentence name="CtrlVariableSelectorSelectValues" value="--- Välj indelning ---" />
   <sentence name="CtrlVariableSelectorEliminationLabel" value="För markerade variabler {image} måste minst ett värde väljas" />
   <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Markera alla värden" />
+  <sentence name="CtrlVariableSelectorSelectAllButton" value="Markera alla värden" />
   <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Avmarkera alla värden" />
+  <sentence name="CtrlVariableSelectorDeSelectAllButton" value="Avmarkera alla värden" />
   <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Välj värden via grupp" />
   <sentence name="CtrlVariableSelectorMetadataImformationTooltip" value="Definitioner för variabler och värden" />
-  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Sortera fallande" />
-  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Sortera stigande" />
   <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Välj hierarkiskt" />
   <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Sök värden" />
   <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Totalt" />
@@ -254,8 +254,12 @@
   <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Antal valda celler är:" />
   <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(maximalt tillåtna antal är {0})" />
   <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Minst ett värde måste väljas för variabel: " />
+  <sentence name="CtrlVariableSelectorValidationSummary" value="Det finns fel i följande fält" />
+  <sentence name="CtrlVariableSelectorValidationMessage" value="Markera minst ett värde" />
+  <sentence name="CtrlVariableSelectorMandatoryText" value="Obligatoriskt" />
   <sentence name="CtrlVariableSelectorContinueLabel" value="Välj ett alternativ" />
   <sentence name="CtrlVariableSelectorContinueButton" value="Fortsätt" />
+  <sentence name="CtrlVariableSelectorVariableOverviewHeading" value="Variabel översikt" />
   <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Det finns mer än 500 värden och därför presenteras de inte automatiskt" />
   <sentence name="CtrlVariableSelectorShowAll" value="Visa Alla" />
   <sentence name="CtrlVariableSelectorSearch" value="Sökfunktion" />
@@ -264,6 +268,7 @@
   <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Början av rad" />
   <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Inuti ord" />
   <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Början av ord" />
+  <sentence name="CtrlVariableSelectorSearchValuesTextbox" value="Sök här" />
   <sentence name="CtrlVariableSelectorManyValues" value="Det finns fler än {0} värden och därför visas de inte automatiskt. Använd sökfunktionen för att välja värden." />
   <sentence name="CtrlVariableSelectorLargeValueset" value="(Stor värdemängd)" />
   <sentence name="CtrlVariableSelectorActionButton" value="Skicka" />
@@ -398,6 +403,7 @@
   <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
   <sentence name="CtrlTableQueryQueryCaption" value="JSON fråga:" />
   <sentence name="CtrlTableQueryMoreInformation" value="Mer information" />
+  <sentence name="CtrlTableQuerySaveQuery" value="Spara API-fråga (json)" />
   <sentence name="CtrlNavigationFlowStep1" value="Välj tabell" />
   <sentence name="CtrlNavigationFlowStep2" value="Välj variabel" />
   <sentence name="CtrlNavigationFlowStep3" value="Visa tabell" />
@@ -427,8 +433,8 @@
   <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Uppdateringsalternativ:" />
   <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Format:" />
   <sentence name="MasterPageSaveQueryInfoHeader" value="Sparad sökning {0}" />
-  <sentence name="MasterPageSaveQueryInfoLatest" value="Nyaste {0} tidsperioder" />
-  <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttid {0} och alla senaste tidsperioder" />
+  <sentence name="MasterPageSaveQueryInfoLatest" value="Senaste {0} tidsperioder" />
+  <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttid {0} och alla efterkommande tidsperioder " />
   <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Oförändrad tabell" />
   <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Välj gruppering ---" />
   <sentence name="CtrlSelectFromGroupHeading" value="Välj värden via grupp" />
@@ -498,10 +504,11 @@
   <sentence name="PageViewDataSortDescription" value="Klicka på kolumnernas rubrik för att sortera tabellen. Håll inne shift för att sortera efter flera kolumner." />
   <sentence name="PageViewDataSortCopyInstructions" value="För att kopiera tabellen: Välj 'Markera allt' i Redigera-menyn och sedan 'Kopiera'. Alternativt tryck Ctrl+A och sedan Ctrl+C" />
   <sentence name="CancelButton" value="Avbryt" />
-  <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v1" />
-  <sentence name="PxWebApplicationName" value="PxWeb 2020 v1" />
-  <sentence name="PxWebLogoAlt" value="PxWeb 2020 v1" />
+  <sentence name="PxWebApplicationTitle" value="Nästa PxWeb (Beta)" />
+  <sentence name="PxWebApplicationName" value="Nästa PxWeb (Beta)" />
+  <sentence name="PxWebLogoAlt" value="Nästa PxWeb (Beta)" />
   <sentence name="PxWebHome" value="Hem" />
+  <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
   <sentence name="PxWebMenu" value="Meny" />
   <sentence name="PxWebSelection" value="Val" />
   <sentence name="PxWebInformation" value="Information" />
@@ -606,7 +613,7 @@
 
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2020 v1" />
+  <sentence name="PxWebAdminVersion" value="Nästa PxWeb (Beta)" />
   <sentence name="PxWebAdminHomePage" value="PxWeb hemsida" />
   <sentence name="PxWebAdminSaveButton" value="Spara" />
   <sentence name="PxWebAdminGenerateButton" value="Generera" />
@@ -1018,6 +1025,10 @@
   <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimit" value="Max retunerade celler " />
   <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormatInfo" value="Utformatet som kommer att visas i API exemplet" />
   <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormat" value="Förvalt exempel API utformat" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButtonInfo" value="Om aktiverat, knappen för att spara API-fråga är synlig" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton" value="Visa knappen 'Spara API-fråga'" />
+  <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryTextInfo" value="Använd institutionens förkortning med små bokstäver. Exempel: 'scb' ger detta filnamn 'scb_table_[tableid].json'" />
+  <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryText" value="Prefix API-fråga fil" />
 
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQuerySettings" value="Inställningar för sparad fråga" />
   <sentence name="PxWebAdminSettingsSavedQueryStorageType" value="Lagringstyp" />

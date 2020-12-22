@@ -27,10 +27,10 @@
                     <asp:ListItem Text="OneVariableOneValue" Value="2"/>
                     <asp:ListItem Text="OneMatrixValue" Value="3"/>
                 </asp:RadioButtonList>
-                <p class="commandbar_button_row">
-                    <asp:Button ID="SelectOption_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton" />
-                    <asp:Button ID="CancelButton1" runat="server" CssClass="commandbar_cancelbutton" />
-                </p>
+                <div class="commandbar_button_row">
+                    <asp:Button ID="SelectOption_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton pxweb-btn primary-btn" />
+                    <asp:Button ID="CancelButton1" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+                </div>
             </asp:Panel>   
             
             <!-- Option 1  -->
@@ -46,20 +46,20 @@
                         </p>
                     </FooterTemplate>         
                 </asp:Repeater> 
-                <p class="commandbar_button_row">
-                    <asp:Button ID="SelectVariable_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton" />
-                    <asp:Button ID="CancelButton2" runat="server" CssClass="commandbar_cancelbutton" />
-                </p>
+                <div class="commandbar_button_row">
+                    <asp:Button ID="SelectVariable_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton pxweb-btn primary-btn" />
+                    <asp:Button ID="CancelButton2" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+                </div>
             </asp:Panel>   
 
             <!-- Option 2  -->
             <asp:Panel runat="server" ID="CalculateOneVariablePanel" Visible="false" CssClass="variableselector_valuesselect_valuesselect_panel">
                 <p><asp:Label runat="server" ID="SelectedVariableNameLabel" CssClass="commandbar_perpart_selectvaluetext"/></p>
                 <p><asp:ListBox runat="server" ID="CalculateOneVariableListBox" CssClass="variableselector_valuesselect_valueslistbox"/></p>
-                <p class="commandbar_button_row">
-                    <asp:Button ID="CalculateOneVariable_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton" />
-                    <asp:Button ID="CancelButton3" runat="server" CssClass="commandbar_cancelbutton" />
-                </p>
+                <div class="commandbar_button_row">
+                    <asp:Button ID="CalculateOneVariable_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton pxweb-btn primary-btn" />
+                    <asp:Button ID="CancelButton3" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+                </div>
                 <asp:RequiredFieldValidator ID="VariableSelectionRequired" EnableClientScript="false" runat="server" ControlToValidate="CalculateOneVariableListBox" ErrorMessage="Select a value" CssClass="commandbar_perpart_errormessage"/>
             </asp:Panel>
             
@@ -70,7 +70,7 @@
                         <div class="variableselector_variable_box_container"> 
                     </HeaderTemplate>      
                     <ItemTemplate>  
-                        <div class="variableselector_valuesselect_box">
+                        <div class="variableselector_valuesselect_box_commandbar">
                             <asp:Panel runat="server" ID="CalculateAllVariablesValuesSelectPanel" CssClass="variableselector_valuesselect_valuesselect_panel">
                                 <p><asp:Label runat="server" ID="VariableNameLabel" CssClass="commandbar_perpart_perparttext"/></p>  
                                 <asp:ListBox runat="server" ID="CalculateAllVariablesValuesListBox" CssClass="variableselector_valuesselect_valueslistbox"/>
@@ -83,10 +83,10 @@
                         <div class="variableselector_clearboth"></div>
                     </FooterTemplate>         
                 </asp:Repeater>
-                <p class="commandbar_button_row">
-                    <asp:Button ID="CalculateAllVariables_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton" />                                        
-                    <asp:Button ID="CancelButton4" runat="server" CssClass="commandbar_cancelbutton" />
-                </p>
+                <div class="commandbar_button_row">
+                    <asp:Button ID="CalculateAllVariables_ContinueButton" runat="server" CssClass="commandbar_perpart_continuebutton pxweb-btn primary-btn" />                                        
+                    <asp:Button ID="CancelButton4" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+                </div>
                
             </asp:Panel>   
      

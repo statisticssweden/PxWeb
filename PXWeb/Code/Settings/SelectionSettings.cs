@@ -122,6 +122,12 @@ namespace PXWeb
 
             xpath = "./preSelectFirstContentAndTime";
             PreSelectFirstContentAndTime = SettingsHelper.GetSettingValue(xpath, selectionNode, false);
+
+            xpath = "./showNoFootnoteForSelection";
+            ShowNoFootnoteForSelection = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
+
+            xpath = "./clientsideValidation";
+            ClientSideValidation = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
         }
         
         /// <summary>
@@ -162,12 +168,6 @@ namespace PXWeb
             xpath = "./listSize";
             SettingsHelper.SetSettingValue(xpath, selectionNode, ListSize.ToString());
 
-            xpath = "./presentationViews";
-            SettingsHelper.SetSettingValue(xpath, selectionNode, "plugin", PresentationViews);
-
-            xpath = "./outputFormats";
-            SettingsHelper.SetSettingValue(xpath, selectionNode, "outputFormat", OutputFormats);
-
             xpath = "./valuesetMustBeSelectedFirst";
             SettingsHelper.SetSettingValue(xpath, selectionNode, ValuesetMustBeSelectedFirst.ToString());
 
@@ -197,6 +197,12 @@ namespace PXWeb
 
             xpath = "./preSelectFirstContentAndTime";
             SettingsHelper.SetSettingValue(xpath, selectionNode, PreSelectFirstContentAndTime.ToString());
+
+            xpath = "./showNoFootnoteForSelection";
+            SettingsHelper.SetSettingValue(xpath, selectionNode, ShowNoFootnoteForSelection.ToString());
+
+            xpath = "./clientsideValidation";
+            SettingsHelper.SetSettingValue(xpath, selectionNode, ClientSideValidation.ToString());
         }
 
         #endregion
@@ -221,16 +227,6 @@ namespace PXWeb
         public bool AlwaysShowTimeVariableWithoutSearch { get; set; }       
         public int ListSize { get; set; }
 
-        public System.Collections.Generic.IEnumerable<string> PresentationViews
-        {
-            get { return _presentationViews; }
-        }
-
-        public System.Collections.Generic.IEnumerable<string> OutputFormats
-        {
-            get { return _outputFormats; }
-        }
-
         public bool ValuesetMustBeSelectedFirst { get; set; }
         public bool ShowAllAvailableValuesSearchButton { get; set; }
 
@@ -242,7 +238,11 @@ namespace PXWeb
         public bool SelectValuesFromGroup { get; set; }
         public bool ButtonsForContentVariable { get; set; }
         public bool SearchValuesBeginningOfWordCheckBoxDefaultChecked { get; set; }
+
         public bool PreSelectFirstContentAndTime { get; set; }
+
+        public bool ShowNoFootnoteForSelection { get; set; }
+        public bool ClientSideValidation { get; set; }
 
         #endregion
 

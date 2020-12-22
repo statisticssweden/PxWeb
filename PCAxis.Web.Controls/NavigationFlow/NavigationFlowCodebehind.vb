@@ -20,22 +20,33 @@ Public Class NavigationFlowCodebehind
 #Region "fields"
     'For language
     Private Const LABEL_FIRSTSTEP As String = "CtrlNavigationFlowStep1"
+    Private Const SCREENREADERTEXT_FIRSTSTEP As String = "CtrlNavigationFlowStep1ScreenReader"
     Private Const LABEL_SECONDSTEP As String = "CtrlNavigationFlowStep2"
+    Private Const SCREENREADERTEXT_SECONDSTEP As String = "CtrlNavigationFlowStep2ScreenReader"
     Private Const LABEL_THIRDSTEP As String = "CtrlNavigationFlowStep3"
+    Private Const SCREENREADERTEXT_THIRDSTEP As String = "CtrlNavigationFlowStep3ScreenReader"
     'constants for style
-    Private Const ACTIVE_CSSCLAS As String = "active "
-    Private Const FUTURE_CSSCLAS As String = "future"
-    Private Const PASSIVE_CSSCLAS As String = "passive"
-    Private Const COL_CSSCLAS As String = "col"
+    Private Const ACTIVE As String = "active"
+    Private Const FUTURE As String = "future"
+    Private Const PASSIVE As String = "passive"
 
-    Protected panelShowNavigationFlow As Panel
-    Protected firstItem, secondItem, thirdItem As Panel
-    Protected lblFirstStep As Label
-    Protected lblSecondStep As Label
-    Protected lblThirdStep As Label
+    Private Const SVG_FOLDER As String = "~/Resources/Images/svg/NavigationFlow/"
 
-    Protected firstLink As HyperLink
-    Protected secondLink As HyperLink
+    Protected firstStepLink As HyperLink
+    Protected firstStepImage As Image
+    Protected firstStepLabel As Label
+
+    Protected secondStepLink As HyperLink
+    Protected secondStepImage As Image
+    Protected secondStepLabel As Label
+
+    Protected thirdStepLink As HyperLink
+    Protected thirdStepImage As Image
+    Protected thirdStepLabel As Label
+
+    Protected navHrLeft As Literal
+    Protected navHrRight As Literal
+
 
 #End Region
 
@@ -43,27 +54,25 @@ Public Class NavigationFlowCodebehind
 
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            lblFirstStep.Text = GetLocalizedString(LABEL_FIRSTSTEP)
-            lblSecondStep.Text = GetLocalizedString(LABEL_SECONDSTEP)
-            lblThirdStep.Text = GetLocalizedString(LABEL_THIRDSTEP)
+            firstStepLabel.Text = GetLocalizedString(LABEL_FIRSTSTEP)
+            secondStepLabel.Text = GetLocalizedString(LABEL_SECONDSTEP)
+            thirdStepLabel.Text = GetLocalizedString(LABEL_THIRDSTEP)
+
+            firstStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_FIRSTSTEP)
+            secondStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_SECONDSTEP)
+            thirdStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_THIRDSTEP)
+
+            'In case somebody needs to set very spesific margins
+            Dim lang As String = LocalizationManager.GetTwoLetterLanguageCode()
+            navHrLeft.Text = "<hr class=""nav-hr-left " + lang + """/>"
+            navHrRight.Text = "<hr class=""nav-hr-right " + lang + """/>"
+
         End If
     End Sub
 
 
 #End Region
 #Region "Private methods"
-    ''' <summary>
-    ''' Return path to table in the base format
-    ''' </summary>
-    ''' <param name="path"></param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    'Private Function UrlPath(ByVal path As String) As String
-    '    If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-    '        path = path.Replace(PxPathHandler.DIVIDER_STRING, PathHandler.NODE_DIVIDER)
-    '    End If
-    '    Return path
-    'End Function
 
     Private Sub SetNavigationLink(ByVal mode As NavigationFlow.NavigationFlowMode)
         Dim linkItems As List(Of LinkManager.LinkItem)
@@ -79,16 +88,36 @@ Public Class NavigationFlowCodebehind
             linkItems = New List(Of LinkManager.LinkItem)
             linkItems.Add(New LinkManager.LinkItem(Marker.TablePathParam, Marker.TablePath))
 
-            firstLink.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+            firstStepLink.NavigateUrl = LinkManager.CreateLink(Marker.MenuPage, linkItems.ToArray())
+
 
         End If
         'Navigat url to the third item in navigation flow
         If mode >= NavigationFlow.NavigationFlowMode.Third Then
             linkItems = New List(Of LinkManager.LinkItem)
             linkItems.Add(New LinkManager.LinkItem(Marker.LayoutParam, ""))
-            secondLink.NavigateUrl = LinkManager.CreateLink(Marker.SelectionPage, linkItems.ToArray())
+            secondStepLink.NavigateUrl = LinkManager.CreateLink(Marker.SelectionPage, linkItems.ToArray())
+        Else
+            secondStepLink.NavigateUrl = ""
+
         End If
 
+    End Sub
+
+
+    Private Sub SetStateOnStep(ByVal stateFirstStep As String, ByVal stateSecondStep As String, ByVal stateThirdStep As String)
+
+        firstStepLabel.CssClass &= stateFirstStep
+        firstStepLink.CssClass &= stateFirstStep
+
+        secondStepLabel.CssClass &= stateSecondStep
+        secondStepLink.CssClass &= stateSecondStep
+
+        thirdStepLabel.CssClass &= stateThirdStep
+
+        firstStepImage.ImageUrl = SVG_FOLDER + "Step1_" + stateFirstStep + ".svg"
+        secondStepImage.ImageUrl = SVG_FOLDER + "Step2_" + stateSecondStep + ".svg"
+        thirdStepImage.ImageUrl = SVG_FOLDER + "Step3_" + stateThirdStep + ".svg"
     End Sub
 #End Region
 
@@ -96,23 +125,27 @@ Public Class NavigationFlowCodebehind
 
     Public Sub UpdateNavigationFlowMode(ByVal mode As NavigationFlow.NavigationFlowMode)
         'Set right css class on the navigation flow items
+
         Select Case mode
             Case NavigationFlow.NavigationFlowMode.First
-                firstItem.CssClass &= ACTIVE_CSSCLAS
-                secondItem.CssClass &= FUTURE_CSSCLAS
-                thirdItem.CssClass &= FUTURE_CSSCLAS
+
+                SetStateOnStep(ACTIVE, FUTURE, FUTURE)
+
+
+
             Case NavigationFlow.NavigationFlowMode.Second
-                firstItem.CssClass &= PASSIVE_CSSCLAS
-                secondItem.CssClass &= ACTIVE_CSSCLAS
-                thirdItem.CssClass &= FUTURE_CSSCLAS
-                'Navigation to menu page
+
+                SetStateOnStep(PASSIVE, ACTIVE, FUTURE)
+
+
                 SetNavigationLink(mode)
+
             Case NavigationFlow.NavigationFlowMode.Third
-                firstItem.CssClass &= PASSIVE_CSSCLAS
-                secondItem.CssClass &= PASSIVE_CSSCLAS
-                thirdItem.CssClass &= ACTIVE_CSSCLAS
-                'Navigation to menu page and selection page
+
+                SetStateOnStep(PASSIVE, PASSIVE, ACTIVE)
+
                 SetNavigationLink(mode)
+
             Case Else
 
         End Select

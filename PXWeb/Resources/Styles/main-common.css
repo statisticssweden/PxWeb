@@ -1,0 +1,833 @@
+﻿@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap");
+/*@import './color-themes/_dark.scss';*/
+/*@import './color-themes/_light.scss';
+*/
+/*#region  Active colors */
+/*#endregion*/
+/*#region  Active colors inside pxbox*/
+/*#endregion*/
+/*#region  Main color scheme */
+/*#region Buttons */
+/*#endregion*/
+/*#region Links */
+/*#endregion*/
+/*#endregion*/
+/*@import './color-themes/_screen-reader.scss';*/
+/*#region  Inactive colors - not in used */
+/*
+$pxweb-green-5: #075745;
+$pxweb-red-1: #fdede7;
+$pxweb-red-2: #ff896b;
+$pxweb-red-4: #cb3713;
+$negative-red: #f8a67d;
+$pxweb-dark-1: #f0f8f9;
+$pxweb-dark-3: #62919a;
+$pxweb-purple-1: #f2f0ff;
+$scrollbar-color: #b0b0b0;
+  */
+/*#endregion*/
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/* **********************************  _global-styles-on-elements.scss *********************************** */
+#pxwebcontent body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal; }
+
+#pxwebcontent a {
+  text-decoration: none; }
+
+#pxwebcontent html {
+  /* Always display scroll. This prevents the auto-centering of the page to jump around between pages 
+    /* where one page has scrollbar and the other one don�t*/
+  height: 102%; }
+
+#pxwebcontent p {
+  margin-bottom: 4px; }
+
+#pxwebcontent a:focus {
+  outline: #9272fc solid 2px;
+  outline-offset: 2px; }
+
+#pxwebcontent select:focus {
+  outline: #9272fc solid 2px;
+  outline-offset: 2px; }
+
+#pxwebcontent img {
+  border: none; }
+
+#pxwebcontent a {
+  text-decoration: none; }
+
+#pxwebcontent a:hover {
+  text-decoration: underline; }
+
+/* **********************************  _global-styles.scss *********************************** */
+#pxwebcontent .flex-row {
+  display: flex;
+  flex-direction: row; }
+
+#pxwebcontent .flex-column {
+  display: flex;
+  flex-direction: column; }
+
+#pxwebcontent .justify-space-between {
+  justify-content: space-between; }
+
+#pxwebcontent .justify-space-around {
+  justify-content: space-around; }
+
+#pxwebcontent .justify-center {
+  justify-content: center; }
+
+#pxwebcontent .align-flex-start {
+  align-items: flex-start; }
+
+#pxwebcontent .align-self-flex-start {
+  align-self: flex-start; }
+
+#pxwebcontent .align-center {
+  align-items: center; }
+
+#pxwebcontent .align-flex-end {
+  align-items: flex-end; }
+
+#pxwebcontent .align-self-flex-end {
+  align-self: flex-end; }
+
+#pxwebcontent .flex-wrap {
+  flex-wrap: wrap; }
+
+#pxwebcontent .flex-wrap-reverse {
+  flex-wrap: wrap-reverse; }
+
+#pxwebcontent .no-margin {
+  margin: 0 !important; }
+
+#pxwebcontent .s-margin-top {
+  margin-top: 10px; }
+
+#pxwebcontent .m-margin-top {
+  margin-top: 20px; }
+
+#pxwebcontent .xs-margin-left {
+  margin-left: 10px; }
+
+#pxwebcontent .font-bold {
+  font: bold; }
+
+/*
+#pxwebcontent input:focus {
+  outline: $pxweb-purple-3 solid 2px;
+  outline-offset: 2px;
+}
+*/
+/* **********************************  common/_accordion.scss *********************************** */
+#pxwebcontent .pxweb-accordion {
+  display: grid;
+  width: 100%; }
+  #pxwebcontent .pxweb-accordion .accordion-header {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    text-align: left;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: 20px;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>'); }
+    #pxwebcontent .pxweb-accordion .accordion-header:focus {
+      outline: #9272fc solid 2px;
+      outline-offset: 2px; }
+    #pxwebcontent .pxweb-accordion .accordion-header.closed {
+      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>'); }
+    #pxwebcontent .pxweb-accordion .accordion-header .header-text {
+      color: #222;
+      padding-left: 30px; }
+    #pxwebcontent .pxweb-accordion .accordion-header .sub-header {
+      color: #007694; }
+    #pxwebcontent .pxweb-accordion .accordion-header:hover .header-text, #pxwebcontent .pxweb-accordion .accordion-header:hover .sub-header {
+      color: #007694; }
+  #pxwebcontent .pxweb-accordion:not(.without-borders):before {
+    border-top: 1px solid #949494;
+    content: '';
+    height: 2px;
+    padding-bottom: 8px;
+    display: block; }
+  #pxwebcontent .pxweb-accordion:not(.without-borders):after {
+    border-bottom: 1px solid #949494;
+    content: '';
+    height: 2px;
+    margin-bottom: -1px;
+    padding-top: 8px;
+    display: block; }
+  #pxwebcontent .pxweb-accordion.with-sub-header .button-grid {
+    grid-template-columns: fit-content(100px) auto 20px; }
+  #pxwebcontent .pxweb-accordion.with-sub-header .accordion-header .header-text {
+    grid-column-start: 2; }
+  #pxwebcontent .pxweb-accordion.with-sub-header .accordion-header .sub-header {
+    align-self: start;
+    grid-column-start: 1; }
+  #pxwebcontent .pxweb-accordion .accordion-body {
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    color: #222;
+    font-size: 16px;
+    padding: 8px 50px 8px 0; }
+    #pxwebcontent .pxweb-accordion .accordion-body.closed {
+      display: none;
+      height: 0; }
+
+/* **********************************  common/_button.scss *********************************** */
+#pxwebcontent .pxweb-btn {
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  text-align: left;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #007694;
+  border-radius: 2px;
+  color: #007694;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  height: fit-content;
+  line-height: 1.25;
+  min-height: 40px;
+  padding: 12px 20px;
+  text-align: center;
+  text-underline-position: under;
+  transition: background .18s, color .18s;
+  white-space: normal; }
+  #pxwebcontent .pxweb-btn:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
+  #pxwebcontent .pxweb-btn:hover, #pxwebcontent .pxweb-btn:active {
+    cursor: pointer; }
+  #pxwebcontent .pxweb-btn:hover, #pxwebcontent .pxweb-btn:focus {
+    background-color: #007694;
+    color: #fff;
+    text-decoration: underline; }
+  #pxwebcontent .pxweb-btn:active {
+    background-color: #006885;
+    color: #fff; }
+  #pxwebcontent .pxweb-btn:disabled {
+    background-color: #fff;
+    border-color: #949494;
+    color: #949494;
+    cursor: not-allowed; }
+    #pxwebcontent .pxweb-btn:disabled:hover, #pxwebcontent .pxweb-btn:disabled:focus {
+      text-decoration: none; }
+  #pxwebcontent .pxweb-btn.negative:disabled {
+    opacity: 0.3; }
+    #pxwebcontent .pxweb-btn.negative:disabled:hover, #pxwebcontent .pxweb-btn.negative:disabled:focus {
+      text-decoration: none; }
+  #pxwebcontent .pxweb-btn.primary-btn {
+    background: transparent;
+    background-color: #007694;
+    color: #fff;
+    border: 2px solid #fff; }
+    #pxwebcontent .pxweb-btn.primary-btn:hover, #pxwebcontent .pxweb-btn.primary-btn:active, #pxwebcontent .pxweb-btn.primary-btn:focus {
+      background-color: #006885;
+      border: 2px solid #006885;
+      text-decoration: underline; }
+    #pxwebcontent .pxweb-btn.primary-btn:disabled {
+      background: #949494;
+      border: 2px solid #949494;
+      color: #fff;
+      cursor: not-allowed;
+      font-weight: normal; }
+      #pxwebcontent .pxweb-btn.primary-btn:disabled:hover, #pxwebcontent .pxweb-btn.primary-btn:disabled:focus {
+        text-decoration: none; }
+  #pxwebcontent .pxweb-btn .sb-icon {
+    display: inline-flex;
+    font-size: 18px;
+    margin-right: 5px; }
+
+/* **********************************  common/_button-pxbox.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-btn {
+  border: 2px solid pink; }
+  #pxwebcontent .pxbox .pxweb-btn:disabled {
+    background-color: #fff;
+    border-color: #c3dcdc;
+    color: #c3dcdc; }
+  #pxwebcontent .pxbox .pxweb-btn.negative {
+    background-color: #007694;
+    color: #fff;
+    border-color: #fff; }
+    #pxwebcontent .pxbox .pxweb-btn.negative:hover, #pxwebcontent .pxbox .pxweb-btn.negative:focus {
+      background-color: #fff;
+      color: #007694;
+      border-color: #007694; }
+    #pxwebcontent .pxbox .pxweb-btn.negative:active {
+      background-color: #fff;
+      color: #007694; }
+
+/* **********************************  common/_checkbox.scss *********************************** */
+#pxwebcontent .pxweb-checkbox {
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  /*color: $pxweb-dark-6;*/
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  min-width: 200px;
+  outline: none;
+  position: relative;
+  text-align: left;
+  user-select: none; }
+  #pxwebcontent .pxweb-checkbox:hover .checkbox-label:before, #pxwebcontent .pxweb-checkbox:focus .checkbox-label:before {
+    border: 2px solid #007694; }
+  #pxwebcontent .pxweb-checkbox input[type=checkbox] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute; }
+    #pxwebcontent .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
+      border: 2px solid #007694; }
+    #pxwebcontent .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:before {
+      background: #006885; }
+    #pxwebcontent .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      content: '';
+      display: block;
+      height: 10px;
+      left: 6px;
+      position: absolute;
+      top: 2px;
+      transform: rotate(45deg);
+      width: 6px; }
+    #pxwebcontent .pxweb-checkbox input[type=checkbox]:disabled + .checkbox-label {
+      background: #fff;
+      color: #949494;
+      cursor: default; }
+      #pxwebcontent .pxweb-checkbox input[type=checkbox]:disabled + .checkbox-label:before {
+        border: 1px solid #949494; }
+  #pxwebcontent .pxweb-checkbox .checkbox-label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 12px;
+    position: relative; }
+    #pxwebcontent .pxweb-checkbox .checkbox-label:before {
+      background: #fff;
+      border: 1px solid #006885;
+      border-radius: 2px;
+      box-sizing: border-box;
+      content: '';
+      display: block;
+      height: 20px;
+      margin-right: 12px;
+      width: 20px; }
+
+/* **********************************  common/_checkbox-pxbox.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-checkbox {
+  /*color: $pxbox-dark-6;*/ }
+  #pxwebcontent .pxbox .pxweb-checkbox:hover .checkbox-label:before, #pxwebcontent .pxbox .pxweb-checkbox:focus .checkbox-label:before {
+    border: 2px solid #007694; }
+  #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
+    border: 2px solid #007694; }
+  #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:before {
+    background: #F8F7F6; }
+  #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
+    border: solid #fff;
+    border-width: 0 2px 2px 0; }
+  #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:disabled + .checkbox-label {
+    background: #fff;
+    color: #c3dcdc; }
+    #pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:disabled + .checkbox-label:before {
+      border: 1px solid #c3dcdc; }
+  #pxwebcontent .pxbox .pxweb-checkbox .checkbox-label:before {
+    background: #fff;
+    border: 1px solid #222; }
+
+/* **********************************  common/_checkbox-pxbox-override.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-checkbox .checkbox-label:before {
+  background: #F8F7F6;
+  border: 1px solid #007694; }
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
+  border: solid #007694;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 6px; }
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:hover + .checkbox-label:before {
+  background: #007694; }
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked:hover + .checkbox-label:after {
+  background-color: #007694;
+  border: solid #F8F7F6;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 6px; }
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked:focus + .checkbox-label:after {
+  border: solid #F8F7F6;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 6px; }
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
+  background: #007694; }
+
+#pxwebcontent .pxbox .pxweb-checkbox:hover .checkbox-label:before, .pxbox #pxwebcontent .pxweb-checkbox:focus .checkbox-label:before {
+  border: 2px solid #007694; }
+
+#pxwebcontent .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
+  outline: 2px solid #9272fc;
+  outline-offset: 2px; }
+
+/* **********************************  common/_divider.scss *********************************** */
+#pxwebcontent .pxweb-divider {
+  border: 0;
+  border-top: 2px solid;
+  display: block;
+  height: 2px;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  border-top-color: #006885; }
+  #pxwebcontent .pxweb-divider.with-margin {
+    margin-top: 8px;
+    margin-bottom: 8px; }
+
+/* **********************************  common/_divider-pxbox.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-divider {
+  border-top-color: #007694; }
+
+/*@import './common/_glossary.scss';*/
+/*@import './common/_glossary-pxbox.scss';*/
+/* **********************************  common/_input.scss *********************************** */
+#pxwebcontent .pxweb-input {
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  cursor: text;
+  display: flex;
+  flex-direction: column;
+  max-width: 205px;
+  position: relative;
+  width: 100%; }
+  #pxwebcontent .pxweb-input:hover input {
+    border: 1px solid #A3E8F5 nord;
+    outline: 1px solid #A3E8F5 nord; }
+    #pxwebcontent .pxweb-input:hover input:disabled {
+      border: 1px solid #006885; }
+  #pxwebcontent .pxweb-input .input-wrapper {
+    display: flex; }
+    #pxwebcontent .pxweb-input .input-wrapper ::placeholder {
+      color: #595959;
+      opacity: 1; }
+    #pxwebcontent .pxweb-input .input-wrapper :-ms-input-placeholder {
+      color: #595959; }
+    #pxwebcontent .pxweb-input .input-wrapper ::-ms-input-placeholder {
+      color: #595959; }
+  #pxwebcontent .pxweb-input label {
+    color: #222;
+    cursor: text;
+    font-size: 14px;
+    margin-bottom: 4px;
+    user-select: none; }
+  #pxwebcontent .pxweb-input input {
+    font-family: 'Roboto', regular !important;
+    font-stretch: normal;
+    font-weight: normal;
+    background: #fff;
+    border: 1px solid #006885;
+    box-sizing: border-box;
+    color: #595959;
+    font-size: 14px;
+    height: 34px;
+    padding: 12px 12px;
+    text-overflow: ellipsis;
+    width: 100%; }
+    #pxwebcontent .pxweb-input input.with-icon {
+      padding: 4px 44px 4px 10px; }
+    #pxwebcontent .pxweb-input input:disabled {
+      border: 1px solid #006885;
+      cursor: not-allowed; }
+    #pxwebcontent .pxweb-input input:focus {
+      outline: 2px solid #9272fc;
+      outline-offset: 2px; }
+  #pxwebcontent .pxweb-input.negative .input-wrapper ::placeholder {
+    color: #fff;
+    opacity: 1; }
+  #pxwebcontent .pxweb-input.negative .input-wrapper :-ms-input-placeholder {
+    color: #fff; }
+  #pxwebcontent .pxweb-input.negative .input-wrapper ::-ms-input-placeholder {
+    color: #fff; }
+  #pxwebcontent .pxweb-input.negative:hover input {
+    border: 1px solid #A3E8F5 nord;
+    outline: 1px solid #A3E8F5 nord; }
+    #pxwebcontent .pxweb-input.negative:hover input:disabled {
+      border: 1px solid #fff; }
+  #pxwebcontent .pxweb-input.negative label {
+    color: #fff; }
+  #pxwebcontent .pxweb-input.negative input {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff; }
+    #pxwebcontent .pxweb-input.negative input:disabled {
+      border: 1px solid #fff; }
+    #pxwebcontent .pxweb-input.negative input:focus {
+      border: 1px solid #A3E8F5 nord;
+      outline: 1px solid #A3E8F5 nord;
+      outline-offset: 0; }
+  #pxwebcontent .pxweb-input.negative .icon-wrapper > * {
+    color: #A3E8F5 nord; }
+  #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon {
+    cursor: pointer; }
+    #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:hover, #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:focus {
+      background: #fff; }
+      #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:focus > * {
+        color: #006885; }
+  #pxwebcontent .pxweb-input.negative.error input {
+    border: 1px solid #ee0000;
+    outline: 1px solid #ee0000; }
+  #pxwebcontent .pxweb-input.negative.error .icon-wrapper > * {
+    color: #ee0000; }
+  #pxwebcontent .pxweb-input.error input {
+    border: 1px solid #ee0000;
+    outline: 1px solid #ee0000; }
+  #pxwebcontent .pxweb-input.error .icon-wrapper > * {
+    color: #ee0000; }
+  #pxwebcontent .pxweb-input .icon-wrapper {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    text-align: left;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    height: 34px;
+    justify-content: center;
+    margin-left: -44px;
+    width: 44px; }
+    #pxwebcontent .pxweb-input .icon-wrapper:focus {
+      outline: #9272fc solid 2px;
+      outline-offset: 2px; }
+    #pxwebcontent .pxweb-input .icon-wrapper > * {
+      color: #007694; }
+    #pxwebcontent .pxweb-input .icon-wrapper.search-icon {
+      cursor: pointer; }
+      #pxwebcontent .pxweb-input .icon-wrapper.search-icon:hover, #pxwebcontent .pxweb-input .icon-wrapper.search-icon:focus {
+        background: #007694;
+        outline-offset: 0px; }
+        #pxwebcontent .pxweb-input .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxweb-input .icon-wrapper.search-icon:focus > * {
+          color: #fff; }
+
+#pxwebcontent .pxweb-input-error {
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  background: #ee0000;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  line-height: normal;
+  margin-top: 12px;
+  padding: 4px 8px;
+  position: relative;
+  /*    &.negative {
+        color: $pxweb-dark-5;
+    }*/ }
+  #pxwebcontent .pxweb-input-error:before {
+    border-color: transparent transparent #ee0000 transparent;
+    border-style: solid;
+    border-width: 8px;
+    content: '';
+    position: absolute;
+    top: -16px; }
+
+/* **********************************  common/_input-pxbox.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-input:hover input {
+  border: 1px solid #007694;
+  outline: 1px solid #007694; }
+  #pxwebcontent .pxbox .pxweb-input:hover input:disabled {
+    border: 1px solid #222; }
+
+#pxwebcontent .pxbox .pxweb-input .input-wrapper ::placeholder {
+  color: #2d6975; }
+
+#pxwebcontent .pxbox .pxweb-input .input-wrapper :-ms-input-placeholder {
+  color: #2d6975; }
+
+#pxwebcontent .pxbox .pxweb-input .input-wrapper ::-ms-input-placeholder {
+  color: #2d6975; }
+
+#pxwebcontent .pxbox .pxweb-input label {
+  color: #222; }
+
+#pxwebcontent .pxbox .pxweb-input input {
+  background: #fff;
+  border: 1px solid #222;
+  color: #2d6975; }
+  #pxwebcontent .pxbox .pxweb-input input:disabled {
+    border: 1px solid #222; }
+
+#pxwebcontent .pxbox .pxweb-input.negative .input-wrapper ::placeholder {
+  color: #fff; }
+
+#pxwebcontent .pxbox .pxweb-input.negative .input-wrapper :-ms-input-placeholder {
+  color: #fff; }
+
+#pxwebcontent .pxbox .pxweb-input.negative .input-wrapper ::-ms-input-placeholder {
+  color: #fff; }
+
+#pxwebcontent .pxbox .pxweb-input.negative:hover input {
+  border: 1px solid #007694;
+  outline: 1px solid #007694; }
+  #pxwebcontent .pxbox .pxweb-input.negative:hover input:disabled {
+    border: 1px solid #fff; }
+
+#pxwebcontent .pxbox .pxweb-input.negative label {
+  color: #fff; }
+
+#pxwebcontent .pxbox .pxweb-input.negative input {
+  border: 1px solid #fff;
+  color: #fff; }
+  #pxwebcontent .pxbox .pxweb-input.negative input:disabled {
+    border: 1px solid #fff; }
+  #pxwebcontent .pxbox .pxweb-input.negative input:focus {
+    border: 1px solid #007694;
+    outline: 1px solid #007694; }
+
+#pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper > * {
+  color: #007694; }
+
+#pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:hover, #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:focus {
+  background: #fff; }
+  #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxbox .pxweb-input.negative .icon-wrapper.search-icon:focus > * {
+    color: #222; }
+
+#pxwebcontent .pxbox .pxweb-input.negative.error input {
+  border: 1px solid #ee0000;
+  outline: 1px solid #ee0000; }
+
+#pxwebcontent .pxbox .pxweb-input.negative.error .icon-wrapper > * {
+  color: #ee0000; }
+
+#pxwebcontent .pxbox .pxweb-input.error input {
+  border: 1px solid #ee0000;
+  outline: 1px solid #ee0000; }
+
+#pxwebcontent .pxbox .pxweb-input.error .icon-wrapper > * {
+  color: #ee0000; }
+
+#pxwebcontent .pxbox .pxweb-input .icon-wrapper > * {
+  color: #007694; }
+
+#pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon {
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+  background-position: center; }
+  #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon:hover, #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon:focus {
+    background: #007694;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>');
+    background-position: center; }
+    #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon:hover > *, #pxwebcontent .pxbox .pxweb-input .icon-wrapper.search-icon:focus > * {
+      color: #fff; }
+
+/* **********************************  common/_link.scss *********************************** */
+#pxwebcontent .pxweb-link a:hover {
+  text-decoration: none; }
+
+#pxwebcontent .pxweb-link {
+  font-family: 'Open Sans', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  align-items: center;
+  background-image: linear-gradient(120deg, #007694 0%, #007694 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+  border-bottom: 1px solid #007694;
+  color: #007694;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-top: -3px;
+  margin-bottom: -2px;
+  padding: 0 1px 2px 1px;
+  position: relative;
+  text-decoration: none;
+  transition: background-size .2s ease-in, color .1s; }
+  #pxwebcontent .pxweb-link .icon-wrapper {
+    display: flex;
+    margin-right: 4px; }
+  #pxwebcontent .pxweb-link.header {
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    border-bottom-width: 2px;
+    font-size: 20px;
+    font-weight: bold; }
+    #pxwebcontent .pxweb-link.header .link-text {
+      color: #222; }
+  #pxwebcontent .pxweb-link:hover, #pxwebcontent .pxweb-link:focus {
+    background-size: 100% 100%;
+    color: white;
+    outline: 0;
+    text-decoration: none;
+    border-bottom-color: #007694; }
+    #pxwebcontent .pxweb-link:hover .link-text, #pxwebcontent .pxweb-link:focus .link-text {
+      text-decoration: none;
+      color: white; }
+  #pxwebcontent .pxweb-link.with-icon {
+    padding: 2px 2px 0;
+    border-bottom: none; }
+    #pxwebcontent .pxweb-link.with-icon i {
+      font-size: 16px; }
+    #pxwebcontent .pxweb-link.with-icon .link-text {
+      color: #222; }
+    #pxwebcontent .pxweb-link.with-icon:hover, #pxwebcontent .pxweb-link.with-icon:focus {
+      color: white; }
+      #pxwebcontent .pxweb-link.with-icon:hover .link-text, #pxwebcontent .pxweb-link.with-icon:focus .link-text {
+        color: white; }
+  #pxwebcontent .pxweb-link .link-text {
+    color: #007694;
+    transition: color .1s; }
+    #pxwebcontent .pxweb-link .link-text:hover, #pxwebcontent .pxweb-link .link-text:focus {
+      color: white;
+      outline: 0; }
+
+/* **********************************  common/_link-pxbox.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-link.negative {
+  background-image: linear-gradient(120deg, #007694 0%, #007694 100%);
+  border-bottom: 1px solid #222;
+  color: #222;
+  /*
+    &:hover, &:focus {
+      color: $pxbox-dark-5;
+
+      .link-text {
+        color: $pxbox-dark-5;
+      }
+    }
+    */ }
+  #pxwebcontent .pxbox .pxweb-link.negative .link-text {
+    color: #222; }
+  #pxwebcontent .pxbox .pxweb-link.negative.with-icon {
+    border-bottom: none; }
+    #pxwebcontent .pxbox .pxweb-link.negative.with-icon .link-text {
+      color: #222; }
+    #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus {
+      color: #222; }
+      #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover .link-text, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus .link-text {
+        color: #222; }
+
+/* **********************************  common/_title.scss *********************************** */
+#pxwebcontent .pxweb-title {
+  color: #222;
+  margin-top: 0; }
+  #pxwebcontent .pxweb-title.negative {
+    color: #fff; }
+  #pxwebcontent h1 .pxweb-title {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 80px; }
+  #pxwebcontent h2 .pxweb-title {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 40px; }
+  #pxwebcontent h3 .pxweb-title {
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 32px; }
+  #pxwebcontent h4 .pxweb-title {
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 28px; }
+  #pxwebcontent h5 .pxweb-title {
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.7; }
+  #pxwebcontent h6 .pxweb-title {
+    font-family: 'Roboto', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.7; }
+  @media screen and (max-width: 767px) {
+    #pxwebcontent h1 .pxweb-title {
+      font-size: 44px;
+      line-height: 56px; }
+    #pxwebcontent h2 .pxweb-title {
+      font-size: 28px;
+      line-height: 36px; } }
+
+/* **********************************  common/_title-pxbox.scss *********************************** */
+#pxwebcontent .pxbox .pxweb-title {
+  color: #222; }
+  #pxwebcontent .pxbox .pxweb-title.negative {
+    color: #222; }

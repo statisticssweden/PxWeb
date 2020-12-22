@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb.Admin {
-    
-    
-    public partial class Settings_Selection {
-        
+namespace PXWeb.Admin
+{
+
+
+    public partial class Settings_Selection
+    {
+
         /// <summary>
         /// lblShowMandatoryMark control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowMandatoryMark;
-        
+
         /// <summary>
         /// cboShowMandatoryMark control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowMandatoryMark;
-        
+
         /// <summary>
         /// imgShowMandatoryMark control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowMandatoryMark;
-        
+
         /// <summary>
         /// lblAllowAggregations control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAllowAggregations;
-        
+
         /// <summary>
         /// cboAllowAggregations control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboAllowAggregations;
-        
+
         /// <summary>
         /// imgAllowAggregations control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgAllowAggregations;
-        
+
         /// <summary>
         /// lblShowHierarchies control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowHierarchies;
-        
+
         /// <summary>
         /// cboShowHierarchies control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowHierarchies;
-        
+
         /// <summary>
         /// imgShowHierarchies control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowHierarchies;
-        
+
         /// <summary>
         /// divHierarchicalLevelsOpen control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divHierarchicalLevelsOpen;
-        
+
         /// <summary>
         /// lblHierarchicalLevelsOpen control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHierarchicalLevelsOpen;
-        
+
         /// <summary>
         /// txtHierarchicalLevelsOpen control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHierarchicalLevelsOpen;
-        
+
         /// <summary>
         /// imgHierarchicalLevelsOpen control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgHierarchicalLevelsOpen;
-        
+
         /// <summary>
         /// validatorHierarchicalLevelsOpen control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorHierarchicalLevelsOpen;
-        
+
         /// <summary>
         /// lblShowMarkingTips control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowMarkingTips;
-        
+
         /// <summary>
         /// cboShowMarkingTips control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowMarkingTips;
-        
+
         /// <summary>
         /// imgShowMarkingTips control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowMarkingTips;
-        
+
         /// <summary>
         /// lblSearchButtonMode control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSearchButtonMode;
-        
+
         /// <summary>
         /// cboSearchButtonMode control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboSearchButtonMode;
-        
+
         /// <summary>
         /// imgSearchButtonMode control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgSearchButtonMode;
-        
+
         /// <summary>
         /// lblMaxRowsWithoutSearch control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMaxRowsWithoutSearch;
-        
+
         /// <summary>
         /// txtMaxRowsWithoutSearch control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMaxRowsWithoutSearch;
-        
+
         /// <summary>
         /// imgMaxRowsWithoutSearch control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgMaxRowsWithoutSearch;
-        
+
         /// <summary>
         /// validatorMaxRowsWithoutSearch control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorMaxRowsWithoutSearch;
-        
+
         /// <summary>
         /// lblAlwaysShowTimeVariableWithoutSearch control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAlwaysShowTimeVariableWithoutSearch;
-        
+
         /// <summary>
         /// cboAlwaysShowTimeVariableWithoutSearch control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboAlwaysShowTimeVariableWithoutSearch;
-        
+
         /// <summary>
         /// imgAlwaysShowTimeVariableWithoutSearch control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgAlwaysShowTimeVariableWithoutSearch;
-        
+
         /// <summary>
         /// lblListSize control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblListSize;
-        
+
         /// <summary>
         /// txtListSize control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtListSize;
-        
+
         /// <summary>
         /// imgListSize control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgListSize;
-        
+
         /// <summary>
         /// validatorListSize control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorListSize;
-        
+
         /// <summary>
         /// lblShowSelectionLimits control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowSelectionLimits;
-        
+
         /// <summary>
         /// cboShowSelectionLimits control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowSelectionLimits;
-        
+
         /// <summary>
         /// imgShowSelectionLimits control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowSelectionLimits;
-        
+
         /// <summary>
         /// lblValuesetMustBeSelectedFirst control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblValuesetMustBeSelectedFirst;
-        
+
         /// <summary>
         /// cboValuesetMustBeSelectedFirst control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboValuesetMustBeSelectedFirst;
-        
+
         /// <summary>
         /// imgValuesetMustBeSelectedFirst control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgValuesetMustBeSelectedFirst;
-        
+
         /// <summary>
         /// lblShowAllAvailableValuesSearchButton control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowAllAvailableValuesSearchButton;
-        
+
         /// <summary>
         /// cboShowAllAvailableValuesSearchButton control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowAllAvailableValuesSearchButton;
-        
+
         /// <summary>
         /// imgShowAllAvailableValuesSearchButton control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowAllAvailableValuesSearchButton;
-        
+
         /// <summary>
         /// lblTitleFromMenu control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitleFromMenu;
-        
+
         /// <summary>
         /// cboTitleFromMenu control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboTitleFromMenu;
-        
+
         /// <summary>
         /// imgTitleFromMenu control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgTitleFromMenu;
-        
+
         /// <summary>
         /// lblStandardApplicationHeadTitle control.
         /// </summary>
@@ -407,7 +409,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStandardApplicationHeadTitle;
-        
+
         /// <summary>
         /// cboStandardApplicationHeadTitle control.
         /// </summary>
@@ -416,7 +418,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboStandardApplicationHeadTitle;
-        
+
         /// <summary>
         /// imgStandardApplicationHeadTitle control.
         /// </summary>
@@ -425,7 +427,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgStandardApplicationHeadTitle;
-        
+
         /// <summary>
         /// lblMetadataAsLinks control.
         /// </summary>
@@ -434,7 +436,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMetadataAsLinks;
-        
+
         /// <summary>
         /// cboMetadataAsLinks control.
         /// </summary>
@@ -443,7 +445,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboMetadataAsLinks;
-        
+
         /// <summary>
         /// imgMetadataAsLinks control.
         /// </summary>
@@ -452,7 +454,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgMetadataAsLinks;
-        
+
         /// <summary>
         /// lblSelectValuesFromGroup control.
         /// </summary>
@@ -461,7 +463,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSelectValuesFromGroup;
-        
+
         /// <summary>
         /// cboSelectValuesFromGroup control.
         /// </summary>
@@ -470,7 +472,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboSelectValuesFromGroup;
-        
+
         /// <summary>
         /// imgSelectValuesFromGroup control.
         /// </summary>
@@ -479,7 +481,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgSelectValuesFromGroup;
-        
+
         /// <summary>
         /// lblButtonsForContentVariable control.
         /// </summary>
@@ -488,7 +490,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblButtonsForContentVariable;
-        
+
         /// <summary>
         /// cboButtonsForContentVariable control.
         /// </summary>
@@ -497,7 +499,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboButtonsForContentVariable;
-        
+
         /// <summary>
         /// imgButtonsForContentVariable control.
         /// </summary>
@@ -506,7 +508,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgButtonsForContentVariable;
-        
+
         /// <summary>
         /// lblDefaultSearch control.
         /// </summary>
@@ -515,7 +517,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDefaultSearch;
-        
+
         /// <summary>
         /// cboDefaultSearch control.
         /// </summary>
@@ -524,7 +526,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboDefaultSearch;
-        
+
         /// <summary>
         /// imgDefaultSearch control.
         /// </summary>
@@ -533,7 +535,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgDefaultSearch;
-        
+
         /// <summary>
         /// lblPreSelectFirstContentAndTime control.
         /// </summary>
@@ -542,7 +544,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPreSelectFirstContentAndTime;
-        
+
         /// <summary>
         /// cboPreSelectFirstContentAndTime control.
         /// </summary>
@@ -551,7 +553,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboPreSelectFirstContentAndTime;
-        
+
         /// <summary>
         /// imgPreSelectFirstContentAndTime control.
         /// </summary>
@@ -560,69 +562,44 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgPreSelectFirstContentAndTime;
-        
+
         /// <summary>
-        /// lblOutputFormats control.
+        /// lblShowNoFootnoteForSelection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOutputFormats;
-        
+        protected global::System.Web.UI.WebControls.Label lblShowNoFootnoteForSelection;
+
         /// <summary>
-        /// imgOutputFormats control.
+        /// cboShowNoFootnoteForSelection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgOutputFormats;
-        
+        protected global::System.Web.UI.WebControls.DropDownList cboShowNoFootnoteForSelection;
+
         /// <summary>
-        /// lblPresentationViews control.
+        /// imgShowNoFootnoteForSelection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPresentationViews;
-        
-        /// <summary>
-        /// rptPresentationViews control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptPresentationViews;
-        
-        /// <summary>
-        /// lblFileFormats control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFileFormats;
-        
-        /// <summary>
-        /// rptOutputFormats control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptOutputFormats;
-        
+        protected global::System.Web.UI.WebControls.ImageButton imgShowNoFootnoteForSelection;
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.Admin.Admin Master {
-            get {
+        public new PXWeb.Admin.Admin Master
+        {
+            get
+            {
                 return ((PXWeb.Admin.Admin)(base.Master));
             }
         }

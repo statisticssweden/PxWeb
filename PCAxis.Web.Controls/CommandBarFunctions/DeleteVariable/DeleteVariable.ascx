@@ -16,13 +16,13 @@
                     <div class="variableselector_variable_box_container"> 
                 </HeaderTemplate>      
                 <ItemTemplate>  
-                    <div class="variableselector_valuesselect_box">
-                        <asp:Panel runat="server" ID="EventButtons" CssClass="variableselector_valuesselect_eventbutton_panel">
+                    <div class="variableselector_valuesselect_box_commandbar">
+                        <asp:Panel runat="server" ID="EventButtons" CssClass="variableselector_valuesselect_eventbutton_panel_commandbar">
                             <p>
                                 <asp:RadioButton runat="server" ID="VariableNameRadio" GroupName="VariableSelectionGroup" CssClass="commandbar_deletevariable_nametext"/>
                             </p>
                         </asp:Panel>
-                        <asp:Panel runat="server" ID="ValuesSelectPanel" CssClass="variableselector_valuesselect_valuesselect_panel">  
+                        <asp:Panel runat="server" ID="ValuesSelectPanel" CssClass="variableselector_valuesselect_valuesselect_panel_commandbar">  
                             <asp:ListBox runat="server" ID="ValuesListBox" CssClass="variableselector_valuesselect_valueslistbox"/>
                         </asp:Panel>
                     </div>  
@@ -36,14 +36,14 @@
          <asp:Panel runat="server" ID="ErrorMessagePanel" Visible="false">
             <p><asp:Label ID="ErrorMessageLabel" runat="server" CssClass="commandbar_deletevariable_errormessage" Text="" /></p>
          </asp:Panel>
-        <p class="commandbar_button_row">
-            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_deletevariable_continuebutton" />
-            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton" />
-        </p>
+        <div class="commandbar_button_row">
+            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_deletevariable_continuebutton pxweb-btn primary-btn" />
+            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
+        </div>
     </asp:Panel>
     <script type="text/javascript">
         jQuery(document).ready(function() {
-        jQuery('.variableselector_valuesselect_box').resizable({ handles: 'e', minWidth: 150 });                        
+            jQuery('.variableselector_valuesselect_box_commandbar').resizable({ handles: 'e', minWidth: 150 });                        
         });
     </script>   
 </div>

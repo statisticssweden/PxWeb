@@ -1,0 +1,460 @@
+﻿@include file-header("_PxWeb.scss");
+
+#pxwebcontent {
+  background: $pxweb-background;
+/*  @include just-open-sans;*/  
+  @include roboto;
+  line-height: 1.5;
+  color: $pxweb-ink-main;
+  font-size: 14px;
+}
+
+#pxwebcontent select {
+    @include pxweb-input-list-font;
+}
+
+#pxwebcontent .pxbox.negative {
+    background-color: $pxbox-background;
+    border: solid 1px $pxbox-border;
+    color: $pxbox-ink;
+}
+
+
+#pxwebcontent #wrap {
+    margin: 0px auto;
+    max-width: 1180px;
+  }
+
+@media (max-width: 1180px) {
+  #pxwebcontent #wrap {
+    margin: 0px 10px;
+  }
+}
+
+#pxwebcontent #header {
+  padding: 10px 0 10px 0;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+  #pxwebcontent #header h1 {
+    font-size: 2.2em;
+    font-weight: 100;
+    letter-spacing: -3px;
+    padding: 12px 0 5px 10px;
+  }
+
+    #pxwebcontent #header h1 a {
+      color: $header-h1-sort-of-grey;
+      text-decoration: none;
+    }
+
+#pxwebcontent #header h1 a:hover {
+  color: $header-h1-sort-of-grey;
+  text-decoration: none;
+}
+
+  #pxwebcontent #header h2 {
+    color: $header-h2-sort-of-grey;
+    font-size: 1.25em;
+    font-weight: 100;
+    padding: 0 0 0 11px;
+    letter-spacing: -1px;
+    line-height: 12px;
+  }
+
+  #pxwebcontent #header span {
+    font-size: 3.0em;
+    font-weight: 700;
+    letter-spacing: -1px;
+    padding: 12px 0 0 10px;
+  }
+
+#pxwebcontent .headerleft {
+  float: left;
+}
+
+#pxwebcontent .headerright {
+  float: right;
+  font-weight: 600;
+  color: $pxweb-black-2;
+}
+
+/* #pxwebcontent #breadcrumb {} moved to _breadcrumb.sccs  */
+
+
+
+#pxwebcontent #content {
+  padding: 10px 15px;
+}
+
+#pxwebcontent #footer {
+  background: $tableAlternatingRow-grey;
+}
+
+#pxwebcontent .footerleft {
+  float: left;
+}
+
+#pxwebcontent .footerright {
+  float: right;
+  font-weight: 600;
+  color: $pxweb-black-2;
+}
+
+#pxwebcontent .imgSiteLogo {
+  height: 100px;
+  width: 100px;
+  vertical-align: middle;
+}
+
+
+#pxwebcontent .siteLogoText {
+    vertical-align: middle;
+}
+
+#pxwebcontent .px-change-lang-div {
+  margin: 20px;
+  margin-right: 30px;
+}
+
+#pxwebcontent #header .pxweb-link.px-change-lang {
+  margin: 4px;
+}
+
+#pxwebcontent #header .link-text.px-change-lang {
+  font-size: 12px;
+  letter-spacing: normal;
+  padding-top: 0px;
+  padding-right: 1px;
+  padding-bottom: 2px;
+  padding-left: 1px;
+}
+
+#pxwebcontent .tableAlternatingRow {
+  background-color: $tableAlternatingRow-grey;
+}
+
+
+#pxwebcontent .search_searchresulttext {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+#pxwebcontent .searchTopLeftContent {
+  float: left;
+}
+
+#pxwebcontent .searchResultTable {
+  width: 100%;
+}
+
+#pxwebcontent .searchHeaderCell {
+  font-weight: bold;
+  padding-left: 3px;
+}
+
+#pxwebcontent .searchCell {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pxwebcontent .searchCellTable {
+  width: 90%;
+}
+
+#pxwebcontent .searchCellPublished {
+  width: 10%;
+}
+
+#pxwebcontent .selectionLinksContainer {
+  margin-bottom: 15px;
+}
+
+#pxwebcontent .settings_panel {
+  float: left;
+  display: inline-block;
+  width: 100%;
+}
+
+#pxwebcontent .settings_panel a {
+  color: $pxweb-black-1;
+}
+
+#pxwebcontent .chart-links {
+  float: right;
+}
+
+#pxwebcontent .chart-image {
+  padding-top: 20px;
+}
+
+#pxwebcontent .panelshowlink {
+    width: 100%;
+    background-color: $pxbox-background;
+    padding: 10px 10px 10px 10px;
+    margin-top: 5px;
+    display: inline-block;
+    border: 1px solid $pxbox-border;
+    cursor: pointer;
+}
+
+#pxwebcontent .panelshowlink.savequery {
+    background-color: $pxbox-background;
+}
+
+#pxwebcontent .px-settings-imagelink {
+  vertical-align: middle;
+  padding-right: 3px;
+  padding-bottom: 3px;
+}
+
+#pxwebcontent .px-settings-expandimage {
+  width: 16px;
+  height: 16px;
+  background: url(../../images/plus-black-16.gif) no-repeat;
+  vertical-align: middle;
+  outline: none;
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+#pxwebcontent .px-settings-collapseimage {
+  width: 16px;
+  height: 16px;
+  background: url(../../images/minus-black-16.gif) no-repeat;
+  vertical-align: middle;
+  outline: none;
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+#pxwebcontent .px-settings {
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+  border-left: 1px solid $pxweb-dark-2;
+  border-right: 1px solid $pxweb-dark-2;
+  border-bottom: 1px solid $pxweb-dark-2;
+  width: 100%;
+}
+
+#pxwebcontent .px_setting_validator {
+  color: $pxweb-red-3;
+}
+
+#pxwebcontent .px_setting_heading {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#pxwebcontent .px_setting_label_normal {
+  display: inline-block;
+  width: 160px;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+#pxwebcontent .px_setting_textbox_normal {
+  width: 40px;
+  margin-bottom: 5px;
+}
+
+#pxwebcontent .px_setting_textbox_title {
+  width: 600px;
+  margin-bottom: 5px;
+}
+
+#pxwebcontent .px_setting_label_width {
+  display: inline-block;
+  width: 40px;
+  margin-left: 10px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#pxwebcontent .px_setting_radiobuttonlist {
+  display: inline-block;
+}
+
+  #pxwebcontent .px_setting_radiobuttonlist input {
+    margin-right: 5px;
+    margin-bottom: 7px;
+  }
+
+  #pxwebcontent .px_setting_radiobuttonlist label {
+    margin-right: 15px;
+  }
+
+#pxwebcontent .px_setting_checkbox {
+  margin-bottom: 2px;
+}
+
+  #pxwebcontent .px_setting_checkbox input {
+    margin-right: 5px;
+  }
+
+  #pxwebcontent .px_setting_checkbox label {
+    margin-right: 15px;
+  }
+
+#pxwebcontent .px_settings_buttons {
+  display: block;
+  margin-top: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#pxwebcontent .px_settings_cancel {
+  margin-right: 20px;
+  background: $pxweb-green-4;
+  color: $pxweb-white;
+  padding: 2px 4px 2px 5px;
+  font-weight: bold;
+}
+
+#pxwebcontent .px_setting_apply {
+  margin-right: 20px;
+  background: $pxweb-green-4;
+  color: $pxweb-white;
+  padding: 2px 4px 2px 5px;
+  font-weight: bold;
+  border: 1px solid $header-h2-sort-of-grey;
+}
+
+#pxwebcontent .chart_information {
+  background-color: $header-h2-sort-of-grey;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+  width: 731px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+#pxwebcontent .chart_information_title {
+  font-weight: bold;
+}
+
+#pxwebcontent .table-links {
+  display: inline-block;
+}
+
+
+#pxwebcontent .search-settings {
+  display: inline-block;
+  background-color: $tableAlternatingRow-grey;
+  padding: 10px 10px 10px 10px;
+  border: solid 1px $header-h2-sort-of-grey;
+  margin-top: 10px;
+}
+
+
+
+
+
+#pxwebcontent .headingtext {
+  font-weight: bold;
+}
+
+#pxwebcontent .tableCropped {
+  font-weight: bold;
+  color: Gray;
+}
+
+#pxwebcontent .alertimage {
+  width: 16px;
+  height: 16px;
+  background: url(../../images/alert-16.gif) no-repeat;
+  vertical-align: top;
+  outline: none;
+}
+
+#pxwebcontent .px-messages {
+  display: inline-block;
+  border: 1px solid $px-messages-border;
+  margin-top: 5px;
+  padding: 10px 10px 10px 10px;
+  width: 45%;
+  vertical-align: middle;
+}
+
+#pxwebcontent .saved_query_unsafe_panel {
+  width: 100%;
+}
+
+#pxwebcontent .errorMessage {
+  font-family: Verdana;
+  font-size: 0.9em;
+  color: $another-errormessage;
+  display: block;
+}
+
+
+#pxwebcontent .screenreader-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    color: black;
+    background-color: white;
+}
+
+#pxwebcontent .screenreader-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+/* jQuery UI controls */
+#PageElements {
+    background: $pxweb-background;
+}
+
+.ui-draggable .ui-dialog-titlebar {
+    background: $pxweb-dark-5;
+    border: $pxweb-dark-5;
+}
+
+.ui-dialog-title {
+    @include pxweb-font;
+}
+
+.ui-widget-content {
+    @include pxweb-font;
+    background: $pxweb-background;
+}
+
+.footnote_heading {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footnote_valuenote_header {
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footnote_valuenote_key {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.footnote_note_value {
+    margin-top: 10px;
+}
+
+.footnote_varnote_key {
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footnote_cellnote_key {
+    font-weight: 700;
+    margin-top: 10px;
+}

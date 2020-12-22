@@ -1,0 +1,154 @@
+@include file-header("_savequery.scss TODO ");
+/* Used for SaveQuery webcontrol */
+/*Old css. Remove?*/
+/*Hmm, used in SaveQueryCreate.ascx*/
+/*which is in presentation part*/
+
+#pxwebcontent .savequery_container a {
+  cursor: pointer;
+  /*text-decoration: underline; */
+}
+
+#pxwebcontent .savequery_container input {
+  cursor: pointer;
+}
+
+#pxwebcontent .savequery_container savequery_url input {
+  cursor: help;
+}
+
+#pxwebcontent .savequery_readmore_expandimage {
+  width: 16px;
+  height: 16px;
+  background: url(../../../images/plus-16.gif) no-repeat;
+  vertical-align: middle;
+  outline: none;
+}
+
+#pxwebcontent .savequery_readmore_collapseimage {
+  width: 16px;
+  height: 16px;
+  background: url(../../../images/minus-16.gif) no-repeat;
+  vertical-align: middle;
+  outline: none;
+}
+
+#pxwebcontent .savequery_informationpanel {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+#pxwebcontent .savequery_timeperioddiv {
+  float: left;
+  width: 50%;
+  margin-top: 5px;
+}
+
+#pxwebcontent .savequery_saveasdiv {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#pxwebcontent .savequery_informationpanelwidth {
+  width: 100%;
+}
+
+#pxwebcontent .savequery_cancel {
+    margin-right: 15px;
+    background: $pxweb-green-4;
+    color: $pxweb-white;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    padding: 2px 4px 2px 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#pxwebcontent .savequery_create {
+    margin-right: 15px;
+    background: $pxweb-green-4;
+    color: $pxweb-white;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    padding: 2px 4px 2px 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#pxwebcontent .savequery_functionbtn {
+  float: left;
+  margin-top: 25px;
+  margin-right: 3px;
+  cursor: pointer;
+  border-color: #B0272E;
+}
+
+#pxwebcontent .savequery_rblist input[type="radio"] {
+  margin-top: 7px;
+}
+
+#pxwebcontent .saveas_dropdownlist {
+  width: 250px;
+}
+
+#pxwebcontent .saveas_dropdownlist_error {
+  border-color: #B0272E;
+}
+
+#pxwebcontent .savequery_heading {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#pxwebcontent .querySummary {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#pxwebcontent .querySummaryItem {
+  display: inline-block;
+}
+
+#pxwebcontent .savequery_urlcaption {
+  display: block;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#pxwebcontent .savequery_url {
+  display: block;
+  width: 700px;
+  font-family: 'Courier New';
+}
+
+#pxwebcontent .savequery_querycaption {
+  display: block;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#pxwebcontent .savequery_query {
+  display: block;
+  width: 700px;
+  margin-bottom: 10px;
+}
+
+#pxwebcontent .savequery_error {
+  color: #B0272E;
+  margin-left: 5px;
+}
+
+#pxwebcontent .savequery_novisibility {
+  display: none;
+}
+
+#pxwebcontent .floatleft {
+  float: left;
+}
+
+#pxwebcontent .time_warning_panel {
+  margin-bottom: 10px;
+}
+
+#pxwebcontent .savequery_function {
+  margin-right: 15px;
+}

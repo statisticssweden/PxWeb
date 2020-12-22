@@ -1,0 +1,48 @@
+#{$selector_prefix}-form-error {
+    @include roboto;
+    background: $pxweb-white;
+    border: 2px solid $pxweb-red-3;
+    border-left: 4px solid $pxweb-red-3;
+    display: flex;
+    padding: 20px 20px 20px 0;
+    width: 100%;
+
+    .error-icon {
+        margin: 0 15px;
+
+        &:before {
+            align-items: center;
+            background: $pxweb-red-3;
+            border-radius: 2px;
+            color: $pxweb-white;
+            content: "!";
+            display: inline-flex;
+            font-size: 18px;
+            font-weight: bold;
+            height: 28px;
+            justify-content: center;
+            width: 28px;
+        }
+    }
+
+    .error-title {
+        color: $pxweb-red-3;
+        font-weight: bold;
+        line-height: 1.25;
+    }
+
+    ul {
+        color: $pxweb-dark-6;
+        margin-bottom: 0;
+        margin-top: 15px;
+        padding-left: 18px;
+    }
+
+    &.negative {
+        background: $pxweb-dark-5;
+
+        ul {
+            color: $pxweb-white;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+@include file-header("_global-styles.scss");
+
+#{$selector_prefix2} .flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+#{$selector_prefix2} .flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#{$selector_prefix2} .justify-space-between {
+  justify-content: space-between;
+}
+
+#{$selector_prefix2} .justify-space-around {
+  justify-content: space-around;
+}
+
+#{$selector_prefix2} .justify-center {
+    justify-content: center;
+}
+
+#{$selector_prefix2} .align-flex-start {
+  align-items: flex-start;
+}
+
+#{$selector_prefix2} .align-self-flex-start {
+  align-self: flex-start
+}
+
+#{$selector_prefix2} .align-center {
+  align-items: center;
+}
+
+#{$selector_prefix2} .align-flex-end {
+  align-items: flex-end;
+}
+
+#{$selector_prefix2} .align-self-flex-end {
+  align-self: flex-end;
+}
+
+#{$selector_prefix2} .flex-wrap {
+  flex-wrap: wrap;
+}
+
+#{$selector_prefix2} .flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+#{$selector_prefix2} .no-margin {
+  margin: 0 !important;
+}
+
+#{$selector_prefix2} .s-margin-top {
+    margin-top: 10px;
+}
+
+#{$selector_prefix2} .m-margin-top {
+    margin-top: 20px;
+}
+
+#{$selector_prefix2} .xs-margin-left {
+    margin-left: 10px;
+}
+
+#{$selector_prefix2} .font-bold {
+    font: bold;
+}
+
+
+/*
+#{$selector_prefix2} input:focus {
+  outline: $pxweb-purple-3 solid 2px;
+  outline-offset: 2px;
+}
+*/
+

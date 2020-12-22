@@ -1446,7 +1446,7 @@ Public Class TableCodeBehind
         Response.Write("<span class=""table_cellinformation_cell"">" & GetLocalizedString(CELLINFORMATION_CELL) & "</span>")
         Response.Write("<table>")
         For Each varval As KeyValuePair(Of String, String) In cellInfo.VariableValues
-            Response.Write("<tr><td>" & varval.Key & ":</td><td>&nbsp;</td><td>" & varval.Value & "</td></tr>")
+            Response.Write("<tr><td class=""table_cellinformation_text"">" & varval.Key & ":</td><td>&nbsp;</td><td class=""table_cellinformation_text"">" & varval.Value & "</td></tr>")
         Next
         Response.Write("</table>")
 
@@ -1455,7 +1455,7 @@ Public Class TableCodeBehind
             Response.Write("<span class=""table_cellinformation_attributes"">" & GetLocalizedString(CELLINFORMATION_ATTRIBUTES) & "</span>")
             Response.Write("<table>")
             For Each attr As KeyValuePair(Of String, String) In cellInfo.Attributes
-                Response.Write("<tr><td>" & attr.Key & ":</td><td>&nbsp;</td><td>" & attr.Value & "</td></tr>")
+                Response.Write("<tr><td class=""table_cellinformation_text"">" & attr.Key & ":</td><td>&nbsp;</td><td class=""table_cellinformation_text"">" & attr.Value & "</td></tr>")
             Next
             Response.Write("</table>")
         End If
@@ -1465,7 +1465,7 @@ Public Class TableCodeBehind
             Response.Write("<span class=""table_cellinformation_notes"">" & GetLocalizedString(CELLINFORMATION_NOTES) & "</span>")
             Response.Write("<table>")
             For Each note As String In cellInfo.CellNotes
-                Response.Write("<tr><td>" & note & "</td></tr>")
+                Response.Write("<tr><td class=""table_cellinformation_text"">" & note & "</td></tr>")
             Next
             Response.Write("</table>")
         End If

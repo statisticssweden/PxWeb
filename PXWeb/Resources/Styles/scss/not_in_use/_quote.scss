@@ -1,0 +1,16 @@
+.ssb-quote {
+  @include open-sans;
+  background-image: linear-gradient(120deg, $pxweb-green-1 0%, $pxweb-green-1 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  font-size: 20px;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.6;
+
+  &.negative {
+    background-image: linear-gradient(120deg, $pxweb-green-5 0%, $pxweb-green-5 100%);
+    color: $pxweb-white;
+  }
+}

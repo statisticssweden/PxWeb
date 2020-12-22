@@ -21,8 +21,25 @@ namespace PXWeb
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(PxWeb));
 
-        public string HeadTitle { get; set; }
-        
+        public string HtmlLang
+        {
+            get
+            {
+                return LocalizationManager.GetTwoLetterLanguageCode();
+            }
+        }
+
+        public string HeadTitle
+        {
+            get
+            {
+                return LiteralTitle.Text;
+            }
+            set
+            {
+                LiteralTitle.Text = value;
+            }
+        }
 
         public enum ModalDialogType
         {
@@ -93,7 +110,6 @@ namespace PXWeb
                 LocalizationManager.ChangeLanguage(lang);
 
                 List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
-                //linkItems.Add(new LinkManager.LinkItem(PxUrlObj.Language, lang));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.LANGUAGE_KEY, lang));
 
                 //Replaced Request.Url.AbsolutePath with Request.AppRelativeCurrentExecutionFilePath
@@ -139,33 +155,10 @@ namespace PXWeb
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
-            string ctrlname = Request.Params.Get("__EVENTTARGET");
-            bool languageChanged = false;
-            //checkLoggedOn();
-            if (!string.IsNullOrEmpty(ctrlname))
-            {
-                if ((ctrlname.Contains("cboSelectLanguages")))
-                {
-                    languageChanged = true;
-                }
-            }
-
-            if (languageChanged)
-            {
-                if (ValidationManager.CheckValue(cboSelectLanguages.SelectedValue))
-                {
-                    List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
-                    linkItems.Add(new LinkManager.LinkItem("px_language", cboSelectLanguages.SelectedValue));
-                    if (!string.IsNullOrEmpty(PxUrlObj.Layout))
-                    {
-                        linkItems.Add(new LinkManager.LinkItem(PxUrl.LAYOUT_KEY, PxUrlObj.Layout));
-                    }
-                    //Replaced Request.Url.AbsolutePath with Request.AppRelativeCurrentExecutionFilePath
-                    //so that the links will be right even if the site is running without UserFriendlyURL
-                    string url = PCAxis.Web.Core.Management.LinkManager.CreateLink(Request.AppRelativeCurrentExecutionFilePath, false, linkItems.ToArray());
-                    Response.Redirect(url);
-                }
-            }
+            ToTheTopButtonLiteralText.Text = GetLocalizedString("PxWebToTheTopButtonLiteralText");
+            SkipToMain.Text = GetLocalizedString("PxWebSkipToMainContentLinkText");
+            SkipToMain.Attributes.Add("aria-label", GetLocalizedString("PxWebSkipToMainContentLinkScreenReader"));
+            SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
         }
 
 
@@ -184,12 +177,7 @@ namespace PXWeb
         /// </summary>
         private void LoadPageContent()
         {
-            ////Title
-            //litTitle.Text = Server.HtmlEncode(GetLocalizedString("PxWebApplicationTitle"));
-            //if (string.IsNullOrEmpty(litTitle.Text))
-            //{
-            //    litTitle.Text = "PX-Web";
-            //}
+           
             //Logo
             if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)
             {
@@ -202,31 +190,43 @@ namespace PXWeb
             {
                 imgSiteLogo.Visible = false;
             }
+
             //Application name
             litAppName.Text = Server.HtmlEncode(GetLocalizedString("PxWebApplicationName"));
+
             //Languages
-            CultureInfo culture;
+           
+            string html = "";
             foreach (LanguageSettings lang in PXWeb.Settings.Current.General.Language.SiteLanguages)
             {
-                culture = new CultureInfo(lang.Name);
-                cboSelectLanguages.Items.Add(new ListItem(culture.NativeName, lang.Name));
+                if (!(lang.Name == PxUrlObj.Language))
+                {
+                    html += GetChangeToLanguageLink(lang.Name);
+                 }
+                
             }
+            //For testing CSS when more than one language: html += GetChangeToLanguageLink("sv");
+            ChangeLanguageLiteral.Text = html;
 
-            if (cboSelectLanguages.Items.FindByValue(LocalizationManager.CurrentCulture.Name) != null)
-            {
-                cboSelectLanguages.SelectedValue = LocalizationManager.CurrentCulture.Name;
-            }
-            else if (cboSelectLanguages.Items.FindByValue(LocalizationManager.CurrentCulture.TwoLetterISOLanguageName) != null)
-            {
-                cboSelectLanguages.SelectedValue = LocalizationManager.CurrentCulture.TwoLetterISOLanguageName;
-            }
-            else
-            {
-                cboSelectLanguages.SelectedValue = LocalizationManager.CurrentCulture.Parent.Name;
-            }
-            
             //Footer
             lblFooterText.Text = _footertext;
+        }
+
+        private string GetChangeToLanguageLink(string langName)
+        {
+
+            List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
+            linkItems.Add(new LinkManager.LinkItem("px_language", langName));
+            if (!string.IsNullOrEmpty(PxUrlObj.Layout))
+            {
+                linkItems.Add(new LinkManager.LinkItem(PxUrl.LAYOUT_KEY, PxUrlObj.Layout));
+            }
+            //Replaced Request.Url.AbsolutePath with Request.AppRelativeCurrentExecutionFilePath
+            //so that the links will be right even if the site is running without UserFriendlyURL
+            string langUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink(Request.AppRelativeCurrentExecutionFilePath, false, linkItems.ToArray());
+
+            string langText = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebChangeToThisLanguage", new CultureInfo(langName));
+            return String.Format("<div class=\"pxweb-link\"> <a class=\"px-change-lang\" href=\"{0}\"> <span class=\"link-text px-change-lang\">{1}</span></a> </div> ", langUrl, Server.HtmlEncode(langText));
         }
 
          /// <summary>
@@ -280,7 +280,7 @@ namespace PXWeb
          {
              string lang = LocalizationManager.CurrentCulture.Name;
              return PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(key, new CultureInfo(lang));
-         }
+        }
 
         /// <summary>
         /// Set breadcrumb
@@ -506,11 +506,30 @@ namespace PXWeb
                 log.Error("An error occured in GetMenu(string nodeId). So it returns null after logging this message.", e);
                 return null;
             }
-
-
         }
 
+        private string _displayVersion = null;
 
+        public string DisplayVersion
+        {
+            get
+            {
+                if (_displayVersion == null)
+                {
+                    var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                    var displayVersion = version.Major + "." + version.Minor + "." + version.Build;
+
+                    if (version.Revision > 0)
+                    {
+                        displayVersion += "." + version.Revision;
+                    }
+
+                    _displayVersion = displayVersion;
+                }
+                
+                return _displayVersion;
+            }
+        }
 
 
     }

@@ -1,0 +1,291 @@
+﻿/*@import './color-themes/_dark.scss';*/
+/*@import './color-themes/_light.scss';
+*/
+/*#region  Active colors */
+/*#endregion*/
+/*#region  Active colors inside pxbox*/
+/*#endregion*/
+/*#region  Main color scheme */
+/*#region Buttons */
+/*#endregion*/
+/*#region Links */
+/*#endregion*/
+/*#endregion*/
+/*@import './color-themes/_screen-reader.scss';*/
+/*#region  Inactive colors - not in used */
+/*
+$pxweb-green-5: #075745;
+$pxweb-red-1: #fdede7;
+$pxweb-red-2: #ff896b;
+$pxweb-red-4: #cb3713;
+$negative-red: #f8a67d;
+$pxweb-dark-1: #f0f8f9;
+$pxweb-dark-3: #62919a;
+$pxweb-purple-1: #f2f0ff;
+$scrollbar-color: #b0b0b0;
+  */
+/*#endregion*/
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/* **********************************  custom/_Custom.scss *********************************** */
+/* Add your overrides of the default styles in this style sheet */
+/* Login form */
+.login-form {
+  width: 400px;
+  border: solid 1px #c2c4c6;
+  padding: 15px;
+  margin: 40px 0; }
+
+.login-form label {
+  display: block; }
+
+.login-form-failure {
+  color: #9b0014;
+  font-weight: bold; }
+
+.login-form-buttons {
+  text-align: right; }
+
+.login-form div {
+  margin-bottom: 10px; }
+
+.commandbar_shortcut {
+  overflow: hidden;
+  width: auto;
+  display: inline; }
+
+#pxwebcontent .variableselector_valuesselect_variabletitle::first-letter {
+  text-transform: capitalize; }
+
+#pxwebcontent .selectfromgroup-variable::first-letter {
+  text-transform: capitalize; }
+
+#pxwebcontent .hidden {
+  display: none; }
+
+.ui-widget.ui-widget-content {
+  border: none; }
+
+/*Temp fix before rewrite of presentation page*/
+#pxwebcontent .ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab.ui-state-hover {
+  background: white !important; }
+
+#pxwebcontent .ui-tabs-tab.ui-corner-top.ui-state-active.ui-tab.ui-state-hover {
+  background: #333333 !important; }
+
+#pxwebcontent .ui-tabs-active.ui-state-active a {
+  color: white !important; }
+
+#pxwebcontent .savequery_functionbtn .savequery_cancel span {
+  color: white !important; }
+
+#pxwebcontent .px_settings_buttons .px_settings_cancel span {
+  color: white !important; }
+
+/*#header.header {
+    background-image: url("../Images/SSB-top-banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+/*#pxwebcontent .imgSiteLogo {
+  height: 60px;
+  width: unset;
+  vertical-align: middle;
+  padding-top: 12px;
+}*/
+/*#region override important! from forside.scss */
+#pxwebcontent .settings_panel a {
+  color: #222 !important; }
+
+#pxwebcontent .information_definitionlist dd a {
+  color: #003892 !important; }
+
+#pxwebcontent .tablequery_moreinformation {
+  color: #222 !important; }
+
+#pxwebcontent .footnotes_container a {
+  color: #007694 !important; }
+  #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
+    color: #fff !important; }
+
+/*#endregion*/
+/*#region Dialog kompis */
+/*.kompis {
+}
+
+.kompis_label {
+    font-weight: bold;
+}
+
+.kompis_tittel {
+    font-family: Arial;
+    font-size: 175%;
+    font-weight: normal;
+    line-height: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.kompis_description_heading {
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 1px solid;
+}
+
+.kompis_description_text {
+    display: block;
+}
+
+.kompis_formula_heading {
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 1px solid;
+}
+
+.kompis_formula_text {
+    display: block;
+}
+
+.kompis_value {
+}
+
+.kompis_close {
+    float: right;
+    font-weight: bold;
+}*/
+/*#endregion*/
+.sitewrapper {
+  margin: 0 auto;
+  max-width: 1180px;
+  width: 100%; }
+
+@media (max-width: 700px) {
+  .sitewrapper, .forside #content, .forside .precontent {
+    padding: 0px; } }
+
+/*.statistikkside-metaloft {
+    padding-left: 10px
+}*/
+#footer {
+  padding-left: 10px; }
+
+#header {
+  padding-left: 10px; }
+
+#navigation-path {
+  padding-left: 10px; }
+
+.to-archive {
+  padding-left: 10px; }
+
+#pxwebcontent .ui-widget-header {
+  background: white; }
+
+/*#region tablelist */
+#pxwebcontent .tablelist_ol {
+  margin: 0 0 1em 0;
+  padding: 0;
+  list-style-type: decimal !important;
+  list-style-position: inside; }
+
+#pxwebcontent .tablelist_li {
+  margin: 0 0 0 3em;
+  line-height: 135%;
+  list-style-position: outside; }
+
+#pxwebcontent .tablelist_tableheading {
+  font-weight: bold; }
+
+#pxwebcontent .tablelist_linkHeading {
+  color: #2870ae;
+  font-weight: bold; }
+
+#pxwebcontent .tablelist_link {
+  color: #2870ae;
+  padding-right: 5px;
+  border-right: solid 1px #dedede; }
+
+#pxwebcontent .tablelist_variablelist_ol {
+  margin: 0 0 1em 0;
+  padding: 0;
+  list-style-type: circle;
+  list-style-position: inside; }
+
+#pxwebcontent .tablelist_variablelist_li {
+  margin: 0 0 0 3em;
+  line-height: 135%;
+  list-style-position: outside; }
+
+th.pxweb-subheader {
+  font-size: 1.2em !important;
+  font-family: 'Roboto Condensed', sans-serif !important;
+  color: #333333;
+  font-weight: bold !important;
+  padding-top: 2.5em !important; }
+
+th.pxweb-subheader.collapsible:hover {
+  color: #a53d7c; }
+
+th.pxweb-subheader.collapsible:hover .expandMenuTableList {
+  background-image: linear-gradient(transparent, transparent), url("Images/expand-plus-hover.gif"); }
+
+.pxweb-list-items th {
+  color: #333333 !important;
+  padding: 10px 0px 10px 0px !important;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1.1em !important;
+  vertical-align: top; }
+
+#pxwebcontent .pxweb-list-items th a {
+  color: #003892;
+  padding-right: 10px; }
+
+#pxwebcontent .pxweb-list-items th a:hover {
+  color: #a53d7c;
+  text-decoration: underline; }
+
+.pxweb-list-items th:nth-child(1) {
+  width: 10%; }
+
+.pxweb-list-items th:nth-child(2) {
+  width: 70%; }
+
+.pxweb-list-items th:nth-child(3) {
+  width: 20%; }
+
+.table-list-pxweb tr:hover {
+  background-color: white !important; }
+
+#pxwebcontent .tablelist_explanation {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 1.1em; }
+
+.expandMenuTableList {
+  background-image: linear-gradient(transparent, transparent), url("Images/expand-plus.svg");
+  background-size: 20px 20px;
+  color: #00A0BD;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer; }
+
+.collapsedMenuTableList {
+  background-image: linear-gradient(transparent, transparent), url("Images/expand-minus.svg");
+  background-size: 20px 20px;
+  color: #a53d7c;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer; }
+
+.table-list-pxweb th {
+  padding-left: 0; }
+
+/*#endregion*/
+/*  @import './custom/_Custom-external.scss'; */

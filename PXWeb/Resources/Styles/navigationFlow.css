@@ -1,55 +1,116 @@
-﻿/* Used for NavigationFlow webcontrol */
-.navigationFlowArea {
-    height: 36px;
-    line-height: 1px;
-    padding: 5px 0px 5px 0px;
-}/*#navigationFlow*/
- /*.navigationFlowArea { height: 36px; width: 664px; *margin-top: -20px; }*/
-.row1 {
-    font: normal normal normal 11px/11px Verdana, Arial, sans-serif;
-}/*row1*/
+﻿#pxwebcontent .fullscreen {
+  width: 100%;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  /* Removed by comment the 2 below. According to stackoverflow: 
+  *property: value applies the property value in IE 7 and below. It may or may not work in future versions. Warning: this uses invalid CSS.
+*/
+  /*
+  *margin-bottom: 0px;
+  *margin-top: 30px;
+*/
+}
 
- .col1, .col2, .col3 { float: left; width: 110px; margin-right: 59px; text-align: center;}
-.number {
-    color: rgb(255, 255, 255);
-    font-size: 1.8em;
+#pxwebcontent #navigationFlow {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 5px;
+  padding-bottom: 30px;
+}
+
+#pxwebcontent .navigationFlowArea {
+  display: flex;
+  margin: 3px 0px 0;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#pxwebcontent .navigation-link {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  #pxwebcontent .navigation-link.third {
+    margin-left: 0px
+  }
+
+  #pxwebcontent .navigation-link.first {
+    margin-right: 0px
+  }
+
+/*the hr goes under the images. The two hr elements has classes not used here, but hope you dont need them :-)*/
+#pxwebcontent .navigationFlowArea hr {
+  flex: 1;
+  margin-top: 25px;
+  z-index: 0;
+  margin-left: -59px;
+  margin-right: -60px;
+}
+
+#pxwebcontent a.navigation-link:hover {
+  text-decoration: none;
+}
+
+#pxwebcontent a.navigation-link.active, a.navigation-link.future {
+  pointer-events: none;
+}
+
+#pxwebcontent .nav-pic {
+  z-index: 1
+}
+
+#pxwebcontent span.pxweb-link.nav-step {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif !important;
+}
+
+#pxwebcontent span.nav-step {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif !important;
+  text-decoration: none;
+  border-bottom: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px
+}
+
+  #pxwebcontent span.nav-step.active {
+    color: #293F44;
+    font-size: 24px;
     font-weight: bold;
-    height: 32px;
-    line-height: 20px;
-    margin: 0px 39px;
-    outline: rgb(255, 255, 255) none 0px;
-    padding-top: 5px;
-    text-align: center;
-}/*number*/
- .text {
-    font-family:  Verdana, Arial, Helvetica, sans-serif; font-weight: bold;
-    font-size: 1.1em;
-    padding-bottom: 2px;
-    line-height:100%;
-}
-/*text*/
-.active {color: #2870ae;  }/*active*/
-.active .number { background: url('../Images/bullet_active_32px.jpg') no-repeat; }
-.passive { color: #87b6da; }
-.passive .number { background: url('../Images/bullet_passive_32px.gif') no-repeat;  }
-.future { color: #c2c2c2; }
-.future .number { background: url('../Images/bullet_future_32px.gif') no-repeat; }
-/*Dotted line*/
-.fullscreen { width: 100%; margin-bottom: 6px; margin-top: 6px; *margin-bottom: 0px; *margin-top: 30px; }
-.dottedlineLeft {
-    border-top: 1px dotted #a6a6a6;
-    position: relative;
-    left: 71px;
-    top: 18px;
-    *top: 40px;
-    width: 137px;
-}
+  }
 
-.dottedlineRight {
-    border-top: 1px dotted #a6a6a6;
-    position: relative;
-    left: 240px;
-    top: 18px;
-    *top: 28px;
-    width: 137px;
+  #pxwebcontent span.nav-step.future {
+    color: #274247;
+    line-height: 1.25;
+  }
+
+  #pxwebcontent span.nav-step.passive {
+    font-size: 18px;
+    border-bottom-style: solid;
+  }
+
+/*#region  Mobile - small screen*/
+@media only screen and (max-width: 767px) {
+
+  #pxwebcontent .navigationFlowArea {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  #pxwebcontent #navigationFlow {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 20px;
+  }
+
+  #pxwebcontent span.nav-step.passive, #pxwebcontent span.nav-step.future {
+    font-size: 16px;
+  }
+
+  #pxwebcontent span.nav-step.active {
+    font-size: 18px;
+  }
 }
+/*#endregion*/

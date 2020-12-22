@@ -1,0 +1,263 @@
+.ssb-card {
+  @include roboto;
+
+  .clickable {
+    @include focus-marker;
+    @include reset-button;
+
+    .card-image {
+      display: flex;
+
+      img {
+        height: 214px;
+        width: 380px;
+      }
+    }
+
+    &.left-orientation {
+      display: inline-flex;
+      flex-direction: row;
+      width: 100%;
+
+      .card-content {
+        height: 214px;
+        width: 100%;
+      }
+
+      @media #{$mobile} {
+        flex-direction: column;
+
+        .card-content {
+          height: 100%;
+          max-width: 380px;
+        }
+
+        .card-image {
+          width: 100%;
+        }
+
+        img  {
+          max-width: 380px;
+          width: 100%;
+        }
+      }
+    }
+
+    &.top-orientation {
+      display: inline-flex;
+      flex-direction: column;
+
+      .card-content {
+        max-width: 380px;
+        width: 100%;
+      }
+
+      @media #{$mobile} {
+        width: 100%;
+
+        .card-image {
+          width: 100%;
+        }
+
+        img  {
+          max-width: 380px;
+          width: 100%;
+        }
+
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      &.left-orientation {
+
+        .card-content {
+          border-left: 5px solid $pxweb-green-4;
+          padding-left: 16px;
+          @media #{$mobile} {
+            border-left: 1px solid $pxweb-green-4;
+            border-top: 5px solid $pxweb-green-4;
+            padding-left: 20px;
+            padding-top: 15px;
+
+            &.with-image {
+              padding-top: 16px;
+            }
+          }
+        }
+      }
+
+      &.top-orientation {
+
+        .card-content {
+          border-top: 5px solid $pxweb-green-4;
+
+          &.with-image {
+            padding-top: 16px;
+          }
+        }
+      }
+
+      .card-content {
+        border: 1px solid $pxweb-green-4;
+
+        &:not(.with-image) {
+        border-top: 5px solid $pxweb-green-4;
+        }
+
+        &.with-image {
+
+          .card-title {
+            background-color: $pxweb-green-4;
+            border-bottom: none;
+            color: $pxweb-white;
+            margin-bottom: 10px;
+          }
+        }
+
+        .arrow-icon {
+          border: 2px solid $pxweb-green-4;
+          border-radius: 50%;
+          margin-bottom: 1px;
+          margin-top: 13px;
+          margin-left: 1px;
+          padding: 1px;
+        }
+
+        .card-action {
+          align-items: center;
+          background-color: $pxweb-green-4;
+          display: flex;
+          width: fit-content;
+
+          .arrow-icon {
+            border: none;
+            color: $pxweb-white;
+            margin-top: 0;
+            padding: 0;
+          }
+
+          .href-text {
+            color: $pxweb-white;
+          }
+        }
+
+      }
+    }
+  }
+
+  .card-content {
+    background: $pxweb-white;
+    border: 1px solid $pxweb-dark-2;
+    border-top: 5px solid $pxweb-green-3;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+
+    &.with-image {
+      border-top: 1px solid $pxweb-dark-2;
+
+      .card-title {
+        border-bottom: 2px solid $pxweb-green-4;
+        display: table;
+      }
+    }
+
+    &.profiled {
+      align-items: center;
+      display: inline-flex;
+      text-align: center;
+
+      .card-title {
+        font-size: 28px;
+      }
+
+      .card-icon {
+        margin-bottom: 20px;
+        max-height: 132px;
+        max-width: 132px;
+        width: 132px;
+      }
+    }
+
+    .arrow-icon {
+      box-sizing: initial;
+      color: $pxweb-green-4;
+      display: block;
+      margin-top: 12px;
+      padding: 4px;
+    }
+
+    .card-action {
+      @include open-sans;
+      align-items: center;
+      display: flex;
+      margin-top: 12px;
+
+      .arrow-icon {
+        margin-top: 0;
+        padding: 0;
+      }
+
+      .href-text {
+        color: $pxweb-dark-6;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 4px;
+      }
+    }
+
+    .card-icon {
+      margin-bottom: 16px;
+      max-height: 28px;
+      max-width: 28px;
+      width: 28px;
+    }
+
+    .card-subtitle {
+      @include open-sans;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+  }
+
+  .download-section {
+    @include open-sans;
+    align-items: center;
+    border: 1px solid $pxweb-dark-2;
+    cursor: pointer;
+    display: flex;
+    height: 60px;
+    max-width: 380px;
+    text-decoration: none;
+
+    &:focus {
+      @include focus-ring;
+    }
+
+    &:hover {
+      border: 1px solid $pxweb-green-3;
+    }
+
+    .download-icon {
+      color: $pxweb-green-4;
+      margin: 0 18px;
+    }
+
+    span {
+      color: $pxweb-dark-6;
+      font-size: 16px;
+    }
+  }
+}

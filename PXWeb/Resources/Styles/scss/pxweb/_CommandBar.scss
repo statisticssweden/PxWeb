@@ -1,0 +1,430 @@
+@include file-header("_CommandBar.scss TODO");
+
+/* ----  General -----------------*/
+/* Use to set width of file download dialog */
+/* Use to set height of file download dialog*/
+/* ----  Summary function -----------*/
+/* ----  Pivot function -----------*/
+/* ----  ChangeValueOrder function ---- */
+/* ----  ChangeDecimal function ---- */
+/* ---- ChangeTexts --- */
+/* ----  DeleteValue function ---- */
+/* ----  DeleteVariable function ---- */
+/* ----  PerPart function ---- */
+/* ----  ChangePresentation function ---- */
+/* ---- Save as PRN ---- */
+/* ---- Save as Excel ---- */
+
+#pxwebcontent .commandbar {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: 0 0 10px 0;
+  /*height:60px;*/
+}
+
+#pxwebcontent .commandbar_container {
+  border: solid 2px #a9a9a9;
+  padding: 10px 40px 10px 10px;
+  clear: both;
+  float: left;
+  margin: 0 0 10px 0;
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
+
+#pxwebcontent .commandbar_mainshortcut {
+  float: left;
+}
+
+#pxwebcontent .commandbar_shortcut {
+  padding-top: 5px;
+}
+
+#pxwebcontent .commandbar_radioButtonList td {
+  padding: 0 0 3px 0;
+  vertical-align: middle;
+}
+
+#pxwebcontent .commandbar_radioButtonList label {
+  padding: 0 0 0 5px;
+  vertical-align: text-bottom;
+}
+
+#pxwebcontent .commandbar_button_row {
+  /*padding: 5px 0 0 0;*/
+  display: inline-flex;
+  padding-top: 10px;
+}
+
+  #pxwebcontent .commandbar_button_row input {
+    background: #25a23c;
+    color: white;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 1px solid #008451;
+  }
+
+#pxwebcontent .commandbar_dropdown {
+  height: 50px;
+  width: auto;
+  margin-top: 15px;
+}
+
+  #pxwebcontent .commandbar_dropdown div {
+    float: left;
+    margin: 2px 5px 2px 0;
+  }
+
+  #pxwebcontent .commandbar_dropdown select {
+    width: 250px;
+    display: block;
+  }
+
+#pxwebcontent .commandbar_images {
+  height: 50px;
+  float: left;
+}
+
+#pxwebcontent .commandbar_pluginbutton {
+  margin: 0 3px 3px 0;
+}
+
+#pxwebcontent .commandbar_download_file_dialog {
+  width: 240px;
+}
+
+#pxwebcontent .commandbar_download_file_container {
+  height: 120px;
+}
+
+#pxwebcontent .commandbar_download_file_information {
+  margin: 10px 0px 0px 0px;
+  display: block;
+}
+
+#pxwebcontent .commandbar_download_file_link {
+  display: block;
+  font-weight: bold;
+  font-size: 150%;
+  margin: 30px 0px 30px 0px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#pxwebcontent .commandbar_sum_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_sum_sumallvaluesnewvariabelname_dropdown {
+  padding: 0 2px 0 5px;
+}
+
+#pxwebcontent .commandbar_sum_valuestosum_listbox {
+  padding: 0 0 0 6px;
+}
+
+#pxwebcontent .commandbar_sum_errormessage {
+  color: Red;
+}
+
+#pxwebcontent .commandbar_sum_radiobuttonlist label {
+  margin-left: 5px;
+  vertical-align: text-bottom;
+}
+
+#pxwebcontent .commandbar_sum_radiobuttonlist input[type="radio"] {
+  margin-left: 7px;
+}
+
+#pxwebcontent .commandbar_sum_operandspanel_row {
+  padding: 5px 0 0 5px;
+}
+
+#pxwebcontent .commandbar_pivot_container {
+  float: left;
+}
+
+#pxwebcontent .commandbar_pivot_container_buttons {
+  float: left;
+  padding: 15px 10px 0px 10px;
+}
+
+/*#pxwebcontent input[type=submit].commandbar_cancelbutton {
+  background-color: #25a23c;
+  color: white;
+  background: #25a23c;
+  border: 1px solid #008451;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+#pxwebcontent input[type=submit].commandbar_cancelbutton {
+  background-color: #25a23c !important;
+  color: white;
+  background: #25a23c;
+  border: 1px solid #008451;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+}*/
+
+/*#pxwebcontent input[type=submit].commandbar_continuebutton {
+  background-color: #25a23c !important;
+  color: white;
+  background: #25a23c;
+  border: 1px solid #008451;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+}*/
+
+#pxwebcontent .commandbar_pivot_button {
+  display: inline;
+  margin-top: 10px;
+}
+
+#pxwebcontent .commandbar_pivot_continuebutton {
+  margin-top: 15px;
+}
+
+#pxwebcontent .commandbar_pivot_heading {
+  width: 100%;
+  float: none;
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_pivot_title {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_changevalueorder_container_main {
+  width: 600px;
+}
+
+#pxwebcontent .commandbar_changevalueorder_caption {
+  width: 100%;
+  float: none;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#pxwebcontent .commandbar_changevalueorder_instructions {
+  width: 65%;
+  float: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#pxwebcontent .commandbar_changevalueorder_mainbuttons {
+  width: 30%;
+  float: right;
+  vertical-align: top;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+  #pxwebcontent .commandbar_changevalueorder_mainbuttons input {
+    background: #25a23c;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+#pxwebcontent .commandbar_changevalueorder_variablelist {
+  /*float: left;*/
+}
+
+#pxwebcontent .commandbar_changevalueorder_fromorder_container {
+  width: 54%;
+  float: left;
+}
+
+#pxwebcontent .commandbar_changevalueorder_fromorder_downbutton {
+  float: left;
+  width: 8%;
+}
+
+#pxwebcontent .commandbar_changevalueorder_fromorder_controls {
+  float: left;
+  width: 89%;
+}
+
+#pxwebcontent .commandbar_changevalueorder_fromorder_list {
+  width: 89%;
+  float: left;
+}
+
+#pxwebcontent .commandbar_changevalueorder_fromorder_listbox {
+  width: 100%;
+}
+
+#pxwebcontent .commandbar_changevalueorder_fromorder_movebuttons {
+  width: 7%;
+  float: right;
+  padding-left: 6px;
+  padding-right: 0px;
+  margin-top: 25px;
+}
+
+#pxwebcontent .commandbar_changevalueorder_toorder_container {
+  width: 44%;
+  float: left;
+}
+
+#pxwebcontent .commandbar_changevalueorder_toorder_list {
+  width: 90%;
+  float: left;
+}
+
+#pxwebcontent .commandbar_changevalueorder_toorder_listbox {
+  width: 100%;
+}
+
+#pxwebcontent .commandbar_changevalueorder_toorder_downbutton {
+  float: left;
+  width: 7%;
+  padding-left: 7px;
+}
+
+#pxwebcontent .break {
+  clear: both;
+}
+
+#pxwebcontent .commandbar_changedecimal_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_changetexts_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_deletevalue_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_deletevalue_deletevaluetitle {
+  padding: 0 0 3px 0;
+}
+
+#pxwebcontent .commandbar_deletevalue_errordescription {
+  color: #FF0000;
+}
+
+#pxwebcontent .commandbar_deletevariable_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_deletevariable_nametext {
+  font-weight: bold;
+}
+
+  #pxwebcontent .commandbar_deletevariable_nametext label {
+    padding: 0 0 0 5px;
+    vertical-align: text-bottom;
+  }
+
+#pxwebcontent .commandbar_deletevariable_errormessage {
+  color: Red;
+}
+
+#pxwebcontent .commandbar_perpart_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_perpart_radio_horisontal label {
+  padding: 0 5px 0 5px;
+  vertical-align: text-bottom;
+}
+
+#pxwebcontent .commandbar_perpart_errormessage {
+  color: Red;
+}
+
+#pxwebcontent .commandbar_changepresentation_titletext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_changepresentation_headertext {
+  font-weight: bold;
+}
+
+#pxwebcontent .commandbar_changepresentation_radio {
+  padding: 0 0 3px 0;
+}
+
+  #pxwebcontent .commandbar_changepresentation_radio label {
+    padding: 0 7px 0 3px;
+    vertical-align: text-bottom;
+  }
+
+#pxwebcontent .commandbar_changepresentation_inputrow {
+  padding: 0 0 5px 0;
+}
+
+#pxwebcontent .commandbar_changepresentation_errormessage {
+  color: Red;
+}
+
+#pxwebcontent .commandbar_savefilelink {
+  font-weight: bold;
+  font-size: medium;
+}
+
+#pxwebcontent .commandbar_function_dropdownlist {
+    /*font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
+  color: #333333;*/
+/*    @include pxweb-input-list-font;
+*/}
+
+#pxwebcontent .commandbar_saveas_dropdownlist {
+    /*  font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
+  color: #333333;
+*/
+/*    @include pxweb-input-list-font;
+*/}
+
+#pxwebcontent .commandbar_link_dropdownlist {
+    /*  font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
+  color: #333333;*/
+/*    @include pxweb-input-list-font;
+*/}
+
+#pxwebcontent .variableselector_valuesselect_box_commandbar {
+    background-color: $pxbox-background;
+    float: left;
+    border: solid 1px #000000;
+    width: auto;
+    max-width: 800px;
+    height: 100%;
+    margin: 0 6px 2px 0;
+}
+
+#pxwebcontent .variableselector_valuesselect_eventbutton_panel_commandbar {
+  width: auto;
+  padding: 0 3px 3px 6px;
+  overflow: hidden;
+}
+
+#pxwebcontent .variableselector_valuesselect_valuesselect_panel_commandbar {
+  padding: 6px 6px 6px 6px;
+}
+
+#pxwebcontent .commandbar_button_row .pxweb-btn {
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+#pxwebcontent .commandbar_button_row .pxweb-btn {
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+#pxwebcontent .commandbar_button_row .pxweb-btn.primary-btn:hover {
+  border: none;
+}

@@ -1,0 +1,81 @@
+.ssb-radio {
+  @include roboto;
+  color: $pxweb-dark-6;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  min-width: 200px;
+  outline: none;
+  position: relative;
+  text-align: left;
+  user-select: none;
+
+  &:hover, &:focus {
+
+    .radio-label {
+
+      &:before {
+        border: 2px solid $pxweb-green-4;
+      }
+    }
+  }
+
+  input[type=radio] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+
+    &:focus + .radio-label {
+
+      &:before {
+        border: 2px solid $pxweb-green-4;
+      }
+    }
+
+    &:checked + .radio-label {
+
+      &:after {
+        background: $pxweb-dark-5;
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 12px;
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        transform: rotate(45deg);
+        width: 12px;
+      }
+    }
+
+    &:disabled + .radio-label {
+      background: $pxweb-white;
+      color: $pxweb-dark-2;
+      cursor: default;
+
+      &:before {
+        border: 1px solid $pxweb-dark-2;
+      }
+    }
+  }
+
+  .radio-label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 12px;
+    position: relative;
+
+    &:before {
+      background: $pxweb-white;
+      border: 1px solid $pxweb-dark-5;
+      border-radius: 50%;
+      box-sizing: border-box;
+      content: '';
+      display: block;
+      height: 20px;
+      margin-right: 12px;
+      width: 20px;
+    }
+  }
+}

@@ -249,19 +249,22 @@
 	 <sentence name="CtrlVariableSelectorInstructionLabel" value="Mark your selections and choose between table on screen and file format"/>
 	 <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Marking tips"/>
 	 <sentence name="CtrlVariableSelectorEliminationTooltip" value="Select at least one value"/>
+   <sentence name="CtrlVariableSelectorSelectScreenReaderRegion" value="Variable, " />
 	 <sentence name="CtrlVariableSelectorSelectValues" value="--- Select classification ---"/>
 	 <sentence name="CtrlVariableSelectorEliminationLabel" value="For variables marked {image} you need to select at least one value"/>
 	 <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Select all"/>
+   <sentence name="CtrlVariableSelectorSelectAllButton" value="Select all" />
    <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Deselect all"/>
-   <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Select values from group"/>
+   <sentence name="CtrlVariableSelectorDeSelectAllButton" value="Deselect all" />
+   <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Go to: Select values from group"/>
+   <sentence name="CtrlVariableSelectorSelectDropdownGroupingLabel" value="Dropdown menu for groupings of values" />
    <sentence name="CtrlVariableSelectorMetadataImformationTooltip" value="Definitions for variables and values"/>
-   <sentence name="CtrlVariableSelectorSortDescTooltip" value="Sort descending"/>
-	 <sentence name="CtrlVariableSelectorSortAscTooltip" value="Sort ascending"/>
 	 <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Select hierarcically"/>
-	 <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Advanced search"/>
-	 <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Total"/>
-	 <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Selected"/>
-	 <sentence name="CtrlVariableSelectorSearchLabel" value="Search"/>
+	 <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Search"/>
+   <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Selected"/>
+   <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="of total"/>
+   <sentence name="CtrlVariableSelectorOptionalVariableText" value="Optional variable" />
+   <sentence name="CtrlVariableSelectorSearchLabel" value="Go to: Advanced search"/>
 	 <sentence name="CtrlVariableSelectorSearchTooltip" value="Search"/>
 	 <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Text start"/>
 	 <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Presentation on screen is limited to {0} rows and {1} columns"/>
@@ -275,8 +278,12 @@
 	 <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Number of selected data cells are:"/>
 	 <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(maximum number allowed is {0})" />
 	 <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="At least one value has to be selected for variable: " />
-	 <sentence name="CtrlVariableSelectorContinueLabel" value="Select an option and press"/>
-	 <sentence name="CtrlVariableSelectorContinueButton" value="Continue"/>
+   <sentence name="CtrlVariableSelectorValidationSummary" value="Select at least one value from these variables:" />
+   <sentence name="CtrlVariableSelectorValidationMessage" value="Select at least one value" />
+   <sentence name="CtrlVariableSelectorMandatoryText" value="Mandatory" />
+   <sentence name="CtrlVariableSelectorContinueLabel" value="Select an option and press"/>
+	 <sentence name="CtrlVariableSelectorContinueButton" value="Show table"/>
+   <sentence name="CtrlVariableSelectorVariableOverviewHeading" value="Variable overview" />
 	 <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="There are more than 500 values and they are therefore not automatically presented" />
 	 <sentence name="CtrlVariableSelectorShowAll" value="Show All" />
 	 <sentence name="CtrlVariableSelectorShowHierarchy" value="Show hierarchy" />
@@ -285,10 +292,19 @@
 	 <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Search" />
    <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Beginning of row" />
 	 <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Inside word" />
-  <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Beginning of word" />
-	 <sentence name="CtrlVariableSelectorManyValues" value="There are more than {0} values and therefore they are not shown automatically. Use the search function to select values." />
+   <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Beginning of word" />
+   <sentence name="CtrlVariableSelectorSearchValuesTextbox" value="Search" />
+   <sentence name="CtrlVariableSelectorSearchValuesTextboxScreenReader" value="Field for searching for a specific value in the list box. This is examples of values you can search for." />
+   <sentence name="CtrlVariableSelectorSelectValuesListboxScreenReader" value="List box of selectable values for a variabel. Click to mark one or more values." />
+   <sentence name="CtrlVariableSelectorSearchResultSearchWordScreenReader" value="Search for , " />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader1" value=", resulted in , " />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader2" value=", hits, " />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader3" value=", Results" />
+   <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader4" value=", value, " />
+	 <sentence name="CtrlVariableSelectorManyValues" value="There are more than {0} values and therefore they are not shown automatically. Use links for &quot;Advanced search&quot; or &quot;Select values from group&quot;." />
 	 <sentence name="CtrlVariableSelectorLargeValueset" value="(Large valueset)" />
-  <sentence name="CtrlVariableSelectorActionButton" value="Send" />
+   <sentence name="CtrlVariableSelectorMetadataCloseButton" value="Close" />
+   <sentence name="CtrlVariableSelectorActionButton" value="Send" />
 
 	 <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Split time variable"/>
 
@@ -397,40 +413,38 @@
 	 <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Search anywhere in text" />
 	 <sentence name="CtrlSearchVariableValuesSearch" value="Search" />
 	 <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Add choosen results" />
+  
 
-	 <sentence name="CtrlSearchValuesHeader" value="Search values for" />
-	 <sentence name="CtrlSearchValuesSearchCode" value="Search code:" />
-	 <sentence name="CtrlSearchValuesSearchValue" value="Search value:" />
-	 <sentence name="CtrlSearchValuesSearchValueOrCode" value="Search code/value:" />
-	 <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Search beginning of text" />
-	 <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Search anywhere in text" />
-	 <sentence name="CtrlSearchValuesShowAllValues" value="Show all values" />
-	 <sentence name="CtrlSearchValuesSearch" value="Search" />
-	 <sentence name="CtrlSearchValuesSelectionTips" value="To select values within the search result, click the top value, press the Shift key and then click on the last value. (Must be done per page.)" />
-	 <sentence name="CtrlSearchValuesSearchResultHeader" value="Search results" />
-	 <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(number of hits: {0})" />
+	 <sentence name="CtrlSearchValuesHeader2" value="Advanced search for {0}" />
+	 <sentence name="CtrlSearchValuesSelectionTips" value="Use the search box or fetch all.\nIn the hit list you must mark the values you would like to select, and then click the arrow Add to selected values." />
+   <sentence name="CtrlSearchValuesSelectAllAvailableValues2" value="Fetch all {0} values" />
+
+   <sentence name="CtrlSearchValuesSearchLabel" value="Search" />
+  
+	 <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="Number of hits: {0}" />
+	 <sentence name="CtrlSearchValuesSearchResultListboxScreenReader" value="List of hits from the search" />
+	
 	 <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Select all" />
+   <sentence name="CtrlSearchValuesAddToChoosenValues" value="Add to selected values" />
+  <sentence name="CtrlSearchValuesAddToChoosenValuesToolTip" value="Adds the marked search results to the list of selected values" />
+  
 	 <sentence name="CtrlSearchValuesChoosenValues" value="Selected values" />
-	 <sentence name="CtrlSearchValuesAddToChoosenValues" value="Add to selected values" />
-	 <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Remove from selected values" />
-	 <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(number of values: {0})" />
-	 <sentence name="CtrlSearchValuesNoValuesFound" value="No values found" />
-	 <sentence name="CtrlSearchValuesNoValuesSelected" value="No values selected" />
+   <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Remove unmarked values" />
+   <sentence name="CtrlSearchValuesRemoveFromChoosenValuesToolTip" value="Removes the Unmarked values from the list of selected values" />
+   <sentence name="CtrlSearchValuesNumberOfChoosenValues2" value="Number of values: {0} out of {1}" />
+	 <sentence name="CtrlSearchValuesChoosenValuesListboxScreenReader" value="List of values to be shown for the variable." />
+	
 	 <sentence name="CtrlSearchValuesCancel" value="Cancel" />
-	 <sentence name="CtrlSearchValuesClear" value="Clear values" />
-	 <sentence name="CtrlSearchValuesAddToVariableSelector" value="Ok" />
-	 <sentence name="CtrlSearchValuesSearchLabel" value="Search" />
-	 <sentence name="CtrlSearchValuesCode" value="Code" />
-	 <sentence name="CtrlSearchValuesValue" value="Value" />
-	 <sentence name="CtrlSearchValuesAllValues" value="Show all values" />
-	 <sentence name="CtrlSearchValuesSearchText" value="Text:" />
-	 <sentence name="CtrlSearchValuesSearchButton" value="Search" />
-	 <sentence name="CtrlSearchValuesPagerFirstPage" value="First page" />
-	 <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Total number of pages" />
-	 <sentence name="CtrlSearchValuesPagerLastPage" value="Last page" />
-	 <sentence name="CtrlSearchValuesPagerForward" value="Forward" />
-	 <sentence name="CtrlSearchValuesPagerBackward" value="Backward" />
-	 <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Select all available values" />
+	 <sentence name="CtrlSearchValuesAddToVariableSelector" value="OK, return to the main page with the selected values." />
+   <sentence name="CtrlSearchValuesUserManualScreenReaderRegion" value="User manual for advanced." />
+   <sentence name="CtrlSearchValuesUserManualScreenReader" value="The 'Advanced search' screen is used to search in long lists that contain over 1500 values. You can choose to fetch all values, or search for single values. If you use the search function, all matches will appear in a list where you can select one or more of the matches. (The selected values are displayed at the bottom of the screen. If you have selected too many, you can unmark these values and remove them.) You can repeat the search as many times as you want before returning to the main page with the selected values." />
+   <sentence name="CtrlSearchValuesSearchScreenReaderRegion" value="Search and results " />
+   <sentence name="CtrlSearchValuesSelectedValuesScreenReaderRegion" value="Selected values from search " />
+   <sentence name="CtrlSearchValuesSearchFieldScreenReader" value="Enter search key, code or description" />
+	
+
+
+  
 	 <sentence name="CtrlTableQueryShowInformation" value="API query for this table" />
 	 <sentence name="CtrlTableQueryShowInformationTooltip" value="Get information about how you can connect to this table from your application" />
 	 <sentence name="CtrlTableQueryHideInformation" value="Hide" />
@@ -438,9 +452,13 @@
 	 <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
 	 <sentence name="CtrlTableQueryQueryCaption" value="JSON query:" />
 	 <sentence name="CtrlTableQueryMoreInformation" value="More information" />
+    <sentence name="CtrlTableQuerySaveQuery" value="Save API query (json)" />
    <sentence name="CtrlNavigationFlowStep1" value="Choose table" />
+   <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Icon representing the page where you Choose table" />   
    <sentence name="CtrlNavigationFlowStep2" value="Choose variable" />
-   <sentence name="CtrlNavigationFlowStep3" value="Show table" />
+   <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Icon representing the page where you Choose variable" />  
+   <sentence name="CtrlNavigationFlowStep3" value="Show result" />
+   <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Icon representing the page where you Show Result" />
 
    <sentence name="CtrlSaveQueryChoosetimeperiod" value="Update options" />
    <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="What do you want to do with your saved query if the tables are updated with new time periods?" />
@@ -448,6 +466,7 @@
    <sentence name="CtrlSaveQueryNoTimeValWarning" value="It is not possible to update the query since there is no defined time variable in this table." />
    <sentence name="CtrlSaveQuerylnkSaveQuery" value="Save your query" />
    <sentence name="CtrlSaveQueryAsCaption" value="Save the result as (mandatory):" />
+   <sentence name="CtrlSaveQueryHelpPage" value="Change me!! https://www.ssb.no/en/informasjon/om-statistikkbanken/how-to-use-statbank-norway" />
    <sentence name="CtrlSaveQueryForScreen" value="Same as shown on screen" />
    <sentence name="CtrlSaveQueryCancelSaveQuery" value="Cancel" />
    <sentence name="CtrlSaveQuerybtnCreateQuery" value="Finish" />
@@ -471,17 +490,31 @@
    <sentence name="MasterPageSaveQueryInfoLatest" value="{0} most recent time periods" />
    <sentence name="MasterPageSaveQueryInfoFromTime" value="Fixed start time point {0} and all newer time periods" />
    <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Unchanged table" />
-
+   
+ <sentence name="CtrlSelectFromGroupHeading" value="Select values from group for variable: {0}" />
+   <sentence name="CtrlSelectFromGroupSelectUserManualScreenReaderRegion" value="User manual for select values from group." />
+   <sentence name="CtrlSelectFromGroupSelectUserManualScreenReader" value="The 'Select values from group' screen can be used for variables where the values are grouped. You must first select grouping and then group. You can choose to display the single values in the group or (in some tables) aggregated values, before returning to the main page." />
+  
+  <sentence name="CtrlSelectFromGroupGroupingScreenReaderRegion" value="Selection of the grouping"/>
+  <sentence name="CtrlSelectFromGroupGrouping" value="Grouping:" />
   <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Select grouping ---" />
-  <sentence name="CtrlSelectFromGroupHeading" value="Select values from group" />
+  <sentence name="CtrlSelectFromGroupSelectGroupingScreenReader" value="Dropdownlist with groupings" />
+  
+  <sentence name="CtrlSelectFromGroupGroupScreenReaderRegion" value="Processing the groups"/>
+  <sentence name="CtrlSelectFromGroupGroups" value="Groups:" />
+  <sentence name="CtrlSelectFromGroupGroupsScreenReader" value="List of groups in the currently selected grouping." />
+  <sentence name="CtrlSelectFromGroupRadiobuttonListLegend" value="Display values" />
   <sentence name="CtrlSelectFromGroupShowAggregatedValues" value="Show aggregated values" />
   <sentence name="CtrlSelectFromGroupShowSingleValues" value="Show single values" />
-  <sentence name="CtrlSelectFromGroupGroups" value="Groups:" />
-  <sentence name="CtrlSelectFromGroupValues" value="Values:" />
   <sentence name="CtrlSelectFromGroupSelectGroupsAggregated" value="Select as aggregated values" />
-  <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Select as single values" />
+  <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Select as single values" /> 
+
+  <sentence name="CtrlSelectFromGroupValuesScreenReaderRegion" value="Resulting values"/>  
+  <sentence name="CtrlSelectFromGroupValues" value="Values:" />
+  <sentence name="CtrlSelectFromGroupValuesScreenReader" value="List with available values" /> 
   <sentence name="CtrlSelectFromGroupSelectAndReturn" value="Select values and return to selection page" />
   <sentence name="CtrlSelectFromGroupCancel" value="Cancel" />
+
 
   <sentence name="PxcYear" value="year" />
 	 <sentence name="PxcHalfyear" value="halfyear" />
@@ -604,12 +637,14 @@
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
-	 <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v1"/>
-	 <sentence name="PxWebApplicationName" value="PxWeb 2020 v1"/>
-   <sentence name="PxWebLogoAlt" value="PxWeb 2020 v1"/>
+	 <sentence name="PxWebApplicationTitle" value="Next PxWeb (Beta)"/>
+	 <sentence name="PxWebApplicationName" value="Next PxWeb (Beta)"/>
+   <sentence name="PxWebLogoAlt" value="Next PxWeb (Beta)"/>
    <sentence name="PxWebHome" value="Home"/>
-	 <sentence name="PxWebMenu" value="Menu"/>
-   <sentence name="PxWebMenuExplanation" value="Character in brackets shows the lowest regional level. (C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement" />
+   <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
+   <sentence name="PxWebChangeToThisLanguage" value="English" />
+   <sentence name="PxWebMenu" value="Menu"/>
+   <sentence name="PxWebMenuExplanation" value="(C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement. Character in brackets shows the lowest regional level." />
    <sentence name="PxWebSelection" value="Selection"/>
 	 <sentence name="PxWebInformation" value="Information"/>
 	 <sentence name="PxWebDetailedInformation" value="Detailed information"/>
@@ -711,13 +746,17 @@
   <sentence name="PxWebMetadataValuesHeader" value ="Values:"/>
   <sentence name="PxWebMetadataNoVariableMeta" value ="There is no definition for this variable"/>
   <sentence name="PxWebMetadataNoValueMeta" value ="There are no values with definitions"/>
-
-
-  <!-- PxWeb Administration -->
+  <sentence name="PxWebToTheTopButtonLiteralText" value ="To the Top"/>
+  <sentence name="PxWebSkipToMainContentLinkText" value="Jump to main content" />
+  <sentence name="PxWebSkipToMainContentLinkScreenReader" value="Press enter to go directly to main content" />
+  <sentence name="PxWebSkipToSelectionLinkText" value="Go to first variable" />
+  <sentence name="PxWebSkipToSelectionLinkScreenReader" value="Now you have come to the page, Choose variable. This page give you the oportunity to select which variables and values you want to display in your result of the table. A variable is a property of a statistical unit. The page is divided into several boxes, one for each variable, where you can select values by click to highlight one or more values. It always starts with the statistics variable which is the main value counted in the table." />
+  <sentence name="PxWebRegionSelectionUserManualScreenReader" value="User manual for selection page" />
+   <!-- PX-Web Administration -->
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
-	 <sentence name="PxWebAdminVersion" value="PxWeb 2020 v1"/>
+	 <sentence name="PxWebAdminVersion" value="Next PxWeb (Beta)"/>
 	 <sentence name="PxWebAdminHomePage" value="PxWeb Homepage"/>
 	 <sentence name="PxWebAdminSaveButton" value="Save"/>
 	 <sentence name="PxWebAdminGenerateButton" value="Generate"/>
@@ -767,6 +806,9 @@
 	 <sentence name="PxWebWrongLogin" value="Wrong username or password"/>
   <sentence name="PxWebLoggedIn" value="Logged in as"/>
   <sentence name="PxWebLoginMissingUserOrPassw" value="Userid and password must be filled in"/>
+  <sentence name="PxWebLoggedOut" value="You where logged out"/>
+    <sentence name="PxWebSwitchToCompactView" value ="Expert view"/>
+  <sentence name="PxWebSwitchToListView" value ="List view"/>
 
 	 <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Databases"/>
 	 <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Selected PX Databases will be displayed in PxWeb"/>
@@ -948,8 +990,10 @@
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchInfo" value="Choose if search is set to free text or beginning of word." />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchFreeText" value="Free text search" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Beginning of word" />
-  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Select first value" />
-  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Decide if first value for content and time should be selected as default" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Preselected first value" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Determines whether the first value for the statistical variable and time should be preselected" />
+  <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelection" value="Text for missing footnotes" />
+  <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo" value="Determines whether text for missing footnotes should be displayed" />
   
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Show Navigation flow" />
    <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Show Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
@@ -1156,7 +1200,11 @@
 	 <sentence name="PxWebAdminFeaturesApiGeneralEnableCache" value="Enable cache" />
 	 <sentence name="PxWebAdminFeaturesApiGeneralEnableCacheInfo" value="If cacheing of requests shall be made or not" />
 	 <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformation" value="Show API help" />
-   <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="If enabled a information link is displayed in PxWeb in the presentation views. When the link is clicked information about how to access the current table via the API is displayed." />
+   <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="If enabled a information link is displayed in PX-Web in the presentation views. When the link is clicked information about how to access the current table via the API is displayed." />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButtonInfo" value="If enabled, button for saving API query is visible" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton" value="Show button 'Save API query'" />
+  <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryTextInfo" value="Please use the istitution's abbreviation with lowercase. Example: If the text is 'ssb' then the filename will be 'ssb_table_[tableid].json'" />
+  <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryText" value="Prefix API query file" />
   <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimitInformationInfo" value="Maximum number of cells returned from request" />
   <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimit" value="Max cells returned" />
   <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormatInfo" value="The response format that will be displayed in the API example" />

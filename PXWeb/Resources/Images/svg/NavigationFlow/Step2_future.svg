@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="52" height="52" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+  
+<style>
+    .bg-color-dark {fill:#206396;}
+    .stroke-color {stroke:#206396;}
+</style>
+
+<g id="Breadnumber" opacity="1">
+	<g id="Ellipse_1">
+		<circle fill="#274247" cx="26" cy="26" r="24"/>
+		<circle fill="#FFFFFF" class="stroke-color" stroke-width="2" cx="26" cy="26" r="23"/>
+	</g>
+	<g id="check-square" transform="translate(15 15)">
+		<path id="Path_8" fill="none" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8,10l3,3
+			L21,3"/>
+		<path id="Path_9" fill="none" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20,11v7
+			c0,1.105-0.895,2-2,2H4c-1.105,0-2-0.895-2-2V4c0-1.105,0.895-2,2-2h11"/>
+	</g>
+</g>
+</svg>

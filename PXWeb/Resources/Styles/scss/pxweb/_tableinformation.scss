@@ -1,0 +1,27 @@
+﻿@include file-header("_tableinformation.scss");
+
+#pxwebcontent .tableinformation_container {
+  margin: 10px 0 10px 0;
+  display: inline-block;
+}
+
+#pxwebcontent .tableinformation_title {
+  /*changed Ariel to open sans*/
+  @include just-open-sans;
+  font-size: 130%;
+  font-weight: normal;
+  line-height: 150%;
+}
+
+#pxwebcontent .tableinformation_description {
+  font-weight: bold;
+}
+
+#pxwebcontent .ui-corner-top {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+#pxwebcontent .ui-tabs-tab li {
+  background-color: $pxweb-dark-5;
+}

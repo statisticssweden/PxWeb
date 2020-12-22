@@ -56,6 +56,12 @@ namespace PXWeb
             xpath = "./defaultExampleResponseFormat";
             DefaultExampleResponseFormat = SettingsHelper.GetSettingValue(xpath, apiNode, "px");
 
+            xpath = "./showSaveApiQueryButton";
+            ShowSaveApiQueryButton = SettingsHelper.GetSettingValue(xpath, apiNode, false);
+
+            xpath = "./saveApiQueryText";
+            SaveApiQueryText = SettingsHelper.GetSettingValue(xpath, apiNode, string.Empty);
+
         }
 
         /// <summary>
@@ -98,6 +104,12 @@ namespace PXWeb
 
             xpath = "./defaultExampleResponseFormat";
             SettingsHelper.SetSettingValue(xpath, apiNode, DefaultExampleResponseFormat);
+
+            xpath = "./showSaveApiQueryButton";
+            SettingsHelper.SetSettingValue(xpath, apiNode, ShowSaveApiQueryButton.ToString());
+
+            xpath = "./saveApiQueryText";
+            SettingsHelper.SetSettingValue(xpath, apiNode, SaveApiQueryText);
         }
         #endregion
 
@@ -116,6 +128,9 @@ namespace PXWeb
         public string InfoURL { get; set; }
         public int FetchCellLimit { get; set; }
         public string DefaultExampleResponseFormat { get; set; }
+        public bool ShowSaveApiQueryButton { get; set; }
+        public string SaveApiQueryText { get; set; }
+
 
         #endregion
     }

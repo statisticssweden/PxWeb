@@ -1,5 +1,4 @@
-﻿
-Imports System.Collections.Generic
+﻿Imports System.Collections.Generic
 Imports PCAxis.Web.Core.Management
 Imports PCAxis.Paxiom.Localization
 Imports PCAxis.Paxiom
@@ -15,7 +14,6 @@ Imports PCAxis.Query
 
 Public Class VariableSelectorCodebehind
     Inherits PaxiomControlBase(Of VariableSelectorCodebehind, VariableSelector)
-
 
 #Region "Localized strings"
     Private Const ROW_SELECTION_LIMIT_EXCEEDED As String = "CtrlVariableSelectorSelectionLimitRowsExceeded"
@@ -42,8 +40,10 @@ Public Class VariableSelectorCodebehind
     Protected SelectFromGroupPanel As Panel
     Protected WithEvents SelectHierarchichalVariable As Hierarchical
     Protected WithEvents SelectValuesFromGroup As SelectFromGroup
-    Protected OutputFormats As VariableSelectorOutputFormats
     Private buttonClicked As Boolean = False 'If the Continue button is clicked or not
+    Protected SelectionValidationSummary As ValidationSummary
+    Protected UserManualMainRegion As Panel
+    Protected UserManualMain As Panel
 #End Region
 
 #Region " Properties "
@@ -66,11 +66,31 @@ Public Class VariableSelectorCodebehind
     ''' </summary> 
     Protected Sub VariableSelector_Load() Handles Me.Load
 
-        'Make the content variable to be the first variable displayed in VariableSelector
-        Dim query = _
-        From v In Me.PaxiomModel.Meta.Variables _
-        Order By v.IsContentVariable Descending _
-        Select v
+
+        Dim haveSetCandidateMustSelect As Boolean = True
+        For Each var As Paxiom.Variable In Me.PaxiomModel.Meta.Variables
+            If Not var.ExtendedProperties.ContainsKey("CandidateMustSelect") Then
+                haveSetCandidateMustSelect = False
+                Exit For
+            End If
+        Next
+        Dim query As IEnumerable(Of Paxiom.Variable)
+        'Make the content variable to be the first, then time, then variables that might be non eliminateable displayed in VariableSelector
+        If haveSetCandidateMustSelect Then
+            query = From v In Me.PaxiomModel.Meta.Variables Order By v.IsContentVariable Descending, v.IsTime Descending, v.ExtendedProperties("CandidateMustSelect") Descending Select v
+        Else               'Make the content variable to be the first. rest sorted as default from parser
+            query = From v In Me.PaxiomModel.Meta.Variables Order By v.IsContentVariable Descending
+        End If
+
+
+
+        'Clientsidecalidation if true, else serverside
+
+        If Marker.ClientSideValidation Then
+            ButtonViewTable.OnClientClick = "return ValidateAll()"
+        Else
+            ButtonViewTable.OnClientClick = ""
+        End If
 
         'VariableSelectorValueSelectRepeater.DataSource = Me.PaxiomModel.Meta.Variables
         VariableSelectorValueSelectRepeater.DataSource = query
@@ -81,12 +101,6 @@ Public Class VariableSelectorCodebehind
         VariableSelectorMarkingTips.MarkingTipsLinkNavigateUrl = Marker.MarkingTipsLinkNavigateUrl
         SelectHierarchichalVariable.HierarchyLevelsOpen = Marker.HierarchicalSelectionLevelsOpen
 
-        If Marker.ShowElimMark Then
-            VariableSelectorEliminationInformation.Visible = True
-            VariableSelectorEliminationInformation.EliminationImagePath = Marker.EliminationImagePath
-        Else
-            VariableSelectorEliminationInformation.Visible = False
-        End If
 
         VariableSelectorSelectionInformation.ShowSelectionLimits = Marker.ShowSelectionLimits
         VariableSelectorSelectionInformation.ShowSelectionsMade = Marker.ShowSelectedRowsColumns
@@ -100,9 +114,6 @@ Public Class VariableSelectorCodebehind
         Else
             VariableSelectorMarkingTips.Visible = False
         End If
-
-        OutputFormats.PresentationViews = Marker.PresentationViews
-        OutputFormats.OutputFormats = Marker.OutputFormats
 
         Me.SearchVariableValues.ShowSearchInformationLink = Marker.ShowSearchInformationLink
         Me.SearchVariableValues.SearchInformationLinkText = Marker.SearchInformationLinkText
@@ -165,6 +176,7 @@ Public Class VariableSelectorCodebehind
                 VariableSelect.Variable = var
                 VariableSelect.LimitSelectionsBy = Marker.LimitSelectionsBy
                 VariableSelect.ShowElimMark = Marker.ShowElimMark
+                VariableSelect.ClientSideValidation = Marker.ClientSideValidation
                 VariableSelect.ShowHierarchies = Marker.ShowHierarchies
                 VariableSelect.AllowAggreg = Marker.AllowAggreg
                 VariableSelect.SearchButtonMode = Marker.SearchButtonMode
@@ -180,6 +192,7 @@ Public Class VariableSelectorCodebehind
                 VariableSelect.ButtonsForContentVariable = Marker.ButtonsForContentVariable
                 VariableSelect.SearchValuesBeginningOfWordCheckBoxDefaultChecked = Marker.SearchValuesBeginningOfWordCheckBoxDefaultChecked
                 VariableSelect.PreSelectFirstContentAndTime = Marker.PreSelectFirstContentAndTime
+                VariableSelect.MetaLinkProvider = Marker.MetaLinkProvider
                 ValueSelectPlaceHolder.Controls.Add(VariableSelect)
                 AddHandler VariableSelect.SelectHierarchicalButtonClicked, AddressOf VariableSelector_SelectHierarchicalValueButtonClicked
                 AddHandler VariableSelect.SearchLargeNumberOfValuesButtonClicked, AddressOf VariableSelector_SearchLargeNumberOfValuesButtonClicked
@@ -206,12 +219,16 @@ Public Class VariableSelectorCodebehind
     ''' </summary>    
     Private Sub SetLocalizedTexts()
         ButtonViewTable.Text = GetLocalizedString("CtrlVariableSelectorContinueButton")
+        SelectionValidationSummary.HeaderText = "<span style='font-weight:bold'>" + GetLocalizedString("CtrlVariableSelectorValidationSummary") + "</span>"
         If (Marker.LimitSelectionsBy = "RowsColumns") Then
             SelectionErrorlabelTextRows.Text = String.Format(Me.GetLocalizedString(ROW_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedRowsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
             SelectionErrorlabelTextColumns.Text = String.Format(Me.GetLocalizedString(COL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedColumnsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
         Else
             SelectionErrorlabelTextCells.Text = String.Format(Me.GetLocalizedString(CELL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedTotalCellsDownloadLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
         End If
+
+        UserManualMainRegion.Attributes.Add("aria-label", LocalizationManager.GetLocalizedString("PxWebSelectionUserManualScreenReaderRegion"))
+        UserManualMain.Attributes.Add("aria-label", LocalizationManager.GetLocalizedString("PxWebSkipToSelectionLinkUserManualScreenReader"))
 
     End Sub
 
@@ -282,6 +299,7 @@ Public Class VariableSelectorCodebehind
         SelectValuesFromGroup.InitiateSearch()
         SelectFromGroupPanel.Visible = True
         VariableSelectorPanel.Visible = False
+        Marker.OnLeaveVariableSelectorMain(e)
     End Sub
 
     Private Sub VariableSelector_MetadataInformationClicked(ByVal sender As Object, ByVal e As EventArgs, ByVal variable As Variable)
@@ -315,10 +333,6 @@ Public Class VariableSelectorCodebehind
         SelectFromGroupPanel.Visible = False
         VariableSelectorPanel.Visible = True
 
-        'Dim variableCode As String = "ålder"
-        'Dim aggregation As String = "10-årsklasser.agg"
-        'Dim include As GroupingIncludesType = GroupingIncludesType.SingleValues
-
         'Switch to the aggregation selected in the "Select values from group" dialog
         'Find the right control
         For Each item As RepeaterItem In VariableSelectorValueSelectRepeater.Items
@@ -330,8 +344,8 @@ Public Class VariableSelectorCodebehind
             End If
         Next
 
-
         RenderSelectionsMade()
+        Marker.OnReenterVariableSelectorMain(e)
     End Sub
     ''' <summary>
     ''' Handles buttonclick event in VariableSelectorValueSelect to trigger selection of values for variable through valuesearch
@@ -343,7 +357,7 @@ Public Class VariableSelectorCodebehind
         SearchVariableValues.InitiateSearch()
         VariableSelectorPanel.Visible = False
         SearchVariableValuesPanel.Visible = True
-        'SearchVariableValues.Visible = True
+        Marker.OnLeaveVariableSelectorMain(e)
     End Sub
 
     ''' <summary>
@@ -354,6 +368,7 @@ Public Class VariableSelectorCodebehind
         VariableSelectorPanel.Visible = True
         SearchVariableValuesPanel.Visible = False
         RenderSelectionsMade()
+        Marker.OnReenterVariableSelectorMain(e)
     End Sub
 
 
@@ -363,6 +378,7 @@ Public Class VariableSelectorCodebehind
     '''' <remarks></remarks>
     Private Sub ButtonViewTable_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ButtonViewTable.Click
         buttonClicked = True
+        Page.Validate()
         ViewTable()
     End Sub
 
@@ -385,29 +401,20 @@ Public Class VariableSelectorCodebehind
             SelectionErrorlabelTextCells.Text = String.Format(Me.GetLocalizedString(CELL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedTotalCellsDownloadLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
         End If
 
-        If Me.OutputFormats.ScreenOutput Then
-            'Output to screen
-            If (Marker.LimitSelectionsBy = "RowsColumns") Then
-                'Check that number of selected rows and number of selected columns are within configured limits
-                If selectedRows > Marker.SelectedRowsLimit Then
-                    message += String.Format(Me.GetLocalizedString(ROW_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedRowsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
-                End If
-                If selectedColumns > Marker.SelectedColumnsLimit Then
-                    message += String.Format(Me.GetLocalizedString(COL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedColumnsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
-                End If
-            Else
-                'Check that number of selected cells are within configured limits
-                If (selectedRows * selectedColumns) > Marker.SelectedTotalCellsDownloadLimit Then
-                    message += String.Format(Me.GetLocalizedString(CELL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedTotalCellsDownloadLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
-                End If
+        If (Marker.LimitSelectionsBy = "RowsColumns") Then
+            'Check that number of selected rows and number of selected columns are within configured limits
+            If selectedRows > Marker.SelectedRowsLimit Then
+                message += String.Format(Me.GetLocalizedString(ROW_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedRowsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
+            End If
+            If selectedColumns > Marker.SelectedColumnsLimit Then
+                message += String.Format(Me.GetLocalizedString(COL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedColumnsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
             End If
         Else
-            'Download to file
+            'Check that number of selected cells are within configured limits
             If (selectedRows * selectedColumns) > Marker.SelectedTotalCellsDownloadLimit Then
                 message += String.Format(Me.GetLocalizedString(CELL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedTotalCellsDownloadLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
             End If
         End If
-
 
         If message.Length > 0 Then
             'To many rows/columns or cells selected
@@ -491,11 +498,8 @@ Public Class VariableSelectorCodebehind
 
             SignalAction()
 
-            If Me.OutputFormats.ScreenOutput Then
-                Marker.ScreenOutputMethod.Invoke(OutputFormats.SelectedOutput, Me.PaxiomModel)
-            Else
-                Me.OutputFormats.ShowInSelectedOutputFormat()
-            End If
+            Marker.ScreenOutputMethod.Invoke(Marker.PresentationView, Me.PaxiomModel)
+
         Else
             Dim VariableMissingSelection As String = ""
             For Each item As RepeaterItem In VariableSelectorValueSelectRepeater.Items
@@ -504,7 +508,7 @@ Public Class VariableSelectorCodebehind
                     VariableMissingSelection = variableSelectorValueSelect.Variable.Name
                 End If
             Next
-            SelectionErrorlabel.Text = GetLocalizedString("CtrlVariableSelectorSelectionMissingErrorMessage") + VariableMissingSelection
+            '  SelectionErrorlabel.Text = GetLocalizedString("CtrlVariableSelectorSelectionMissingErrorMessage") + VariableMissingSelection
         End If
 
     End Sub
@@ -516,18 +520,11 @@ Public Class VariableSelectorCodebehind
     Private Sub SignalAction()
         Dim args As PxActionEventArgs
 
-        If Not String.IsNullOrEmpty(Me.OutputFormats.SelectedOutput) Then
-            If Marker.PresentationViews.Contains(Me.OutputFormats.SelectedOutput) Then
-                'Presentation view
-                args = New PxActionEventArgs(PxActionEventType.Presentation, Me.OutputFormats.SelectedOutput)
-            Else
-                'Save as action
-                args = New PxActionEventArgs(PxActionEventType.SaveAs, Me.OutputFormats.SelectedOutput)
-            End If
-            PxActionEventHelper.SetModelProperties(args, PaxiomManager.PaxiomModel)
+        'Presentation view
+        args = New PxActionEventArgs(PxActionEventType.Presentation, Me.Marker.PresentationView)
+        PxActionEventHelper.SetModelProperties(args, PaxiomManager.PaxiomModel)
 
-            Marker.OnPxActionEvent(args)
-        End If
+        Marker.OnPxActionEvent(args)
     End Sub
 
 

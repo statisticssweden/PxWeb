@@ -1,0 +1,44 @@
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
+
+// Global imports
+@import 'variables';
+@import 'icons.scss';
+@import './icon-backgrounds.scss';
+// pxweb component imports
+@import './pxweb/_PxWeb.scss';
+//spilt from _PxWeb.scss
+@import './pxweb/_PxWebButtons.scss';
+@import './pxweb/_sitemappath-selectors';  //remove?
+@import './pxweb/_login_admin_from_rev283_.scss'; //remove?
+@import './pxweb/_MetadataSystemControl.scss'; //remove?
+@import './pxweb/_menu.scss';
+@import './pxweb/_top-link.scss';
+//end (spilt from _PxWeb.scss)
+/*@import './pxweb/_Admin.scss';*/
+@import './pxweb/_breadcrumb.scss';
+@import './pxweb/_CommandBar.scss';
+@import './pxweb/_datasort.scss';
+@import './pxweb/_excel.scss';
+@import './pxweb/_footnote.scss';
+@import './pxweb/_hierarchical.scss';
+@import './pxweb/_information.scss';
+@import './pxweb/_login.scss';
+@import './pxweb/_metadata.scss';
+@import './pxweb/_navigationFlow.scss';
+@import './pxweb/_print.scss';
+@import './pxweb/_savequery.scss';
+@import './pxweb/_search.scss';
+@import './pxweb/_searchvalues.scss';
+@import './pxweb/_searchvariablevalues.scss';
+@import './pxweb/_selectfromgroup.scss';
+@import './pxweb/_table.scss';
+@import './pxweb/_tableinformation.scss';
+@import './pxweb/_tableofcontent.scss';
+@import './pxweb/_tablequery.scss';
+@import './pxweb/_textsearch.scss';
+@import './pxweb/_TreeView.scss';
+@import './pxweb/_variableOverview.scss';
+@import './pxweb/_variableselector.scss';
+

@@ -1,0 +1,40 @@
+﻿@include file-header("_search.scss TODO ");
+/* Used for Search webcontrol */
+
+#pxwebcontent .search_panel {
+    border: solid 3px $pxweb-dark-5;
+    background-color: #eee;
+    padding: 3px 10px 10px 10px;
+    margin-bottom: 10px;
+}
+
+#pxwebcontent .search_label {
+    /*font-family: Verdana;*/
+    /*@include pxweb-font;*/
+    /*font-size: 0.9em;*/
+    @include roboto-condenced;
+    font-size: 15px;
+    margin-top: 5px;
+    display: block;
+}
+
+#pxwebcontent .search_textbox {
+    width: 200px;
+    margin: 0 5px 5px 0;
+    @include roboto;
+    @include focus-marker;
+}
+#pxwebcontent .search_button {
+    @include focus-marker;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#pxwebcontent .search_error {
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.9em;
+    color: #B0272E;
+    display: block;
+    padding-top: 3px;
+}

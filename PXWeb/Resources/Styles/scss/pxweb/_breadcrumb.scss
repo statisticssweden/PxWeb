@@ -1,0 +1,65 @@
+﻿@include file-header("_breadcrumb.scss TODO");
+
+#pxwebcontent .breadcrumb_container {
+  background: breadcrumb-background;
+}
+
+#pxwebcontent .breadcrumb_text {
+    color: $breadcrumb-text;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+#pxwebcontent .breadcrumb_text:hover {
+    color: $breadcrumb-text;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.9em;
+}
+
+#pxwebcontent .breadcrumb_text:focus {
+  @include focus-ring;
+}
+
+#pxwebcontent .breadcrumb_text_nolink {
+    color: $breadcrumb-text-nolink;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+#pxwebcontent .breadcrumb_text_nolink:hover {
+    color: $breadcrumb-text-nolink;
+    /*font-family: Verdana;*/
+    @include pxweb-font;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+#pxwebcontent .breadcrumb_sep {
+    color: $breadcrumb-text;
+    font-family: Verdana;
+    @include pxweb-font;
+    font-size: 0.8em;
+}
+
+#pxwebcontent .breadcrumb_homebutton {
+    width: 20px;
+    height: 20px;
+    background-image: get-icon( 'home', $breadcrumb-text);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    outline: none;
+}
+
+#pxwebcontent #breadcrumb {
+    border-top: 3px solid $breadcrumb-text;
+    background: $breadcrumb-background;
+    text-transform: none;
+    padding: 5px 15px;
+    min-height: 30px;
+}
+

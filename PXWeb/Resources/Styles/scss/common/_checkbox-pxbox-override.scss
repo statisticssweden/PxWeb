@@ -1,0 +1,68 @@
+@include file-header("common/_checkbox-pxbox-override.scss");
+
+
+#pxwebcontent .pxbox .pxweb-checkbox .checkbox-label:before {
+  background: $pxbox-background;
+  border: 1px solid $pxbox-green-2;
+}
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked + .checkbox-label:after {
+  border: solid $pxbox-green-2;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 6px;
+}
+
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:hover + .checkbox-label:before {
+  background: $pxbox-green-2;
+}
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked:hover + .checkbox-label:after {
+  background-color: $pxbox-green-2;
+  border: solid $pxbox-background;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 6px;
+}
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:checked:focus + .checkbox-label:after {
+  border: solid $pxbox-background;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(45deg);
+  width: 6px;
+}
+
+#pxwebcontent .pxbox .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
+  background: $pxbox-green-2;
+}
+
+#pxwebcontent .pxbox .pxweb-checkbox:hover .checkbox-label:before, .pxbox #pxwebcontent .pxweb-checkbox:focus .checkbox-label:before {
+  border: 2px solid $pxbox-green-2;
+}
+
+#pxwebcontent .pxweb-checkbox input[type=checkbox]:focus + .checkbox-label:before {
+  outline: 2px solid $pxweb-purple-3;
+  outline-offset: 2px;
+}
+
+
+

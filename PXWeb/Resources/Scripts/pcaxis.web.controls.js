@@ -53,23 +53,43 @@ function PivotManual_Submit(headingId, stubId) {
 
 
 function UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
-    var count = 0;
+    
     var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
-    for (var i = 0; i < selectbox.length; i++) {
-        if (selectbox.options[i].selected)//attr('selected', '1'))
-        {
-            count++;
-        }
+    var selected = selectbox.selectedOptions.length;
+
+    SetNumberSelected(ListBoxID, StatsSpanID);
+
+    if (window.SelectedValueChanged) {
+        SelectedValueChanged(ListBoxID.replace(/\$/gi, "_"), variablePlacement, selected, limitSelectionBy);
     }
+}
+
+function SetNumberSelected(ListBoxID, StatsSpanID) {
+    var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
     var statsspan = document.getElementById(StatsSpanID.replace(/\$/gi, "_"));
 
     if (statsspan != null) {
-        statsspan.value = count;
+        statsspan.textContent = selectbox.selectedOptions.length;
     }
+}
 
-    if (window.SelectedValueChanged) {
-        SelectedValueChanged(ListBoxID.replace(/\$/gi, "_"), variablePlacement, count, limitSelectionBy);
-    }
+function SetButtonEnablePropertyToHasSelected(ListBoxID, ButtonId) {
+    var disableButton = true;
+    var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
+    disableButton = selectbox.selectedIndex == -1;
+
+    var button = document.getElementById(ButtonId.replace(/\$/gi, "_"));
+    button.disabled = disableButton;
+}
+
+
+function SetButtonEnablePropertyToHasDeselected(ListBoxID, ButtonId) {
+    var disableButton = true;
+    var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
+    disableButton = selectbox.length == selectbox.selectedOptions.length;
+
+    var button = document.getElementById(ButtonId.replace(/\$/gi, "_"));
+    button.disabled = disableButton;
 }
 
 function SelectOperands(selectedValue, textBoxIDValue1, textBoxIDValue2) {
@@ -106,6 +126,8 @@ function SetUniqueRadioButton(nameregex, current) {
 // Select all elements in a listbox and updates the number selected
 function VariableSelector_SelectAllAndUpdateNrSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
     VariableSelector_SelectAll(ListBoxID)
+    //ValidatePage(ListBoxID)
+    ValidateControl(ListBoxID)
     UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy);
     return false;
 }
@@ -123,6 +145,8 @@ function VariableSelector_SelectAll(ListBoxID) {
 // Deselect all elements in a listbox and updates the number selected
 function VariableSelector_DeselectAllAndUpdateNrSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
     VariableSelector_DeselectAll(ListBoxID)
+    //ValidatePage(ListBoxID)
+    ValidateControl(ListBoxID)
     UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy);
     return false;
 }
@@ -143,6 +167,34 @@ function VariableSelector_DeselectAll(ListBoxID) {
 
     return false;
 }
+// Validate Page
+function ValidatePage(validationGroup) {
+    if (typeof (Page_ClientValidate) == 'function') {
+        var scrollToOrig = window.scrollTo;
+        window.scrollTo = function () { };
+        Page_ClientValidate(validationGroup);
+        window.scrollTo = scrollToOrig;
+    }
+
+}
+// Validate Control
+function ValidateControl(targetedControlId) {
+    var targetedControl = document.getElementById(targetedControlId);
+    if (typeof (ValidatorValidate) == 'function') {
+        if (typeof (targetedControl.Validators) != "undefined") {
+            vals = targetedControl.Validators
+
+            var scrollToOrig = window.scrollTo;
+            window.scrollTo = function () { };
+            for (var i = 0; i < vals.length; i++) {
+                ValidatorValidate(vals[i]);
+                ValidatorUpdateIsValid();
+            }
+            window.scrollTo = scrollToOrig;
+        }
+    }
+}
+
 
 // Restore original order
 function VariableSelector_OrignalOrder(ListBoxID, currentOrder) {
@@ -163,40 +215,13 @@ function VariableSelector_OrignalOrder(ListBoxID, currentOrder) {
     }
 }
 
-// Sort all elements in a listbox in descending order and updates number selected
-function VariableSelector_SortDescendingAndUpdateNrSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
-    VariableSelector_SortDescending(ListBoxID)
-    UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy);
-    return false;
-}
-
-// Sort all elements in a listbox in descending order
-function VariableSelector_SortDescending(ListBoxID) {
-    var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
-    sortOptions(selectbox, false);
-    return false;
-}
-
-// Sort all elements in a listbox in ascending order and updates number selected
-function VariableSelector_SortAscendingAndUpdateNrSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
-    VariableSelector_SortAscending(ListBoxID)
-    UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy);
-    return false;
-}
-
-// Sort all elements in a listbox in ascending order
-function VariableSelector_SortAscending(ListBoxID) {
-    var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
-    sortOptions(selectbox, true);
-    return false;
-}
-
 //Search values in listbox with the given text
-function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
+function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSpanID, variablePlacement, limitSelectionBy, localizedLanguage) {
     var sc;
     var r, re;
     var lst;
     var contains;
+    var localizedTextArray = localizedLanguage.split("|");
 
     var storeOriginalOrder = false;
 
@@ -243,7 +268,9 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
 
     var searchStr = sc.toLowerCase();
     var selected = new Array();
-    var originPos = new Array();    
+    var originPos = new Array();
+    var searchResult = "";
+    var searchHits = 0;
 
     for (i = lst.options.length - 1; i > -1; i--) {
         var currentOption = lst.options[i];
@@ -259,6 +286,8 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
                 currentOption.selected = true;
                 selected.unshift(currentOption);
                 originPos.unshift(currentOption.index);
+                searchResult = searchResult + localizedTextArray[4] + currentOption.text + " ";
+                searchHits++;
             }
         } else {
             var optionText = currentOption.text.toLowerCase();
@@ -268,6 +297,8 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
                 currentOption.selected = true;
                 selected.unshift(currentOption);
                 originPos.unshift(currentOption.index);
+                searchResult = searchResult + localizedTextArray[4] + currentOption.text + " ";
+                searchHits++;
             }
         }
     }
@@ -278,9 +309,18 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
 
     UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy);
     MoveSelectedToTop(lst, selected, originPos);
+    UpdateSearchResultScreenReader(searchHits, searchResult, localizedTextArray, searchStr);
     lst.scrollTop = 0;
-
+    ValidateControl(ListBoxID)  //piv
     return false;
+}
+
+function UpdateSearchResultScreenReader(searchHits, searchResults, localizedText, searchWord) {
+    var element = document.getElementById("SearchResults");
+    element.textContent = localizedText[0] + searchWord + localizedText[1] + searchHits + localizedText[2];
+    if (searchHits > 0) {
+        element.textContent = element.textContent + localizedText[3] + searchResults;
+    }
 }
 
 function MoveSelectedToTop(lst, selected, originPos) {
@@ -560,4 +600,16 @@ function settingpanelExpand(panelclass) {
     img.removeClass('px-settings-expandimage');
     img.addClass('px-settings-collapseimage');
 
+}
+
+function accordionToggle(panel, button) {
+    var accordionBody = panel.querySelector('.accordion-body');
+    accordionBody.classList.toggle("closed");
+    button.classList.toggle("closed");
+
+    if (accordionBody.classList.contains('closed')) {
+        button.setAttribute('aria-expanded', 'false');
+    } else {
+        button.setAttribute('aria-expanded', 'true');
+    }
 }

@@ -1,0 +1,173 @@
+﻿@include file-header("_TreeView.scss");
+/* W3C CSS validator likes CSS files to start with a class rather than a comment. Soooooo....  2020: ok now it seems :-)*/
+/* This style sheet is intended to contain RARELY CHANGED rules used when the TreeView control adapter is enabled. */
+/* Empty rules are provided merely as a convenience for your future use or experimentation. */
+/* Consider changing the cursor value (below) to something like */
+/*     cursor: n-resize;                                        */
+/* Consider changing the cursor value (below) to something like */
+/*     cursor: n-resize;                                        */
+/* Consider changing the cursor value (below) to something like */
+/*     cursor: n-resize;                                        */
+
+
+#pxwebcontent div.AspNet-TreeView {
+  margin: 0;
+  padding: 0;
+}
+
+  #pxwebcontent div.AspNet-TreeView ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+#pxwebcontent .AspNet-TreeView-Hide {
+  display: none;
+}
+
+div.AspNet-TreeView ul li {
+    border-top: 1px solid #949494;
+    padding: 9px 0;
+}
+/*#pxwebcontent div.AspNet-TreeView ul li {
+  white-space: nowrap;
+  padding: 9px 0;
+  font-size: small;
+  font-family: Tahoma;
+}*/
+
+#pxwebcontent div.AspNet-TreeView ul ul {
+  margin: 9px 0 -9px 30px;
+}
+
+#pxwebcontent div.AspNet-TreeView ul li img {
+  border: none;
+  vertical-align: middle;
+  margin: 0 2px 0 0;
+}
+
+#pxwebcontent div.AspNet-TreeView li a {
+  text-decoration: none;
+}
+
+#pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Parent {
+  /*margin-left: 10px;*/
+}
+
+#pxwebcontent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
+  /*margin-left: 10px;*/
+}
+
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-ClickableNonlink {
+  cursor: pointer;
+}
+
+/*#pxwebcontent a:hover, #pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+    text-decoration: underline !important;
+}*/
+
+span.AspNet-TreeView-ClickableNonLink {
+    font-family: Verdana,Arial,sans-serif;
+    cursor: pointer;
+    font-family: Roboto;
+    font-weight: normal;
+    padding-top: 0px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink {
+    font-weight: normal;
+    color: $pxweb-dark-5;
+}
+
+#pxwebcontent .AspNet-TreeView-ClickableNonLink:hover {
+    text-decoration: underline !important;
+}
+
+/*#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Collapse {
+  background-image: url(../../../images/collapse.gif);
+  background-repeat: no-repeat;
+  background-position: center left;
+  width: 15px;
+  margin-right: 3px;
+  float: left;
+  cursor: pointer;
+}
+
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Expand {
+  background: url(../../../images/expand.gif);
+  background-repeat: no-repeat;
+  background-position: center left;
+  width: 15px;
+  margin-right: 3px;
+  float: left;
+  cursor: pointer;
+}*/
+span.AspNet-TreeView-Expand, span.AspNet-TreeView-Collapse {
+    background-image: none !important;
+    position: relative;
+    margin-right: 12px !important;
+}
+
+span.AspNet-TreeView-Expand::before, span.AspNet-TreeView-Collapse::before {
+    line-height: 1;
+    font-size: 1.4rem;
+    /*color: #1e00be;*/
+    color: $pxbox-green-4;
+    font-weight: normal;
+    position: absolute;
+    left: 0px;
+    top: -2px;
+    font-family: "Material icons";
+    font-feature-settings: 'liga' 1;
+}
+
+span.AspNet-TreeView-Expand::before {
+    content: "\e148"
+}
+
+span.AspNet-TreeView-Collapse::before {
+    content: "\e15d";
+}
+
+/*#pxwebcontent div.AspNet-TreeView a,
+#pxwebcontent div.AspNet-TreeView a:visited,
+#pxwebcontent div.AspNet-TreeView a:active,
+#pxwebcontent div.AspNet-TreeView a:hover,
+#pxwebcontent div.AspNet-TreeView a:link {
+  color: $pxweb-black-2;
+}*/
+
+#pxwebcontent div.AspNet-TreeView a,
+#pxwebcontent div.AspNet-TreeView a:visited,
+#pxwebcontent div.AspNet-TreeView a:active,
+#pxwebcontent div.AspNet-TreeView a:hover,
+#pxwebcontent div.AspNet-TreeView a:link {
+    font-family: Roboto;
+    font-weight: normal;
+    padding-top: 0px;
+    font-size: 16px;
+    line-height: 26px;
+    color: $pxweb-dark-5;
+    /*    text-decoration: normal;*/
+}
+
+#pxwebcontent div.AspNet-TreeView a:hover {
+    text-decoration: underline !important;
+}
+
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected a {
+    font-weight: bold !important;
+    color: #8A2BE2 !important;
+}
+
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-Selected ul a {
+  font-weight: normal !important;
+  color: $pxweb-black-2 !important;
+}
+
+#pxwebcontent div.AspNet-TreeView .AspNet-TreeView-SelectExpand {
+  cursor: pointer;
+  color: $pxweb-black-2;
+}

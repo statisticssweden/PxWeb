@@ -11,32 +11,33 @@ Imports System.Web.UI.HtmlControls
 Imports PCAxis.Web.Core.Management
 Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Query
+Imports System.IO
 
-<ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")> _
+<ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")>
 Public Class TableQueryCodebehind
     Inherits PaxiomControlBase(Of TableQueryCodebehind, TableQuery)
 
+    Private Shared Logger As log4net.ILog = log4net.LogManager.GetLogger(GetType(TableQueryCodebehind))
+
 #Region "fields"
-    Protected lnkTableQueryInformation As HyperLink
-    Protected lnkHideInformation As HyperLink
     Protected pnlQueryInformation As Panel
-    Protected pnlQueryInformationHidden As Panel
     Protected lblInformationText As Label
     Protected lblUrl As Label
     Protected txtUrl As TextBox
     Protected lblQuery As Label
     Protected txtQuery As TextBox
     Protected lnkMoreInfo As HyperLink
+    Protected WithEvents btnSaveQuery As Button
+    Protected lblTableQueryInformation As Label
 #End Region
 
 #Region "Localized strings"
     Private Const LOC_TABLEQUERY_SHOW_INFORMATION As String = "CtrlTableQueryShowInformation"
-    Private Const LOC_TABLEQUERY_SHOW_INFORMATION_TOOLTIP As String = "CtrlTableQueryShowInformationTooltip"
-    Private Const LOC_TABLEQUERY_HIDE_INFORMATION As String = "CtrlTableQueryHideInformation"
     Private Const LOC_TABLEQUERY_INFORMATION_TEXT As String = "CtrlTableQueryInformationText"
     Private Const LOC_TABLEQUERY_URL_CAPTION As String = "CtrlTableQueryUrlCaption"
     Private Const LOC_TABLEQUERY_QUERY_CAPTION As String = "CtrlTableQueryQueryCaption"
     Private Const LOC_TABLEQUERY_MORE_INFORMATION As String = "CtrlTableQueryMoreInformation"
+    Private Const LOC_TABLEQUERY_SAVE_QUERY As String = "CtrlTableQuerySaveQuery"
 #End Region
 
 #Region "Events"
@@ -49,14 +50,11 @@ Public Class TableQueryCodebehind
                 ShowApiQuery()
                 ShowMoreInfoLink()
                 Localize()
-                lnkTableQueryInformation.NavigateUrl = BuildLink(True)
-                lnkHideInformation.NavigateUrl = BuildLink(False)
+                btnSaveQuery.Visible = Marker.ShowSaveApiQueryButton
             Else
                 Me.Visible = False
             End If
         End If
-
-        SetDisplayMode()
     End Sub
 
     Private Sub Page_LanguageChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.LanguageChanged
@@ -101,24 +99,6 @@ Public Class TableQueryCodebehind
         Return False
     End Function
 
-    ''' <summary>
-    ''' Create URL for the show/hide information link
-    ''' </summary>
-    ''' <remarks></remarks>
-    Private Sub SetDisplayMode()
-        If Me.Visible Then
-            If Not QuerystringManager.GetQuerystringParameter("showtablequery") Is Nothing Then
-                If QuerystringManager.GetQuerystringParameter("showtablequery").Equals("true") Then
-                    pnlQueryInformation.Style.Add("display", "inline-block")
-                    pnlQueryInformationHidden.Style.Add("display", "none")
-                    Exit Sub
-                End If
-            End If
-
-            pnlQueryInformation.Style.Add("display", "none")
-            pnlQueryInformationHidden.Style.Add("display", "inline-block")
-        End If
-    End Sub
 
     ''' <summary>
     ''' Build Link for the show/hide link of API Query information
@@ -163,13 +143,12 @@ Public Class TableQueryCodebehind
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub Localize()
-        lnkTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
-        lnkTableQueryInformation.ToolTip = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION_TOOLTIP)
-        lnkHideInformation.Text = GetLocalizedString(LOC_TABLEQUERY_HIDE_INFORMATION)
         lblInformationText.Text = GetLocalizedString(LOC_TABLEQUERY_INFORMATION_TEXT)
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
         lnkMoreInfo.Text = GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)
+        btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
+        lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
     End Sub
 
     ''' <summary>
@@ -179,7 +158,7 @@ Public Class TableQueryCodebehind
     Private Sub ShowApiURL()
         Dim sb As New System.Text.StringBuilder()
 
-        If context Is Nothing Then
+        If Context Is Nothing Then
             Me.Visible = False
             Exit Sub
         End If
@@ -295,6 +274,59 @@ Public Class TableQueryCodebehind
             End If
         End If
     End Sub
+
+    Private Sub BtnSaveQuery_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveQuery.Click
+        Try
+            Dim postUrl = txtUrl.Text.Trim()
+
+            If (postUrl.EndsWith("/")) Then
+                postUrl = postUrl.Remove(postUrl.Length - 1)
+            End If
+
+            Dim apiQuery = txtQuery.Text
+            Dim tableId = postUrl.Split({"/"c}).Last()
+            Dim jsonString = String.Concat("{""queryObj"":", apiQuery, ",""tableIdForQuery"":""", tableId, """}")
+
+            Using stream = GenerateStreamFromString(jsonString)
+                Response.Clear()
+                Response.ContentType = "application/octet-stream"
+                Response.AddHeader("Content-Disposition", CreateHeaderValue(tableId))
+                stream.CopyTo(Response.OutputStream)
+                Response.Flush()
+                Response.SuppressContent = True
+                System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest()
+            End Using
+        Catch ex As Exception
+            Logger.Error(ex.Message)
+        End Try
+    End Sub
+
+    Private Function CreateHeaderValue(ByVal tableId As String) As String
+        Dim firstPartOfFilename As String
+
+        If Not String.IsNullOrEmpty(Marker.SaveApiQueryText) Then
+            firstPartOfFilename = Marker.SaveApiQueryText
+        Else
+            firstPartOfFilename = "px-web"
+        End If
+
+        Return String.Format("attachment; filename=""{0}api_table_{1}.json"";", firstPartOfFilename, tableId)
+    End Function
+
+    Private Function GenerateStreamFromString(ByVal queryString As String) As Stream
+        Dim memoryStream As New MemoryStream()
+
+        Try
+            Dim writer As New StreamWriter(memoryStream)
+            writer.Write(queryString)
+            writer.Flush()
+            memoryStream.Position = 0
+            Return memoryStream
+        Catch ex As Exception
+            memoryStream.Dispose()
+            Throw ex
+        End Try
+    End Function
 #End Region
 
 End Class

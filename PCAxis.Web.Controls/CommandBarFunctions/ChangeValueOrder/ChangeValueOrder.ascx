@@ -7,9 +7,9 @@
         <div class="commandbar_changevalueorder_instructions">
             <asp:Literal ID="Instructions" runat="server"></asp:Literal>
         </div>
-        <div class="commandbar_changevalueorder_mainbuttons">
-            <asp:Button ID="CancelButton" runat="server" />
-            <asp:Button ID="ContinueButton" runat="server" />
+        <div class="commandbar_changevalueorder_mainbuttons commandbar_button_row">
+            <asp:Button ID="CancelButton" CssClass="pxweb-btn primary-btn" runat="server" />
+            <asp:Button ID="ContinueButton" CssClass="pxweb-btn primary-btn" runat="server" />
         </div>
     </div>
     

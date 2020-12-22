@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="52" height="52" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+
+<style>
+    .stroke-color {stroke:#206396;}
+</style>
+  
+<g id="Breadnumber" opacity="1">
+	<g id="Ellipse_1">
+		<circle fill="white" cx="26" cy="26" r="24"/>
+		<circle fill="white" class="stroke-color" stroke-width="2" cx="26" cy="26" r="23"/>
+	</g>
+	<g id="file-text" transform="translate(16 14)">
+		<path id="Path_10" fill="none" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12,2H4
+			C2.895,2,2,2.895,2,4v16c0,1.105,0.895,2,2,2h12c1.105,0,2-0.895,2-2V8L12,2z"/>
+		<path id="Path_11" fill="none" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12,2v6h6"
+			/>
+		
+			<line id="Line_18" fill="none" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="14" y1="13" x2="6" y2="13"/>
+		
+			<line id="Line_19" fill="none" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="14" y1="17" x2="6" y2="17"/>
+		<path id="Path_12" fill="#010202" class="stroke-color" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8,9H6"
+			/>
+	</g>
+</g>
+</svg>

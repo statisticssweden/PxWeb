@@ -1,65 +1,63 @@
 ﻿/* Used for Footnote webcontrol */
-.footnotes_container
-{
-    margin-top:10px;
-}
-.footnote_heading 
-{
-    font-weight: bold;
-}
-
-dl.footnote_definitionlist dt
-{
-    font-size:90%;
-    margin-top:1em;
-    font-weight:bold;
-    line-height:120%;
-    font-style: italic;
-}
-
-dl.footnote_definitionlist dd
-{   
-    font-size:90%;
-    margin-left:2em;
-    line-height:120%;
-    font-style: italic;
-}
-
-.footnote_mandatory
-{
-    color: #800000;
-}
-
 /* Define if specific style should be assigned to the title and definition of a type of footnote */
-.footnote_note_key
-{
+#pxwebcontent .footnotes_container {
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
 }
-.footnote_note_value
-{
+
+#pxwebcontent .footnote_heading {
+  font-weight: bold;
 }
-.footnote_varnote_key
-{
+
+#pxwebcontent dl.footnote_definitionlist dt {
+  margin-top: 1em;
+  font-weight: bold;
+  line-height: 120%;
 }
-.footnote_varnote_value
-{
+
+#pxwebcontent dl.footnote_definitionlist dd {
+  margin-left: 2em;
+  line-height: 120%;
 }
-.footnote_valuenote_header
-{
+
+#pxwebcontent .footnote_mandatory {
+  font-weight: bold;
 }
-.footnote_valuenote_key
-{
-    margin-left:2em;
+
+#pxwebcontent .footnote_valuenote_key {
+  margin-left: 2em;
 }
-.footnote_valuenote_value
-{
+
+#pxwebcontent .footnote_no_footnotes {
+  font-style: italic;
 }
-.footnote_cellnote_key
-{
+
+#pxwebcontent .footnotes_container a {
+  font-family: 'Open Sans', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  align-items: center;
+  background-image: linear-gradient(120deg, #00824d 0%, #00824d 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+  border-bottom: 1px solid #00824d;
+  color: #00824d;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 1.25;
+  margin-top: -3px;
+  margin-bottom: -2px;
+  padding: 0 1px 2px 1px;
+  position: relative;
+  text-decoration: none;
+  transition: background-size .2s ease-in, color .1s;
 }
-.footnote_cellnote_value
-{
-}
-.footnote_no_footnotes
-{
-    font-style: italic
-}
+
+  #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
+    background-size: 100% 100%;
+    color: #fff;
+    outline: 0;
+    text-decoration: none;
+  }

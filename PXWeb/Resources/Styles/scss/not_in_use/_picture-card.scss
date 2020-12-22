@@ -1,0 +1,76 @@
+.ssb-picture-card {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 280px;
+  height: 400px;
+  color: $pxweb-white !important;
+  cursor: pointer;
+
+  .image-background {
+
+    img {
+      top: 0;
+      left: 0;
+      position: absolute;
+      transform: scale(1);
+      transition: transform .25s ease, -webkit-transform .25s ease;
+    }
+  }
+
+  &:hover {
+
+    img {
+      transform: scale(1.1);
+    }
+  }
+
+  .overlay {
+    bottom: 0;
+    position: absolute;
+    padding: 80px 20px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 280px;
+    background-image: linear-gradient(
+                    0deg,
+                    rgba(39, 66, 71, .75),
+                    rgba(39, 66, 71, .5),
+                    transparent
+    );
+
+    .il-type {
+      @include roboto;
+      font-size: 16px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .il-title {
+      @include roboto-condenced;
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.43;
+      margin-bottom: 12px;
+    }
+  }
+
+  &.horizontal {
+    height: 212px;
+    padding: 40px 20px;
+    width: 380px;
+
+    .image-background {
+      height: 212px;
+      width: 380px;
+    }
+
+    .overlay {
+      width: 380px;
+      padding: 40px 20px;
+      left: 0;
+    }
+  }
+}

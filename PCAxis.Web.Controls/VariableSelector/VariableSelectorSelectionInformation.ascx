@@ -3,26 +3,35 @@
 <input id="SelectionLimitation" class="variableselector_selection_limits_number" runat="server" type="hidden" />
 <input id="NumberFormat" class="variableselector_selection_limits_numberformat" runat="server" type="hidden" />
 <asp:PlaceHolder runat="server" ID="SelectionMadeInformationPlaceHolder">
-    <p>
-        <asp:PlaceHolder runat="server" ID="RowColSelectionInformationPlaceHolder">
-            <asp:Label runat="server" ID="SelectedRowsLabel" CssClass="variableselector_selected_rows_label"/>
-            <asp:Label runat="server" ID="SelectedRowsLabelSelected" CssClass="variableselector_selected_rows_label_selected"/>
-            <asp:Label runat="server" ID="SelectedColumnsLabel" CssClass="variableselector_selected_columns_label"/>
-            <asp:Label runat="server" ID="SelectedColumnsLabelSelected" CssClass="variableselector_selected_columns_label_selected"/> 
-        </asp:PlaceHolder>
+    <div class="flex-column justify-center small-margin">
+        <asp:PlaceHolder runat="server" ID="RowColSelectionInformationPlaceHolder" >
+        <div class="flex-row justify-center">
+            <asp:Label runat="server" ID="SelectedRowsLabel"/>
+            <asp:Label runat="server" ID="SelectedRowsLabelSelected" CssClass="font-bold xs-margin-left"/>
+        </div>
+    <div class="flex-row justify-center">
+        <asp:Label runat="server" ID="SelectedColumnsLabel"/>
+        <asp:Label runat="server" ID="SelectedColumnsLabelSelected" CssClass="font-bold xs-margin-left"/> 
+    </div>
+    </asp:PlaceHolder>
+    </div>
+    <div class="flex-column justify-center s-margin-top">
         <asp:PlaceHolder runat="server" ID="CellSelectionInformationPlaceHolder">
-            <asp:Label runat="server" ID="SelectedCellsLabel" CssClass="variableselector_selected_cells_label"/>
-            <asp:Label runat="server" ID="SelectedCellsLabelSelected" CssClass="variableselector_selected_cells_label_selected"/>
-            <asp:Label runat="server" ID="SelectedCellsNumberLabel" CssClass="variableselector_selected_cells_number_label"/>
-            <asp:Label runat="server" ID="SelectedCellsLimitLabel" CssClass="variableselector_selected_cells_limit_label"/>
+            <div class="flex-row justify-center">
+            <asp:Label runat="server" ID="SelectedCellsLabel"/>
+            <asp:Label runat="server" ID="SelectedCellsNumberLabel" CssClass="font-bold xs-margin-left"/>                
+            </div>
+            <div class="flex-row justify-center">
+                <asp:Label runat="server" ID="SelectedCellsLimitLabel"/>
+            </div>
         </asp:PlaceHolder>
-    </p>
+    </div>
 </asp:PlaceHolder>
 <asp:PlaceHolder ID="SelectionLimitsInformationPlaceHolder" runat="server">
-     <p><asp:Label runat="server" ID="SelectionLimitationLabel" CssClass="variableselector_selection_limits_label"/></p>
+     <p><asp:Label runat="server" ID="SelectionLimitationLabel"/></p>
 </asp:PlaceHolder>
 
-<script type="text/javascript">
+<script>
     var StubListboxes = new Array();
     var HeadingListboxes = new Array();
     var _selectedInStub = 0;

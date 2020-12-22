@@ -167,13 +167,47 @@ Partial Public Class TableQuery
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)> _
+    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
     Public Property MoreInfoIsExternalPage() As Boolean
         Get
             Return _moreInfoIsExternalPage
         End Get
         Set(ByVal value As Boolean)
             _moreInfoIsExternalPage = value
+        End Set
+    End Property
+
+    Private _showSaveApiQueryButton As Boolean
+    ''' <summary>
+    ''' If button for saving API-query to file is visible or not
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
+    Public Property ShowSaveApiQueryButton() As Boolean
+        Get
+            Return _showSaveApiQueryButton
+        End Get
+        Set(ByVal value As Boolean)
+            _showSaveApiQueryButton = value
+        End Set
+    End Property
+
+    Private _saveApiQueryText As String
+    ''' <summary>
+    ''' Prefix for saved API query filename
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
+    Public Property SaveApiQueryText() As String
+        Get
+            Return _saveApiQueryText
+        End Get
+        Set(ByVal value As String)
+            _saveApiQueryText = value
         End Set
     End Property
 

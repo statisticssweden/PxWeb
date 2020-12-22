@@ -47,30 +47,20 @@ Public Class FootnoteCodebehind
 
             If Marker.ShowMandatoryOnly Then
                 footnotes = FootnoteList.GetFootnoteList(Me.PaxiomModel.Meta, True)
-                FootnoteRepeater.DataSource = footnotes
-                If footnotes.Count = 0 Then
-                    If Marker.ShowNoFootnotes AndAlso footnotes.Count = 0 Then
-                        Me.NoFootnotesExist.Text = GetLocalizedString(LOC_FOOTNOTE_NO_FOOTNOTES_LABEL)
-                        Me.NoFootnotesExist.Visible = True
-                        Me.FootnoteRepeater.Visible = True
-                    Else
-                        Me.NoFootnotesExist.Visible = False
-                        Me.FootnoteRepeater.Visible = False
-                    End If
-                End If
-
             Else
                 footnotes = FootnoteList.GetFootnoteList(Me.PaxiomModel.Meta, False)
-                FootnoteRepeater.DataSource = footnotes
-                If footnotes.Count = 0 Then
-                    If Marker.ShowNoFootnotes Then
-                        Me.NoFootnotesExist.Text = GetLocalizedString(LOC_FOOTNOTE_NO_FOOTNOTES_LABEL)
-                        Me.NoFootnotesExist.Visible = True
-                        Me.FootnoteRepeater.Visible = True
-                    Else
-                        Me.NoFootnotesExist.Visible = False
-                        Me.FootnoteRepeater.Visible = False
-                    End If
+            End If
+
+            FootnoteRepeater.DataSource = footnotes
+            If footnotes.Count = 0 Then
+
+                If Marker.ShowNoFootnotes Then
+                    Me.NoFootnotesExist.Text = GetLocalizedString(LOC_FOOTNOTE_NO_FOOTNOTES_LABEL)
+                    Me.NoFootnotesExist.Visible = True
+                    Me.FootnoteRepeater.Visible = True
+                Else
+                    Me.NoFootnotesExist.Visible = False
+                    Me.FootnoteRepeater.Visible = False
                 End If
             End If
 

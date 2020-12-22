@@ -1,0 +1,205 @@
+@include file-header("common/_input.scss");
+
+#{$selector_prefix}-input {
+    @include roboto;
+    cursor: text;
+    display: flex;
+    flex-direction: column;
+    max-width: 205px;
+    position: relative;
+    width: 100%;
+
+    &:hover {
+
+        input {
+            border: 1px solid $pxweb-green-2;
+            outline: 1px solid $pxweb-green-2;
+
+            &:disabled {
+                border: 1px solid $pxweb-dark-5;
+            }
+        }
+    }
+
+    .input-wrapper {
+        display: flex;
+
+        ::placeholder {
+            color: $pxweb-dark-4;
+            opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+            color: $pxweb-dark-4;
+        }
+
+        ::-ms-input-placeholder {
+            color: $pxweb-dark-4;
+        }
+    }
+
+    label {
+        color: $pxweb-dark-6;
+        cursor: text;
+        font-size: 14px;
+        margin-bottom: 4px;
+        user-select: none;
+    }
+
+    input {
+        @include roboto2;
+        background: $pxweb-white;
+        border: 1px solid $pxweb-dark-5;
+        box-sizing: border-box;
+        color: $pxweb-dark-4;
+        font-size: 14px;
+        height: 34px;
+        padding: 12px 12px;
+        text-overflow: ellipsis;
+        width: 100%;
+
+        &.with-icon {
+            padding: 4px $input-field-height 4px 10px;
+        }
+
+        &:disabled {
+            border: 1px solid $pxweb-dark-5;
+            cursor: not-allowed;
+        }
+
+        &:focus {
+            
+            outline: 2px solid $pxweb-purple-3;
+            outline-offset: 2px;
+        }
+    }
+
+    &.negative {
+
+        .input-wrapper {
+
+            ::placeholder {
+                color: $pxweb-white;
+                opacity: 1;
+            }
+
+            :-ms-input-placeholder {
+                color: $pxweb-white;
+            }
+
+            ::-ms-input-placeholder {
+                color: $pxweb-white;
+            }
+        }
+
+        &:hover {
+
+            input {
+                border: 1px solid $pxweb-green-2;
+                outline: 1px solid $pxweb-green-2;
+
+                &:disabled {
+                    border: 1px solid $pxweb-white;
+                }
+            }
+        }
+
+        label {
+            color: $pxweb-white;
+        }
+
+        input {
+            background: transparent;
+            border: 1px solid $pxweb-white;
+            color: $pxweb-white;
+
+            &:disabled {
+                border: 1px solid $pxweb-white;
+            }
+
+            &:focus {
+                border: 1px solid $pxweb-green-2;
+                outline: 1px solid $pxweb-green-2;
+                outline-offset: 0;
+            }
+        }
+
+        .icon-wrapper {
+
+            & > * {
+                color: $pxweb-green-2;
+            }
+
+            &.search-icon {
+                cursor: pointer;
+
+                &:hover, &:focus {
+                    background: $pxweb-white;
+
+                    & > * {
+                        color: $pxweb-dark-5;
+                    }
+                }
+            }
+        }
+
+        &.error {
+
+            input {
+                border: 1px solid $pxweb-red-3;
+                outline: 1px solid $pxweb-red-3;
+            }
+
+            .icon-wrapper {
+
+                & > * {
+                    color: $pxweb-red-3;
+                }
+            }
+        }
+    }
+
+    &.error {
+
+        input {
+            border: 1px solid $pxweb-red-3;
+            outline: 1px solid $pxweb-red-3;
+        }
+
+        .icon-wrapper {
+
+            & > * {
+                color: $pxweb-red-3;
+            }
+        }
+    }
+
+    .icon-wrapper {
+        @include focus-marker;
+        @include reset-button;
+        align-items: center;
+        display: flex;
+        font-size: 18px;
+        height: 34px;
+        justify-content: center;
+        margin-left: -$input-field-height;
+        width: $input-field-height;
+
+        & > * {
+            color: $pxweb-green-4;
+        }
+
+        &.search-icon {
+            cursor: pointer;
+
+            &:hover, &:focus {
+                background: $pxweb-green-4;
+				outline-offset: 0px;
+
+                & > * {
+                    color: $pxweb-white;
+                }
+            }
+        }
+    }
+}

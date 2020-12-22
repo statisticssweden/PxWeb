@@ -2,7 +2,7 @@
 
 <asp:Repeater ID="InformationRepeater" runat="server" enableviewstate="False">
     <HeaderTemplate>
-        <h2 class="information_definitionlist_heading"><asp:Literal ID="Header" runat="server" /></h2>
+     <%--   <h2 class="information_definitionlist_heading"><asp:Literal ID="Header" runat="server" /></h2>--%>
         <dl class="information_definitionlist">
     </HeaderTemplate>
     <ItemTemplate>
@@ -16,14 +16,17 @@
                     <dl>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <dt><asp:Literal ID="VariableTerm" runat="server" /></dt>
-                    <dd><asp:Literal ID="VariableDefinition" runat="server" /></dd>
+                    <div class="flex-column">
+                      <dt><asp:Literal ID="VariableTerm" runat="server" /></dt>
+                      <dd><asp:Literal ID="VariableDefinition" runat="server" /></dd>
+                    </div>
                 </ItemTemplate>
                 <FooterTemplate>
                     </dl>
                 </FooterTemplate>
             </asp:Repeater>
         </dd>
+
     </ItemTemplate>
     <FooterTemplate>
         </dl>
