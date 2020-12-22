@@ -11,8 +11,9 @@
     @include pxweb-table-title;
     background-color: $pxweb-white;
     border-style: none;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    display:table-cell;
 }
 
 #pxwebcontent .table-class {
@@ -113,7 +114,7 @@
 }
 
 #pxwebcontent .attribute-cell {
-  background-image: URL("../../../images/attribute.gif");
+  background-image: URL("../../images/attribute.gif");
   background-repeat: no-repeat;
   background-position: top right;
   cursor: pointer;

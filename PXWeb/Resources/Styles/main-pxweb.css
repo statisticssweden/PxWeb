@@ -1942,8 +1942,9 @@ background-color: #f0f8ff;*/ }
   color: #222;
   background-color: #fff;
   border-style: none;
-  padding-bottom: 15px;
-  padding-top: 15px; }
+  padding-bottom: 25px;
+  padding-top: 25px;
+  display: table-cell; }
 
 #pxwebcontent .table-class {
   border-right: none;
@@ -2031,7 +2032,7 @@ background-color: #f0f8ff;*/ }
   padding: 5px 5px 5px 5px; }
 
 #pxwebcontent .attribute-cell {
-  background-image: url("../../images/attribute.gif");
+  background-image: url("../images/attribute.gif");
   background-repeat: no-repeat;
   background-position: top right;
   cursor: pointer; }
