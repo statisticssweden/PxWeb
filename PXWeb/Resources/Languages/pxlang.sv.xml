@@ -504,9 +504,9 @@
   <sentence name="PageViewDataSortDescription" value="Klicka på kolumnernas rubrik för att sortera tabellen. Håll inne shift för att sortera efter flera kolumner." />
   <sentence name="PageViewDataSortCopyInstructions" value="För att kopiera tabellen: Välj 'Markera allt' i Redigera-menyn och sedan 'Kopiera'. Alternativt tryck Ctrl+A och sedan Ctrl+C" />
   <sentence name="CancelButton" value="Avbryt" />
-  <sentence name="PxWebApplicationTitle" value="Nästa PxWeb (Beta)" />
-  <sentence name="PxWebApplicationName" value="Nästa PxWeb (Beta)" />
-  <sentence name="PxWebLogoAlt" value="Nästa PxWeb (Beta)" />
+  <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v2" />
+  <sentence name="PxWebApplicationName" value="PxWeb 2020 v2" />
+  <sentence name="PxWebLogoAlt" value="PxWeb 2020 v2" />
   <sentence name="PxWebHome" value="Hem" />
   <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
   <sentence name="PxWebMenu" value="Meny" />
@@ -613,7 +613,7 @@
 
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="Nästa PxWeb (Beta)" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2020 v2" />
   <sentence name="PxWebAdminHomePage" value="PxWeb hemsida" />
   <sentence name="PxWebAdminSaveButton" value="Spara" />
   <sentence name="PxWebAdminGenerateButton" value="Generera" />
