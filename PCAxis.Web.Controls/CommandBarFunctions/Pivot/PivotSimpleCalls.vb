@@ -25,11 +25,11 @@ Public Class PivotSimpleCalls
             Case DIRECTION_CW
                 Me.PaxiomModel = pivotFunctions.PivotCW(PaxiomModel)
                 PaxiomManager.OperationsTracker.AddStep(OperationConstants.PIVOT_CW, Nothing)
-                FeatureUsageLogger.InfoFormat(OperationConstants.FEATURE_USAGE_LOG_FORMAT, OperationConstants.PIVOT_CW, "Null", Me.PaxiomModel.Meta.TableID)
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT, OperationConstants.PIVOT_CW, "Null", Me.PaxiomModel.Meta.TableID)
             Case DIRECTION_CCW
                 Me.PaxiomModel = pivotFunctions.PivotCCW(PaxiomModel)
                 PaxiomManager.OperationsTracker.AddStep(OperationConstants.PIVOT_CCW, Nothing)
-                FeatureUsageLogger.InfoFormat(OperationConstants.FEATURE_USAGE_LOG_FORMAT, OperationConstants.PIVOT_CCW, "Null", Me.PaxiomModel.Meta.TableID)
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT, OperationConstants.PIVOT_CCW, "Null", Me.PaxiomModel.Meta.TableID)
         End Select
 
 

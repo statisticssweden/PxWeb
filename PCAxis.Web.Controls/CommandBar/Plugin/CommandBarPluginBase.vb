@@ -34,16 +34,19 @@ Namespace CommandBar.Plugin
         End Sub
 
         Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal featureVariant As String, ByVal maintable As String)
-            FeatureUsageLogger.InfoFormat(Paxiom.Operations.OperationConstants.FEATURE_USAGE_LOG_FORMAT, featureType, featureVariant, maintable)
+            FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT, featureType, featureVariant, maintable)
         End Sub
 
         Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal maintable As String)
             LogFeatureUsage(featureType, "Null", maintable)
         End Sub
+    End Class
 
-
+    Public Class LogFormat
         Public Const FEATURE_USAGE_LOG_FORMAT As String = "Feature={0}, Variant={1}, maintable={2}"
     End Class
+
+
 End Namespace
 
 
