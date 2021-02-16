@@ -23,9 +23,6 @@ Imports PCAxis.Paxiom.Operations
 Public Class ChangePresentationCodebehind
     Inherits CommandBarPluginBase(Of ChangePresentationCodebehind, ChangePresentation)
 
-
-
-
 #Region " Localized strings "
 
 
@@ -35,7 +32,7 @@ Public Class ChangePresentationCodebehind
     Private Const CHANGEPRESENTATION_CHANGECODETEXT_TEXTPRESENTATION As String = "CtrlChangeCodeTextPresentationText"
     Private Const CHANGEPRESENTATION_CHANGECODETEXT_CODEPRESENTATION As String = "CtrlChangeCodeTextPresentationCode"
     Private Const CHANGEPRESENTATION_CHANGECODETEXT_CODETEXTPRESENTATION As String = "CtrlChangeCodeTextPresentationCodeAndText"
-    Private Const CHANGEPRESENTATION_CONTINUE_BUTTON As String = "CtrlChangePresentationContinueButton"
+    Private Const CHANGEPRESENTATION_CONTINUE_BUTTON As String = "CtrlChangePresentationCompleteButton"
     Private Const CHANGEPRESENTATION_CONTENTS_TEXT As String = "CtrlChangePresentationContentsHeading"
     Private Const CANCEL_BUTTON As String = "CancelButton"
 
@@ -65,6 +62,7 @@ Public Class ChangePresentationCodebehind
     Protected ChangeCodeTextTable As Table
 
     'Common
+    Protected InfoMessageLabel As Label
     Protected ErrorMessageLabel As Label
     Protected ErrorMessagePanel As Panel
 
@@ -72,7 +70,7 @@ Public Class ChangePresentationCodebehind
 
 #Region " Properties "
 
-    Private _settingsDictionary As Dictionary(Of String, HeaderPresentationType)
+    'Private _settingsDictionary As Dictionary(Of String, HeaderPresentationType)
     Private _codeText As String = "Code"
     Private _textText As String = "Text"
     Private _codeAndTextText As String = "Code and Text"
@@ -92,9 +90,20 @@ Public Class ChangePresentationCodebehind
         ChangeCodeTextPanel.Visible = True
         'Dim table As Table = FindTableControl(Me.Page.Controls)
         '_settingsDictionary = Table.VariablePresentationAlternative
-        _settingsDictionary = New Dictionary(Of String, HeaderPresentationType)
-        ChangeCodeTextRepeater.DataSource = Me.PaxiomModel.Meta.Variables
+        '_settingsDictionary = New Dictionary(Of String, HeaderPresentationType)
+
+        Dim cantChangeTheseTwo As IEnumerable(Of Variable) = From var In Me.PaxiomModel.Meta.Variables
+                                                             Where (var.IsContentVariable Or
+                                                         var.IsTime)
+
+        ChangeCodeTextRepeater.DataSource = Me.PaxiomModel.Meta.Variables.Except(cantChangeTheseTwo)
+
+
         ChangeCodeTextRepeater.DataBind()
+        If ChangeCodeTextRepeater.Items.Count < 1 Then
+            InfoMessageLabel.Text = GetLocalizedString("CtrlChangeCodeTextPresentationNoneChangeable")
+            ErrorMessagePanel.Visible = True
+        End If
 
     End Sub
 
@@ -144,7 +153,7 @@ Public Class ChangePresentationCodebehind
         _textText = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TEXTPRESENTATION)
         ChangeCodeTextTextLabel.Text = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TEXT)
         ChangeCodeText_ContinueButton.Text = buttonText
-        TitleLabel.Text = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TITLE)
+        'TitleLabel.Text = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TITLE)
         CancelButton.Text = GetLocalizedString(CANCEL_BUTTON)
     End Sub
 
@@ -161,27 +170,23 @@ Public Class ChangePresentationCodebehind
         Dim item As RepeaterItem = e.Item
         If (item.ItemType = ListItemType.Item) Or (item.ItemType = ListItemType.AlternatingItem) Then
             Dim v As Variable = DirectCast(e.Item.DataItem, Variable)
-            Dim VariableNameTextLabel As Label = DirectCast(item.FindControl("VariableNameTextLabel"), Label)
+
+            Dim ChangeCodeTextOneItemPanel As Panel = DirectCast(item.FindControl("ChangeCodeTextOneItemPanel"), Panel)
+
             Dim CodeTextRadio As RadioButtonList = DirectCast(item.FindControl("CodeTextRadio"), RadioButtonList)
-            Dim selectedPresentation As HeaderPresentationType = HeaderPresentationType.Text
+
             Dim variableCode As String = v.Code
+            Dim selectedPresentation As HeaderPresentationType = DirectCast(v.PresentationText, HeaderPresentationType)
 
             CodeTextRadio.Attributes.Add("VariableCode", variableCode)
 
-            If variableCode.ToLower() <> "tid" And variableCode.ToLower() <> "contentscode" Then
-                VariableNameTextLabel.Text = v.Name
+            'wrap this in <hX> ?
+            ChangeCodeTextOneItemPanel.GroupingText = "<span class='commandbar_changepresentation_headertext'>" + Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(v.Name) + "</span>"
 
-                If _settingsDictionary.ContainsKey(variableCode) Then
-                    selectedPresentation = _settingsDictionary(variableCode)
-                    CodeTextRadio.Items.Add(NewRadioButton(_textText, HeaderPresentationType.Text, (selectedPresentation = HeaderPresentationType.Text)))
-                    CodeTextRadio.Items.Add(NewRadioButton(_codeText, HeaderPresentationType.Code, (selectedPresentation = HeaderPresentationType.Code)))
-                    CodeTextRadio.Items.Add(NewRadioButton(_codeAndTextText, HeaderPresentationType.CodeAndText, (selectedPresentation = HeaderPresentationType.CodeAndText)))
-                Else
-                    CodeTextRadio.Items.Add(NewRadioButton(_textText, HeaderPresentationType.Text, True))
-                    CodeTextRadio.Items.Add(NewRadioButton(_codeText, HeaderPresentationType.Code, False))
-                    CodeTextRadio.Items.Add(NewRadioButton(_codeAndTextText, HeaderPresentationType.CodeAndText, False))
-                End If
-            End If
+            CodeTextRadio.Items.Add(NewRadioButton(_textText, HeaderPresentationType.Text, selectedPresentation.Equals(HeaderPresentationType.Text)))
+            CodeTextRadio.Items.Add(NewRadioButton(_codeText, HeaderPresentationType.Code, selectedPresentation.Equals(HeaderPresentationType.Code)))
+            CodeTextRadio.Items.Add(NewRadioButton(_codeAndTextText, HeaderPresentationType.CodeAndText, selectedPresentation.Equals(HeaderPresentationType.CodeAndText)))
+
         End If
     End Sub
 
@@ -196,6 +201,7 @@ Public Class ChangePresentationCodebehind
         Dim btn As ListItem
         btn = New ListItem(radioText, selectedPresentation.ToString())
         btn.Selected = selected
+        btn.Attributes.Add("class", "commandbar_changepresentation_radio_item")
         Return btn
     End Function
 
@@ -231,6 +237,8 @@ Public Class ChangePresentationCodebehind
         'End If
 
         Me.OnFinished(New CommandBarPluginFinishedEventArgs(Me.PaxiomModel))
+        LogFeatureUsage(OperationConstants.CHANGE_TEXT_CODE_PRESENTATION, Me.PaxiomModel.Meta.TableID)
+
     End Sub
 
     ''' <summary>

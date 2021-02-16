@@ -3,10 +3,7 @@
   <plugins>
     <plugin name="pivotManual" type="PCAxis.Web.Controls.Pivot, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionPivotManual" Image="button_pivot.png" ShortcutImage="small_button_pivot.gif" SortOrder="0">
       <properties>
-        <property key="DownButtonImagePath" value="MoveDown.gif" />
-        <property key="LeftButtonImagePath" value="ToLeft.gif" />
-        <property key="RightButtonImagePath" value="ToRight.gif" />
-        <property key="UpButtonImagePath" value="MoveUp.gif" />
+        <property key="ListSize" value="8" />
       </properties>
     </plugin>
     <plugin name="pivotCW" type="PCAxis.Web.Controls.PivotSimpleCalls, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarFunctionPivotCW" Image="button_pivot_cw.png" ShortcutImage="small_button_pivot_cw.gif" SortOrder="1">
@@ -21,10 +18,7 @@
     </plugin>
     <plugin name="changeValueOrder" type="PCAxis.Web.Controls.ChangeValueOrder, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionChangeValueOrder" Image="button_change_value_order.png" ShortcutImage="small_button_change_value_order.gif"  SortOrder="3">
       <properties>
-        <property key="LeftButtonImagePath" value="ToLeft.gif" />
-        <property key="RightButtonImagePath" value="ToRight.gif" />
-        <property key="DownButtonImagePath" value="MoveDown.gif" />
-        <property key="ListSize" value="6" />
+        <property key="ListSize" value="12" />
       </properties>
     </plugin>
     <plugin name="splitTimeVariable" type="PCAxis.Web.Controls.SplitTimeVariable, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarFunctionSplitTimeVar" Image="button_splitt_time.png" ShortcutImage="small_button_Splitt_time_value.gif"  SortOrder="4">

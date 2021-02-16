@@ -238,6 +238,21 @@ Partial Public Class Table
     End Property
 
     ''' <summary>
+    ''' Show or hide table title
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private _newTitleLayout As Boolean
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property NewTitleLayout() As Boolean
+        Get
+            Return _newTitleLayout
+        End Get
+        Set(ByVal value As Boolean)
+            _newTitleLayout = value
+        End Set
+    End Property
+
+    ''' <summary>
     ''' If cell information shall be displayed in the table or not
     ''' </summary>
     ''' <value></value>

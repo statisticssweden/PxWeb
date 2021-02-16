@@ -24,7 +24,7 @@
 </asp:Panel>
 
         <asp:panel runat="server" id="CollapseTreeScriptPanel" >
-                <script type="text/javascript">                
+                <script>                
                     //Level is registered from codebehind
                     jQuery(document).ready(function() {
                         if (level > 0) {

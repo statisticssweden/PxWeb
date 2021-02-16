@@ -9,6 +9,8 @@ Namespace CommandBar.Plugin
     Public MustInherit Class CommandBarPluginBase(Of TControl As CommandBarPluginBase(Of TControl, TMarker), TMarker As CommandBarMarkerControlBase(Of TControl, TMarker))
         Inherits PaxiomControlBase(Of TControl, TMarker)
 
+        Private Shared FeatureUsageLogger As log4net.ILog = log4net.LogManager.GetLogger("FeatureUsage")
+
         Private _properties As Dictionary(Of String, String)
         ''' <summary>
         ''' Gets or sets the properties that the plugin has
@@ -31,6 +33,16 @@ Namespace CommandBar.Plugin
             Marker.OnFinished(args)
         End Sub
 
+        Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal featureVariant As String, ByVal maintable As String)
+            FeatureUsageLogger.InfoFormat(Paxiom.Operations.OperationConstants.FEATURE_USAGE_LOG_FORMAT, featureType, featureVariant, maintable)
+        End Sub
+
+        Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal maintable As String)
+            LogFeatureUsage(featureType, "Null", maintable)
+        End Sub
+
+
+        Public Const FEATURE_USAGE_LOG_FORMAT As String = "Feature={0}, Variant={1}, maintable={2}"
     End Class
 End Namespace
 

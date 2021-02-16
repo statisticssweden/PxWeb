@@ -24,7 +24,6 @@ Public Class DeleteValueCodebehind
     Inherits CommandBarPluginBase(Of DeleteValueCodebehind, DeleteValue)
 
 
-
 #Region " Localized strings "
 
     Private Const DELETE_VALUE_TITLE As String = "CtrlCommandBarFunctionDeleteValue"
@@ -140,6 +139,7 @@ Public Class DeleteValueCodebehind
             Next
             If sels.Count > 0 Then
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(p.Execute(Me.PaxiomModel, sels.ToArray())))
+                LogFeatureUsage(OperationConstants.DELETE_VALUE, Me.PaxiomModel.Meta.TableID)
                 UpdateOperationsTracker(sels.ToArray())
             End If
         Else

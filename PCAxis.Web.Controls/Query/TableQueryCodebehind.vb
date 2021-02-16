@@ -146,7 +146,8 @@ Public Class TableQueryCodebehind
         lblInformationText.Text = GetLocalizedString(LOC_TABLEQUERY_INFORMATION_TEXT)
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
-        lnkMoreInfo.Text = GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)
+        
+        lnkMoreInfo.Text = String.Format("<span class=link-text>{0}</span>", Server.HtmlEncode(GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)))
         btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
         lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
     End Sub
@@ -267,7 +268,7 @@ Public Class TableQueryCodebehind
             Me.lnkMoreInfo.Visible = False
         Else
             If Marker.MoreInfoIsExternalPage Then
-                Me.lnkMoreInfo.Target = "_new"
+                Me.lnkMoreInfo.Target = "_blank"
                 Me.lnkMoreInfo.NavigateUrl = Marker.MoreInfoURL
             Else
                 Me.lnkMoreInfo.NavigateUrl = LinkManager.CreateLink(Marker.MoreInfoURL)

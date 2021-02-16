@@ -6,6 +6,8 @@ Public Class PivotSimpleCalls
     Implements ICommandBarNoGUIPlugin
     Implements ICommandBarRequiresPaxiom
 
+    Private Shared FeatureUsageLogger As log4net.ILog = log4net.LogManager.GetLogger("FeatureUsage")
+
     Private Const DIRECTION_CCW As String = "CCW"
     Private Const DIRECTION_CW As String = "CW"
     Private Const PROPERTY_DIRECTION As String = "Direction"
@@ -23,9 +25,11 @@ Public Class PivotSimpleCalls
             Case DIRECTION_CW
                 Me.PaxiomModel = pivotFunctions.PivotCW(PaxiomModel)
                 PaxiomManager.OperationsTracker.AddStep(OperationConstants.PIVOT_CW, Nothing)
+                FeatureUsageLogger.InfoFormat(OperationConstants.FEATURE_USAGE_LOG_FORMAT, OperationConstants.PIVOT_CW, "Null", Me.PaxiomModel.Meta.TableID)
             Case DIRECTION_CCW
                 Me.PaxiomModel = pivotFunctions.PivotCCW(PaxiomModel)
                 PaxiomManager.OperationsTracker.AddStep(OperationConstants.PIVOT_CCW, Nothing)
+                FeatureUsageLogger.InfoFormat(OperationConstants.FEATURE_USAGE_LOG_FORMAT, OperationConstants.PIVOT_CCW, "Null", Me.PaxiomModel.Meta.TableID)
         End Select
 
 

@@ -31,7 +31,7 @@ Public Class DeleteVariableCodebehind
     Private Const DELETE_VARIABLE_HEADER_TEXT As String = "CtrlDeleteVariableHeaderLabel"
     Private Const DELETE_VARIABLE_TEXT As String = "CtrlDeleteVariableTextLabel"
     Private Const DELETE_VARIABLE_ADDTOTITLE_TEXT As String = "CtrlDeleteVariableAddToTitleLabel"
-    Private Const DELETE_VARIABLE_CONTINUE_BUTTON As String = "CtrlDeleteVariableContinueButton"
+    Private Const DELETE_VARIABLE_CONTINUE_BUTTON As String = "CtrlDeleteVariableCompleteButton"
     Private Const CANCEL_BUTTON As String = "CancelButton"
     Private Const DELETE_VARIABLE_ERRORDESCRIPTION As String = "CtrlDeleteVariableErrorDescription"
     Private Const DELETE_VARIABLE_ONE_VARIABLE As String = "CtrlDeleteVariableOneVariable"
@@ -86,7 +86,7 @@ Public Class DeleteVariableCodebehind
     Private Sub LoadTextsForLanguage()
         TitleLabel.Text = GetLocalizedString(DELETE_VARIABLE_TITLE)
         DeleteVariableTextLabel.Text = GetLocalizedString(DELETE_VARIABLE_HEADER_TEXT)
-        DeleteVariableAddToTitle.Text = GetLocalizedString(DELETE_VARIABLE_ADDTOTITLE_TEXT)
+        AddToTitleCheckbox.Text = GetLocalizedString(DELETE_VARIABLE_ADDTOTITLE_TEXT)
         ContinueButton.Text = GetLocalizedString(DELETE_VARIABLE_CONTINUE_BUTTON)
         CancelButton.Text = GetLocalizedString(CANCEL_BUTTON)
     End Sub
@@ -115,6 +115,7 @@ Public Class DeleteVariableCodebehind
             ValuesListBox.Rows = CInt(Me.Properties("ListSize"))
             ValuesListBox.DataTextField = "Value"
             ValuesListBox.DataValueField = "Code"
+            ValuesListBox.Attributes.Add("aria-label", var.Name)
 
             'Databind
             Dim valuesToShow As Values = var.Values
@@ -169,6 +170,7 @@ Public Class DeleteVariableCodebehind
                 Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, deleteDescription)
                 UpdateOperationsTracker(deleteDescription)
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
+                LogFeatureUsage(OperationConstants.DELETE_VARIABLE, Me.PaxiomModel.Meta.TableID)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
                 Me.ErrorMessageLabel.Text = ex.Message
