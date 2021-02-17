@@ -16,6 +16,7 @@
 
     &.closed {
       background-image: get-icon( 'accordion-closed', $pxweb-green-4);
+      z-index: 0;
     }
 
     .header-text {
@@ -55,6 +56,10 @@
     }
   }
 
+  & button:disabled {
+    cursor: not-allowed;
+  }
+
   &.with-sub-header {
 
     .button-grid {
@@ -78,7 +83,7 @@
     @include roboto;
     color: $pxweb-dark-6;
     font-size: 16px;
-    padding: $global-padding-size 50px $global-padding-size 0;
+    padding: $global-padding-size 20px $global-padding-size 0;
 
     &.closed {
       display: none;

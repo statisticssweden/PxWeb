@@ -46,6 +46,9 @@ namespace PXWeb
             xpath = "./promptMandatoryFootnotes";
             PromptMandatoryFootnotes = SettingsHelper.GetSettingValue(xpath, presentationNode, true);
 
+            xpath = "./NewTitleLayout";
+            NewTitleLayout = SettingsHelper.GetSettingValue(xpath, presentationNode, true);
+
             xpath = "./table";
             node = presentationNode.SelectSingleNode(xpath);
             _tableSettings = new TableSettings(node);
@@ -67,6 +70,9 @@ namespace PXWeb
             xpath = "./promptMandatoryFootnotes";
             SettingsHelper.SetSettingValue(xpath, presentationNode, PromptMandatoryFootnotes.ToString());
 
+            xpath = "./NewTitleLayout";
+            SettingsHelper.SetSettingValue(xpath, presentationNode, NewTitleLayout.ToString());
+
             xpath = "./table";
             node = presentationNode.SelectSingleNode(xpath);
             _tableSettings.Save(node);
@@ -82,6 +88,8 @@ namespace PXWeb
         #region IPresentationSettings Members
 
         public bool PromptMandatoryFootnotes { get; set; }
+
+        public bool NewTitleLayout { get; set; }
 
         public ITableSettings Table
         {

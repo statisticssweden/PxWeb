@@ -16,6 +16,11 @@ namespace PXWeb
         bool PromptMandatoryFootnotes { get; }
 
         /// <summary>
+        /// If the table Layout is new or old
+        /// </summary>
+        bool NewTitleLayout { get; }
+
+        /// <summary>
         /// Table settings
         /// </summary>
         ITableSettings Table { get; }

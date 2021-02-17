@@ -1,9 +1,11 @@
-﻿@media print {
-  #pxwebcontent #breadcrumb, #pxwebcontent #navigationFlow, #pxwebcontent .headerright, #pxwebcontent .ui-tabs-nav, #pxwebcontent .commandbar, #pxwebcontent .headerleft {
-    display: none;
-  }
-
-  #pxwebcontent table {
-    text-align: left;
-  }
+﻿/* print styles */
+@media print {
+    #pcaxis_tablediv {
+        text-align:left
+    }
+    .pxweb-accordion, .accordion-header, .accordion-body, .top-link, .screenreader-only, .link-text, .loginBannerHeader, .logindiv, .breadcrumb_container,
+    .navigationFlowArea, .presentation-left, .commandbar-shortcuts, .pxweb-btn {
+        display: none;
+    }
 }
+

@@ -20,6 +20,7 @@
   text-underline-position: under;
   transition: background .18s, color .18s;
   white-space: normal;
+  -webkit-appearance: none;
 
   &:hover, &:active {
     cursor: pointer;
@@ -59,9 +60,15 @@
 
   &.primary-btn {
     background: transparent;
+    background-repeat: no-repeat;
     background-color: $pxweb-primary-btn-bg;
     color: $pxweb-primary-btn-color;
-    border: 2px solid $pxweb-primary-btn-color;
+    border: 2px solid $pxweb-primary-btn-bg;
+
+    &.with-icon {
+      background-position: 8px 8px;
+      padding-left: 40px
+    }
 
     &:hover, &:active, &:focus {
       background-color: $pxweb-primary-btn-bg-hover;
@@ -71,6 +78,7 @@
 
     &:disabled {
       background: $pxweb-dark-2;
+      background-repeat: no-repeat;
       border: 2px solid $pxweb-dark-2;
       color: $pxweb-white;
       cursor: not-allowed;

@@ -1,14 +1,14 @@
 ﻿@include file-header("_breadcrumb.scss TODO");
 
 #pxwebcontent .breadcrumb_container {
-  background: breadcrumb-background;
+  background: $breadcrumb-background;
 }
 
 #pxwebcontent .breadcrumb_text {
     color: $breadcrumb-text;
     /*font-family: Verdana;*/
     @include pxweb-font;
-    font-size: 0.9em;
+    font-size: 14px;
     display: inline-block;
 }
 
@@ -16,7 +16,7 @@
     color: $breadcrumb-text;
     /*font-family: Verdana;*/
     @include pxweb-font;
-    font-size: 0.9em;
+    font-size: 14px;
 }
 
 #pxwebcontent .breadcrumb_text:focus {
@@ -27,7 +27,7 @@
     color: $breadcrumb-text-nolink;
     /*font-family: Verdana;*/
     @include pxweb-font;
-    font-size: 0.9em;
+    font-size: 14px;
     display: inline-block;
 }
 
@@ -36,14 +36,14 @@
     /*font-family: Verdana;*/
     @include pxweb-font;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 14px;
 }
 
 #pxwebcontent .breadcrumb_sep {
     color: $breadcrumb-text;
     font-family: Verdana;
     @include pxweb-font;
-    font-size: 0.8em;
+    font-size: 14px;
 }
 
 #pxwebcontent .breadcrumb_homebutton {
@@ -59,7 +59,7 @@
     border-top: 3px solid $breadcrumb-text;
     background: $breadcrumb-background;
     text-transform: none;
-    padding: 5px 15px;
+    padding: 5px 15px 20px;;
     min-height: 30px;
 }
 

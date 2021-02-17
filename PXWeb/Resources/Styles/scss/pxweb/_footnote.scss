@@ -9,7 +9,7 @@
 #pxwebcontent .footnote_heading {
   @include just-open-sans;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #pxwebcontent dl.footnote_definitionlist dt {
@@ -29,6 +29,10 @@
 
 #pxwebcontent .footnote_valuenote_key {
   margin-left: 2em;
+}
+
+#pxwebcontent .footnote_valuenote_header {
+   text-transform: capitalize;
 }
 
 #pxwebcontent .footnote_no_footnotes {

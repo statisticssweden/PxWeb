@@ -114,15 +114,6 @@ namespace PXWeb
         protected global::PCAxis.Web.Controls.Breadcrumb breadcrumb1;
 
         /// <summary>
-        /// TitlePlaceHolder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder TitlePlaceHolder;
-
-        /// <summary>
         /// navigationFlowControl control.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,15 @@ namespace PXWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.NavigationFlow navigationFlowControl;
+
+        /// <summary>
+        /// TitlePlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder TitlePlaceHolder;
 
         /// <summary>
         /// ContentPlaceHolderMain control.

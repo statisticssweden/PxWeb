@@ -1,7 +1,6 @@
 ﻿@include file-header("_tablequery.scss");
 /* Used for TableQuery webcontrol, displays api query on resultpage */
 #pxwebcontent .tablequery_informationpanel {
-  display: inline-block;
   margin-top: 30px;
   padding: 10px;
   border-style: dashed;
@@ -21,7 +20,7 @@
 
 #pxwebcontent .tablequery_url {
   display: block;
-  width: 700px;
+  width: 95%;
   font-family: 'Courier New';
 }
 
@@ -33,8 +32,12 @@
 
 #pxwebcontent .tablequery_query {
   display: block;
-  width: 700px;
+  width: 95%;
   margin-bottom: 10px;
+
+  &:focus {
+    @include focus-ring;
+  }
 }
 
 .tablequery_moreinformation {

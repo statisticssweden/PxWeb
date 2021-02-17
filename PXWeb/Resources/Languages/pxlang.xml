@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <language xmlns="http://www.pc-axis.scb.se/" name="Default">
    <sentence name="SiteTitle" value="PxWeb"/>
+
+   <sentence name="CtrlChooseVariable" value="Select a variablel:"/>
   
 	 <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Change texts"/>
 	 <sentence name="CtrlChangeTextsHeading" value="Change texts"/>
@@ -10,17 +12,18 @@
 	 <sentence name="CtrlChangeTextsUnitsHeading" value="Unit"/>
 	 <sentence name="CtrlChangeTextsVariablesHeading" value="Variables"/>
 
-	 <sentence name="CtrlChangePresentationContinueButton" value="Continue"/>
+	 <sentence name="CtrlChangePresentationCompleteButton" value="Complete"/>
 	 <sentence name="CtrlChangePresentationContentsHeading" value="Contents"/>
 	 <sentence name="CtrlChangePresentationUnitsHeading" value="Unit"/>
 	 <sentence name="CtrlChangePresentationVariablesHeading" value="Variables"/>
-	 <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Change text/code presentation"/>
+	 <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Display text/code"/>
 	 <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Change text/code presentation"/>
 
 	 <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Select an option for each variable for which you want to change presentation"/>
 	 <sentence name="CtrlChangeCodeTextPresentationText" value="Text"/>
 	 <sentence name="CtrlChangeCodeTextPresentationCode" value="Code"/>
 	 <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Code and Text"/>
+	 <sentence name="CtrlChangeCodeTextPresentationNoneChangeable" value="None available values to choose"/>
 
 
 
@@ -34,7 +37,7 @@
 	 <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Delete variable"/>
 	 <sentence name="CtrlDeleteVariableHeaderLabel" value="Mark the variable and the value to be used when variable is removed." />
 	 <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Add the value to the table title" />
-	 <sentence name="CtrlDeleteVariableContinueButton" value="Continue"/>
+	 <sentence name="CtrlDeleteVariableCompleteButton" value="Complete"/>
 	 <sentence name="CtrlDeleteVariableErrorDescription" value="You must select at least one variable and one value"/>
 	 <sentence name="CtrlDeleteVariableOneVariable" value="You cannot delete all variables, at least one must exist"/>
 	 <sentence name="CtrlCommandBarFunctionDeleteValue" value="Delete value"/>
@@ -42,25 +45,45 @@
 	 <sentence name="CtrlDeleteValueErrorDescription" value="You cannot delete all values for a variable." />
 	 <sentence name="CtrlDeleteValueContinueButton" value="Continue"/>
 	 <sentence name="CtrlCommandBarFunctionPerPart" value="Per cent"/>
+	
 	 <sentence name="CtrlPerPartContinueButton" value="Continue"/>
-	 <sentence name="CtrlPerPartNewValueName" value="New Value Name"/>
+	 <sentence name="CtrlPerPartNewValueName" value="New Value Name:"/>
+	 <sentence name="CtrlPerPartKeepValueRadioLegend" value="What should be displayed?"/>
 	 <sentence name="CtrlPerPartKeepData" value="Show original data and per cent"/>
 	 <sentence name="CtrlPerPartPerCentOnly" value="Show per cent only"/>
+  	 <sentence name="CtrlPerPartSelectOptionRadioLegend" value="Type of basis:"/>
 	 <sentence name="CtrlPerPartOneVariableAllValues" value="Select a variable as basis for the percent calculation"/>
 	 <sentence name="CtrlPerPartOneVariableOneValue" value="Select a variable for which you will select a value as basis"/>
 	 <sentence name="CtrlPerPartOneMatrixValue" value="Select a datacells as basis, one value for each variable"/>
+	
+	 <sentence name="CtrlPerPartSelectedVariableNameLabel" value="Select the value from {0}:"/>
+	 <sentence name="CtrlPerPartSelectCellLabel" value="Select cell:"/>
+   <sentence name="CtrlPerPartCompleteButton" value="Complete" />
+   <sentence name="CtrlCommandBarAccordionOperatationsTitle" value="More options" />
+   <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Save result as..." />
+   <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Show result as..." />
+   <sentence name="CtrlCommandBarSaveAsButton" value="Save" />
+   <sentence name="CtrlCommandBarShowAsButton" value="Show" />
 	 <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Edit and Calculate"/>
 	 <sentence name="CtrlCommandBarSaveAsCaption" value="Save table as"/>
 	 <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Presentation views"/>
 	 <sentence name="CtrlCommandBarActionButtonCaption" value="Send"/>
 	 <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="Ok"/>
-	 <sentence name="CtrlCommandBarDownloadFileTitle" value="Save file"/>
-	 <sentence name="CtrlCommandBarDownloadFileInformation" value="Click the 'Save file' link below to download the file to your computer"/>
-	 <sentence name="CtrlCommandBarDownloadFileLink" value="Save file"/>
+
+	<!--sentence name="CtrlCommandBarDownloadFileTitle" value="Save file"/-->
+	<!--sentence name="CtrlCommandBarDownloadFileInformation" value="Click the 'Save file' link below to download the file to your computer"/-->
+	<!--sentence name="CtrlCommandBarDownloadFileLink" value="Save file"/-->
+	
 	 <sentence name="CtrlCommandBarFunctionPivotManual" value="Pivot manual"/>
 	 <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Pivot manual"/>
 	 <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Pivot manual"/>
-	 <sentence name="CtrlCommandBarFunctionPivotCW" value="Pivot clockwise"/>
+   <sentence name="CtrlCommandBarFunctionPivotManualMoveLeft" value="Move to rows" />
+   <sentence name="CtrlCommandBarFunctionPivotManualMoveRight" value="Move to columns" />
+   <sentence name="CtrlCommandBarFunctionPivotManualMoveUp" value="Move up" />
+   <sentence name="CtrlCommandBarFunctionPivotManualMoveDown" value="Move down" />
+   <sentence name="CtrlCommandBarFunctionPivotManualListboxRowScreenReader" value="Select variables to be desplayed as rows in the table" />
+   <sentence name="CtrlCommandBarFunctionPivotManualListboxColumnScreenReader" value="Select variables to be displayed as columns in the table" />
+   <sentence name="CtrlCommandBarFunctionPivotCW" value="Pivot clockwise"/>
 	 <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Pivot clockwise"/>
 	 <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Pivot clockwise"/>
 	 <sentence name="CtrlCommandBarFunctionPivotCCW" value="Pivot counterclockwise"/>
@@ -111,7 +134,7 @@
 	 <sentence name="CtrlCommandBarFileTypeRelationallAlt" value="Save as Relational file"/>
 	 <sentence name="CtrlPresentationViewTableLayout1" value="Show table"/>
 	 <sentence name="CtrlPresentationViewTableLayout2" value="Table - Layout 2"/>
-	 <sentence name="CtrlPresentationViewTableSorted" value="Sort table"/>
+	 <sentence name="CtrlPresentationViewTableSorted" value="Sortable table"/>
 	 <sentence name="CtrlPresentationViewChartColumn" value="Chart - Bar"/>
 	 <sentence name="CtrlPresentationViewChartColumnStacked" value="Chart - Bar stacked"/>
 	 <sentence name="CtrlPresentationViewChartColumnStacked100" value="Chart - Bar stacked 100%"/>
@@ -182,16 +205,24 @@
   <sentence name="CtrlChangeValueOrderDownAlt" value="Move down" /> -->
 
 	 <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Choose variable:"/>
-	 <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Select value order by moving items from one list to the other. If not all are moved the values in the From list will be placed first in the table."/>
+	 <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Select values you would like to change order for."/>
 	 <sentence name="CtrlChangeValueOrderCancelButton" value="Cancel"/>
 	 <sentence name="CtrlChangeValueOrderContinueButton" value="Continue"/>
+   <sentence name="CtrlChangeValueOrderCompleteButton" value="Complete"/>
 	 <sentence name="CtrlChangeValueOrderMoveRight" value="Move right"/>
 	 <sentence name="CtrlChangeValueOrderMoveLeft" value="Move left"/>
 	 <sentence name="CtrlChangeValueOrderMoveDown" value="Move down"/>
+   <sentence name="CtrlChangeValueOrderMoveUp" value="Move up" />
+   <sentence name="CtrlChangeValueOrderListboxLabel" value="Values" />
 	 <sentence name="CtrlChangeValueOrderFromOrder" value="From order"/>
 	 <sentence name="CtrlChangeValueOrderToOrder" value="To order"/>
 
-	 <sentence name="CtrlPivotContinueButton" value="Continue"/>
+    <!--trenger denne litt til des 2020 -->
+     <sentence name="CtrlPivotContinueButton" value="Continue"/>
+ 
+	 <sentence name="CtrlPivotCompleteButton" value="Complete"/>
+     <sentence name="CtrlPivotCancelButton" value="Cancel"/>
+
 	 <sentence name="CtrlPivotStubLabel" value="Rows"/>
 	 <sentence name="CtrlPivotHeadingLabel" value="Columns"/>
 	 <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Save as filetype:"/>
@@ -217,7 +248,9 @@
 	 <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Choose values to sum"/>
 	 <sentence name="CtrlSumVariableNameRequired" value="Name for new value is required"/>
 	 <sentence name="CtrlSumDifferentOperandsRequired" value="Operation requires two different operands."/>
-	 <sentence name="CtrlSumContinueButton" value="Sum"/>
+   <sentence name="CtrlSumOptions" value="Which values do you want to sum?" />
+   <sentence name="CtrlSumContinueButton" value="Continue"/>
+   <sentence name="CtrlSumComplete" value="Complete" />
 	 <sentence name="CtrlSumKeepValuesText" value="Show also the original values"/>
 	 <sentence name="CtrlFirstOperandLabel" value="First value:"/>
 	 <sentence name="CtrlSecondOperandLabel" value="Second value:"/>
@@ -480,18 +513,22 @@
    <sentence name="CtrlSaveQueryCopyLink" value="Copy" />
    <sentence name="CtrlSaveQueryMailQuery" value="Send as e-mail" />
    <sentence name="CtrlSaveQueryFailedSave" value="Failed to save the query" />
-   <sentence name="CtrlSaveQueryURLInfo" value="You can return to the saved query by clicking on this link" />
+   <sentence name="CtrlSaveQueryURLInfo" value="Saved query is available at the address below:" />
    <sentence name="CtrlSaveQueryHeadingExplanationText" value="About save your query" />
    <sentence name="CtrlSaveQueryExplanationText" value="Save your query so you can return to the same table by using a web address" />
    <sentence name="CtrlSaveQueryStepByStep" value="Step by step explanation for saved query" />
    <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Update alternatives:" />
    <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Format:" />
+   <sentence name="CtrlSaveQueryUrlScreenReader" value="Address for saved query" />
    <sentence name="MasterPageSaveQueryInfoHeader" value="Saved query {0}" />
    <sentence name="MasterPageSaveQueryInfoLatest" value="{0} most recent time periods" />
    <sentence name="MasterPageSaveQueryInfoFromTime" value="Fixed start time point {0} and all newer time periods" />
    <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Unchanged table" />
-   
- <sentence name="CtrlSelectFromGroupHeading" value="Select values from group for variable: {0}" />
+  <sentence name="MasterPageFullscreen" value="Fullscreen" />
+  <sentence name="MasterPageExitFullscreen" value="Exit Fullscreen" />
+
+
+  <sentence name="CtrlSelectFromGroupHeading" value="Select values from group for variable: {0}" />
    <sentence name="CtrlSelectFromGroupSelectUserManualScreenReaderRegion" value="User manual for select values from group." />
    <sentence name="CtrlSelectFromGroupSelectUserManualScreenReader" value="The 'Select values from group' screen can be used for variables where the values are grouped. You must first select grouping and then group. You can choose to display the single values in the group or (in some tables) aggregated values, before returning to the main page." />
   
@@ -632,8 +669,12 @@
 	 <sentence name="PXWebGenXMLLink" value="Generate menu xml"/>
 
 	 <sentence name="PageViewFootnoteDialogTitle" value="Footnotes"/>
-	 <sentence name="PageViewDataSortDescription" value="Click on the heading of the columns to sort the table. Sort multiple columns simultaneously by holding down the shift key and clicking a second, third or even fourth column header" />
-	 <sentence name="PageViewDataSortCopyInstructions" value="To copy the table: From the Edit menu use Select all and then Copy. Alternatively press Crtl+A and then Ctrl+C"/>
+	 <sentence name="PageViewDataSortDescription" value="Click on a column heading to sort the table." />
+	 <sentence name="PageViewDataSortCopyInstructions" value="Alternatively you can save table as Excel and sort table there."/>
+	 <sentence name="PageViewDataSortColumnIsUnsortedSR" value="The table is sorted on another column. Click to sort ascending on {0} ."/>
+	 <sentence name="PageViewDataSortColumnIsSortedAscSR" value="The table is sorted ascending on {0}. Click to sort descending."/>
+	 <sentence name="PageViewDataSortColumnIsSortedDescSR" value="The table is sorted descending on {0}. Click to sort ascending."/>
+	
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
@@ -643,6 +684,7 @@
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="English" />
+  <sentence name="PxWebMenuBurger" value="Menu" />
    <sentence name="PxWebMenu" value="Menu"/>
    <sentence name="PxWebMenuExplanation" value="(C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement. Character in brackets shows the lowest regional level." />
    <sentence name="PxWebSelection" value="Selection"/>
@@ -654,7 +696,8 @@
 	 <sentence name="PxWebMarkingTipsText" value="At least one indication in every list box has to be made to show a result for each variable. When you wish to &#xD;&#xA;see one or a few variables, mark these only. N.B. To undo a mark, press the button CTRL and click the mouse &#xD;&#xA;button on the text.&#xD;&#xA;&#xD;&#xA;To select all lines in a list box:&#xD;&#xA;- Mark the first line in the list box. Then press the buttons SHIFT and END simultaneously.&#xD;&#xA;&#xD;&#xA;To select/undo a marked line in a list box:&#xD;&#xA;- Press the button CTRL and click the left mouse button on the selected line simultaneously.&#xD;&#xA;&#xD;&#xA;To select more than one line in a list box:&#xD;&#xA;- Mark lines in a row by pressing the left mouse button and slip it over the requested lines. Or, mark the first &#xD;&#xA;line on your list and then press the button SHIFT at the same time as you press the up or down arrows on the keyboard. &#xD;&#xA;- Mark lines, not in a row, by pressing the button CTRL at the same time as you click the left mouse button on the requested lines. &#xD;&#xA;&#xD;&#xA;To search for a specific value in the list box:&#xD;&#xA;- Mark the first line in the list box. Then type the first letter in the line requested. If you fail in getting the right line, &#xD;&#xA;try the typing again until you find the right value. Or use the up or down arrows or the mouse button to look further. " />
 	 <sentence name="PxWebPresentation" value="Presentation"/>
    <sentence name="PxWebTable" value="Table" />
-   <sentence name="PxWebTableUserSettingsShow" value="Table settings" />
+   <sentence name="PxWebTableUserSettingsShow" value="Hide empty rows" />
+   <sentence name="PxWebTableUserSettingsLegend" value="Which rows are to be displayed?" />
    <sentence name="PxWebTableUserSettingsHide" value="Hide settings" />
    <sentence name="PxWebTableUserSettingsZeroOption" value="Rows with zeros:" />
    <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Show all rows" />
@@ -663,7 +706,7 @@
    <sentence name="PxWebTableUserSettingsZeroOptionNoSymbols" value="Hide rows with only dots" />
    <sentence name="PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol" value="Hide rows with only zeros, '-' or dots" />
    <sentence name="PxWebTableUserSettingsCancel" value="Cancel" />
-   <sentence name="PxWebTableUserSettingsApply" value="Save settings" />
+   <sentence name="PxWebTableUserSettingsApply" value="Complete" />
    <sentence name="PxWebChart" value="Chart" />
 	 <sentence name="PxWebChartUserSettingsTitle" value="Title:" />
 	 <sentence name="PxWebChartUserSettingsHeight" value="Height:" />
@@ -689,7 +732,7 @@
 	 <sentence name="PxWebChartPieChartTitle" value="Pie chart cannot be displayed" />
 	 <sentence name="PxWebChartPieChartInformation" value="A pie chart can only contain one variable with more than one value. Use the 'Delete variable' or the 'Delete value' operations in the 'Edit and calculate' menu above to remove variables and values." />
 	 <sentence name="PxWebChartPyramidChartTitle" value="Population pyramid cannot be displayed" />
-	 <sentence name="PxWebChartPyramidChartInformation" value="For the population pyramid, one of the variables have an unlimited number of values. One of the other variables must have two values, while the rest of the variables may only have one value. Eg variable age can have all its values ​​and the variable sex has two values. Use the 'Delete value' operation in the 'Edit and calculate' menu above to remove values." />
+	 <sentence name="PxWebChartPyramidChartInformation" value="For the population pyramid, one of the variables have an unlimited number of values. One of the other variables must have two values, while the rest of the variables may only have one value. Eg variable age can have all its values ​​and the variable sex has two values." />
 	 <sentence name="PxWebChartTooManyValues" value="Too many values selected" />
 	 <sentence name="PxWebChartTooManyValuesInformation" value="You have selected too many values." />
 	 <sentence name="PxWebChartUserSettingsLargeValue" value="Maximum value is {0}" />
@@ -699,7 +742,8 @@
 
 	 <sentence name="PxWebDataSort" value="Sort data"/>
 	 <sentence name="PxWebSelectDb" value="Select database:"/>
-	 <sentence name="PxWebTableCropped" value="The table has been cropped, and a maximum of {0} rows and {1} columns is be displayed on screen. Use the scroll bar to see more columns. It is also possible to rotate the table or download it as file, to see the intire table."/>
+	 <sentence name="PxWebTableCropped" value="Maximum of {0} rows and {1} columns can be displayed on screen."/>
+   <sentence name="PxWebTableCroppedHeading" value="The table has been cropped"/>
 
 	 <sentence name="PxWebPopupDialogOk" value ="Ok"/>
   <sentence name="PxWebPopupDialogClose" value ="Close"/>
@@ -735,6 +779,7 @@
   <sentence name="PxWebTitleSearch" value ="PxWeb - Search"/>
   <sentence name="PxWebTitleSelection" value ="PxWeb - Select variable and values"/>
   <sentence name="PxWebTitleTable" value ="PxWeb - Table"/>
+<sentence name="PxWebSavedQueryUnsafeMessageHeading" value ="Text has been changed"/>
   <sentence name="PxWebSavedQueryUnsafeMessage" value ="The text in the table differs from the original in the database, because it has been changed manually"/>
   <sentence name="PxWebGeneralErrorMessage" value ="An error has occurred. The error has been registered"/>
   <sentence name="PxWebSavedQueryExecuteErrorMessage" value ="Your saved query can not be found. The table can have been moved or removed."/>
@@ -1045,6 +1090,9 @@
 
 	 <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotes" value="Prompt for mandatory footnotes"/>
 	 <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotesInfo" value="If madantory footnotes should be prompted to the user when the table is displayed"/>
+	<sentence name="PxWebAdminSettingsPresentationGeneralNewTitleLayout" value="New layout for title"/>
+	<sentence name="PxWebAdminSettingsPresentationGeneralNewTitleLayoutInfo" value="'New' 2020 WAG layout: Title is placed high on the page and only there (ignoring the table/Show title setting). False yields the old layout. "/>
+
 
 	 <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Table transformation"/>
 	 <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="If the table should be automatically transformed before it displays to the user"/>
@@ -1223,16 +1271,16 @@
    <sentence name="PxWebAdminFeaturesSavedQueryGeneralCacheTimeInfo" value="For how long time, in minutes, should the saved query be cached." />
    <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableCORS" value="Enable CORS" />
    <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableCORSInfo" value="Is Cross-Origin-Resource-Sharing allowed?" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralShowPeriodAndId" value="Show period and id" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralShowPeriodAndIdInfo" value="Should the user see the period and id for the loaded saved query?" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableLimitRequest" value="Enable request limit" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableLimitRequestInfo" value="Enable request limit for saved queries from a specific IP-address." />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterRequests" value="Limiter requests" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterRequestsInfo" value="Maximum number of requests to saved queries that can be made from a specific IP-address (works togheter with Limiter timespan)" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterTimespan" value="Limiter timespan" />
-  <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterTimespanInfo" value="Timespan for how many request to saved queries can be made from a specific IP-address (see LimiterRequests)" />  
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralShowPeriodAndId" value="Show period and id" />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralShowPeriodAndIdInfo" value="Should the user see the period and id for the loaded saved query?" />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableLimitRequest" value="Enable request limit" />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableLimitRequestInfo" value="Enable request limit for saved queries from a specific IP-address." />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterRequests" value="Limiter requests" />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterRequestsInfo" value="Maximum number of requests to saved queries that can be made from a specific IP-address (works togheter with Limiter timespan)" />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterTimespan" value="Limiter timespan" />
+   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterTimespanInfo" value="Timespan for how many request to saved queries can be made from a specific IP-address (see LimiterRequests)" />  
 
-  <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabases" value="PX databases" />
+   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabases" value="PX databases" />
    <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabasesInfo" value="Defines which PX databases that will have the saved query function available" />
    <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabases" value="CNMM databases" />
    <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabasesInfo" value="Defines which CNMM databases that will have the saved query function available" />

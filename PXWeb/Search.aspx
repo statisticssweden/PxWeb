@@ -46,7 +46,7 @@
         </FooterTemplate>
     </asp:Repeater>
 
-    <script type="text/javascript" >
+    <script>
 
         jQuery(document).ready(function () {
             jQuery('[id$=rbAll]').click(function () {

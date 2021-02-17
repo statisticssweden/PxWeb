@@ -31,11 +31,19 @@ namespace PXWeb.Admin
                 cboPromptNotes.SelectedIndex = 1;
             }
 
+
+            cboNewTitleLayout.SelectedValue = Settings.Current.Presentation.NewTitleLayout.ToString();
+
         }
 
         protected void imgPromptNotesInfo_Click(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsPresentationGeneralPromptNotes", "PxWebAdminSettingsPresentationGeneralPromptNotesInfo");
+        }
+
+        protected void NewTitleLayoutInfo_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsPresentationGeneralLayoutVisible", "PxWebAdminSettingsPresentationGeneralNewTitleLayoutInfo");
         }
 
         /// <summary>
@@ -52,6 +60,8 @@ namespace PXWeb.Admin
                 {
                     PXWeb.PresentationSettings pres = (PXWeb.PresentationSettings)PXWeb.Settings.NewSettings.Presentation;
                     pres.PromptMandatoryFootnotes = cboPromptNotes.SelectedIndex == 0;
+
+                    pres.NewTitleLayout = bool.Parse(cboNewTitleLayout.SelectedValue);
                     PXWeb.Settings.Save();
                 }
                 finally

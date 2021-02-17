@@ -20,6 +20,9 @@ namespace PXWeb.UserControls
         private const string SAVEQUERY_CREATEQUERY = "CtrlSaveQuerybtnCreateQuery";
         private const string SAVEQUERY_TIMEOPTIONSWARNING = "CtrlSaveQueryTimeWarning";
         private const string SAVEQUERY_NOTIMEVALWARNING = "CtrlSaveQueryNoTimeValWarning";
+        private const string SAVEQUERY_HELP_PAGE = "CtrlSaveQueryHelpPage";
+        private const string SAVEQUERY_RBL_LEGEND = "CtrlSaveQueryChoosetimeperiodInformation";
+        
 
         #region Private property
 
@@ -60,10 +63,9 @@ namespace PXWeb.UserControls
             {
                 imgTimeWarning.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 FillDropDownlist();
-
+                
+                pnlForRbl.GroupingText = "<span class='font-heading'>" + LocalizationManager.GetLocalizedString(SAVEQUERY_RBL_LEGEND) + "</span>";
                 lblResultAs.Text = LocalizationManager.GetLocalizedString(SAVE_AS_CAPTION);
-                lnkCancelSaveQuery.NavigateUrl = PanelLink.BuildLink("");
-                lnkBack.NavigateUrl = PanelLink.BuildLink("savequery1");
             }
             SetDisplayModeOnPanels();
         }
@@ -272,6 +274,8 @@ namespace PXWeb.UserControls
                 //Hide and show the right panels
                 pnl2_SaveQuerySelection.Style.Add("display", "none");
                 pnl3_ShowSaveQueryUrl.Style.Add("display", "inline-block");
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "openAccordion",
+                    "jQuery(document).ready(function(){openAccordion('SaveQueryHeader', 'SaveQueryBody')});", true);
             }
             catch (Exception ex)
             {
@@ -415,7 +419,7 @@ namespace PXWeb.UserControls
             else
             {
                 subject = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Data.Model.Meta.Title;
-             }
+            }
 
 
             return subject;
@@ -428,18 +432,7 @@ namespace PXWeb.UserControls
         {
             if (this.Visible)
             {
-                if (!string.IsNullOrEmpty(QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL)))
-                {
-                    //Hide first panel and show the second panel, 
-                    //includes choice of time period and how the query should be saved
-                    if (QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL).Equals("savequery1"))
-                    {
-                        pnl2_SaveQuerySelection.Style.Add("display", "inline-block");
-                        pnl3_ShowSaveQueryUrl.Style.Add("display", "none");
-                        return;
-                    }
-                }
-                pnl2_SaveQuerySelection.Style.Add("display", "none");
+                pnl2_SaveQuerySelection.Style.Add("display", "inline-block");
                 pnl3_ShowSaveQueryUrl.Style.Add("display", "none");
             }        
         }

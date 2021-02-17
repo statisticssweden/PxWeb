@@ -85,26 +85,26 @@
   }
 
 /*#region  Mobile - small screen*/
-@media only screen and (max-width: 767px) {
+@media #{$mobile} {
 
-  #pxwebcontent .navigationFlowArea {
-    width: 100%;
-    margin-left: 0px;
-  }
+    #pxwebcontent .navigationFlowArea {
+        width: 100%;
+        margin-left: 0px;
+    }
 
-  #pxwebcontent #navigationFlow {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 5px;
-    padding-bottom: 20px;
-  }
+    #pxwebcontent #navigationFlow {
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 5px;
+        padding-bottom: 20px;
+    }
 
-  #pxwebcontent span.nav-step.passive, #pxwebcontent span.nav-step.future {
-    font-size: 16px;
-  }
+    #pxwebcontent span.nav-step.passive, #pxwebcontent span.nav-step.future {
+        font-size: 16px;
+    }
 
-  #pxwebcontent span.nav-step.active {
-    font-size: 18px;
-  }
+    #pxwebcontent span.nav-step.active {
+        font-size: 18px;
+    }
 }
 /*#endregion*/

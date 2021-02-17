@@ -39,20 +39,15 @@ namespace PXWeb
 
             if (!IsPostBack)
             {
-                imgSettingsExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 InitializeChart();
 
                 if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
                 {
                     InitializeCommandBar();
                 }
-                //lnkShowChartSettings.NavigateUrl = PanelLink.BuildLink("chartsettings");
-                //lnkHideChartSettings.NavigateUrl = PanelLink.BuildLink("");
-                SetDisplayModeOnPanels();
             }
             PCAxis.Web.Core.Management.PaxiomManager.RegisterPaxiomModelChanged(PaxoimModelChanged);
             IsLanguageChanged();
-            lnkCancelSettings.NavigateUrl = PanelLink.BuildLink("");
         }
 
         private void SetTitle()
@@ -117,7 +112,7 @@ namespace PXWeb
             {
                 result.Append(".");
             }
-
+            
             txtTitle.Text = result.ToString();
         }
         
@@ -144,8 +139,14 @@ namespace PXWeb
             {
                 Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTitleChart");
             }
-
+            
             ChartManager.Settings.UseSettingTitle = false;
+            SettingsLabel.Text = Master.GetLocalizedString("PxWebChartUserSettingsShow");
+            pnlSortTime.GroupingText = "<span class='font-heading'>" + Master.GetLocalizedString("PxWebChartUserSettingsSortTime") + "</span>";
+            pnlLabelOrientation.GroupingText = "<span class='font-heading'>" + Master.GetLocalizedString("PxWebChartUserSettingsLabelOrientation") + "</span>";
+
+
+
         }
 
         /// <summary>
@@ -859,24 +860,5 @@ namespace PXWeb
             settings.ShowLegend = chkShowLegend.Checked;
             settings.LegendHeight = int.TryParse(txtLegendHeight.Text, out t) ? t : settings.LegendHeight;
         }
-
-        private void SetDisplayModeOnPanels()
-        {
-            if (!string.IsNullOrEmpty(QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL)))
-            {
-                if (QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL).Equals("chartsettings"))
-                {
-                    pnlSettings.Style.Add("display", "inline-block");
-                    lnkShowChartSettings.NavigateUrl = PanelLink.BuildLink("");
-                    imgSettingsExpander.CssClass = "px-settings-collapseimage";
-                    return;
-                }
-            }
-
-            pnlSettings.Style.Add("display", "none");
-            lnkShowChartSettings.NavigateUrl = PanelLink.BuildLink("chartsettings");
-            imgSettingsExpander.CssClass = "px-settings-expandimage";
-        }
-
     }
 }

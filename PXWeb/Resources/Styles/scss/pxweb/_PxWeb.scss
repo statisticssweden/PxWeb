@@ -7,6 +7,9 @@
   line-height: 1.5;
   color: $pxweb-ink-main;
   font-size: 14px;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 #pxwebcontent select {
@@ -30,6 +33,19 @@
     margin: 0px 10px;
   }
 }
+
+#pxwebcontent .pxweb-buttons.maximize-icon {
+  margin: 10px 3px 0px 0px;
+}
+
+#pxwebcontent .font-heading {
+  @include font-heading;
+}
+
+#pxwebcontent .font-normal-text {
+    @include font-normal-text;
+}
+
 
 #pxwebcontent #header {
   padding: 10px 0 10px 0;
@@ -175,12 +191,6 @@
   margin-bottom: 15px;
 }
 
-#pxwebcontent .settings_panel {
-  float: left;
-  display: inline-block;
-  width: 100%;
-}
-
 #pxwebcontent .settings_panel a {
   color: $pxweb-black-1;
 }
@@ -194,9 +204,10 @@
 }
 
 #pxwebcontent .panelshowlink {
-    width: 100%;
+    width: auto;
+
     background-color: $pxbox-background;
-    padding: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
     margin-top: 5px;
     display: inline-block;
     border: 1px solid $pxbox-border;
@@ -234,12 +245,15 @@
 }
 
 #pxwebcontent .px-settings {
-  display: inline-block;
+   @include open-sans;
   padding: 10px 10px 10px 10px;
-  border-left: 1px solid $pxweb-dark-2;
-  border-right: 1px solid $pxweb-dark-2;
-  border-bottom: 1px solid $pxweb-dark-2;
-  width: 100%;
+  border: solid 6px $pxweb-dark-2;
+  width: max-content;
+  overflow: auto;
+  background-color: $pxweb-background;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
 }
 
 #pxwebcontent .px_setting_validator {
@@ -262,19 +276,12 @@
 #pxwebcontent .px_setting_textbox_normal {
   width: 40px;
   margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 #pxwebcontent .px_setting_textbox_title {
   width: 600px;
   margin-bottom: 5px;
-}
-
-#pxwebcontent .px_setting_label_width {
-  display: inline-block;
-  width: 40px;
-  margin-left: 10px;
-  font-weight: bold;
-  margin-right: 5px;
 }
 
 #pxwebcontent .px_setting_radiobuttonlist {
@@ -373,12 +380,19 @@
 }
 
 #pxwebcontent .px-messages {
-  display: inline-block;
-  border: 1px solid $px-messages-border;
+  /*text-align: justify; UnWcag   */
+  border: 2px solid $px-messages-border;
   margin-top: 5px;
-  padding: 10px 10px 10px 10px;
-  width: 45%;
+  width: auto;
   vertical-align: middle;
+
+  &.small {
+    align-items: center;
+  }
+
+  &.px-warning {
+    border: 2px solid $px-messages-warning;
+  }
 }
 
 #pxwebcontent .saved_query_unsafe_panel {
@@ -409,6 +423,81 @@
   width: auto;
   height: auto;
 }
+
+#pxwebcontent .presentation-main {
+  max-width:100%;
+}
+
+#pxwebcontent .presentation-container {
+  display: grid;
+  grid-template-columns: minmax(215px, 23%) minmax(0px, 75%);
+  grid-column-gap: 2%;
+}
+
+#pxwebcontent .px-message-text {
+  @include open-sans;
+  font-size: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  &.heading {
+    font-weight: bold;
+  }
+}
+
+@media #{$mobile} {
+    #pxwebcontent .presentation-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+  #pxwebcontent .px-settings { 
+    width: auto;
+  }
+
+  #pxwebcontent .presentation-left {
+    width: 100%;
+  }
+}
+@media #{$tablet} {
+    #pxwebcontent #btnBurgerMenu {
+        display: none;
+    }
+}
+@media #{$desktop} {
+    #pxwebcontent #btnBurgerMenu {
+        display: none;
+    }
+}
+
+
+#pxwebcontent .mobilemenu {
+    /*dummyclass for selection element to display/hide for burgermenu on mobiledevices*/
+}
+
+@media #{$mobile} {
+    #pxwebcontent .mobilemenuhidden {
+        display: none !important;
+    }
+}
+
+#pxwebcontent .mobilemenuhidden {
+   /* don't hide on non-mobile devices */
+}
+
+@media #{$mobile} {
+    #pxwebcontent .hideonmobile {
+        display: none !important;
+    }
+}
+
+#pxwebcontent .hideonmobile {
+    /* don't hide on non-mobile devices */
+}
+
+
+
+
 
 /* jQuery UI controls */
 #PageElements {

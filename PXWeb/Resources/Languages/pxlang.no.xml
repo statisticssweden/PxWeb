@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <language xmlns="http://www.pc-axis.scb.se/" name="no">
-  <sentence name="SiteTitle" value="Statistikkbanken"/>
-  
-  <sentence name="PxWebLoginMissingUserOrPassw" value="Både brukerident og passord må fylles ut"/>
+  <sentence name="SiteTitle" value="Statistikkbanken" />
+  <sentence name="CtrlChooseVariable" value="Velg variabel:"/>
   <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Endre tekster" />
   <sentence name="CtrlChangeTextsHeading" value="Endre tekster" />
   <sentence name="CtrlChangeTextsText" value="Endre tekster" />
@@ -10,16 +9,18 @@
   <sentence name="CtrlChangeTextsContentsHeading" value="Innhold" />
   <sentence name="CtrlChangeTextsUnitsHeading" value="Måleenhet" />
   <sentence name="CtrlChangeTextsVariablesHeading" value="Variabler" />
-  <sentence name="CtrlChangePresentationContinueButton" value="Fortsett" />
+  <sentence name="CtrlChangePresentationCompleteButton" value="Fullfør" />
   <sentence name="CtrlChangePresentationContentsHeading" value="Innhold" />
   <sentence name="CtrlChangePresentationUnitsHeading" value="Måleenhet" />
   <sentence name="CtrlChangePresentationVariablesHeading" value="Variabler" />
   <sentence name="CtrlCommandBarFunctionChangeCodeTextPresentation" value="Vis kode/tekst" />
   <sentence name="CtrlCommandBarFunctionChangeCodeTextHeading" value="Vis kode/tekst" />
-  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Velg et alternativ for hver variabel du vil endre presentasjon for" />
+  <sentence name="CtrlChangePresentationChangeCodeTextsText" value="Velg et alternativ for hver variabel du vil endre presentasjon for:" />
   <sentence name="CtrlChangeCodeTextPresentationText" value="Tekst" />
   <sentence name="CtrlChangeCodeTextPresentationCode" value="Kode" />
   <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Kode og tekst" />
+  <sentence name="CtrlChangeCodeTextPresentationNoneChangeable" value="Ingen tilgjengelige verdier å velge."/>
+	
   <sentence name="CtrlChangeDecimalContinueButton" value="Fortsett" />
   <sentence name="CtrlChangeDecimalHeading" value="Endre desimaler" />
   <sentence name="CtrlChangeDecimalHeaderLabel" value="Skriv inn antall desimaler" />
@@ -27,23 +28,34 @@
   <sentence name="CtrlChangeDecimalRangeError" value="Antall desimaler må være mellom 0 og 6" />
   <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Endre desimaler" />
   <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Fjern en variabel" />
-  <sentence name="CtrlDeleteVariableHeaderLabel" value="Marker variabelen og den verdien som skal bestå etter fjerning." />
+  <sentence name="CtrlDeleteVariableHeaderLabel" value="Marker variabelen som skal fjernes, og den verdien som variabelen da skal ha." />
   <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Legg til verdien i tabelltittelen" />
-  <sentence name="CtrlDeleteVariableContinueButton" value="Fortsett" />
+  <sentence name="CtrlDeleteVariableCompleteButton" value="Fullfør" />
   <sentence name="CtrlDeleteVariableErrorDescription" value="Du må velge minst en variabel og en verdi" />
   <sentence name="CtrlDeleteVariableOneVariable" value="Du kan ikke fjerne alle variabler, minst en må være med" />
   <sentence name="CtrlCommandBarFunctionDeleteValue" value="Fjern verdi" />
   <sentence name="CtrlDeleteValueHeaderLabel" value="Velg en eller flere verdier å fjerne. Du kan ikke velge alle verdier for en variabel. For å gjøre det må du benytte 'Fjern en variabel'" />
   <sentence name="CtrlDeleteValueErrorDescription" value="Det er ikke mulig å slette alle verdiene for en variabel" />
   <sentence name="CtrlDeleteValueContinueButton" value="Fortsett" />
+	
   <sentence name="CtrlCommandBarFunctionPerPart" value="Prosent" />
   <sentence name="CtrlPerPartContinueButton" value="Fortsett" />
-  <sentence name="CtrlPerPartNewValueName" value="Ny verditekst" />
+  <sentence name="CtrlPerPartNewValueName" value="Ny verditekst:" />
+  <sentence name="CtrlPerPartKeepValueRadioLegend" value="Hva skal tabellen inneholde?"/>	
   <sentence name="CtrlPerPartKeepData" value="Vis opprinnelige data og prosent" />
   <sentence name="CtrlPerPartPerCentOnly" value="Vis kun prosent" />
+  <sentence name="CtrlPerPartSelectOptionRadioLegend" value="Velg type basis for prosentberegningen:"/>	
   <sentence name="CtrlPerPartOneVariableAllValues" value="Velg en variabel som basis for prosentberegningen" />
   <sentence name="CtrlPerPartOneVariableOneValue" value="Velg en variabel der du får velge en verdi som basis" />
   <sentence name="CtrlPerPartOneMatrixValue" value="Velg en datacelle som basis, du får velge en verdi per variabel" />
+  <sentence name="CtrlPerPartSelectedVariableNameLabel" value="Velg verdi for {0}:"/>
+  <sentence name="CtrlPerPartSelectCellLabel" value="Velg cellen som skal brukes som basis:"/>
+  <sentence name="CtrlPerPartCompleteButton" value="Fullfør" />
+  <sentence name="CtrlCommandBarAccordionOperatationsTitle" value="Flere valg" />
+  <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Lagre data som..." />
+  <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Endre visning" />
+  <sentence name="CtrlCommandBarSaveAsButton" value="Lagre" />
+  <sentence name="CtrlCommandBarShowAsButton" value="Vis" />
   <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Rediger og beregne" />
   <sentence name="CtrlCommandBarSaveAsCaption" value="Lagre fil som" />
   <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Presentasjonsvisninger" />
@@ -55,11 +67,17 @@
   <sentence name="CtrlCommandBarFunctionPivotManual" value="Roter manuelt" />
   <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Roter manuelt" />
   <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Roter manuelt" />
-  <sentence name="CtrlCommandBarFunctionPivotCW" value="Roter med klokka" />
-  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Roter med klokka" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveLeft" value="Flytt til rader" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveRight" value="Flytt til kolonner" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveUp" value="Flytt opp" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveDown" value="Flytt ned" />
+  <sentence name="CtrlCommandBarFunctionPivotManualListboxRowScreenReader" value="Velg variabler som skal vises som rader i tabellen" />
+  <sentence name="CtrlCommandBarFunctionPivotManualListboxColumnScreenReader" value="Velg variabler som skal vises som kolonner i tabellen" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Roter mot høyre" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Roter mot høyre" />
   <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Roter med klokka" />
-  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Roter mot klokka" />
-  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Roter mot klokka" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Roter mot venstre" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Roter mot venstre" />
   <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Roter mot klokka" />
   <sentence name="CtrlCommandBarFunctionShowAllRows" value="Vis alle rader" />
   <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Vis alle rader" />
@@ -104,9 +122,9 @@
   <sentence name="CtrlCommandBarFileTypeHtmlAlt" value="Lagre som HTML" />
   <sentence name="CtrlCommandBarFileTypeRelationalTitle" value="Skal vi bruke denne" />
   <sentence name="CtrlCommandBarFileTypeRelationallAlt" value="Skal vi bruke denne" />
-  <sentence name="CtrlPresentationViewTableLayout1" value="Vis tabell" />
+  <sentence name="CtrlPresentationViewTableLayout1" value="Tabell - Visning 1" />
   <sentence name="CtrlPresentationViewTableLayout2" value="Tabell - Visning 2" />
-  <sentence name="CtrlPresentationViewTableSorted" value="Sorter tabell" />
+  <sentence name="CtrlPresentationViewTableSorted" value="Sorterbar tabell" />
   <sentence name="CtrlPresentationViewChartColumn" value="Søylediagram" />
   <sentence name="CtrlPresentationViewChartColumnStacked" value="Stablet søylediagram" />
   <sentence name="CtrlPresentationViewChartColumnStacked100" value="Stablet søylediagram 100%" />
@@ -144,7 +162,7 @@
   <sentence name="CtrlInformationInformationLabel" value="Informasjon" />
   <sentence name="CtrlInformationOfficialStatisticsLabel" value="Offisiell statistikk" />
   <sentence name="CtrlInformationUnitLabel" value="Måleenhet" />
-  <sentence name="CtrlInformationContactLabel" value="Kontakt" />
+  <sentence name="CtrlInformationContactLabel" value="Kontaktperson" />
   <sentence name="CtrlInformationLastUpdatedLabel" value="Sist endret" />
   <sentence name="CtrlInformationRefPeriodLabel" value="Referansetid" />
   <sentence name="CtrlInformationStockFaLabel" value="Målemetode" />
@@ -168,16 +186,21 @@
   <sentence name="CtrlInformationFlowValue" value="Forløp (periodesum)" />
   <sentence name="CtrlInformationAverageValue" value="Gjennomsnitt" />
   <sentence name="CtrlInformationStockValue" value="Situasjon (tidspunkt)" />
-  <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Velg variabel" />
-  <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Velg rekkefølge ved å flytte verdier fra den ene listen til den andre. De verdiene som ikke flyttes fra Fra-lista plasseres først i tabellen." />
+  <sentence name="CtrlChangeValueOrderInstructionChooseVariable" value="Velg en variabel:" />
+  <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Velg en eller flere verdier, og flytt opp eller ned." />
   <sentence name="CtrlChangeValueOrderCancelButton" value="Avbryt" />
   <sentence name="CtrlChangeValueOrderContinueButton" value="Fortsett" />
+  <sentence name="CtrlChangeValueOrderCompleteButton" value="Fullfør"/>
   <sentence name="CtrlChangeValueOrderMoveRight" value="Flytt til høyre" />
   <sentence name="CtrlChangeValueOrderMoveLeft" value="Flytt til venstre" />
-  <sentence name="CtrlChangeValueOrderMoveDown" value="Flytt nedover" />
+  <sentence name="CtrlChangeValueOrderMoveDown" value="Flytt ned" />
+  <sentence name="CtrlChangeValueOrderMoveUp" value="Flytt opp" />
+  <sentence name="CtrlChangeValueOrderListboxLabel" value="Verdier" />
   <sentence name="CtrlChangeValueOrderFromOrder" value="Fra rekkefølge" />
   <sentence name="CtrlChangeValueOrderToOrder" value="Til rekkefølge" />
   <sentence name="CtrlPivotContinueButton" value="Fortsett" />
+  <sentence name="CtrlPivotCompleteButton" value="Fullfør" />
+  <sentence name="CtrlPivotCancelButton" value="Avbryt" />
   <sentence name="CtrlPivotStubLabel" value="Rader" />
   <sentence name="CtrlPivotHeadingLabel" value="Kolonner" />
   <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Lagre som filtype: " />
@@ -194,14 +217,16 @@
   <sentence name="CtrlSaveAsSaveTypeDropDownButton" value="Fortsett" />
   <sentence name="SumInvalidValuename" value="Den nye verdien må ha unik tekst for variabelen." />
   <sentence name="CtrlSumHeading" value="Summer variabelverdier" />
-  <sentence name="CtrlSumTotalVariabelNameText" value="Navn på ny verdi:" />
+  <sentence name="CtrlSumTotalVariabelNameText" value="Navn på sumverdi:" />
   <sentence name="CtrlSumAllValuesText" value="Summer alle verdier" />
-  <sentence name="CtrlSumSelectedValuesText" value="Summer valgte verdier" />
+  <sentence name="CtrlSumSelectedValuesText" value="Velg verdier som skal summeres" />
   <sentence name="CtrlSumSelectedVariabelTitle" value="Velg variabel som skal summeres" />
   <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Velg verdier som skal summeres" />
   <sentence name="CtrlSumVariableNameRequired" value="Navn er påkrevd" />
   <sentence name="CtrlSumDifferentOperandsRequired" value="Operasjonen krever to ulike operatorer." />
-  <sentence name="CtrlSumContinueButton" value="Summer" />
+  <sentence name="CtrlSumOptions" value="Hva skal summeres?" />
+  <sentence name="CtrlSumContinueButton" value="Forsett" />
+  <sentence name="CtrlSumComplete" value="Fullfør" />
   <sentence name="CtrlSumKeepValuesText" value="Vis også opprinnelig verdier " />
   <sentence name="CtrlFirstOperandLabel" value="Første verdi" />
   <sentence name="CtrlSecondOperandLabel" value="Annen verdi" />
@@ -232,19 +257,22 @@
   <sentence name="CtrlVariableSelectorInstructionLabel" value="Marker dine valg og trykk på 'Fortsett'" />
   <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Markeringstips" />
   <sentence name="CtrlVariableSelectorEliminationTooltip" value="Velg minst en verdi" />
-  <sentence name="CtrlVariableSelectorSelectValues" value="--- Velg klassifikasjon ---" />
+  <sentence name="CtrlVariableSelectorSelectScreenReaderRegion" value="Variabel, " />
+  <sentence name="CtrlVariableSelectorSelectValues" value="--- Velg inndeling ---" />
   <sentence name="CtrlVariableSelectorEliminationLabel" value="For variabler markert med {image} må du velge minst en verdi" />
   <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Velg alle" />
+  <sentence name="CtrlVariableSelectorSelectAllButton" value="Velg alle" />
   <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Opphev alle" />
-  <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Velg verdier fra gruppe" />
+  <sentence name="CtrlVariableSelectorDeSelectAllButton" value="Opphev alle" />
+  <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Gå til: Velg verdier fra gruppe" />
+  <sentence name="CtrlVariableSelectorSelectDropdownGroupingLabel" value="Nedtrekksmeny for grupperinger av kodelisten" />
   <sentence name="CtrlVariableSelectorMetadataImformationTooltip" value="Definisjoner av variabler og verdier" />
-  <sentence name="CtrlVariableSelectorSortDescTooltip" value="Sorter fallende" />
-  <sentence name="CtrlVariableSelectorSortAscTooltip" value="Sorter stigende" />
   <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Velg hierarkisk" />
-  <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Avansert søk" />
-  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="I alt" />
-  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valgte" />
-  <sentence name="CtrlVariableSelectorSearchLabel" value="Søk" />
+  <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Søk" />
+  <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valgt" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="av totalt" />
+  <sentence name="CtrlVariableSelectorOptionalVariableText" value="Valgfri variabel" />
+  <sentence name="CtrlVariableSelectorSearchLabel" value="Gå til: Avansert søk" />
   <sentence name="CtrlVariableSelectorSearchTooltip" value="Søk" />
   <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Tekst start" />
   <sentence name="CtrlVariableSelectorSelectionLimitsRowsColumnsLabel" value="Presentasjon på skjermen er begrenset til {0} rader og {1} kolonner" />
@@ -257,9 +285,13 @@
   <sentence name="CtrlVariableSelectorSelectedCellsLabel" value="Antall valgte celler" />
   <sentence name="CtrlVariableSelectorSelectedCellsLimitLabel" value="(maksimalt tillatt er {0})" />
   <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Må velge minst en verdi for : " />
+  <sentence name="CtrlVariableSelectorValidationSummary" value="Velg minst en verdi fra følgende variabler:" />
+  <sentence name="CtrlVariableSelectorValidationMessage" value="Velg minst én verdi" />
+  <sentence name="CtrlVariableSelectorMandatoryText" value="Må velges" />
   <sentence name="CtrlVariableSelectorContinueLabel" value="Velg" />
-  <sentence name="CtrlVariableSelectorContinueButton" value="Fortsett" />
-  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Det er flere enn 500 verdier og derfor presenteres de ikke automatisk" />
+  <sentence name="CtrlVariableSelectorContinueButton" value="Vis tabell" />
+  <sentence name="CtrlVariableSelectorVariableOverviewHeading" value="Variabeloversikt" />
+  <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Det er flere enn 500 verdier, og derfor presenteres de ikke automatisk" />
   <sentence name="CtrlVariableSelectorShowAll" value="Vis alle" />
   <sentence name="CtrlVariableSelectorShowHierarchy" value="Vis hierarki" />
   <sentence name="CtrlVariableSelectorSearch" value="Søk" />
@@ -268,8 +300,18 @@
   <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Starten av rad" />
   <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Inne i ord" />
   <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Starten av ord" />
-  <sentence name="CtrlVariableSelectorManyValues" value="Det er flere enn {0} verdier og derfor blir de ikke vist automatisk. Bruk søk." />
+  <sentence name="CtrlVariableSelectorSearchValuesTextbox" value="Søk" />
+  <sentence name="CtrlVariableSelectorSearchValuesTextboxScreenReader" value="Søkefelt for å finne ønsket verdi i kodelisten til denne variabelen. Dette er eksempler på verdier i listen. " />
+  <sentence name="CtrlVariableSelectorSelectValuesListboxScreenReader" value="Total verdiliste det er mulig å velge verdi fra, for denne variabelen." />
+  <sentence name="CtrlVariableSelectorSearchResultSearchWordScreenReader" value="Søkeordet, " />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader1" value=", resulterte i , " />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader2" value=", treff, " />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader3" value=", Resultater" />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader4" value=", Verdi, " />
+  
+  <sentence name="CtrlVariableSelectorManyValues" value="Det er flere enn {0} verdier, og derfor blir de ikke vist automatisk. Bruk lenken &quot;Avansert søk&quot;, eller &quot;Velg verdier fra gruppe&quot;." />
   <sentence name="CtrlVariableSelectorLargeValueset" value="(Stor verdimengde)" />
+  <sentence name="CtrlVariableSelectorMetadataCloseButton" value="Lukk" />
   <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Dele tidsvariabel" />
   <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Redigere lagret tabellspesifikasjon" />
   <sentence name="CtrlSaveQueryListEditHeaderLine1" value="Hvis du vil fjerne lagret tabellspesifikasjon kryss av." />
@@ -316,23 +358,24 @@
   <sentence name="CtrlExcelInformationLevelAllFootnotes" value="Alle fotnoter" />
   <sentence name="CtrlExcelInformationLevelAll" value="All informasjon" />
   <sentence name="CtrlExcelDoubleColumn" value="Kode og tekst i ulike kolonner" />
-  <sentence name="FileTypePX" value="PC-Axis-fil" />
+  <sentence name="FileTypePX" value="PC-Axis-fil (px)" />
   <sentence name="FileTypeJsonStat" value="JSON-stat (json)" />
+  <sentence name="FileTypeJsonStat2" value="JSON-stat2 (json)" />
   <sentence name="FileTypeExcel" value="Excel-arbeidsbok (xml)" />
   <sentence name="FileTypeExcelDoubleColumn" value="Excel-arbeidsbok (xml) med kode og tekst" />
   <sentence name="FileTypeExcelCompleteInfoFile" value="Excel-fil fra skjermen" />
   <sentence name="FileTypeCsvWithHeadingAndTabulator" value="Tabulatorseparert med overskrift" />
-  <sentence name="FileTypeCsvWithoutHeadingAndTabulator" value="Tabulatorseparert uten overskrift" />
+  <sentence name="FileTypeCsvWithoutHeadingAndTabulator" value="Tabulatorseparert uten overskrift (csv)" />
   <sentence name="FileTypeCsvWithHeadingAndComma" value="Kommaseparert med overskrift" />
   <sentence name="FileTypeCsvWithoutHeadingAndComma" value="Kommaseparert uten overskrift" />
   <sentence name="FileTypeCsvWithHeadingAndSpace" value="Skilletegnseparert med overskrift" />
   <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Skilletegnseparert uten overskrift" />
-  <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Semikolonseparert med overskrift" />
+  <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Semikolonseparert med overskrift (csv)" />
   <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Semikolonseparert uten overskrift" />
   <sentence name="FileTypeText" value="Tekstfil (txt)" />
   <sentence name="FileTypeHtml" value="Html-fil (htm)" />
-  <sentence name="FileTypeRelational" value="Relasjonstabell som tekstfil" />
-  <sentence name="FileTypeChartPng" value="Figur som PNG" />
+  <sentence name="FileTypeRelational" value="Relasjonstabell (txt)" />
+  <sentence name="FileTypeChartPng" value="Figur (png)" />
   <sentence name="FileTypeChartGif" value="Figur som Gif" />
   <sentence name="FileTypeChartJpeg" value="Figur som JPEG" />
   <sentence name="FileTypeExcelXDoubleColumn" value="Excel (xlsx) med kode og tekst" />
@@ -344,54 +387,46 @@
   <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Søk i tekst" />
   <sentence name="CtrlSearchVariableValuesSearch" value="Søk" />
   <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Legg til valgt " />
-  <sentence name="CtrlSearchValuesHeader" value="Søk verdi for" />
-  <sentence name="CtrlSearchValuesSearchCode" value="Søk kode:" />
-  <sentence name="CtrlSearchValuesSearchValue" value="Søk verdi:" />
-  <sentence name="CtrlSearchValuesSearchValueOrCode" value="Søk kode/verdi:" />
-  <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Søk i begynnelsen av tekst" />
-  <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Søk i tekst" />
-  <sentence name="CtrlSearchValuesShowAllValues" value="Vis alle verdier" />
-  <sentence name="CtrlSearchValuesSearch" value="Søk" />
-  <sentence name="CtrlSearchValuesSelectionTips" value="For å velge verdier i søket, klikk på første verdien, klikk Shift og klikk på siste verdien. (Utføres for hver side) " />
-  <sentence name="CtrlSearchValuesSearchResultHeader" value="Resultat" />
-  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(antall treff: {0})" />
-  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Marker alle" />
-  <sentence name="CtrlSearchValuesChoosenValues" value="Valgte verdier" />
-  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Legg til valgte verdier" />
-  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Fjern fra valgte verdier" />
-  <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(antall verdier: {0})" />
-  <sentence name="CtrlSearchValuesNoValuesFound" value="Ingen verdier funnet" />
-  <sentence name="CtrlSearchValuesNoValuesSelected" value="Ingen verdier valgt" />
-  <sentence name="CtrlSearchValuesCancel" value="Avbryt" />
-  <sentence name="CtrlSearchValuesClear" value="Tøm verdier" />
+  <sentence name="CtrlSearchValuesHeader2" value="Avansert søk for {0}" />
+  <sentence name="CtrlSearchValuesSelectionTips" value="Bruk søk-feltet eller hent alle.\nMarkér verdiene du ønsker i trefflisten, klikk på «Velg markerte verdier»." />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues2" value="Hent alle {0}" />
   <sentence name="CtrlSearchValuesSearchLabel" value="Søk" />
-  <sentence name="CtrlSearchValuesCode" value="Kode" />
-  <sentence name="CtrlSearchValuesValue" value="Verdi" />
-  <sentence name="CtrlSearchValuesAllValues" value="Vis alle verdier" />
-  <sentence name="CtrlSearchValuesSearchText" value="Tekst:" />
-  <sentence name="CtrlSearchValuesSearchButton" value="Søk" />
-  <sentence name="CtrlSearchValuesPagerFirstPage" value="Første side " />
-  <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Alle sider" />
-  <sentence name="CtrlSearchValuesPagerLastPage" value="Siste side" />
-  <sentence name="CtrlSearchValuesPagerForward" value="Fram" />
-  <sentence name="CtrlSearchValuesPagerBackward" value="Tilbake" />
-  <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Velg alle tilgjengelige verdier" />
+  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="Antall treff: {0}" />
+  <sentence name="CtrlSearchValuesSearchResultListboxScreenReader" value="Liste med treff fra søket. Marker de du vil flytte ned." />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Marker alle" />
+  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Velg markerte verdier" />
+  <sentence name="CtrlSearchValuesAddToChoosenValuesToolTip" value="Legger til de markerte treffene i lista med valgte verdier" />
+  <sentence name="CtrlSearchValuesChoosenValues" value="Valgte verdier" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Fjern umarkerte verdier" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValuesToolTip" value="Fjerner de verdiene som er markert i lista." />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues2" value="Antall markerte verdier: {0} av {1}" />
+  <sentence name="CtrlSearchValuesChoosenValuesListboxScreenReader" value="Liste med de verdiene som skal vises for variabelen." />
+  <sentence name="CtrlSearchValuesCancel" value="Avbryt" />
+  <sentence name="CtrlSearchValuesAddToVariableSelector" value="Ok, returner til hovedsiden med de markerte verdiene." />
+  <sentence name="CtrlSearchValuesUserManualScreenReaderRegion" value="Brukermanual for avansert søk." />
+  <sentence name="CtrlSearchValuesUserManualScreenReader" value="Skjermbildet 'Avansert søk' brukes for å søke i lange lister som inneholder over 1500 verdier. Du kan velge å hente alle verdier, eller søke opp enkeltverdier. Hvis du bruker søk-funksjonen, vil alle treff vises i en liste der du kan velge en eller flere av treffene. (De valgte verdiene vises i nedre del av skjermbildet. Har du valgt for mange, kan du avmarkere disse verdiene og fjerne dem.) Du kan gjenta søket så mange ganger du vil før du returnerer til hovedsiden med de markerte valgene." />
+  <sentence name="CtrlSearchValuesSearchScreenReaderRegion" value="Søk og behandle søketreff" />
+  <sentence name="CtrlSearchValuesSelectedValuesScreenReaderRegion" value="Valgte verdier fra søk " />
+  <sentence name="CtrlSearchValuesSearchFieldScreenReader" value="Her kan du søke etter kode eller tekst" />
   <sentence name="CtrlTableQueryShowInformation" value="API-spørring for denne tabellen" />
   <sentence name="CtrlTableQueryShowInformationTooltip" value="Få informasjon om hvordan du kan koble denne tabellen i applikasjonen din" />
   <sentence name="CtrlTableQueryHideInformation" value="Skjul" />
   <sentence name="CtrlTableQueryInformationText" value="Send (POST) følgende JSON-spørring til URL under eller kopier til API Konsoll." />
   <sentence name="CtrlTableQueryQueryCaption" value="JSON-spørring: " />
   <sentence name="CtrlTableQueryMoreInformation" value="Mer Informasjon om API mot Statistikkbanken" />
+  <sentence name="CtrlTableQuerySaveQuery" value="Lagre API-spørring (json)" />
   <sentence name="CtrlNavigationFlowStep1" value="Velg tabell" />
-  <sentence name="CtrlNavigationFlowStep2" value="Velg variabel" />
-  <sentence name="CtrlNavigationFlowStep3" value="Vis tabell" />
+  <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Ikon som betyr Velg tabell" />
+  <sentence name="CtrlNavigationFlowStep2" value="Velg variabler" />
+  <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Ikon som betyr Velg variabler" />
+  <sentence name="CtrlNavigationFlowStep3" value="Vis resultat" />
+  <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Ikon som betyr Vis resultat" />
   <sentence name="CtrlSaveQueryChoosetimeperiod" value="Alternativer for å vise tidsperioder" />
   <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="Hvilke perioder ønsker du å ha med når spørringen gjentas?" />
   <sentence name="CtrlSaveQueryTimeWarning" value="Det er ikke mulig å velge å oppdatere spørringen siden tidsperioden har blitt kombinert manuelt" />
   <sentence name="CtrlSaveQueryNoTimeValWarning" value="Det er ikke mulig å oppdatere spørringen da tidsvariabel ikke er definert for denne tabellen." />
-  <sentence name="CtrlSaveQuerylnkSaveQuery" value="Lagre spørringen" />
-  <sentence name="CtrlSaveQueryAsCaption" value="Lagre som (obligatorisk):" />
-  <sentence name="CtrlSaveQueryHelpPage" value="https://www.ssb.no/informasjon/om-statistikkbanken/hvordan-bruke-statistikkbanken" />
+  <sentence name="CtrlSaveQuerylnkSaveQuery" value="Lagre spørring" />
+  <sentence name="CtrlSaveQueryAsCaption" value="Lagre som:" />
   <sentence name="CtrlSaveQueryForScreen" value="Samme som vist på skjermen" />
   <sentence name="CtrlSaveQueryCancelSaveQuery" value="Avbryt" />
   <sentence name="CtrlSaveQuerybtnCreateQuery" value="Fullfør" />
@@ -405,25 +440,41 @@
   <sentence name="CtrlSaveQueryCopyLink" value="Kopi" />
   <sentence name="CtrlSaveQueryMailQuery" value="Send via e-post" />
   <sentence name="CtrlSaveQueryFailedSave" value="Lagring av spørringen feilet" />
-  <sentence name="CtrlSaveQueryURLInfo" value="Du kan gå tilbake til lagret spørring ved å klikke på denne lenken" />
+  <sentence name="CtrlSaveQueryURLInfo" value="Lagret spørring er tilgjengelig på adressen under:" />
   <sentence name="CtrlSaveQueryHeadingExplanationText" value="Om lagre spørringen" />
   <sentence name="CtrlSaveQueryExplanationText" value="Lagre oppsettet for tabellen, slik at du kan hente oppdaterte tall ved å gå til en nettadresse" />
   <sentence name="CtrlSaveQueryStepByStep" value="Stegvis forklaring av lagra spørring" />
   <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Oppdateringsvalg:" />
+  <sentence name="CtrlSaveQueryUrlScreenReader" value="Adresse for lagret spørring" />
   <sentence name="MasterPageSaveQueryInfoHeader" value="Lagret spørring {0}" />
   <sentence name="MasterPageSaveQueryInfoLatest" value="Nyeste {0} tidsperioder" />
   <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttidspunkt {0} og alle nyere tidsperioder" />
   <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Uendret tabell" />
+  <sentence name="MasterPageFullscreen" value="Fullskjerm" />
+  <sentence name="MasterPageExitFullscreen" value="Avslutt Fullskjerm" />
+  
+  <sentence name="CtrlSelectFromGroupHeading" value="Velg verdier fra gruppe for variablen {0}" />
+  <sentence name="CtrlSelectFromGroupSelectUserManualScreenReaderRegion" value="Bruker manual for velg verdier fra gruppe." />
+  <sentence name="CtrlSelectFromGroupSelectUserManualScreenReader" value="Skjermbildet 'Velg verdier fra gruppe' kan benyttes for variabler der verdiene er gruppert. Du må først velge gruppering og deretter gruppe. Du kan velge å vise enkeltverdiene i gruppen eller (i noen tabeller) sum av enkeltverdiene, før du returnerer til hovedsiden." />
+  <sentence name="CtrlSelectFromGroupGroupingScreenReaderRegion" value="Valg av gruppering"/>
+  <sentence name="CtrlSelectFromGroupGrouping" value="Gruppering:" />
   <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Velg gruppering ---" />
-  <sentence name="CtrlSelectFromGroupHeading" value="Velg verdier fra gruppe" />
+  <sentence name="CtrlSelectFromGroupSelectGroupingScreenReader" value="Nedtrekksliste med grupperinger" />
+
+  <sentence name="CtrlSelectFromGroupGroupScreenReaderRegion" value="Behandling av gruppene"/>
   <sentence name="CtrlSelectFromGroupShowAggregatedValues" value="Vis summer av enkeltverdier" />
   <sentence name="CtrlSelectFromGroupShowSingleValues" value="Vis enkeltverdier" />
+  <sentence name="CtrlSelectFromGroupRadiobuttonListLegend" value="Visning av verdier" />
   <sentence name="CtrlSelectFromGroupGroups" value="Grupper:" />
-  <sentence name="CtrlSelectFromGroupValues" value="Verdier:" />
+  <sentence name="CtrlSelectFromGroupGroupsScreenReader" value="Liste med tilgjengelige grupper" />
   <sentence name="CtrlSelectFromGroupSelectGroupsAggregated" value="Velg som summer av enkeltverdier" />
   <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Velg som enkeltverdier" />
-  <sentence name="CtrlSelectFromGroupSelectAndReturn" value="Velg verdier og returner til valgside" />
+  <sentence name="CtrlSelectFromGroupValuesScreenReaderRegion" value="Resulterende verdier"/>  
+  <sentence name="CtrlSelectFromGroupValues" value="Valgte verdier:" />
+  <sentence name="CtrlSelectFromGroupValuesScreenReader" value="Liste med valgte verdier" />
+  <sentence name="CtrlSelectFromGroupSelectAndReturn" value="Ok, returner til hovedsiden med de markerte verdiene." />
   <sentence name="CtrlSelectFromGroupCancel" value="Avbryt" />
+  
   <sentence name="PxcYear" value="år" />
   <sentence name="PxcHalfyear" value="halvår" />
   <sentence name="PxcQuarter" value="kvartal" />
@@ -482,15 +533,18 @@
   <sentence name="PXWebSearchLink" value="Søk" />
   <sentence name="PXWebGenXMLLink" value="Generer meny xml" />
   <sentence name="PageViewFootnoteDialogTitle" value="Fotnoter" />
-  <sentence name="PageViewDataSortDescription" value="Klikk på overskriften på kolonnen for å sortere. Sorter flere kolonner samtidig ved å holde shift-tasten og velge andre, tredje eller fjerde kolonneoverskrift." />
-  <sentence name="PageViewDataSortCopyInstructions" value="For å kopiere tabellen: Velg 'Velg alle' fra redigeringsmeny og kopier. Alternativt klikk Ctrl + A og deretter Ctrl + C" />
+  <sentence name="PageViewDataSortDescription" value="Klikk på en kolonneoverskrift for å se sortert innhold på skjermen, stigende eller synkende." />
+  <sentence name="PageViewDataSortCopyInstructions" value="" />
   <sentence name="CancelButton" value="Avbryt" />
-  <sentence name="PxWebApplicationTitle" value="PxWeb" />
+  <sentence name="PxWebApplicationTitle" value="PX-Web" />
   <sentence name="PxWebApplicationName" value=" " />
-  <sentence name="PxWebLogoAlt" value="PxWeb" />
+  <sentence name="PxWebLogoAlt" value="PX-Web" />
   <sentence name="PxWebHome" value="Hjem" />
+  <sentence name="PxWebHomeImageScreenReader" value="Ikon som betyr Hjem eller start på brødsmulestien" />
+  <sentence name="PxWebChangeToThisLanguage" value="Norsk versjon" />
+  <sentence name="PxWebMenuBurger" value="Meny" />
   <sentence name="PxWebMenu" value="Meny" />
-  <sentence name="PxWebMenuExplanation" value="Bokstav i parentes viser laveste regionsnivå. (F)=fylke, (K)=kommune, (G)=grunnkrets, (B)=bydel, (T)=tettsted" />
+  <sentence name="PxWebMenuExplanation" value="(F)=fylke, (K)=kommune, (G)=grunnkrets, (B)=bydel, (T)=tettsted. Bokstav i parentes viser laveste regionsnivå." />
   <sentence name="PxWebSelection" value="Valg" />
   <sentence name="PxWebInformation" value="Informasjon" />
   <sentence name="PxWebDetailedInformation" value="Detaljert informasjon" />
@@ -500,16 +554,17 @@
   <sentence name="PxWebMarkingTipsText" value="Du kan markere flere verdier fra en variabel. Dette kan gjøres på ulike måter:&#xD;&#xA;&#xD;&#xA;Flere enkeltverdier:&#xD;&#xA;Hold Ctrl-tasten inne samtidig som du klikker på verdiene du ønsker.&#xD;&#xA;&#xD;&#xA;Flere sammenhengende linjer:&#xD;&#xA;Klikk først på én verdi, og deretter en annen verdi samtidig som du holder Shift-tasten inne.&#xD;&#xA;Eller – klikk på en verdi og hold venstre museknapp inne mens du trekker musepekeren opp/ned.&#xD;&#xA;&#xD;&#xA;Fjerne valgte:&#xD;&#xA;Dersom du har valgt flere verdier, og du ønsker å fjerne en av de valgte, kan du holde Ctrl-tasten inne samtidig som du klikker på de(n) du vil fjerne. " />
   <sentence name="PxWebPresentation" value="Presentasjon" />
   <sentence name="PxWebTable" value="Tabell" />
-  <sentence name="PxWebTableUserSettingsShow" value="Tabellinnstillinger" />
+  <sentence name="PxWebTableUserSettingsShow" value="Skjul tomme rader" />
+  <sentence name="PxWebTableUserSettingsLegend" value="Hvilke rader skal vises?" />
   <sentence name="PxWebTableUserSettingsHide" value="Skjul innstillinger" />
   <sentence name="PxWebTableUserSettingsZeroOption" value="Rader med null:" />
-  <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Velg alle rader" />
+  <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Vis alle rader" />
   <sentence name="PxWebTableUserSettingsZeroOptionNoZero" value="Skjul rader med 0" />
   <sentence name="PxWebTableUserSettingsZeroOptionNoZeroAndNil" value="Skjul rader med kun 0 eller '-'" />
   <sentence name="PxWebTableUserSettingsZeroOptionNoSymbols" value="Skjul rader med kun prikker" />
-  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol" value="Skjul rader med kun 0, '-' eller prikker" />
+  <sentence name="PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol" value="Skjul rader med 0, '-' og prikker" />
   <sentence name="PxWebTableUserSettingsCancel" value="Avbryt" />
-  <sentence name="PxWebTableUserSettingsApply" value="Lagre innstillinger" />
+  <sentence name="PxWebTableUserSettingsApply" value="Fullfør" />
   <sentence name="PxWebChart" value="Figur" />
   <sentence name="PxWebChartUserSettingsTitle" value="Tittel:" />
   <sentence name="PxWebChartUserSettingsHeight" value="Høyde:" />
@@ -519,7 +574,7 @@
   <sentence name="PxWebChartUserSettingsSortTimeAscending" value="Stigende " />
   <sentence name="PxWebChartUserSettingsSortTimeDescending" value="Synkende" />
   <sentence name="PxWebChartUserSettingsSortTimeNone" value="Ingen" />
-  <sentence name="PxWebChartUserSettingsLabelOrientation" value="X-akse tekster" />
+  <sentence name="PxWebChartUserSettingsLabelOrientation" value="X-akse tekster:" />
   <sentence name="PxWebChartUserSettingsLabelOrientationHorizontal" value="Horisontal" />
   <sentence name="PxWebChartUserSettingsLabelOrientationVertical" value="Vertikal" />
   <sentence name="PxWebChartUserSettingsGuidelines" value="Diagramlinjer:" />
@@ -532,10 +587,10 @@
   <sentence name="PxWebChartUserSettingsApply" value="Lagre innstillinger" />
   <sentence name="PxWebChartUserSettingsShow" value="Figurinnstillinger" />
   <sentence name="PxWebChartUserSettingsHide" value="Skjule innstillinger" />
-  <sentence name="PxWebChartPieChartTitle" value="Kakediagram kan ikke vises" />
-  <sentence name="PxWebChartPieChartInformation" value="Et kakediagram kan kun inneholde en variabel med flere enn en verdi. Bruk 'Fjern variabel' eller 'Fjern verdi' i 'Rediger og beregne' meny for å fjerne variabler og verdier" />
+  <sentence name="PxWebChartPieChartTitle" value="Sektordiagram kan ikke vises" />
+  <sentence name="PxWebChartPieChartInformation" value="Et sektordiagram kan kun inneholde en variabel med flere enn en verdi. Bruk 'Fjern variabel' eller 'Fjern verdi' i 'Rediger og beregne' meny for å fjerne variabler og verdier" />
   <sentence name="PxWebChartPyramidChartTitle" value="Befolkningspyramiden kan ikke vises" />
-  <sentence name="PxWebChartPyramidChartInformation" value="I befolkningspyramide kan en av variablene ha ubegrenset antall verdier. En av de andre variablene må ha to verdier, mens resten av variabelene kan kun ha en verdi. Eksempelvis kan variabelen alder ha mange verdier og variabelen kjønn ha to verdier. Bruk 'Fjern verdi' i menyen 'Rediger og beregne' for å fjerne verdier. " />
+  <sentence name="PxWebChartPyramidChartInformation" value="I befolkningspyramide kan en av variablene ha ubegrenset antall verdier. En av de andre variablene må ha to verdier, mens resten av variabelene kan kun ha en verdi. Eksempelvis kan variabelen alder ha mange verdier og variabelen kjønn ha to verdier. " />
   <sentence name="PxWebChartTooManyValues" value="For mange verdier valgt" />
   <sentence name="PxWebChartTooManyValuesInformation" value="Du har valgt for mange verdier" />
   <sentence name="PxWebChartUserSettingsLargeValue" value="Maksimal verdi er {0}" />
@@ -543,10 +598,11 @@
   <sentence name="PxWebChartRightScale" value="(høyre akse)" />
   <sentence name="PxWebDataSort" value="Sorter data" />
   <sentence name="PxWebSelectDb" value="Velg database:" />
-  <sentence name="PxWebTableCropped" value="Tabellen er blitt beskåret, og maksimalt {0} rader og {1} kolonner er vist på skjermen. Bruk rullefeltet for å se flere kolonner. Det er også mulig å rotere tabell eller ta den ut på fil, for å se hele tabellen." />
+  <sentence name="PxWebTableCropped" value="Det vises maksimalt {0} rader og {1} kolonner på skjermen." />
+  <sentence name="PxWebTableCroppedHeading" value="Tabellen har blitt beskåret"/>
   <sentence name="PxWebPopupDialogClose" value="Lukke" />
-  <sentence name="PxWebSelectVariable" value="Velg variabel" />
-  <sentence name="PxWebAboutTable" value="Om tabellen" />
+  <sentence name="PxWebSelectVariable" value="Velg variabler" />
+  <sentence name="PxWebAboutTable" value="Informasjon om tabell" />
   <sentence name="PxWebAboutTableContact" value="Kontakt og informasjon" />
   <sentence name="PxWebAboutTableFootnotes" value="Fotnoter" />
   <sentence name="PxWebAboutTableDefinitions" value="Definisjoner av variabler og verdier" />
@@ -562,19 +618,20 @@
   <sentence name="PxWebSearchResultText" value="Søkeresultat: ({0} treff)" />
   <sentence name="PxWebSearchResultColumnTable" value="Tabell" />
   <sentence name="PxWebSearchResultColumnPublished" value="Publisert" />
-  <sentence name="PxWebTitleDefault" value="PxWeb - Velg database" />
-  <sentence name="PxWebTitleApiHelp" value="PxWeb - API hjelp" />
-  <sentence name="PxWebTitleChart" value="PxWeb - Figur" />
-  <sentence name="PxWebTitleDataSort" value="PxWeb - Sorter" />
-  <sentence name="PxWebTitleErrorGeneral" value="PxWeb - Oooobs!" />
-  <sentence name="PxWebTitleFootnotesPresentation" value="PxWeb - Fotnoter" />
-  <sentence name="PxWebTitleFootnotesSelection" value="PxWeb - Fotnoter" />
-  <sentence name="PxWebTitleInformationPresentation" value="PxWeb - Informasjon" />
-  <sentence name="PxWebTitleInformationSelection" value="PxWeb - Informasjon" />
-  <sentence name="PxWebTitleMenu" value="PxWeb - Velg tabell" />
-  <sentence name="PxWebTitleSearch" value="PxWeb - Søk" />
-  <sentence name="PxWebTitleSelection" value="PxWeb - Velg variabel og verdi" />
-  <sentence name="PxWebTitleTable" value="PxWeb - Tabell" />
+  <sentence name="PxWebTitleDefault" value="PX-Web - Velg database" />
+  <sentence name="PxWebTitleApiHelp" value="PX-Web - API hjelp" />
+  <sentence name="PxWebTitleChart" value="PX-Web - Figur" />
+  <sentence name="PxWebTitleDataSort" value="PX-Web - Sorter" />
+  <sentence name="PxWebTitleErrorGeneral" value="PX-Web - Oooobs!" />
+  <sentence name="PxFootnotesPresentation" value="PX-Web - Fotnoter" />
+  <sentence name="PxWebTitleFootnotesSelection" value="PX-Web - Fotnoter" />
+  <sentence name="PxWebTitleInformationPresentation" value="PX-Web - Informasjon" />
+  <sentence name="PxWebInformationSelection" value="PX-Web - Informasjon" />
+  <sentence name="PxWebTitleMenu" value="PX-Web - Velg tabell" />
+  <sentence name="PxWebTitleSearch" value="PX-Web - Søk" />
+  <sentence name="PxWebTitleSelection" value="PX-Web - Velg variabel og verdi" />
+  <sentence name="PxWebTitleTable" value="PX-Web - Tabell" />
+  <sentence name="PxWebSavedQueryUnsafeMessageHeading" value ="Teksten er endret"/>
   <sentence name="PxWebSavedQueryUnsafeMessage" value="Teksten i tabellen er forskjellig fra det opprinnelige i databasen, siden den er blitt endret manuelt " />
   <sentence name="PxWebGeneralErrorMessage" value="En feil har oppstått. Feilen er blitt registrert" />
   <sentence name="PxWebSavedQueryExecuteErrorMessage" value="Din lagrede spørring finnes ikke. Tabellen kan ha blitt flyttet eller fjernet." />
@@ -586,10 +643,15 @@
   <sentence name="PxWebMetadataValuesHeader" value="Verdier:" />
   <sentence name="PxWebMetadataNoVariableMeta" value="Det er ingen definisjon for denne verdien" />
   <sentence name="PxWebMetadataNoValueMeta" value="Det er ingen verdier med definisjoner" />
+  <sentence name="PxWebToTheTopButtonLiteralText" value="Til toppen" />
+  <sentence name="PxWebSkipToMainContentLinkText" value="Hopp til hovedinnhold" />
+  <sentence name="PxWebSkipToMainContentLinkScreenReader" value="Trykk enter for å gå rett til hovedinnhold" />
+  <sentence name="PxWebSkipToSelectionLinkText" value="Gå til første variabel" />
+  <sentence name="PxWebSkipToSelectionLinkUserManualScreenReader" value="Nå har du kommet til skjermbildet for å velge hvilke variabler og verdier du vil ha frem i ditt resultat av tabellen. En variabel er en egenskap ved en statistisk enhet. Side er delt opp i flere bokser, en for hver variabel, hvor du kan velge verdier ved å markere en eller flere. Det starter alltid med statistikkvariabel som er hoved verdien som telles i tabellen. Trykk enter for å gå rett til valg av første variabel." />
+  <sentence name="PxWebSelectionUserManualScreenReaderRegion" value="Bruksanvisning valgskjermbildets hovedside" />
   <sentence name="PxWebAdminLogout" value="Logg ut" />
-  <sentence name="PxWebAdminLogIn" value="Logg inn" />
-  <sentence name="PxWebAdminHeading" value="PxWeb - Administrasjon" />
-  <sentence name="PxWebAdminHomePage" value="PxWeb - Hjem" />
+  <sentence name="PxWebAdminHeading" value="PX-Web - Administrasjon" />
+  <sentence name="PxWebAdminHomePage" value="PX-Web - Hjem" />
   <sentence name="PxWebAdminSaveButton" value="Lagre" />
   <sentence name="PxWebAdminGenerateButton" value="Generere" />
   <sentence name="PxWebAdminMenuHome" value="Hjem" />
@@ -624,13 +686,20 @@
   <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="Generelt" />
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Bakgrunnsprosess" />
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="Generelt" />
+  <sentence name="PxWebLogin" value="LOGG INN" />
+  <sentence name="PxWebLogout" value="LOGG UT" />
   <sentence name="PxWebUsername" value="Lastebruker" />
   <sentence name="PxWebPassword" value="Passord" />
   <sentence name="PxWebWrongLogin" value="Feil brukernavn eller passord" />
+  <sentence name="PxWebLoggedIn" value="Logget på som" />
+  <sentence name="PxWebLoginMissingUserOrPassw" value="Både brukerident og passord må fylles ut" />
+  <sentence name="PxWebLoggedOut" value="Du ble logget ut" />
+  <sentence name="PxWebSwitchToCompactView" value="Kompaktvisning" />
+  <sentence name="PxWebSwitchToListView" value="Listevisning" />
   <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX-databaser" />
-  <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Valgte PX-databaser vil bli vist i PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Valgte PX-databaser vil bli vist i PX-Web" />
   <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="CNMM (Common Nordic Meta Model) databaser" />
-  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Valgte CNMM databaser vil bli vist i PxWeb" />
+  <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Valgte CNMM databaser vil bli vist i PX-Web" />
   <sentence name="PxWebAdminSettingsDatabasesEnabled" value="Vis" />
   <sentence name="PxWebAdminSettingsDatabasesDbCreated" value="Db opprettet" />
   <sentence name="PxWebAdminSettingsDatabasesIndexStatus" value="Indeks status" />
@@ -725,9 +794,9 @@
   <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultView" value="Antall standard verdier" />
   <sentence name="PxWebAdminSettingsMenuNumberOfValuesInDefaultViewInfo" value="Maksimalt antall verdier som er valgt når visningslenke modus = 'Standard verdier'. Verdiene er forhåndsvalgt i stedet for å tillate brukerne å velge variabler og verdier selv" />
   <sentence name="PxWebAdminSettingsMenuShowModifiedDate" value="Vis endret dato" />
-  <sentence name="PxWebAdminSettingsMenuShowModifiedDateInfo" value="Skal informasjon om når PX-fil sist var oppdatert i filsystemet vises i PxWeb eller ikke." />
+  <sentence name="PxWebAdminSettingsMenuShowModifiedDateInfo" value="Skal informasjon om når PX-fil sist var oppdatert i filsystemet vises i PX-Web eller ikke." />
   <sentence name="PxWebAdminSettingsMenuShowLastUpdated" value="Vis sist oppdatert" />
-  <sentence name="PxWebAdminSettingsMenuShowLastUpdatedInfo" value="Definerer om LAST-UPDATED i PX-fil skal vises i PxWeb eller ikke" />
+  <sentence name="PxWebAdminSettingsMenuShowLastUpdatedInfo" value="Definerer om LAST-UPDATED i PX-fil skal vises i PX-Web eller ikke" />
   <sentence name="PxWebAdminSettingsMenuShowFileSize" value="Vis filstørrelse" />
   <sentence name="PxWebAdminSettingsMenuShowFileSizeInfo" value="Om informasjon om filstørrelse skal vises eller ikke" />
   <sentence name="PxWebAdminSettingsMenuShowTableCategory" value="Vis tabellkategori" />
@@ -765,7 +834,7 @@
   <sentence name="PxWebAdminSettingsSelectionShowSelectionLimits" value="Vis valg-grenser" />
   <sentence name="PxWebAdminSettingsSelectionShowSelectionLimitsInfo" value="Om informasjon om valggrenser skal vises eller ikke" />
   <sentence name="PxWebAdminSettingsSelectionOutputFormats" value="Output-formater" />
-  <sentence name="PxWebAdminSettingsSelectionOutputFormatsInfo" value="Valgt output-formater (presentasjonsvisning og filformater) vil bli tilgjengelig for valg i PxWeb" />
+  <sentence name="PxWebAdminSettingsSelectionOutputFormatsInfo" value="Valgt output-formater (presentasjonsvisning og filformater) vil bli tilgjengelig for valg i PX-Web" />
   <sentence name="PxWebAdminSettingsSelectionPresentationViews" value="Presentasjonsvisninger: " />
   <sentence name="PxWebAdminSettingsSelectionFileFormats" value="Filformater" />
   <sentence name="PxWebAdminSettingsSelectionValuesetMustBeSelectedFirst" value="Verdimengde må velges" />
@@ -774,8 +843,8 @@
   <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButtonInfo" value="Er 'Vis alle tilgjengelige verdier' knappen i søke-visning. Advarsel! Å sette denne innstillingen til ja kan resultere i stor nettside tar lang tid å laste" />
   <sentence name="PxWebAdminSettingsSelectionTitleFromMenu" value="Tittel fra meny" />
   <sentence name="PxWebAdminSettingsSelectionTitleFromMenuInfo" value="Hvis satt til ja vil tabelltittelen vil bli vist som i menyen" />
-  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitle" value="Standard applikasjon header(fane) tittel"/>
-  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitleInfo" value="Hvis satt til ja vil standard applikasjon header(fane) tittel bli benyttet"/>
+  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitle" value="Standard applikasjon header(fane) tittel" />
+  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitleInfo" value="Hvis satt til ja vil standard applikasjon header(fane) tittel bli benyttet" />
   <sentence name="PxWebAdminSettingsSelectionMetadataAsLinks" value="Metadata som lenker" />
   <sentence name="PxWebAdminSettingsSelectionMetadataAsLinksInfo" value="Om informasjon om tabellen (fotnoter og informasjon) skal vises som lenker eller direkte på valgsiden" />
   <sentence name="PxWebAdminSettingsSelectionShowSelectValuesFromGroup" value="Valg fra gruppe" />
@@ -788,6 +857,8 @@
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Starten av ord" />
   <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Forhåndsvalgt første verdi" />
   <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Bestemmer om første verdi for statistikkvariabel og tid skal være forhåndsvalgt" />
+  <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelection" value="Tekst ved manglende fotnoter" />
+  <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo" value="Bestemmer om tekst ved manglende fotnoter skal vises" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Vis navigasjonssti" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Vis navigasjonssti under brødsmule. &#xD;&#xA;Vis valgt tabell, valgt variabel, vis tabell" />
   <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Søkeknappmodus" />
@@ -805,15 +876,15 @@
   <sentence name="PxWebAdminSettingsValidationMaximumValue" value="Maksimum verdi er {0}" />
   <sentence name="PxWebAdminSettingsValidationIllegalColorCode" value="Ugyldig fargekode (forventet format er #AAAAAA)" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperations" value="Operasjoner" />
-  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="Valgte operasjoner vil bli tilgjengelig for PxWeb-bruker" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="Valgte operasjoner vil bli tilgjengelig for PX-Web-bruker" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformats" value="Filformater" />
-  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformatsInfo" value="Valgte filformater vil bli tilgjengelig for PxWeb-bruker" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformatsInfo" value="Valgte filformater vil bli tilgjengelig for PX-Web-bruker" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButton" value="Knapp" />
-  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButtonInfo" value="Valgt operasjoner vil bli tilgjengelig for PxWeb-bruker" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderButtonInfo" value="Valgt operasjoner vil bli tilgjengelig for PX-Web-bruker" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcut" value="Snarvei" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderShortcutInfo" value="Om snarvei" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViews" value="Presentasjonsvisninger" />
-  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewsInfo" value="Valgte presentasjonsvisninger vil bli tilgjengelig for PxWeb-bruker" />
+  <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderPresentationViewsInfo" value="Valgte presentasjonsvisninger vil bli tilgjengelig for PX-Web-bruker" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeText" value="Visnings modus" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeDropDown" value="Nedtrekk" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarViewModeImageButtons" value="Knapp" />
@@ -866,7 +937,7 @@
   <sentence name="PxWebAdminToolsLanguageManagerSelectLanguageError" value="Du må velge språk" />
   <sentence name="PxWebAdminToolsLanguageManagerLanguage" value="Språk" />
   <sentence name="PxWebAdminToolsResetAll" value="Tilbakestill alt" />
-  <sentence name="PxWebAdminToolsResetAllInfo" value="Tilbakestill alle funksjoner i PxWeb" />
+  <sentence name="PxWebAdminToolsResetAllInfo" value="Tilbakestill alle funksjoner i PX-Web" />
   <sentence name="PxWebAdminToolsResetLanguage" value="Tilbakestill språk" />
   <sentence name="PxWebAdminToolsResetLanguageInfo" value="Tilbakestill språklisten i språksystemet" />
   <sentence name="PxWebAdminToolsResetAggregation" value="Tilbakestill aggregering" />
@@ -881,7 +952,7 @@
   <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Verifiser feil" />
   <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Passordet er endret" />
   <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funksjon" />
-  <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Valgte funksjoner vil bli tilgjengelig i administrasjonsverktøyet og i PxWeb" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Valgte funksjoner vil bli tilgjengelig i administrasjonsverktøyet og i PX-Web" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Figurer" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureSavedQuery" value="lagret spørring" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureUserFriendlyUrls" value="Brukervennlige URL-er" />
@@ -967,21 +1038,22 @@
   <sentence name="PxWebAdminFeaturesApiGeneralEnableCORSInfo" value="Er Kryss-Orginal-Kilde-Deling tillatt?" />
   <sentence name="PxWebAdminFeaturesApiGeneralEnableCache" value="Aktiver cache" />
   <sentence name="PxWebAdminFeaturesApiGeneralEnableCacheInfo" value="Om API-kall skal caches eller ikke" />
-  <sentence name="PxWebAdminFeaturesApiGeneralClearCache" value="Tøm cache" />
-  <sentence name="PxWebAdminFeaturesApiGeneralClearCacheInfo" value="Om spesifisert vil cache bli tømt på angitt(e) tidspunkt. Skill tidene med semikolon. For eksempel: 09:30;12:00;1349" />
   <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformation" value="Vis API-hjelp" />
-  <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="Om aktivert informasjonslenke er vist i PxWeb i presentasjonsvisning. Når lenken er klikket informasjon om hvordan koble til nåværende tabell via API er vist. " />
-  
+  <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="Om aktivert informasjonslenke er vist i PX-Web i presentasjonsvisning. Når lenken er klikket informasjon om hvordan koble til nåværende tabell via API er vist. " />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButtonInfo" value="Om aktivert, knapp for å lagre API-spørring er synlig" />
+  <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton" value="Vis knapp 'Lagre API-spørring'" />
+  <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryTextInfo" value="Bruk gjerne institusjonens forkortelse med små bokstaver. Eksempel: 'ssb' gir dette filnavnet 'ssbapi_table_[tableid].json'" />
+  <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryText" value="Prefiks API-spørring fil" />
   <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormatInfo" value="Utformatet som kommer til å vises i API eksempelet" />
   <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormat" value="Standard API utformat" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQuerySettings" value="Innstillinger for lagret spørring" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageType" value="Lagringstype" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeFile" value="Fil" />
+  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeInfo" value="Definerer om lagrede spørringer skal lagres i filer på webserveren eller i databasen" />
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableCORS" value="Aktiver CORS" />
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralEnableCORSInfo" value="Er Cross-Origin-Resource-Sharing tillatt?" />
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralShowPeriodAndId" value="Vis periode og tid" />
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralShowPeriodAndIdInfo" value="Skal periode og tid for lagret søk vises for brukeren?" />
-  <sentence name="PxWebAdminSettingsSavedQueryStorageType" value="Lagringstype" />
-  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeFile" value="Fil" />
-  <sentence name="PxWebAdminSettingsSavedQueryStorageTypeInfo" value="Definerer om lagrede spørringer skal lagres i filer på webserveren eller i databasen" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabases" value="PX-databaser" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabasesInfo" value="Definerer hvilke-PX databaser som vil ha lagret spørring tilgjengelig" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabases" value="CNMM databaser" />
@@ -1004,13 +1076,13 @@
   <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStart" value="Vil du starte bakgrunnsprosessen?" />
   <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmWakeUp" value="Vil du vekke bakgrunnsprosessen?" />
   <sentence name="PxWebAdminSettingsGeneralSiteApplicationName" value="Applikasjonsnavn" />
-  <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Navnet på PxWeb-installasjon" />
+  <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Navnet på PX-Web-installasjon" />
   <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Logo sti" />
   <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Navnet på bildefilen" />
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Standard språk" />
-  <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Hvilket språk som er valgt når PxWeb startes" />
+  <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Hvilket språk som er valgt når PX-Web startes" />
   <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Språk" />
-  <sentence name="PxWebAdminSettingsLanguageSiteLanguagesInfo" value="Valgt språk vil bli tilgjengelig på PxWeb-side" />
+  <sentence name="PxWebAdminSettingsLanguageSiteLanguagesInfo" value="Valgt språk vil bli tilgjengelig på PX-Web-side" />
   <sentence name="PxWebAdminSettingsLanguageDecimalSeparator" value="Desimaltegn" />
   <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorInfo" value="Desimaltegn" />
   <sentence name="PxWebAdminSettingsLanguageDecimalSeparatorPoint" value="Punktum" />
@@ -1027,7 +1099,7 @@
   <sentence name="PxWebAdminNo" value="Nei" />
   <sentence name="PxWebAdminConfirmSaveSettings" value="Vil du lagre innstillingene?" />
   <sentence name="PxWebAdminConfirmGenerateDb" value="Vil du genere en ny database?" />
-  <sentence name="PxWebAdminSettingsImplementedInComingVersions" value="Denne funksjonen vil bli implementert i kommende versjon av PxWeb" />
+  <sentence name="PxWebAdminSettingsImplementedInComingVersions" value="Denne funksjonen vil bli implementert i kommende versjon av PX-Web" />
   <sentence name="UnauthorizedTableMessage" value="Du har ikke rettigheter til å se denne tabellen" />
   <sentence name="UnauthorizedTableTitle" value="Ingen rettigheter" />
   <sentence name="UnauthorizedDatabaseMessage" value="Du har ikke rettigheter til å se denne databasen " />
@@ -1046,8 +1118,4 @@
   <sentence name="PxWebAdminUsersCancel" value="Avbryt" />
   <sentence name="PxWebAdminUsersErrorMail" value="Ugyldig e-post" />
   <sentence name="PxWebAdminUsersAddedUser" value="er lagt til som bruker" />
-  <sentence name="PxWebLoggedIn" value="Logget på som"/>
-  <sentence name="PxWebLogin" value="LOGG INN"/>
-  <sentence name="PxWebLogout" value="LOGG UT"/>
-  <sentence name="PxWebWrongLogin" value="Feil bruker eller passord"/>
- </language>
+</language>

@@ -69,6 +69,7 @@ namespace PXWeb.UserControls
                                 lnk.NavigateUrl = link.Link;
                                 lnk.Target = link.Target;
                                 lnk.CssClass = "external-link-icon";
+                                lnk.Attributes.Add("rel", "noopener");
                                 divTableLinks.Controls.Add(lnk);
                             }
                             Literal divend = new Literal();

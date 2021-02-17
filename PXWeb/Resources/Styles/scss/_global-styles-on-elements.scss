@@ -11,7 +11,7 @@
 
 #pxwebcontent html {
   /* Always display scroll. This prevents the auto-centering of the page to jump around between pages 
-    /* where one page has scrollbar and the other one don´t*/
+    /* where one page has scrollbar and the other one do not*/
   height: 102%;
 }
 
@@ -24,6 +24,18 @@
 }
 
 #pxwebcontent select:focus {
+  @include focus-ring;
+}
+
+#pxwebcontent select {
+  @include font-normal-text;
+}
+
+#pxwebcontent input {
+  @include font-normal-text;
+}
+
+#pxwebcontent input:focus {
   @include focus-ring;
 }
 

@@ -24,15 +24,6 @@ namespace PXWeb
         protected global::System.Web.UI.WebControls.Label MenuTitle;
 
         /// <summary>
-        /// SwitchLayout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SwitchLayout;
-
-        /// <summary>
         /// TableInformationSelect control.
         /// </summary>
         /// <remarks>
@@ -96,13 +87,13 @@ namespace PXWeb
         protected global::PXWeb.UserControls.AccordianAboutTableControl UcAccordianAboutTable;
 
         /// <summary>
-        /// ucVariableOverview control.
+        /// SwitchLayout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::PXWeb.UserControls.VariableOverviewControl ucVariableOverview;
+        protected global::System.Web.UI.WebControls.Button SwitchLayout;
 
         /// <summary>
         /// VariableSelector1 control.
