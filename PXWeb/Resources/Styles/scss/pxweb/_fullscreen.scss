@@ -1,0 +1,42 @@
+﻿@include file-header("_fullscreen.scss");
+/* Safari */
+:-webkit-full-screen {
+    background-color: $pxweb-background;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 10px
+}
+
+/* IE11 syntax */
+:-ms-fullscreen {
+    background-color: $pxweb-background;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 10px
+}
+
+/* Standard syntax */
+:fullscreen {
+    background-color: $pxweb-background;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 10px
+}
+
+#Fullscreen:-webkit-full-screen input {
+    position: fixed;
+    top: 20px;
+    right: 20px
+}
+
+#Fullscreen:-ms-fullscreen input {
+    position: fixed;
+    top: 20px;
+    right: 20px
+}
+
+#Fullscreen:fullscreen input {
+    position: fixed;
+    top: 20px;
+    right: 20px
+}

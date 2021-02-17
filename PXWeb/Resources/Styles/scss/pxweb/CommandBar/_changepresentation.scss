@@ -1,0 +1,32 @@
+@include file-header("CommandBar/_changepresentation.scss");
+
+#pxwebcontent .changepresentation_rootdiv {
+   width: 98%;
+}
+
+#pxwebcontent .commandbar_changepresentation_changetext {
+  /*@include just-open-sans;*/
+}
+
+#pxwebcontent .commandbar_changepresentation_headertext {
+  @include font-heading;
+}
+
+#pxwebcontent .commandbar_changepresentation_radio {
+  padding: 4px 0 4px 0;
+}
+
+#pxwebcontent .commandbar_changepresentation_radio_item label {
+  padding: 0 30px 0 4px;
+  vertical-align: text-bottom;
+  /*@include just-open-sans;*/
+}
+
+#pxwebcontent .commandbar_changepresentation_inputrow {
+  padding: 0 0 5px 0;
+}
+
+#pxwebcontent .commandbar_changepresentation_errormessage {
+  color: $pxweb-error-color;
+}
+

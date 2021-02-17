@@ -1,0 +1,59 @@
+@include file-header("CommandBar/_cb_common.scss");
+
+#pxwebcontent .commandbar_container {
+  border: solid 6px $pxweb-btn-color;
+  padding: 10px 10px 10px 10px;
+  clear: both;
+  /*float: left;*/
+  display: flex;
+  overflow: auto;
+  width: 620px;
+  position: relative;
+  z-index: 2;
+  background-color: $pxweb-background;
+}
+
+@media #{$mobile} {
+  #pxwebcontent .commandbar_container {
+    display: none;
+  }
+}
+
+#pxwebcontent .commandbar_container > div {
+  width: 620px;
+  }
+
+  #pxwebcontent .container_titletext {
+    /*font-weight: bold; these are roboto condensed  */
+    @include font-title;
+    font-size: 16px;
+    border-bottom: 1px solid $pxweb-btn-color;
+  }
+  /* The "Cancel" and "Ok" buttons */
+  #pxwebcontent .container_exit_buttons_row {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  #pxwebcontent .container_exit_buttons_row .pxweb-btn {
+    font-size: 14px;
+    margin-right: 20px;
+  }
+
+  #pxwebcontent .container_exit_buttons_row .pxweb-btn.primary-btn:hover {
+    /* border: none; */
+  }
+  /*The last button in the row*/
+  #pxwebcontent .container_exit_buttons_row .container_continuebutton.pxweb-btn.primary-btn {
+    margin-right: 0px;
+  }
+
+  #pxwebcontent select option:checked {
+    background: $pxweb-green-4 linear-gradient(0deg, $pxweb-green-4 0%, $pxweb-green-4 100%);
+    -webkit-text-fill-color: $pxweb-white;
+    //background for unselected values is always white from user agent style
+  }
+
+

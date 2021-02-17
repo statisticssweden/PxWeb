@@ -96,8 +96,9 @@
                 <pxc:TableQuery id="TableQueryInformation"  runat="server" />
             </div>
         </div>
+
     <script>
-            jQuery(function () { jQuery("#PageElements").tabs(); });
+            //jQuery(function () { jQuery("#PageElements").tabs(); });
 
     jQuery(document).ready(function () {
         var fullScreenTitle = document.getElementById("fullscreentitel");

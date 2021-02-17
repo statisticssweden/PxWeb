@@ -242,14 +242,11 @@ namespace PXWeb
             {
                 TableQueryInformation.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.CNMM;
             }
-            TableQueryInformation.URLRoot = PXWeb.Settings.Current.Features.Api.UrlRoot;
-            TableQueryInformation.Database = "table"; //db;  maybe We could change back to db, but 
-                                                      //we would have to change the id in sqldb.config to "table"
-            TableQueryInformation.Path = PaxiomManager.PaxiomModel.Meta.TableID; // PxUrlObject.Path; contains the path from the menu table.
-            //was RouteInstance.RouteExtender.GetTableIdByName(PxUrlObj.Table);
 
-            TableQueryInformation.Table = ""; //PxUrlObject.Table;
-            //Path, not table, should perhaps be the empty one, but that yields a dobble slash: /v0/no/table//08880  
+            TableQueryInformation.URLRoot = PXWeb.Settings.Current.Features.Api.UrlRoot;
+            TableQueryInformation.Database = db; 
+            TableQueryInformation.Path = PxUrlObject.Path;
+            TableQueryInformation.Table = PxUrlObject.Table;
 
             TableQueryInformation.SaveApiQueryText = PXWeb.Settings.Current.Features.Api.SaveApiQueryText;
 

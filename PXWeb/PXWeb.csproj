@@ -288,7 +288,7 @@
     <Content Include="Resources\PX\Databases\Example\alias\Alias_sv.txt" />
     <Content Include="Resources\PX\Databases\Example\Menu.xml" />
     <Content Include="Resources\Scripts\format.20110630-1100.min.js" />
-    <Content Include="Resources\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Resources\Scripts\jquery-3.5.1.js" />
     <Content Include="Resources\Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Resources\Styles\breadcrumb.css" />
     <Content Include="Resources\Styles\designSystem.css" />
@@ -322,6 +322,11 @@
     <Content Include="Resources\Styles\selectfromgroup.css" />
     <Content Include="Resources\Styles\login.css" />
     <Content Include="Resources\Styles\variableOverview.css" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Search.aspx" />
     <Content Include="UserControls\AccordianAboutTableControl.ascx" />
     <Content Include="UserControls\Login.ascx" />
@@ -1428,6 +1433,8 @@
     <Content Include="Resources\Styles\scss\_icons.scss" />
     <Content Include="Resources\Styles\scss\_variables.scss" />
     <Content Include="Resources\Styles\scss\color-themes\_official.scss" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="set-rights-2003.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -63,29 +63,29 @@
     </div>
     <script>
         jQuery(document).ready(function() {
-            $("table").delegate('td.table-data-filled',
+            jQuery("table").delegate('td.table-data-filled',
                 'mouseover mouseleave',
                 function(e) {
                     if (e.type == 'mouseover') {
-                        $(this).addClass("table-hover");
-                        $(this).siblings("td").addClass("table-hover");
-                        $(this).parent().find("th").last().addClass("table-hover");
+                        jQuery(this).addClass("table-hover");
+                        jQuery(this).siblings("td").addClass("table-hover");
+                        jQuery(this).parent().find("th").last().addClass("table-hover");
                     } else {
-                        $(this).removeClass("table-hover");
-                        $(this).siblings("td").removeClass("table-hover");
-                        $(this).parent().find("th").last().removeClass("table-hover");
+                        jQuery(this).removeClass("table-hover");
+                        jQuery(this).siblings("td").removeClass("table-hover");
+                        jQuery(this).parent().find("th").last().removeClass("table-hover");
                     }
                 });
 
-            $("table").delegate('th',
+            jQuery("table").delegate('th',
                 'mouseover mouseleave',
                 function (e) {
                     if (e.type == 'mouseover') {
-                        $(this).siblings("td").addClass("table-hover");
-                        $(this).parent().find("th").not(".table-header-first, .table-header-middle, .table-header-last").last().addClass("table-hover");
+                        jQuery(this).siblings("td").addClass("table-hover");
+                        jQuery(this).parent().find("th").not(".table-header-first, .table-header-middle, .table-header-last").last().addClass("table-hover");
                     } else {
-                        $(this).siblings("td").removeClass("table-hover");
-                        $(this).parent().find("th").not(".table-header-first, .table-header-middle, .table-header-last").last().removeClass("table-hover");
+                        jQuery(this).siblings("td").removeClass("table-hover");
+                        jQuery(this).parent().find("th").not(".table-header-first, .table-header-middle, .table-header-last").last().removeClass("table-hover");
                     }
                 });
         });
