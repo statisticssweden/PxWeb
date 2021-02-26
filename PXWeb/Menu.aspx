@@ -15,6 +15,11 @@
         <uc1:SearchControl runat="server" ID="pxSearch" />
     </div>
     <div class="break"></div>
+    <div id="pxcontent"> 
+        <asp:Panel runat="server" ID="UserManualMainRegion" role="region">
+            <asp:Panel ID="UserManualMain" runat="server" CssClass="screenreader-only"></asp:Panel>
+        </asp:Panel>
+    </div>    
     <pxc:TableOfContent ID="TableOfContent1" runat="server" />
     <pxc:TableList ID="TableList1" runat="server" />
 

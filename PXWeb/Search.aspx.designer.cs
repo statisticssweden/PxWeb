@@ -7,11 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb {
-    
-    
-    public partial class Search {
-        
+namespace PXWeb
+{
+
+
+    public partial class Search
+    {
+
+        /// <summary>
+        /// UserManualMainRegion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel UserManualMainRegion;
+
+        /// <summary>
+        /// UserManualMain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel UserManualMain;
+
         /// <summary>
         /// pxSearch control.
         /// </summary>
@@ -20,7 +40,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PXWeb.UserControls.SearchControl pxSearch;
-        
+
         /// <summary>
         /// pnlSearch control.
         /// </summary>
@@ -29,7 +49,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlSearch;
-        
+
         /// <summary>
         /// rbAll control.
         /// </summary>
@@ -38,7 +58,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbAll;
-        
+
         /// <summary>
         /// rbSelect control.
         /// </summary>
@@ -47,7 +67,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbSelect;
-        
+
         /// <summary>
         /// chkTitle control.
         /// </summary>
@@ -56,7 +76,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkTitle;
-        
+
         /// <summary>
         /// chkValues control.
         /// </summary>
@@ -65,7 +85,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkValues;
-        
+
         /// <summary>
         /// chkCodes control.
         /// </summary>
@@ -74,7 +94,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkCodes;
-        
+
         /// <summary>
         /// lblSearchResult control.
         /// </summary>
@@ -83,7 +103,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSearchResult;
-        
+
         /// <summary>
         /// repSearchResult control.
         /// </summary>
@@ -92,15 +112,17 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repSearchResult;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.PxWeb Master {
-            get {
+        public new PXWeb.PxWeb Master
+        {
+            get
+            {
                 return ((PXWeb.PxWeb)(base.Master));
             }
         }

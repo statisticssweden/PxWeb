@@ -5,6 +5,11 @@
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <asp:Label ID="lblSelectDb" runat="server" Text="<%$ PxString: PxWebSelectDb %>" CssClass="headingtext"></asp:Label>
     <br />
+    <div id="pxcontent"> 
+        <asp:Panel runat="server" ID="UserManualMainRegion" role="region">
+            <asp:Panel ID="UserManualMain" runat="server" CssClass="screenreader-only"></asp:Panel>
+        </asp:Panel>
+    </div>
     <asp:Repeater ID="rptDatabases" runat="server" EnableViewState="false" onitemdatabound="rptDatabases_ItemDataBound">
         <HeaderTemplate/>
         <ItemTemplate>
