@@ -6,9 +6,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div id="pxcontent"> 
-        <asp:Panel runat="server" ID="UserManualMainRegion" role="region">
-            <asp:Panel ID="UserManualMain" runat="server" CssClass="screenreader-only"></asp:Panel>
-        </asp:Panel>
     </div>
     <div class="searchTopLeftContent">
         <uc1:SearchControl runat="server" ID="pxSearch" />

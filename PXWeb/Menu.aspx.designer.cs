@@ -33,24 +33,6 @@ namespace PXWeb
         protected global::PXWeb.UserControls.SearchControl pxSearch;
 
         /// <summary>
-        /// UserManualMainRegion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel UserManualMainRegion;
-
-        /// <summary>
-        /// UserManualMain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel UserManualMain;
-
-        /// <summary>
         /// TableOfContent1 control.
         /// </summary>
         /// <remarks>

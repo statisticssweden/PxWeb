@@ -24,24 +24,6 @@ namespace PXWeb
         protected global::System.Web.UI.WebControls.Label lblSelectDb;
 
         /// <summary>
-        /// UserManualMainRegion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel UserManualMainRegion;
-
-        /// <summary>
-        /// UserManualMain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel UserManualMain;
-
-        /// <summary>
         /// rptDatabases control.
         /// </summary>
         /// <remarks>
