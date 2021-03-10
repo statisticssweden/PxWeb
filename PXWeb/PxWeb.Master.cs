@@ -159,6 +159,17 @@ namespace PXWeb
             SkipToMain.Text = GetLocalizedString("PxWebSkipToMainContentLinkText");
             SkipToMain.Attributes.Add("aria-label", GetLocalizedString("PxWebSkipToMainContentLinkScreenReader"));
             SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
+            if (PxUrlObj.Path != null)
+            {
+                Item menuItem = GetMenu(PxUrlObj.Path);
+                lblHeading.Text = menuItem.Text;
+                SetHeadingVisibility(true);
+            }
+            else
+            {
+                SetHeadingVisibility(false);
+            }
+            
         }
 
 
@@ -310,6 +321,16 @@ namespace PXWeb
         public void SetNavigationFlowVisibility(Boolean show)
         {
             navigationFlowControl.Visible = show;
+        }
+
+
+        /// <summary>
+        /// Show or hide heading H1 
+        /// </summary>
+        /// <param name="show"></param>
+        public void SetHeadingVisibility(Boolean show)
+        {
+            lblHeading.Visible = show;
         }
 
         private void InitializeNavigationFlow()
