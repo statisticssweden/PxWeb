@@ -96,6 +96,17 @@ $scrollbar-color: #b0b0b0;
     height: auto; } }
 
 /* **********************************  _PxWeb.scss *********************************** */
+h1 {
+  font-family: Roboto Condensed, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  display: block;
+  color: #222; }
+
 #pxwebcontent {
   background: #fff;
   /*  @include just-open-sans;*/
@@ -220,6 +231,9 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .tableAlternatingRow {
   background-color: #eee; }
+
+#pxwebcontent .databaseList {
+  margin-left: 15px; }
 
 #pxwebcontent .search_searchresulttext {
   font-weight: bold;

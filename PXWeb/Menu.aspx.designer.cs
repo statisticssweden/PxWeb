@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb {
-    
-    
-    public partial class Menu {
-        
-        /// <summary>
-        /// lblDatabase control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDatabase;
-        
+namespace PXWeb
+{
+
+
+    public partial class Menu
+    {
+
         /// <summary>
         /// pxSearch control.
         /// </summary>
@@ -29,7 +22,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PXWeb.UserControls.SearchControl pxSearch;
-        
+
         /// <summary>
         /// TableOfContent1 control.
         /// </summary>
@@ -38,7 +31,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.TableOfContent TableOfContent1;
-        
+
         /// <summary>
         /// TableList1 control.
         /// </summary>
@@ -47,7 +40,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.TableList TableList1;
-        
+
         /// <summary>
         /// dialogModal control.
         /// </summary>
@@ -56,7 +49,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dialogModal;
-        
+
         /// <summary>
         /// lblMsg control.
         /// </summary>
@@ -65,7 +58,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMsg;
-        
+
         /// <summary>
         /// MenuExplanation control.
         /// </summary>
@@ -74,15 +67,17 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PXWeb.UserControls.MenuExplanation MenuExplanation;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.PxWeb Master {
-            get {
+        public new PXWeb.PxWeb Master
+        {
+            get
+            {
                 return ((PXWeb.PxWeb)(base.Master));
             }
         }

@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb {
-    
-    
-    public partial class Default {
-        
-        /// <summary>
-        /// lblSelectDb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSelectDb;
-        
+namespace PXWeb
+{
+
+
+    public partial class Default
+    {
+
         /// <summary>
         /// rptDatabases control.
         /// </summary>
@@ -29,15 +22,17 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptDatabases;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.PxWeb Master {
-            get {
+        public new PXWeb.PxWeb Master
+        {
+            get
+            {
                 return ((PXWeb.PxWeb)(base.Master));
             }
         }

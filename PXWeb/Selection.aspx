@@ -11,16 +11,14 @@
     <meta property="og:site_name" content="<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
 </asp:Content>
 <asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
-    <h1>
+    <h2>
         <asp:Label ID="MenuTitle" CssClass="hierarchical_tableinformation_title" runat="server" Text=""></asp:Label>
-        <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
-    </h1>
+    </h2>    
 </asp:Content>
 
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div id="SelectionPage">
-        
-
+        <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
         
         <div id="InformationLinks" runat="server">
             <asp:HyperLink ID="lnkInformation" runat="server"></asp:HyperLink>

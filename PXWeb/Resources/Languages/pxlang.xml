@@ -741,7 +741,7 @@
 	 <sentence name="PxWebChartPercent" value="%" />
 
 	 <sentence name="PxWebDataSort" value="Sort data"/>
-	 <sentence name="PxWebSelectDb" value="Select database:"/>
+	 <sentence name="PxWebSelectDb" value="Select database"/>
 	 <sentence name="PxWebTableCropped" value="Maximum of {0} rows and {1} columns can be displayed on screen."/>
    <sentence name="PxWebTableCroppedHeading" value="The table has been cropped"/>
 

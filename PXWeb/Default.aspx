@@ -3,24 +3,26 @@
 <asp:Content ID="ContentHead" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <asp:Label ID="lblSelectDb" runat="server" Text="<%$ PxString: PxWebSelectDb %>" CssClass="headingtext"></asp:Label>
-    <br />
-    <asp:Repeater ID="rptDatabases" runat="server" EnableViewState="false" onitemdatabound="rptDatabases_ItemDataBound">
-        <HeaderTemplate/>
-        <ItemTemplate>
-            <asp:HyperLink runat="server" ID="lnkDatabasesItem" NavigateUrl=''>
-                <%# DatabaseName(Container.DataItem)%>
-            </asp:HyperLink>
-            <br />
-        </ItemTemplate>
-        <AlternatingItemTemplate>
-            <asp:HyperLink runat="server" ID="lnkDatabasesItem" NavigateUrl=''>
-                <%# DatabaseName(Container.DataItem)%>
-            </asp:HyperLink>
-            <br />
-        </AlternatingItemTemplate>
-        <FooterTemplate/>
-    </asp:Repeater>
+<%--    <asp:Label ID="lblSelectDb" runat="server" Text="<%$ PxString: PxWebSelectDb %>" CssClass="headingtext"></asp:Label>
+    <br />--%>
+    <div class="databaseList">
+        <asp:Repeater ID="rptDatabases" runat="server" EnableViewState="false" onitemdatabound="rptDatabases_ItemDataBound">
+            <HeaderTemplate/>
+            <ItemTemplate>
+                <asp:HyperLink runat="server" ID="lnkDatabasesItem" NavigateUrl=''>
+                    <%# DatabaseName(Container.DataItem)%>
+                </asp:HyperLink>
+                <br />
+            </ItemTemplate>
+            <AlternatingItemTemplate>
+                <asp:HyperLink runat="server" ID="lnkDatabasesItem" NavigateUrl=''>
+                    <%# DatabaseName(Container.DataItem)%>
+                </asp:HyperLink>
+                <br />
+            </AlternatingItemTemplate>
+            <FooterTemplate/>
+        </asp:Repeater>
+    </div>
 </asp:Content>
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentPlaceHolderFooter" runat="server">
 </asp:Content>

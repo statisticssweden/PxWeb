@@ -20,6 +20,7 @@ namespace PXWeb
             if (!IsPostBack)
             {
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Home);
+                Master.SetH1TextCustom(PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebSelectDb"));
             }
 
             Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTitleDefault");

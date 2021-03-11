@@ -159,19 +159,49 @@ namespace PXWeb
             SkipToMain.Text = GetLocalizedString("PxWebSkipToMainContentLinkText");
             SkipToMain.Attributes.Add("aria-label", GetLocalizedString("PxWebSkipToMainContentLinkScreenReader"));
             SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
-            if (PxUrlObj.Path != null)
-            {
-                Item menuItem = GetMenu(PxUrlObj.Path);
-                lblHeading.Text = menuItem.Text;
-                SetHeadingVisibility(true);
-            }
-            else
-            {
-                SetHeadingVisibility(false);
-            }
-            
         }
 
+        /// <summary>
+        /// Set database name as H1 text
+        /// </summary>
+        public void SetH1TextDatabase()
+        {
+            if (!string.IsNullOrEmpty(PxUrlObj.Database))
+            {
+                PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Database);
+                if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                {
+                    lblH1Title.Text = itm.Text;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Set menu level as H1 text
+        /// </summary>
+        public void SetH1TextMenuLevel()
+        {
+            if (!string.IsNullOrEmpty(PxUrlObj.Path))
+            {
+                PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Path);
+                if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                {
+                    lblH1Title.Text = itm.Text;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Set custom H1 text 
+        /// </summary>
+        /// <param name="text"></param>
+        public void SetH1TextCustom(string text)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+                lblH1Title.Text = text;
+            }
+        }
 
         /// <summary>
         /// Page unload - remove eventhandler for LinkManager.EnsureQueries
@@ -323,15 +353,6 @@ namespace PXWeb
             navigationFlowControl.Visible = show;
         }
 
-
-        /// <summary>
-        /// Show or hide heading H1 
-        /// </summary>
-        /// <param name="show"></param>
-        public void SetHeadingVisibility(Boolean show)
-        {
-            lblHeading.Visible = show;
-        }
 
         private void InitializeNavigationFlow()
         {

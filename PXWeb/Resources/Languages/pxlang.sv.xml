@@ -562,7 +562,7 @@
   <sentence name="PxWebChartRightScale" value="(höger skala)" />
   <sentence name="PxWebChartPercent" value="%" />
   <sentence name="PxWebDataSort" value="Sortera data" />
-  <sentence name="PxWebSelectDb" value="Välj databas:" />
+  <sentence name="PxWebSelectDb" value="Välj databas" />
   <sentence name="PxWebTableCropped" value="Tabellen har blivit beskuren. Maximalt kan {0} rader och {1} kolumner kan visas i tabellen på skärmen" />
   <sentence name="PxWebPopupDialogOk" value="Ok" />
   <sentence name="PxWebPopupDialogClose" value="Stäng" />
