@@ -9,7 +9,6 @@
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="menuTopLeftContent">
-<%--       <asp:Label ID="lblDatabase" CssClass="menu_databasename" runat="server" Text="" ></asp:Label>--%>
         <uc1:SearchControl runat="server" ID="pxSearch" />
     </div>
     <div class="menuTopRightContent">
