@@ -252,15 +252,6 @@ namespace PXWeb
 
         private void SetLocalizedTexts()
         {
-            var pxUrl = RouteInstance.PxUrlProvider.Create(null);
-
-            string db = pxUrl.Database;
-            string lang = pxUrl.Language;
-            DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
-
-            //lblDatabase.Text = dbi.GetDatabaseName(lang);
-
- 
         }
 
     }
