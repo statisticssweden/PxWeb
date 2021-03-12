@@ -15,6 +15,8 @@
     <div class="menuTopRightContent">
     </div>
     <div class="break"></div>
+    <div id="pxcontent"> 
+    </div>    
     <pxc:TableOfContent ID="TableOfContent1" runat="server" />
     <pxc:TableList ID="TableList1" runat="server" />
 

@@ -3,8 +3,8 @@
 <asp:Content ID="ContentHead" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-<%--    <asp:Label ID="lblSelectDb" runat="server" Text="<%$ PxString: PxWebSelectDb %>" CssClass="headingtext"></asp:Label>
-    <br />--%>
+    <div id="pxcontent"> 
+    </div>
     <div class="databaseList">
         <asp:Repeater ID="rptDatabases" runat="server" EnableViewState="false" onitemdatabound="rptDatabases_ItemDataBound">
             <HeaderTemplate/>
