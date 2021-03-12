@@ -166,14 +166,16 @@ namespace PXWeb
         /// </summary>
         public void SetH1TextDatabase()
         {
-            if (!string.IsNullOrEmpty(PxUrlObj.Database))
+            if (!string.IsNullOrEmpty(PxUrlObj.Database) && !string.IsNullOrEmpty(PxUrlObj.Language))
             {
-                PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Database);
-                if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(PxUrlObj.Database);
+
+                if (dbi != null)
                 {
-                    lblH1Title.Text = itm.Text;
+                    lblH1Title.Text = dbi.GetDatabaseName(PxUrlObj.Language);
                 }
             }
+
         }
 
         /// <summary>
