@@ -161,6 +161,49 @@ namespace PXWeb
             SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
         }
 
+        /// <summary>
+        /// Set database name as H1 text
+        /// </summary>
+        public void SetH1TextDatabase()
+        {
+            if (!string.IsNullOrEmpty(PxUrlObj.Database) && !string.IsNullOrEmpty(PxUrlObj.Language))
+            {
+                DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(PxUrlObj.Database);
+
+                if (dbi != null)
+                {
+                    lblH1Title.Text = dbi.GetDatabaseName(PxUrlObj.Language);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Set menu level as H1 text
+        /// </summary>
+        public void SetH1TextMenuLevel()
+        {
+            if (!string.IsNullOrEmpty(PxUrlObj.Path))
+            {
+                PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Path);
+                if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                {
+                    lblH1Title.Text = itm.Text;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Set custom H1 text 
+        /// </summary>
+        /// <param name="text"></param>
+        public void SetH1TextCustom(string text)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+                lblH1Title.Text = text;
+            }
+        }
 
         /// <summary>
         /// Page unload - remove eventhandler for LinkManager.EnsureQueries
@@ -311,6 +354,7 @@ namespace PXWeb
         {
             navigationFlowControl.Visible = show;
         }
+
 
         private void InitializeNavigationFlow()
         {

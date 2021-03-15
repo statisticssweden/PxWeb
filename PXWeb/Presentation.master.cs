@@ -68,7 +68,7 @@ namespace PXWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-             btnfullscreen.Value = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("MasterPageFullscreen");
+            btnfullscreen.Value = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("MasterPageFullscreen");
             btnBurgerMenu.Value = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebMenuBurger");
             Page.MaintainScrollPositionOnPostBack = true;
 
@@ -94,6 +94,7 @@ namespace PXWeb
                 if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
                 {
                     Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Presentation);
+                    Master.SetH1TextMenuLevel();
                     Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Third);
                     Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
                     InitializeCommandBar();
