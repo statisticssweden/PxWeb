@@ -507,6 +507,11 @@ h1 {
 #pxwebcontent .hideonmobile {
   /* don't hide on non-mobile devices */ }
 
+#pxwebcontent .officialStatisticsImage {
+  height: 18px;
+  width: 150px;
+  margin-left: 15px; }
+
 /* jQuery UI controls */
 #PageElements {
   background: #fff; }

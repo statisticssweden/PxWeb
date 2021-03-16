@@ -234,6 +234,8 @@
     <Content Include="Resources\Images\jsons.gif" />
     <Content Include="Resources\Images\minus-16.gif" />
     <Content Include="Resources\Images\minus-black-16.gif" />
+    <Content Include="Resources\Images\official_statistics_en.svg" />
+    <Content Include="Resources\Images\official_statistics_sv.svg" />
     <Content Include="Resources\Images\plus-14.gif" />
     <Content Include="Resources\Images\plus-16.gif" />
     <Content Include="Resources\Images\plus-black-16.gif" />
