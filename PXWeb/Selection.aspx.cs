@@ -48,12 +48,6 @@ namespace PXWeb
             set { _lastModified = value; }
         }
 
-        public string OfficialStatisticsImage
-        {
-            get;
-            set;
-        }
-
         private IPxUrl _pxUrl = null;
 
         private IPxUrl PxUrl
@@ -195,14 +189,6 @@ namespace PXWeb
                 VariableSelector1.InitializeSelectedValuesetsAndGroupings(_previousModel);
             }
 
-            if (PXWeb.Settings.Current.General.Global.ShowInformationTypes.OfficialStatistics && PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.OfficialStatistics)
-            {
-                OfficialStatisticsImage = "";
-                if (!string.IsNullOrWhiteSpace(PxUrl.Language)) {
-                    string img = $"official_statistics_{ PxUrl.Language }.svg";
-                    OfficialStatisticsImage = ResolveUrl(System.IO.Path.Combine(PXWeb.Settings.Current.General.Paths.ImagesPath, img));
-                }
-            }
         }
 
         

@@ -510,7 +510,8 @@ h1 {
 #pxwebcontent .officialStatisticsImage {
   height: 18px;
   width: 150px;
-  margin-left: 15px; }
+  margin-left: 15px;
+  margin-bottom: 10px; }
 
 /* jQuery UI controls */
 #PageElements {

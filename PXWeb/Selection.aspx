@@ -27,8 +27,8 @@
             <asp:Literal ID="litDetailedInformation" runat="server" visible="false"></asp:Literal>
         </div>
 
-        <% if (!string.IsNullOrWhiteSpace(OfficialStatisticsImage)){%>
-            <img src=<%= OfficialStatisticsImage%> class="officialStatisticsImage"/>
+        <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
         <%} %>
 
         <div id="PageElements">
