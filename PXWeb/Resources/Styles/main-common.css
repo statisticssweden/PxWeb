@@ -5,6 +5,7 @@
 /*@import './color-themes/_dark.scss';*/
 /*@import './color-themes/_light.scss';*/
 /*#region  Active colors */
+/*$pxweb-green-1: #ecfeed;*/
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
@@ -486,8 +487,8 @@ $scrollbar-color: #b0b0b0;
   position: relative;
   width: 100%; }
   #pxwebcontent .pxweb-input:hover input {
-    border: 1px solid #A3E8F5 nord;
-    outline: 1px solid #A3E8F5 nord; }
+    border: 1px solid #A3E8F5;
+    outline: 1px solid #A3E8F5; }
     #pxwebcontent .pxweb-input:hover input:disabled {
       border: 1px solid #006885; }
   #pxwebcontent .pxweb-input .input-wrapper {
@@ -534,8 +535,8 @@ $scrollbar-color: #b0b0b0;
   #pxwebcontent .pxweb-input.negative .input-wrapper ::-ms-input-placeholder {
     color: #fff; }
   #pxwebcontent .pxweb-input.negative:hover input {
-    border: 1px solid #A3E8F5 nord;
-    outline: 1px solid #A3E8F5 nord; }
+    border: 1px solid #A3E8F5;
+    outline: 1px solid #A3E8F5; }
     #pxwebcontent .pxweb-input.negative:hover input:disabled {
       border: 1px solid #fff; }
   #pxwebcontent .pxweb-input.negative label {
@@ -547,11 +548,11 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .pxweb-input.negative input:disabled {
       border: 1px solid #fff; }
     #pxwebcontent .pxweb-input.negative input:focus {
-      border: 1px solid #A3E8F5 nord;
-      outline: 1px solid #A3E8F5 nord;
+      border: 1px solid #A3E8F5;
+      outline: 1px solid #A3E8F5;
       outline-offset: 0; }
   #pxwebcontent .pxweb-input.negative .icon-wrapper > * {
-    color: #A3E8F5 nord; }
+    color: #A3E8F5; }
   #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon {
     cursor: pointer; }
     #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:hover, #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:focus {

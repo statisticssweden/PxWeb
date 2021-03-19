@@ -55,8 +55,10 @@
                 </div>
             <%  } %>
            
-            <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>                       
-
+            <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>
+            <h1>
+                <asp:Label ID="lblH1Title" runat="server" Text="" CssClass="h1title"></asp:Label>
+            </h1>
              
             <pxc:NavigationFlow ID="navigationFlowControl" runat="server" Visible="false" /> 
             <div id="table-title">

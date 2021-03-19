@@ -50,13 +50,14 @@
   padding-top: 10px;
 }
 
-  #pxwebcontent .commandbar_button_row input {
-/*    background: #25a23c;
+#pxwebcontent .commandbar_button_row input {
+    /*    background: #25a23c;
     color: white;*/
     font-weight: bold;
     font-family: 'Roboto Condensed', sans-serif;
-    border: 1px solid #008451;
-  }
+    /*border: 1px solid #008451;*/
+    border: 1px solid $pxweb-dark-2;
+}
 
 #pxwebcontent .commandbar_dropdown {
   height: 50px;
@@ -135,11 +136,12 @@
 
 #pxwebcontent .commandbar-listbox-container {
   /*float: left;*/
-  border: 1px solid #00824d;
+  border: 1px solid $pxweb-dark-2;
   padding: 20px;
   background-color: $pxweb-green-1;
   flex: 0 0 42%;
   margin-top: 10px;
+
 }
 
 /*#pxwebcontent input[type=submit].commandbar_cancelbutton {

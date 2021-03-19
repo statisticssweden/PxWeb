@@ -39,6 +39,7 @@ namespace PXWeb
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Menu);
                 Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.First); 
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
+                Master.SetH1TextDatabase();
 
                 string msg = QuerystringManager.GetQuerystringParameter("msg");
                 if (!string.IsNullOrWhiteSpace(msg))
@@ -251,15 +252,6 @@ namespace PXWeb
 
         private void SetLocalizedTexts()
         {
-            var pxUrl = RouteInstance.PxUrlProvider.Create(null);
-
-            string db = pxUrl.Database;
-            string lang = pxUrl.Language;
-            DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
-
-            lblDatabase.Text = dbi.GetDatabaseName(lang);
-
- 
         }
 
     }

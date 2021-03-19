@@ -677,9 +677,9 @@
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
-	 <sentence name="PxWebApplicationTitle" value="PxWeb 2020 v2"/>
-	 <sentence name="PxWebApplicationName" value="PxWeb 2020 v2"/>
-   <sentence name="PxWebLogoAlt" value="PxWeb 2020 v2"/>
+	 <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1 beta"/>
+	 <sentence name="PxWebApplicationName" value="PxWeb 2021 v1 beta"/>
+   <sentence name="PxWebLogoAlt" value="PxWeb 2021 v1 beta"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="English" />
@@ -740,7 +740,7 @@
 	 <sentence name="PxWebChartPercent" value="%" />
 
 	 <sentence name="PxWebDataSort" value="Sort data"/>
-	 <sentence name="PxWebSelectDb" value="Select database:"/>
+	 <sentence name="PxWebSelectDb" value="Select database"/>
 	 <sentence name="PxWebTableCropped" value="Maximum of {0} rows and {1} columns can be displayed on screen."/>
    <sentence name="PxWebTableCroppedHeading" value="The table has been cropped"/>
 
@@ -800,7 +800,7 @@
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
-	 <sentence name="PxWebAdminVersion" value="PxWeb 2020 v2"/>
+	 <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1 beta"/>
 	 <sentence name="PxWebAdminHomePage" value="PxWeb Homepage"/>
 	 <sentence name="PxWebAdminSaveButton" value="Save"/>
 	 <sentence name="PxWebAdminGenerateButton" value="Generate"/>

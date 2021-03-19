@@ -1,6 +1,7 @@
 ﻿/*@import './color-themes/_dark.scss';*/
 /*@import './color-themes/_light.scss';*/
 /*#region  Active colors */
+/*$pxweb-green-1: #ecfeed;*/
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
@@ -103,6 +104,17 @@ $scrollbar-color: #b0b0b0;
     height: auto; } }
 
 /* **********************************  _PxWeb.scss *********************************** */
+h1 {
+  font-family: Roboto Condensed, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  display: block;
+  color: #222; }
+
 #pxwebcontent {
   background: #fff;
   /*  @include just-open-sans;*/
@@ -227,6 +239,9 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .tableAlternatingRow {
   background-color: #eee; }
+
+#pxwebcontent .databaseList {
+  margin-left: 15px; }
 
 #pxwebcontent .search_searchresulttext {
   font-weight: bold;
@@ -1054,7 +1069,8 @@ $scrollbar-color: #b0b0b0;
     color: white;*/
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
-  border: 1px solid #008451; }
+  /*border: 1px solid #008451;*/
+  border: 1px solid #949494; }
 
 #pxwebcontent .commandbar_dropdown {
   height: 50px;
@@ -1116,6 +1132,7 @@ $scrollbar-color: #b0b0b0;
   padding: 5px 0 0 5px; }
 
 #pxwebcontent .commandbar-listbox-container {
+
   /*float: left;*/
   border: 1px solid #00824d;
   padding: 20px;
@@ -1424,7 +1441,7 @@ $scrollbar-color: #b0b0b0;
   color: #222; }
 
 #pxwebcontent table.tablesorter thead tr th {
-  background-color: #ecfeed; }
+  background-color: #F8F7F6; }
 
 #pxwebcontent .tablesorter th {
   font-size: 16px; }
@@ -1634,17 +1651,7 @@ $scrollbar-color: #b0b0b0;
   margin: 4em 0 -1em 0;
   font-weight: bold; }
 
-#pxwebcontent .hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
-  /*  font-family: Roboto Condensed, sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 15px;
-  display: block;
-  color: $pxweb-ink-main;
-*/
+.hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
   font-family: Roboto Condensed, sans-serif;
   font-size: 28px;
   font-weight: 700;
@@ -2138,7 +2145,7 @@ $scrollbar-color: #b0b0b0;
 /* Used for Search webcontrol */
 #pxwebcontent .search_panel {
   border: solid 3px #006885;
-  background-color: #eee;
+  background-color: #F8F7F6;
   padding: 3px 10px 10px 10px;
   margin-bottom: 10px; }
 
@@ -2369,7 +2376,7 @@ $scrollbar-color: #b0b0b0;
   margin: 0px;
   text-align: left;
   border: #949494 1px solid;
-  background-color: #ecfeed; }
+  background-color: #F8F7F6; }
 
 #pxwebcontent td.right {
   text-align: right; }
@@ -2394,13 +2401,13 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent th.table-header-first {
   font-weight: bold;
-  background-color: #ecfeed;
+  background-color: #F8F7F6;
   padding: 5px 5px 5px 5px;
   text-align: center; }
 
 #pxwebcontent .table-class td.table-header-first {
   font-weight: bold;
-  background-color: #ecfeed; }
+  background-color: #F8F7F6; }
 
 #pxwebcontent th.table-header-middle {
   font-weight: bold;

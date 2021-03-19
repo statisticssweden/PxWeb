@@ -1,5 +1,9 @@
 ﻿@include file-header("_PxWeb.scss");
 
+h1 {
+    @include pxweb-h1-title;
+}
+
 #pxwebcontent {
   background: $pxweb-background;
 /*  @include just-open-sans;*/  
@@ -151,12 +155,15 @@
   background-color: $tableAlternatingRow-grey;
 }
 
+#pxwebcontent .databaseList {
+    margin-left: 15px;
+}
 
 #pxwebcontent .search_searchresulttext {
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 #pxwebcontent .searchTopLeftContent {
