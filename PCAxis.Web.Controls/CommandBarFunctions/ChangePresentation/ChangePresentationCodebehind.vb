@@ -32,7 +32,7 @@ Public Class ChangePresentationCodebehind
     Private Const CHANGEPRESENTATION_CHANGECODETEXT_TEXTPRESENTATION As String = "CtrlChangeCodeTextPresentationText"
     Private Const CHANGEPRESENTATION_CHANGECODETEXT_CODEPRESENTATION As String = "CtrlChangeCodeTextPresentationCode"
     Private Const CHANGEPRESENTATION_CHANGECODETEXT_CODETEXTPRESENTATION As String = "CtrlChangeCodeTextPresentationCodeAndText"
-    Private Const CHANGEPRESENTATION_CONTINUE_BUTTON As String = "CtrlChangePresentationCompleteButton"
+    Private Const CHANGEPRESENTATION_COMPLETE_BUTTON As String = "CtrlChangePresentationCompleteButton"
     Private Const CHANGEPRESENTATION_CONTENTS_TEXT As String = "CtrlChangePresentationContentsHeading"
     Private Const CANCEL_BUTTON As String = "CancelButton"
 
@@ -58,7 +58,7 @@ Public Class ChangePresentationCodebehind
     Protected ChangeCodeTextPanel As Panel
     Protected ChangeCodeTextTextLabel As Label
     Protected WithEvents ChangeCodeTextRepeater As Repeater
-    Protected WithEvents ChangeCodeText_ContinueButton As Button
+    Protected WithEvents ChangeCodeText_CompleteButton As Button
     Protected ChangeCodeTextTable As Table
 
     'Common
@@ -145,14 +145,14 @@ Public Class ChangePresentationCodebehind
     ''' <remarks></remarks>
     Private Sub LoadTextsForLanguage()
 
-        Dim buttonText As String = GetLocalizedString(CHANGEPRESENTATION_CONTINUE_BUTTON)
+        Dim buttonText As String = GetLocalizedString(CHANGEPRESENTATION_COMPLETE_BUTTON)
 
         'Change code/text texts
         _codeText = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_CODEPRESENTATION)
         _codeAndTextText = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_CODETEXTPRESENTATION)
         _textText = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TEXTPRESENTATION)
         ChangeCodeTextTextLabel.Text = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TEXT)
-        ChangeCodeText_ContinueButton.Text = buttonText
+        ChangeCodeText_CompleteButton.Text = buttonText
         'TitleLabel.Text = GetLocalizedString(CHANGEPRESENTATION_CHANGECODETEXT_TITLE)
         CancelButton.Text = GetLocalizedString(CANCEL_BUTTON)
     End Sub
@@ -210,7 +210,7 @@ Public Class ChangePresentationCodebehind
     ''' Handles event continuebutton clicked for change code/text presentation
     ''' </summary>
     ''' <remarks></remarks>
-    Private Sub ChangeCodeText_ContinueButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ChangeCodeText_ContinueButton.Click
+    Private Sub ChangeCodeText_ContinueButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ChangeCodeText_CompleteButton.Click
         Dim newModel As PXModel
         'Find tablecontrol
         'Dim table As Table = FindTableControl(Me.Page.Controls)

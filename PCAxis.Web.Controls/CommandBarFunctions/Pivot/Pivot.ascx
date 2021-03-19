@@ -3,7 +3,7 @@
     <h3 class="container_titletext">
         <asp:Literal runat="server" Text="<%$ PxString: CtrlCommandBarFunctionPivotManualTitle%>" />
     </h3>
-    <div class="flex-row s-margin-top">
+    <div class="flex-row flex-wrap s-margin-top justify-space-between">
         <div class="commandbar-listbox-container">
             <asp:label id="StubLabel" runat="server" cssclass="commandbar_pivot_title font-heading" /><br />
             <asp:listbox  id="StubListBox" runat="server" cssclass="commandbar_pivot_listbox" selectionmode="Multiple" />
@@ -15,7 +15,7 @@
                     </div>
                 </div>
         </div>
-        <div class="commandbar-listbox-container m-margin-left">
+        <div class="commandbar-listbox-container">
             <asp:label id="HeadingLabel" runat="server" cssclass="commandbar_pivot_title font-heading" /><br />
             <asp:listbox id="HeadingListBox" runat="server"  cssclass="commandbar_pivot_listbox"  selectionmode="Multiple" />
                 <div class="flex-column">
@@ -29,6 +29,6 @@
     </div>
     <div class="container_exit_buttons_row">
         <asp:Button ID="CancelButton" runat="server" CssClass="pxweb-btn pxweb-buttons" />
-        <asp:button id="ContinueButton" runat="server" CssClass="pxweb-btn primary-btn pxweb-buttons" />
+        <asp:button id="ContinueButton" runat="server" CssClass="pxweb-btn primary-btn container_continuebutton pxweb-buttons" />
     </div>
 </div>

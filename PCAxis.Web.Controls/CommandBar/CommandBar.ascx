@@ -14,7 +14,7 @@
                 </asp:panel>
             </fieldset>
         </asp:Panel>
-        <asp:panel class="pxweb-accordion hideonmobile" ClientIDMode="Static" id="OperationsPanel" runat="server">
+        <asp:panel class="pxweb-accordion" ClientIDMode="Static" id="OperationsPanel" runat="server">
             <button type="button" runat="server" class="accordion-header closed" ClientIDMode="Static" id="OperationsHeaderButton" onclick="accordionToggle(OperationsPanel, this)" >
                 <span class="header-text"><asp:Label ID="OperationsLabel"  runat="server"></asp:Label></span>
             </button>

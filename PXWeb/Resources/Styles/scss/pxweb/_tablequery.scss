@@ -21,7 +21,8 @@
 #pxwebcontent .tablequery_url {
   display: block;
   width: 95%;
-  font-family: 'Courier New';
+  @include SourceCodeProTablequery_url;
+  font-size: 14px;
 }
 
 #pxwebcontent .tablequery_querycaption {
@@ -34,6 +35,8 @@
   display: block;
   width: 95%;
   margin-bottom: 10px;
+  @include SourceCodeProTablequery_url;
+  font-size: 14px; 
 
   &:focus {
     @include focus-ring;

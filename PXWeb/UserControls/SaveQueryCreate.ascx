@@ -3,38 +3,36 @@
 <div class="savequery_container" >
 
     <a id="tableSavequerycontrol"></a>         
-        <asp:Panel ID="pnl2_SaveQuerySelection"  CssClass="savequery_informationpanel savequery_informationpanelwidth settingpanel savequery" runat="server">            
+        <asp:Panel ID="pnl2_SaveQuerySelection"  CssClass="settingpanel savequery" runat="server">            
             <asp:Panel ID="pnlSettings" runat="server" CssClass="px-settings">
-                <div id="divTimePeriod" class="savequery_timeperioddiv" >
-                    <div id="divTimeWarning" runat="server" class="time_warning_panel">
-                        <asp:Image ID="imgTimeWarning" CssClass="alertimage" runat="server" />
-                        <asp:Label ID="lblTimeWarning" runat="server" Text="<%$ PxString: CtrlSaveQueryTimeWarning %>"></asp:Label>
-                    </div>
-                    <asp:Panel ID="pnlForRbl" runat="server">
-                    <asp:RadioButtonList runat="server" id="rblTimePeriod" RepeatLayout="Flow" CssClass="savequery_rblist"    >
-                        <asp:ListItem Selected="True" Text="<%$ PxString: CtrlSaveQueryFloatingTimePeriod %>" Value="top"></asp:ListItem>  
-                        <asp:ListItem Text="<%$ PxString: CtrlSaveQueryExtendedTimePeriod %>" Value="from"></asp:ListItem>                                
-                        <asp:ListItem Text="<%$ PxString: CtrlSaveQuerySelectedTimePeriod %>" Value="item"></asp:ListItem>      
-                    </asp:RadioButtonList>
-                    </asp:Panel>
-                    <div id="divSaveAs" class="flex-column s-margin-top">
-                        <asp:Label ID="lblResultAs" runat="server" AssociatedControlID="ddlOutputFormats" Text="Result as" CssClass="font-heading"></asp:Label>
-                        <asp:dropdownlist id="ddlOutputFormats" runat="server" CssClass="commandbar_saveas_dropdownlist saveas_dropdownlist xs-margin-top">
-                        </asp:dropdownlist>
-                        <asp:Label ID="lblFormatError"  runat="server" cssClass="savequery_error"></asp:Label>
-                    </div>
-                    <div class="container_exit_buttons_row">
-                        <asp:Button ID="btnCancelSaveQuery" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: CtrlSaveQueryCancelSaveQuery %>" OnClientClick="cancelSavequery(); return false;" />
-                        <asp:Button ID="btnCreateSaveQuery" runat="server" CssClass="pxweb-btn primary-btn" Text="<%$ PxString: CtrlSaveQuerybtnCreateQuery %>"  OnClick="CreateSavedQueryUrl"   />                
-                        <asp:Label ID="lblError"  runat="server"  cssClass="savequery_error" Text="<%$ PxString: CtrlSaveQueryFailedSave %>" Visible="false"></asp:Label>
-                    </div>
+                <div id="divTimeWarning" runat="server" class="time_warning_panel">
+                    <asp:Image ID="imgTimeWarning" CssClass="alertimage" runat="server" />
+                    <asp:Label ID="lblTimeWarning" runat="server" Text="<%$ PxString: CtrlSaveQueryTimeWarning %>"></asp:Label>
+                </div>
+                <asp:Panel ID="pnlForRbl" runat="server">
+                <asp:RadioButtonList runat="server" id="rblTimePeriod" RepeatLayout="Flow" CssClass="savequery_rblist"    >
+                    <asp:ListItem Selected="True" Text="<%$ PxString: CtrlSaveQueryFloatingTimePeriod %>" Value="top"></asp:ListItem>  
+                    <asp:ListItem Text="<%$ PxString: CtrlSaveQueryExtendedTimePeriod %>" Value="from"></asp:ListItem>                                
+                    <asp:ListItem Text="<%$ PxString: CtrlSaveQuerySelectedTimePeriod %>" Value="item"></asp:ListItem>      
+                </asp:RadioButtonList>
+                </asp:Panel>
+                <div id="divSaveAs" class="flex-column s-margin-top">
+                    <asp:Label ID="lblResultAs" runat="server" AssociatedControlID="ddlOutputFormats" Text="Result as" CssClass="font-heading"></asp:Label>
+                    <asp:dropdownlist id="ddlOutputFormats" runat="server" CssClass="commandbar_saveas_dropdownlist saveas_dropdownlist xs-margin-top">
+                    </asp:dropdownlist>
+                    <asp:Label ID="lblFormatError"  runat="server" cssClass="savequery_error"></asp:Label>
+                </div>
+                <div class="container_exit_buttons_row">
+                    <asp:Button ID="btnCancelSaveQuery" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: CtrlSaveQueryCancelSaveQuery %>" OnClientClick="cancelSavequery(); return false;" />
+                    <asp:Button ID="btnCreateSaveQuery" runat="server" CssClass="pxweb-btn primary-btn container_continuebutton " Text="<%$ PxString: CtrlSaveQuerybtnCreateQuery %>"  OnClick="CreateSavedQueryUrl"   />                
+                    <asp:Label ID="lblError"  runat="server"  cssClass="savequery_error" Text="<%$ PxString: CtrlSaveQueryFailedSave %>" Visible="false"></asp:Label>
                 </div>
             </asp:Panel>
         </asp:Panel>
-        <asp:Panel ID="pnl3_ShowSaveQueryUrl" CssClass="savequery_informationpanel savequery_informationpanelwidth settingpanel" runat="server">  
+        <asp:Panel ID="pnl3_ShowSaveQueryUrl" CssClass="settingpanel" runat="server">  
             <asp:Panel ID="pnlUrl" runat="server" CssClass="px-settings">
                 <div id="divQuerySummary" class="querySummary flex-column">
-                    <div class="flex-row">
+                    <div class="flex-row flex-wrap">
                         <asp:Label ID="lblUpdateSummaryHeading" runat="server" Text="<%$ PxString: CtrlSaveQueryUpdateSummaryHeading %>" CssClass="querySummaryItem font-heading"></asp:Label>
                         <asp:Label ID="lblUpdateSummaryValue" runat="server" Text="" CssClass=" querySummaryItem querysummary-value"></asp:Label>
                     </div>
@@ -48,7 +46,7 @@
                 <div class="container_exit_buttons_row">
                     <asp:Button ID="btnCancelSaveQueryEnd" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: CtrlSaveQueryCancelSaveQuery %>" OnClientClick="cancelSavequeryEnd(); return false;" />
                     <asp:Button ID="btnbookMark" cssclass="pxweb-btn savequery_novisibility" onclientclick="Bookmark(); return false;" text="<%$ PxString: CtrlSaveQueryBookmark%>"  runat="server" />
-                    <asp:Button ID="btnCopyToClipboard" cssclass="pxweb-btn savequery_novisibility" text="<%$ PxString: CtrlSaveQueryCopyLink %>" OnClientClick="CopyToClipboard(); return false;" CausesValidation="false"  runat="server" />           
+                    <asp:Button ID="btnCopyToClipboard" cssclass="pxweb-btn savequery_novisibility" text="<%$ PxString: CtrlSaveQueryCopyLink %>" OnClientClick="CopyToClipboard();return false" CausesValidation="false"  runat="server" />           
                     <asp:Button ID="btnMailSaveQuery" CssClass="pxweb-btn no-margin-right savequery_novisibility" text="<%$ PxString: CtrlSaveQueryMailQuery %>"  OnClientClick="document.location = sendMail(); return false;" runat="server"   /> 
                 </div>
             </asp:Panel>
@@ -82,11 +80,9 @@
                 jQuery('[id$=btnbookMark]').css('display', 'inline-block');
 
             }
-            
-            if (window.clipboardData && clipboardData.setData) {
 
-                jQuery('[id$=btnCopyToClipboard]').css('display', 'inline-block');
-            }
+            jQuery('[id$=btnCopyToClipboard]').css('display', 'inline-block');            
+
         });
 
     function cancelSavequery() {
@@ -107,12 +103,22 @@
                    "&body=" + escape("<%=txtSaveQueryUrl.Text%>");
         return link;
     }
-    function CopyToClipboard() 
+<%--    function CopyToClipboard() 
     { 
         window.clipboardData.setData('Text', "<%=txtSaveQueryUrl.Text%>");
         ShowPanel();
         return false;
-    }
+    }--%>
+
+    function CopyToClipboard() {
+        var copyBtn = document.getElementById('<%=btnCopyToClipboard.ClientID %>')
+        var queryLink = document.getElementById('<%=txtSaveQueryUrl.ClientID %>')
+        queryLink.focus();
+        queryLink.select(); // for mark as copied
+        navigator.clipboard.writeText("<%=txtSaveQueryUrl.Text%>");
+        copyBtn.value = ('<%= CopyLinkCopied %>');
+        return false;
+        }
     
     function Bookmark(e)
     {

@@ -1,6 +1,7 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap");
 /*@import './color-themes/_dark.scss';*/
 /*@import './color-themes/_light.scss';*/
 /*#region  Active colors */
@@ -33,6 +34,7 @@ $scrollbar-color: #b0b0b0;
   to {
     opacity: 1; } }
 
+/*This file shall end up empty, its just a helper*/
 /* **********************************  _global-styles-on-elements.scss *********************************** */
 #pxwebcontent body {
   font-family: 'Open Sans', sans-serif !important;

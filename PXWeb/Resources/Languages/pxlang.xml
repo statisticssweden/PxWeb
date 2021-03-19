@@ -163,6 +163,7 @@
 	 <sentence name="CtrlCommandBarFileDownLoadLink" value="Click here to download the file"/>
 
 
+  	 <sentence name="CtrlFootnoteObsnoteLabel" value="Obs:"/>
 	 <sentence name="CtrlFootnoteFootnoteLabel" value="Footnotes"/>
 	 <sentence name="CtrlFootnoteNoFootnotesLabel" value="There are no footnotes"/>
 	 <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Select all" />
@@ -217,11 +218,8 @@
 	 <sentence name="CtrlChangeValueOrderFromOrder" value="From order"/>
 	 <sentence name="CtrlChangeValueOrderToOrder" value="To order"/>
 
-    <!--trenger denne litt til des 2020 -->
-     <sentence name="CtrlPivotContinueButton" value="Continue"/>
- 
 	 <sentence name="CtrlPivotCompleteButton" value="Complete"/>
-     <sentence name="CtrlPivotCancelButton" value="Cancel"/>
+   <sentence name="CtrlPivotCancelButton" value="Cancel"/>
 
 	 <sentence name="CtrlPivotStubLabel" value="Rows"/>
 	 <sentence name="CtrlPivotHeadingLabel" value="Columns"/>
@@ -511,6 +509,7 @@
    <sentence name="CtrlSaveQuerybtnBack" value="Back" />
    <sentence name="CtrlSaveQueryBookmark" value="Bookmark" />
    <sentence name="CtrlSaveQueryCopyLink" value="Copy" />
+  <sentence name="CtrlSaveQueryCopyLinkCopied" value="Copied" />  
    <sentence name="CtrlSaveQueryMailQuery" value="Send as e-mail" />
    <sentence name="CtrlSaveQueryFailedSave" value="Failed to save the query" />
    <sentence name="CtrlSaveQueryURLInfo" value="Saved query is available at the address below:" />
@@ -1093,9 +1092,9 @@
 	<sentence name="PxWebAdminSettingsPresentationGeneralNewTitleLayout" value="New layout for title"/>
 	<sentence name="PxWebAdminSettingsPresentationGeneralNewTitleLayoutInfo" value="'New' 2020 WAG layout: Title is placed high on the page and only there (ignoring the table/Show title setting). False yields the old layout. "/>
 
-
-	 <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Table transformation"/>
-	 <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="If the table should be automatically transformed before it displays to the user"/>
+  <sentence name="PxWebAdminSettingsPresentationTableStickyHeaderFullscreen" value="Lock table header in fullscreen mode" />
+	<sentence name="PxWebAdminSettingsPresentationTableTransform" value="Table transformation"/>
+  <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="If the table should be automatically transformed before it displays to the user"/>
 	 <sentence name="PxWebAdminSettingsPresentationTableTransformNoTransformation" value="No transformation"/>
 	 <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirst" value="Single values first"/>
 	 <sentence name="PxWebAdminSettingsPresentationTableTransformSingleValueFirstAndHeaderOnlyOneMultiple" value="Only one multi valued variable in the header"/>

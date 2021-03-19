@@ -458,12 +458,16 @@ h1 {
         flex-wrap: wrap;
     }
 
-  #pxwebcontent .px-settings { 
-    width: auto;
-  }
-
   #pxwebcontent .presentation-left {
     width: 100%;
+  }
+
+  #pxwebcontent .px_setting_textbox_title {
+    width: 98%;
+  }
+
+  #pxwebcontent .px-settings {
+    width: auto;
   }
 }
 @media #{$tablet} {
