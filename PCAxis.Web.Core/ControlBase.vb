@@ -328,7 +328,7 @@ Public MustInherit Class ControlBase(Of TControl As ControlBase(Of TControl, TMa
             Dim matches As System.Text.RegularExpressions.MatchCollection = theRegex.Matches(value)
             Dim email As String
             For Each match As System.Text.RegularExpressions.Match In matches
-                email = "<a href=""mailto:" + match.Value + """>" + match.Value + "</a>"
+                email = "<a class=""envelope-icon"" href=""mailto:" + match.Value + """>" + match.Value + "</a>"
                 value = value.Replace(match.Value, email)
             Next
         End If
