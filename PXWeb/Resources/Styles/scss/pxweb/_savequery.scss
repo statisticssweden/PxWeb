@@ -80,6 +80,7 @@
   background-repeat: no-repeat;
   background-position: left .4em top 50%, 0 0;
   background-size: 24px auto, 100%;
+  width: 100%;
 
   &:hover {
     border: 1px solid $pxweb-green-4;
@@ -117,9 +118,10 @@
 }
 
 #pxwebcontent .savequery_url {
+  @include SourceCodeProTablequery_url;
   display: block;
   width: 400px;
-  font-family: 'Courier New';
+  //font-family: 'Courier New';
 }
 
 #pxwebcontent .savequery_querycaption {

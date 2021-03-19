@@ -43,7 +43,7 @@
             </div>
             <div id="SearchResults" role="status" class="screenreader-only"></div>
             <div id="divFootnotes" class="settingpanel footnotes" runat="server">
-                <pxc:Footnote ID="SelectionFootnotes" runat="server" />
+                <pxc:Footnote ID="SelectionFootnotes" InAccordionStyle="true" runat="server" />
             </div>
         </div>
         <asp:HiddenField ID="AboutTableSelectedAccordion" Value="" runat="server" />

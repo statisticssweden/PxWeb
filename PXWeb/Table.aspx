@@ -25,7 +25,7 @@
         </asp:Panel>
         <div id="divSettingButtons" class="container_exit_buttons_row">
             <asp:Button ID="btnCancelTableSettings" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: PxWebTableUserSettingsCancel %>" OnClientClick="cancelTableSettings(); return false;" />
-            <asp:Button ID="btnApply" Text="<%$ PxString: PxWebTableUserSettingsApply %>" CssClass="pxweb-btn primary-btn" runat="server" onclick="ApplySettings_Click" />
+            <asp:Button ID="btnApply" Text="<%$ PxString: PxWebTableUserSettingsApply %>" CssClass="pxweb-btn primary-btn no-margin-right" runat="server" onclick="ApplySettings_Click" />
         </div>
     </asp:Panel>
     

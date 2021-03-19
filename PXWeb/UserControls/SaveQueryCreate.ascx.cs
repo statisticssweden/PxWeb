@@ -22,7 +22,8 @@ namespace PXWeb.UserControls
         private const string SAVEQUERY_NOTIMEVALWARNING = "CtrlSaveQueryNoTimeValWarning";
         private const string SAVEQUERY_HELP_PAGE = "CtrlSaveQueryHelpPage";
         private const string SAVEQUERY_RBL_LEGEND = "CtrlSaveQueryChoosetimeperiodInformation";
-        
+        private const string SAVEQUERY_COPY_LINK_COPIED= "CtrlSaveQueryCopyLinkCopied";
+
 
         #region Private property
 
@@ -55,7 +56,12 @@ namespace PXWeb.UserControls
                 pnl2_SaveQuerySelection.Enabled = _enabled;
             }
         }
-#endregion
+
+        public string CopyLinkCopied
+        {
+            get { return LocalizationManager.GetLocalizedString(SAVEQUERY_COPY_LINK_COPIED); }
+        }
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
 

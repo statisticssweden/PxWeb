@@ -13,12 +13,6 @@
   background-color: $pxweb-background;
 }
 
-@media #{$mobile} {
-  #pxwebcontent .commandbar_container {
-    display: none;
-  }
-}
-
 #pxwebcontent .commandbar_container > div {
   width: 620px;
   }
@@ -55,5 +49,16 @@
     -webkit-text-fill-color: $pxweb-white;
     //background for unselected values is always white from user agent style
   }
+
+@media #{$mobile} {
+  #pxwebcontent .commandbar_container {
+    overflow: hidden;
+    width: auto;
+  }
+
+  #pxwebcontent .commandbar_container > div {
+    width: 100%;
+  }
+}
 
 

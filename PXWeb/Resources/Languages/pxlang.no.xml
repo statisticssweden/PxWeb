@@ -64,21 +64,21 @@
   <sentence name="CtrlCommandBarDownloadFileTitle" value="Lagre fil" />
   <sentence name="CtrlCommandBarDownloadFileInformation" value="Klikk på 'Lagre fil' for å laste ned fil" />
   <sentence name="CtrlCommandBarDownloadFileLink" value="Lagre fil" />
-  <sentence name="CtrlCommandBarFunctionPivotManual" value="Roter manuelt" />
-  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Roter manuelt" />
-  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Roter manuelt" />
+  <sentence name="CtrlCommandBarFunctionPivotManual" value="Rotér manuelt" />
+  <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Rotér manuelt" />
+  <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Rotér manuelt" />
   <sentence name="CtrlCommandBarFunctionPivotManualMoveLeft" value="Flytt til rader" />
   <sentence name="CtrlCommandBarFunctionPivotManualMoveRight" value="Flytt til kolonner" />
   <sentence name="CtrlCommandBarFunctionPivotManualMoveUp" value="Flytt opp" />
   <sentence name="CtrlCommandBarFunctionPivotManualMoveDown" value="Flytt ned" />
   <sentence name="CtrlCommandBarFunctionPivotManualListboxRowScreenReader" value="Velg variabler som skal vises som rader i tabellen" />
   <sentence name="CtrlCommandBarFunctionPivotManualListboxColumnScreenReader" value="Velg variabler som skal vises som kolonner i tabellen" />
-  <sentence name="CtrlCommandBarFunctionPivotCW" value="Roter mot høyre" />
-  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Roter mot høyre" />
-  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Roter med klokka" />
-  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Roter mot venstre" />
-  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Roter mot venstre" />
-  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Roter mot klokka" />
+  <sentence name="CtrlCommandBarFunctionPivotCW" value="Rotér mot høyre" />
+  <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Rotér mot høyre" />
+  <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Rotér med klokka" />
+  <sentence name="CtrlCommandBarFunctionPivotCCW" value="Rotér mot venstre" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWTitle" value="Rotér mot venstre" />
+  <sentence name="CtrlCommandBarFunctionPivotCCWAlt" value="Rotér mot klokka" />
   <sentence name="CtrlCommandBarFunctionShowAllRows" value="Vis alle rader" />
   <sentence name="CtrlCommandBarFunctionShowAllRowsTitle" value="Vis alle rader" />
   <sentence name="CtrlCommandBarFunctionShowAllRowsAlt" value="Vis alle rader" />
@@ -198,7 +198,6 @@
   <sentence name="CtrlChangeValueOrderListboxLabel" value="Verdier" />
   <sentence name="CtrlChangeValueOrderFromOrder" value="Fra rekkefølge" />
   <sentence name="CtrlChangeValueOrderToOrder" value="Til rekkefølge" />
-  <sentence name="CtrlPivotContinueButton" value="Fortsett" />
   <sentence name="CtrlPivotCompleteButton" value="Fullfør" />
   <sentence name="CtrlPivotCancelButton" value="Avbryt" />
   <sentence name="CtrlPivotStubLabel" value="Rader" />
@@ -437,7 +436,8 @@
   <sentence name="CtrlSaveQuerySelectFormatMissing" value="Velg format for å fullføre" />
   <sentence name="CtrlSaveQuerybtnBack" value="Tilbake" />
   <sentence name="CtrlSaveQueryBookmark" value="Bokmerk" />
-  <sentence name="CtrlSaveQueryCopyLink" value="Kopi" />
+  <sentence name="CtrlSaveQueryCopyLink" value="Kopier lenke" />
+  <sentence name="CtrlSaveQueryCopyLinkCopied" value="Kopiert" />
   <sentence name="CtrlSaveQueryMailQuery" value="Send via e-post" />
   <sentence name="CtrlSaveQueryFailedSave" value="Lagring av spørringen feilet" />
   <sentence name="CtrlSaveQueryURLInfo" value="Lagret spørring er tilgjengelig på adressen under:" />
@@ -544,7 +544,10 @@
   <sentence name="PxWebChangeToThisLanguage" value="Norsk versjon" />
   <sentence name="PxWebMenuBurger" value="Meny" />
   <sentence name="PxWebMenu" value="Meny" />
-  <sentence name="PxWebMenuExplanation" value="(F)=fylke, (K)=kommune, (G)=grunnkrets, (B)=bydel, (T)=tettsted. Bokstav i parentes viser laveste regionsnivå." />
+  <sentence name="PxWebMenuExplanationRegionHeader" value="Kode på tabeltittel viser laveste regionsnivå: " />
+  <sentence name="PxWebMenuExplanationRegion" value="(F) = fylke, (K) = kommune, (G) = grunnkrets, (B) = bydel, (T) = tettsted." />
+  <sentence name="PxWebMenuExplanationTimePeriodHeader" value="Forklaring på tidsperiode:" />
+  <sentence name="PxWebMenuExplanationTimePeriod" value="&lt;B&gt;K&lt;/B&gt;= Kvartal, &lt;B&gt;M&lt;/B&gt; = Måned, &lt;B&gt;U&lt;/B&gt; = Uke" />
   <sentence name="PxWebSelection" value="Valg" />
   <sentence name="PxWebInformation" value="Informasjon" />
   <sentence name="PxWebDetailedInformation" value="Detaljert informasjon" />
@@ -631,8 +634,8 @@
   <sentence name="PxWebTitleSearch" value="PX-Web - Søk" />
   <sentence name="PxWebTitleSelection" value="PX-Web - Velg variabel og verdi" />
   <sentence name="PxWebTitleTable" value="PX-Web - Tabell" />
-  <sentence name="PxWebSavedQueryUnsafeMessageHeading" value ="Teksten er endret"/>
-  <sentence name="PxWebSavedQueryUnsafeMessage" value="Teksten i tabellen er forskjellig fra det opprinnelige i databasen, siden den er blitt endret manuelt " />
+  <sentence name="PxWebSavedQueryUnsafeMessageHeading" value ="Tabellen inneholder egendefinert tekst"/>
+  <sentence name="PxWebSavedQueryUnsafeMessage" value="Det er lagt til tekst manuelt, som ikke fantes i den opprinnelige tabellen." />
   <sentence name="PxWebGeneralErrorMessage" value="En feil har oppstått. Feilen er blitt registrert" />
   <sentence name="PxWebSavedQueryExecuteErrorMessage" value="Din lagrede spørring finnes ikke. Tabellen kan ha blitt flyttet eller fjernet." />
   <sentence name="PxWebReturnToStartpage" value="Returner til startside" />
@@ -901,6 +904,7 @@
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileFormatShortcut" value="Snarvei" />
   <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotes" value="Påminnelse for obligatoriske fotnoter" />
   <sentence name="PxWebAdminSettingsPresentationGeneralPromptNotesInfo" value="Om popup-bilde med obligatoriske fotnoter skal vises når tabellen lages" />
+  <sentence name="PxWebAdminSettingsPresentationTableStickyHeaderFullscreen" value="Lås tabellhode i fullskjermmodus" />
   <sentence name="PxWebAdminSettingsPresentationTableTransform" value="Tabelltransformasjon" />
   <sentence name="PxWebAdminSettingsPresentationTableTransformInfo" value="Om tabellen automatisk skal transformeres før den vises for brukeren" />
   <sentence name="PxWebAdminSettingsPresentationTableTransformNoTransformation" value="Ingen transformasjon" />

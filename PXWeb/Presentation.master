@@ -41,7 +41,7 @@
                     </div>
                 </asp:panel>
 
-                <asp:panel class="pxweb-accordion hideonmobile" ClientIDMode="Static" id="SettingsAccordionPanel" runat="server">
+                <asp:panel class="pxweb-accordion" ClientIDMode="Static" id="SettingsAccordionPanel" runat="server">
                         <asp:ContentPlaceHolder ID="cphSettingsLabel" runat="server">
                         </asp:ContentPlaceHolder>
                     <div class="accordion-body closed" id="SettingsBody">
@@ -90,7 +90,7 @@
                         </div>
                     <% } %>
                            
-                    <pxc:footnote id="Footnotes" runat="server" /> 
+                    <pxc:footnote id="Footnotes"  InAccordionStyle="true" runat="server" /> 
                 </div>
 
                 <pxc:TableQuery id="TableQueryInformation"  runat="server" />
@@ -155,6 +155,11 @@
                 if (commandbar != undefined) {
                     jQuery(commandbar).hide();
                 }
+                if (<%= useStivkyHeaderFullscreen().ToString().ToLower() %> ) {
+                    jQuery(".table-class").addClass("sticky-header");
+                      setStickyHeaderPositionClass();
+                }
+
             } else {
                 btn.value = "<%=PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("MasterPageFullscreen")%>"
                 jQuery(btn).removeClass("minimize-icon");
@@ -166,6 +171,9 @@
                 }
                 if (commandbar != undefined) {
                     jQuery(commandbar).show();
+                }
+                if (<%= useStivkyHeaderFullscreen().ToString().ToLower() %> ) {
+                    jQuery(".table-class").removeClass("sticky-header");
                 }
             }
         }
@@ -189,6 +197,20 @@
                 } else if (document.msExitFullscreen) { /* IE11 */
                     document.msExitFullscreen();
                 }
+            }
+        }
+
+        function setStickyHeaderPositionClass() {
+            var offsetTop = new Array();
+            var headerRows = jQuery(".table-class thead").find("tr");
+            for (var i = 0; i < headerRows.length; i++) {
+                offsetTop.push(headerRows[i].offsetTop);
+            };
+
+            for (n = 0; n < headerRows.length; n++) {
+                jQuery(".table-class").add("thead").add("tr:eq(" + n + ")").children("th,td").each(function (i, element) {
+                    element.style.top = offsetTop[n] + "px";
+                })
             }
         }
 

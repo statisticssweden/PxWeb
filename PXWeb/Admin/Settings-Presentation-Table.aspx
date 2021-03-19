@@ -63,5 +63,13 @@
         </asp:DropDownList>
         <asp:ImageButton ID="imgDisplayDefaultAttributes" runat="server" onclick="DisplayDefaultAttributesInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
+        <div class="setting-field">
+        <asp:Label ID="lblStickyHeaderFullscreen" runat="server" Text="<%$ PxString: PxWebAdminSettingsPresentationTableStickyHeaderFullscreen %>"></asp:Label>
+        <asp:DropDownList ID="cboStickyHeaderFullscreen" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgStickyHeaderFullscreen" runat="server" onclick="StickyHeaderFullscreen" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
     
 </asp:Content>
