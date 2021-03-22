@@ -34,6 +34,14 @@
   }
 }
 
+#pxwebcontent .envelope-icon {
+    padding-left: 22px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-image: get-icon( 'envelope', $px-envelope-icon);
+    background-position-y: center;
+}
+
 #pxwebcontent .Information-warning-box-icon {
     background-color: $pxbox-blue-3;
     box-sizing: border-box;

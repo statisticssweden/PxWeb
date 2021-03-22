@@ -25,7 +25,7 @@
     </asp:Panel>
         <div class="container_exit_buttons_row">
             <asp:Button ID="CancelButton" runat="server" CssClass="container_cancelbutton pxweb-btn" />
-            <asp:Button ID="ChangeCodeText_ContinueButton" runat="server" CssClass="container_continuebutton pxweb-btn primary-btn"/>           
+            <asp:Button ID="ChangeCodeText_CompleteButton" runat="server" CssClass="container_continuebutton pxweb-btn primary-btn"/>           
         </div>
     </asp:Panel>
     

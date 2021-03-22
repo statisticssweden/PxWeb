@@ -53,6 +53,9 @@ namespace PXWeb
             xpath = "./titleVisible";
             TitleVisible = SettingsHelper.GetSettingValue(xpath, tableNode, true);
 
+            xpath = "./useStickyHeaderFullscreen";
+            UseStickyHeaderFullscreen = SettingsHelper.GetSettingValue(xpath, tableNode, true);
+
             xpath = "./attributes";
             node = SettingsHelper.GetNode(tableNode, xpath);
             _attributeSettings = new AttributeSettings(node);
@@ -83,6 +86,10 @@ namespace PXWeb
             xpath = "./titleVisible";
             SettingsHelper.SetSettingValue(xpath, tableNode, TitleVisible.ToString());
 
+            xpath = "./useStickyHeaderFullscreen";
+            SettingsHelper.SetSettingValue(xpath, tableNode, UseStickyHeaderFullscreen.ToString());
+
+
             xpath = "./attributes";
             node = SettingsHelper.GetNode(tableNode, xpath);
             _attributeSettings.Save(node);
@@ -99,6 +106,7 @@ namespace PXWeb
         public int MaxColumns { get; set; }
         public int MaxRows { get; set; }
         public bool TitleVisible { get; set; }
+        public bool UseStickyHeaderFullscreen { get; set; }        
         public IAttributeSettings Attributes
         {
             get { return _attributeSettings; }

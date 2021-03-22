@@ -30,6 +30,7 @@ $scrollbar-color: #b0b0b0;
   to {
     opacity: 1; } }
 
+/*This file shall end up empty, its just a helper*/
 /* **********************************  _icon-backgrounds.scss *********************************** */
 #pxwebcontent .pxbox .arrow-right-pxbox-icon {
   padding-left: 25px;
@@ -57,6 +58,13 @@ $scrollbar-color: #b0b0b0;
   background-position-y: center; }
   #pxwebcontent .external-link-icon:hover {
     background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link" > <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" > </path > <polyline points="15 3 21 3 21 9" > </polyline > <line x1="10" y1="14" x2="21" y2="3" > </line > </svg >'); }
+
+#pxwebcontent .envelope-icon {
+  padding-left: 22px;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="pink" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>');
+  background-position-y: center; }
 
 #pxwebcontent .Information-warning-box-icon {
   background-color: #3396d2;
@@ -477,10 +485,12 @@ h1 {
   #pxwebcontent .presentation-container {
     display: flex;
     flex-wrap: wrap; }
-  #pxwebcontent .px-settings {
-    width: auto; }
   #pxwebcontent .presentation-left {
-    width: 100%; } }
+    width: 100%; }
+  #pxwebcontent .px_setting_textbox_title {
+    width: 98%; }
+  #pxwebcontent .px-settings {
+    width: auto; } }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   #pxwebcontent #btnBurgerMenu {
@@ -726,6 +736,8 @@ h1 {
 
 /* **********************************  _sitemappath-selectors.scss *********************************** */
 /*Are these in use?*/
+/*No, VS cant find sitemappath outside styles folder*/
+/*Delete me!*/
 #pxwebcontent #sitemappath {
   font-family: Verdana;
   font-size: 0.9em;
@@ -1001,10 +1013,6 @@ h1 {
   z-index: 2;
   background-color: #fff; }
 
-@media screen and (max-width: 767px) {
-  #pxwebcontent .commandbar_container {
-    display: none; } }
-
 #pxwebcontent .commandbar_container > div {
   width: 620px; }
 
@@ -1035,6 +1043,13 @@ h1 {
 #pxwebcontent select option:checked {
   background: #007694 linear-gradient(0deg, #007694 0%, #007694 100%);
   -webkit-text-fill-color: #fff; }
+
+@media screen and (max-width: 767px) {
+  #pxwebcontent .commandbar_container {
+    overflow: hidden;
+    width: auto; }
+  #pxwebcontent .commandbar_container > div {
+    width: 100%; } }
 
 #pxwebcontent .commandbar_mainshortcut {
   float: left; }
@@ -1123,11 +1138,13 @@ h1 {
   padding: 5px 0 0 5px; }
 
 #pxwebcontent .commandbar-listbox-container {
-  float: left;
-  /*border: 1px solid #00824d;*/
-  border: 1px solid #949494;
+
+  /*float: left;*/
+  border: 1px solid #00824d;
   padding: 20px;
-  background-color: #F8F7F6; }
+  background-color: #ecfeed;
+  flex: 0 0 42%;
+  margin-top: 10px; }
 
 /*#pxwebcontent input[type=submit].commandbar_cancelbutton {
   background-color: #25a23c;
@@ -1176,7 +1193,7 @@ h1 {
   width: 600px; }
 
 #pxwebcontent .commandbar_pivot_listbox {
-  width: 258px;
+  width: 100%;
   overflow: auto; }
 
 #pxwebcontent .commandbar_pivot_continue_cancel_buttons {
@@ -1195,8 +1212,6 @@ h1 {
   font-family: 'Open Sans', sans-serif; }
 
 #pxwebcontent .commandbar_changevalueorder_instructions {
-  /*width: 65%;*/
-  float: left;
   padding-top: 20px;
   padding-bottom: 20px; }
 
@@ -1302,11 +1317,6 @@ h1 {
 #pxwebcontent .per_part_rootdiv .commandbar_perpart_radio.commandbar_radioButtonList label {
   text-transform: capitalize; }
 
-#pxwebcontent .per_part_rootdiv .commandbar-listbox-container {
-  margin-right: 20px;
-  margin-top: 20px;
-  width: 246px; }
-
 /* **********************************  CommandBar/_changepresentation.scss *********************************** */
 #pxwebcontent .changepresentation_rootdiv {
   width: 98%; }
@@ -1389,7 +1399,18 @@ h1 {
 
 @media screen and (max-width: 767px) {
   #pxwebcontent #btnfullscreen {
-    display: none; } }
+    display: none; }
+  #pxwebcontent .commandbar_changevalueorder_container {
+    width: 100%; }
+  #pxwebcontent .presentation-main {
+    width: 100%; } }
+
+@media screen and (max-width: 576px) {
+  #pxwebcontent .commandbar-listbox-container {
+    width: 100%;
+    flex: initial; }
+  #pxwebcontent .commandbar_changevalueorder_container .commandbar-listbox-container {
+    width: auto; } }
 
 /* **********************************  _datasort.scss TODO *********************************** */
 #pxwebcontent #datasort_content {
@@ -1498,35 +1519,74 @@ h1 {
 /* **********************************  _footnote.scss *********************************** */
 /* Used for Footnote webcontrol */
 /* Define if specific style should be assigned to the title and definition of a type of footnote */
+/* Note to mergers :-) These selectors does not hit the popup, which Micke fixed in github, in PxWeb.scss(?).*/
+/*
 #pxwebcontent .footnotes_container {
   margin: 10px 0 10px 0;
-  font-family: 'Open Sans', sans-serif; }
+  @include just-open-sans;
+}
 
 #pxwebcontent .footnote_heading {
-  font-family: 'Open Sans', sans-serif;
+  @include just-open-sans;
   font-weight: bold;
-  font-size: 18px; }
+  font-size: 18px;
+}
 
 #pxwebcontent dl.footnote_definitionlist dt {
   margin-top: 1em;
   font-weight: bold;
-  line-height: 120%; }
+  line-height: 120%;
+}
 
 #pxwebcontent dl.footnote_definitionlist dd {
   margin-left: 2em;
-  line-height: 120%; }
+  line-height: 120%;
+}
 
 #pxwebcontent .footnote_mandatory {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 #pxwebcontent .footnote_valuenote_key {
-  margin-left: 2em; }
+  margin-left: 2em;
+}
 
+*/
 #pxwebcontent .footnote_valuenote_header {
+  text-transform: capitalize; }
+
+#pxwebcontent .notetype_valuenote_header {
   text-transform: capitalize; }
 
 #pxwebcontent .footnote_no_footnotes {
   font-style: italic; }
+
+#pxwebcontent .footnotes_container {
+  margin: 10px 0 0px 0; }
+  #pxwebcontent .footnotes_container .the_long_text {
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 14px; }
+  #pxwebcontent .footnotes_container .obs-notes .the_long_text {
+    font-size: 16px; }
+  #pxwebcontent .footnotes_container .pxweb-accordion {
+    margin-top: 20px; }
+  #pxwebcontent .footnotes_container .accordion-body {
+    margin-left: 32px; }
+  #pxwebcontent .footnotes_container h3, #pxwebcontent .footnotes_container h4, #pxwebcontent .footnotes_container .accordion-header, #pxwebcontent .footnotes_container .obs-notes {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px; }
+  #pxwebcontent .footnotes_container .notetype_valuenote_key, #pxwebcontent .footnotes_container .notetype_valuenote_value {
+    margin-left: 32px; }
+  #pxwebcontent .footnotes_container .obs-notes-h3 {
+    padding-right: 5px; }
+
+/*this copy of class=pxweb-link is needed because these a-elements are stored in the datasource and thus outside "our" controll.*/
+#pxwebcontent .footnotes_container a {
+  color: #007694; }
+  #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
+    color: #fff; }
 
 #pxwebcontent .footnotes_container a {
   font-family: 'Open Sans', sans-serif !important;
@@ -2020,7 +2080,8 @@ h1 {
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: left .4em top 50%, 0 0;
-  background-size: 24px auto, 100%; }
+  background-size: 24px auto, 100%;
+  width: 100%; }
   #pxwebcontent .saveas_dropdownlist:hover {
     border: 1px solid #007694; }
   #pxwebcontent .saveas_dropdownlist:focus {
@@ -2049,9 +2110,9 @@ h1 {
   margin-top: 5px; }
 
 #pxwebcontent .savequery_url {
+  font-family: 'Source Code Pro';
   display: block;
-  width: 400px;
-  font-family: 'Courier New'; }
+  width: 400px; }
 
 #pxwebcontent .savequery_querycaption {
   display: block;
@@ -2679,6 +2740,12 @@ h1 {
   font-size: 13px !important;
   line-height: 1.5 !important; }
 
+#pxwebcontent .sticky-header thead th {
+  position: sticky; }
+
+#pxwebcontent .sticky-header thead td {
+  position: sticky; }
+
 /* **********************************  _tableinformation.scss *********************************** */
 #pxwebcontent .tableinformation_container {
   margin: 10px 0 10px 0;
@@ -2818,7 +2885,8 @@ h1 {
 #pxwebcontent .tablequery_url {
   display: block;
   width: 95%;
-  font-family: 'Courier New'; }
+  font-family: 'Source Code Pro';
+  font-size: 14px; }
 
 #pxwebcontent .tablequery_querycaption {
   display: block;
@@ -2828,7 +2896,9 @@ h1 {
 #pxwebcontent .tablequery_query {
   display: block;
   width: 95%;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  font-family: 'Source Code Pro';
+  font-size: 14px; }
   #pxwebcontent .tablequery_query:focus {
     outline: #9272fc solid 2px;
     outline-offset: 2px; }
@@ -3304,33 +3374,48 @@ span.AspNet-TreeView-Collapse::before {
   background-color: #fff;
   overflow-x: scroll;
   overflow-y: scroll;
-  padding: 10px; }
+  padding: 0px 10px 10px 10px; }
 
 /* IE11 syntax */
 :-ms-fullscreen {
   background-color: #fff;
   overflow-x: scroll;
   overflow-y: scroll;
-  padding: 10px; }
+  padding: 0px 10px 10px 10px; }
 
 /* Standard syntax */
 :fullscreen {
   background-color: #fff;
   overflow-x: scroll;
   overflow-y: scroll;
-  padding: 10px; }
+  padding: 0px 10px 10px 10px; }
 
 #Fullscreen:-webkit-full-screen input {
   position: fixed;
-  top: 20px;
-  right: 20px; }
+  bottom: 20px;
+  right: 20px;
+  z-index: 3; }
 
 #Fullscreen:-ms-fullscreen input {
   position: fixed;
-  top: 20px;
-  right: 20px; }
+  bottom: 20px;
+  right: 20px;
+  z-index: 3; }
 
 #Fullscreen:fullscreen input {
   position: fixed;
-  top: 20px;
-  right: 20px; }
+  bottom: 20px;
+  right: 20px;
+  z-index: 3; }
+
+#Fullscreen:fullscreen #pcaxis_tablediv {
+  overflow-y: visible;
+  overflow-x: visible; }
+
+#Fullscreen:-webkit-full-screen #pcaxis_tablediv {
+  overflow-y: visible;
+  overflow-x: visible; }
+
+#Fullscreen:-ms-fullscreen #pcaxis_tablediv {
+  overflow-y: visible;
+  overflow-x: visible; }

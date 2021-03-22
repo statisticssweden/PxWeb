@@ -40,5 +40,10 @@ namespace PXWeb
         /// </summary>
         IAttributeSettings Attributes { get; }
 
+        /// <summary>
+        /// If the table should use sticky header in fullscreen
+        /// </summary>
+        bool UseStickyHeaderFullscreen { get; }
+
     }
 }

@@ -82,7 +82,7 @@
                 <asp:Label runat="server" CssClass="font-heading" Text="<%$ PxString: CtrlPerPartSelectCellLabel%>"></asp:Label>
                 <asp:Repeater ID="CalculateAllVariablesRepeater" runat="server">      
                     <HeaderTemplate>
-                        <div class="variableselector_variable_box_container flex-row flex-wrap"> 
+                        <div class="variableselector_variable_box_container flex-row flex-wrap justify-space-between"> 
                     </HeaderTemplate>      
                     <ItemTemplate>
                             <asp:Panel runat="server" ID="CalculateAllVariablesValuesSelectPanel" CssClass="commandbar-listbox-container">

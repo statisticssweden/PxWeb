@@ -135,11 +135,13 @@
 }
 
 #pxwebcontent .commandbar-listbox-container {
-    float: left;
-    /*border: 1px solid #00824d;*/
-    border: 1px solid $pxweb-dark-2;
-    padding: 20px;
-    background-color: $pxweb-green-1;
+  /*float: left;*/
+  border: 1px solid $pxweb-dark-2;
+  padding: 20px;
+  background-color: $pxweb-green-1;
+  flex: 0 0 42%;
+  margin-top: 10px;
+
 }
 
 /*#pxwebcontent input[type=submit].commandbar_cancelbutton {
@@ -198,7 +200,7 @@
 }
 
 #pxwebcontent .commandbar_pivot_listbox {
-  width: 258px;
+  width: 100%;
   overflow: auto;
 }
 
@@ -222,8 +224,6 @@
 }
 
 #pxwebcontent .commandbar_changevalueorder_instructions {
-  /*width: 65%;*/
-  float: left;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -407,7 +407,23 @@
 }
 
 @media #{$mobile} {
-    #pxwebcontent #btnfullscreen {
-        display: none;
-    }
+  #pxwebcontent #btnfullscreen {
+      display: none;
+  }
+  #pxwebcontent .commandbar_changevalueorder_container {
+    width: 100%;
+  }
+  #pxwebcontent .presentation-main {
+    width:100%;
+  }
+}
+@media screen and (max-width: $mobile-screen) {
+  #pxwebcontent .commandbar-listbox-container {
+    width: 100%;
+    flex: initial;
+  }
+
+  #pxwebcontent .commandbar_changevalueorder_container .commandbar-listbox-container {
+    width: auto;
+  }
 }

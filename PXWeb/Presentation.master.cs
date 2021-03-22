@@ -388,5 +388,14 @@ namespace PXWeb
             }
         }
 
+        protected bool useStivkyHeaderFullscreen()
+        {
+            bool stickyHeaderFullscreen = PXWeb.Settings.Current.Presentation.Table.UseStickyHeaderFullscreen;
+            if (stickyHeaderFullscreen)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
