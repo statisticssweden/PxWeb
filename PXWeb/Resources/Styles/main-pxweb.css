@@ -517,6 +517,12 @@ h1 {
 #pxwebcontent .hideonmobile {
   /* don't hide on non-mobile devices */ }
 
+#pxwebcontent .officialStatisticsImage {
+  height: 18px;
+  width: 150px;
+  margin-left: 15px;
+  margin-bottom: 12px; }
+
 /* jQuery UI controls */
 #PageElements {
   background: #fff; }
@@ -849,8 +855,8 @@ h1 {
   font-size: 28px;
   font-weight: 700;
   line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 12px;
   margin-left: 15px;
   display: block;
   color: #222; }
@@ -1132,11 +1138,10 @@ h1 {
   padding: 5px 0 0 5px; }
 
 #pxwebcontent .commandbar-listbox-container {
-
   /*float: left;*/
-  border: 1px solid #00824d;
+  border: 1px solid #949494;
   padding: 20px;
-  background-color: #ecfeed;
+  background-color: #F8F7F6;
   flex: 0 0 42%;
   margin-top: 10px; }
 
@@ -1434,8 +1439,8 @@ h1 {
   font-size: 28px;
   font-weight: 700;
   line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 12px;
   margin-left: 15px;
   display: block;
   color: #222; }
@@ -1656,8 +1661,8 @@ h1 {
   font-size: 28px;
   font-weight: 700;
   line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 12px;
   margin-left: 15px;
   display: block;
   color: #222; }
@@ -2337,8 +2342,8 @@ h1 {
   font-size: 28px;
   font-weight: 700;
   line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 12px;
   margin-left: 15px;
   display: block;
   color: #222;

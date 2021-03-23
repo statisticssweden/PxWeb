@@ -70,7 +70,12 @@ namespace PXWeb
                 return _imagesPath;
             }
         }
-        
+        public string OfficialStatisticsImage
+        {
+            get;
+            set;
+        }
+
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)
@@ -159,6 +164,20 @@ namespace PXWeb
             SkipToMain.Text = GetLocalizedString("PxWebSkipToMainContentLinkText");
             SkipToMain.Attributes.Add("aria-label", GetLocalizedString("PxWebSkipToMainContentLinkScreenReader"));
             SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
+
+            if (PXWeb.Settings.Current.General.Global.ShowInformationTypes.OfficialStatistics)
+            {
+                if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null && PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.OfficialStatistics)
+                {
+                    OfficialStatisticsImage = "";
+                    if (!string.IsNullOrWhiteSpace(PxUrlObj.Language))
+                    {
+                        string img = $"official_statistics_{ PxUrlObj.Language }.svg";
+                        OfficialStatisticsImage = ResolveUrl(System.IO.Path.Combine(PXWeb.Settings.Current.General.Paths.ImagesPath, img));
+                    }
+                }
+            }
+
         }
 
         /// <summary>
