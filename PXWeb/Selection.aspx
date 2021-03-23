@@ -27,6 +27,10 @@
             <asp:Literal ID="litDetailedInformation" runat="server" visible="false"></asp:Literal>
         </div>
 
+        <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+        <%} %>
+
         <div id="PageElements">
             <div class="flex-row justify-space-between">
                 <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />

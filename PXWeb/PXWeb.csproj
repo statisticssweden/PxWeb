@@ -234,6 +234,8 @@
     <Content Include="Resources\Images\jsons.gif" />
     <Content Include="Resources\Images\minus-16.gif" />
     <Content Include="Resources\Images\minus-black-16.gif" />
+    <Content Include="Resources\Images\official_statistics_en.svg" />
+    <Content Include="Resources\Images\official_statistics_sv.svg" />
     <Content Include="Resources\Images\plus-14.gif" />
     <Content Include="Resources\Images\plus-16.gif" />
     <Content Include="Resources\Images\plus-black-16.gif" />
@@ -315,6 +317,7 @@
     <Content Include="Resources\Styles\print.css" />
     <Content Include="Resources\Styles\scss\not_in_use\_AReadMe.txt" />
     <Content Include="Resources\Styles\scss\common\_nested-accordion.scss" />
+    <Content Include="Resources\PX\Databases\Example\Misc\OfficialStatistics\officialstatistics.px" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <None Include="Scripts\jquery-3.5.1.js" />
     <None Include="Scripts\jquery-3.5.1.min.js" />
@@ -1294,17 +1297,11 @@
     <Content Include="Resources\PX\Databases\Example\Population\Nya Fotnoter.px" />
     <Content Include="Resources\PX\Databases\Example\Quarter\HA0201E8.px" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\en\segments.gen" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\en\segments_2" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\en\_0.cfs" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\en\_0.cfx" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\segments.gen" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\segments_2" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\_0.cfs" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\_0.cfx" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\sv\segments.gen" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\sv\segments_2" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\sv\_0.cfs" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\sv\_0.cfx" />
     <Content Include="Resources\PX\Databases\Example\datanotecell\Transmengde.px" />
     <Content Include="Resources\PX\Databases\Example\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" />
     <Content Include="Resources\Doc\Configuration-pxweb.docx" />

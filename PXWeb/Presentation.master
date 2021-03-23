@@ -15,6 +15,11 @@
            { %>
             <pxc:TableInformation CssClass="h2title" runat="server" TitleTag="H2" ID="PresentationTitleStuff" Type="PresentationView" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" ShowSourceDescription="true" />
         <% } %>
+
+        <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+        <%} %>
+
         <div>
            <input id="btnBurgerMenu" runat="server" ClientIDMode="Static" type="button"   onclick="ToggleBurgerMenu()" class="pxweb-buttons pxweb-btn burger_menu-icon icon-placement"/>
         </div>
