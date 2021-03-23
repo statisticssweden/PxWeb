@@ -1297,17 +1297,11 @@
     <Content Include="Resources\PX\Databases\Example\Population\Nya Fotnoter.px" />
     <Content Include="Resources\PX\Databases\Example\Quarter\HA0201E8.px" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\en\segments.gen" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\en\segments_2" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\en\_0.cfs" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\en\_0.cfx" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\segments.gen" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\segments_2" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\_0.cfs" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\fi\_0.cfx" />
     <Content Include="Resources\PX\Databases\Example\_INDEX\sv\segments.gen" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\sv\segments_2" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\sv\_0.cfs" />
-    <Content Include="Resources\PX\Databases\Example\_INDEX\sv\_0.cfx" />
     <Content Include="Resources\PX\Databases\Example\datanotecell\Transmengde.px" />
     <Content Include="Resources\PX\Databases\Example\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" />
     <Content Include="Resources\Doc\Configuration-pxweb.docx" />
