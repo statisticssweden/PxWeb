@@ -923,7 +923,9 @@ h1 {
   font-stretch: normal;
   font-weight: normal;
   font-size: 14px;
-  display: inline-block; }
+  display: inline-block;
+  background-image: none !important;
+  transition: none; }
 
 #pxwebcontent .breadcrumb_text:hover {
   color: #006885;
@@ -934,6 +936,7 @@ h1 {
   font-size: 14px; }
 
 #pxwebcontent .breadcrumb_text:focus {
+  color: #006885;
   outline: #9272fc solid 2px;
   outline-offset: 2px; }
 
