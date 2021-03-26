@@ -63,7 +63,7 @@ $scrollbar-color: #b0b0b0;
   padding-left: 22px;
   background-repeat: no-repeat;
   width: 100%;
-  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="pink" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>');
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>');
   background-position-y: center; }
 
 #pxwebcontent .Information-warning-box-icon {
@@ -923,7 +923,9 @@ h1 {
   font-stretch: normal;
   font-weight: normal;
   font-size: 14px;
-  display: inline-block; }
+  display: inline-block;
+  background-image: none !important;
+  transition: none; }
 
 #pxwebcontent .breadcrumb_text:hover {
   color: #006885;
@@ -934,6 +936,7 @@ h1 {
   font-size: 14px; }
 
 #pxwebcontent .breadcrumb_text:focus {
+  color: #006885;
   outline: #9272fc solid 2px;
   outline-offset: 2px; }
 
@@ -2817,22 +2820,16 @@ h1 {
   color: #b1b1b1; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse {
-  background: url(../images/folder.png) 0 0 no-repeat;
-  float: none;
-  cursor: pointer;
-  padding: 0 12px 0 0; }
-  #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse:focus {
-    outline: #9272fc solid 2px;
-    outline-offset: 2px; }
+  /*    background: url(../images/folder.png) 0 0 no-repeat;*/
+  /*float: none;
+    cursor: pointer;*/
+  padding: 0 18px 0 0; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand {
-  background: url(../images/folder.png) 0 0 no-repeat;
-  float: none;
-  cursor: pointer;
-  padding: 0 12px 0 0; }
-  #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand:focus {
-    outline: #9272fc solid 2px;
-    outline-offset: 2px; }
+  /*    background: url(../images/folder.png) 0 0 no-repeat;*/
+  /*float: none;
+    cursor: pointer;*/
+  padding: 0 18px 0 0; }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf {
   /*background:  url(../../images/Document.gif) 0 0 no-repeat;
@@ -3035,7 +3032,10 @@ span.AspNet-TreeView-ClickableNonLink {
 span.AspNet-TreeView-Expand, span.AspNet-TreeView-Collapse {
   background-image: none !important;
   position: relative;
-  margin-right: 12px !important; }
+  margin-right: 5px !important; }
+  span.AspNet-TreeView-Expand:focus, span.AspNet-TreeView-Collapse:focus {
+    outline: #9272fc solid 2px;
+    outline-offset: 2px; }
 
 span.AspNet-TreeView-Expand::before, span.AspNet-TreeView-Collapse::before {
   line-height: 1;

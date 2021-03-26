@@ -10,6 +10,8 @@
     @include pxweb-font;
     font-size: 14px;
     display: inline-block;
+    background-image: none !important;
+    transition: none;
 }
 
 #pxwebcontent .breadcrumb_text:hover {
@@ -20,7 +22,8 @@
 }
 
 #pxwebcontent .breadcrumb_text:focus {
-  @include focus-ring;
+    color: $breadcrumb-text;
+    @include focus-ring;
 }
 
 #pxwebcontent .breadcrumb_text_nolink {
