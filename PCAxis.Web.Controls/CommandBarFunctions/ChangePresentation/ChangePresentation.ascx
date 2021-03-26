@@ -23,10 +23,12 @@
         </div>
         <asp:Label ID="ErrorMessageLabel" runat="server" CssClass="commandbar_changepresentation_errormessage" Text="" />
     </asp:Panel>
-        <div class="container_exit_buttons_row">
-            <asp:Button ID="CancelButton" runat="server" CssClass="container_cancelbutton pxweb-btn" />
-            <asp:Button ID="ChangeCodeText_CompleteButton" runat="server" CssClass="container_continuebutton pxweb-btn primary-btn"/>           
-        </div>
+
+    <div class="container_exit_buttons_row">
+        <asp:Button ID="CancelButton" runat="server" CssClass="pxweb-btn pxweb-buttons" />
+        <asp:Button ID="ChangeCodeText_CompleteButton" runat="server" CssClass="pxweb-btn primary-btn pxweb-buttons" />
+    </div>
+
     </asp:Panel>
     
 
