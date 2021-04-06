@@ -323,7 +323,7 @@ h1 {
   font-stretch: normal;
   font-weight: normal;
   padding: 10px 10px 10px 10px;
-  border: solid 6px #949494;
+  border: solid 6px #007694;
   width: max-content;
   overflow: auto;
   background-color: #fff;
@@ -518,8 +518,8 @@ h1 {
   /* don't hide on non-mobile devices */ }
 
 #pxwebcontent .officialStatisticsImage {
-  height: 18px;
-  width: 150px;
+  height: 24px;
+  width: 200px;
   margin-left: 15px;
   margin-bottom: 12px; }
 

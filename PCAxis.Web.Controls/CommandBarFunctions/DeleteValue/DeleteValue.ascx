@@ -18,10 +18,10 @@
                 <div class="variableselector_clearboth"></div>
             </FooterTemplate>         
         </asp:Repeater>    
-        <p class="commandbar_button_row">
-            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_deletevalue_continuebutton" />
-            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton" />
-        </p>
+        <div class="container_exit_buttons_row">
+            <asp:Button ID="CancelButton" runat="server" CssClass="pxweb-btn pxweb-buttons" />
+            <asp:Button ID="ContinueButton" runat="server" CssClass="pxweb-btn primary-btn pxweb-buttons" />
+        </div>
         <p>
             <asp:Label runat="server" ID="lblError" Visible="false" CssClass="commandbar_deletevalue_errordescription" />
         </p>

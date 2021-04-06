@@ -31,10 +31,12 @@
                     <FooterTemplate>  
                     </FooterTemplate>         
                 </asp:Repeater> 
-     <div class="commandbar_button_row">
-        <asp:Button ID="ChangeText_ContinueButton" runat="server" CssClass="commandbar_changepresentation_continuebutton pxweb-btn primary-btn"/>
-        <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
-    </div>
+
+        <div class="container_exit_buttons_row">
+            <asp:Button ID="CancelButton" runat="server" CssClass="pxweb-btn pxweb-buttons" />
+            <asp:Button ID="ChangeText_ContinueButton" runat="server" CssClass="pxweb-btn primary-btn pxweb-buttons" />
+        </div>
+
     </asp:Panel>
     
 

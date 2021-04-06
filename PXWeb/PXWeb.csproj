@@ -230,6 +230,7 @@
     <Content Include="Resources\Images\button-small.gif" />
     <Content Include="Resources\Images\button_save_as_json.gif" />
     <Content Include="Resources\Images\download-16.gif" />
+    <Content Include="Resources\Images\Error_red.png" />
     <Content Include="Resources\Images\House.gif" />
     <Content Include="Resources\Images\jsons.gif" />
     <Content Include="Resources\Images\minus-16.gif" />
