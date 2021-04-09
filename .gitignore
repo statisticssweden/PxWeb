@@ -332,3 +332,4 @@ ASALocalRun/
 .mfractor/
 /PXWeb/App_Data/Queries
 /PXWeb/logs
+/PXWeb/SqlDb.config
