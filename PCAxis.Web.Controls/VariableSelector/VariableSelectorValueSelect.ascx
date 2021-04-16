@@ -10,8 +10,8 @@
                 <asp:Panel runat="server" ID="MetadataPanel" class="metadata-container" Visible="False">
                     <div role="button" class="metadata-open-btn" tabindex="0" aria-pressed="false" onclick="metadataToggle('<%=metadataPanelLinks.ClientID%>', this)" onkeydown="handleBtnKeyDown(event, '<%=metadataPanelLinks.ClientID%>')">
                         <div class="metadata-toggle">
-                            <h3><asp:Label runat="server" ID="VariableTitleMetadata" Cssclass="variableselector_valuesselect_variabletitle metadata-text-wrap"/></h3>
-                        </div>
+                            <asp:Label runat="server" ID="VariableTitleMetadata" Cssclass="variableselector_valuesselect_variabletitle metadata-text-wrap"/>
+                       </div>
                     </div>
                     <asp:Panel runat="server" ID="metadataPanelLinks" class="metadata-popup">
                         <div class="metadata-content">
@@ -38,13 +38,11 @@
                         </div>
                     </asp:Panel>
                 </asp:Panel>
-                <asp:Panel runat="server" ID="VariableTitlePanel">
-                    <h3><asp:Label runat="server" ID="VariableTitle" Cssclass="variableselector_valuesselect_variabletitle"/></h3>
+                <asp:Panel runat="server" ID="VariableTitlePanel" CssClass="variableselector_valuesselect_variabletitle">
+                    <asp:Label runat="server" ID="VariableTitle" AssociatedControlID="ValuesListBox" />
+                    <asp:Label runat="server" ID="MandatoryText" CssClass="variableselector_valuesselect_mandatory_text" Visible="False"></asp:Label>
+                    <!--<asp:Label runat="server" ID="MandatoryStar" CssClass="variableselector_valuesselect_mandatory_star" Visible="False"></asp:Label>-->
                 </asp:Panel>
-                <div class="mandatory_container">
-                <asp:Label runat="server" ID="MandatoryText" CssClass="variableselector_valuesselect_mandatory_text" Visible="False"></asp:Label>
-                <asp:Label runat="server" ID="MandatoryStar" CssClass="variableselector_valuesselect_mandatory_star" Visible="False">*</asp:Label>
-                </div>
             </div>
             <asp:DropDownList runat="server" ID="GroupingDropDown" Visible="false" AutoPostBack="true" CssClass="variableselector_valuesselect_aggregations s-margin-top" onchange="Remove_BlockSubmit()" />
             <asp:button id="ActionButton" runat="server" Visible="false" cssclass="variableselector_valuesselect_action" /> 
@@ -79,7 +77,7 @@
     </asp:Panel>
     <asp:Panel ID="HiddenEventButtons" runat="server" Visible="false" CssClass="variableselector_valuesselect_hiddeneventbutton_panel">
     </asp:Panel>
-    <hr class="pxweb-divider type-light with-margin"/>
+    <!--<hr class="pxweb-divider type-light with-margin"/>-->
     <asp:Panel runat="server" ID="SelectedStatistics" CssClass="variableselector_valuesselect_statistics_panel">
         <p>
         <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesSelectedTitel" /></span>
