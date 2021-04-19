@@ -2,14 +2,11 @@
 
 <asp:Repeater ID="InformationRepeater" runat="server" enableviewstate="False">
     <HeaderTemplate>
-     <%--   <h2 class="information_definitionlist_heading"><asp:Literal ID="Header" runat="server" /></h2>--%>
-        <dl class="information_definitionlist">
+        <div class="dl information_definitionlist font-normal-text">
     </HeaderTemplate>
     <ItemTemplate>
-        <dt class="information_<%#DataBinder.Eval(Container.DataItem, "InformationType").ToString().ToLower()%>_heading">
-            <asp:Literal ID="MainTerm" runat="server" />            
-        </dt>
-        <dd class="information_<%#DataBinder.Eval(Container.DataItem, "InformationType").ToString().ToLower()%>_value">
+        <asp:Literal ID="NestedAccordionStart" runat="server" />
+        <div class="dd information_<%#DataBinder.Eval(Container.DataItem, "InformationType").ToString().ToLower()%>_value">
             <asp:Literal ID="MainDefinition" runat="server" />            
             <asp:Repeater ID="VariableRepeater" runat="server" enableviewstate="False">
                 <HeaderTemplate>
@@ -17,7 +14,7 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <div class="flex-column">
-                      <dt><asp:Literal ID="VariableTerm" runat="server" /></dt>
+                      <dt class="font-heading"><asp:Literal ID="VariableTerm" runat="server" /></dt>
                       <dd><asp:Literal ID="VariableDefinition" runat="server" /></dd>
                     </div>
                 </ItemTemplate>
@@ -25,11 +22,11 @@
                     </dl>
                 </FooterTemplate>
             </asp:Repeater>
-        </dd>
-
+        </div>
+        <asp:Literal ID="NestedAccordionEnd" runat="server" />
     </ItemTemplate>
     <FooterTemplate>
-        </dl>
+        </div>
     </FooterTemplate>
 </asp:Repeater>
 

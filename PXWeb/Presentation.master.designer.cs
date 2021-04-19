@@ -24,6 +24,24 @@ namespace PXWeb
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cphHead;
 
         /// <summary>
+        /// PresentationTitleStuff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PCAxis.Web.Controls.TableInformation PresentationTitleStuff;
+
+        /// <summary>
+        /// btnBurgerMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnBurgerMenu;
+
+        /// <summary>
         /// UcAccordianAboutTable control.
         /// </summary>
         /// <remarks>
@@ -42,40 +60,22 @@ namespace PXWeb
         protected global::PCAxis.Web.Controls.CommandBar.CommandBar CommandBar1;
 
         /// <summary>
-        /// cphSettings control.
+        /// SaveQueryPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphSettings;
+        protected global::System.Web.UI.WebControls.Panel SaveQueryPanel;
 
         /// <summary>
-        /// lnkSaveQueryInformation control.
+        /// SaveQueryLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSaveQueryInformation;
-
-        /// <summary>
-        /// imgShowSaveQueryExpander control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowSaveQueryExpander;
-
-        /// <summary>
-        /// imgShowSaveQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowSaveQuery;
+        protected global::System.Web.UI.WebControls.Label SaveQueryLabel;
 
         /// <summary>
         /// SavedQueryFeature control.
@@ -85,6 +85,33 @@ namespace PXWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PXWeb.UserControls.SaveQueryCreate SavedQueryFeature;
+
+        /// <summary>
+        /// SettingsAccordionPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel SettingsAccordionPanel;
+
+        /// <summary>
+        /// cphSettingsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphSettingsLabel;
+
+        /// <summary>
+        /// cphSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphSettings;
 
         /// <summary>
         /// divMessages control.
@@ -114,13 +141,13 @@ namespace PXWeb
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUnsafeMessage;
 
         /// <summary>
-        /// imgUnsafeMessage control.
+        /// lblUnsafeMessageHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgUnsafeMessage;
+        protected global::System.Web.UI.WebControls.Label lblUnsafeMessageHeading;
 
         /// <summary>
         /// lblUnsafeMessage control.
@@ -130,6 +157,33 @@ namespace PXWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnsafeMessage;
+
+        /// <summary>
+        /// CommandBarShortCuts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel CommandBarShortCuts;
+
+        /// <summary>
+        /// btnfullscreen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnfullscreen;
+
+        /// <summary>
+        /// lblFullscreenTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFullscreenTitle;
 
         /// <summary>
         /// cphMain control.

@@ -54,6 +54,14 @@
   margin: 0 !important;
 }
 
+#{$selector_prefix2} .no-margin-right {
+  margin-right: 0px !important;
+}
+
+#{$selector_prefix2} .xs-margin-top {
+  margin-top: 5px;
+}
+
 #{$selector_prefix2} .s-margin-top {
     margin-top: 10px;
 }
@@ -62,8 +70,16 @@
     margin-top: 20px;
 }
 
+#{$selector_prefix2} .l-margin-top {
+  margin-top: 40px;
+}
+
 #{$selector_prefix2} .xs-margin-left {
     margin-left: 10px;
+}
+
+#{$selector_prefix2} .m-margin-left {
+  margin-left: 20px;
 }
 
 #{$selector_prefix2} .font-bold {

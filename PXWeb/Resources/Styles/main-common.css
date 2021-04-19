@@ -1,11 +1,11 @@
-﻿@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+﻿@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap");
 /*@import './color-themes/_dark.scss';*/
-/*@import './color-themes/_light.scss';
-*/
+/*@import './color-themes/_light.scss';*/
 /*#region  Active colors */
+/*$pxweb-green-1: #ecfeed;*/
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
@@ -25,7 +25,6 @@ $pxweb-red-4: #cb3713;
 $negative-red: #f8a67d;
 $pxweb-dark-1: #f0f8f9;
 $pxweb-dark-3: #62919a;
-$pxweb-purple-1: #f2f0ff;
 $scrollbar-color: #b0b0b0;
   */
 /*#endregion*/
@@ -35,6 +34,7 @@ $scrollbar-color: #b0b0b0;
   to {
     opacity: 1; } }
 
+/*This file shall end up empty, its just a helper*/
 /* **********************************  _global-styles-on-elements.scss *********************************** */
 #pxwebcontent body {
   font-family: 'Open Sans', sans-serif !important;
@@ -46,7 +46,7 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent html {
   /* Always display scroll. This prevents the auto-centering of the page to jump around between pages 
-    /* where one page has scrollbar and the other one don�t*/
+    /* where one page has scrollbar and the other one do not*/
   height: 102%; }
 
 #pxwebcontent p {
@@ -57,6 +57,18 @@ $scrollbar-color: #b0b0b0;
   outline-offset: 2px; }
 
 #pxwebcontent select:focus {
+  outline: #9272fc solid 2px;
+  outline-offset: 2px; }
+
+#pxwebcontent select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px; }
+
+#pxwebcontent input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px; }
+
+#pxwebcontent input:focus {
   outline: #9272fc solid 2px;
   outline-offset: 2px; }
 
@@ -111,14 +123,26 @@ $scrollbar-color: #b0b0b0;
 #pxwebcontent .no-margin {
   margin: 0 !important; }
 
+#pxwebcontent .no-margin-right {
+  margin-right: 0px !important; }
+
+#pxwebcontent .xs-margin-top {
+  margin-top: 5px; }
+
 #pxwebcontent .s-margin-top {
   margin-top: 10px; }
 
 #pxwebcontent .m-margin-top {
   margin-top: 20px; }
 
+#pxwebcontent .l-margin-top {
+  margin-top: 40px; }
+
 #pxwebcontent .xs-margin-left {
   margin-left: 10px; }
+
+#pxwebcontent .m-margin-left {
+  margin-left: 20px; }
 
 #pxwebcontent .font-bold {
   font: bold; }
@@ -155,7 +179,8 @@ $scrollbar-color: #b0b0b0;
       outline: #9272fc solid 2px;
       outline-offset: 2px; }
     #pxwebcontent .pxweb-accordion .accordion-header.closed {
-      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>'); }
+      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+      z-index: 0; }
     #pxwebcontent .pxweb-accordion .accordion-header .header-text {
       color: #222;
       padding-left: 30px; }
@@ -176,6 +201,8 @@ $scrollbar-color: #b0b0b0;
     margin-bottom: -1px;
     padding-top: 8px;
     display: block; }
+  #pxwebcontent .pxweb-accordion button:disabled {
+    cursor: not-allowed; }
   #pxwebcontent .pxweb-accordion.with-sub-header .button-grid {
     grid-template-columns: fit-content(100px) auto 20px; }
   #pxwebcontent .pxweb-accordion.with-sub-header .accordion-header .header-text {
@@ -189,7 +216,7 @@ $scrollbar-color: #b0b0b0;
     font-weight: normal;
     color: #222;
     font-size: 16px;
-    padding: 8px 50px 8px 0; }
+    padding: 8px 20px 8px 0; }
     #pxwebcontent .pxweb-accordion .accordion-body.closed {
       display: none;
       height: 0; }
@@ -223,7 +250,8 @@ $scrollbar-color: #b0b0b0;
   text-align: center;
   text-underline-position: under;
   transition: background .18s, color .18s;
-  white-space: normal; }
+  white-space: normal;
+  -webkit-appearance: none; }
   #pxwebcontent .pxweb-btn:focus {
     outline: #9272fc solid 2px;
     outline-offset: 2px; }
@@ -249,15 +277,20 @@ $scrollbar-color: #b0b0b0;
       text-decoration: none; }
   #pxwebcontent .pxweb-btn.primary-btn {
     background: transparent;
+    background-repeat: no-repeat;
     background-color: #007694;
     color: #fff;
-    border: 2px solid #fff; }
+    border: 2px solid #007694; }
+    #pxwebcontent .pxweb-btn.primary-btn.with-icon {
+      background-position: 8px 8px;
+      padding-left: 40px; }
     #pxwebcontent .pxweb-btn.primary-btn:hover, #pxwebcontent .pxweb-btn.primary-btn:active, #pxwebcontent .pxweb-btn.primary-btn:focus {
       background-color: #006885;
       border: 2px solid #006885;
       text-decoration: underline; }
     #pxwebcontent .pxweb-btn.primary-btn:disabled {
       background: #949494;
+      background-repeat: no-repeat;
       border: 2px solid #949494;
       color: #fff;
       cursor: not-allowed;
@@ -454,8 +487,8 @@ $scrollbar-color: #b0b0b0;
   position: relative;
   width: 100%; }
   #pxwebcontent .pxweb-input:hover input {
-    border: 1px solid #A3E8F5 nord;
-    outline: 1px solid #A3E8F5 nord; }
+    border: 1px solid #A3E8F5;
+    outline: 1px solid #A3E8F5; }
     #pxwebcontent .pxweb-input:hover input:disabled {
       border: 1px solid #006885; }
   #pxwebcontent .pxweb-input .input-wrapper {
@@ -502,8 +535,8 @@ $scrollbar-color: #b0b0b0;
   #pxwebcontent .pxweb-input.negative .input-wrapper ::-ms-input-placeholder {
     color: #fff; }
   #pxwebcontent .pxweb-input.negative:hover input {
-    border: 1px solid #A3E8F5 nord;
-    outline: 1px solid #A3E8F5 nord; }
+    border: 1px solid #A3E8F5;
+    outline: 1px solid #A3E8F5; }
     #pxwebcontent .pxweb-input.negative:hover input:disabled {
       border: 1px solid #fff; }
   #pxwebcontent .pxweb-input.negative label {
@@ -515,11 +548,11 @@ $scrollbar-color: #b0b0b0;
     #pxwebcontent .pxweb-input.negative input:disabled {
       border: 1px solid #fff; }
     #pxwebcontent .pxweb-input.negative input:focus {
-      border: 1px solid #A3E8F5 nord;
-      outline: 1px solid #A3E8F5 nord;
+      border: 1px solid #A3E8F5;
+      outline: 1px solid #A3E8F5;
       outline-offset: 0; }
   #pxwebcontent .pxweb-input.negative .icon-wrapper > * {
-    color: #A3E8F5 nord; }
+    color: #A3E8F5; }
   #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon {
     cursor: pointer; }
     #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:hover, #pxwebcontent .pxweb-input.negative .icon-wrapper.search-icon:focus {
@@ -769,6 +802,68 @@ $scrollbar-color: #b0b0b0;
       color: #222; }
       #pxwebcontent .pxbox .pxweb-link.negative.with-icon:hover .link-text, #pxwebcontent .pxbox .pxweb-link.negative.with-icon:focus .link-text {
         color: #222; }
+
+#pxwebcontent .pxweb-nested-accordion {
+  font-family: 'Roboto', sans-serif !important;
+  font-stretch: normal;
+  font-weight: normal;
+  display: grid;
+  margin-top: 8px;
+  min-width: 220px;
+  width: 100%;
+  margin-left: 10px; }
+  #pxwebcontent .pxweb-nested-accordion .nested-accordion-header {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    text-align: left;
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="18 15 12 9 6 15"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header:focus {
+      outline: #9272fc solid 2px;
+      outline-offset: 2px; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header.closed {
+      background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="%23007694" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+      z-index: 0; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header .button-grid {
+      align-items: center;
+      cursor: pointer;
+      display: grid;
+      grid-column-gap: 16px;
+      grid-template-columns: 15px 1fr; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header .expand-icon {
+      color: #007694;
+      font-size: 16px; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header .header-text {
+      font-family: 'Roboto', sans-serif !important;
+      font-stretch: normal;
+      font-weight: normal;
+      color: #222;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.25;
+      padding-left: 30px; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header:hover .header-text {
+      color: #007694; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-header.open .header-text, #pxwebcontent .pxweb-nested-accordion .nested-accordion-header.open .sub-header {
+      color: #007694; }
+  #pxwebcontent .pxweb-nested-accordion .nested-accordion-body {
+    font-family: 'Open Sans', sans-serif !important;
+    font-stretch: normal;
+    font-weight: normal;
+    color: #222;
+    font-size: 16px;
+    padding: 10px 10px 10px 30px; }
+    #pxwebcontent .pxweb-nested-accordion .nested-accordion-body.closed {
+      display: none;
+      height: 0; }
 
 /* **********************************  common/_title.scss *********************************** */
 #pxwebcontent .pxweb-title {

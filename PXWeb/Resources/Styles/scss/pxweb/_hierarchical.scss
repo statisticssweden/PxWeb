@@ -46,17 +46,7 @@
   font-weight: bold;
 }
 
-.hierarchical_tableinformation_title {
-    /*  font-family: Roboto Condensed, sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 15px;
-  display: block;
-  color: $pxweb-ink-main;
-*/
+.hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
     @include pxweb-table-title;
 }
 

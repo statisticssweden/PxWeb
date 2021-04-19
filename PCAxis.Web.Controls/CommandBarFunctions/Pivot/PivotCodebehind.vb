@@ -24,30 +24,29 @@ Imports PCAxis.Paxiom.Operations
 ''' </remarks>
 Public Class PivotCodebehind
     Inherits CommandBarPluginBase(Of PivotCodebehind, Pivot)
-    Private Const TITLE_LABEL As String = "CtrlCommandBarFunctionPivotManualTitle"
-    Private Const CONTINUE_BUTTON As String = "CtrlPivotContinueButton"
+    Private Const COMPLETE_BUTTON As String = "CtrlPivotCompleteButton"
     Private Const STUB_LABEL As String = "CtrlPivotStubLabel"
     Private Const HEADING_LABEL As String = "CtrlPivotHeadingLabel"
-    Private Const PROPERTY_DOWNBUTTONIMAGEPATH As String = "DownButtonImagePath"
-    Private Const PROPERTY_LEFTBUTTONIMAGEPATH As String = "LeftButtonImagePath"
-    Private Const PROPERTY_RIGHTBUTTONIMAGEPATH As String = "RightButtonImagePath"
-    Private Const PROPERTY_UPBUTTONIMAGEPATH As String = "UpButtonImagePath"
-    Private Const CANCEL_BUTTON As String = "CancelButton"
+    Private Const CANCEL_BUTTON As String = "CtrlPivotCancelButton"
+    Private Const MOVE_RIGHT_LABEL As String = "CtrlCommandBarFunctionPivotManualMoveRight"
+    Private Const MOVE_LEFT_LABEL As String = "CtrlCommandBarFunctionPivotManualMoveLeft"
+    Private Const MOVE_UP_LABEL As String = "CtrlCommandBarFunctionPivotManualMoveUp"
+    Private Const MOVE_DOWN_LABEL As String = "CtrlCommandBarFunctionPivotManualMoveDown"
+
 
 #Region " Controls "
 
-    Protected TitleLabel As Label
     Protected HeadingListBox As ListBox
     Protected StubListBox As ListBox
-    Protected WithEvents MoveLeftButton As ImageButton
-    Protected WithEvents MoveRightButton As ImageButton
+    Protected WithEvents MoveLeftButton As Button
+    Protected WithEvents MoveRightButton As Button
     Protected WithEvents ContinueButton As Button
     Protected StubLabel As Label
     Protected HeadingLabel As Label
-    Protected WithEvents HeadingUpButton As ImageButton
-    Protected WithEvents HeadingDownButton As ImageButton
-    Protected WithEvents StubUpButton As ImageButton
-    Protected WithEvents StubDownButton As ImageButton
+    Protected WithEvents HeadingUpButton As Button
+    Protected WithEvents HeadingDownButton As Button
+    Protected WithEvents StubUpButton As Button
+    Protected WithEvents StubDownButton As Button
     Protected WithEvents CancelButton As Button
 
 #End Region
@@ -86,52 +85,7 @@ Public Class PivotCodebehind
         End Set
     End Property
 
-    ''' <summary>
-    ''' Set the image URL of the up buttons.
-    ''' </summary>
-    Private Property UpButtonImagePath() As String
-        Get
-            Return HeadingUpButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            HeadingUpButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-            StubUpButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
-    ''' <summary>
-    ''' Set the image URL of the down buttons.
-    ''' </summary>
-    Private Property DownButtonImagePath() As String
-        Get
-            Return HeadingDownButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            HeadingDownButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-            StubDownButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
-    ''' <summary>
-    ''' Set the image URL of the left button.
-    ''' </summary>
-    Private Property LeftButtonImagePath() As String
-        Get
-            Return MoveLeftButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            MoveLeftButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
-    ''' <summary>
-    ''' Set the image URL of the right button.
-    ''' </summary>
-    Private Property RightButtonImagePath() As String
-        Get
-            Return MoveRightButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            MoveRightButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
+
 
 #End Region
 
@@ -161,6 +115,10 @@ Public Class PivotCodebehind
         HeadingDownButton.OnClientClick = String.Format(scriptReorder, HeadingListBox.ClientID, "bottom")
         HeadingUpButton.OnClientClick = String.Format(scriptReorder, HeadingListBox.ClientID, "top")
 
+        'MoveRightButton
+
+
+
     End Sub
 
     ''' <summary>
@@ -187,19 +145,12 @@ Public Class PivotCodebehind
         StubListBox.DataSource = StubListData
         HeadingListBox.DataBind()
         StubListBox.DataBind()
+        HeadingListBox.Rows = CInt(Me.Properties("ListSize"))
+        StubListBox.Rows = CInt(Me.Properties("ListSize"))
     End Sub
 
-    Protected Overrides Sub CreateChildControls()
-        MyBase.CreateChildControls()
 
-        Me.DownButtonImagePath = Me.Properties(PROPERTY_DOWNBUTTONIMAGEPATH)
-        Me.LeftButtonImagePath = Me.Properties(PROPERTY_LEFTBUTTONIMAGEPATH)
-        Me.RightButtonImagePath = Me.Properties(PROPERTY_RIGHTBUTTONIMAGEPATH)
-        Me.UpButtonImagePath = Me.Properties(PROPERTY_UPBUTTONIMAGEPATH)
-
-    End Sub
-
-    Private Sub MoveLeftButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles MoveLeftButton.Click
+    Private Sub MoveLeftButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MoveLeftButton.Click
         If (HeadingListBox.SelectedIndex <> -1) Then
             'Dim value As String = HeadingListBox.SelectedValue
             For Each index As Integer In HeadingListBox.GetSelectedIndices()
@@ -207,17 +158,17 @@ Public Class PivotCodebehind
                 HeadingListData.Remove(value)
                 StubListData.Add(value)
             Next
-            
+
             FillLists()
         End If
     End Sub
 
-    Private Sub MoveRightButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles MoveRightButton.Click
+    Private Sub MoveRightButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MoveRightButton.Click
         If (StubListBox.SelectedIndex <> -1) Then
             For Each index As Integer In StubListBox.GetSelectedIndices()
                 Dim value As String = StubListBox.Items(index).Value
-                StubListData.Remove(Value)
-                HeadingListData.Add(Value)
+                StubListData.Remove(value)
+                HeadingListData.Add(value)
             Next
             FillLists()
         End If
@@ -262,11 +213,11 @@ Public Class PivotCodebehind
         'Me.PaxiomModel = p.Execute(Me.PaxiomModel, pd.ToArray())
         ' raise event
         Me.OnFinished(New CommandBarPluginFinishedEventArgs(p.Execute(Me.PaxiomModel, pd.ToArray())))
-
+        LogFeatureUsage(OperationConstants.PIVOT, Me.PaxiomModel.Meta.TableID)
         PaxiomManager.OperationsTracker.AddStep(OperationConstants.PIVOT, pd.ToArray())
     End Sub
 
-    Private Sub HeadingUpButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles HeadingUpButton.Click
+    Private Sub HeadingUpButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles HeadingUpButton.Click
         If (HeadingListBox.SelectedIndex <> -1) Then
             Dim value As String = HeadingListBox.SelectedValue
             Dim index As Integer = 0
@@ -287,7 +238,7 @@ Public Class PivotCodebehind
         End If
     End Sub
 
-    Private Sub HeadingDownButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles HeadingDownButton.Click
+    Private Sub HeadingDownButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles HeadingDownButton.Click
         If (HeadingListBox.SelectedIndex <> -1) Then
             Dim value As String = HeadingListBox.SelectedValue
             Dim index As Integer = 0
@@ -308,7 +259,7 @@ Public Class PivotCodebehind
         End If
     End Sub
 
-    Private Sub StubUpButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles StubUpButton.Click
+    Private Sub StubUpButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles StubUpButton.Click
         If (StubListBox.SelectedIndex <> -1) Then
             Dim value As String = StubListBox.SelectedValue
             Dim index As Integer = 0
@@ -329,7 +280,7 @@ Public Class PivotCodebehind
         End If
     End Sub
 
-    Private Sub StubDownButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles StubDownButton.Click
+    Private Sub StubDownButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles StubDownButton.Click
         If (StubListBox.SelectedIndex <> -1) Then
             Dim value As String = StubListBox.SelectedValue
             Dim index As Integer = 0
@@ -350,11 +301,18 @@ Public Class PivotCodebehind
     End Sub
 
     Private Sub LoadLanguages()
-        TitleLabel.Text = Me.GetLocalizedString(TITLE_LABEL)
-        ContinueButton.Text = Me.GetLocalizedString(CONTINUE_BUTTON)
+        ContinueButton.Text = Me.GetLocalizedString(COMPLETE_BUTTON)
         StubLabel.Text = Me.GetLocalizedString(STUB_LABEL)
         HeadingLabel.Text = Me.GetLocalizedString(HEADING_LABEL)
         CancelButton.Text = GetLocalizedString(CANCEL_BUTTON)
+        MoveRightButton.Text = GetLocalizedString(MOVE_RIGHT_LABEL)
+        MoveLeftButton.Text = GetLocalizedString(MOVE_LEFT_LABEL)
+        StubUpButton.Text = GetLocalizedString(MOVE_UP_LABEL)
+        StubDownButton.Text = GetLocalizedString(MOVE_DOWN_LABEL)
+        HeadingUpButton.Text = GetLocalizedString(MOVE_UP_LABEL)
+        HeadingDownButton.Text = GetLocalizedString(MOVE_DOWN_LABEL)
+        StubListBox.Attributes.Add("aria-label", GetLocalizedString("CtrlCommandBarFunctionPivotManualListboxRowScreenReader"))
+        HeadingListBox.Attributes.Add("aria-label", GetLocalizedString("CtrlCommandBarFunctionPivotManualListboxColumnScreenReader"))
     End Sub
 
     Protected Overrides Sub Render(ByVal writer As System.Web.UI.HtmlTextWriter)

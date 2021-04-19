@@ -27,7 +27,7 @@
     </div>
 </asp:Panel>
 
-<script type="text/javascript">
+<script>
 
     jQuery(document).ready(function () {
         var offset = jQuery('.AspNet-TreeView-Collapse:first').offset();

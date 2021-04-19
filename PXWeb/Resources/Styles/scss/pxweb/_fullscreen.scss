@@ -1,0 +1,57 @@
+﻿@include file-header("_fullscreen.scss");
+/* Safari */
+:-webkit-full-screen {
+    background-color: $pxweb-background;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 0px 10px 10px 10px;
+}
+
+/* IE11 syntax */
+:-ms-fullscreen {
+    background-color: $pxweb-background;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 0px 10px 10px 10px;
+}
+
+/* Standard syntax */
+:fullscreen {
+    background-color: $pxweb-background;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 0px 10px 10px 10px;
+}
+
+#Fullscreen:-webkit-full-screen input {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index:3
+}
+
+#Fullscreen:-ms-fullscreen input {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3
+}
+
+#Fullscreen:fullscreen input {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3
+}
+#Fullscreen:fullscreen #pcaxis_tablediv {
+    overflow-y: visible;
+    overflow-x: visible;
+}
+#Fullscreen:-webkit-full-screen #pcaxis_tablediv {
+    overflow-y: visible;
+    overflow-x: visible;
+}
+#Fullscreen:-ms-fullscreen #pcaxis_tablediv {
+    overflow-y: visible;
+    overflow-x: visible;
+}

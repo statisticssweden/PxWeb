@@ -57,7 +57,7 @@
         <asp:Button runat="server" ID="DeselectAllButton" CssClass="variableselector_valuesselect_deselect_all_button pxweb-btn negative icon-placement variableselector-buttons" CausesValidation="true"/>
 
         <div class="link-buttons-container flex-column s-margin-top">
-            <div class="pxweb-link negative with-icon"> 
+            <div class="pxweb-link negative with-icon">
                  <asp:LinkButton runat="server" ID="SearchButton" CssClass="arrow-right-pxbox-icon go-to-advanced-search" CausesValidation="False" OnClientClick="Remove_BlockSubmit()"></asp:LinkButton>
             </div>
             <div class="pxweb-link negative with-icon"> 

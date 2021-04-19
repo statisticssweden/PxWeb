@@ -24,19 +24,18 @@
   border-collapse: separate;
   font-size: 14px;
   clear: both;
+  padding-right: 2px;
+  width: 100%;
 }
 
-  #pxwebcontent .table-class td {
+#pxwebcontent .table-class td {
     margin: 0px;
     text-align: right;
-    border-right: #a9a9a9 1px solid;
-    border-top: #a9a9a9 1px solid;
-    border-left: #a9a9a9 1px solid;
-    border-bottom: #a9a9a9 1px solid;
+    border: $pxweb-dark-2 1px solid;
     background-color: $pxweb-white;
     color: #000000;
     font-size: 1em;
-  }
+}
 
 #pxwebcontent .table-sort-header {
   background-color: #EEEEEE;
@@ -45,13 +44,10 @@
 }
 
 #pxwebcontent .table-class th, #pxwebcontent .table-class td.left {
-  margin: 0px;
-  text-align: left;
-  border-right: #a9a9a9 1px solid;
-  border-top: #a9a9a9 1px solid;
-  border-left: #a9a9a9 1px solid;
-  border-bottom: #a9a9a9 1px solid;
-  background-color: #e1e1e1;
+    margin: 0px;
+    text-align: left;
+    border: $pxweb-dark-2 1px solid;
+    background-color: $pxweb-green-1;
 }
 
 #pxwebcontent td.right {
@@ -80,19 +76,20 @@
 
 #pxwebcontent th.table-header-first {
   font-weight: bold;
-  background-color: #e1e1e1;
+  background-color: $pxweb-green-1;
   padding: 5px 5px 5px 5px;
   text-align: center;
 }
 
 #pxwebcontent .table-class td.table-header-first {
   font-weight: bold;
-  background-color: #e1e1e1;
+  background-color: $pxweb-green-1;
 }
 
-#pxwebcontent .table-header-middle {
+#pxwebcontent th.table-header-middle {
   font-weight: bold;
   padding: 5px 5px 5px 5px;
+  text-align: center;
 }
 
 #pxwebcontent .table-header-last {
@@ -120,9 +117,13 @@
   cursor: pointer;
 }
 
-  #pxwebcontent .attribute-cell a {
-    color: Black;
-  }
+#pxwebcontent .table-class .table-hover {
+  background-color: $pxweb-purple-1;
+}
+
+#pxwebcontent .attribute-cell a {
+  color: Black;
+}
 
 #pxwebcontent .layout2-table-stub {
   font-weight: bold;
@@ -505,4 +506,10 @@
 }
 
 .table_defaultattributes_label {
+}
+#pxwebcontent .sticky-header thead th {
+    position: sticky;
+}
+#pxwebcontent .sticky-header thead td {
+    position: sticky;
 }

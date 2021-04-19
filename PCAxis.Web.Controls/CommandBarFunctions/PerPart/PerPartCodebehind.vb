@@ -24,8 +24,6 @@ Imports PCAxis.Paxiom.Operations
 Public Class PerPartCodebehind
     Inherits CommandBarPluginBase(Of PerPartCodebehind, PerPart)
 
-
-
 #Region " Localized strings "
 
     Private Const PERPART_TITLE As String = "CtrlCommandBarFunctionPerPart"
@@ -34,16 +32,15 @@ Public Class PerPartCodebehind
     Private Const LOC_ILLEGAL_CHARACTERS_ERROR As String = "PxWebIllegalCharactersErrorMessage"
     Private Const PERPART_KEEPDATA As String = "CtrlPerPartKeepData"
     Private Const PERPART_PERPART_ONLY As String = "CtrlPerPartPerCentOnly"
+    Private Const PERPART_SELECTEDVARIABLENAME As String = "CtrlPerPartSelectedVariableNameLabel"
     Private Const PERPART_ONEVARIABLEALLVALUES As String = "CtrlPerPartOneVariableAllValues"
     Private Const PERPART_ONEVARIABLEONEVALUE As String = "CtrlPerPartOneVariableOneValue"
     Private Const PERPART_ONEMATRIXVALUE As String = "CtrlPerPartOneMatrixValue"
     Private Const CANCEL_BUTTON As String = "CancelButton"
-
+    Private Const PERPART_COMPLETE_BUTTON As String = "CtrlPerPartCompleteButton"
 #End Region
 
 #Region " Controls "
-
-    Protected WithEvents TitleLabel As Label
 
     Protected NewVariableNameRequired As RequiredFieldValidator
     Protected VariableSelectionRequired As RequiredFieldValidator
@@ -54,15 +51,19 @@ Public Class PerPartCodebehind
     'Name and KeepValue
     Protected NewValueNameLabel As Label
     Protected NewValueNameTextBox As TextBox
+
+    Protected KeepValueRadioPanel As Panel
     Protected KeepValueRadio As RadioButtonList
     Protected lblError As Label
 
     'select option
     Protected SelectOptionPanel As Panel
+    Protected SelectOptionRadioPanel As Panel
     Protected SelectOptionRadio As RadioButtonList
     Protected WithEvents SelectOption_ContinueButton As Button
 
     'select variable (option 1)
+    Protected SelectVariableRepeaterPanel As Panel
     Protected WithEvents SelectVariableRepeater As Repeater
     Protected SelectVariablePanel As Panel
     Protected WithEvents SelectVariable_ContinueButton As Button
@@ -82,12 +83,13 @@ Public Class PerPartCodebehind
     'error message
     Protected ErrorMessagePanel As Panel
     Protected ErrorMessageLabel As Label
+    Protected InfoMessageLabel As Label
 
     Protected WithEvents CancelButton1 As Button
     Protected WithEvents CancelButton2 As Button
     Protected WithEvents CancelButton3 As Button
     Protected WithEvents CancelButton4 As Button
-
+    Protected WithEvents CancelButton5 As Button
 #End Region
 
 #Region " Properties "
@@ -141,7 +143,8 @@ Public Class PerPartCodebehind
     Private Sub PerPart_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Check that sortvariable not already exists
         If (Not PaxiomModel.Meta.Variables.GetByCode(PXConstant.SORTVARIABLE) Is Nothing) Then
-            Me.ErrorMessageLabel.Text = GetLocalizedString("PxcPercentUnitVarExists")
+            Me.InfoMessageLabel.Text = GetLocalizedString("PxcPercentUnitVarExists")
+            Me.CancelButton5.Text = GetLocalizedString(CANCEL_BUTTON)
             Me.ErrorMessagePanel.Visible = True
             Me.CalcOptionsPanel.Visible = False
             Me.SelectOptionPanel.Visible = False
@@ -167,8 +170,7 @@ Public Class PerPartCodebehind
     ''' <remarks></remarks>
     Private Sub LoadTextsForLanguage()
         Dim continueButtonText As String = GetLocalizedString(PERPART_CONTINUE_BUTTON)
-        TitleLabel.Text = GetLocalizedString(PERPART_TITLE)
-        NewValueNameTextBox.Text = GetLocalizedString(PERPART_TITLE)
+        NewValueNameTextBox.Text = GetLocalizedString(PERPART_TITLE) ' Also used as Title
         NewValueNameLabel.Text = GetLocalizedString(PERPART_NEW_VALUE_NAME)
         SelectOptionRadio.Items(0).Text = GetLocalizedString(PERPART_ONEVARIABLEALLVALUES)
         SelectOptionRadio.Items(1).Text = GetLocalizedString(PERPART_ONEVARIABLEONEVALUE)
@@ -178,14 +180,19 @@ Public Class PerPartCodebehind
         KeepValueRadio.Items(1).Text = GetLocalizedString(PERPART_PERPART_ONLY)
 
         SelectOption_ContinueButton.Text = continueButtonText
-        SelectVariable_ContinueButton.Text = continueButtonText
-        CalculateOneVariable_ContinueButton.Text = continueButtonText
-        CalculateAllVariables_ContinueButton.Text = continueButtonText
+        SelectVariable_ContinueButton.Text = GetLocalizedString(PERPART_COMPLETE_BUTTON)
+        CalculateOneVariable_ContinueButton.Text = GetLocalizedString(PERPART_COMPLETE_BUTTON)
+        CalculateAllVariables_ContinueButton.Text = GetLocalizedString(PERPART_COMPLETE_BUTTON)
 
         CancelButton1.Text = GetLocalizedString(CANCEL_BUTTON)
         CancelButton2.Text = GetLocalizedString(CANCEL_BUTTON)
         CancelButton3.Text = GetLocalizedString(CANCEL_BUTTON)
         CancelButton4.Text = GetLocalizedString(CANCEL_BUTTON)
+
+
+        KeepValueRadioPanel.GroupingText = "<span class='font-heading'>" + Me.GetLocalizedString("CtrlPerPartKeepValueRadioLegend") + "</span>"
+        SelectOptionRadioPanel.GroupingText = "<span class='font-heading'>" + Me.GetLocalizedString("CtrlPerPartSelectOptionRadioLegend") + "</span>"
+        SelectVariableRepeaterPanel.GroupingText = "<span class='font-heading'>" + Me.GetLocalizedString("CtrlChooseVariable") + "</span>"
 
     End Sub
 
@@ -240,13 +247,19 @@ Public Class PerPartCodebehind
 
             'Title
             Dim VariableNameLabel As Label = DirectCast(item.FindControl("VariableNameLabel"), Label)
-            VariableNameLabel.Text = var.Name
+
+            If var.Name.Length > 1 Then
+                VariableNameLabel.Text = var.Name.Substring(0, 1).ToUpper() + var.Name.Substring(1)
+            Else
+                VariableNameLabel.Text = var.Name
+            End If
 
             'Listbox with variablevalues and attribute "VariableCode"
             Dim ValuesListBox As ListBox = DirectCast(item.FindControl("CalculateAllVariablesValuesListBox"), ListBox)
             ValuesListBox.SelectionMode = ListSelectionMode.Single
             ValuesListBox.Rows = CInt(Me.Properties("ListSize"))
             ValuesListBox.Attributes.Add("VariableCode", var.Code)
+            ValuesListBox.Attributes.Add("aria-label", var.Name)
             ValuesListBox.DataTextField = "Value"
             ValuesListBox.DataValueField = "Code"
 
@@ -289,6 +302,7 @@ Public Class PerPartCodebehind
                 Me.SelectVariable_ContinueButton.Attributes.Add("SelectedOption", "2")
                 SelectVariableRepeater.DataSource = (Me.PaxiomModel.Meta.Variables)
                 SelectVariableRepeater.DataBind()
+                SelectVariable_ContinueButton.Text = GetLocalizedString(PERPART_CONTINUE_BUTTON)
             Case "3"
                 Me.CalculateAllVariablesPanel.Visible = True
                 CalculateAllVariablesRepeater.DataSource = (Me.PaxiomModel.Meta.Variables)
@@ -325,6 +339,8 @@ Public Class PerPartCodebehind
                         Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, calcPerPartDescription)
                         UpdateOperationsTracker(calcPerPartDescription)
                         Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
+                        LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta.TableID)
+
                     Catch ex As PXOperationException
                         Me.ErrorMessagePanel.Visible = True
                         Me.ErrorMessageLabel.Text = ex.Message
@@ -338,7 +354,7 @@ Public Class PerPartCodebehind
                     'Find the selected variable
                     VariableNameRadio = DirectCast(itm.FindControl("VariableNameRadio"), RadioButton)
                     If VariableNameRadio.Checked Then
-                        SelectedVariableNameLabel.Text = VariableNameRadio.Text
+                        SelectedVariableNameLabel.Text = String.Format(GetLocalizedString(PERPART_SELECTEDVARIABLENAME), VariableNameRadio.Text)
 
                         'Listbox with variablevalues
                         CalculateOneVariableListBox.SelectionMode = ListSelectionMode.Single
@@ -382,6 +398,7 @@ Public Class PerPartCodebehind
                 Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, calcPerPartDescription)
                 UpdateOperationsTracker(calcPerPartDescription)
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
+                LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta.TableID)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
                 Me.ErrorMessageLabel.Text = ex.Message
@@ -410,6 +427,7 @@ Public Class PerPartCodebehind
                 Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, calcPerPartDescription)
                 UpdateOperationsTracker(calcPerPartDescription)
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
+                LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta.TableID)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
                 Me.ErrorMessageLabel.Text = ex.Message
@@ -539,7 +557,7 @@ Public Class PerPartCodebehind
     ''' Handles event cancel button clicked
     ''' </summary>
     ''' <remarks></remarks>
-    Private Sub CancelButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles CancelButton1.Click, CancelButton2.Click, CancelButton3.Click, CancelButton4.Click
+    Private Sub CancelButton_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles CancelButton1.Click, CancelButton2.Click, CancelButton3.Click, CancelButton4.Click, CancelButton5.Click
         NewVariableNameRequired.Enabled = False
         VariableSelectionRequired.Enabled = False
 

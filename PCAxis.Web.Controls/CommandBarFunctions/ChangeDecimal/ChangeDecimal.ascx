@@ -11,10 +11,10 @@
             <asp:TextBox runat="server" ID="NumberOfDecimalsTextBox"  CssClass="commandbar_changedecimal_selectvalue_textbox"/>
             <asp:Label runat="server" ID="RangeLabel" CssClass="commandbar_changedecimal_selectvaluetext"/>
             </p>
-        <p class="commandbar_button_row">
-            <asp:Button ID="ContinueButton" runat="server" CssClass="commandbar_continuebutton pxweb-btn primary-btn" />
-            <asp:Button ID="CancelButton" runat="server" CssClass="commandbar_cancelbutton pxweb-btn primary-btn" />
-        </p>
+        <div class="container_exit_buttons_row">
+            <asp:Button ID="CancelButton" runat="server" CssClass="pxweb-btn pxweb-buttons" />
+            <asp:Button ID="ContinueButton" runat="server" CssClass="pxweb-btn primary-btn pxweb-buttons" />
+        </div>
     </asp:Panel>
     <asp:RegularExpressionValidator ID="NumberOfDecimalsValidator" EnableClientScript="false"   runat="server" display="Dynamic" setfocusonerror="True"  ErrorMessage="0-6" ValidationExpression="^[0-6]$" ControlToValidate="NumberOfDecimalsTextBox" />
     <asp:RequiredFieldValidator ID="RequiredInputValidator" EnableClientScript="false"   runat="server" display="Dynamic" setfocusonerror="True"  ErrorMessage="Input required" ControlToValidate="NumberOfDecimalsTextBox" />

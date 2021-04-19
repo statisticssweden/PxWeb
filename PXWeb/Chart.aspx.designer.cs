@@ -7,38 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb {
-    
-    
-    public partial class Chart {
-        
+namespace PXWeb
+{
+
+
+    public partial class Chart
+    {
+
         /// <summary>
-        /// lnkShowChartSettings control.
+        /// SettingsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkShowChartSettings;
-        
-        /// <summary>
-        /// imgSettingsExpander control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgSettingsExpander;
-        
-        /// <summary>
-        /// imgShowChartSettings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgShowChartSettings;
-        
+        protected global::System.Web.UI.WebControls.Label SettingsLabel;
+
         /// <summary>
         /// pnlSettings control.
         /// </summary>
@@ -47,7 +31,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlSettings;
-        
+
         /// <summary>
         /// lblTitle control.
         /// </summary>
@@ -56,7 +40,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitle;
-        
+
         /// <summary>
         /// txtTitle control.
         /// </summary>
@@ -65,7 +49,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
-        
+
         /// <summary>
         /// validatorTitle control.
         /// </summary>
@@ -74,7 +58,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorTitle;
-        
+
         /// <summary>
         /// lblHeight control.
         /// </summary>
@@ -83,7 +67,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHeight;
-        
+
         /// <summary>
         /// txtHeight control.
         /// </summary>
@@ -92,7 +76,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHeight;
-        
+
         /// <summary>
         /// validatorHeight control.
         /// </summary>
@@ -101,7 +85,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorHeight;
-        
+
         /// <summary>
         /// lblWidth control.
         /// </summary>
@@ -110,7 +94,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWidth;
-        
+
         /// <summary>
         /// txtWidth control.
         /// </summary>
@@ -119,7 +103,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWidth;
-        
+
         /// <summary>
         /// validatorWidth control.
         /// </summary>
@@ -128,7 +112,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorWidth;
-        
+
         /// <summary>
         /// pnlLineThickness control.
         /// </summary>
@@ -137,7 +121,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlLineThickness;
-        
+
         /// <summary>
         /// lblLineThickness control.
         /// </summary>
@@ -146,7 +130,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLineThickness;
-        
+
         /// <summary>
         /// txtLineThickness control.
         /// </summary>
@@ -155,7 +139,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLineThickness;
-        
+
         /// <summary>
         /// validatorLineThickness control.
         /// </summary>
@@ -164,7 +148,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorLineThickness;
-        
+
         /// <summary>
         /// pnlSortTime control.
         /// </summary>
@@ -173,16 +157,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlSortTime;
-        
-        /// <summary>
-        /// lblSortTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSortTime;
-        
+
         /// <summary>
         /// rblSortTime control.
         /// </summary>
@@ -191,7 +166,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblSortTime;
-        
+
         /// <summary>
         /// pnlLabelOrientation control.
         /// </summary>
@@ -200,16 +175,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlLabelOrientation;
-        
-        /// <summary>
-        /// lblLabelOrientation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLabelOrientation;
-        
+
         /// <summary>
         /// rblLabelOrientation control.
         /// </summary>
@@ -218,7 +184,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblLabelOrientation;
-        
+
         /// <summary>
         /// pnlGuidelines control.
         /// </summary>
@@ -227,7 +193,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlGuidelines;
-        
+
         /// <summary>
         /// lblGuidelines control.
         /// </summary>
@@ -236,7 +202,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGuidelines;
-        
+
         /// <summary>
         /// chkHorizontalGuidelines control.
         /// </summary>
@@ -245,7 +211,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkHorizontalGuidelines;
-        
+
         /// <summary>
         /// chkVerticalGuidelines control.
         /// </summary>
@@ -254,7 +220,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkVerticalGuidelines;
-        
+
         /// <summary>
         /// lblLegend control.
         /// </summary>
@@ -263,7 +229,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLegend;
-        
+
         /// <summary>
         /// chkShowLegend control.
         /// </summary>
@@ -272,7 +238,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkShowLegend;
-        
+
         /// <summary>
         /// lblLegendHeight control.
         /// </summary>
@@ -281,7 +247,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLegendHeight;
-        
+
         /// <summary>
         /// txtLegendHeight control.
         /// </summary>
@@ -290,7 +256,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLegendHeight;
-        
+
         /// <summary>
         /// validatorLegendHeight control.
         /// </summary>
@@ -299,7 +265,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorLegendHeight;
-        
+
         /// <summary>
         /// ValidationSummary control.
         /// </summary>
@@ -308,25 +274,16 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
-        
+
         /// <summary>
-        /// lnkCancelSettings control.
+        /// btnCancelChartSettings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCancelSettings;
-        
-        /// <summary>
-        /// lblCancelSettings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCancelSettings;
-        
+        protected global::System.Web.UI.WebControls.Button btnCancelChartSettings;
+
         /// <summary>
         /// btnApply control.
         /// </summary>
@@ -335,7 +292,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnApply;
-        
+
         /// <summary>
         /// pnlChart control.
         /// </summary>
@@ -344,7 +301,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlChart;
-        
+
         /// <summary>
         /// chartImage control.
         /// </summary>
@@ -353,7 +310,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image chartImage;
-        
+
         /// <summary>
         /// pnlIllegalChart control.
         /// </summary>
@@ -362,7 +319,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlIllegalChart;
-        
+
         /// <summary>
         /// lblIllegalChartTitle control.
         /// </summary>
@@ -371,7 +328,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIllegalChartTitle;
-        
+
         /// <summary>
         /// lblIllegalChart control.
         /// </summary>
@@ -380,7 +337,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIllegalChart;
-        
+
         /// <summary>
         /// pnlIllegalChart2 control.
         /// </summary>
@@ -389,7 +346,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlIllegalChart2;
-        
+
         /// <summary>
         /// lblIllegalChartTitle2 control.
         /// </summary>
@@ -398,7 +355,7 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIllegalChartTitle2;
-        
+
         /// <summary>
         /// lblIllegalChart2 control.
         /// </summary>
@@ -407,15 +364,17 @@ namespace PXWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIllegalChart2;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.Presentation1 Master {
-            get {
+        public new PXWeb.Presentation1 Master
+        {
+            get
+            {
                 return ((PXWeb.Presentation1)(base.Master));
             }
         }

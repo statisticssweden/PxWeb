@@ -33,3 +33,58 @@
     background-image: get-icon( 'external-link', $pxweb-link-hover-ink)
   }
 }
+
+#pxwebcontent .envelope-icon {
+    padding-left: 22px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-image: get-icon( 'envelope', $px-envelope-icon);
+    background-position-y: center;
+}
+
+#pxwebcontent .Information-warning-box-icon {
+    background-color: $pxbox-blue-3;
+    box-sizing: border-box;
+    width: 90px;
+    height: 90px;
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
+    background-image: get-icon( 'Information-warning', $pxbox-white);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#pxwebcontent .information-warning-box {
+  box-sizing: border-box;
+  min-width: 90px;
+  height: 90px;
+  padding-top: 20px;
+  justify-content: center;
+  display: flex;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.cropped-table {
+    background-color: $pxbox-blue-3;
+    background-image: get-icon( 'Information-warning', $pxbox-white);
+  }
+
+  &.changed-text {
+    background-color: $px-messages-warning;
+    background-image: get-icon( 'alert-triangle', $pxbox-white);
+  }
+}
+
+#pxwebcontent .Information-warning-box-icon.small {
+  width: 60px;
+  height: 60px;
+ }
+
+@media #{$mobile} {
+  #pxwebcontent .information-warning-box {
+    min-width: 50px;
+    height: auto;
+  }
+}
+

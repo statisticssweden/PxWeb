@@ -1199,6 +1199,7 @@ Public Class VariableSelectorValueSelectCodebehind
             lnk.NavigateUrl = currentItem.Link
             lnk.Target = currentItem.Target
             lnk.CssClass = "external-link-pxbox-icon " + currentItem.CssClass
+            lnk.Attributes.Add("rel", "noopener")
             ph.Controls.Add(lnk)
         End If
     End Sub

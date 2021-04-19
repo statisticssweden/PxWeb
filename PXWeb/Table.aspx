@@ -5,70 +5,93 @@
     <link rel="stylesheet" href='<%= ResolveUrl("~/Resources/Styles/print.css") %>' type="text/css" media="print" />
 </asp:Content>
 
-<asp:Content ID="Settings" ContentPlaceHolderID="cphSettings" runat="server">
-    <asp:HyperLink ID="lnkShowTblSettings" runat="server" CssClass="tablesettings panelshowlink " data-showclass="tablesettings">
-        <asp:Image ID="imgSettingsExpander" CssClass="px-settings-expandimage" runat="server" />
-        <%= Master.GetLocalizedString("PxWebTableUserSettingsShow") %>
-        <asp:Image ID="imgShowTblSettings" runat="server" ImageUrl="~/Resources/Images/settings-14.gif" CssClass="px-settings-imagelink" Visible="false" />
-    </asp:HyperLink>
+<asp:Content runat="server" ID="ContentSettingsLabel" ContentPlaceHolderID="cphSettingsLabel">
+    <button type="button" class="accordion-header closed" id="SettingsHeader" onclick="accordionToggle(SettingsAccordionPanel, this)" >
+        <span class="header-text"><asp:Label ID="SettingsLabel"  runat="server"></asp:Label></span>
+    </button>
+</asp:Content>                       
+                   
 
+<asp:Content ID="Settings" ContentPlaceHolderID="cphSettings" runat="server">
     <asp:Panel ID="pnlSettings" CssClass="px-settings settingpanel tablesettings" runat="server">
-        <asp:Label ID="lblZeroOption" CssClass="px_setting_heading" runat="server" Text="<%$ PxString: PxWebTableUserSettingsZeroOption %>"></asp:Label>   
-            <asp:RadioButtonList ID="rblZeroOption" CssClass="px_setting_radiobuttonlist" RepeatDirection="Vertical" runat="server" >
-            <asp:ListItem Value="ShowAll" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionShowAll %>"></asp:ListItem>
-            <asp:ListItem Value="NoZero" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoZero %>"></asp:ListItem>
-            <asp:ListItem Value="NoZeroAndNil" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoZeroAndNil %>"></asp:ListItem>
-            <asp:ListItem Value="NoSymbols" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoSymbols %>"></asp:ListItem>
-            <asp:ListItem Value="NoZeroNilAndSymbol" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol %>"></asp:ListItem>
-        </asp:RadioButtonList>
-        <div id="divSettingButtons" class="px_settings_buttons">
-            <asp:HyperLink ID="lnkCancelSettings" runat="server" CssClass="px_settings_cancel">
-                <asp:Label ID="lblCancelSettings" runat="server" Text="<%$ PxString: PxWebTableUserSettingsCancel %>"></asp:Label>
-            </asp:HyperLink> 
-            <asp:Button ID="btnApply" Text="<%$ PxString: PxWebTableUserSettingsApply %>" CssClass="px_setting_apply" runat="server" onclick="ApplySettings_Click" />
+        <asp:Panel ID="pnlForRblZeroOption" runat="server">
+            <asp:RadioButtonList ID="rblZeroOption" CssClass="px_setting_radiobuttonlist" RepeatLayout="Flow" runat="server" >
+                <asp:ListItem Value="ShowAll" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionShowAll %>"></asp:ListItem>
+                <asp:ListItem Value="NoZero" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoZero %>"></asp:ListItem>
+                <asp:ListItem Value="NoZeroAndNil" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoZeroAndNil %>"></asp:ListItem>
+                <asp:ListItem Value="NoSymbols" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoSymbols %>"></asp:ListItem>
+                <asp:ListItem Value="NoZeroNilAndSymbol" Text="<%$ PxString: PxWebTableUserSettingsZeroOptionNoZeroNilAndSymbol %>"></asp:ListItem>
+            </asp:RadioButtonList>
+        </asp:Panel>
+        <div id="divSettingButtons" class="container_exit_buttons_row">
+            <asp:Button ID="btnCancelTableSettings" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: PxWebTableUserSettingsCancel %>" OnClientClick="cancelTableSettings(); return false;" />
+            <asp:Button ID="btnApply" Text="<%$ PxString: PxWebTableUserSettingsApply %>" CssClass="pxweb-btn primary-btn no-margin-right" runat="server" onclick="ApplySettings_Click" />
         </div>
     </asp:Panel>
-
-    <script type="text/javascript" >
-
-        jQuery(document).ready(function () {
-            jQuery('.px_settings_cancel').click(function () {
-                // Reset selected value in radiobuttonlist
-                jQuery('#<%=rblZeroOption.ClientID %>').find("input[value='ShowAll']").prop('checked', true);
-
-                //Hide any currently displayed setting panel
-                jQuery('.settingpanel').hide(0);
-
-                //Change expand image on all links
-                var col = jQuery('.px-settings-collapseimage');
-                col.removeClass('px-settings-collapseimage');
-                col.addClass('px-settings-expandimage');
-
-                // Collapse all setting panels
-                jQuery('.panelshowlink').removeClass('settingpanelexpanded');
-                return false;
-            });
-        });
-
+    
+    <script>
+        function cancelTableSettings() {
+            jQuery('#<%=rblZeroOption.ClientID %>').find("input[value='ShowAll']").prop('checked', true);
+            closeAccordion('SettingsHeader', 'SettingsBody');
+        }
     </script>
 </asp:Content>
 
 <asp:Content ID="Messages" ContentPlaceHolderID="cphMessages" runat="server">
-    <asp:Image ID="imgTableCropped" CssClass="alertimage" runat="server" />
-    <asp:Label ID="lblTableCropped" runat="server"></asp:Label>
+    <asp:Panel runat="server" ID="tableMessagePanel" Visible="False" CssClass="px-messages flex-row">
+        <div class="information-warning-box cropped-table">
+        </div>
+        <div class="flex-column justify-center">
+            <asp:Label  class="px-message-text heading"  ID="lblTableCroppedHeading" runat="server"></asp:Label>
+            <asp:Label  class="px-message-text" ID="lblTableCropped" runat="server"></asp:Label>
+        </div>
+    </asp:Panel>
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="cphMain" runat="server">
+    <% if (PXWeb.Settings.Current.Presentation.NewTitleLayout)
+        { %>
+    <div class="m-margin-top"></div>
+    <% } else { %>
     <pxc:tableinformation ID="TableInformationView" runat="server" Type="TableView" />
+    <% } %>
     <pxc:table id="Table1" runat="server" DisplayCellInformationWithoutJavascript="false" >    
     </pxc:table>       
     <div id="dialogModal" runat="server" visible="false" enableviewstate="false">
         <pxc:TableInformation runat="server" ID="TableInfo" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="false" Visible="true" />
         <pxc:Footnote ID="Footnote1" runat="server" EnableViewState="false" />
     </div>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery("table").delegate('td.table-data-filled',
+                'mouseover mouseleave',
+                function(e) {
+                    if (e.type == 'mouseover') {
+                        jQuery(this).addClass("table-hover");
+                        jQuery(this).siblings("td").addClass("table-hover");
+                        jQuery(this).parent().find("th").last().addClass("table-hover");
+                    } else {
+                        jQuery(this).removeClass("table-hover");
+                        jQuery(this).siblings("td").removeClass("table-hover");
+                        jQuery(this).parent().find("th").last().removeClass("table-hover");
+                    }
+                });
+
+            jQuery("table").delegate('th',
+                'mouseover mouseleave',
+                function (e) {
+                    if (e.type == 'mouseover') {
+                        jQuery(this).siblings("td").addClass("table-hover");
+                        jQuery(this).parent().find("th").not(".table-header-first, .table-header-middle, .table-header-last").last().addClass("table-hover");
+                    } else {
+                        jQuery(this).siblings("td").removeClass("table-hover");
+                        jQuery(this).parent().find("th").not(".table-header-first, .table-header-middle, .table-header-last").last().removeClass("table-hover");
+                    }
+                });
+        });
+    </script>
+
 </asp:Content>
 
 <asp:Content ID="Footer" ContentPlaceHolderID="cphFooter" runat="server">
 </asp:Content>
-
-   

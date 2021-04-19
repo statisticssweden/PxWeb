@@ -29,6 +29,7 @@ namespace PXWeb.Admin
             cboTitleVisible.SelectedValue = Settings.Current.Presentation.Table.TitleVisible.ToString();
             cboDisplayAttributes.SelectedValue = Settings.Current.Presentation.Table.Attributes.DisplayAttributes.ToString();
             cboDisplayDefaultAttributes.SelectedValue = Settings.Current.Presentation.Table.Attributes.DisplayDefaultAttributes.ToString();
+            cboStickyHeaderFullscreen.SelectedValue = Settings.Current.Presentation.Table.UseStickyHeaderFullscreen.ToString();
         }
 
         /// <summary>
@@ -52,6 +53,7 @@ namespace PXWeb.Admin
                         tbl.MaxColumns = int.Parse(txtMaxColumns.Text);
                         tbl.MaxRows = int.Parse(txtMaxRows.Text);
                         tbl.TitleVisible = bool.Parse(cboTitleVisible.SelectedValue);
+                        tbl.UseStickyHeaderFullscreen = bool.Parse(cboStickyHeaderFullscreen.SelectedValue);
 
                         attr.DisplayAttributes = bool.Parse(cboDisplayAttributes.SelectedValue);
                         attr.DisplayDefaultAttributes = bool.Parse(cboDisplayDefaultAttributes.SelectedValue);
@@ -130,6 +132,10 @@ namespace PXWeb.Admin
         protected void DisplayDefaultAttributesInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsPresentationTableDisplayDefaultAttributes", "PxWebAdminSettingsPresentationTableDisplayDefaultAttributesInfo");
+        }
+        protected void StickyHeaderFullscreen(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsPresentationTableStickyHeaderFullscreen", "PxWebAdminSettingsPresentationTableStickyHeaderFullscreen");
         }
 
     }

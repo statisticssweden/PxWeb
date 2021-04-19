@@ -58,19 +58,17 @@
 }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Collapse {
-    background: url(../../images/folder.png) 0 0 no-repeat;
-    float: none;
-    cursor: pointer;
-    padding: 0 12px 0 0;
-    @include focus-marker;
+    /*    background: url(../../images/folder.png) 0 0 no-repeat;*/
+    /*float: none;
+    cursor: pointer;*/
+    padding: 0 18px 0 0;
 }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView .AspNet-TreeView-Expand {
-    background: url(../../images/folder.png) 0 0 no-repeat;
-    float: none;
-    cursor: pointer;
-    padding: 0 12px 0 0;
-    @include focus-marker;
+    /*    background: url(../../images/folder.png) 0 0 no-repeat;*/
+    /*float: none;
+    cursor: pointer;*/
+    padding: 0 18px 0 0;
 }
 
 #pxwebcontent #TableOfContent div.AspNet-TreeView li.AspNet-TreeView-Leaf {

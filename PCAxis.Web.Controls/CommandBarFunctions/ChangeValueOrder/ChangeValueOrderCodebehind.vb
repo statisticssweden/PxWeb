@@ -11,6 +11,8 @@ Imports PCAxis.Paxiom
 Public Class ChangeValueOrderCodebehind
     Inherits CommandBarPluginBase(Of ChangeValueOrderCodebehind, ChangeValueOrder)
 
+
+
 #Region "Constants"
     Private Const PROPERTY_LEFTBUTTONIMAGEPATH As String = "LeftButtonImagePath"
     Private Const PROPERTY_RIGHTBUTTONIMAGEPATH As String = "RightButtonImagePath"
@@ -19,34 +21,33 @@ Public Class ChangeValueOrderCodebehind
 #End Region
 
 #Region "Localized strings"
-    Private Const CAPTION As String = "CtrlCommandBarFunctionChangeValueOrder"
-    Private Const INSTRUCTION_CHOOSE_VARIABLE As String = "CtrlChangeValueOrderInstructionChooseVariable"
+    'Private Const CAPTION As String = "CtrlCommandBarFunctionChangeValueOrder"
+    'Private Const INSTRUCTION_CHOOSE_VARIABLE As String = "CtrlChangeValueOrderInstructionChooseVariable"
+    Private Const INSTRUCTION_CHOOSE_VARIABLE As String = "CtrlChooseVariable"
+
     Private Const INSTRUCTION_CHANGE_ORDER As String = "CtrlChangeValueOrderInstructionChangeOrder"
     Private Const CANCEL_BUTTON As String = "CtrlChangeValueOrderCancelButton"
     Private Const CONTINUE_BUTTON As String = "CtrlChangeValueOrderContinueButton"
-    Private Const MOVE_RIGHT As String = "CtrlChangeValueOrderMoveRight"
-    Private Const MOVE_LEFT As String = "CtrlChangeValueOrderMoveLeft"
     Private Const MOVE_DOWN As String = "CtrlChangeValueOrderMoveDown"
-    Private Const FROM_ORDER As String = "CtrlChangeValueOrderFromOrder"
-    Private Const TO_ORDER As String = "CtrlChangeValueOrderToOrder"
+    Private Const MOVE_UP As String = "CtrlChangeValueOrderMoveUp"
+    Private Const LISTBOX_LABEL As String = "CtrlChangeValueOrderListboxLabel"
+    Private Const COMPLETE_BUTTON_TEXT As String = "CtrlChangeValueOrderCompleteButton"
+
+
 #End Region
 
 #Region "Controls"
-    Protected CaptionLabel As Label
+    'Protected CaptionLabel As Label
     Protected Instructions As Literal
     Protected WithEvents CancelButton As Button
     Protected WithEvents ContinueButton As Button
     Protected VariableList As RadioButtonList
     Protected ChooseVariablePanel As Panel
     Protected ChangeOrderPanel As Panel
-    Protected WithEvents MoveLeftButton As ImageButton
-    Protected WithEvents MoveRightButton As ImageButton
-    Protected WithEvents FromOrderDownButton As ImageButton
-    Protected WithEvents ToOrderDownButton As ImageButton
-    Protected ValuesFromOrder As ListBox
-    Protected ValuesToOrder As ListBox
-    Protected FromOrderLabel As Label
-    Protected ToOrderLabel As Label
+    Protected ValuesOrder As ListBox
+    Protected ListBoxLabel As Label
+    Protected WithEvents MoveUpButton As Button
+    Protected WithEvents MoveDownButton As Button
 #End Region
 
 #Region "Fields"
@@ -69,8 +70,7 @@ Public Class ChangeValueOrderCodebehind
             ContinueButton.Enabled = False
         End If
 
-        Me.ValuesFromOrder.SelectionMode = ListSelectionMode.Multiple
-        Me.ValuesToOrder.SelectionMode = ListSelectionMode.Multiple
+        Me.ValuesOrder.SelectionMode = ListSelectionMode.Multiple
     End Sub
 
     ''' <summary>
@@ -81,9 +81,6 @@ Public Class ChangeValueOrderCodebehind
     Protected Overrides Sub CreateChildControls()
         MyBase.CreateChildControls()
 
-        Me.LeftButtonImagePath = Me.Properties(PROPERTY_LEFTBUTTONIMAGEPATH)
-        Me.RightButtonImagePath = Me.Properties(PROPERTY_RIGHTBUTTONIMAGEPATH)
-        Me.DownButtonImagePath = Me.Properties(PROPERTY_DOWNBUTTONIMAGEPATH)
         Me.ListSize = CInt(Me.Properties(PROPERTY_LISTSIZE))
     End Sub
 
@@ -92,22 +89,17 @@ Public Class ChangeValueOrderCodebehind
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub SetLocalizedTexts()
-        Me.CaptionLabel.Text = Me.GetLocalizedString(CAPTION)
-        If String.IsNullOrEmpty(Instructions.Text) Then
-            Instructions.Text = Me.GetLocalizedString(INSTRUCTION_CHOOSE_VARIABLE)
+        CancelButton.Text = Me.GetLocalizedString(CANCEL_BUTTON)
+        If ChooseVariablePanel.Visible Then
+            ContinueButton.Text = Me.GetLocalizedString(CONTINUE_BUTTON)
+        Else
+            ContinueButton.Text = GetLocalizedString(COMPLETE_BUTTON_TEXT)
         End If
-        Me.CancelButton.Text = Me.GetLocalizedString(CANCEL_BUTTON)
-        Me.ContinueButton.Text = Me.GetLocalizedString(CONTINUE_BUTTON)
-        Me.MoveLeftButton.ToolTip = Me.GetLocalizedString(MOVE_LEFT)
-        Me.MoveLeftButton.AlternateText = Me.GetLocalizedString(MOVE_LEFT)
-        Me.MoveRightButton.ToolTip = Me.GetLocalizedString(MOVE_RIGHT)
-        Me.MoveRightButton.AlternateText = Me.GetLocalizedString(MOVE_RIGHT)
-        Me.FromOrderDownButton.ToolTip = Me.GetLocalizedString(MOVE_DOWN)
-        Me.FromOrderDownButton.AlternateText = Me.GetLocalizedString(MOVE_DOWN)
-        Me.ToOrderDownButton.ToolTip = Me.GetLocalizedString(MOVE_DOWN)
-        Me.ToOrderDownButton.AlternateText = Me.GetLocalizedString(MOVE_DOWN)
-        Me.FromOrderLabel.Text = Me.GetLocalizedString(FROM_ORDER)
-        Me.ToOrderLabel.Text = Me.GetLocalizedString(TO_ORDER)
+        
+        MoveUpButton.Text = Me.GetLocalizedString(MOVE_UP)
+        MoveDownButton.Text = Me.GetLocalizedString(MOVE_DOWN)
+        ListBoxLabel.Text = Me.GetLocalizedString(LISTBOX_LABEL)
+        ChooseVariablePanel.GroupingText = "<span class='font-heading'>" + GetLocalizedString(INSTRUCTION_CHOOSE_VARIABLE) + "</span>"
     End Sub
 
     ''' <summary>
@@ -116,13 +108,14 @@ Public Class ChangeValueOrderCodebehind
     ''' <remarks></remarks>
     Private Sub InitializeVariable()
         Dim var As Paxiom.Variable = PaxiomModel.Meta.Variables.GetByCode(VariableList.SelectedValue)
-        ValuesFromOrder.DataSource = var.Values
-        ValuesFromOrder.DataValueField = "Code"
-        ValuesFromOrder.DataTextField = "Value"
-        ValuesFromOrder.DataBind()
+        ValuesOrder.DataSource = var.Values
+        ValuesOrder.DataValueField = "Code"
+        ValuesOrder.DataTextField = "Value"
+        ValuesOrder.DataBind()
 
         SelectedVariableCode = var.Code
         Instructions.Text = GetLocalizedString(INSTRUCTION_CHANGE_ORDER)
+        ContinueButton.Text = GetLocalizedString(COMPLETE_BUTTON_TEXT)
     End Sub
 
 #Region "Properties"
@@ -142,75 +135,39 @@ Public Class ChangeValueOrderCodebehind
         End Set
     End Property
 
-    ''' <summary>
-    ''' Set the image URL of the left button.
-    ''' </summary>
-    Private Property LeftButtonImagePath() As String
-        Get
-            Return MoveLeftButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            MoveLeftButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
-    ''' <summary>
-    ''' Set the image URL of the right button.
-    ''' </summary>
-    Private Property RightButtonImagePath() As String
-        Get
-            Return MoveRightButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            MoveRightButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
-    ''' <summary>
-    ''' Set the image URL of the down buttons.
-    ''' </summary>
-    Private Property DownButtonImagePath() As String
-        Get
-            Return FromOrderDownButton.ImageUrl
-        End Get
-        Set(ByVal value As String)
-            FromOrderDownButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-            ToOrderDownButton.ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, value)
-        End Set
-    End Property
+    
     ''' <summary>
     ''' Set the number of rows in the listboxes
     ''' </summary>
     Private Property ListSize() As Integer
         Get
-            Return ValuesFromOrder.Rows
+            Return ValuesOrder.Rows
         End Get
         Set(ByVal value As Integer)
-            ValuesFromOrder.Rows = value
-            ValuesToOrder.Rows = value
+            ValuesOrder.Rows = value
         End Set
     End Property
 #End Region
 
     ''' <summary>
-    ''' Moves all the selected values in the source listbox to the destination listbox.
+    ''' Moves the selected items in the listbox to the end of the listbox
     ''' </summary>
-    ''' <param name="source"></param>
-    ''' <param name="destination"></param>
-    ''' <remarks>Selected values are removed from the source listbox</remarks>
-    Private Sub MoveValues(ByVal source As ListBox, ByVal destination As ListBox)
+    ''' <param name="listBox"></param>
+    ''' <remarks></remarks>
+    Private Sub MoveValuesToEnd(ByVal listBox As ListBox)
         Dim lst As New List(Of ListItem)
-
         'Iterate from the end to the beginning
-        For i As Integer = source.Items.Count - 1 To 0 Step -1
-            If source.Items(i).Selected Then
+        For i As Integer = listBox.Items.Count - 1 To 0 Step -1
+            If listBox.Items(i).Selected Then
                 Dim li As ListItem
-                li = New ListItem(source.Items(i).Text, source.Items(i).Value)
+                li = New ListItem(listBox.Items(i).Text, listBox.Items(i).Value)
                 lst.Insert(0, li)
-                source.Items.RemoveAt(i)
+                listBox.Items.RemoveAt(i)
             End If
         Next
 
         For Each li As ListItem In lst
-            destination.Items.Add(li)
+            listBox.Items.Add(li)
         Next
     End Sub
 
@@ -219,8 +176,21 @@ Public Class ChangeValueOrderCodebehind
     ''' </summary>
     ''' <param name="source"></param>
     ''' <remarks></remarks>
-    Private Sub MoveValuesToEnd(ByVal source As ListBox)
-        MoveValues(source, source)
+    Private Sub MoveValuesToTop(ByVal listBox As ListBox)
+        Dim lst As New List(Of ListItem)
+        'Iterate from the end to the beginning
+        For i As Integer = listBox.Items.Count - 1 To 0 Step -1
+            If listBox.Items(i).Selected Then
+                Dim li As ListItem
+                li = New ListItem(listBox.Items(i).Text, listBox.Items(i).Value)
+                lst.Insert(lst.Count, li)
+                listBox.Items.RemoveAt(i)
+            End If
+        Next
+
+        For Each li As ListItem In lst
+            listBox.Items.Insert(0, li)
+        Next
     End Sub
 
     ''' <summary>
@@ -256,14 +226,7 @@ Public Class ChangeValueOrderCodebehind
     Private Function FindNewValueIndex(ByVal code As String) As Integer
         Dim i As Integer = 0
 
-        For Each li As ListItem In Me.ValuesFromOrder.Items
-            If li.Value.Equals(code) Then
-                Return i
-            End If
-            i = i + 1
-        Next
-
-        For Each li As ListItem In Me.ValuesToOrder.Items
+        For Each li As ListItem In Me.ValuesOrder.Items
             If li.Value.Equals(code) Then
                 Return i
             End If
@@ -288,6 +251,7 @@ Public Class ChangeValueOrderCodebehind
             'Apply new value order
             ChangeValueOrder()
             Me.OnFinished(New CommandBarPluginFinishedEventArgs(PaxiomModel))
+            LogFeatureUsage(OperationConstants.CHANGE_VALUE_ORDER, Me.PaxiomModel.Meta.TableID)
         End If
     End Sub
 
@@ -302,43 +266,24 @@ Public Class ChangeValueOrderCodebehind
     End Sub
 
     ''' <summary>
-    ''' Move selected values from the "From order" listbox to the "To order" listbox
+    ''' Move the selected values to the end of the listbox
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub MoveRightButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles MoveRightButton.Click
-        MoveValues(Me.ValuesFromOrder, Me.ValuesToOrder)
+    Private Sub MoveDownButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MoveDownButton.Click
+        MoveValuesToEnd(Me.ValuesOrder)
     End Sub
 
+    
     ''' <summary>
-    ''' Move selected values from the "To order" listbox to the "From order" listbox
+    ''' Move the selected values to the top of the listbox
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     ''' <remarks></remarks>
-    Private Sub MoveLeftButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles MoveLeftButton.Click
-        MoveValues(Me.ValuesToOrder, Me.ValuesFromOrder)
-    End Sub
-
-    ''' <summary>
-    ''' Move the selected values to the end of the "From order" listbox
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub FromOrderDownButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles FromOrderDownButton.Click
-        MoveValuesToEnd(Me.ValuesFromOrder)
-    End Sub
-
-    ''' <summary>
-    ''' Move the selected values to the end of the "To order" listbox
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub ToOrderDownButton_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ToOrderDownButton.Click
-        MoveValuesToEnd(Me.ValuesToOrder)
+    Private Sub MoveUpButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MoveUpButton.Click
+        MoveValuesToTop(Me.ValuesOrder)
     End Sub
 
     Private Sub UpdateOperationsTracker(orderDescription As ChangeValueOrderDescription)

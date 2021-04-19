@@ -32,6 +32,7 @@ namespace PXWeb
             {
                 _searchQuery = QuerystringManager.GetQuerystringParameter("searchquery");
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.MenuSubPage, "Search");
+                Master.SetH1TextDatabase();
                 Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.First);
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
                 PCAxis.Web.Core.Management.PaxiomManager.Clear();

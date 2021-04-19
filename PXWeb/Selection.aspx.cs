@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
+using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -155,6 +158,7 @@ namespace PXWeb
                 //imgShowFootnotesExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 //imgShowMetadataExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Selection);
+                Master.SetH1TextMenuLevel();
                 Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Second);
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
                 InitializeVariableSelector();
@@ -268,13 +272,23 @@ namespace PXWeb
             {
                 //Show table title as it was displayed in the menu
                 IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
-                PCAxis.Menu.Item currentItem = PXWeb.Management.PxContext.GetMenuItem(url.Database, url.TablePath);                
-                MenuTitle.Text = currentItem.Text;
+                PCAxis.Menu.Item currentItem = PXWeb.Management.PxContext.GetMenuItem(url.Database, url.TablePath);
+
+                if (!String.IsNullOrEmpty(currentItem.Text))
+                {
+                    MenuTitle.Text = currentItem.Text;
+                }
+                else
+                {
+                    //ssb:Jira:UUP-267  For cases where the table has been repositioned in the menu-tree, and the user uses an old url:
+                    // https..../START__old_pos/MyTableStillExistsElsewhere
+                   MenuTitle.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.Title;
+                }
+
                 MenuTitle.Visible = true;
                 if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)
                 {
-                    Master.HeadTitle = MenuTitle.Text;
-                    Master.HeadTitle += ". " + siteTitle;
+                    Master.HeadTitle = MenuTitle.Text + ". " + siteTitle;
                 }
                 TableInformationSelect.Visible = false;               
             }
@@ -559,7 +573,7 @@ namespace PXWeb
 
         private void HandleLeaveVariableSelectorMain(object sender, EventArgs e)
         {
-            ucVariableOverview.Visible = false;
+            //ucVariableOverview.Visible = false;
             Master.SetNavigationFlowVisibility(false);
             SwitchLayout.Visible = false;
             SelectionFootnotes.Visible = false;
@@ -568,7 +582,7 @@ namespace PXWeb
 
         private void HandleReenterVariableSelectorMain(object sender, EventArgs e)
         {
-            ucVariableOverview.Visible = SelectionLayout == LayoutFormat.simple ? true : false;
+            //ucVariableOverview.Visible = SelectionLayout == LayoutFormat.simple ? true : false;
             Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
             SwitchLayout.Visible = true;
             SelectionFootnotes.Visible = PXWeb.Settings.Current.Selection.MetadataAsLinks != true;
@@ -648,13 +662,13 @@ namespace PXWeb
             {
                 SwitchLayout.Text = _switchToListTxt;
                 SwitchLayout.CssClass = "variableselector-list-view  pxweb-btn icon-placement variableselector-buttons";
-                ucVariableOverview.Visible = false;
+                //ucVariableOverview.Visible = false;
             }
             else
             {
                 SwitchLayout.Text = _switchToCompactTxt; ;
                 SwitchLayout.CssClass = "variableselector-compact-view  pxweb-btn icon-placement variableselector-buttons";
-                ucVariableOverview.Visible = true;
+                //ucVariableOverview.Visible = true;
             }
 
             
@@ -667,14 +681,14 @@ namespace PXWeb
                 myLayoutCookie.Value = LayoutFormat.compact.ToString();
                 SwitchLayout.Text = _switchToListTxt;
                 SwitchLayout.CssClass = "variableselector-list-view  pxweb-btn icon-placement variableselector-buttons";
-                ucVariableOverview.Visible = false;
+                //ucVariableOverview.Visible = false;
             }
             else
             {
                 myLayoutCookie.Value = LayoutFormat.simple.ToString();             
                 SwitchLayout.Text = _switchToCompactTxt;
                 SwitchLayout.CssClass = "variableselector-compact-view  pxweb-btn icon-placement variableselector-buttons";
-                ucVariableOverview.Visible = true;
+                //ucVariableOverview.Visible = true;
             }
             myLayoutCookie.Expires = DateTime.Now.AddDays(370);
             Response.Cookies.Add(myLayoutCookie);

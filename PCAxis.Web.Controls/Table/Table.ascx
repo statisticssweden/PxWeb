@@ -2,7 +2,7 @@
 <%-- Denna div kan användas för att få scrollbar kring tabellen --%>
 <%--<div style="position:relative;width:600px;height:100%; overflow:scroll;display: block; clear:both;">--%>
 <div id="pcaxis_tablediv">
-    <asp:table id="DataTable" runat="server"   enableviewstate="false" cssclass="table-class">
+    <asp:table id="DataTable" runat="server"   enableviewstate="false" cssclass="table-class" aria-describedby="lblFullscreenTitle">
     </asp:table>
 </div>
 
@@ -24,7 +24,7 @@
 <asp:HiddenField ID="pxtableCellInformationDialogCloseText" runat="server" />
 
 <%--<br clear="both" />--%>
-<script type="text/javascript">
+<script>
     jQuery(document).ready(function () {
         // Remove links for attribute cell values (we only want them when we have no javascript)
         jQuery('.attribute-cell a').each(function () {

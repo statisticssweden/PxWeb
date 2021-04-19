@@ -21,7 +21,6 @@ Namespace CommandBar
         Private Const EDIT_AND_CALULATE_CAPTION As String = "CtrlCommandBarEditAndCalulateCaption"
         Private Const SAVE_AS_CAPTION As String = "CtrlCommandBarSaveAsCaption"
         Private Const GRAPHS_AND_MAPS_CAPTION As String = "CtrlCommandBarGraphsAndMapsCaption"
-        Private Const ACTION_BUTTON_CAPTION As String = "CtrlCommandBarActionButtonCaption"
         Private Const FILE_DOWNLOAD_LINK As String = "CtrlCommandBarFileDownLoadLink"
         Private Const COMMAND_PLUGIN_IMAGES As String = "PluginImages"
         Private Const COMMAND_PLUGIN_SHORTCUT As String = "PluginShortCut"
@@ -32,9 +31,13 @@ Namespace CommandBar
         Private Const FORMAT_SHORTCUT_FILE As String = "ShortcutFile{0}"
         Private Const FORMAT_COMMANDBARSHORTCUT As String = "CommandBarShortcut{0}"
         Private Const ID_PLUGINSELECTOR As String = "PluginSelector"
-        Private Const DOWNLOAD_FILE_TITLE As String = "CtrlCommandBarDownloadFileTitle"
-        Private Const DOWNLOAD_FILE_INFORMATION As String = "CtrlCommandBarDownloadFileInformation"
-        Private Const DOWNLOAD_FILE_LINK As String = "CtrlCommandBarDownloadFileLink"
+
+        Private Const ACCORDION_OPERATIONS_TITLE As String = "CtrlCommandBarAccordionOperatationsTitle"
+        Private Const ACCORDION_SAVE_AS_TITLE As String = "CtrlCommandBarAccordionSaveAsTitle"
+        Private Const ACCORDION_SHOW_AS_TITLE As String = "CtrlCommandBarAccordionShowAsTitle"
+        Private Const BUTTON_SAVE_AS As String = "CtrlCommandBarSaveAsButton"
+        Private Const BUTTON_SHOW_AS As String = "CtrlCommandBarShowAsButton"
+
 
         Private _isImageButtonsLoaded As Boolean = False
         Private _isPluginIdChanged As Boolean = False        
@@ -46,20 +49,26 @@ Namespace CommandBar
         Protected WithEvents FunctionDropDownList As DropDownList
         Protected WithEvents SaveAsDropDownList As DropDownList
         Protected WithEvents PresentationViewsDropDownList As DropDownList
-        Protected FunctionDropDownListShortcuts As Panel
-        Protected SaveAsDropDownListShortcuts As Panel
-        Protected LinkDropDownListShortcuts As Panel
-        Protected CommandBarShortcutsDropDown As Panel
-        Protected CommandBarShortcutsImage As Panel
-        Protected PluginControlHolder As Panel
-        Protected DropDownPanel As Panel
-        Protected ButtonPanel As Panel
-        Protected ActionButton As Button
+        Protected WithEvents ShowAsRadioButtonList As RadioButtonList
+        Protected SaveAsRadioButtonList As RadioButtonList
+        Protected AccordionPanel As Panel
+        Protected OperationsButtonsPanel As Panel
+        Protected SaveAsPanel As Panel
+        Protected SaveAsHeaderButton As HtmlButton
+        Protected ShowResultAsPanel As Panel
+        Protected OperationsPanel As Panel
         Protected SaveFilePanel As Panel
         Protected SaveFileLink As HyperLink
-        Protected commandbarDownloadFileDialog As HtmlGenericControl
-        Protected commandbarDownloadFileInformation As Label
-        Protected commandbarDownloadFileLink As HyperLink
+        Protected ShowResultLabel As Label
+        Protected SaveAsLabel As Label
+        Protected OperationsLabel As Label
+        Protected WithEvents SaveAsBtn As Button
+        Protected ShortcutButtonPanel As Panel
+        Protected PluginControlHolder As Panel
+        Protected ShowResultAsBody As Panel
+        Protected ShowResultAsHeader As HtmlButton
+        Protected OptionsBody As Panel
+        Protected OperationsHeaderButton As HtmlButton
 
 #End Region
 
@@ -104,8 +113,6 @@ Namespace CommandBar
             End Set
         End Property
 
-
-
         ''Private _fileGenerator As FileGenerator
         '''' <summary>
         '''' Gets an instance of <see cref="FileGenerator" /> with the <see cref="CurrentCulture" />
@@ -137,7 +144,7 @@ Namespace CommandBar
             ElseIf QuerystringManager.GetQuerystringParameter("downloadfile") IsNot Nothing Then
                 DownloadFile(QuerystringManager.GetQuerystringParameter("downloadfile"))
             Else
-                LoadScripts()
+                'LoadScripts()
 
                 'If there is a pluign that has a UI and it needs to be recreated,
                 'this will make sure it is loaded so it can handle any events connected to it
@@ -149,6 +156,7 @@ Namespace CommandBar
             End If
 
         End Sub
+
 
         ''' <summary>
         ''' Used to display a plugin if one was selected
@@ -181,7 +189,6 @@ Namespace CommandBar
             'Make CommandBar reload itself during PreRender
             _isDropDownsLoaded = False
             _isImageButtonsLoaded = False
-
         End Sub
 #End Region
 
@@ -191,14 +198,11 @@ Namespace CommandBar
         ''' </summary>
         ''' <remarks></remarks>
         Protected Friend Sub LoadView()
-            ActionButton.Text = Me.GetLocalizedString(ACTION_BUTTON_CAPTION)
 
-            'If _isImageButtonsLoaded Then
-            '    UpdateLanguage()
-            'End If
+            Dim shortCutPanel = DirectCast(Me.Parent.Parent.FindControl("CommandBarShortCuts"), Panel)
 
-            DropDownPanel.Visible = False
-            ButtonPanel.Visible = False
+            AccordionPanel.Visible = False
+            shortcutPanel.Visible = False
 
             'Ensure there is a CommandBarPlugin filter
             If Marker.CommandBarFilter Is Nothing Then
@@ -209,107 +213,22 @@ Namespace CommandBar
             Select Case Me.Marker.ViewMode
                 Case CommandBarViewMode.DropDown
                     FillDropDowns()
-                    DropDownPanel.Visible = True
+                    AccordionPanel.Visible = True
+                    FillShortcutButtons(shortCutPanel)
+                    shortcutPanel.Visible = True
                 Case CommandBarViewMode.ImageButtons
-                    IsDropDownsLoaded = False
-                    'Only do this if the imagebuttons haven't been created
-                    If Not _isImageButtonsLoaded Then
-                        FillImagePanel()
-                    End If
-                    ButtonPanel.Visible = True
+                    FillButtons(shortCutPanel)
+                    shortcutPanel.Visible = True
             End Select
 
-            'Only do this if the imagebuttons haven't been created
-            If Not _isImageButtonsLoaded Then
-
-                'Clear both containers
-                CommandBarShortcutsDropDown.Controls.Clear()
-                CommandBarShortcutsImage.Controls.Clear()
-
-                Dim plugin As CommandBarPluginInfo
-                'Add CommandBar shortcut buttons
-                For Each s As String In Marker.CommandbarShortcuts
-                    plugin = CommandBarPluginManager.Views(s)
-                    If Not plugin Is Nothing Then
-                        Dim imageButton As ImageButton = CreatePluginButton(plugin, FORMAT_COMMANDBARSHORTCUT, COMMAND_PLUGIN_SHORTCUT, True, Plugins.Categories.VIEW)
-                        Select Case Me.Marker.ViewMode
-                            Case CommandBarViewMode.DropDown
-                                CommandBarShortcutsDropDown.Controls.Add(imageButton)
-                            Case CommandBarViewMode.ImageButtons
-                                CommandBarShortcutsImage.Controls.Add(imageButton)
-                        End Select
-                    End If
-                Next
-
-            End If
-
-            Me.SaveFilePanel.Visible = False
-
-            'Set this to ture so that we don't try and create the imagebuttons more than once
-            If ButtonPanel.Controls.Count > 0 Then
+            If shortCutPanel.Controls.Count > 0 Then
                 'Set this to ture so that we don't try and create the imagebuttons more than once
                 _isImageButtonsLoaded = True
             End If
 
-            commandbarDownloadFileDialog.Attributes("title") = Me.GetLocalizedString(DOWNLOAD_FILE_TITLE)
-            commandbarDownloadFileInformation.Text = Me.GetLocalizedString(DOWNLOAD_FILE_INFORMATION)
-            commandbarDownloadFileLink.Text = Me.GetLocalizedString(DOWNLOAD_FILE_LINK)
+            Me.SaveFilePanel.Visible = False
 
         End Sub
-
-        ''' <summary>
-        ''' Fills the commandbar with imagebuttons, used when <see cref="CommandBar.ViewMode" /> is <see cref="CommandBarViewMode.ImageButtons" />
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private Sub FillImagePanel()
-
-            ButtonPanel.Controls.Clear()
-
-            'Add Operation buttons
-            Dim plugin As CommandBarPluginInfo
-            For Each op As String In Marker.OperationButtons
-                plugin = CommandBarPluginManager.Operations(op)
-
-                If Not plugin Is Nothing Then
-                    If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.OPERATION) Then
-                        Dim imageButton As ImageButton = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, False, Plugins.Categories.OPERATION)
-                        ButtonPanel.Controls.Add(imageButton)
-                    End If
-                End If
-            Next
-
-            'Add filetype buttons
-            Dim filetype As FileType
-            For Each ft As String In Marker.FiletypeButtons
-                If CommandBarPluginManager.FileTypes.ContainsKey(ft) Then
-                    'ft is a FileType (for example xls)
-                    filetype = CommandBarPluginManager.FileTypes(ft)
-                Else
-                    'ft is a FileFormat (for example ExcelDoubleColumn)
-                    filetype = CommandBarPluginManager.GetFileType(ft)
-                End If
-
-                If Not filetype Is Nothing Then
-                    If Marker.CommandBarFilter.UseFiletype(filetype) Then
-                        Dim imageButton As ImageButton = CreateFiletypeButton(filetype)
-                        ButtonPanel.Controls.Add(imageButton)
-                    End If
-                End If
-            Next
-
-            For Each presView As String In Marker.PresentationViewButtons
-                plugin = CommandBarPluginManager.Views(presView)
-
-                If Not plugin Is Nothing Then
-                    If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.VIEW) Then
-                        Dim imageButton As ImageButton = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, False, Plugins.Categories.VIEW)
-                        ButtonPanel.Controls.Add(imageButton)
-                    End If
-                End If
-            Next
-
-        End Sub
-
 
         Private Function IsJavascriptEnabled() As Boolean
             Return System.Web.HttpContext.Current.Request.Browser.EcmaScriptVersion.Major >= 1
@@ -321,40 +240,39 @@ Namespace CommandBar
         ''' <remarks></remarks>
         Private Sub FillDropDowns()
             Dim plugin As CommandBarPluginInfo
-            Dim filetype As FileType
             Dim li As ListItem
 
             'Set DropDowns Enabled/Disabled
-            SaveAsDropDownList.Enabled = Marker.CommandBarFilter.DropDownFileFormatsActive
-            FunctionDropDownList.Enabled = Marker.CommandBarFilter.DropDownOperationsActive
-            PresentationViewsDropDownList.Enabled = Marker.CommandBarFilter.DropDownViewsActive
+            SaveAsHeaderButton.Disabled = Not Marker.CommandBarFilter.DropDownFileFormatsActive
+            OperationsHeaderButton.Disabled = Not Marker.CommandBarFilter.DropDownOperationsActive
+            ShowResultAsPanel.Enabled = Marker.CommandBarFilter.DropDownViewsActive
+
+            'Add plugins to the operations dropdown
+            For Each op As String In Marker.Operations
+                plugin = CommandBarPluginManager.Operations(op)
+
+                If Not plugin Is Nothing Then
+                    'Add item to dropdownlist if filter allows it
+                    If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.OPERATION) Then
+                        Dim button As Button = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, Plugins.Categories.OPERATION)
+                        OperationsButtonsPanel.Controls.Add(button)
+                    End If
+                End If
+            Next
 
             'Only do this if the dropdowns haven't already been loaded
             If IsDropDownsLoaded = False Then
 
-                SaveAsDropDownList.Items.Clear()
-                FunctionDropDownList.Items.Clear()
-                PresentationViewsDropDownList.Items.Clear()
+                SaveAsRadioButtonList.Items.Clear()
+                ShowAsRadioButtonList.Items.Clear()
 
-                'Add a heading in every dropdown
-                SaveAsDropDownList.Items.Add(Me.GetLocalizedString(SAVE_AS_CAPTION))
-                FunctionDropDownList.Items.Add(Me.GetLocalizedString(EDIT_AND_CALULATE_CAPTION))
-                'LinkDropDownList.Items.Add(Me.GetLocalizedString(GRAPHS_AND_MAPS_CAPTION))
-
-                'Add plugins to the operations dropdown
-                For Each op As String In Marker.Operations
-                    plugin = CommandBarPluginManager.Operations(op)
-
-                    If Not plugin Is Nothing Then
-                        'Add item to dropdownlist if filter allows it
-                        If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.OPERATION) Then
-                            FunctionDropDownList.Items.Add(New ListItem(Me.GetLocalizedString(plugin.NameCode), plugin.Name))
-                        End If
-                    End If
-                Next
+                'Add a localized text for accordions
+                ShowResultLabel.Text = GetLocalizedString(ACCORDION_SHOW_AS_TITLE)
+                SaveAsLabel.Text = GetLocalizedString(ACCORDION_SAVE_AS_TITLE)
+                OperationsLabel.Text = GetLocalizedString(EDIT_AND_CALULATE_CAPTION)
+                SaveAsBtn.Text = GetLocalizedString(BUTTON_SAVE_AS)
 
                 'Add fileformats to the "Save as" dropdown
-                SaveAsDropDownList.Attributes.Add("onchange", "return downloadSelectedFile(this);")
                 For Each outputFormat As String In Marker.OutputFormats
                     'Add item to dropdownlist if filter allows it
                     If Marker.CommandBarFilter.UseOutputFormat(outputFormat) Then
@@ -364,9 +282,13 @@ Namespace CommandBar
                             downLoadUrl = Request.RawUrl & "&downloadfile=" & outputFormat
                         End If
 
-                        SaveAsDropDownList.Items.Add(New ListItem(GetLocalizedString(outputFormat), downLoadUrl))
+                        SaveAsRadioButtonList.Items.Add(New ListItem(GetLocalizedString(outputFormat), downLoadUrl))
                     End If
                 Next
+
+                If SaveAsRadioButtonList.Items.Count > 0 Then
+                    SaveAsRadioButtonList.Items(0).Selected = true
+                End If
 
                 'Add plugins to the presentation views dropdown
                 For Each op As String In Marker.PresentationViews
@@ -379,7 +301,7 @@ Namespace CommandBar
                             If li.Value.Equals(Marker.SelectedPresentationView) Then
                                 li.Selected = True
                             End If
-                            PresentationViewsDropDownList.Items.Add(li)
+                            ShowAsRadioButtonList.Items.Add(li)
                         End If
 
                     End If
@@ -387,49 +309,93 @@ Namespace CommandBar
 
                 IsDropDownsLoaded = True
             End If
+        End Sub
 
-            'Only do this if the buttons haven't already been loaded
+        Private Sub FillShortcutButtons(ByVal shortCutPanel As Panel)
+            Dim plugin As CommandBarPluginInfo
+            Dim filetype As FileType
+            Dim li As ListItem
+
+            'Operations
+            For Each op As String In Marker.OperationShortcuts
+                plugin = CommandBarPluginManager.Operations(op)
+
+                If Not plugin Is Nothing Then
+                    If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.OPERATION) Then
+                        Dim button As Button = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, Plugins.Categories.OPERATION)
+                        shortCutPanel.Controls.Add(button)
+                    End If
+                End If
+            Next
+
+            'Presentations
+            For Each s As String In Marker.PresentationViewShortcuts
+                plugin = CommandBarPluginManager.Views(s)
+
+                If Not plugin Is Nothing Then
+                    If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.VIEW) Then
+                        Dim button As Button = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, Plugins.Categories.VIEW)
+                        shortCutPanel.Controls.Add(button)
+                    End If
+                End If
+            Next
+
+            'Add shortcut buttons for file formats
+            For Each fileformat As String In Marker.FileformatShortcuts
+                filetype = CommandBarPluginManager.GetFileType(fileformat)
+
+                If Not filetype Is Nothing Then
+                    'Add item to dropdownlist if filter allows it
+                    If Marker.CommandBarFilter.UseFiletype(filetype) Then
+                        Dim button As Button = CreateFileformatShortcutButton(filetype, fileformat)
+                        shortCutPanel.Controls.Add(button)
+                    End If
+                End If
+            Next
+        End Sub
+
+        Private Sub FillButtons(ByVal shortCutPanel As Panel)
+            Dim plugin As CommandBarPluginInfo
+            Dim filetype As FileType
+            Dim li As ListItem
+
+
             If Not _isImageButtonsLoaded Then
+                shortCutPanel.Controls.Clear()
 
-                FunctionDropDownListShortcuts.Controls.Clear()
-                LinkDropDownListShortcuts.Controls.Clear()
-                SaveAsDropDownListShortcuts.Controls.Clear()
-
-                'Add shortcut buttons for operations (functions)
-                For Each s As String In Marker.OperationShortcuts
-                    plugin = CommandBarPluginManager.Operations(s)
+                'Operations
+                For Each op As String In Marker.OperationButtons
+                    plugin = CommandBarPluginManager.Operations(op)
 
                     If Not plugin Is Nothing Then
-                        'Add item to dropdownlist if filter allows it
                         If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.OPERATION) Then
-                            Dim imageButton As ImageButton = CreatePluginButton(plugin, FORMAT_SHORTCUT_OPERATION, COMMAND_PLUGIN_SHORTCUT, True, Plugins.Categories.OPERATION)
-                            FunctionDropDownListShortcuts.Controls.Add(imageButton)
+                            Dim button As Button = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, Plugins.Categories.OPERATION)
+                            shortCutPanel.Controls.Add(button)
+                        End If
+                    End If
+                Next
+
+                'Presentations
+                For Each s As String In Marker.PresentationViewButtons
+                    plugin = CommandBarPluginManager.Views(s)
+
+                    If Not plugin Is Nothing Then
+                        If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.VIEW) Then
+                            Dim button As Button = CreatePluginButton(plugin, FORMAT_IMAGEBUTTON, COMMAND_PLUGIN_IMAGES, Plugins.Categories.VIEW)
+                            shortCutPanel.Controls.Add(button)
                         End If
                     End If
                 Next
 
                 'Add shortcut buttons for file formats
-                For Each fileformat As String In Marker.FileformatShortcuts
+                For Each fileformat As String In Marker.FiletypeButtons
                     filetype = CommandBarPluginManager.GetFileType(fileformat)
 
                     If Not filetype Is Nothing Then
                         'Add item to dropdownlist if filter allows it
                         If Marker.CommandBarFilter.UseFiletype(filetype) Then
-                            Dim imageButton As ImageButton = CreateFileformatShortcutButton(filetype, fileformat)
-                            SaveAsDropDownListShortcuts.Controls.Add(imageButton)
-                        End If
-                    End If
-                Next
-
-                'Add shortcut buttons for presentation views
-                For Each s As String In Marker.PresentationViewShortcuts
-                    plugin = CommandBarPluginManager.Views(s)
-
-                    If Not plugin Is Nothing Then
-                        'Add item to dropdownlist if filter allows it
-                        If Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, Plugins.Categories.VIEW) Then
-                            Dim imageButton As ImageButton = CreatePluginButton(plugin, FORMAT_SHORTCUT_LINK, COMMAND_PLUGIN_SHORTCUT, True, Plugins.Categories.VIEW)
-                            LinkDropDownListShortcuts.Controls.Add(imageButton)
+                            Dim button As Button = CreateFileformatShortcutButton(filetype, fileformat)
+                            shortCutPanel.Controls.Add(button)
                         End If
                     End If
                 Next
@@ -437,66 +403,42 @@ Namespace CommandBar
         End Sub
 
         ''' <summary>
-        ''' Creates a imagebutton for the given plugin
+        ''' Creates a Operations button for the given plugin
         ''' </summary>
         ''' <param name="plugin">Plugin to create imagebutton for</param>
         ''' <param name="idString">String used togheter with the plugin name for creating the ID of the imagebutton</param>
         ''' <param name="commandName">CommandName of the imagebutton</param>
-        ''' <param name="shortcut">If it is a shortcut button or a normal button that shall be created</param>
         ''' <returns>The created imagebutton</returns>
         ''' <remarks></remarks>
-        Private Function CreatePluginButton(ByVal plugin As CommandBarPluginInfo, ByVal idString As String, ByVal commandName As String, ByVal shortcut As Boolean, ByVal pluginCategory As String) As ImageButton
-            Dim imageButton As ImageButton = New ImageButton()
+        Private Function CreatePluginButton(ByVal plugin As CommandBarPluginInfo, ByVal idString As String, ByVal commandName As String, ByVal pluginCategory As String) As Button
+            Dim button As Button = New Button()
 
             If plugin Is Nothing Then
                 Throw New System.ArgumentNullException()
             End If
-
-            With imageButton
+            With button
                 .ID = String.Format(idString, plugin.Name, Globalization.CultureInfo.InvariantCulture)
                 .CommandArgument = plugin.Name
-                .AlternateText = Me.GetLocalizedString(plugin.NameCode)
                 .ToolTip = Me.GetLocalizedString(plugin.NameCode)
-                .CssClass = "commandbar_pluginbutton"
-                If shortcut Then
-                    .ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, plugin.ShortcutImage)
+                If (plugin.Name = "pivotCCW" Or plugin.Name = "pivotCW") Then
+                    .CssClass = $"pxweb-btn icon-placement pxweb-buttons {plugin.Name}"
                 Else
-                    .ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, plugin.Image)
+                    .CssClass = $"pxweb-btn icon-placement pxweb-buttons {plugin.Name}"
                 End If
                 .CommandName = commandName
-                AddHandler .Command, AddressOf ImageButton_Command
+                .Text = Me.GetLocalizedString(plugin.NameCode)
+                AddHandler .Command, AddressOf Button_Command
 
                 If Not Marker.CommandBarFilter.UsePlugin(plugin, Me.PaxiomModel, pluginCategory) Then
                     .Visible = False
                 End If
             End With
 
-            Return imageButton
+            Return Button
         End Function
 
-        Private Function CreateFiletypeButton(ByVal filetype As FileType) As ImageButton
-            Dim imageButton As ImageButton = New ImageButton()
-
-            If filetype Is Nothing Then
-                Throw New System.ArgumentNullException()
-            End If
-
-            With imageButton
-                .AlternateText = Me.GetLocalizedString(filetype.TranslatedText)
-                .ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, filetype.Image)
-                .ToolTip = Me.GetLocalizedString(filetype.TranslatedText)
-                .CssClass = "commandbar_pluginbutton"
-                .CommandArgument = filetype.Type
-                .CommandName = COMMAND_PLUGIN_IMAGES
-                .ID = String.Format(FORMAT_IMAGEBUTTON, filetype.Type)
-                AddHandler .Command, AddressOf ImageButton_Command
-            End With
-
-            Return imageButton
-        End Function
-
-        Private Function CreateFileformatShortcutButton(ByVal filetype As FileType, ByVal fileformat As String) As ImageButton
-            Dim imageButton As ImageButton = New ImageButton()
+        Private Function CreateFileformatShortcutButton(ByVal filetype As FileType, ByVal fileformat As String) As Button
+            Dim button As Button = New Button()
 
             If filetype Is Nothing Then
                 Throw New System.ArgumentNullException()
@@ -505,39 +447,27 @@ Namespace CommandBar
                 Throw New System.ArgumentNullException()
             End If
 
-            With imageButton
+            With button
                 .ID = String.Format(FORMAT_SHORTCUT_FILE, fileformat, Globalization.CultureInfo.InvariantCulture)
-                .ImageUrl = System.IO.Path.Combine(PCAxis.Web.Controls.Configuration.Paths.ImagesPath, filetype.ShortcutImage)
                 .CommandArgument = fileformat
-                .AlternateText = Me.GetLocalizedString(fileformat)
                 .ToolTip = Me.GetLocalizedString(fileformat)
                 .CommandName = COMMAND_PLUGIN_SHORTCUT
-                .CssClass = "commandbar_pluginbutton"
+                .CssClass = $"pxweb-btn icon-placement pxweb-buttons {fileformat}"
                 If IsJavascriptEnabled() And (Not String.IsNullOrEmpty(fileformat)) Then
                     Dim downLoadUrl = Request.RawUrl & "?downloadfile=" & fileformat
 
                     If Request.QueryString.Count > 0 Then
                         downLoadUrl = Request.RawUrl & "&downloadfile=" & fileformat
                     End If
-                    '.OnClientClick = "window.open('" + DownloadUrl + "'); return false;"
-                    '.OnClientClick = "window.location = " + DownloadUrl + "; return false;"
                     .OnClientClick = "commandbarDownloadFile('" + downLoadUrl + "'); return false;"
                 End If
-                AddHandler .Command, AddressOf ImageButton_Command
+                AddHandler .Command, AddressOf Button_Command
             End With
 
-            Return imageButton
+            Return button
         End Function
 
 
-        ''' <summary>
-        ''' The method is used to add client scripts to the commandbar
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private Sub LoadScripts()
-            'Used to hide the action button if javascripts is enabled
-            Page.ClientScript.RegisterStartupScript(Me.GetType, "CommandBar_HideActionButton", "PCAxis_HideElement("".commandbar_action"");", True)
-        End Sub
 
 
         ''' <summary>
@@ -599,7 +529,6 @@ Namespace CommandBar
                     LoadFileTypeControl(fileType.Type, fileType, String.Empty, showUI)
                 End If
             End If
-
         End Sub
 
         Private Sub HandleOperation(ByVal plugin As CommandBarPluginInfo, ByVal pluginKey As String)
@@ -721,7 +650,39 @@ Namespace CommandBar
                 .Visible = True
                 .Controls.Clear()
                 .Controls.Add(pluginControl)
+                .Focus()
             End With
+        End Sub
+
+
+        ''' <summary>
+        ''' Presentation view selected
+        ''' </summary>
+        ''' <param name="sender">The source of the event</param>
+        ''' <param name="e">An EventArgs that contains no event data</param>
+        ''' <remarks></remarks>
+        Private Sub ShowAsRadioButtonList_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ShowAsRadioButtonList.SelectedIndexChanged
+
+            Dim radioButtonList As RadioButtonList = TryCast(sender, RadioButtonList)
+
+            If radioButtonList IsNot Nothing Then
+                Me.PluginID = radioButtonList.SelectedItem.Value
+                radioButtonList.SelectedIndex = 0
+            End If
+
+        End Sub
+
+        Private Sub SaveAsBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SaveAsBtn.Click
+            If SaveAsRadioButtonList.SelectedValue IsNot Nothing Then
+                Dim selectedValue As String
+                selectedValue = SaveAsRadioButtonList.SelectedValue
+                'If only one parameter the whole url is set as key
+                If System.Web.HttpUtility.ParseQueryString(selectedValue).Count > 1
+                    DownloadFile(System.Web.HttpUtility.ParseQueryString(selectedValue).Get("downloadfile"))
+                Else 
+                    DownloadFile(System.Web.HttpUtility.ParseQueryString(selectedValue).Get(0))
+                End If
+            End If
         End Sub
 
         ''' <summary>
@@ -838,7 +799,7 @@ Namespace CommandBar
         ''' <param name="sender">The source of the event</param>
         ''' <param name="e">A CommandEventArgs that contains the event data</param>
         ''' <remarks>If the <see cref="ImageButton" /> has more than one plugin connected to it, a <see cref="CommandBarPluginSelector"/> is shown</remarks>
-        Private Sub ImageButton_Command(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.CommandEventArgs)
+        Private Sub Button_Command(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.CommandEventArgs)
 
             'If this is a plugin
             If e.CommandName = COMMAND_PLUGIN_IMAGES Then
@@ -900,10 +861,11 @@ Namespace CommandBar
             Me.PluginID = Nothing
 
             'Clear the pluginholder
-            With Me.PluginControlHolder
+            With PluginControlHolder
                 .Controls.Clear()
                 .Visible = False
             End With
+            OperationsPanel.Focus()
         End Sub
 
 

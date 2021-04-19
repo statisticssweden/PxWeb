@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb.UserControls {
-    
-    
-    public partial class SaveQueryCreate {
-        
+namespace PXWeb.UserControls
+{
+
+
+    public partial class SaveQueryCreate
+    {
+
         /// <summary>
         /// pnl2_SaveQuerySelection control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnl2_SaveQuerySelection;
-        
+
         /// <summary>
         /// pnlSettings control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlSettings;
-        
+
         /// <summary>
         /// divTimeWarning control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTimeWarning;
-        
+
         /// <summary>
         /// imgTimeWarning control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgTimeWarning;
-        
+
         /// <summary>
         /// lblTimeWarning control.
         /// </summary>
@@ -56,25 +58,16 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTimeWarning;
-        
+
         /// <summary>
-        /// lblTimePeriod control.
+        /// pnlForRbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTimePeriod;
-        
-        /// <summary>
-        /// lblTimePeriodInformation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTimePeriodInformation;
-        
+        protected global::System.Web.UI.WebControls.Panel pnlForRbl;
+
         /// <summary>
         /// rblTimePeriod control.
         /// </summary>
@@ -83,7 +76,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblTimePeriod;
-        
+
         /// <summary>
         /// lblResultAs control.
         /// </summary>
@@ -92,7 +85,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultAs;
-        
+
         /// <summary>
         /// ddlOutputFormats control.
         /// </summary>
@@ -101,7 +94,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOutputFormats;
-        
+
         /// <summary>
         /// lblFormatError control.
         /// </summary>
@@ -110,25 +103,16 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFormatError;
-        
+
         /// <summary>
-        /// lnkCancelSaveQuery control.
+        /// btnCancelSaveQuery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCancelSaveQuery;
-        
-        /// <summary>
-        /// lblCancelSaveQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCancelSaveQuery;
-        
+        protected global::System.Web.UI.WebControls.Button btnCancelSaveQuery;
+
         /// <summary>
         /// btnCreateSaveQuery control.
         /// </summary>
@@ -137,7 +121,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateSaveQuery;
-        
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -146,25 +130,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
-        /// <summary>
-        /// lblHeadingInformationText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeadingInformationText;
-        
-        /// <summary>
-        /// lblInformationText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInformationText;
-        
+
         /// <summary>
         /// pnl3_ShowSaveQueryUrl control.
         /// </summary>
@@ -173,7 +139,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnl3_ShowSaveQueryUrl;
-        
+
         /// <summary>
         /// pnlUrl control.
         /// </summary>
@@ -182,7 +148,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlUrl;
-        
+
         /// <summary>
         /// lblUpdateSummaryHeading control.
         /// </summary>
@@ -191,7 +157,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUpdateSummaryHeading;
-        
+
         /// <summary>
         /// lblUpdateSummaryValue control.
         /// </summary>
@@ -200,7 +166,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUpdateSummaryValue;
-        
+
         /// <summary>
         /// lblOutputSummaryHeading control.
         /// </summary>
@@ -209,7 +175,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutputSummaryHeading;
-        
+
         /// <summary>
         /// lblOutputSummaryValue control.
         /// </summary>
@@ -218,7 +184,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblOutputSummaryValue;
-        
+
         /// <summary>
         /// lblWithdrawInformation control.
         /// </summary>
@@ -227,7 +193,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWithdrawInformation;
-        
+
         /// <summary>
         /// txtSaveQueryUrl control.
         /// </summary>
@@ -236,25 +202,16 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSaveQueryUrl;
-        
+
         /// <summary>
-        /// lnkBack control.
+        /// btnCancelSaveQueryEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkBack;
-        
-        /// <summary>
-        /// lblBack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBack;
-        
+        protected global::System.Web.UI.WebControls.Button btnCancelSaveQueryEnd;
+
         /// <summary>
         /// btnbookMark control.
         /// </summary>
@@ -263,7 +220,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnbookMark;
-        
+
         /// <summary>
         /// btnCopyToClipboard control.
         /// </summary>
@@ -272,7 +229,7 @@ namespace PXWeb.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCopyToClipboard;
-        
+
         /// <summary>
         /// btnMailSaveQuery control.
         /// </summary>

@@ -16,21 +16,15 @@
 /* ---- Save as Excel ---- */
 
 #pxwebcontent .commandbar {
-  float: left;
+  /*float: left;
   clear: both;
   width: 100%;
-  padding: 0 0 10px 0;
+  padding: 0 0 10px 0;*/
   /*height:60px;*/
 }
 
-#pxwebcontent .commandbar_container {
-  border: solid 2px #a9a9a9;
-  padding: 10px 40px 10px 10px;
-  clear: both;
-  float: left;
-  margin: 0 0 10px 0;
-  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-}
+@import './CommandBar/_cb_common.scss';
+
 
 #pxwebcontent .commandbar_mainshortcut {
   float: left;
@@ -56,18 +50,18 @@
   padding-top: 10px;
 }
 
-  #pxwebcontent .commandbar_button_row input {
-    background: #25a23c;
-    color: white;
+#pxwebcontent .commandbar_button_row input {
+    /*    background: #25a23c;
+    color: white;*/
     font-weight: bold;
     font-family: 'Roboto Condensed', sans-serif;
-    border: 1px solid #008451;
-  }
+    /*border: 1px solid #008451;*/
+    border: 1px solid $pxweb-dark-2;
+}
 
 #pxwebcontent .commandbar_dropdown {
   height: 50px;
   width: auto;
-  margin-top: 15px;
 }
 
   #pxwebcontent .commandbar_dropdown div {
@@ -140,13 +134,14 @@
   padding: 5px 0 0 5px;
 }
 
-#pxwebcontent .commandbar_pivot_container {
-  float: left;
-}
+#pxwebcontent .commandbar-listbox-container {
+  /*float: left;*/
+  border: 1px solid $pxweb-dark-2;
+  padding: 20px;
+  background-color: $pxweb-green-1;
+  flex: 0 0 42%;
+  margin-top: 10px;
 
-#pxwebcontent .commandbar_pivot_container_buttons {
-  float: left;
-  padding: 15px 10px 0px 10px;
 }
 
 /*#pxwebcontent input[type=submit].commandbar_cancelbutton {
@@ -188,30 +183,47 @@
   margin-top: 15px;
 }
 
-#pxwebcontent .commandbar_pivot_heading {
-  width: 100%;
-  float: none;
-  font-weight: bold;
+#pxwebcontent p.commandbar_pivot_heading {
+    width: 100%;
+    font-weight: bold;
+    border-bottom: 2px solid $breadcrumb-text;
 }
 
+
+
 #pxwebcontent .commandbar_pivot_title {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 #pxwebcontent .commandbar_changevalueorder_container_main {
   width: 600px;
 }
 
-#pxwebcontent .commandbar_changevalueorder_caption {
+#pxwebcontent .commandbar_pivot_listbox {
   width: 100%;
-  float: none;
-  font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
+  overflow: auto;
+}
+
+#pxwebcontent .commandbar_pivot_continue_cancel_buttons {
+    padding: 10px 0px 10px 0px;
+    display: inline-flex;
+    padding-top: 10px;
+    float: right;
+}
+
+#pxwebcontent .complete_justify-center {
+    padding: 0px 0px 0px 0px;
+}
+
+
+#pxwebcontent .commandbar_changevalueorder_caption {
+    width: 100%;
+    float: none;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #pxwebcontent .commandbar_changevalueorder_instructions {
-  width: 65%;
-  float: left;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -237,9 +249,8 @@
   /*float: left;*/
 }
 
-#pxwebcontent .commandbar_changevalueorder_fromorder_container {
-  width: 54%;
-  float: left;
+#pxwebcontent .commandbar_changevalueorder_container {
+  width: 60%;
 }
 
 #pxwebcontent .commandbar_changevalueorder_fromorder_downbutton {
@@ -257,8 +268,9 @@
   float: left;
 }
 
-#pxwebcontent .commandbar_changevalueorder_fromorder_listbox {
+#pxwebcontent .commandbar_changevalueorder_listbox {
   width: 100%;
+  overflow: auto;
 }
 
 #pxwebcontent .commandbar_changevalueorder_fromorder_movebuttons {
@@ -301,20 +313,12 @@
   font-weight: bold;
 }
 
-#pxwebcontent .commandbar_deletevalue_titletext {
-  font-weight: bold;
-}
-
 #pxwebcontent .commandbar_deletevalue_deletevaluetitle {
   padding: 0 0 3px 0;
 }
 
 #pxwebcontent .commandbar_deletevalue_errordescription {
   color: #FF0000;
-}
-
-#pxwebcontent .commandbar_deletevariable_titletext {
-  font-weight: bold;
 }
 
 #pxwebcontent .commandbar_deletevariable_nametext {
@@ -330,42 +334,14 @@
   color: Red;
 }
 
-#pxwebcontent .commandbar_perpart_titletext {
-  font-weight: bold;
-}
+@import './CommandBar/_perpart.scss';
+@import './CommandBar/_changepresentation.scss';
 
-#pxwebcontent .commandbar_perpart_radio_horisontal label {
-  padding: 0 5px 0 5px;
-  vertical-align: text-bottom;
-}
 
-#pxwebcontent .commandbar_perpart_errormessage {
-  color: Red;
-}
+/* ********* End. Back in _CommandBar.scss */
 
-#pxwebcontent .commandbar_changepresentation_titletext {
-  font-weight: bold;
-}
-
-#pxwebcontent .commandbar_changepresentation_headertext {
-  font-weight: bold;
-}
-
-#pxwebcontent .commandbar_changepresentation_radio {
-  padding: 0 0 3px 0;
-}
-
-  #pxwebcontent .commandbar_changepresentation_radio label {
-    padding: 0 7px 0 3px;
-    vertical-align: text-bottom;
-  }
-
-#pxwebcontent .commandbar_changepresentation_inputrow {
-  padding: 0 0 5px 0;
-}
-
-#pxwebcontent .commandbar_changepresentation_errormessage {
-  color: Red;
+#pxwebcontent .commandbar_sum_sumallvaluesnewvariabelname_textbox {
+  margin-left:5px;
 }
 
 #pxwebcontent .commandbar_savefilelink {
@@ -374,35 +350,31 @@
 }
 
 #pxwebcontent .commandbar_function_dropdownlist {
-    /*font-family: 'Open Sans', sans-serif;
-  font-size: 12pt;
-  color: #333333;*/
-/*    @include pxweb-input-list-font;
-*/}
-
-#pxwebcontent .commandbar_saveas_dropdownlist {
-    /*  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12pt;
   color: #333333;
-*/
-/*    @include pxweb-input-list-font;
-*/}
+}
+
+#pxwebcontent .commandbar_saveas_dropdownlist {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
+  color: #333333;
+}
 
 #pxwebcontent .commandbar_link_dropdownlist {
-    /*  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12pt;
-  color: #333333;*/
-/*    @include pxweb-input-list-font;
-*/}
+  color: #333333;
+}
 
 #pxwebcontent .variableselector_valuesselect_box_commandbar {
-    background-color: $pxbox-background;
-    float: left;
-    border: solid 1px #000000;
-    width: auto;
-    max-width: 800px;
-    height: 100%;
-    margin: 0 6px 2px 0;
+  background-color: #E9F3E9;
+  float: left;
+  border: solid 1px #000000;
+  width: auto;
+  max-width: 800px;
+  height: 100%;
+  margin: 0 6px 2px 0;
 }
 
 #pxwebcontent .variableselector_valuesselect_eventbutton_panel_commandbar {
@@ -427,4 +399,31 @@
 
 #pxwebcontent .commandbar_button_row .pxweb-btn.primary-btn:hover {
   border: none;
+}
+
+#pxwebcontent .commandbar-shortcuts {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+@media #{$mobile} {
+  #pxwebcontent #btnfullscreen {
+      display: none;
+  }
+  #pxwebcontent .commandbar_changevalueorder_container {
+    width: 100%;
+  }
+  #pxwebcontent .presentation-main {
+    width:100%;
+  }
+}
+@media screen and (max-width: $mobile-screen) {
+  #pxwebcontent .commandbar-listbox-container {
+    width: 100%;
+    flex: initial;
+  }
+
+  #pxwebcontent .commandbar_changevalueorder_container .commandbar-listbox-container {
+    width: auto;
+  }
 }

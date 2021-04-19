@@ -188,12 +188,12 @@
     display: none;
 }
 
-@media screen and (min-width: 768px) {
-    #pxwebcontent .switch-layout-container {
-        display: flex;
-        justify-content: flex-end;
-        padding-bottom: 10px;
-    }
+@media screen and (min-width: $tablet-screen) {
+  #pxwebcontent .switch-layout-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+  }
 }
 
 #pxwebcontent .variableselector_valuesselect_selectionFromGroup_imagebutton {
@@ -234,6 +234,10 @@
 #pxwebcontent .icon-placement {
     background-position: 8px 8px;
     padding-left: 40px !important;
+}
+
+#pxwebcontent .icon-placement-symbol {
+    background-position: 0px 1px;
 }
 
 /*Green background color inside valuelist*/
@@ -290,3 +294,5 @@
     height: 21px;
     border: solid $pxbox-blue-3 2px;
 }
+
+

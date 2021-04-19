@@ -65,6 +65,9 @@ Public Class SumCodebehind
     Private Const SECOND_OPERAND_TEXT As String = "CtrlSecondOperandLabel"
     Private Const CANCEL_BUTTON As String = "CancelButton"
     Private Const INVALID_VALUENAME As String = "SumInvalidValuename"
+    Private Const CHOOSE_VARIABLE As String = "CtrlChooseVariable"
+    Private Const SUM_OPTIONS As String = "CtrlSumOptions"
+    Private Const SUM_COMPLETE_BUTTON_TEXT As String = "CtrlSumComplete"
 
     Private Const ILLEGAL_CHARACTERS_ERROR As String = "PxWebIllegalCharactersErrorMessage"
 
@@ -72,13 +75,13 @@ Public Class SumCodebehind
 
 #Region " Controls "
 
-    Protected WithEvents TitleLabel As Label
+    Protected WithEvents TitleLiteral As Literal
     Protected WithEvents TotalVariableNameLabel As Label
     Protected WithEvents TotalVariableName As TextBox
     Protected WithEvents ContinueButton As Button
 
     Protected WithEvents SelectVariableOptionsPanel As Panel
-    Protected WithEvents SelectVariabelsLabel As Label
+    Protected WithEvents ChooseVariablePanel As Panel
     Protected WithEvents VariableToSumRadioButtonList As RadioButtonList
     Protected WithEvents ContinueButtonSelectVariables As Button
 
@@ -87,6 +90,7 @@ Public Class SumCodebehind
     Protected WithEvents ValuesToSumListBox As ListBox
     Protected WithEvents ContinueButtonSelectValues As Button
 
+    Protected SumOptionPanel As Panel
     Protected SumOptionsRadioButtonList As RadioButtonList
     Protected WithEvents TotalVariableNamePanel As Panel
     Protected KeepValuesPanel As Panel
@@ -178,37 +182,33 @@ Public Class SumCodebehind
         Select Case _sumOperation
             Case SumOperationType.Division
                 buttonText = GetLocalizedString(DIVIDE_CONTINUE_BUTTON)
-                TitleLabel.Text = GetLocalizedString(DIVIDE_TITLE)
+                TitleLiteral.Text = GetLocalizedString(DIVIDE_TITLE)
                 TotalVariableNameLabel.Text = GetLocalizedString(DIVIDE_TOTALVARIABLENAME_TEXT)
                 ContinueButton.Text = buttonText
-                SelectVariabelsLabel.Text = GetLocalizedString(DIVIDE_SELECTVARIABLES_TITLE)
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(DIVIDE_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
             Case SumOperationType.Multiplication
                 buttonText = GetLocalizedString(MULTIPLY_CONTINUE_BUTTON)
-                TitleLabel.Text = GetLocalizedString(MULTIPLY_TITLE)
+                TitleLiteral.Text = GetLocalizedString(MULTIPLY_TITLE)
                 TotalVariableNameLabel.Text = GetLocalizedString(MULTIPLY_TOTALVARIABLENAME_TEXT)
                 ContinueButton.Text = buttonText
-                SelectVariabelsLabel.Text = GetLocalizedString(MULTIPLY_SELECTVARIABLES_TITLE)
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(MULTIPLY_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
             Case SumOperationType.Subtraction
                 buttonText = GetLocalizedString(SUBTRACT_CONTINUE_BUTTON)
-                TitleLabel.Text = GetLocalizedString(SUBTRACT_TITLE)
+                TitleLiteral.Text = GetLocalizedString(SUBTRACT_TITLE)
                 TotalVariableNameLabel.Text = GetLocalizedString(SUBTRACT_TOTALVARIABLENAME_TEXT)
                 ContinueButton.Text = buttonText
-                SelectVariabelsLabel.Text = GetLocalizedString(SUBTRACT_SELECTVARIABLES_TITLE)
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(SUBTRACT_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
             Case Else
                 buttonText = GetLocalizedString(SUM_CONTINUE_BUTTON)
-                TitleLabel.Text = GetLocalizedString(SUM_TITLE)
+                TitleLiteral.Text = GetLocalizedString(SUM_TITLE)
                 TotalVariableNameLabel.Text = GetLocalizedString(SUM_TOTALVARIABLENAME_TEXT)
-                ContinueButton.Text = buttonText
-                SelectVariabelsLabel.Text = GetLocalizedString(SUM_SELECTVARIABLES_TITLE)
+                ContinueButton.Text = GetLocalizedString(SUM_COMPLETE_BUTTON_TEXT)
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(SUM_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
@@ -222,6 +222,9 @@ Public Class SumCodebehind
         KeepValuesLabel.Text = GetLocalizedString(SUM_KEEPVALUES_TEXT)
         TotalVariableNameRequired.ErrorMessage = GetLocalizedString(SUM_REQUIREDVARIABLENAME_TEXT)
         OperandsValidator.ErrorMessage = GetLocalizedString(SUM_DIFFERENT_OPERANDS_REQUIRED_TEXT)
+        ChooseVariablePanel.GroupingText = "<span class='font-heading'>" + GetLocalizedString(CHOOSE_VARIABLE) + "</span>"
+        SumOptionPanel.GroupingText = "<span class='font-heading'>" + GetLocalizedString(SUM_OPTIONS) + "</span>"
+
         If _twoValueOperation Then
             FirstOperandLabel.Text = GetLocalizedString(FIRST_OPERAND_TEXT)
             SecondOperandLabel.Text = GetLocalizedString(SECOND_OPERAND_TEXT)
@@ -308,6 +311,7 @@ Public Class SumCodebehind
             Try
                 Dim s As New PCAxis.Paxiom.Operations.Sum
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(s.Execute(Me.PaxiomModel, SumDesc)))
+                LogFeatureUsage(OperationConstants.SUM, "SumAll", Me.PaxiomModel.Meta.TableID)
                 UpdateOperationsTracker(SumDesc)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
@@ -387,6 +391,7 @@ Public Class SumCodebehind
                         Dim s As New PCAxis.Paxiom.Operations.Sum
                         UpdateOperationsTracker(SumDesc)
                         Me.OnFinished(New CommandBarPluginFinishedEventArgs(s.Execute(Me.PaxiomModel, SumDesc)))
+                        LogFeatureUsage(OperationConstants.SUM, _sumOperation.ToString, Me.PaxiomModel.Meta.TableID)
                     Else
                         Me.ErrorMessagePanel.Visible = True
                         Me.ErrorMessageLabel.Text = "SumCodebehind.SumSelected():Wrong number of values."
