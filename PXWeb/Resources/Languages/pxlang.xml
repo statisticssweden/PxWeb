@@ -1312,9 +1312,12 @@
   <sentence name="PxWebAdminSettingsGeneralSiteApplicationName" value="Application name"/>
 	 <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Name of the PxWeb installation"/>
 	 <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Logo path"/>
-	 <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Name of the image file"/>
-
-	 <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Default language"/>
+   <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Name of the image file"/>
+   <sentence name="PxWebAdminSettingsMainHeaderForTables" value="Main header for table pages"/>
+   <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Table name"/> 
+   <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistics area"/>
+   <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Type of heading that will be used for table pages"/>
+   <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Default language"/>
 	 <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="The default language for the PxWeb site"/>
 	 <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Language"/>
 	 <sentence name="PxWebAdminSettingsLanguageSiteLanguagesInfo" value="Selected languages will be available on the PxWeb site."/>
