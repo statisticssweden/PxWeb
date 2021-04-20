@@ -3340,6 +3340,9 @@ span.AspNet-TreeView-Collapse::before {
   /*    font-size: 12px;*/
   font-weight: 400; }
 
+#pxwebcontent .variableselector_valuesselect_mandatory_text:after {
+  content: "*"; }
+
 /*#pxwebcontent .variableselector_valuesselect_mandatory_star {
     font-size: 28px;
 }*/
