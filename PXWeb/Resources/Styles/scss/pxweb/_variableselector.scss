@@ -142,6 +142,10 @@
 #pxwebcontent .variableselector_valuesselect_statistics_panel {
     white-space: nowrap;
     overflow: hidden;
+    border-top-style: solid;
+    border-top-color: $pxweb-green-4;
+    border-top-width: 2px;
+    padding-top: 7px;
 }
 
 #pxwebcontent .variableselector_valuesselect_valueslistbox {
@@ -258,11 +262,13 @@
 }
 
 #pxwebcontent .variableselector_valuesselect_mandatory_text {
-    /*    font-size: 12px;*/
-    font-weight: 400;
+        font-size: 12px;
+/*    font-weight: 400;*/
+
 }
 #pxwebcontent .variableselector_valuesselect_mandatory_text:after {
     content: "*";
+    font-size: 28px;
 }
 
 /*#pxwebcontent .variableselector_valuesselect_mandatory_star {

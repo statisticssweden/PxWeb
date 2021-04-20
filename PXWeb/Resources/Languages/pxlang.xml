@@ -311,7 +311,7 @@
 	 <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="At least one value has to be selected for variable: " />
    <sentence name="CtrlVariableSelectorValidationSummary" value="Select at least one value from these variables:" />
    <sentence name="CtrlVariableSelectorValidationMessage" value="Select at least one value" />
-   <sentence name="CtrlVariableSelectorMandatoryText" value="(Mandatory)" />
+   <sentence name="CtrlVariableSelectorMandatoryText" value="Mandatory" />
    <sentence name="CtrlVariableSelectorContinueLabel" value="Select an option and press"/>
 	 <sentence name="CtrlVariableSelectorContinueButton" value="Show table"/>
    <sentence name="CtrlVariableSelectorVariableOverviewHeading" value="Variable overview" />
