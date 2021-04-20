@@ -256,7 +256,7 @@
   <sentence name="CtrlVariableSelectorSelectionMissingErrorMessage" value="Minst ett värde måste väljas för variabel: " />
   <sentence name="CtrlVariableSelectorValidationSummary" value="Det finns fel i följande fält" />
   <sentence name="CtrlVariableSelectorValidationMessage" value="Markera minst ett värde" />
-  <sentence name="CtrlVariableSelectorMandatoryText" value="Obligatoriskt" />
+  <sentence name="CtrlVariableSelectorMandatoryText" value="(Obligatoriskt)" />
   <sentence name="CtrlVariableSelectorContinueLabel" value="Välj ett alternativ" />
   <sentence name="CtrlVariableSelectorContinueButton" value="Fortsätt" />
   <sentence name="CtrlVariableSelectorVariableOverviewHeading" value="Variabel översikt" />

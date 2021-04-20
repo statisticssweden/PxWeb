@@ -585,7 +585,7 @@ Public Class VariableSelectorValueSelectCodebehind
         End Select
 
         ' --- MandatoryText
-        MandatoryText.Text = "(" + GetLocalizedString("CtrlVariableSelectorMandatoryText") + ")"
+        MandatoryText.Text = GetLocalizedString("CtrlVariableSelectorMandatoryText")
 
         OptionalVariableText.Text = GetLocalizedString("CtrlVariableSelectorOptionalVariableText")
 
