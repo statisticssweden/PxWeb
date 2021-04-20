@@ -84,6 +84,7 @@ namespace PXWeb.Admin
             args.IsValid = true;
         }
 
+
         protected void imgApplicationName_Click(object sender, ImageClickEventArgs e)
         { 
             Master.ShowInfoDialog("PxWebAdminSettingsGeneralSiteApplicationName", "PxWebAdminSettingsGeneralSiteApplicationNameInfo");
@@ -94,6 +95,9 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminSettingsGeneralSiteLogoPath", "PxWebAdminSettingsGeneralSiteLogoPathInfo");
         }
 
-
+        protected void imgMainHeaderForTables_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsMainHeaderForTables", "PxWebAdminSettingsMainHeaderForTablesInfo");
+        }
     }
 }

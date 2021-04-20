@@ -19,5 +19,10 @@ namespace PXWeb
         /// Logo path
         /// </summary>
         string LogoPath { get; }
+
+        /// <summary>
+        /// Main header (H1) type for table pages
+        /// </summary>
+        MainHeaderForTablesType MainHeaderForTables { get; }
     }
 }

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb.Admin {
-    
-    
-    public partial class Settings_General_Site {
-        
+namespace PXWeb.Admin
+{
+
+
+    public partial class Settings_General_Site
+    {
+
         /// <summary>
         /// lblApplicationName control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApplicationName;
-        
+
         /// <summary>
         /// txtApplicationName control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApplicationName;
-        
+
         /// <summary>
         /// imgApplicationName control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgApplicationName;
-        
+
         /// <summary>
         /// lblLogoPath control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLogoPath;
-        
+
         /// <summary>
         /// txtLogoPath control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLogoPath;
-        
+
         /// <summary>
         /// imgLogoPath control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgLogoPath;
-        
+
         /// <summary>
         /// validatorLogoPath control.
         /// </summary>
@@ -74,15 +76,44 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorLogoPath;
-        
+
+        /// <summary>
+        /// lblMainHeaderForTables control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMainHeaderForTables;
+
+        /// <summary>
+        /// cboMainHeaderForTables control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboMainHeaderForTables;
+
+        /// <summary>
+        /// imgMainHeaderForTables control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgMainHeaderForTables;
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.Admin.Admin Master {
-            get {
+        public new PXWeb.Admin.Admin Master
+        {
+            get
+            {
                 return ((PXWeb.Admin.Admin)(base.Master));
             }
         }
