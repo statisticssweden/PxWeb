@@ -97,6 +97,7 @@ namespace PXWeb
                     Master.SetH1TextMenuLevel();
                     Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Third);
                     Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
+                    InitializeTableHeading();
                     InitializeCommandBar();
                     InitializeInformationAndFootnotes();
                     InitializeTableQuery();
@@ -179,6 +180,19 @@ namespace PXWeb
             CommandBar1.SelectedPresentationView = presView;
         }
 
+        private void InitializeTableHeading()
+        {
+            if (PXWeb.Settings.Current.General.Site.MainHeaderForTables == MainHeaderForTablesType.TableName)
+            {
+                PresentationTitleStuff.TitleTag = TableInformationCodebehind.TitleTags.H1;
+                PresentationTitleStuff.CssClass = "h1title";
+            }
+            else
+            {
+                PresentationTitleStuff.TitleTag = TableInformationCodebehind.TitleTags.H2;
+                PresentationTitleStuff.CssClass = "h2title";
+            }
+        }
 
         /// <summary>
         /// Initializes CommandBar

@@ -161,6 +161,7 @@ namespace PXWeb
                 Master.SetH1TextMenuLevel();
                 Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Second);
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
+                InitializeTableHeadings();
                 InitializeVariableSelector();
                 InitializeTableInformation();
                 SelectionFootnotes.ShowNoFootnotes = PXWeb.Settings.Current.Selection.ShowNoFootnoteForSelection;
@@ -211,6 +212,26 @@ namespace PXWeb
         protected void Page_UnLoad(object sender, EventArgs e)
         {
             VariableSelector1.PxActionEvent -= new PCAxis.Web.Controls.PxActionEventHandler(HandlePxAction);
+        }
+
+        
+
+        private void InitializeTableHeadings()
+        {
+            if (PXWeb.Settings.Current.General.Site.MainHeaderForTables == MainHeaderForTablesType.TableName)
+            {
+                litHeaderStart.Text = "<h1>";
+                litHeaderEnd.Text = "</h1>";
+                litSubHeaderStart.Text = "<h2>";
+                litSubHeaderEnd.Text = "</h2>";
+            }
+            else
+            {
+                litHeaderStart.Text = "<h2>";
+                litHeaderEnd.Text = "</h2>";
+                litSubHeaderStart.Text = "<h3>";
+                litSubHeaderEnd.Text = "</h3>";
+            }
         }
 
         /// <summary>

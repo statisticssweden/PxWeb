@@ -4,6 +4,14 @@ h1 {
     @include pxweb-h1-title;
 }
 
+h2 {
+    @include pxweb-h2-title;
+}
+
+h3 {
+    @include pxweb-h3-title;
+}
+
 #pxwebcontent {
   background: $pxweb-background;
 /*  @include just-open-sans;*/  
@@ -156,7 +164,7 @@ h1 {
 }
 
 #pxwebcontent .databaseList {
-    margin-left: 15px;
+    /*margin-left: 15px;*/
 }
 
 #pxwebcontent .search_searchresulttext {
@@ -510,15 +518,16 @@ h1 {
 #pxwebcontent .officialStatisticsImage {
     height: 24px;
     width: 200px;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
+    margin-left: 0px;
     margin-bottom: 12px;
 }
 
 /* jQuery UI controls */
-#PageElements {
+/*#PageElements {
     background: $pxweb-background;
 }
-
+*/
 .ui-draggable .ui-dialog-titlebar {
     background: $pxweb-dark-5;
     border: $pxweb-dark-5;

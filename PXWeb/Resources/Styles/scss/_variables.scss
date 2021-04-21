@@ -66,28 +66,37 @@ $max-readable-width: 580px;
     font-weight: normal;
 }
 
-@mixin pxweb-h1-title {
+@mixin pxweb-heading-title {
     font-family: Roboto Condensed, sans-serif;
-    font-size: 30px;
     font-weight: 700;
     line-height: 100%;
     margin-top: 5px;
-    margin-bottom: 30px;
-    margin-left: 15px;
+/*    margin-left: 15px;*/    
     display: block;
     color: $pxweb-ink-main;
 }
 
-@mixin pxweb-table-title {
-    font-family: Roboto Condensed, sans-serif;
+@mixin pxweb-h1-title {
+    @include pxweb-heading-title;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+@mixin pxweb-h2-title {
+    @include pxweb-heading-title;
     font-size: 28px;
-    font-weight: 700;
-    line-height: 100%;
-    margin-top: 5px;
     margin-bottom: 12px;
-    margin-left: 15px;
-    display: block;
-    color: $pxweb-ink-main;
+}
+@mixin pxweb-h3-title {
+    @include pxweb-heading-title;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+@mixin pxweb-table-title {
+    @include pxweb-heading-title;
+/*    font-size: 28px;*/    
+    margin-bottom: 12px;
 }
 
 @mixin font-title-important {

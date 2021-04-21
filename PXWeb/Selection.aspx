@@ -11,10 +11,12 @@
     <meta property="og:site_name" content="<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
 </asp:Content>
 <asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
-    <h2>
-        <asp:Label ID="MenuTitle" CssClass="hierarchical_tableinformation_title" runat="server" Text=""></asp:Label>
+    <!--<h2>-->
+        <asp:Literal ID="litHeaderStart" runat="server"></asp:Literal>
+        <asp:Label ID="MenuTitle" runat="server" Text=""></asp:Label>
         <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
-    </h2>    
+        <asp:Literal ID="litHeaderEnd" runat="server"></asp:Literal>
+    <!--</h2>-->
 </asp:Content>
 
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -32,6 +34,11 @@
         <%} %>
 
         <div id="PageElements">
+            <div id="subheader">
+                <asp:Literal ID="litSubHeaderStart" runat="server"></asp:Literal>
+                <asp:Label ID="lblSubHeader" runat="server" Text="Choose variables"></asp:Label>
+                <asp:Literal ID="litSubHeaderEnd" runat="server"></asp:Literal>
+            </div>
             <div class="flex-row justify-space-between">
                 <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />
                 <div id="switchLayoutContainer" class="switch-layout-container m-margin-left">

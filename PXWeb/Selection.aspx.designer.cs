@@ -15,6 +15,15 @@ namespace PXWeb
     {
 
         /// <summary>
+        /// litHeaderStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHeaderStart;
+
+        /// <summary>
         /// MenuTitle control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace PXWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.TableInformation TableInformationSelect;
+
+        /// <summary>
+        /// litHeaderEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHeaderEnd;
 
         /// <summary>
         /// InformationLinks control.
@@ -76,6 +94,33 @@ namespace PXWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litDetailedInformation;
+
+        /// <summary>
+        /// litSubHeaderStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litSubHeaderStart;
+
+        /// <summary>
+        /// lblSubHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubHeader;
+
+        /// <summary>
+        /// litSubHeaderEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litSubHeaderEnd;
 
         /// <summary>
         /// UcAccordianAboutTable control.

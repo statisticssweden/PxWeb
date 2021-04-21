@@ -56,7 +56,7 @@
             <%  } %>
            
             <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>
-            <h1>
+            <h1 id="h1Tag" runat="server">
                 <asp:Label ID="lblH1Title" runat="server" Text="" CssClass="h1title"></asp:Label>
             </h1>
              
