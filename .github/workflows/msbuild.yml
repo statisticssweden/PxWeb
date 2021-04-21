@@ -1,0 +1,32 @@
+name: MSBuild
+
+on: [push, pull_request]
+
+jobs:
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-2019
+
+    env:
+      Solution_Name: PCAxis.PX-Web.sln
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - uses: microsoft/setup-msbuild@v1
+
+    - uses: NuGet/setup-nuget@v1
+
+    - name: Restore NuGet Packages
+      run: nuget restore $env:Solution_Name
+
+    - name: Build the application
+      run: msbuild /p:Configuration=$env:Configuration $env:Solution_Name
+      env:
+        Configuration: ${{ matrix.configuration }}
