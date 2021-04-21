@@ -1,6 +1,7 @@
 ﻿/*#region  Active colors */
-$pxweb-green-1: #ecfeed;
-$pxweb-green-2: #A3E8F5nord;
+/*$pxweb-green-1: #ecfeed;*/
+$pxweb-green-1: #F8F7F6;
+$pxweb-green-2: #A3E8F5;
 $pxweb-green-3: #00A0BD;
 $pxweb-green-4: #007694;
 $pxweb-red-3: #ee0000;
@@ -15,6 +16,7 @@ $pxweb-black-1: #222;
 $pxweb-black-2: #000;
 $pxweb-black-3: #222;
 $px-messages-border: #fba504;
+$px-messages-warning: pink;
 $header-h1-sort-of-grey: #222;
 $header-h2-sort-of-grey: #222; // and more
 $tableAlternatingRow-grey: #eee; //aka #footer grey and the new searchvalues-usage-tips
@@ -22,6 +24,8 @@ $another-errormessage: #B0272E;
 $breadcrumb-background: #fff;
 $breadcrumb-text: $pxweb-dark-5;
 $breadcrumb-text-nolink: #222;
+$pxweb-purple-1: pink;
+$px-envelope-icon: $pxweb-green-4;
 /*#endregion*/
 
 /*#region  Active colors inside pxbox*/
@@ -69,6 +73,8 @@ $btn-icon-hover: $pxweb-btn-bg;
 $pxweb-primary-btn-color: $pxbox-white;
 $pxweb-primary-btn-bg: $pxweb-green-4;
 $pxweb-primary-btn-bg-hover: $pxweb-dark-5;
+$pxweb-primary-btn-icon: $pxbox-white;
+$pxweb-primary-btn-icon-hover: $pxbox-white;
 
 //buttons inside box
 $pxbox-btn-color: $pxbox-white;

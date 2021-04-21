@@ -1,0 +1,23 @@
+@include file-header("CommandBar/_perpart.scss");
+
+#pxwebcontent .per_part_rootdiv {
+  @include just-open-sans;
+}
+
+#pxwebcontent .green-rule-thin {
+  border-bottom: 1px solid $pxweb-btn-color;
+}
+
+
+#pxwebcontent .commandbar_perpart_radio_horisontal label {
+  padding: 0 5px 0 5px;
+  vertical-align: text-bottom;
+}
+
+#pxwebcontent .commandbar_perpart_errormessage {
+  color: $pxweb-error-color;
+}
+
+#pxwebcontent .per_part_rootdiv .commandbar_perpart_radio.commandbar_radioButtonList label {
+    text-transform: capitalize;
+  }

@@ -1,7 +1,7 @@
 ﻿/*@import './color-themes/_dark.scss';*/
-/*@import './color-themes/_light.scss';
-*/
+/*@import './color-themes/_light.scss';*/
 /*#region  Active colors */
+/*$pxweb-green-1: #ecfeed;*/
 /*#endregion*/
 /*#region  Active colors inside pxbox*/
 /*#endregion*/
@@ -21,7 +21,6 @@ $pxweb-red-4: #cb3713;
 $negative-red: #f8a67d;
 $pxweb-dark-1: #f0f8f9;
 $pxweb-dark-3: #62919a;
-$pxweb-purple-1: #f2f0ff;
 $scrollbar-color: #b0b0b0;
   */
 /*#endregion*/

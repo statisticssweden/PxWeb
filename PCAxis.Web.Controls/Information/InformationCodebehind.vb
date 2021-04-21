@@ -1,4 +1,5 @@
 ﻿
+Imports System.Text
 Imports System.Web.UI
 Imports PCAxis.Enums
 Imports PCAxis.Paxiom
@@ -82,6 +83,23 @@ Public Class InformationCodebehind
         literal.Text = FormatString(text)
     End Sub
 
+    Private Sub SetNestedAccordionStart(ByVal e As RepeaterItemEventArgs, ByVal literalId As String, ByVal text As String, informationType As InformationType)
+        Dim literal As Literal = DirectCast(e.Item.FindControl(literalId), Literal)
+        Dim sbAccordion As New StringBuilder()
+        sbAccordion.Append($"<div class='pxweb-nested-accordion' id='div{informationType}'>")
+        sbAccordion.Append(
+            $"<button type='button' class='nested-accordion-header closed' id='btn{informationType _
+                              }' aria-expanded='true' onclick='nestedAccordionToggle(div{informationType}, this)'>")
+        sbAccordion.Append($"<span class='header-text'><span>{text}</span></span></button>")
+        sbAccordion.Append("<div class='nested-accordion-body closed'>")
+        literal.Text = sbAccordion.ToString()
+    End Sub
+
+    Private Sub SetNestedAccordionEnd(ByVal e As RepeaterItemEventArgs, ByVal literalId As String)
+        Dim literal As Literal = DirectCast(e.Item.FindControl(literalId), Literal)
+        literal.Text = $"</div></div>"
+    End Sub
+
     ''' <summary>
     ''' Modifies string and makes a translation an abbreviation is passed.
     ''' </summary>
@@ -120,7 +138,7 @@ Public Class InformationCodebehind
             '    SetLiteralText(e, "Header", GetLocalizedString(INFORMATIONLABEL))
             Case ListItemType.Item, ListItemType.AlternatingItem
                 Dim li As InformationListItem = DirectCast(e.Item.DataItem, InformationListItem)
-                SetLiteralText(e, "MainTerm", GetMainTermText(li.InformationType))
+                SetNestedAccordionStart(e, "NestedAccordionStart", GetMainTermText(li.InformationType), li.InformationType)
                 If li.InformationVariables.Count > 0 Then
                     Dim variableRepeater As Repeater = DirectCast(e.Item.FindControl("VariableRepeater"), Repeater)
                     AddHandler variableRepeater.ItemDataBound, AddressOf VariableRepeater_ItemDataBound
@@ -129,6 +147,7 @@ Public Class InformationCodebehind
                 Else
                     SetLiteralText(e, "MainDefinition", GetDefinition(li.InformationType, li.Definition))
                 End If
+                SetNestedAccordionEnd(e, "NestedAccordionEnd")
         End Select
     End Sub
 

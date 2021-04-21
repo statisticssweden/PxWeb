@@ -11,38 +11,49 @@
     <meta property="og:site_name" content="<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
 </asp:Content>
 <asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
-    <h2><asp:Label ID="MenuTitle" CssClass="hierarchical_tableinformation_title" runat="server" Text=""></asp:Label></h2>
+    <h2>
+        <asp:Label ID="MenuTitle" CssClass="hierarchical_tableinformation_title" runat="server" Text=""></asp:Label>
+        <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
+    </h2>    
 </asp:Content>
 
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <div id="switchLayoutContainer" class="switch-layout-container">
-    <asp:Button runat="server" ID="SwitchLayout"  OnClick="SwitchLayout_Click"/>
-    </div> 
-    <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
-    <div id="InformationLinks" runat="server">
-        <asp:HyperLink ID="lnkInformation" runat="server"></asp:HyperLink>
-        <asp:HyperLink ID="lnkFootnotes" runat="server"></asp:HyperLink>
-        <asp:HyperLink ID="lnkDetailedInformation" runat="server" Target="_blank"></asp:HyperLink>
-        <asp:Literal ID="litDetailedInformation" runat="server" visible="false"></asp:Literal>
-    </div>
+    <div id="SelectionPage">
+        
+        <div id="InformationLinks" runat="server">
+            <asp:HyperLink ID="lnkInformation" runat="server"></asp:HyperLink>
+            <asp:HyperLink ID="lnkFootnotes" runat="server"></asp:HyperLink>
+            <asp:HyperLink ID="lnkDetailedInformation" runat="server" Target="_blank"></asp:HyperLink>
+            <asp:Literal ID="litDetailedInformation" runat="server" visible="false"></asp:Literal>
+        </div>
 
-    <div id="PageElements">
-        <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />
-        <ucVariableOverview:VariableOverview runat="server" ID="ucVariableOverview" />
-        <div id="VariableSelection">
-            <pxc:VariableSelector ID="VariableSelector1" runat="server" EnableViewState="true" 
-                ShowSelectedRowsColumns="true" 
-                EliminationImagePath="mandatory.gif"
-                JavascriptRowLimit="500"  />
+        <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+        <%} %>
+
+        <div id="PageElements">
+            <div class="flex-row justify-space-between">
+                <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />
+                <div id="switchLayoutContainer" class="switch-layout-container m-margin-left">
+                    <asp:Button runat="server" ID="SwitchLayout"  OnClick="SwitchLayout_Click" Text="Bytt visningsformat"/>
+                </div>
+            </div>
+            
+            <%--<ucVariableOverview:VariableOverview runat="server" ID="ucVariableOverview" />--%>
+            <div id="VariableSelection">
+                <pxc:VariableSelector ID="VariableSelector1" runat="server" EnableViewState="true" 
+                    ShowSelectedRowsColumns="true" 
+                    EliminationImagePath="mandatory.gif"
+                    JavascriptRowLimit="500"  />
+            </div>
+            <div id="SearchResults" role="status" class="screenreader-only"></div>
+            <div id="divFootnotes" class="settingpanel footnotes" runat="server">
+                <pxc:Footnote ID="SelectionFootnotes" InAccordionStyle="true" runat="server" />
+            </div>
         </div>
-        <div id="SearchResults" role="status" class="screenreader-only"></div>
-        <div id="divFootnotes" class="settingpanel footnotes" runat="server">
-            <pxc:Footnote ID="SelectionFootnotes" runat="server" />
-        </div>
-    </div>
-    <asp:HiddenField ID="AboutTableSelectedAccordion" Value="" runat="server" />
-    <script>
-            jQuery(document).ready(function () {
+        <asp:HiddenField ID="AboutTableSelectedAccordion" Value="" runat="server" />
+        <script>
+                jQuery(document).ready(function () {
 
             ////Hide any currently displayed setting panel
             //settingpanelCollapseAll();
@@ -88,6 +99,7 @@
             });
         });
     </script>
+    </div>
 </asp:Content>
 <asp:Content ID="ContentFooter" ContentPlaceHolderID="ContentPlaceHolderFooter" runat="server">
 </asp:Content>

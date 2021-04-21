@@ -39,9 +39,10 @@ namespace PXWeb
             //Table.MaxRows = PXWeb.Settings.Current.Presentation.Table.MaxRows;
 
             lblTableTitle.Text = PCAxis.Util.GetModelTitle(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel);
-            lblDescription.Text = LocalizationManager.GetLocalizedString("PageViewDataSortDescription");
-            lblCopyDescription.Text = LocalizationManager.GetLocalizedString("PageViewDataSortCopyInstructions");
-
+            lblDescription.Text =  LocalizationManager.GetLocalizedString("PageViewDataSortDescription");
+            if (! LocalizationManager.GetLocalizedString("PageViewDataSortCopyInstructions").Equals("PageViewDataSortCopyInstructions")){
+                lblCopyDescription.Text = LocalizationManager.GetLocalizedString("PageViewDataSortCopyInstructions");
+            }
             if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)
             {
                 var siteTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("SiteTitle");
@@ -49,6 +50,11 @@ namespace PXWeb
                 Master.HeadTitle = lblTableTitle.Text;
                 Master.HeadTitle += ". " + siteTitle;
             }
+            if (PXWeb.Settings.Current.Presentation.NewTitleLayout)
+            {
+                lblTableTitle.Text = "";
+            }
+
 
         }
 

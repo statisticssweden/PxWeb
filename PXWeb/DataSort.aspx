@@ -5,11 +5,9 @@
 </asp:Content>
 
 <asp:Content ID="ContentMain" ContentPlaceHolderID="cphMain" runat="server">
-    <script type="text/javascript">
+    <script>
             
         jQuery(document).ready(function() {
-            jQuery(".table-sort-header").hide();
-            jQuery(".table-jquerysort-header").show();
             jQuery('table').not(".savequery_rblist").hide();
             jQuery('table').not(".savequery_rblist").removeClass('table-class').addClass("tablesorter").show();
             jQuery('table').tablesorter({
@@ -53,9 +51,9 @@
         });
     </script>
         <div id="datasort_content">
-            <div id="datasort_description">
-                <p><asp:Label ID="lblDescription" runat="server" CssClass="datasort_sortdescription" /></p>
-                <p><asp:Label ID="lblCopyDescription" runat="server" CssClass="datasort_copydescription" /></p>          
+            <div id="datasort_description" class="flex-column">
+                <asp:Label ID="lblDescription" runat="server" CssClass="datasort_sortdescription" />
+                <asp:Label ID="lblCopyDescription" runat="server" CssClass="datasort_copydescription" />         
             </div>
             <asp:Label ID="lblTableTitle" runat="server" CssClass="datasort_tabletitle" />
             <pxc:Table id="Table" runat="server" />

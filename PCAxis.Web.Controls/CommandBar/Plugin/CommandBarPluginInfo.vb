@@ -57,6 +57,22 @@
             End Set
         End Property
 
+        Private _hideOnMobile As Boolean
+        ''' <summary>
+        ''' Gets or sets  whether the plugin has a UI
+        ''' </summary>
+        ''' <value>If <c>True</c> then the plugin has UI, otherwise it is just function</value>
+        ''' <returns><c>True</c> if the plugin has a UI, otherwise <c>False</c></returns>
+        ''' <remarks></remarks>
+        Public Property HideOnMobile() As Boolean
+            Get
+                Return _hideOnMobile
+            End Get
+            Set(ByVal value As Boolean)
+                _hideOnMobile = value
+            End Set
+        End Property
+
         Private _category As String
         ''' <summary>
         ''' Gets or sets the category for the plugin

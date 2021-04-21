@@ -1,8 +1,9 @@
 /*@import './color-themes/_dark.scss';*/
-/*@import './color-themes/_light.scss';
-*/@import './color-themes/_official.scss';
+/*@import './color-themes/_light.scss';*/
+@import './color-themes/_official.scss';
 /*@import './color-themes/_screen-reader.scss';*/
 
+$pxweb-error-color: $pxbox-red-3;
 
 /*#region  Inactive colors - not in used */
 /*
@@ -13,7 +14,6 @@ $pxweb-red-4: #cb3713;
 $negative-red: #f8a67d;
 $pxweb-dark-1: #f0f8f9;
 $pxweb-dark-3: #62919a;
-$pxweb-purple-1: #f2f0ff;
 $scrollbar-color: #b0b0b0;
   */
 /*#endregion*/
@@ -45,6 +45,20 @@ $max-readable-width: 580px;
     @include roboto;
 }
 
+@mixin font-title {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+@mixin font-heading {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+@mixin font-normal-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
 @mixin pxweb-input-list-font {
     font-size: 100%;
     font-family: 'Open Sans', sans-serif !important;
@@ -52,17 +66,38 @@ $max-readable-width: 580px;
     font-weight: normal;
 }
 
+@mixin pxweb-h1-title {
+    font-family: Roboto Condensed, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    display: block;
+    color: $pxweb-ink-main;
+}
+
 @mixin pxweb-table-title {
     font-family: Roboto Condensed, sans-serif;
     font-size: 28px;
     font-weight: 700;
     line-height: 100%;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 12px;
     margin-left: 15px;
     display: block;
     color: $pxweb-ink-main;
 }
+
+@mixin font-title-important {
+  font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+@mixin font-all-other-important {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
 
 @mixin roboto {
     font-family: 'Roboto', sans-serif !important;

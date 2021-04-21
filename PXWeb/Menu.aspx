@@ -9,12 +9,13 @@
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <div class="menuTopLeftContent">
-        <asp:Label ID="lblDatabase" CssClass="menu_databasename" runat="server" Text=""></asp:Label>
-    </div>
-    <div class="menuTopRightContent">
         <uc1:SearchControl runat="server" ID="pxSearch" />
     </div>
+    <div class="menuTopRightContent">
+    </div>
     <div class="break"></div>
+    <div id="pxcontent"> 
+    </div>    
     <pxc:TableOfContent ID="TableOfContent1" runat="server" />
     <pxc:TableList ID="TableList1" runat="server" />
 

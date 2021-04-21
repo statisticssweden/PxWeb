@@ -5,6 +5,7 @@
 // Global imports
 @import 'variables';
 @import 'icons.scss';
+@import 'odd-fonts';
 @import './icon-backgrounds.scss';
 // pxweb component imports
 @import './pxweb/_PxWeb.scss';
@@ -41,4 +42,5 @@
 @import './pxweb/_TreeView.scss';
 @import './pxweb/_variableOverview.scss';
 @import './pxweb/_variableselector.scss';
+@import './pxweb/_fullscreen.scss';
 

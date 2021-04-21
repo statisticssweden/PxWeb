@@ -1,7 +1,4 @@
-﻿
-
-
-Imports PCAxis.Web.Core.Enums
+﻿Imports PCAxis.Web.Core.Enums
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
@@ -128,6 +125,7 @@ Public Class TableCodeBehind
     Private _rowCount As Integer
     Private _isCropped As Boolean
     Private Shared _regex As New System.Text.RegularExpressions.Regex("[^\w\.-:_]")
+    Private Property weWroteExtraHeaderWithTitle As Boolean = False
 #End Region
 
 
@@ -273,22 +271,6 @@ Public Class TableCodeBehind
         table.Rows.AddAt(0, headerRow)
 
 
-
-        'From SortTableWithJQuery
-        headerRow = New TableRow
-        headerRow.CssClass = CSS_TABLE_JQUERYSORT_HEADER
-        headerRow.TableSection = TableRowSection.TableHeader
-        nrOfVariables = PaxiomModel.Meta.Variables.Count - 2
-        For i As Integer = 0 To nrOfVariables
-            headerRow.Cells.Add(CreateHeaderCell(i, PaxiomModel.Meta.Variables(i).Name))
-        Next
-        For i As Integer = 0 To lastHeaders.Count - 1
-            headerRow.Cells.Add(CreateHeaderCell(nrOfVariables + 1 + i, lastHeaders(i)))
-
-        Next
-        table.Rows.AddAt(0, headerRow)
-        'end  from SortTableWithJQuery
-
     End Sub
 
 
@@ -311,7 +293,10 @@ Public Class TableCodeBehind
     ''' <returns>a list of last headers</returns>    
     Private Function TransformTableToSortLayout(ByVal table As System.Web.UI.WebControls.Table) As List(Of String)
         table.Rows.RemoveAt(0)
-        table.Rows.RemoveAt(0)
+        If Me.weWroteExtraHeaderWithTitle Then
+            table.Rows.RemoveAt(0)
+        End If
+        
         Dim nrOfColumns As Integer = table.Rows(0).Cells.Count
         For c As Integer = 0 To nrOfColumns - 1
             For r As Integer = 0 To table.Rows.Count - 1
@@ -378,32 +363,29 @@ Public Class TableCodeBehind
     End Function
 
 
-    ''' <summary>
-    ''' Creates a header cell
-    ''' </summary>
-    ''' <param name="column">The column index to create the header for</param>
-    ''' <param name="text">The text of the header</param>
-    ''' <returns>A <see cref="TableHeaderCell" /> with the column header in it</returns>    
-    Private Function CreateHeaderCell(ByVal column As Integer, ByVal text As String) As TableHeaderCell
-        Dim headerCell As New TableHeaderCell
-        Dim lit As New Literal
-        lit.Text = text
-        headerCell.Controls.Add(lit)
-        Return headerCell
-    End Function
-
 
     ''' <summary>
-    ''' Creates a link for a header using an input button
+    ''' Creates a header element with a invisible span for screenreader and an input button
     ''' </summary>
     ''' <param name="column">The column index to create the button for</param>
     ''' <param name="text">The text of the button</param>
     ''' <returns>A <see cref="TableHeaderCell" /> with the button in it</returns>
-    ''' <remarks>Used by the sorting</remarks>
-    Private Function CreateHeaderLink(ByVal column As Integer, ByVal text As String) As TableHeaderCell
+    ''' <remarks>Used by the sorting. Wave said th-element must have some text</remarks>
+    Private Function CreateHeaderLink(ByVal column As Integer, ByVal text_raw As String) As TableHeaderCell
         Dim headerCell As New TableHeaderCell
+        Dim text As String = text_raw.Substring(0, 1).ToUpper() + text_raw.Substring(1)
         Dim lit As New Literal
-        lit.Text = String.Format("<input type=""submit"" id=""TableHeaderButton{0}"" name=""TableHeaderButton{0}"" value=""{1}"" />", column, text)
+        Dim inputElem As String = String.Format("<input  class=""font-heading"" type=""submit"" id=""TableHeaderButton{0}"" name=""TableHeaderButton{0}"" value=""{1}"" />", column, text)
+
+        'In css 2 of these is given display none.
+        Dim textSpan As String = "<div class=""screenreader-only"">"
+        textSpan += "<span class=""isUnsorted"">" + String.Format(GetLocalizedString("PageViewDataSortColumnIsUnsortedSR"), text) + "</span>"
+        textSpan += "<span class=""isSortedAsc"">" + String.Format(GetLocalizedString("PageViewDataSortColumnIsSortedAscSR"), text) + "</span>"
+        textSpan += "<span class=""isSortedDesc"">" + String.Format(GetLocalizedString("PageViewDataSortColumnIsSortedDescSR"), text) + "</span>"
+        textSpan += "</div>"
+
+        lit.Text = textSpan + inputElem
+
         headerCell.Controls.Add(lit)
         Return headerCell
     End Function
@@ -462,6 +444,11 @@ Public Class TableCodeBehind
 
             'Clear the table
             Me.DataTable.Rows.Clear()
+
+            'UUP-292
+            'This removes border="0" attribute on the table-element (which give a w3c-error)
+            'May be removed when controlRenderingCompatibilityVersion="3.5" is removed from web.config
+            'Me.DataTable.RenderingCompatibility = Version.Parse("4.0")
 
             'Check if we need to transform the <see cref="Paxiom.PXModel" />
             Me.CheckTransformTable()
@@ -525,7 +512,7 @@ Public Class TableCodeBehind
         headerCell.CssClass = CSS_TITLE
         headerCell.ColumnSpan = tableMeta.Columns
 
-        If Marker.TitleVisible Then
+        If Marker.TitleVisible AndAlso Not Marker.NewTitleLayout Then
             'Set Title
             If Me.PaxiomModel.Meta.DescriptionDefault AndAlso Not String.IsNullOrEmpty(Me.PaxiomModel.Meta.Description) Then
                 headerCell.Text = Me.PaxiomModel.Meta.Description
@@ -534,14 +521,19 @@ Public Class TableCodeBehind
             End If
         End If
 
-        'Set Title Header
-        headerRow.TableSection = TableRowSection.TableHeader
-        headerRow.Cells.Add(headerCell)
-        DataTable.Rows.Add(headerRow)
+        If Not String.IsNullOrEmpty(headerCell.Text) Then
+            'Set Title Header
+            headerRow.TableSection = TableRowSection.TableHeader
+            headerRow.Cells.Add(headerCell)
+            DataTable.Rows.Add(headerRow)
+            Me.weWroteExtraHeaderWithTitle = True
+        End If
 
 
         'Add Summary(Accessibility)
-        DataTable.Attributes.Add("summary", Me.PaxiomModel.Meta.Title)
+        ' DataTable.Attributes.Add("summary", "SUMMARY " + Me.PaxiomModel.Meta.Title)
+        'summary is no longer (html5) ok. Trying area-desc..by awaiting screnreader testing (Dec. 2020)
+
 
         'Create stringbuilders to store header ids for accessibility
         Dim columnHeadersBuilder((tableMeta.Columns - tableMeta.ColumnOffset) - 1) As StringBuilder
@@ -798,7 +790,7 @@ Public Class TableCodeBehind
 
             'Create a new rowheader for the row
             'Dim currentHeaderCell As TableHeaderCell = Me.CreateRowHeaderCell(val, dataIndex, adjustedRowSpan)
-            Dim currentHeaderCell As TableHeaderCell = Me.CreateRowHeaderCell(Me.PaxiomModel.Meta.Stub(index).Code, val, dataIndex, adjustedRowSpan)
+            Dim currentHeaderCell As TableHeaderCell = Me.CreateRowHeaderCell(Me.PaxiomModel.Meta.Stub(index).Code, val, dataIndex, adjustedRowSpan, index)
 
             'Add the row header to the row
             currentRow.Cells.Add(currentHeaderCell)
@@ -871,17 +863,11 @@ Public Class TableCodeBehind
         Return dataIndex
     End Function
 
-    ''' <summary>
-    ''' Create a row header
-    ''' </summary>
-    ''' <param name="val">The <see cref="Value" /> to use to create the row header</param>
-    ''' <param name="dataIndex">The dataindex of use to create the id</param>
-    ''' <param name="rowSpan">The rowspan for the row header</param>
-    ''' <returns>An instance of <see cref="TableHeaderCell" /></returns>
-    ''' <remarks></remarks>
-    Private Function CreateRowHeaderCell(ByVal val As Value, ByVal dataIndex As Integer, ByVal rowSpan As Integer) As TableHeaderCell
-        Return CreateRowHeaderCell("", val, dataIndex, rowSpan)
-    End Function
+    'Has no references, jfi jan. 2021
+    'Uncomment and add new param as 0, if it breaks :-)
+    'Private Function CreateRowHeaderCell(ByVal val As Value, ByVal dataIndex As Integer, ByVal rowSpan As Integer) As TableHeaderCell
+    'Return CreateRowHeaderCell("", val, dataIndex, rowSpan)
+    'End Function
 
 
     ''' <summary>
@@ -893,7 +879,9 @@ Public Class TableCodeBehind
     ''' <param name="rowSpan">The rowspan for the row header</param>
     ''' <returns>An instance of <see cref="TableHeaderCell" /></returns>
     ''' <remarks>Extends original function CreateRowHeaderCell() with HeaderPresentationType</remarks>
-    Private Function CreateRowHeaderCell(ByVal variableCode As String, ByVal val As Value, ByVal dataIndex As Integer, ByVal rowSpan As Integer) As TableHeaderCell
+    Private Function CreateRowHeaderCell(ByVal variableCode As String, ByVal val As Value, ByVal dataIndex As Integer, ByVal rowSpan As Integer, ByVal stubIndex As Integer) As TableHeaderCell
+        'Solving UUP-292: adding stubindex= "index of stubvariable" to id  to avoid
+        ' getting duplicate ids when 2 variables in stub start with same val.Code . e.g 01 so
         Dim rowHeaderCell As New TableHeaderCell()
         Dim selectedPresentation As HeaderPresentationType = HeaderPresentationType.Text
 
@@ -916,7 +904,7 @@ Public Class TableCodeBehind
             '.Text = Me.ProcessValue(val.Value) '.Text = Me.ProcessValue(val.Value + " ," + val.Code)
             .Scope = TableHeaderScope.Row
             'Must create id like this so that asp.net don't change the id
-            .Attributes.Add("id", String.Format(CultureInfo.InvariantCulture, "R{0}{1}", _regex.Replace(val.Code, "_"), dataIndex))
+            .Attributes.Add("id", String.Format(CultureInfo.InvariantCulture, "R{0}{1}.V{2}", _regex.Replace(val.Code, "_"), dataIndex, stubIndex))
             .RowSpan = rowSpan
         End With
 

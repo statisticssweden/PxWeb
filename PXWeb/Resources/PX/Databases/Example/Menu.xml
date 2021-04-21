@@ -1,610 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Menu>
-  <Language lang="fi" default="false">
-    <MenuItem selection="Example" sortCode="Example">
-      <Description></Description>
-      <Text>Example</Text>
-      <TextShort></TextShort>
-      <MenuItem selection="Example\alias" sortCode="Väestö">
-        <Description></Description>
-        <Text>Väestö</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">kunta</Attribute>
-          <Attribute name="Var1Values">Ruotsi, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ikä</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">aika</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">tyypi</Attribute>
-          <Attribute name="Var4Values">Tulomuutto, Lähtömuutto, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sukupuoli</Attribute>
-          <Attribute name="Var5Values">miehet, naiset, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8371</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1langensvfiolikacelln2" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">kunta</Attribute>
-          <Attribute name="Var1Values">Ruotsi, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ikä</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">aika</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">tyypi</Attribute>
-          <Attribute name="Var4Values">Tulomuutto, Lähtömuutto, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sukupuoli</Attribute>
-          <Attribute name="Var5Values">miehet, naiset, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
-          <Description></Description>
-          <Text>SCB, Statistiska databaser</Text>
-          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=1</Url>
-        </Url>
-      </MenuItem>
-      <MenuItem selection="Example\AttributesCellnotes" sortCode="AttributesCellnotes">
-        <Description></Description>
-        <Text>AttributesCellnotes</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">kunta</Attribute>
-          <Attribute name="Var1Values">Ruotsi, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ikä</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">aika</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">tyypi</Attribute>
-          <Attribute name="Var4Values">Tulomuutto, Lähtömuutto, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sukupuoli</Attribute>
-          <Attribute name="Var5Values">miehet, naiset, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Example\error" sortCode="error">
-        <Description></Description>
-        <Text>error</Text>
-        <TextShort></TextShort>
-        <MenuItem selection="Example\error\multilang" sortCode="multilang">
-          <Description></Description>
-          <Text>multilang</Text>
-          <TextShort></TextShort>
-          <Link selection="Example\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1langensvfiolikacelln2error" type="PX" category="O" tableId="" status="A">
-            <Description></Description>
-            <Text>Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">kunta</Attribute>
-            <Attribute name="Var1Values">Ruotsi, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ikä</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">aika</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">tyypi</Attribute>
-            <Attribute name="Var4Values">Tulomuutto, Lähtömuutto, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sukupuoli</Attribute>
-            <Attribute name="Var5Values">miehet, naiset, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">8369</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20200214 10:53</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2020-02-14 10:53:51</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
-          </Link>
-        </MenuItem>
-      </MenuItem>
-      <MenuItem selection="Example\multilanguage" sortCode="multilanguage">
-        <Description></Description>
-        <Text>multilanguage</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">kunta</Attribute>
-          <Attribute name="Var1Values">Ruotsi, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ikä</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">aika</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">tyypi</Attribute>
-          <Attribute name="Var4Values">Tulomuutto, Lähtömuutto, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sukupuoli</Attribute>
-          <Attribute name="Var5Values">miehet, naiset, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1langensvfiolikacelln2" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">kunta</Attribute>
-          <Attribute name="Var1Values">Ruotsi, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ikä</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">aika</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">tyypi</Attribute>
-          <Attribute name="Var4Values">Tulomuutto, Lähtömuutto, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sukupuoli</Attribute>
-          <Attribute name="Var5Values">miehet, naiset, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-      </MenuItem>
-    </MenuItem>
-  </Language>
-  <Language lang="sv" default="true">
-    <MenuItem selection="Example" sortCode="Example">
-      <Description></Description>
-      <Text>Example</Text>
-      <TextShort></TextShort>
-      <MenuItem selection="Example\alias" sortCode="Befolkning">
-        <Description></Description>
-        <Text>Befolkning</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\alias\BE0101F1ensvdescdefault.px" sortCode="BE0101F1ensvdescdefault" type="PX" category="O" tableId="" status="A">
-          <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-          <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5091</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8371</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1langensvfiolikacelln2" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\alias\BE0101F1langensvolikacelln.px" sortCode="BE0101F1langensvolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5714</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
-          <Description></Description>
-          <Text>SCB, Statistiska databaser</Text>
-          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=1</Url>
-        </Url>
-      </MenuItem>
-      <MenuItem selection="Example\AttributesCellnotes" sortCode="AttributesCellnotes">
-        <Description></Description>
-        <Text>AttributesCellnotes</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Example\error" sortCode="error">
-        <Description></Description>
-        <Text>error</Text>
-        <TextShort></TextShort>
-        <MenuItem selection="Example\error\multilang" sortCode="multilang">
-          <Description></Description>
-          <Text>multilang</Text>
-          <TextShort></TextShort>
-          <Link selection="Example\error\multilang\BE0101F1ensvcontvarerror.px" sortCode="BE0101F1ensvcontvarerror" type="PX" category="O" tableId="" status="A">
-            <Description>Filen innehåller Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-            <Text>Filen innehåller Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5090</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="autoOpen">true</Attribute>
-            <Attribute name="updated">20200214 10:53</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2020-02-14 10:53:51</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
-          </Link>
-          <Link selection="Example\error\multilang\BE0101F1ensvdescdefaulterror.px" sortCode="BE0101F1ensvdescdefaulterror" type="PX" category="O" tableId="" status="A">
-            <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-            <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5105</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="autoOpen">true</Attribute>
-            <Attribute name="updated">20200214 10:53</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2020-02-14 10:53:51</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
-          </Link>
-          <Link selection="Example\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1langensvfiolikacelln2error" type="PX" category="O" tableId="" status="A">
-            <Description></Description>
-            <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">8369</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20200214 10:53</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2020-02-14 10:53:51</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
-          </Link>
-        </MenuItem>
-      </MenuItem>
-      <MenuItem selection="Example\Hierarchies" sortCode="Hierarchies">
-        <Description></Description>
-        <Text>Hierarchies</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\Hierarchies\PR0101B3hier2lang.px" sortCode="PR0101B3hier2lang" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Konsumentprisindex (KPI) (enligt COICOP), 1980=100 eftervaru-/tjänstegrupp och tid.</Text>
-          <TextShort>PR0101B3</TextShort>
-          <Attribute name="Var1Name">varu-/tjänstegrupp</Attribute>
-          <Attribute name="Var1Values">Alla, 01 Livsmedel och alkoholfria drycker, 01.1 Livsmedel, 01.1.1 Bröd och övriga spannmålsprodukter, ..., 12.7 Övriga tjänster</Attribute>
-          <Attribute name="Var1NumberOfValues">66</Attribute>
-          <Attribute name="Var2Name">tid</Attribute>
-          <Attribute name="Var2Values">2005M08, 2005M09, 2005M10, 2005M11, ..., 2006M06</Attribute>
-          <Attribute name="Var2NumberOfValues">11</Attribute>
-          <Attribute name="size">14755</Attribute>
-          <Attribute name="cells">726</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20060707 08:37</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Example\multilanguage" sortCode="multilanguage">
-        <Description></Description>
-        <Text>multilanguage</Text>
-        <TextShort></TextShort>
-        <Link selection="Example\multilanguage\BE0101F1ensvdescdefault.px" sortCode="BE0101F1ensvdescdefault" type="PX" category="O" tableId="" status="A">
-          <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-          <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5091</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1langensvfiolikacelln2" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Example\multilanguage\BE0101F1langensvolikacelln.px" sortCode="BE0101F1langensvolikacelln" type="PX" category="O" tableId="" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5714</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20200214 10:53</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2020-02-14 10:53:51</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-      </MenuItem>
-    </MenuItem>
-  </Language>
-  <Language lang="en" default="false">
+  <Language lang="en" default="true">
     <MenuItem selection="Example" sortCode="Example">
       <Description></Description>
       <Text>Example</Text>
@@ -779,10 +175,10 @@
           <StartTime></StartTime>
           <EndTime></EndTime>
         </Link>
-        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=2" sortCode="" type="URL" category="" linkPres="">
+        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
           <Description></Description>
-          <Text>Statistics Sweden databases</Text>
-          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=2</Url>
+          <Text>SCB, Statistiska databaser</Text>
+          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=1</Url>
         </Url>
       </MenuItem>
       <MenuItem selection="Example\AttributesCellnotes" sortCode="AttributesCellnotes">
@@ -1462,6 +858,44 @@
           <StartTime></StartTime>
           <EndTime></EndTime>
         </Link>
+      </MenuItem>
+      <MenuItem selection="Example\Misc" sortCode="Misc">
+        <Description></Description>
+        <Text>Misc</Text>
+        <TextShort></TextShort>
+        <MenuItem selection="Example\Misc\OfficialStatistics" sortCode="OfficialStatistics">
+          <Description></Description>
+          <Text>OfficialStatistics</Text>
+          <TextShort></TextShort>
+          <Link selection="Example\Misc\OfficialStatistics\officialstatistics.px" sortCode="officialstatistics" type="PX" category="O" tableId="" status="A">
+            <Description></Description>
+            <Text>Migration by region, age, period, type and sex</Text>
+            <TextShort>BE0101F1</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+            <Attribute name="Var1NumberOfValues">4</Attribute>
+            <Attribute name="Var2Name">age</Attribute>
+            <Attribute name="Var2Values">20, 21, 22, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">period</Attribute>
+            <Attribute name="Var3Values">2003, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">type</Attribute>
+            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
+            <Attribute name="Var4NumberOfValues">2</Attribute>
+            <Attribute name="Var5Name">sex</Attribute>
+            <Attribute name="Var5Values">men, women, </Attribute>
+            <Attribute name="Var5NumberOfValues">2</Attribute>
+            <Attribute name="size">5742</Attribute>
+            <Attribute name="cells">48</Attribute>
+            <Attribute name="updated">20210323 09:37</Attribute>
+            <Attribute name="modified">20040212 16:28</Attribute>
+            <Published>2021-03-23 09:37:45</Published>
+            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+            <StartTime></StartTime>
+            <EndTime></EndTime>
+          </Link>
+        </MenuItem>
       </MenuItem>
       <MenuItem selection="Example\Month" sortCode="Month">
         <Description></Description>
@@ -2397,6 +1831,443 @@
           <Attribute name="modified">20090604 09:58</Attribute>
           <Published>2020-02-14 10:53:51</Published>
           <LastUpdated>2009-06-04 09:58:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+      </MenuItem>
+    </MenuItem>
+  </Language>
+  <Language lang="sv" default="false">
+    <MenuItem selection="Example" sortCode="Example">
+      <Description></Description>
+      <Text>Example</Text>
+      <TextShort></TextShort>
+      <MenuItem selection="Example\alias" sortCode="Befolkning">
+        <Description></Description>
+        <Text>Befolkning</Text>
+        <TextShort></TextShort>
+        <Link selection="Example\alias\BE0101F1ensvdescdefault.px" sortCode="BE0101F1ensvdescdefault" type="PX" category="O" tableId="" status="A">
+          <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
+          <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">5091</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Link selection="Example\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">8371</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Link selection="Example\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1langensvfiolikacelln2" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">8368</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Link selection="Example\alias\BE0101F1langensvolikacelln.px" sortCode="BE0101F1langensvolikacelln" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">5714</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
+          <Description></Description>
+          <Text>SCB, Statistiska databaser</Text>
+          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=1</Url>
+        </Url>
+      </MenuItem>
+      <MenuItem selection="Example\AttributesCellnotes" sortCode="AttributesCellnotes">
+        <Description></Description>
+        <Text>AttributesCellnotes</Text>
+        <TextShort></TextShort>
+        <Link selection="Example\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">8697</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+      </MenuItem>
+      <MenuItem selection="Example\error" sortCode="error">
+        <Description></Description>
+        <Text>error</Text>
+        <TextShort></TextShort>
+        <MenuItem selection="Example\error\multilang" sortCode="multilang">
+          <Description></Description>
+          <Text>multilang</Text>
+          <TextShort></TextShort>
+          <Link selection="Example\error\multilang\BE0101F1ensvcontvarerror.px" sortCode="BE0101F1ensvcontvarerror" type="PX" category="O" tableId="" status="A">
+            <Description>Filen innehåller Flyttningar för Sverige, Stockholms län och några kommuner</Description>
+            <Text>Filen innehåller Flyttningar för Sverige, Stockholms län och några kommuner</Text>
+            <TextShort>BE0101F1</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+            <Attribute name="Var1NumberOfValues">4</Attribute>
+            <Attribute name="Var2Name">ålder</Attribute>
+            <Attribute name="Var2Values">20, 21, 22, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">tid</Attribute>
+            <Attribute name="Var3Values">2003, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">typ</Attribute>
+            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+            <Attribute name="Var4NumberOfValues">2</Attribute>
+            <Attribute name="Var5Name">kön</Attribute>
+            <Attribute name="Var5Values">män, kvinnor, </Attribute>
+            <Attribute name="Var5NumberOfValues">2</Attribute>
+            <Attribute name="size">5090</Attribute>
+            <Attribute name="cells">48</Attribute>
+            <Attribute name="autoOpen">true</Attribute>
+            <Attribute name="updated">20200214 10:53</Attribute>
+            <Attribute name="modified">20040212 16:28</Attribute>
+            <Published>2020-02-14 10:53:51</Published>
+            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+            <StartTime></StartTime>
+            <EndTime></EndTime>
+          </Link>
+          <Link selection="Example\error\multilang\BE0101F1ensvdescdefaulterror.px" sortCode="BE0101F1ensvdescdefaulterror" type="PX" category="O" tableId="" status="A">
+            <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
+            <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
+            <TextShort>BE0101F1</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+            <Attribute name="Var1NumberOfValues">4</Attribute>
+            <Attribute name="Var2Name">ålder</Attribute>
+            <Attribute name="Var2Values">20, 21, 22, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">tid</Attribute>
+            <Attribute name="Var3Values">2003, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">typ</Attribute>
+            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+            <Attribute name="Var4NumberOfValues">2</Attribute>
+            <Attribute name="Var5Name">kön</Attribute>
+            <Attribute name="Var5Values">män, kvinnor, </Attribute>
+            <Attribute name="Var5NumberOfValues">2</Attribute>
+            <Attribute name="size">5105</Attribute>
+            <Attribute name="cells">48</Attribute>
+            <Attribute name="autoOpen">true</Attribute>
+            <Attribute name="updated">20200214 10:53</Attribute>
+            <Attribute name="modified">20040212 16:28</Attribute>
+            <Published>2020-02-14 10:53:51</Published>
+            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+            <StartTime></StartTime>
+            <EndTime></EndTime>
+          </Link>
+          <Link selection="Example\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1langensvfiolikacelln2error" type="PX" category="O" tableId="" status="A">
+            <Description></Description>
+            <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+            <TextShort>BE0101F1</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+            <Attribute name="Var1NumberOfValues">4</Attribute>
+            <Attribute name="Var2Name">ålder</Attribute>
+            <Attribute name="Var2Values">20, 21, 22, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">tid</Attribute>
+            <Attribute name="Var3Values">2003, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">typ</Attribute>
+            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+            <Attribute name="Var4NumberOfValues">2</Attribute>
+            <Attribute name="Var5Name">kön</Attribute>
+            <Attribute name="Var5Values">män, kvinnor, </Attribute>
+            <Attribute name="Var5NumberOfValues">2</Attribute>
+            <Attribute name="size">8369</Attribute>
+            <Attribute name="cells">48</Attribute>
+            <Attribute name="updated">20200214 10:53</Attribute>
+            <Attribute name="modified">20040212 16:28</Attribute>
+            <Published>2020-02-14 10:53:51</Published>
+            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+            <StartTime></StartTime>
+            <EndTime></EndTime>
+          </Link>
+        </MenuItem>
+      </MenuItem>
+      <MenuItem selection="Example\Hierarchies" sortCode="Hierarchies">
+        <Description></Description>
+        <Text>Hierarchies</Text>
+        <TextShort></TextShort>
+        <Link selection="Example\Hierarchies\PR0101B3hier2lang.px" sortCode="PR0101B3hier2lang" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Konsumentprisindex (KPI) (enligt COICOP), 1980=100 eftervaru-/tjänstegrupp och tid.</Text>
+          <TextShort>PR0101B3</TextShort>
+          <Attribute name="Var1Name">varu-/tjänstegrupp</Attribute>
+          <Attribute name="Var1Values">Alla, 01 Livsmedel och alkoholfria drycker, 01.1 Livsmedel, 01.1.1 Bröd och övriga spannmålsprodukter, ..., 12.7 Övriga tjänster</Attribute>
+          <Attribute name="Var1NumberOfValues">66</Attribute>
+          <Attribute name="Var2Name">tid</Attribute>
+          <Attribute name="Var2Values">2005M08, 2005M09, 2005M10, 2005M11, ..., 2006M06</Attribute>
+          <Attribute name="Var2NumberOfValues">11</Attribute>
+          <Attribute name="size">14755</Attribute>
+          <Attribute name="cells">726</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20060707 08:37</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2006-07-07 08:37:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+      </MenuItem>
+      <MenuItem selection="Example\Misc" sortCode="Misc">
+        <Description></Description>
+        <Text>Misc</Text>
+        <TextShort></TextShort>
+        <MenuItem selection="Example\Misc\OfficialStatistics" sortCode="OfficialStatistics">
+          <Description></Description>
+          <Text>OfficialStatistics</Text>
+          <TextShort></TextShort>
+          <Link selection="Example\Misc\OfficialStatistics\officialstatistics.px" sortCode="officialstatistics" type="PX" category="O" tableId="" status="A">
+            <Description></Description>
+            <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+            <TextShort>BE0101F1</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+            <Attribute name="Var1NumberOfValues">4</Attribute>
+            <Attribute name="Var2Name">ålder</Attribute>
+            <Attribute name="Var2Values">20, 21, 22, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">tid</Attribute>
+            <Attribute name="Var3Values">2003, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">typ</Attribute>
+            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+            <Attribute name="Var4NumberOfValues">2</Attribute>
+            <Attribute name="Var5Name">kön</Attribute>
+            <Attribute name="Var5Values">män, kvinnor, </Attribute>
+            <Attribute name="Var5NumberOfValues">2</Attribute>
+            <Attribute name="size">5742</Attribute>
+            <Attribute name="cells">48</Attribute>
+            <Attribute name="updated">20210323 09:37</Attribute>
+            <Attribute name="modified">20040212 16:28</Attribute>
+            <Published>2021-03-23 09:37:45</Published>
+            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+            <StartTime></StartTime>
+            <EndTime></EndTime>
+          </Link>
+        </MenuItem>
+      </MenuItem>
+      <MenuItem selection="Example\multilanguage" sortCode="multilanguage">
+        <Description></Description>
+        <Text>multilanguage</Text>
+        <TextShort></TextShort>
+        <Link selection="Example\multilanguage\BE0101F1ensvdescdefault.px" sortCode="BE0101F1ensvdescdefault" type="PX" category="O" tableId="" status="A">
+          <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
+          <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">5091</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Link selection="Example\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1langensvfiolikacelln" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">8697</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Link selection="Example\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1langensvfiolikacelln2" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">8368</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
+          <StartTime></StartTime>
+          <EndTime></EndTime>
+        </Link>
+        <Link selection="Example\multilanguage\BE0101F1langensvolikacelln.px" sortCode="BE0101F1langensvolikacelln" type="PX" category="O" tableId="" status="A">
+          <Description></Description>
+          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
+          <TextShort>BE0101F1</TextShort>
+          <Attribute name="Var1Name">region</Attribute>
+          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
+          <Attribute name="Var1NumberOfValues">4</Attribute>
+          <Attribute name="Var2Name">ålder</Attribute>
+          <Attribute name="Var2Values">20, 21, 22, </Attribute>
+          <Attribute name="Var2NumberOfValues">3</Attribute>
+          <Attribute name="Var3Name">tid</Attribute>
+          <Attribute name="Var3Values">2003, </Attribute>
+          <Attribute name="Var3NumberOfValues">1</Attribute>
+          <Attribute name="Var4Name">typ</Attribute>
+          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
+          <Attribute name="Var4NumberOfValues">2</Attribute>
+          <Attribute name="Var5Name">kön</Attribute>
+          <Attribute name="Var5Values">män, kvinnor, </Attribute>
+          <Attribute name="Var5NumberOfValues">2</Attribute>
+          <Attribute name="size">5714</Attribute>
+          <Attribute name="cells">48</Attribute>
+          <Attribute name="updated">20200214 10:53</Attribute>
+          <Attribute name="modified">20040212 16:28</Attribute>
+          <Published>2020-02-14 10:53:51</Published>
+          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
           <StartTime></StartTime>
           <EndTime></EndTime>
         </Link>

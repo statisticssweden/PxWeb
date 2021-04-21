@@ -24,29 +24,77 @@ namespace PXWeb
                 Master.HeadTitle = value;
             }
         }
+        /* Dublicate of public IPxUrl PxUrlObject
+         * 
+        private IPxUrl _pxUrlObj;
+
+        public IPxUrl PxUrlObj
+        {
+            get
+            {
+                if (_pxUrlObj == null)
+                {
+                    _pxUrlObj = RouteInstance.PxUrlProvider.Create(null);
+                }
+
+                return _pxUrlObj;
+            }
+        }
+        */
+
+        /* It seems these are not in use.
+        private static string GetLastPahtPart(string path)
+        {
+            return path.Substring(path.LastIndexOf(PathHandler.NODE_DIVIDER)).Replace(PathHandler.NODE_DIVIDER, "");
+        }
+
+        private string GetTableListName()
+        {
+            if (string.IsNullOrEmpty(PxUrlObj.Path) || PxUrlObj.Path.IndexOf(PathHandler.NODE_DIVIDER) == -1) return string.Empty;
+
+            string lastPathPart = GetLastPahtPart(PxUrlObj.Path);
+
+            if (string.IsNullOrEmpty(PxUrlObj.Table))
+            {
+                return lastPathPart;
+            }
+            else
+            {
+                string pathToTableList = PxUrlObj.Path.Substring(0, PxUrlObj.Path.LastIndexOf(PathHandler.NODE_DIVIDER));
+                return GetLastPahtPart(pathToTableList);
+            }
+        }
+        */
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel == null)
+            btnfullscreen.Value = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("MasterPageFullscreen");
+            btnBurgerMenu.Value = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebMenuBurger");
+            Page.MaintainScrollPositionOnPostBack = true;
+
+
+
+            if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel == null || !PaxiomManager.PaxiomModel.IsComplete)
             {
                 List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.LANGUAGE_KEY, PxUrlObject.Language));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.DB_KEY, PxUrlObject.Database));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.PATH_KEY, PxUrlObject.Path));
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.TABLE_KEY, PxUrlObject.Table));
-                
+
                 string rurl = PCAxis.Web.Core.Management.LinkManager.CreateLink("Selection.aspx", linkItems.ToArray());
                 Response.Redirect(rurl);
             }
 
+            lblFullscreenTitle.Text = PaxiomManager.PaxiomModel.Meta.Title;
+
             if (!IsPostBack)
             {
-                imgShowSaveQueryExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
-                imgUnsafeMessage.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
 
                 if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
                 {
                     Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Presentation);
+                    Master.SetH1TextMenuLevel();
                     Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Third);
                     Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
                     InitializeCommandBar();
@@ -54,12 +102,9 @@ namespace PXWeb
                     InitializeTableQuery();
                     InitializeSaveQueryFunction();
                 }
-                //lnkSaveQueryInformation.NavigateUrl = PanelLink.BuildLink("savequery1");
-                //lnkHideInformation.NavigateUrl = PanelLink.BuildLink("");
             }
             ShowMessages(PCAxis.Web.Core.Management.PaxiomManager.OperationsTracker.IsUnsafe);
             divUnsafeMessage.Visible = PCAxis.Web.Core.Management.PaxiomManager.OperationsTracker.IsUnsafe;
-            SetSaveQueryLinks();
             CommandBar1.PxActionEvent += new PCAxis.Web.Controls.PxActionEventHandler(HandlePxAction);
         }
 
@@ -175,6 +220,8 @@ namespace PXWeb
             string helpPage;
             string db;
 
+            TableQueryInformation.ShowSaveApiQueryButton = PXWeb.Settings.Current.Features.Api.ShowSaveApiQueryButton;
+
             if (!PXWeb.Settings.Current.Features.General.ApiEnabled || !PXWeb.Settings.Current.Features.Api.ShowQueryInformation)
             {
                 TableQueryInformation.Visible = false;
@@ -196,10 +243,13 @@ namespace PXWeb
             {
                 TableQueryInformation.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.CNMM;
             }
+
             TableQueryInformation.URLRoot = PXWeb.Settings.Current.Features.Api.UrlRoot;
-            TableQueryInformation.Database = db;
+            TableQueryInformation.Database = db; 
             TableQueryInformation.Path = PxUrlObject.Path;
             TableQueryInformation.Table = PxUrlObject.Table;
+
+            TableQueryInformation.SaveApiQueryText = PXWeb.Settings.Current.Features.Api.SaveApiQueryText;
 
             helpPage = PCAxis.Web.Controls.Configuration.ConfigurationHelper.GetPxPage("apihelp");
             if (string.IsNullOrEmpty(helpPage))
@@ -207,7 +257,7 @@ namespace PXWeb
                 helpPage = "~/ApiHelp.aspx";
             }
 
-            TableQueryInformation.RoutePrefix = PXWeb.Settings.Current.Features.Api.RoutePrefix;
+            TableQueryInformation.RoutePrefix = PXWeb.Settings.Current.Features.Api.RoutePrefix; //"api/v0/";
             TableQueryInformation.MoreInfoURL = helpPage;
             TableQueryInformation.MoreInfoIsExternalPage = true;
         }
@@ -220,15 +270,15 @@ namespace PXWeb
             if (!PXWeb.Settings.Current.Features.General.SavedQueryEnabled)
             {
                 SavedQueryFeature.Visible = false;
-                lnkSaveQueryInformation.Visible = false;
-                imgShowSaveQueryExpander.Visible = false;
+                SaveQueryPanel.Visible = false;
                 return;
             }
+            SaveQueryLabel.Text = GetLocalizedString("CtrlSaveQuerylnkSaveQuery");
             //else
             //{
             //    SavedQueryFeature.OutputFilter = CommandBarFilterFactory.GetFilter(CommandBarPluginFilterType.TableLayout1.ToString());
             //}
-            
+
         }
 
         /// <summary>
@@ -319,7 +369,7 @@ namespace PXWeb
                         return "";
                     case timeTypeTop:
                         return timeValueQueryString;
-                    case timeTypeFrom:    
+                    case timeTypeFrom:
                         return lastSelectedTimeValue;
                     default:
                         return "";
@@ -338,23 +388,14 @@ namespace PXWeb
             }
         }
 
-        private void SetSaveQueryLinks()
+        protected bool useStivkyHeaderFullscreen()
         {
-            if (this.Visible)
+            bool stickyHeaderFullscreen = PXWeb.Settings.Current.Presentation.Table.UseStickyHeaderFullscreen;
+            if (stickyHeaderFullscreen)
             {
-                if (!string.IsNullOrEmpty(QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL)))
-                {
-                    if (QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL).Equals("savequery1"))
-                    {
-                        lnkSaveQueryInformation.NavigateUrl = PanelLink.BuildLink("");
-                        imgShowSaveQueryExpander.CssClass = "px-settings-collapseimage";
-                        return;
-                    }
-                }
-                lnkSaveQueryInformation.NavigateUrl = PanelLink.BuildLink("savequery1");
-                imgShowSaveQueryExpander.CssClass = "px-settings-expandimage";
+                return true;
             }
+            return false;
         }
-
     }
 }

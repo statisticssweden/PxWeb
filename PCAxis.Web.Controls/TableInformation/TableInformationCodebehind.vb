@@ -88,6 +88,7 @@ Partial Public Class TableInformationCodebehind
         End If
         Select Case Me.Marker.Type
             Case TableInformation.TableInformationType.TableView
+                'See also Table\TableCodebehind.vb, look for TableHeaderCell
                 If Me.PaxiomModel IsNot Nothing Then
                     If Not Me.PaxiomModel.Meta.DescriptionDefault AndAlso Marker.ShowSourceDescription = True AndAlso Not String.IsNullOrEmpty(Me.PaxiomModel.Meta.Description) Then
                         Me.TableTitle = Me.PaxiomModel.Meta.Description

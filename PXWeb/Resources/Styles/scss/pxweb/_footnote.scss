@@ -1,15 +1,19 @@
 ﻿@include file-header("_footnote.scss");
 /* Used for Footnote webcontrol */
 /* Define if specific style should be assigned to the title and definition of a type of footnote */
+
+/* Note to mergers :-) These selectors does not hit the popup, which Micke fixed in github, in PxWeb.scss(?).*/
+
+/*
 #pxwebcontent .footnotes_container {
-  margin:10px 0 10px 0;
+  margin: 10px 0 10px 0;
   @include just-open-sans;
 }
 
 #pxwebcontent .footnote_heading {
   @include just-open-sans;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #pxwebcontent dl.footnote_definitionlist dt {
@@ -31,13 +35,69 @@
   margin-left: 2em;
 }
 
+*/
+
+#pxwebcontent .footnote_valuenote_header {
+  text-transform: capitalize;
+}
+
+#pxwebcontent .notetype_valuenote_header {
+  text-transform: capitalize;
+}
+
 #pxwebcontent .footnote_no_footnotes {
   font-style: italic;
 }
 
+
+
+#pxwebcontent .footnotes_container {
+  margin: 10px 0 0px 0;
+
+  & .the_long_text {
+    @include just-open-sans;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  & .obs-notes .the_long_text {
+    font-size: 16px;
+  }
+
+  & .pxweb-accordion {
+    margin-top: 20px;
+  }
+
+  & .accordion-body {
+    margin-left: 32px;
+  }
+
+  & h3, h4, .accordion-header, .obs-notes {
+    @include font-title;
+    font-size: 18px;
+  }
+
+  & .notetype_valuenote_key, .notetype_valuenote_value {
+    margin-left: 32px;
+  }
+
+  & .obs-notes-h3 {
+    padding-right: 5px;
+  } 
+}
+
+/*this copy of class=pxweb-link is needed because these a-elements are stored in the datasource and thus outside "our" controll.*/
+#pxwebcontent .footnotes_container a {
+  color: $pxweb-green-4;
+
+  &:hover, &:focus {
+    color: $pxweb-white;
+  }
+}
+
 #pxwebcontent .footnotes_container a {
   @include open-sans;
-
   align-items: center;
   background-image: linear-gradient(120deg, $pxweb-green-4 0%, $pxweb-green-4 100%);
   background-position: 0 100%;
@@ -57,9 +117,9 @@
   transition: background-size .2s ease-in, color .1s;
 }
 
-  #pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
-    background-size: 100% 100%;
-    color: $pxweb-white;
-    outline: 0;
-    text-decoration: none;
-  }
+#pxwebcontent .footnotes_container a:hover, #pxwebcontent .footnotes_container a:focus {
+  background-size: 100% 100%;
+  color: $pxweb-white;
+  outline: 0;
+  text-decoration: none;
+}

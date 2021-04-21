@@ -217,7 +217,7 @@ namespace PXWeb
                 model = PXWeb.Management.SavedQueryPaxiomCache.Current.Fetch(cacheKey, createCopy);
                 PaxiomManager.QueryModel = PXWeb.Management.SavedQueryPaxiomCache.Current.FetchQueryModel(cacheKey, createCopy);
 
-                if (model == null)
+                if (model == null || PaxiomManager.QueryModel == null)
                 {
                     DateTime timeStamp = DateTime.Now;
                     // Model not found in cache - load it manually

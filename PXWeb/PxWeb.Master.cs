@@ -70,7 +70,12 @@ namespace PXWeb
                 return _imagesPath;
             }
         }
-        
+        public string OfficialStatisticsImage
+        {
+            get;
+            set;
+        }
+
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)
@@ -159,8 +164,65 @@ namespace PXWeb
             SkipToMain.Text = GetLocalizedString("PxWebSkipToMainContentLinkText");
             SkipToMain.Attributes.Add("aria-label", GetLocalizedString("PxWebSkipToMainContentLinkScreenReader"));
             SkipToMain.Attributes.Add("href", GetLocalizedString("#pxcontent"));
+
+            if (PXWeb.Settings.Current.General.Global.ShowInformationTypes.OfficialStatistics)
+            {
+                if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null && PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.OfficialStatistics)
+                {
+                    OfficialStatisticsImage = "";
+                    if (!string.IsNullOrWhiteSpace(PxUrlObj.Language))
+                    {
+                        string img = $"official_statistics_{ PxUrlObj.Language }.svg";
+                        OfficialStatisticsImage = ResolveUrl(System.IO.Path.Combine(PXWeb.Settings.Current.General.Paths.ImagesPath, img));
+                    }
+                }
+            }
+
         }
 
+        /// <summary>
+        /// Set database name as H1 text
+        /// </summary>
+        public void SetH1TextDatabase()
+        {
+            if (!string.IsNullOrEmpty(PxUrlObj.Database) && !string.IsNullOrEmpty(PxUrlObj.Language))
+            {
+                DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(PxUrlObj.Database);
+
+                if (dbi != null)
+                {
+                    lblH1Title.Text = dbi.GetDatabaseName(PxUrlObj.Language);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Set menu level as H1 text
+        /// </summary>
+        public void SetH1TextMenuLevel()
+        {
+            if (!string.IsNullOrEmpty(PxUrlObj.Path))
+            {
+                PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Path);
+                if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                {
+                    lblH1Title.Text = itm.Text;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Set custom H1 text 
+        /// </summary>
+        /// <param name="text"></param>
+        public void SetH1TextCustom(string text)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+                lblH1Title.Text = text;
+            }
+        }
 
         /// <summary>
         /// Page unload - remove eventhandler for LinkManager.EnsureQueries
@@ -311,6 +373,7 @@ namespace PXWeb
         {
             navigationFlowControl.Visible = show;
         }
+
 
         private void InitializeNavigationFlow()
         {

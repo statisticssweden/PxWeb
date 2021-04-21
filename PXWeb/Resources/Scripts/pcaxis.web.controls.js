@@ -25,11 +25,17 @@ function PivotManual_Deselect(fromId, toId) {
 }
 
 function PivotManual_Reorder(listId, direction) {
+    var selectedOption = jQuery("#" + listId + " option:selected");
+
     if (direction == "top") {
-        jQuery("#" + listId + " option:selected").remove().prependTo("#" + listId);
+        if (selectedOption[0].previousElementSibling) {
+            selectedOption[0].parentNode.insertBefore(selectedOption[0], selectedOption[0].previousElementSibling);
+        }
     }
     else {
-        jQuery("#" + listId + " option:selected").remove().appendTo("#" + listId);
+        if (selectedOption[0].nextElementSibling) {
+            selectedOption[0].parentNode.insertBefore(selectedOption[0].nextElementSibling, selectedOption[0]);
+        }
     }
     return false;
 }
@@ -53,7 +59,7 @@ function PivotManual_Submit(headingId, stubId) {
 
 
 function UpdateNumberSelected(ListBoxID, StatsSpanID, variablePlacement, limitSelectionBy) {
-    
+
     var selectbox = document.getElementById(ListBoxID.replace(/\$/gi, "_"));
     var selected = selectbox.selectedOptions.length;
 
@@ -202,7 +208,7 @@ function VariableSelector_OrignalOrder(ListBoxID, currentOrder) {
     var originalOrder = JSON.parse(sessionStorage.getItem(ListBoxID));
     var sortedOption;
     var originalOption = new Array();
-    
+
     for (var i = 0; i < originalOrder.length; i++) {
         sortedOption = selectbox.options[currentOrder.indexOf(originalOrder[i])];
         originalOption.push(sortedOption);
@@ -229,7 +235,7 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
         storeOriginalOrder = true;
         var order = new Array();
     }
-        
+
     //Get text
     sc = jQuery("#" + TextBoxID).prop("value");
 
@@ -274,8 +280,6 @@ function VariableSelector_SearchValues(ListBoxID, TextBoxID, CheckBoxID, StatsSp
 
     for (i = lst.options.length - 1; i > -1; i--) {
         var currentOption = lst.options[i];
-
-        //var result = currentOption.text.toLowerCase().search(rex);
 
         if (storeOriginalOrder) {
             order.unshift(currentOption.value);
@@ -397,23 +401,24 @@ function commandbarDownloadFile(url) {
 }
 
 //Open up the given div as a modal popup dialog
-jQuery.fn.dialogFunction = function(options) {
-    var divId = jQuery(this)[0].id;  
+jQuery.fn.dialogFunction = function (options) {
+    var divId = jQuery(this)[0].id;
     //Check if dialog already exists, and if so just open it  
     //This solves the can't open same dialog twice issue.
     if (jQuery("#" + divId).is(':data(dialog)')) {
-        jQuery("#" + divId).dialog("open");  
-    }  
-    else{
+        jQuery("#" + divId).dialog("open");
+    }
+    else {
         jQuery("#" + divId).dialog({
-                                width: jQuery("#" + divId).css("width"),
-                                modal: true,
-                                hide: "fade",
-                                resizable: false, 
-                                close: function(ev, ui) { jQuery(this).dialog('destroy'); } });
-            jQuery("#" + divId).dialog("open").find(":input").eq(0).focus();  
-     }  
-}; 
+            width: jQuery("#" + divId).css("width"),
+            modal: true,
+            hide: "fade",
+            resizable: false,
+            close: function (ev, ui) { jQuery(this).dialog('destroy'); }
+        });
+        jQuery("#" + divId).dialog("open").find(":input").eq(0).focus();
+    }
+};
 
 //Replaces an element with .id-property in an array if it exists, else adds element to array
 //arr: array to remove item from
@@ -489,7 +494,7 @@ function SetLabelText_IdAndCSS(text, idregex, cssclass, append) {
                 if (append) {
                     obj.innerHTML += text;
                 } else {
-                obj.innerHTML = text;
+                    obj.innerHTML = text;
                 }
             }
         }
@@ -499,7 +504,7 @@ function SetLabelText_IdAndCSS(text, idregex, cssclass, append) {
 //Return text from label
 //idregex: part of labelid, first label that matches both in id part and css class is used.
 //cssclass: the labels css-class
-function GetLabelText(idregex,cssclass) {
+function GetLabelText(idregex, cssclass) {
     var re = new RegExp(idregex);
     var retval = "";
     jQuery.each(jQuery("span"), function(index, obj) {
@@ -540,7 +545,7 @@ function displayCellInformation(id, closetext) {
     }
     else {
         url = url + paramChar + 'cellid=' + id;
-    } 
+    }
 
     if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem("rxid")) {
         // create rxid cookie before making Ajax request
@@ -612,4 +617,36 @@ function accordionToggle(panel, button) {
     } else {
         button.setAttribute('aria-expanded', 'true');
     }
+}
+
+function nestedAccordionToggle(panel, button) {
+    var accordionBody = panel.querySelector('.nested-accordion-body');
+    accordionBody.classList.toggle("closed");
+    accordionBody.classList.toggle("open");
+    button.classList.toggle("closed");
+    button.classList.toggle("open");
+
+    if (accordionBody.classList.contains('closed')) {
+        button.setAttribute('aria-expanded', 'false');
+    } else {
+        button.setAttribute('aria-expanded', 'true');
+    }
+}
+
+function openAccordion(buttonId, bodyId) {
+    var accordionButton = document.getElementById(buttonId);
+    var accordionBody = document.getElementById(bodyId);
+
+    accordionButton.classList.remove('closed');
+    accordionButton.setAttribute('aria-expanded', 'true');
+    accordionBody.classList.remove('closed');
+}
+
+function closeAccordion(buttonId, bodyId) {
+    var accordionButton = document.getElementById(buttonId);
+    var accordionBody = document.getElementById(bodyId);
+
+    accordionButton.classList.add('closed');
+    accordionButton.setAttribute('aria-expanded', 'false');
+    accordionBody.classList.add('closed');
 }

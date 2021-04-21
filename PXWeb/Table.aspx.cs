@@ -13,6 +13,8 @@ namespace PXWeb
 {
     public partial class Table : System.Web.UI.Page
     {
+        private static log4net.ILog FeatureUsageLogger = log4net.LogManager.GetLogger("FeatureUsage");
+
         private IPxUrl _pxUrlObj;
 
         private IPxUrl PxUrlObj
@@ -27,30 +29,24 @@ namespace PXWeb
                 return _pxUrlObj;
             }
         }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder = null;
 
             if (!IsPostBack)
             {
-                imgSettingsExpander.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
-                imgTableCropped.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
                 {
                     InitializeCommandBar();
                     InitializeTableInformation();
                     InitializeTable();
                 }
-                //lnkShowTblSettings.NavigateUrl = PanelLink.BuildLink("tablesettings");
-                //lnkHideTblSettings.NavigateUrl = PanelLink.BuildLink("");
             }
-            SetDisplayModeOnPanels();
             Table1.PxTableCroppedEvent += new EventHandler(HandlePxTableCroppedEvent);
 
             lblTableCropped.Visible = false;
-            imgTableCropped.Visible = false;
-            lnkCancelSettings.NavigateUrl = PanelLink.BuildLink("");
+            lblTableCroppedHeading.Visible = false;
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -100,6 +96,9 @@ namespace PXWeb
                     }
                 }
             }
+            SettingsLabel.Text = Master.GetLocalizedString("PxWebTableUserSettingsShow");
+            pnlForRblZeroOption.GroupingText = "<span class='font-heading'>" + Master.GetLocalizedString("PxWebTableUserSettingsLegend") + "</span>"; ;
+            
         }
 
         /// <summary>
@@ -186,6 +185,7 @@ namespace PXWeb
             Table1.MaxColumns = PXWeb.Settings.Current.Presentation.Table.MaxColumns;
             Table1.MaxRows = PXWeb.Settings.Current.Presentation.Table.MaxRows;
             Table1.TitleVisible = PXWeb.Settings.Current.Presentation.Table.TitleVisible;
+            Table1.NewTitleLayout = PXWeb.Settings.Current.Presentation.NewTitleLayout;
             Table1.DisplayCellInformation = PXWeb.Settings.Current.Presentation.Table.Attributes.DisplayAttributes;
             Table1.DisplayDefaultAttributes = PXWeb.Settings.Current.Presentation.Table.Attributes.DisplayDefaultAttributes;
 
@@ -209,29 +209,12 @@ namespace PXWeb
             lblTableCropped.Text = String.Format(PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTableCropped"),
                                         PXWeb.Settings.Current.Presentation.Table.MaxRows.ToString(),
                                         PXWeb.Settings.Current.Presentation.Table.MaxColumns.ToString());
+
+            lblTableCroppedHeading.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTableCroppedHeading");
+            tableMessagePanel.Visible = true;
             lblTableCropped.Visible = true;
-            imgTableCropped.Visible = true;
+            lblTableCroppedHeading.Visible = true;
             Master.ShowMessages(true);
-        }
-
-        private void SetDisplayModeOnPanels()
-        {
-            if (!string.IsNullOrEmpty(QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL)))
-            {
-                if (QuerystringManager.GetQuerystringParameter(PanelLink.DISPLAY_PANEL).Equals("tablesettings"))
-                {
-                    pnlSettings.Style.Add("display", "inline-block");
-                    lnkShowTblSettings.NavigateUrl = PanelLink.BuildLink("");
-                    imgSettingsExpander.CssClass = "px-settings-collapseimage";
-
-                    return;
-                }
-            }
-
-            pnlSettings.Style.Add("display", "none");
-            lnkShowTblSettings.NavigateUrl = PanelLink.BuildLink("tablesettings");
-            imgSettingsExpander.CssClass = "px-settings-expandimage";
-
         }
 
         /// <summary>
@@ -245,6 +228,11 @@ namespace PXWeb
             {
                 TableManager.Settings.ZeroOption = (ZeroOptionType)Enum.Parse(typeof(ZeroOptionType), rblZeroOption.SelectedValue, true);
                 Table1.RemoveRowsOption = TableManager.Settings.ZeroOption;
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT, "HideRows", 
+                      TableManager.Settings.ZeroOption.ToString(), PaxiomManager.PaxiomModel.Meta.TableID);
+
+
+
             }
         }
     }
