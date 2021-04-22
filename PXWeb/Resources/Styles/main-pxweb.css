@@ -3193,7 +3193,7 @@ span.AspNet-TreeView-Collapse::before {
   font-family: 'Roboto Condensed', sans-serif !important;
   font-stretch: condensed;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 21px;
   display: inline-block;
   padding-right: 40px;
   overflow-wrap: break-word; }
@@ -3230,11 +3230,16 @@ span.AspNet-TreeView-Collapse::before {
   font-size: smaller; }
 
 #pxwebcontent .variableselector_valuesselect_hiddeneventbutton_panel {
-  height: 22px; }
+  /*    height: 22px;*/
+  display: none; }
 
 #pxwebcontent .variableselector_valuesselect_statistics_panel {
   white-space: nowrap;
-  overflow: hidden; }
+  overflow: hidden;
+  border-top-style: solid;
+  border-top-color: #007694;
+  border-top-width: 2px;
+  padding-top: 7px; }
 
 #pxwebcontent .variableselector_valuesselect_valueslistbox {
   width: 100%;
@@ -3336,11 +3341,16 @@ span.AspNet-TreeView-Collapse::before {
   font-weight: bold; }
 
 #pxwebcontent .variableselector_valuesselect_mandatory_text {
-  font-size: 12px; }
+  font-size: 12px;
+  /*    font-weight: 400;*/ }
 
-#pxwebcontent .variableselector_valuesselect_mandatory_star {
+#pxwebcontent .variableselector_valuesselect_mandatory_text:after {
+  content: "*";
   font-size: 28px; }
 
+/*#pxwebcontent .variableselector_valuesselect_mandatory_star {
+    font-size: 28px;
+}*/
 #pxwebcontent .link-buttons-container {
   flex-basis: 100%; }
 

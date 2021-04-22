@@ -1,8 +1,7 @@
 <%@ control  inherits="PCAxis.Web.Controls.BreadcrumbCodebehind" %>
 <%@ Register Assembly="PCAxis.Web.Controls" Namespace="PCAxis.Web.Controls" TagPrefix="pxc" %>
 
-<nav>
- <div id="breadcrumb" > 
+<nav id="breadcrumb" aria-label="breadcrumb">
     <asp:HyperLink ID="lnkHome" runat="server">    
         <asp:Image ID="imgHome" runat="server" CssClass="breadcrumb_homebutton"/>
     </asp:HyperLink>
@@ -25,7 +24,6 @@
     <asp:Label ID="lblSepBeforeSubPage" runat="server" Text="/" CssClass="breadcrumb_sep" Visible="false"></asp:Label>
     <asp:Label ID="lblSubPage" runat="server"  CssClass="breadcrumb_text_nolink breadcrumb_subpage" Visible="false"></asp:Label>
       
-  </div>
 </nav>
 
 

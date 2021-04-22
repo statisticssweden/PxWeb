@@ -108,7 +108,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected NumberValuesSelectedTitel As Literal
     Protected NumberValuesSelected As Label
     Protected MandatoryText As Label
-    Protected MandatoryStar As Label
+    'Protected MandatoryStar As Label
     Protected OptionalVariableText As Label
     Protected MetadataCloseLabel As Label
     Protected SearchTip As Label
@@ -357,7 +357,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Private Sub SetElimination()
         If Marker.ShowElimMark And Not Marker.Variable.Elimination Then
             MandatoryText.Visible = True
-            MandatoryStar.Visible = True
+            'MandatoryStar.Visible = True
             Me.MustSelectCustom.ErrorMessage = Marker.Variable.Name
             Me.MustSelectCustom.Enabled = True
             If (Marker.ClientSideValidation) Then
@@ -370,7 +370,7 @@ Public Class VariableSelectorValueSelectCodebehind
             OptionalVariablePanel.Visible = False
         Else
             MandatoryText.Visible = False
-            MandatoryStar.Visible = False
+            'MandatoryStar.Visible = False
             Me.MustSelectCustom.Enabled = False
             OptionalVariablePanel.Visible = True
         End If
