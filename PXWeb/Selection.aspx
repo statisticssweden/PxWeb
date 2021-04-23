@@ -12,12 +12,8 @@
     <meta property="og:site_name" content="<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
 </asp:Content>
 <asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
-    <!--<h2>-->
-        <!--<asp:Literal ID="litHeaderStart" runat="server"></asp:Literal>-->
-        <asp:Label ID="MenuTitle" runat="server" Text=""></asp:Label>
-        <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
-        <!--<asp:Literal ID="litHeaderEnd" runat="server"></asp:Literal>-->
-    <!--</h2>-->
+    <pxwebCustomControl:HeadingLabel ID="MenuTitle" runat="server" Text=""></pxwebCustomControl:HeadingLabel>
+    <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
 </asp:Content>
 
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">

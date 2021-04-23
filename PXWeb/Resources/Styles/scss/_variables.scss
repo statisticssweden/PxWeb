@@ -79,13 +79,13 @@ $max-readable-width: 580px;
 @mixin pxweb-h1-title {
     @include pxweb-heading-title;
     font-size: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 @mixin pxweb-h2-title {
     @include pxweb-heading-title;
     font-size: 28px;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
 }
 @mixin pxweb-h3-title {
     @include pxweb-heading-title;

@@ -15,22 +15,13 @@ namespace PXWeb
     {
 
         /// <summary>
-        /// litHeaderStart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHeaderStart;
-
-        /// <summary>
         /// MenuTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MenuTitle;
+        protected global::PXWeb.CustomControls.HeadingLabel MenuTitle;
 
         /// <summary>
         /// TableInformationSelect control.
@@ -40,15 +31,6 @@ namespace PXWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::PCAxis.Web.Controls.TableInformation TableInformationSelect;
-
-        /// <summary>
-        /// litHeaderEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litHeaderEnd;
 
         /// <summary>
         /// InformationLinks control.
