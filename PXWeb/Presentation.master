@@ -18,7 +18,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
-            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage" alt="<%= Master.GetLocalizedString("PxWebOfficialStatisticsLogo") %>"/>
         <%} %>
         <div id="subheader">
             <pxwebCustomControl:HeadingLabel ID="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderResult%>"></pxwebCustomControl:HeadingLabel>

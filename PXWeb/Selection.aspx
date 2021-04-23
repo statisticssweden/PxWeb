@@ -27,7 +27,7 @@
         </div>
 
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
-            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage" alt="<%= Master.GetLocalizedString("PxWebOfficialStatisticsLogo") %>"/>
         <%} %>
 
 
