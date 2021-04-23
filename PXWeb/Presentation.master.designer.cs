@@ -33,6 +33,33 @@ namespace PXWeb
         protected global::PCAxis.Web.Controls.TableInformation PresentationTitleStuff;
 
         /// <summary>
+        /// litSubHeaderStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litSubHeaderStart;
+
+        /// <summary>
+        /// lblSubHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubHeader;
+
+        /// <summary>
+        /// litSubHeaderEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litSubHeaderEnd;
+
+        /// <summary>
         /// btnBurgerMenu control.
         /// </summary>
         /// <remarks>

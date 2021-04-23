@@ -22,7 +22,11 @@
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
             <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
         <%} %>
-
+        <div id="subheader">
+            <asp:Literal ID="litSubHeaderStart" runat="server"></asp:Literal>
+            <asp:Label ID="lblSubHeader" runat="server" Text="Result"></asp:Label>
+            <asp:Literal ID="litSubHeaderEnd" runat="server"></asp:Literal>
+        </div>
         <div>
            <input id="btnBurgerMenu" runat="server" ClientIDMode="Static" type="button"   onclick="ToggleBurgerMenu()" class="pxweb-buttons pxweb-btn burger_menu-icon icon-placement"/>
         </div>

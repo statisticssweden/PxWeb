@@ -3,6 +3,7 @@
 <%@ Register Src="~/UserControls/MetadataSystemControl.ascx" TagPrefix="ucMetadata" TagName="Metadata" %>
 <%@ Register Src="~/UserControls/VariableOverviewControl.ascx" TagPrefix="ucVariableOverview" TagName="VariableOverview" %>
 <%@ Register Src="~/UserControls/AccordianAboutTableControl.ascx" TagPrefix="ucAccordianAboutTable" TagName="AccordianAboutTable" %>
+<%@ Register TagPrefix="pxwebCustomControl" Namespace="PXWeb.CustomControls" Assembly="PXWeb" %>
 <asp:Content ID="ContentHead" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <meta name="Description" content="<%= TableTitle %>" />
     <meta property="og:title" content="<%= TableTitle  %>-<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
@@ -12,10 +13,10 @@
 </asp:Content>
 <asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
     <!--<h2>-->
-        <asp:Literal ID="litHeaderStart" runat="server"></asp:Literal>
+        <!--<asp:Literal ID="litHeaderStart" runat="server"></asp:Literal>-->
         <asp:Label ID="MenuTitle" runat="server" Text=""></asp:Label>
         <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
-        <asp:Literal ID="litHeaderEnd" runat="server"></asp:Literal>
+        <!--<asp:Literal ID="litHeaderEnd" runat="server"></asp:Literal>-->
     <!--</h2>-->
 </asp:Content>
 
@@ -33,11 +34,10 @@
             <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
         <%} %>
 
+
         <div id="PageElements">
             <div id="subheader">
-                <asp:Literal ID="litSubHeaderStart" runat="server"></asp:Literal>
-                <asp:Label ID="lblSubHeader" runat="server" Text="Choose variables"></asp:Label>
-                <asp:Literal ID="litSubHeaderEnd" runat="server"></asp:Literal>
+                <pxwebCustomControl:HeadingLabel id="lblSubHeader" runat="server">Choose variables</pxwebCustomControl:HeadingLabel>
             </div>
             <div class="flex-row justify-space-between">
                 <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />

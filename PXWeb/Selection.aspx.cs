@@ -220,17 +220,21 @@ namespace PXWeb
         {
             if (PXWeb.Settings.Current.General.Site.MainHeaderForTables == MainHeaderForTablesType.TableName)
             {
-                litHeaderStart.Text = "<h1>";
-                litHeaderEnd.Text = "</h1>";
-                litSubHeaderStart.Text = "<h2>";
-                litSubHeaderEnd.Text = "</h2>";
+                //litHeaderStart.Text = "<h1>";
+                //litHeaderEnd.Text = "</h1>";
+                //litSubHeaderStart.Text = "<h2>";
+                //litSubHeaderEnd.Text = "</h2>";
+                TableInformationSelect.TitleTag = TableInformationCodebehind.TitleTags.H1;
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
             }
             else
             {
-                litHeaderStart.Text = "<h2>";
-                litHeaderEnd.Text = "</h2>";
-                litSubHeaderStart.Text = "<h3>";
-                litSubHeaderEnd.Text = "</h3>";
+                //litHeaderStart.Text = "<h2>";
+                //litHeaderEnd.Text = "</h2>";
+                //litSubHeaderStart.Text = "<h3>";
+                //litSubHeaderEnd.Text = "</h3>";
+                TableInformationSelect.TitleTag = TableInformationCodebehind.TitleTags.H2;
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H3;
             }
         }
 
