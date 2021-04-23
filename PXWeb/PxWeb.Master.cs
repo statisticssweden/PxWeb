@@ -215,7 +215,7 @@ namespace PXWeb
             }
             else
             {
-                h1Tag.Visible = false;
+                lblH1Title.Visible = false;
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PxWeb.master.cs" Inherits="PXWeb.PxWeb" %>
 
 <%@ Register Src="~/UserControls/Login.ascx" TagPrefix="uc1" TagName="Login" %>
+<%@ Register TagPrefix="pxwebCustomControl" Namespace="PXWeb.CustomControls" Assembly="PXWeb" %>
+
 <!DOCTYPE html>
 
 <html lang="<%= HtmlLang %>">
@@ -56,9 +58,7 @@
             <%  } %>
            
             <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>
-            <h1 id="h1Tag" runat="server">
-                <asp:Label ID="lblH1Title" runat="server" Text="" CssClass="h1title"></asp:Label>
-            </h1>
+            <pxwebCustomControl:HeadingLabel ID="lblH1Title" runat="server" Text="" CssClass="h1title"></pxwebCustomControl:HeadingLabel>
              
             <pxc:NavigationFlow ID="navigationFlowControl" runat="server" Visible="false" /> 
             <div id="table-title">

@@ -114,22 +114,13 @@ namespace PXWeb
         protected global::PCAxis.Web.Controls.Breadcrumb breadcrumb1;
 
         /// <summary>
-        /// h1Tag control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1Tag;
-
-        /// <summary>
         /// lblH1Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblH1Title;
+        protected global::PXWeb.CustomControls.HeadingLabel lblH1Title;
 
         /// <summary>
         /// navigationFlowControl control.
