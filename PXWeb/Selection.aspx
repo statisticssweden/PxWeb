@@ -33,7 +33,7 @@
 
         <div id="PageElements">
             <div id="subheader">
-                <pxwebCustomControl:HeadingLabel id="lblSubHeader" runat="server">Choose variables</pxwebCustomControl:HeadingLabel>
+                <pxwebCustomControl:HeadingLabel id="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderChooseVariables%>"></pxwebCustomControl:HeadingLabel>
             </div>
             <div class="flex-row justify-space-between">
                 <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />

@@ -87,6 +87,7 @@ namespace PXWeb
             }
 
             lblFullscreenTitle.Text = PaxiomManager.PaxiomModel.Meta.Title;
+            InitializeTableHeadings();
 
             if (!IsPostBack)
             {
@@ -97,7 +98,6 @@ namespace PXWeb
                     Master.SetH1TextMenuLevel();
                     Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Third);
                     Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
-                    InitializeTableHeadings();
                     InitializeCommandBar();
                     InitializeInformationAndFootnotes();
                     InitializeTableQuery();

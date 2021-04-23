@@ -17,24 +17,15 @@
 </asp:Content>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <!--<div id="PageElements">-->
-
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
             <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
         <%} %>
         <div id="subheader">
-            <pxwebCustomControl:HeadingLabel ID="lblSubHeader" runat="server" Text="Result"></pxwebCustomControl:HeadingLabel>
+            <pxwebCustomControl:HeadingLabel ID="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderResult%>"></pxwebCustomControl:HeadingLabel>
         </div>
         <div>
            <input id="btnBurgerMenu" runat="server" ClientIDMode="Static" type="button"   onclick="ToggleBurgerMenu()" class="pxweb-buttons pxweb-btn burger_menu-icon icon-placement"/>
         </div>
-<!--    </div>
-
-<script>
-
-</script>-->
-
-
 
         <div id="Presentation" class="s-margin-top presentation-container">
             <div id="PresentationLeft" class="presentation-left mobilemenu mobilemenuhidden">
@@ -110,7 +101,6 @@
         </div>
 
     <script>
-            //jQuery(function () { jQuery("#PageElements").tabs(); });
 
     jQuery(document).ready(function () {
         var fullScreenTitle = document.getElementById("fullscreentitel");

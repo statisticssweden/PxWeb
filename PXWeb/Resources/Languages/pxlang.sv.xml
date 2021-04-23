@@ -509,6 +509,8 @@
   <sentence name="PxWebLogoAlt" value="PxWeb 2021 v1 beta" />
   <sentence name="PxWebHome" value="Hem" />
   <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
+  <sentence name="PxWebSubHeaderChooseVariables" value="Välj variabler"/>
+  <sentence name="PxWebSubHeaderResult" value="Resultat"/>
   <sentence name="PxWebMenu" value="Meny" />
   <sentence name="PxWebSelection" value="Val" />
   <sentence name="PxWebInformation" value="Information" />

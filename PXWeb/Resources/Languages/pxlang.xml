@@ -683,7 +683,9 @@
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="English" />
-  <sentence name="PxWebMenuBurger" value="Menu" />
+   <sentence name="PxWebSubHeaderChooseVariables" value="Choose variables"/>
+   <sentence name="PxWebSubHeaderResult" value="Result"/>
+   <sentence name="PxWebMenuBurger" value="Menu" />
    <sentence name="PxWebMenu" value="Menu"/>
    <sentence name="PxWebMenuExplanation" value="(C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement. Character in brackets shows the lowest regional level." />
    <sentence name="PxWebSelection" value="Selection"/>

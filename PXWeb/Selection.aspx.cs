@@ -150,6 +150,7 @@ namespace PXWeb
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = PXWeb.Management.PxContext.GetPaxiomForSelection(db, path, table, lang, clearModel);
            _linkManager = PXWeb.Settings.Current.Database[PxUrl.Database].Metadata.MetaLinkMethod;
             InitializeLayoutFormat();
+            InitializeTableHeadings();
 
             if (!IsPostBack)
             {
@@ -161,7 +162,6 @@ namespace PXWeb
                 Master.SetH1TextMenuLevel();
                 Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.Second);
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
-                InitializeTableHeadings();
                 InitializeVariableSelector();
                 InitializeTableInformation();
                 SelectionFootnotes.ShowNoFootnotes = PXWeb.Settings.Current.Selection.ShowNoFootnoteForSelection;
