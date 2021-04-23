@@ -506,7 +506,7 @@
   <sentence name="CancelButton" value="Avbryt" />
   <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1 beta" />
   <sentence name="PxWebApplicationName" value="PxWeb 2021 v1 beta" />
-  <sentence name="PxWebLogoAlt" value="PxWeb 2021 v1 beta" />
+  <sentence name="PxWebLogoAlt" value="PxWeb logotyp" />
   <sentence name="PxWebHome" value="Hem" />
   <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
   <sentence name="PxWebSubHeaderChooseVariables" value="Välj variabler"/>

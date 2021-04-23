@@ -679,7 +679,7 @@
 	 <!-- PxWeb -->
 	 <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1 beta"/>
 	 <sentence name="PxWebApplicationName" value="PxWeb 2021 v1 beta"/>
-   <sentence name="PxWebLogoAlt" value="PxWeb 2021 v1 beta"/>
+   <sentence name="PxWebLogoAlt" value="PxWeb Logotype"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="English" />
