@@ -2,7 +2,7 @@
 <%@ MasterType VirtualPath="~/PxWeb.Master" %>
 <%@ Register Src="~/UserControls/SaveQueryCreate.ascx" TagPrefix="ucSaveQuery" TagName="SaveQuery" %>
 <%@ Register Src="~/UserControls/AccordianAboutTableControl.ascx" TagPrefix="ucAccordianAboutTable" TagName="AccordianAboutTable" %>
-
+<%@ Register TagPrefix="pxwebCustomControl" Namespace="PXWeb.CustomControls" Assembly="PXWeb" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
@@ -23,9 +23,7 @@
             <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
         <%} %>
         <div id="subheader">
-            <asp:Literal ID="litSubHeaderStart" runat="server"></asp:Literal>
-            <asp:Label ID="lblSubHeader" runat="server" Text="Result"></asp:Label>
-            <asp:Literal ID="litSubHeaderEnd" runat="server"></asp:Literal>
+            <pxwebCustomControl:HeadingLabel ID="lblSubHeader" runat="server" Text="Result"></pxwebCustomControl:HeadingLabel>
         </div>
         <div>
            <input id="btnBurgerMenu" runat="server" ClientIDMode="Static" type="button"   onclick="ToggleBurgerMenu()" class="pxweb-buttons pxweb-btn burger_menu-icon icon-placement"/>

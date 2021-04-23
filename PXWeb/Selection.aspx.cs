@@ -223,12 +223,14 @@ namespace PXWeb
                 TableInformationSelect.TitleTag = TableInformationCodebehind.TitleTags.H1;
                 MenuTitle.Level = CustomControls.HeadingLabel.HeadingLevel.H1;
                 lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
+                lblSubHeader.Visible = true;
             }
             else
             {
                 TableInformationSelect.TitleTag = TableInformationCodebehind.TitleTags.H2;
                 MenuTitle.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
                 lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H3;
+                lblSubHeader.Visible = false;
             }
         }
 

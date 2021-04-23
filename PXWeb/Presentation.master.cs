@@ -186,15 +186,15 @@ namespace PXWeb
             {
                 PresentationTitleStuff.TitleTag = TableInformationCodebehind.TitleTags.H1;
                 PresentationTitleStuff.CssClass = "h1title";
-                litSubHeaderStart.Text = "<h2>";
-                litSubHeaderEnd.Text = "</h2>";
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
+                lblSubHeader.Visible = true;
             }
             else
             {
                 PresentationTitleStuff.TitleTag = TableInformationCodebehind.TitleTags.H2;
                 PresentationTitleStuff.CssClass = "h2title";
-                litSubHeaderStart.Text = "<h3>";
-                litSubHeaderEnd.Text = "</h3>";
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H3;
+                lblSubHeader.Visible = false;
             }
         }
 
