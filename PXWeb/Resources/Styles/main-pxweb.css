@@ -104,39 +104,6 @@ $scrollbar-color: #b0b0b0;
     height: auto; } }
 
 /* **********************************  _PxWeb.scss *********************************** */
-h1 {
-  font-family: Roboto Condensed, sans-serif;
-  font-weight: 700;
-  line-height: 100%;
-  margin-top: 5px;
-  /*    margin-left: 15px;*/
-  display: block;
-  color: #222;
-  font-size: 30px;
-  margin-bottom: 32px; }
-
-h2 {
-  font-family: Roboto Condensed, sans-serif;
-  font-weight: 700;
-  line-height: 100%;
-  margin-top: 5px;
-  /*    margin-left: 15px;*/
-  display: block;
-  color: #222;
-  font-size: 28px;
-  margin-bottom: 22px; }
-
-h3 {
-  font-family: Roboto Condensed, sans-serif;
-  font-weight: 700;
-  line-height: 100%;
-  margin-top: 5px;
-  /*    margin-left: 15px;*/
-  display: block;
-  color: #222;
-  font-size: 22px;
-  margin-bottom: 12px; }
-
 #pxwebcontent {
   background: #fff;
   /*  @include just-open-sans;*/

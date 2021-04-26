@@ -15,6 +15,18 @@
   height: 102%;
 }
 
+h1 {
+    @include pxweb-h1-title;
+}
+
+h2 {
+    @include pxweb-h2-title;
+}
+
+h3 {
+    @include pxweb-h3-title;
+}
+
 #pxwebcontent p {
   margin-bottom: 4px;
 }

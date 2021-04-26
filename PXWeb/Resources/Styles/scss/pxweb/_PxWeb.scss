@@ -1,16 +1,5 @@
 ﻿@include file-header("_PxWeb.scss");
 
-h1 {
-    @include pxweb-h1-title;
-}
-
-h2 {
-    @include pxweb-h2-title;
-}
-
-h3 {
-    @include pxweb-h3-title;
-}
 
 #pxwebcontent {
   background: $pxweb-background;
