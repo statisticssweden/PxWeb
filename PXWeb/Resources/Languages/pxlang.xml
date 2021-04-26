@@ -677,8 +677,8 @@
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
-	 <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1 beta"/>
-	 <sentence name="PxWebApplicationName" value="PxWeb 2021 v1 beta"/>
+	 <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1"/>
+	 <sentence name="PxWebApplicationName" value="PxWeb 2021 v1"/>
    <sentence name="PxWebLogoAlt" value="PxWeb Logotype"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
@@ -803,7 +803,7 @@
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
-	 <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1 beta"/>
+	 <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1"/>
 	 <sentence name="PxWebAdminHomePage" value="PxWeb Homepage"/>
 	 <sentence name="PxWebAdminSaveButton" value="Save"/>
 	 <sentence name="PxWebAdminGenerateButton" value="Generate"/>
