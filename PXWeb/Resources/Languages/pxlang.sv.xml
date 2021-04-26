@@ -504,11 +504,14 @@
   <sentence name="PageViewDataSortDescription" value="Klicka på kolumnernas rubrik för att sortera tabellen. Håll inne shift för att sortera efter flera kolumner." />
   <sentence name="PageViewDataSortCopyInstructions" value="För att kopiera tabellen: Välj 'Markera allt' i Redigera-menyn och sedan 'Kopiera'. Alternativt tryck Ctrl+A och sedan Ctrl+C" />
   <sentence name="CancelButton" value="Avbryt" />
-  <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1 beta" />
-  <sentence name="PxWebApplicationName" value="PxWeb 2021 v1 beta" />
-  <sentence name="PxWebLogoAlt" value="PxWeb 2021 v1 beta" />
+  <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1" />
+  <sentence name="PxWebApplicationName" value="PxWeb 2021 v1" />
+  <sentence name="PxWebLogoAlt" value="PxWeb logotyp" />
   <sentence name="PxWebHome" value="Hem" />
   <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
+  <sentence name="PxWebSubHeaderChooseVariables" value="Välj variabler"/>
+  <sentence name="PxWebSubHeaderResult" value="Resultat"/>
+  <sentence name="PxWebOfficialStatisticsLogo" value="Logotyp för officiell statistik"/>
   <sentence name="PxWebMenu" value="Meny" />
   <sentence name="PxWebSelection" value="Val" />
   <sentence name="PxWebInformation" value="Information" />
@@ -613,7 +616,7 @@
 
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1 beta" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb hemsida" />
   <sentence name="PxWebAdminSaveButton" value="Spara" />
   <sentence name="PxWebAdminGenerateButton" value="Generera" />
@@ -1085,6 +1088,10 @@
   <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Namn på PxWeb installationen" />
   <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Logotyp" />
   <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Namn på filen för logotypen" />
+  <sentence name="PxWebAdminSettingsMainHeaderForTables" value="Huvudrubrik för tabellsidor"/>
+  <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Tabellnamn"/>
+  <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistikområde"/>
+  <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Typ av rubrik som används för tabellsidor"/>
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Förvalt språk" />
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Det språk som är förvalt då PxWeb startas" />
   <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Språk" />

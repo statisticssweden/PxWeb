@@ -820,6 +820,38 @@ namespace PXWeb
             }
             return returnValue;
         }
+
+        /// <summary>
+        /// Selects single node from passed XmlNode and returns corresponding MainHeaderForTablesType, if the node is not found the given defaultvalue is returned
+        /// </summary>
+        /// <param name="xpath">Expression to select node containing setting value</param>
+        /// <param name="selectionNode">Node to apply xpath expression on</param>
+        /// <param name="defaultValue">Value to return if node is not found or not possible to parse as a MainHeaderForTablesType</param>
+        public static MainHeaderForTablesType GetSettingValue(string xpath, XmlNode selectionNode, MainHeaderForTablesType defaultValue)
+        {
+            MainHeaderForTablesType returnValue = defaultValue;
+            XmlNode node = null;
+            if (selectionNode != null)
+            {
+                node = selectionNode.SelectSingleNode(xpath);
+            }
+            if (node != null)
+            {
+                switch (node.InnerText)
+                {
+                    case "TableName":
+                        returnValue = MainHeaderForTablesType.TableName;
+                        break;
+                    case "StatisticArea":
+                        returnValue = MainHeaderForTablesType.StatisticArea;
+                        break;
+                    default:
+                        returnValue = MainHeaderForTablesType.TableName;
+                        break;
+                }
+            }
+            return returnValue;
+        }
         #endregion
 
 

@@ -544,6 +544,7 @@
       <DependentUpon>ChartHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Code\BackgroundWorker\PxWebBackgroundWorker.cs" />
+    <Compile Include="Code\CustomControls\HeadingLabel.cs" />
     <Compile Include="Code\Database\Builders\MenuBuilder.cs" />
     <Compile Include="Code\Database\CnmmDatabaseBuilder.cs" />
     <Compile Include="Code\Database\DatabaseSpider.cs" />
@@ -595,6 +596,7 @@
     <Compile Include="Code\Settings\DatabaseInfo.cs" />
     <Compile Include="Code\Settings\DatabaseSettings.cs" />
     <Compile Include="Code\Settings\DatabasesSettings.cs" />
+    <Compile Include="Code\Settings\Enums\MainHeaderForTablesType.cs" />
     <Compile Include="Code\Settings\Enums\SearchIndexStatusType.cs" />
     <Compile Include="Code\Settings\Enums\MenuModeType.cs" />
     <Compile Include="Code\Settings\Enums\MenuViewLinkModeType.cs" />

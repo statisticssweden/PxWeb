@@ -202,13 +202,20 @@ namespace PXWeb
         /// </summary>
         public void SetH1TextMenuLevel()
         {
-            if (!string.IsNullOrEmpty(PxUrlObj.Path))
+            if (PXWeb.Settings.Current.General.Site.MainHeaderForTables == MainHeaderForTablesType.StatisticArea)
             {
-                PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Path);
-                if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                if (!string.IsNullOrEmpty(PxUrlObj.Path))
                 {
-                    lblH1Title.Text = itm.Text;
+                    PCAxis.Menu.Item itm = GetMenu(PxUrlObj.Path);
+                    if (itm != null && !string.IsNullOrEmpty(itm.Text))
+                    {
+                        lblH1Title.Text = itm.Text;
+                    }
                 }
+            }
+            else
+            {
+                lblH1Title.Visible = false;
             }
         }
 

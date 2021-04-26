@@ -2,34 +2,30 @@
 <%@ MasterType VirtualPath="~/PxWeb.Master" %>
 <%@ Register Src="~/UserControls/SaveQueryCreate.ascx" TagPrefix="ucSaveQuery" TagName="SaveQuery" %>
 <%@ Register Src="~/UserControls/AccordianAboutTableControl.ascx" TagPrefix="ucAccordianAboutTable" TagName="AccordianAboutTable" %>
-
+<%@ Register TagPrefix="pxwebCustomControl" Namespace="PXWeb.CustomControls" Assembly="PXWeb" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
 
-<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <div id="PageElements">
+<asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
         <% if ( PXWeb.Settings.Current.Presentation.NewTitleLayout)
            { %>
-            <pxc:TableInformation CssClass="h2title" runat="server" TitleTag="H2" ID="PresentationTitleStuff" Type="PresentationView" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" ShowSourceDescription="true" />
+            <pxc:TableInformation runat="server" ID="PresentationTitleStuff" Type="PresentationView" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" ShowSourceDescription="true" />
         <% } %>
+</asp:Content>
 
+<asp:Content ID="MainContent" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
-            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage" alt="<%= Master.GetLocalizedString("PxWebOfficialStatisticsLogo") %>"/>
         <%} %>
-
+        <div id="subheader">
+            <pxwebCustomControl:HeadingLabel ID="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderResult%>"></pxwebCustomControl:HeadingLabel>
+        </div>
         <div>
            <input id="btnBurgerMenu" runat="server" ClientIDMode="Static" type="button"   onclick="ToggleBurgerMenu()" class="pxweb-buttons pxweb-btn burger_menu-icon icon-placement"/>
         </div>
-    </div>
-
-<script>
-
-</script>
-
-
 
         <div id="Presentation" class="s-margin-top presentation-container">
             <div id="PresentationLeft" class="presentation-left mobilemenu mobilemenuhidden">
@@ -74,7 +70,9 @@
                         <input type ="button" id="btnfullscreen" runat="server" ClientIDMode="Static"  value="" class="pxweb-btn primary-btn pxweb-buttons maximize-icon with-icon" onclick="ToggleFullscreen();"/>
                     </div>
                     <div id="fullscreentitel">
-                        <asp:Label ID="lblFullscreenTitle" Text="" runat="server" ClientIDMode="Static" CssClass="hierarchical_tableinformation_title"></asp:Label>
+                        <h1>
+                            <asp:Label ID="lblFullscreenTitle" Text="" runat="server" ClientIDMode="Static" CssClass="hierarchical_tableinformation_title"></asp:Label>
+                        </h1>
                     </div>
                     <div  id="pxcontent"> 
                         <asp:ContentPlaceHolder ID="cphMain" runat="server">
@@ -103,7 +101,6 @@
         </div>
 
     <script>
-            //jQuery(function () { jQuery("#PageElements").tabs(); });
 
     jQuery(document).ready(function () {
         var fullScreenTitle = document.getElementById("fullscreentitel");

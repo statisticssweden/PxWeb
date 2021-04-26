@@ -612,7 +612,7 @@
   <sentence name="PxWebReturnToStartpage" value="Gå tilbage til startsiden" />
   <sentence name="PxWebAdminLogout" value="Log ud" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2020 v1" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb Homepage" />
   <sentence name="PxWebAdminSaveButton" value="Save" />
   <sentence name="PxWebAdminGenerateButton" value="Generate" />

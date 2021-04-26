@@ -87,6 +87,7 @@ namespace PXWeb
             }
 
             lblFullscreenTitle.Text = PaxiomManager.PaxiomModel.Meta.Title;
+            InitializeTableHeadings();
 
             if (!IsPostBack)
             {
@@ -179,6 +180,23 @@ namespace PXWeb
             CommandBar1.SelectedPresentationView = presView;
         }
 
+        private void InitializeTableHeadings()
+        {
+            if (PXWeb.Settings.Current.General.Site.MainHeaderForTables == MainHeaderForTablesType.TableName)
+            {
+                PresentationTitleStuff.TitleTag = TableInformationCodebehind.TitleTags.H1;
+                PresentationTitleStuff.CssClass = "h1title";
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
+                lblSubHeader.Visible = true;
+            }
+            else
+            {
+                PresentationTitleStuff.TitleTag = TableInformationCodebehind.TitleTags.H2;
+                PresentationTitleStuff.CssClass = "h2title";
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H3;
+                lblSubHeader.Visible = false;
+            }
+        }
 
         /// <summary>
         /// Initializes CommandBar

@@ -120,7 +120,7 @@ namespace PXWeb
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblH1Title;
+        protected global::PXWeb.CustomControls.HeadingLabel lblH1Title;
 
         /// <summary>
         /// navigationFlowControl control.

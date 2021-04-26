@@ -16,4 +16,12 @@
         ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
     </div>
 
+    <div class="setting-field">
+        <asp:Label ID="lblMainHeaderForTables" runat="server" Text="<%$ PxString: PxWebAdminSettingsMainHeaderForTables %>"></asp:Label>
+        <asp:DropDownList ID="cboMainHeaderForTables" runat="server" AutoPostBack="true">
+            <asp:ListItem Value="TableName" Text="<%$ PxString: PxWebAdminSettingsMainHeaderForTablesTableName %>"></asp:ListItem>
+            <asp:ListItem Value="StatisticArea" Text="<%$ PxString: PxWebAdminSettingsMainHeaderForTablesStatisticArea %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgMainHeaderForTables" runat="server" onclick="imgMainHeaderForTables_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
 </asp:Content>

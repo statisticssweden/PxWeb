@@ -3,6 +3,7 @@
 <%@ Register Src="~/UserControls/MetadataSystemControl.ascx" TagPrefix="ucMetadata" TagName="Metadata" %>
 <%@ Register Src="~/UserControls/VariableOverviewControl.ascx" TagPrefix="ucVariableOverview" TagName="VariableOverview" %>
 <%@ Register Src="~/UserControls/AccordianAboutTableControl.ascx" TagPrefix="ucAccordianAboutTable" TagName="AccordianAboutTable" %>
+<%@ Register TagPrefix="pxwebCustomControl" Namespace="PXWeb.CustomControls" Assembly="PXWeb" %>
 <asp:Content ID="ContentHead" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <meta name="Description" content="<%= TableTitle %>" />
     <meta property="og:title" content="<%= TableTitle  %>-<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
@@ -11,10 +12,8 @@
     <meta property="og:site_name" content="<%= PXWeb.Settings.Current.General.Site.ApplicationName.ToString() %>" />
 </asp:Content>
 <asp:Content runat="server" ID="ContentTitle" ContentPlaceHolderID="TitlePlaceHolder">
-    <h2>
-        <asp:Label ID="MenuTitle" CssClass="hierarchical_tableinformation_title" runat="server" Text=""></asp:Label>
-        <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
-    </h2>    
+    <pxwebCustomControl:HeadingLabel ID="MenuTitle" runat="server" Text=""></pxwebCustomControl:HeadingLabel>
+    <pxc:TableInformation runat="server" Type="Normal" ID="TableInformationSelect" TableTitleCssClass="hierarchical_tableinformation_title" TableDescriptionCssClass="hierarchical_tableinformation_description"  EnableViewState="true" Visible="true" />
 </asp:Content>
 
 <asp:Content ID="ContentMain" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
@@ -28,10 +27,14 @@
         </div>
 
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
-            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage"/>
+            <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage" alt="<%= Master.GetLocalizedString("PxWebOfficialStatisticsLogo") %>"/>
         <%} %>
 
+
         <div id="PageElements">
+            <div id="subheader">
+                <pxwebCustomControl:HeadingLabel id="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderChooseVariables%>"></pxwebCustomControl:HeadingLabel>
+            </div>
             <div class="flex-row justify-space-between">
                 <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable" />
                 <div id="switchLayoutContainer" class="switch-layout-container m-margin-left">
