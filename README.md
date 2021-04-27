@@ -9,4 +9,4 @@ Please head over to the netstandard branch to see the activities.
 To be able to compile the master branch you have to generate your own set of signing keys and add them to the relevant places. If you do not want to bother it that we suggest that you try out the netstandard branch where we have removed the signing of the assemblies.
 
 ## Installation
-If you are looking for a compiled version of the source, ready to install in your environment. Then please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
+If you are looking for a compiled version of the source, ready to install in your environment. Then please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions. 
