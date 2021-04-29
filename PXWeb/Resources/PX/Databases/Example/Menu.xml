@@ -7,7 +7,7 @@
       <TextShort></TextShort>
       <MenuItem selection="Example\AggregallowedNo" sortCode="AggregallowedNo">
         <Description></Description>
-        <Text>AggregallowedNoFX</Text>
+        <Text>AggregallowedNo</Text>
         <TextShort></TextShort>
         <Link selection="Example\AggregallowedNo\PR0101B3.px" sortCode="PR0101B3" type="PX" category="O" tableId="" status="A">
           <Description></Description>
