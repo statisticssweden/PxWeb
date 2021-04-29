@@ -10,6 +10,6 @@ namespace PX.Web.Interfaces.Cache
     {
         void Initialize(List<IPxCache> lstCache);
         void Clear();
-        //bool CanEnable();
+        void Clear(Type type);
     }
 }
