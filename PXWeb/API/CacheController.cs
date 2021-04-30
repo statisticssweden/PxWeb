@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Net;
 using System.Web.Http;
 
 namespace PXWeb.API
@@ -8,6 +10,19 @@ namespace PXWeb.API
     /// </summary>
     public class CacheController : ApiController
     {
+        private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(CacheController));
+        private static string _apiKey;
+        const string _keyName = "APIKey";
+
+        public CacheController()
+        {
+            _apiKey = Environment.GetEnvironmentVariable(_keyName);
+            if(string.IsNullOrEmpty(_apiKey))
+            {
+                _logger.Error("APIKey is not set to environment variables.");
+            }
+        }
+
         public enum CacheType
         {
             ApiCache,
@@ -20,13 +35,27 @@ namespace PXWeb.API
         /// </summary>
         /// <param name="type">Type of cache item to be cleared</param>
         [HttpDelete]
-        public void Delete([FromUri] CacheType type)
+        public IHttpActionResult Delete([FromUri] CacheType type)
         {
             // TODO: Authentication
+
+            _apiKey = Environment.GetEnvironmentVariable(_keyName);
+            if (string.IsNullOrEmpty(_apiKey))
+            {
+                _logger.Error("APIKey is not set to environment variables.");
+                return InternalServerError();
+            }
+
+            if (!Request.Headers.Contains(_keyName) || !Request.Headers.GetValues(_apiKey).First().Equals(_keyName))
+            {
+                return Unauthorized();
+            }
 
             // TODO: Implement method to clear only cache corresponding the key parameter
 
             Management.PxContext.CacheController.Clear(getCacheItemType(type));
+
+            return StatusCode(t.HttpStatusCode.NoContent);
         }
 
 
