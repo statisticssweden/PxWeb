@@ -18,6 +18,9 @@ using log4net;
 using PX.Web.Interfaces.Cache;
 using System.Runtime.Caching;
 using System.Web.Http;
+using PXWeb.API;
+using Ninject;
+using Ninject.Web.Common;
 
 namespace PXWeb
 {
@@ -259,7 +262,6 @@ namespace PXWeb
                 //Start PX-Web background worker
                 PxWebBackgroundWorker.Work(PXWeb.Settings.Current.Features.BackgroundWorker.SleepTime);
             }
-
         }
 
         protected void Session_Start(object sender, EventArgs e)
