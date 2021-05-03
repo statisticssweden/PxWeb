@@ -12,20 +12,32 @@ namespace PxWeb.Test
     {
 
         private Mock<PXWeb.API.Services.ICacheService> _cacheServiceMock;
+        private Mock<log4net.ILog> _logger;
+
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
+        {
+            Environment.SetEnvironmentVariable("APIKey", "foo");
+        }
 
         [SetUp]
         public void Setup()
         {
             _cacheServiceMock = new Mock<PXWeb.API.Services.ICacheService>();
+            _logger = new Mock<log4net.ILog>();
         }
 
         private CacheController InitializeCacheController()
         {
-            return new CacheController(_cacheServiceMock.Object)
+            var controller =  new CacheController(_cacheServiceMock.Object, _logger.Object)
             {
                 Request = new HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
             };
+
+            controller.ControllerContext.Request.Headers.Add("APIKey", "foo");
+
+            return controller;
         }
 
         [TestCase(CacheController.CacheType.ApiCache)]

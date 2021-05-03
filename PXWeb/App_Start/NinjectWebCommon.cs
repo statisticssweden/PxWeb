@@ -62,6 +62,10 @@ namespace PXWeb.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<API.Services.ICacheService>().To<API.Services.CacheService>();
+            kernel.Bind<log4net.ILog>().ToMethod(ctx =>
+            {
+                return log4net.LogManager.GetLogger(ctx.Request.Target.Member.DeclaringType);
+            });
         }
     }
 }

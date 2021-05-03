@@ -12,12 +12,13 @@ namespace PXWeb.API
     public class CacheController : ApiController
     {
         // TODO: Inject
-        private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(CacheController));
+        private static log4net.ILog _logger; //log4net.LogManager.GetLogger(typeof(CacheController));
         private Services.ICacheService _service;
 
-        public CacheController(Services.ICacheService service)
+        public CacheController(Services.ICacheService service, log4net.ILog logger)
         {
             _service = service;
+            _logger = logger;
         }
 
         public enum CacheType
