@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -33,20 +34,35 @@ namespace PXWeb.API
         [HttpDelete]
         public HttpResponseMessage Delete([FromUri] CacheType type)
         {
-            // TODO: Authentication
-
             var statusCode = HttpStatusCode.NoContent;
             try {
-                _service.ClearCache(getCacheItemType(type));
-                _logger.Info($"Cleared cache item for: {type}");
-
+                if (IsAuthenticated())
+                {
+                    _service.ClearCache(getCacheItemType(type));
+                    _logger.Info($"Cleared cache with key type: {type}");
+                }
+                else
+                {
+                    statusCode = HttpStatusCode.Forbidden;
+                }
             } catch(Exception e) {
-                _logger.Error($"Unhandled exception occurred while trying to clear cache item with type: {type}", e);
+                _logger.Error(e);
                 statusCode = HttpStatusCode.InternalServerError;
             }
             return Request.CreateResponse(statusCode);
         }
 
+        public bool IsAuthenticated()
+        {
+            const string KEYNAME = "APIKey";
+            var key = Environment.GetEnvironmentVariable(KEYNAME);
+            if (string.IsNullOrEmpty(key))
+            {
+                throw new ArgumentException("APIKey is not set to environment variables.");
+            }
+            bool isAuthenticated = Request.Headers.Contains(KEYNAME) && Request.Headers.GetValues(KEYNAME).First().Equals(key);
+            return isAuthenticated;
+        }
 
         private Type getCacheItemType(CacheType typeParameter)
         {
