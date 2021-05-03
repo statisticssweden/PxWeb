@@ -36,6 +36,7 @@ namespace PXWeb.API
         {
             var statusCode = HttpStatusCode.NoContent;
             try {
+                // TODO: Authentication filter
                 if (IsAuthenticated())
                 {
                     _service.ClearCache(getCacheItemType(type));
