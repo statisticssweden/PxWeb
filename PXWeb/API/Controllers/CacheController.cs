@@ -10,6 +10,8 @@ namespace PXWeb.API
     /// </summary>
     public class CacheController : ApiController
     {
+        // TODO: Inject
+        private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(CacheController));
         private Services.ICacheService _service;
 
         public CacheController(Services.ICacheService service)
@@ -31,13 +33,15 @@ namespace PXWeb.API
         [HttpDelete]
         public HttpResponseMessage Delete([FromUri] CacheType type)
         {
+            // TODO: Authentication
+
             var statusCode = HttpStatusCode.NoContent;
             try {
-                // TODO: Authentication
                 _service.ClearCache(getCacheItemType(type));
+                _logger.Info($"Cleared cache item for: {type}");
 
             } catch(Exception e) {
-                //TODO: Logging
+                _logger.Error($"Unhandled exception occurred while trying to clear cache item with type: {type}", e);
                 statusCode = HttpStatusCode.InternalServerError;
             }
             return Request.CreateResponse(statusCode);
