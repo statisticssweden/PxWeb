@@ -13,8 +13,7 @@ namespace PXWeb.API
     [AuthenticationFilter]
     public class CacheController : ApiController
     {
-        // TODO: Inject
-        private static log4net.ILog _logger; //log4net.LogManager.GetLogger(typeof(CacheController));
+        private static log4net.ILog _logger;
         private Services.ICacheService _service;
 
         public CacheController(Services.ICacheService service, log4net.ILog logger)
