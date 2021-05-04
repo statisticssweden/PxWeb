@@ -573,6 +573,7 @@
     <Compile Include="ApiHelp.aspx.designer.cs">
       <DependentUpon>ApiHelp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="API\Authentication\AuthenticationFilter.cs" />
     <Compile Include="API\Controllers\CacheController.cs" />
     <Compile Include="API\Services\CacheService.cs" />
     <Compile Include="API\Interfaces\ICacheService.cs" />
@@ -1466,6 +1467,7 @@
   <ItemGroup>
     <Folder Include="App_Data\Index\" />
     <Folder Include="App_Data\Queries\" />
+    <Folder Include="Attributes\" />
     <Folder Include="Logs\" />
     <Folder Include="Resources\PX\Aggregations\" />
   </ItemGroup>

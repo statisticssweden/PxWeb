@@ -262,6 +262,7 @@ namespace PXWeb
                 //Start PX-Web background worker
                 PxWebBackgroundWorker.Work(PXWeb.Settings.Current.Features.BackgroundWorker.SleepTime);
             }
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

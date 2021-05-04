@@ -38,7 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Security", "PX.Security\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.JsonStat2.Web.Controls", "PCAxis.JsonStat2.Web.Controls\PCAxis.JsonStat2.Web.Controls.csproj", "{6E74C29D-772B-40B8-868F-DC74711E052D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PxWeb.Test", "PxWeb.Test\PxWeb.Test.csproj", "{429D9512-FBD2-4B02-8138-40F692C6C414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PxWeb.Test", "PxWeb.Test\PxWeb.Test.csproj", "{429D9512-FBD2-4B02-8138-40F692C6C414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

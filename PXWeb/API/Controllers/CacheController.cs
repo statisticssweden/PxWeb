@@ -9,6 +9,8 @@ namespace PXWeb.API
     /// <summary>
     /// Cotroller for PxWeb cache manipulation
     /// </summary>
+    
+    [AuthenticationFilter]
     public class CacheController : ApiController
     {
         // TODO: Inject
@@ -36,34 +38,17 @@ namespace PXWeb.API
         public HttpResponseMessage Delete([FromUri] CacheType type)
         {
             var statusCode = HttpStatusCode.NoContent;
-            try {
-                // TODO: Authentication filter
-                if (IsAuthenticated())
-                {
-                    _service.ClearCache(getCacheItemType(type));
-                    _logger.Info($"Cleared cache with key type: {type}");
-                }
-                else
-                {
-                    statusCode = HttpStatusCode.Forbidden;
-                }
-            } catch(Exception e) {
+            try 
+            {
+                _service.ClearCache(getCacheItemType(type));
+                _logger.Info($"Cleared cache with key type: {type}");
+            } 
+            catch(Exception e) 
+            {
                 _logger.Error(e);
                 statusCode = HttpStatusCode.InternalServerError;
             }
             return Request.CreateResponse(statusCode);
-        }
-
-        public bool IsAuthenticated()
-        {
-            const string KEYNAME = "APIKey";
-            var key = Environment.GetEnvironmentVariable(KEYNAME);
-            if (string.IsNullOrEmpty(key))
-            {
-                throw new ArgumentException("APIKey is not set to environment variables.");
-            }
-            bool isAuthenticated = Request.Headers.Contains(KEYNAME) && Request.Headers.GetValues(KEYNAME).First().Equals(key);
-            return isAuthenticated;
         }
 
         private Type getCacheItemType(CacheType typeParameter)
