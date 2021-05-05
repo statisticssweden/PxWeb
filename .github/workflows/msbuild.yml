@@ -1,19 +1,15 @@
 name: MSBuild
 
-on: [push, pull_request]
+on: push
 
 jobs:
-
   build:
+
+    runs-on: windows-2019
 
     strategy:
       matrix:
         configuration: [Debug, Release]
-
-    runs-on: windows-2019
-
-    env:
-      Solution_Name: PCAxis.PX-Web.sln
 
     steps:
 
@@ -23,10 +19,10 @@ jobs:
 
     - uses: NuGet/setup-nuget@v1
 
-    - name: Restore NuGet Packages
-      run: nuget restore $env:Solution_Name
+    - name: Restore NuGet packages
+      run: nuget restore
 
     - name: Build the application
-      run: msbuild /p:Configuration=$env:Configuration $env:Solution_Name
+      run: msbuild /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
