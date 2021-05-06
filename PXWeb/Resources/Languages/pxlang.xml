@@ -845,7 +845,8 @@
   <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="General"/>
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Background worker process"/>
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="General"/>
-  <sentence name="PxWebPxLogin" value="PxWeb Login"/>
+   <sentence name="PxWebloginBannerHeaderText" value="PX-Web"/>
+   <sentence name="PxWebPxLogin" value="PxWeb Login"/>
 	 <sentence name="PxWebLogin" value="Login"/>
   <sentence name="PxWebLogout" value="Logout"/>
 	 <sentence name="PxWebUsername" value="Username"/>
