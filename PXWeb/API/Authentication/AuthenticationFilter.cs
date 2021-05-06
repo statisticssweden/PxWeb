@@ -7,6 +7,7 @@ namespace PXWeb.API
 {
     public class AuthenticationFilter : ActionFilterAttribute
     {
+        private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(AuthenticationFilter));
         const string KEYNAME = "APIKey";
         string _key;
 
@@ -16,6 +17,7 @@ namespace PXWeb.API
             _key = Environment.GetEnvironmentVariable(KEYNAME);
             if (string.IsNullOrEmpty(_key))
             {
+                _logger.Error($"Could not retrieve environmental variable with key: '{KEYNAME}'");
                 throw new ArgumentException("APIKey is not set to environment variables.");
             }
         }
@@ -25,10 +27,12 @@ namespace PXWeb.API
             bool isAuthenticated = actionContext.Request.Headers.Contains(KEYNAME) && actionContext.Request.Headers.GetValues(KEYNAME).First().Equals(_key);
             if (string.IsNullOrEmpty(_key))
             {
+                _logger.Error($"Environmental variable with key: '{KEYNAME}' not set properly.");
                 actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
             }
             if (!isAuthenticated)
             {
+                _logger.Error("Authentication failed. Check environmental variables and make sure that the client appends APIKey in headers.");
                 actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Forbidden);
             }
         }
