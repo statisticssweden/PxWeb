@@ -21,10 +21,7 @@ namespace PXWeb
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(PxWeb));
 
-        private void Localize()
-        {
-            PxWebLoginBannerHeaderText.Text = LocalizationManager.GetLocalizedString("PxWebloginBannerHeaderText");
-        }
+
         public string HtmlLang
         {
             get
@@ -82,7 +79,7 @@ namespace PXWeb
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            Localize();
+            PxWebLoginBannerHeaderText.Text = LocalizationManager.GetLocalizedString("PxWebloginBannerHeaderText");
 
             if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)
             {
@@ -286,7 +283,7 @@ namespace PXWeb
             //Footer
             lblFooterText.Text = _footertext;
 
-            Localize();
+            PxWebLoginBannerHeaderText.Text = LocalizationManager.GetLocalizedString("PxWebloginBannerHeaderText");
         }
 
         private string GetChangeToLanguageLink(string langName)
