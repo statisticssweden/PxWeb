@@ -1,6 +1,6 @@
 @echo off
 set mypath=%~dp0
-echo mypath %mypath%
+echo Folder of executing script %mypath%
 
 
 echo cheching if %mypath%PXWeb\Web.config exists
