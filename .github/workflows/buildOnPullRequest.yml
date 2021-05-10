@@ -22,5 +22,5 @@ jobs:
       run: nuget restore PCAxis.PX-Web.sln
       
     - name: Build the solution   
-      run: PCAxis.PX-Web.sln
+      run: msbuild PCAxis.PX-Web.sln
 
