@@ -1,8 +1,5 @@
 ﻿@include file-header("_PxWeb.scss");
 
-h1 {
-    @include pxweb-h1-title;
-}
 
 #pxwebcontent {
   background: $pxweb-background;
@@ -156,7 +153,7 @@ h1 {
 }
 
 #pxwebcontent .databaseList {
-    margin-left: 15px;
+    /*margin-left: 15px;*/
 }
 
 #pxwebcontent .search_searchresulttext {
@@ -510,15 +507,17 @@ h1 {
 #pxwebcontent .officialStatisticsImage {
     height: 24px;
     width: 200px;
-    margin-left: 15px;
-    margin-bottom: 12px;
+    /*margin-left: 15px;*/
+    margin-left: 0px;
+    margin-top: -15px;
+    margin-bottom: 32px;
 }
 
 /* jQuery UI controls */
-#PageElements {
+/*#PageElements {
     background: $pxweb-background;
 }
-
+*/
 .ui-draggable .ui-dialog-titlebar {
     background: $pxweb-dark-5;
     border: $pxweb-dark-5;

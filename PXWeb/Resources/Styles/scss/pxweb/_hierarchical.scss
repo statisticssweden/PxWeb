@@ -46,7 +46,10 @@
   font-weight: bold;
 }
 
-.hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
+/*.hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
+    @include pxweb-table-title;
+}*/
+.hierarchical_tableinformation_title {
     @include pxweb-table-title;
 }
 

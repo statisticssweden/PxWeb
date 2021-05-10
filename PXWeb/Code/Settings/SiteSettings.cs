@@ -31,11 +31,13 @@ namespace PXWeb
 
             //Load the Site settings 
             xpath = "./applicationName";
-            ApplicationName = SettingsHelper.GetSettingValue(xpath, siteNode, "PX-Web");
+            ApplicationName = SettingsHelper.GetSettingValue(xpath, siteNode, "PxWeb");
 
             xpath = "./logoPath";
             LogoPath = SettingsHelper.GetSettingValue(xpath, siteNode, "PX-WEb.gif");
 
+            xpath = "./mainHeaderForTables";
+            MainHeaderForTables = SettingsHelper.GetSettingValue(xpath, siteNode, MainHeaderForTablesType.TableName);
         }
 
         /// <summary>
@@ -51,6 +53,9 @@ namespace PXWeb
 
             xpath = "./logoPath";
             SettingsHelper.SetSettingValue(xpath, siteNode, LogoPath);
+
+            xpath = "./mainHeaderForTables";
+            SettingsHelper.SetSettingValue(xpath, siteNode, MainHeaderForTables.ToString());
         }
 
         #endregion
@@ -59,7 +64,9 @@ namespace PXWeb
 
         public string ApplicationName { get; set; }
         public string LogoPath { get; set; }
-        
+
+        public MainHeaderForTablesType MainHeaderForTables { get; set; }
+
         #endregion
     }
 }

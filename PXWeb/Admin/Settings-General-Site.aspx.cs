@@ -23,6 +23,7 @@ namespace PXWeb.Admin
             {
                 // Read settings
                 txtApplicationName.Text = PXWeb.Settings.Current.General.Site.ApplicationName;
+                cboMainHeaderForTables.SelectedValue = PXWeb.Settings.Current.General.Site.MainHeaderForTables.ToString();
             }
         }
 
@@ -42,6 +43,18 @@ namespace PXWeb.Admin
                         PXWeb.SiteSettings site = (PXWeb.SiteSettings)PXWeb.Settings.NewSettings.General.Site;
                         site.ApplicationName = txtApplicationName.Text;
                         site.LogoPath = txtLogoPath.Text;
+                        switch (cboMainHeaderForTables.SelectedValue)
+                        {
+                            case "TableName":
+                                site.MainHeaderForTables = MainHeaderForTablesType.TableName;
+                                break;
+                            case "StatisticArea":
+                                site.MainHeaderForTables = MainHeaderForTablesType.StatisticArea;
+                                break;
+                            default:
+                                site.MainHeaderForTables = MainHeaderForTablesType.TableName;
+                                break;
+                        }
 
                         PXWeb.Settings.Save();
                     }
@@ -84,6 +97,7 @@ namespace PXWeb.Admin
             args.IsValid = true;
         }
 
+
         protected void imgApplicationName_Click(object sender, ImageClickEventArgs e)
         { 
             Master.ShowInfoDialog("PxWebAdminSettingsGeneralSiteApplicationName", "PxWebAdminSettingsGeneralSiteApplicationNameInfo");
@@ -94,6 +108,9 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminSettingsGeneralSiteLogoPath", "PxWebAdminSettingsGeneralSiteLogoPathInfo");
         }
 
-
+        protected void imgMainHeaderForTables_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsMainHeaderForTables", "PxWebAdminSettingsMainHeaderForTablesInfo");
+        }
     }
 }

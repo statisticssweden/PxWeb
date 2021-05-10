@@ -62,7 +62,8 @@
     border-top: 3px solid $breadcrumb-text;
     background: $breadcrumb-background;
     text-transform: none;
-    padding: 5px 15px 20px;;
+    /*padding: 5px 15px 20px;*/
+    padding: 5px 0px 20px;
     min-height: 30px;
 }
 

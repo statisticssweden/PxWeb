@@ -125,8 +125,8 @@
     <Reference Include="PCAxis.Metadata, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Metadata.1.0.1\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.PX.Core, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.PX.Core.1.0.1\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
+    <Reference Include="PCAxis.PX.Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.PX.Core.1.0.2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Query, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Query.1.0.1\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
@@ -544,6 +544,7 @@
       <DependentUpon>ChartHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Code\BackgroundWorker\PxWebBackgroundWorker.cs" />
+    <Compile Include="Code\CustomControls\HeadingLabel.cs" />
     <Compile Include="Code\Database\Builders\MenuBuilder.cs" />
     <Compile Include="Code\Database\CnmmDatabaseBuilder.cs" />
     <Compile Include="Code\Database\DatabaseSpider.cs" />
@@ -595,6 +596,7 @@
     <Compile Include="Code\Settings\DatabaseInfo.cs" />
     <Compile Include="Code\Settings\DatabaseSettings.cs" />
     <Compile Include="Code\Settings\DatabasesSettings.cs" />
+    <Compile Include="Code\Settings\Enums\MainHeaderForTablesType.cs" />
     <Compile Include="Code\Settings\Enums\SearchIndexStatusType.cs" />
     <Compile Include="Code\Settings\Enums\MenuModeType.cs" />
     <Compile Include="Code\Settings\Enums\MenuViewLinkModeType.cs" />
@@ -1462,4 +1464,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>call "$(SolutionDir)GetConfig.bat"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

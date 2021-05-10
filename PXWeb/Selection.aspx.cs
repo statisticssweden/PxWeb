@@ -150,6 +150,7 @@ namespace PXWeb
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = PXWeb.Management.PxContext.GetPaxiomForSelection(db, path, table, lang, clearModel);
            _linkManager = PXWeb.Settings.Current.Database[PxUrl.Database].Metadata.MetaLinkMethod;
             InitializeLayoutFormat();
+            InitializeTableHeadings();
 
             if (!IsPostBack)
             {
@@ -211,6 +212,26 @@ namespace PXWeb
         protected void Page_UnLoad(object sender, EventArgs e)
         {
             VariableSelector1.PxActionEvent -= new PCAxis.Web.Controls.PxActionEventHandler(HandlePxAction);
+        }
+
+        
+
+        private void InitializeTableHeadings()
+        {
+            if (PXWeb.Settings.Current.General.Site.MainHeaderForTables == MainHeaderForTablesType.TableName)
+            {
+                TableInformationSelect.TitleTag = TableInformationCodebehind.TitleTags.H1;
+                MenuTitle.Level = CustomControls.HeadingLabel.HeadingLevel.H1;
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
+                lblSubHeader.Visible = true;
+            }
+            else
+            {
+                TableInformationSelect.TitleTag = TableInformationCodebehind.TitleTags.H2;
+                MenuTitle.Level = CustomControls.HeadingLabel.HeadingLevel.H2;
+                lblSubHeader.Level = CustomControls.HeadingLabel.HeadingLevel.H3;
+                lblSubHeader.Visible = false;
+            }
         }
 
         /// <summary>

@@ -104,17 +104,6 @@ $scrollbar-color: #b0b0b0;
     height: auto; } }
 
 /* **********************************  _PxWeb.scss *********************************** */
-h1 {
-  font-family: Roboto Condensed, sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 100%;
-  margin-top: 5px;
-  margin-bottom: 30px;
-  margin-left: 15px;
-  display: block;
-  color: #222; }
-
 #pxwebcontent {
   background: #fff;
   /*  @include just-open-sans;*/
@@ -241,7 +230,7 @@ h1 {
   background-color: #eee; }
 
 #pxwebcontent .databaseList {
-  margin-left: 15px; }
+  /*margin-left: 15px;*/ }
 
 #pxwebcontent .search_searchresulttext {
   font-weight: bold;
@@ -520,13 +509,16 @@ h1 {
 #pxwebcontent .officialStatisticsImage {
   height: 24px;
   width: 200px;
-  margin-left: 15px;
-  margin-bottom: 12px; }
+  /*margin-left: 15px;*/
+  margin-left: 0px;
+  margin-top: -15px;
+  margin-bottom: 32px; }
 
 /* jQuery UI controls */
-#PageElements {
-  background: #fff; }
-
+/*#PageElements {
+    background: $pxweb-background;
+}
+*/
 .ui-draggable .ui-dialog-titlebar {
   background: #006885;
   border: #006885; }
@@ -852,14 +844,14 @@ h1 {
   margin-bottom: 30px;
   display: block;*/
   font-family: Roboto Condensed, sans-serif;
-  font-size: 28px;
   font-weight: 700;
   line-height: 100%;
   margin-top: 5px;
-  margin-bottom: 12px;
-  margin-left: 15px;
+  /*    margin-left: 15px;*/
   display: block;
-  color: #222; }
+  color: #222;
+  /*    font-size: 28px;*/
+  margin-bottom: 12px; }
 
 #pxwebcontent .menuTopLeftContent {
   float: left; }
@@ -978,7 +970,8 @@ h1 {
   border-top: 3px solid #006885;
   background: #fff;
   text-transform: none;
-  padding: 5px 15px 20px;
+  /*padding: 5px 15px 20px;*/
+  padding: 5px 0px 20px;
   min-height: 30px; }
 
 /* **********************************  _CommandBar.scss TODO *********************************** */
@@ -1439,14 +1432,14 @@ h1 {
   line-height: 150%;
   padding-bottom: 5px;*/
   font-family: Roboto Condensed, sans-serif;
-  font-size: 28px;
   font-weight: 700;
   line-height: 100%;
   margin-top: 5px;
-  margin-bottom: 12px;
-  margin-left: 15px;
+  /*    margin-left: 15px;*/
   display: block;
-  color: #222; }
+  color: #222;
+  /*    font-size: 28px;*/
+  margin-bottom: 12px; }
 
 #pxwebcontent table.tablesorter thead tr th {
   background-color: #F8F7F6; }
@@ -1659,16 +1652,19 @@ h1 {
   margin: 4em 0 -1em 0;
   font-weight: bold; }
 
-.hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
+/*.hierarchical_tableinformation_title, #pxwebcontent .h2title h2 {
+    @include pxweb-table-title;
+}*/
+.hierarchical_tableinformation_title {
   font-family: Roboto Condensed, sans-serif;
-  font-size: 28px;
   font-weight: 700;
   line-height: 100%;
   margin-top: 5px;
-  margin-bottom: 12px;
-  margin-left: 15px;
+  /*    margin-left: 15px;*/
   display: block;
-  color: #222; }
+  color: #222;
+  /*    font-size: 28px;*/
+  margin-bottom: 12px; }
 
 #pxwebcontent .hierarchical_tableinformation_description {
   font-weight: bold;
@@ -2342,14 +2338,14 @@ h1 {
   padding-bottom: 1em;
   */
   font-family: Roboto Condensed, sans-serif;
-  font-size: 28px;
   font-weight: 700;
   line-height: 100%;
   margin-top: 5px;
-  margin-bottom: 12px;
-  margin-left: 15px;
+  /*    margin-left: 15px;*/
   display: block;
   color: #222;
+  /*    font-size: 28px;*/
+  margin-bottom: 12px;
   background-color: #fff;
   border-style: none;
   padding-bottom: 25px;
@@ -3193,7 +3189,7 @@ span.AspNet-TreeView-Collapse::before {
   font-family: 'Roboto Condensed', sans-serif !important;
   font-stretch: condensed;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 21px;
   display: inline-block;
   padding-right: 40px;
   overflow-wrap: break-word; }
@@ -3230,11 +3226,16 @@ span.AspNet-TreeView-Collapse::before {
   font-size: smaller; }
 
 #pxwebcontent .variableselector_valuesselect_hiddeneventbutton_panel {
-  height: 22px; }
+  /*    height: 22px;*/
+  display: none; }
 
 #pxwebcontent .variableselector_valuesselect_statistics_panel {
   white-space: nowrap;
-  overflow: hidden; }
+  overflow: hidden;
+  border-top-style: solid;
+  border-top-color: #007694;
+  border-top-width: 2px;
+  padding-top: 7px; }
 
 #pxwebcontent .variableselector_valuesselect_valueslistbox {
   width: 100%;
@@ -3336,11 +3337,16 @@ span.AspNet-TreeView-Collapse::before {
   font-weight: bold; }
 
 #pxwebcontent .variableselector_valuesselect_mandatory_text {
-  font-size: 12px; }
+  font-size: 12px;
+  /*    font-weight: 400;*/ }
 
-#pxwebcontent .variableselector_valuesselect_mandatory_star {
+#pxwebcontent .variableselector_valuesselect_mandatory_text:after {
+  content: "*";
   font-size: 28px; }
 
+/*#pxwebcontent .variableselector_valuesselect_mandatory_star {
+    font-size: 28px;
+}*/
 #pxwebcontent .link-buttons-container {
   flex-basis: 100%; }
 

@@ -1,6 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PxWeb.master.cs" Inherits="PXWeb.PxWeb" %>
 
 <%@ Register Src="~/UserControls/Login.ascx" TagPrefix="uc1" TagName="Login" %>
+<%@ Register TagPrefix="pxwebCustomControl" Namespace="PXWeb.CustomControls" Assembly="PXWeb" %>
+
 <!DOCTYPE html>
 
 <html lang="<%= HtmlLang %>">
@@ -12,7 +14,6 @@
     <link href="<%= ResolveUrl("~/Resources/Styles/main-pxweb.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
     <link href="<%= ResolveUrl("~/Resources/Styles/jQuery/redmond/jquery-ui.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
     <link href="<%= ResolveUrl("~/Resources/Styles/jQuery/tablesorter/style.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"  />
     <link href="<%= ResolveUrl("~/Resources/Styles/main-custom.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
     
     <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-3.5.1.min.js") %>?v=<%= DisplayVersion %>"></script>
@@ -27,7 +28,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-<div id="pxwebcontent" role="main">
+    <div id="pxwebcontent">
     <form id="form1" runat="server">
         <asp:LinkButton ID="ToTheTopButton" runat="server" CssClass="top-link pxweb-btn negative hide" Text="">
             <svg class="icon-top-link-button" viewBox="0 0 24 24" width="40" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" >
@@ -35,7 +36,7 @@
             </svg><asp:Literal ID="ToTheTopButtonLiteralText" runat="server"/>
         </asp:LinkButton>
         <div id="wrap">
-            <div id="header" class="header flex-row flex-wrap justify-space-between">
+            <header id="header" class="header flex-row flex-wrap justify-space-between">
                 <asp:HyperLink runat="server" ID="SkipToMain" CssClass="screenreader-only pxweb-link"></asp:HyperLink>
                 <div class="headerleft flex-row" role="banner">
                         <img id="imgSiteLogo"  enableviewstate="false" runat="server" src="" alt="" class="imgSiteLogo" />
@@ -46,7 +47,7 @@
                           <asp:Literal ID="ChangeLanguageLiteral" EnableViewState="false" runat="server" />
                     </div>
                 </div>
-            </div>
+            </header>
             <% if (PXWeb.Settings.Current.General.Modules.ShowLogin)
                 { %>
                 <div id="loginBanner" class="login">
@@ -56,9 +57,7 @@
             <%  } %>
            
             <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>
-            <h1>
-                <asp:Label ID="lblH1Title" runat="server" Text="" CssClass="h1title"></asp:Label>
-            </h1>
+            <pxwebCustomControl:HeadingLabel ID="lblH1Title" runat="server" Text="" CssClass="h1title"></pxwebCustomControl:HeadingLabel>
              
             <pxc:NavigationFlow ID="navigationFlowControl" runat="server" Visible="false" /> 
             <div id="table-title">
@@ -68,12 +67,12 @@
                 </div>
             </div>
            
-            <div id="place-holder">
+            <main id="place-holder">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
                 </asp:ContentPlaceHolder>
-            </div>
+            </main>
             
-            <div id="pxfooter">
+            <footer id="pxfooter">
                 <div class="footerleft">
                     <asp:Label runat="server" EnableViewState="false" ID="lblFooterText" />
                 </div>
@@ -82,7 +81,7 @@
                     </asp:ContentPlaceHolder>  
                 </div>
                 <div style="clear: both;"> </div>               
-            </div>
+            </footer>
         </div>
     </form>
 </div>
