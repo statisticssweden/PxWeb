@@ -573,10 +573,10 @@
     <Compile Include="ApiHelp.aspx.designer.cs">
       <DependentUpon>ApiHelp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="API\Authentication\AuthenticationFilter.cs" />
-    <Compile Include="API\Controllers\CacheController.cs" />
-    <Compile Include="API\Services\CacheService.cs" />
-    <Compile Include="API\Interfaces\ICacheService.cs" />
+    <Compile Include="Code\API\Authentication\AuthenticationFilter.cs" />
+    <Compile Include="Code\API\Controllers\CacheController.cs" />
+    <Compile Include="Code\API\Services\CacheService.cs" />
+    <Compile Include="Code\API\Interfaces\ICacheService.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Chart.aspx.cs">
       <DependentUpon>Chart.aspx</DependentUpon>
