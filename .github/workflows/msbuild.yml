@@ -1,0 +1,28 @@
+name: MSBuild
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - uses: microsoft/setup-msbuild@v1
+
+    - uses: NuGet/setup-nuget@v1
+
+    - name: Restore NuGet packages
+      run: nuget restore
+
+    - name: Build the application
+      run: msbuild /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
