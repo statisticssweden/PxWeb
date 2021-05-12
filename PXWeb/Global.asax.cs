@@ -443,7 +443,7 @@ namespace PXWeb
                                            "{" + PxUrl.LAYOUT_KEY + "}/",
                                            "~/DataSort.aspx");
             
-            RouteTable.Routes.MapHttpRoute(name: "CacheApi", routeTemplate: "api/admin/v1/{controller}/{type}");
+            RouteTable.Routes.MapHttpRoute(name: "CacheApi", routeTemplate: "api/admin/v1/{controller}");
 
         }
 

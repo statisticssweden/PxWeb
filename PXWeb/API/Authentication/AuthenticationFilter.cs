@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
@@ -14,7 +15,11 @@ namespace PXWeb.API
 
         public AuthenticationFilter()
         {
-            _key = Environment.GetEnvironmentVariable(KEYNAME);
+            _key = ConfigurationManager.AppSettings.Get(KEYNAME);
+            if (string.IsNullOrWhiteSpace(_key)) 
+            {
+                _key = Environment.GetEnvironmentVariable(KEYNAME); 
+            }
             if (string.IsNullOrEmpty(_key))
             {
                 _logger.Error($"Could not retrieve environmental variable with key: '{KEYNAME}'");

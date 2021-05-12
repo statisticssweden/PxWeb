@@ -10,6 +10,5 @@ namespace PX.Web.Interfaces.Cache
     {
         void Initialize(List<IPxCache> lstCache);
         void Clear();
-        void Clear(Type type);
     }
 }

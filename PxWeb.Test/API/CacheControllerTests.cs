@@ -42,16 +42,14 @@ namespace PxWeb.Test
             return controller;
         }
 
-        [TestCase(CacheController.CacheType.ApiCache)]
-        [TestCase(CacheController.CacheType.InMemoryCache)]
-        [TestCase(CacheController.CacheType.SavedQueryPaxiomCache)]
-        public void Delete_WithAllowedCacheType_ReturnsHttpStatusCode204(CacheController.CacheType cacheType)
+        [Test]
+        public void Delete_succeeds_ReturnsHttpStatusCode204()
         {
             // Arrange
             var controller = InitializeCacheController();
 
             // Act
-            var response = controller.Delete(cacheType);
+            var response = controller.Delete();
 
             // Assert
             Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
@@ -61,11 +59,11 @@ namespace PxWeb.Test
         public void Delete_DependenciesFail_ReturnsHttpStatusCode500()
         {
             // Arrange
-            _cacheServiceMock.Setup(c => c.ClearCache(It.IsAny<Type>())).Throws<Exception>();
+            _cacheServiceMock.Setup(c => c.ClearCache()).Throws<Exception>();
             CacheController controller = InitializeCacheController();
 
             // Act
-            var response = controller.Delete(CacheController.CacheType.ApiCache);
+            var response = controller.Delete();
 
             // Assert
             Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
@@ -79,11 +77,11 @@ namespace PxWeb.Test
             CacheController controller = InitializeCacheController();
 
             // Act
-            var response = controller.Delete(CacheController.CacheType.ApiCache);
+            var response = controller.Delete();
 
             // Assert
             Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
-            _cacheServiceMock.Verify(mock => mock.ClearCache(It.IsAny<Type>()), Times.Once());
+            _cacheServiceMock.Verify(mock => mock.ClearCache(), Times.Once());
 
         }
 

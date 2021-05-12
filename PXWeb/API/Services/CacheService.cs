@@ -4,9 +4,9 @@ namespace PXWeb.API.Services
 {
     public class CacheService : ICacheService
     {
-        public void ClearCache(Type type)
+        public void ClearCache()
         {
-            Management.PxContext.CacheController.Clear(type);
+            Management.PxContext.CacheController.Clear();
         }
     }
 }
