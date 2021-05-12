@@ -45,8 +45,9 @@ namespace PXWeb.Modules.Security
 
             if (PXWeb.Settings.Current.General.Administration.UseIPFilter)
             {
-                // Only protect the Administration part of PX-Web
-                if (context.Request.AppRelativeCurrentExecutionFilePath.ToLower().StartsWith("~/admin/"))
+                // Only protect the Administration part of PX-Web (both UI and REST API)
+                var path = context.Request.AppRelativeCurrentExecutionFilePath.ToLower();
+                if (path.StartsWith("~/admin/") || path.StartsWith("~/api/admin"))
                 {
                     string ipAddress = context.Request.UserHostAddress;
                     if (!IsValidIpAddress(ipAddress))
