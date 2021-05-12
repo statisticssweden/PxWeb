@@ -2,14 +2,14 @@
 set mypath=%~dp0
 echo Folder of executing script %mypath%
 
-
-echo cheching if %mypath%PXWeb\Web.config exists
-if exist %mypath%PXWeb\Web.config (
-  echo "Web.config already exist, so no copying."
-) else (
-  echo "Copying files:"
- copy %mypath%TemplateConfigFiles\*.config %mypath%PXWeb\.
-) 
+FOR %%f in (%mypath%TemplateConfigFiles\*.config) DO (
+  IF EXIST "%mypath%PXWeb\%%~nxf" ( 
+    echo File "%mypath%PXWeb\%%~nxf" exists,  so no copying. 
+  ) else ( 
+    echo Copying %%~nxf
+    COPY "%mypath%TemplateConfigFiles\%%~nxf" "%mypath%PXWeb\%%~nxf" 
+  )
+)
 
 echo "Done."
 
