@@ -56,7 +56,7 @@
 
   & .the_long_text {
     @include just-open-sans;
-    display: inline-block;
+    display: block;
     margin-bottom: 20px;
     font-size: 14px;
   }

@@ -1560,7 +1560,7 @@ $scrollbar-color: #b0b0b0;
   margin: 10px 0 0px 0; }
   #pxwebcontent .footnotes_container .the_long_text {
     font-family: 'Open Sans', sans-serif;
-    display: inline-block;
+    display: block;
     margin-bottom: 20px;
     font-size: 14px; }
   #pxwebcontent .footnotes_container .obs-notes .the_long_text {
