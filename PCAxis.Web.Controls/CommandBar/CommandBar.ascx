@@ -21,6 +21,7 @@
             <asp:panel runat="server" class="accordion-body closed" ClientIDMode="Static" id="OptionsBody">
                 <asp:panel cssclass="operations-container flex-column" id="OperationsButtonsPanel" ClientIDMode="Static" runat="server"></asp:panel>
             </asp:panel>        
+            <asp:panel id="PluginControlHolder" cssclass="commandbar_container" runat="server" visible="false"></asp:panel>
         </asp:Panel>
         <asp:panel class="pxweb-accordion"  ClientIDMode="Static" id="SaveAsPanel" runat="server">
             <fieldset>
@@ -40,6 +41,5 @@
     <asp:Panel ID="SaveFilePanel" runat="server" CssClass="commandbar_savefilelink">
         <asp:HyperLink ID="SaveFileLink" runat="server" Target="_blank"></asp:HyperLink>
     </asp:Panel>
-    <asp:panel id="PluginControlHolder" cssclass="commandbar_container" runat="server" visible="false"></asp:panel>
 
 </asp:Panel>
