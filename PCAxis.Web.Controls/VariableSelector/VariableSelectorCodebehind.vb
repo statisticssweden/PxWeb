@@ -219,7 +219,7 @@ Public Class VariableSelectorCodebehind
     ''' </summary>    
     Private Sub SetLocalizedTexts()
         ButtonViewTable.Text = GetLocalizedString("CtrlVariableSelectorContinueButton")
-        SelectionValidationSummary.HeaderText = "<span style='font-weight:bold'>" + GetLocalizedString("CtrlVariableSelectorValidationSummary") + "</span>"
+        SelectionValidationSummary.HeaderText = "<span>" + GetLocalizedString("CtrlVariableSelectorValidationSummary") + "</span>"
         If (Marker.LimitSelectionsBy = "RowsColumns") Then
             SelectionErrorlabelTextRows.Text = String.Format(Me.GetLocalizedString(ROW_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedRowsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
             SelectionErrorlabelTextColumns.Text = String.Format(Me.GetLocalizedString(COL_SELECTION_LIMIT_EXCEEDED), DataFormatter.NumericToString(Marker.SelectedColumnsLimit, 0, LocalizationManager.GetTwoLetterLanguageCode()))
