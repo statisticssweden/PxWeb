@@ -188,6 +188,7 @@ Public Class SumCodebehind
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(DIVIDE_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
+                SumOptionPanel.Visible = False
             Case SumOperationType.Multiplication
                 buttonText = GetLocalizedString(MULTIPLY_CONTINUE_BUTTON)
                 TitleLiteral.Text = GetLocalizedString(MULTIPLY_TITLE)
@@ -196,6 +197,7 @@ Public Class SumCodebehind
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(MULTIPLY_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
+                SumOptionPanel.Visible = False
             Case SumOperationType.Subtraction
                 buttonText = GetLocalizedString(SUBTRACT_CONTINUE_BUTTON)
                 TitleLiteral.Text = GetLocalizedString(SUBTRACT_TITLE)
@@ -204,6 +206,7 @@ Public Class SumCodebehind
                 ContinueButtonSelectVariables.Text = buttonText
                 SelectVariableValuesLabel.Text = GetLocalizedString(SUBTRACT_SELECTVARIABLEVALUES_TITLE)
                 ContinueButtonSelectValues.Text = buttonText
+                SumOptionPanel.Visible = False
             Case Else
                 buttonText = GetLocalizedString(SUM_CONTINUE_BUTTON)
                 TitleLiteral.Text = GetLocalizedString(SUM_TITLE)
