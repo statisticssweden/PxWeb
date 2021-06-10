@@ -254,6 +254,10 @@
 
             }
 
+            jQuery('.pxweb-open-toools-button').on('click', function() {
+                jQuery('#PresentationLeft').addClass('mobilemenu');
+            }); 
+
         }
     </script>
     
