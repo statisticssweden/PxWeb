@@ -142,63 +142,71 @@ namespace PCAxis.Search
 
             using (IndexWriter writer = CreateIndexWriter(false))
             {
-                if (writer == null)
+                try
                 {
-                    return false;
-                }
-
-                foreach (TableUpdate table in tableList)
-                {
-                    doUpdate = false;
-                    PXModel model = PxModelManager.Current.GetModel(DatabaseType.CNMM, _database, _language, table.Id);
-
-                    // Get default value for title
-                    title = model.Meta.Title;
-
-                    // Get table title from _menuMethod
-                    // table.Path is supposed to have the following format: path/path/path
-                    // Example: BE/BE0101/BE0101A
-                    pathParts = table.Path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    if (pathParts.Length > 1)
+                    if (writer == null)
                     {
-                        menu = pathParts[pathParts.Length - 1];
-                        selection = table.Id;
+                        return false;
+                    }
 
-                        node = new ItemSelection(menu, selection);
-                        PCAxis.Menu.PxMenuBase db = _menuMethod(_database, node, _language, out currentTable);
+                    foreach (TableUpdate table in tableList)
+                    {
+                        doUpdate = false;
+                        PXModel model = PxModelManager.Current.GetModel(DatabaseType.CNMM, _database, _language, table.Id);
 
-                        if (currentTable != null)
+                        // Get default value for title
+                        title = model.Meta.Title;
+
+                        // Get table title from _menuMethod
+                        // table.Path is supposed to have the following format: path/path/path
+                        // Example: BE/BE0101/BE0101A
+                        pathParts = table.Path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        if (pathParts.Length > 1)
                         {
-                            if (currentTable is TableLink)
+                            menu = pathParts[pathParts.Length - 1];
+                            selection = table.Id;
+
+                            node = new ItemSelection(menu, selection);
+                            PCAxis.Menu.PxMenuBase db = _menuMethod(_database, node, _language, out currentTable);
+
+                            if (currentTable != null)
                             {
-                                doUpdate = true;
-                                // Get table title from the menu method
-                                if (!string.IsNullOrEmpty(currentTable.Text))
+                                if (currentTable is TableLink)
                                 {
-                                    title = currentTable.Text;
-                                }
-                                if (((TableLink)currentTable).Published != null)
-                                {
-                                    published = (DateTime)((TableLink)currentTable).Published;
+                                    doUpdate = true;
+                                    // Get table title from the menu method
+                                    if (!string.IsNullOrEmpty(currentTable.Text))
+                                    {
+                                        title = currentTable.Text;
+                                    }
+                                    if (((TableLink)currentTable).Published != null)
+                                    {
+                                        published = (DateTime)((TableLink)currentTable).Published;
+                                    }
                                 }
                             }
                         }
+
+                        if (doUpdate)
+                        {
+                            UpdatePaxiomDocument(writer, _database, table.Id, table.Path, table.Id, title, published, model.Meta);
+                            _logger.Info("Search index " + _database + " - " + _language + " updated table " + table.Id);
+                        }
                     }
 
-                    if (doUpdate)
-                    {
-                        UpdatePaxiomDocument(writer, _database, table.Id, table.Path, table.Id, title, published, model.Meta);
-                        _logger.Info("Search index " + _database + " - " + _language + " updated table " + table.Id);
-                    }
+                    writer.Optimize();
+
                 }
-
-                writer.Optimize();
+                catch (Exception e)
+                {
+                    writer.Rollback();
+                    _logger.Error(e);
+                    throw;
+                }
             }
-
             return true;
         }
-
         #endregion
 
 
