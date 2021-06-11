@@ -8,8 +8,7 @@
 			 <siteMapNode url="MarkingTips.aspx" title="PxWebMarkingTips"  description="" />
 			 <siteMapNode url="Presentation.aspx" title="PxWebPresentation"  description="" >
 				  <siteMapNode url="InformationPresentation.aspx" title="PxWebInformation"  description="" />
-				  <siteMapNode url="FootnotesPresentation.aspx" title="PxWebFootnotes"  description="" />
-				  <siteMapNode url="DataSort.aspx" title="PxWebDataSort"  description="" />
+          <siteMapNode url="DataSort.aspx" title="PxWebDataSort"  description="" />
 				  <siteMapNode url="Table.aspx" title="PxWebTable"  description="" />
 				  <siteMapNode url="Chart.aspx" title="PxWebChart"  description="" />
 			 </siteMapNode>

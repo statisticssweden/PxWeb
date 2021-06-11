@@ -713,7 +713,6 @@
     <Compile Include="Code\Views\ChartViewSerializer.cs" />
     <Compile Include="Code\Views\FileChartViewSerializer.cs" />
     <Compile Include="Code\Views\FileViewSerializer.cs" />
-    <Compile Include="Code\Views\FootnoteViewSerializer.cs" />
     <Compile Include="Code\Views\InformationViewSerializer.cs" />
     <Compile Include="Code\Views\IViewSerializer.cs" />
     <Compile Include="Code\Views\ScreenViewSerializerAdapter.cs" />
@@ -741,13 +740,6 @@
     </Compile>
     <Compile Include="ErrorGeneral.aspx.designer.cs">
       <DependentUpon>ErrorGeneral.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FootnotesPresentation.aspx.cs">
-      <DependentUpon>FootnotesPresentation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FootnotesPresentation.aspx.designer.cs">
-      <DependentUpon>FootnotesPresentation.aspx</DependentUpon>
     </Compile>
     <Compile Include="FootnotesSelection.aspx.cs">
       <DependentUpon>FootnotesSelection.aspx</DependentUpon>
@@ -1012,7 +1004,6 @@
   <ItemGroup>
     <Content Include="CommandBarCustomPlugins.config" />
     <Content Include="DataSort.aspx" />
-    <Content Include="FootnotesPresentation.aspx" />
     <Content Include="FootnotesSelection.aspx" />
     <Content Include="Global.asax" />
     <Content Include="InformationPresentation.aspx" />

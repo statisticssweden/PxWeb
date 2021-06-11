@@ -772,8 +772,7 @@
   <sentence name="PxWebTitleChart" value ="PxWeb - Chart"/>
   <sentence name="PxWebTitleDataSort" value ="PxWeb - Sort"/>
   <sentence name="PxWebTitleErrorGeneral" value ="PxWeb - Oooops!"/>
-  <sentence name="PxWebTitleFootnotesPresentation" value ="PxWeb - Footnotes"/>
-  <sentence name="PxWebTitleFootnotesSelection" value ="PxWeb - Footnotes"/>
+   <sentence name="PxWebTitleFootnotesSelection" value ="PxWeb - Footnotes"/>
   <sentence name="PxWebTitleInformationPresentation" value ="PxWeb - Information"/>
   <sentence name="PxWebTitleInformationSelection" value ="PxWeb - Information"/>
   <sentence name="PxWebTitleMarkingTips" value ="PxWeb - Tips"/>

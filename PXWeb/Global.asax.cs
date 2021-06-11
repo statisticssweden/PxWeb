@@ -415,15 +415,6 @@ namespace PXWeb
                                            PxUrl.VIEW_CHART_IDENTIFIER + "/" +
                                            "{" + PxUrl.LAYOUT_KEY + "}/",
                                            "~/Chart.aspx");
-            RouteTable.Routes.MapPageRoute("FootnotesPresentationRoute",
-                                           PxUrl.PX_START + "/" +
-                                           "{" + PxUrl.LANGUAGE_KEY + "}/" +
-                                           "{" + PxUrl.DB_KEY + "}/" +
-                                           "{" + PxUrl.PATH_KEY + "}/" +
-                                           "{" + PxUrl.TABLE_KEY + "}/" +
-                                           PxUrl.VIEW_FOOTNOTES_IDENTIFIER + "/" +
-                                           "{" + PxUrl.LAYOUT_KEY + "}/",
-                                           "~/FootnotesPresentation.aspx");
             RouteTable.Routes.MapPageRoute("InformationPresentationRoute",
                                            PxUrl.PX_START + "/" +
                                            "{" + PxUrl.LANGUAGE_KEY + "}/" +

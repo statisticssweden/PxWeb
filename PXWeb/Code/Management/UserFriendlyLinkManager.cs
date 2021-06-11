@@ -260,10 +260,6 @@ namespace PXWeb
             {
                 return PxUrl.VIEW_CHART_IDENTIFIER;
             }
-            else if (page.Contains("FootnotesPresentation.aspx"))
-            {
-                return PxUrl.VIEW_FOOTNOTES_IDENTIFIER;
-            }
             else if (page.Contains("InformationPresentation.aspx"))
             {
                 return PxUrl.VIEW_INFORMATION_IDENTIFIER;

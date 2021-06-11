@@ -592,7 +592,6 @@
   <sentence name="PxWebTitleChart" value ="PxWeb - diagram"/>
   <sentence name="PxWebTitleDataSort" value ="PxWeb - sortera"/>
   <sentence name="PxWebTitleErrorGeneral" value ="PxWeb - Oooops!"/>
-  <sentence name="PxWebTitleFootnotesPresentation" value ="PxWeb - fotnot"/>
   <sentence name="PxWebTitleFootnotesSelection" value ="PxWeb - fotnot"/>
   <sentence name="PxWebTitleInformationPresentation" value ="PxWeb - information"/>
   <sentence name="PxWebTitleInformationSelection" value ="PxWeb - information"/>

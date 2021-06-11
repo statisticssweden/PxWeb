@@ -597,7 +597,6 @@
   <sentence name="PxWebTitleChart" value="Graf" />
   <sentence name="PxWebTitleDataSort" value="Sorter" />
   <sentence name="PxWebTitleErrorGeneral" value="Oooops!" />
-  <sentence name="PxWebTitleFootnotesPresentation" value="Fodnoter" />
   <sentence name="PxWebTitleFootnotesSelection" value="Fodnoter" />
   <sentence name="PxWebTitleInformationPresentation" value="Information" />
   <sentence name="PxWebTitleInformationSelection" value="Information" />
