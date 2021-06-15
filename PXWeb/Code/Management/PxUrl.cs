@@ -224,10 +224,6 @@ namespace PXWeb
             {
                 return PxUrl.VIEW_CHART_IDENTIFIER;
             }
-            else if (page is FootnotesPresentation)
-            {
-                return PxUrl.VIEW_FOOTNOTES_IDENTIFIER;
-            }
             else if (page is InformationPresentation)
             {
                 return PxUrl.VIEW_INFORMATION_IDENTIFIER;
