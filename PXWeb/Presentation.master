@@ -233,6 +233,7 @@
         y = document.getElementById("btnBurgerMenu");
         y.classList.toggle("burger_menu-icon");
         y.classList.toggle("burger_menu_open-icon");
+        y.blur();
 }
 
         function setBurgerMenuStatus(isExpanded) {
@@ -254,9 +255,8 @@
 
             }
 
-            jQuery('.pxweb-open-toools-button').on('click', function() {
-                jQuery('#PresentationLeft').addClass('mobilemenu');
-                jQuery('#PresentationLeft').removeClass('mobilemenuhidden');
+            jQuery('.pxweb-open-tools-button').on('click', function() {
+                setBurgerMenuStatus(true);
             }); 
 
         }
