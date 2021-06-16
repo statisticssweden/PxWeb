@@ -19,15 +19,15 @@
                 ControlToValidate="txtTitle" OnServerValidate="ValidateTitle"
                 Text="*" ErrorMessage="*" CssClass="px_setting_validator" Display="Dynamic" >
             </asp:CustomValidator>
-        <div class="flex-row s-margin-top">
+        <div id="sizeSettings" class="flex-row s-margin-top">
         <asp:Label ID="lblHeight" CssClass="font-heading" runat="server" AssociatedControlID="txtHeight" Text="<%$ PxString: PxWebChartUserSettingsHeight %>"></asp:Label>
-            <asp:TextBox ID="txtHeight" CssClass="px_setting_textbox_normal" runat="server" ></asp:TextBox>
+            <asp:TextBox ID="txtHeight" CssClass="px_setting_textbox_normal" runat="server" TextMode="Number"></asp:TextBox>
             <asp:CustomValidator ID="validatorHeight" runat="server" 
                 ControlToValidate="txtHeight" OnServerValidate="ValidateHeight"
                 Text="*" ErrorMessage="*" ValidateEmptyText="True" CssClass="px_setting_validator" Display="Dynamic" >
             </asp:CustomValidator>
             <asp:Label ID="lblWidth" CssClass="font-heading xs-margin-left" runat="server" AssociatedControlID="txtWidth" Text="<%$ PxString: PxWebChartUserSettingsWidth %>"></asp:Label>
-            <asp:TextBox ID="txtWidth" CssClass="px_setting_textbox_normal" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtWidth" CssClass="px_setting_textbox_normal" runat="server" TextMode="Number"></asp:TextBox>
             <asp:CustomValidator ID="validatorWidth" runat="server" 
                 ControlToValidate="txtWidth" OnServerValidate="ValidateWidth"
                 Text="*" ErrorMessage="*" ValidateEmptyText="True" CssClass="px_setting_validator" Display="Dynamic" >
@@ -54,17 +54,17 @@
                     <asp:ListItem Value="Vertical"></asp:ListItem>
                 </asp:RadioButtonList>
             </asp:Panel>
-        <asp:Panel ID="pnlGuidelines" CssClass="s-margin-top" runat="server">
+        <asp:Panel ID="pnlGuidelines" CssClass="s-margin-top checkbox-list" runat="server">
                 <asp:Label ID="lblGuidelines" CssClass="font-heading" runat="server" Text="<%$ PxString: PxWebChartUserSettingsGuidelines %>" ></asp:Label>
                 <asp:CheckBox ID="chkHorizontalGuidelines" CssClass="px_setting_checkbox" runat="server" Text="<%$ PxString: PxWebChartUserSettingsGuidelinesHorizontal %>"/>
                 <asp:CheckBox ID="chkVerticalGuidelines" CssClass="px_setting_checkbox" runat="server" Text="<%$ PxString: PxWebChartUserSettingsGuidelinesVertical %>" />
             </asp:Panel>            
-            <div class="flex-row s-margin-top">
+            <div id="legendSettings" class="flex-row s-margin-top">
                 <asp:Label ID="lblLegend" CssClass="font-heading" runat="server" Text="<%$ PxString: PxWebChartUserSettingsLegend %>"></asp:Label>
                 <asp:CheckBox ID="chkShowLegend" CssClass="px_setting_checkbox" runat="server" AutoPostBack="true" 
                     oncheckedchanged="ShowLegend_CheckedChanged" Text="<%$ PxString: PxWebChartUserSettingsLegendShow %>" />
                 <asp:Label ID="lblLegendHeight" runat="server" AssociatedControlID="txtLegendHeight" Text="<%$ PxString: PxWebChartUserSettingsLegendHeight %>"></asp:Label>
-                <asp:TextBox ID="txtLegendHeight" CssClass="px_setting_textbox_normal" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtLegendHeight" CssClass="px_setting_textbox_normal" runat="server" TextMode="Number"></asp:TextBox>
                 <asp:CustomValidator ID="validatorLegendHeight" runat="server" 
                     ControlToValidate="txtLegendHeight" OnServerValidate="ValidateLegendHeight"
                     Text="*" ErrorMessage="*" ValidateEmptyText="True" CssClass="px_setting_validator" Display="Dynamic" >

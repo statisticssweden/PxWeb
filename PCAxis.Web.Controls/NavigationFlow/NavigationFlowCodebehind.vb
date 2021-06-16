@@ -114,6 +114,7 @@ Public Class NavigationFlowCodebehind
         secondStepLink.CssClass &= stateSecondStep
 
         thirdStepLabel.CssClass &= stateThirdStep
+        thirdStepLink.CssClass &= stateThirdStep
 
         firstStepImage.ImageUrl = SVG_FOLDER + "Step1_" + stateFirstStep + ".svg"
         secondStepImage.ImageUrl = SVG_FOLDER + "Step2_" + stateSecondStep + ".svg"

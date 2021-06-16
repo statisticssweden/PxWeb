@@ -432,6 +432,10 @@
   max-width:100%;
 }
 
+#pxwebcontent .presentation-left .tools-header {
+    display: none;
+}
+
 #pxwebcontent .presentation-container {
   display: grid;
   grid-template-columns: minmax(215px, 23%) minmax(0px, 75%);

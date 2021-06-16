@@ -23,12 +23,16 @@
         <div id="subheader">
             <pxwebCustomControl:HeadingLabel ID="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderResult%>"></pxwebCustomControl:HeadingLabel>
         </div>
-        <div>
+        <div class="tools-menu-item">
            <input id="btnBurgerMenu" runat="server" ClientIDMode="Static" type="button"   onclick="ToggleBurgerMenu()" class="pxweb-buttons pxweb-btn burger_menu-icon icon-placement"/>
         </div>
 
         <div id="Presentation" class="s-margin-top presentation-container">
-            <div id="PresentationLeft" class="presentation-left mobilemenu mobilemenuhidden">
+            <div id="PresentationLeft" class="presentation-left mobilemenu mobilemenuhidden tools">
+                <div class="tools-header">
+                    <h2><%= Master.GetLocalizedString("PxWebTools") %></h2>
+                    <button onclick="ToggleBurgerMenu()" class="button-tertiar"><%= Master.GetLocalizedString("PxWebToolsClose") %></button>
+                </div>
                 <div class="mobilemenu mobilemenuhidden ">
                     <ucAccordianAboutTable:AccordianAboutTable runat="server" ID="UcAccordianAboutTable"/>
                 </div>
@@ -229,6 +233,7 @@
         y = document.getElementById("btnBurgerMenu");
         y.classList.toggle("burger_menu-icon");
         y.classList.toggle("burger_menu_open-icon");
+        y.blur();
 }
 
         function setBurgerMenuStatus(isExpanded) {
@@ -249,6 +254,10 @@
                 }
 
             }
+
+            jQuery('.pxweb-open-tools-button').on('click', function() {
+                setBurgerMenuStatus(true);
+            }); 
 
         }
     </script>

@@ -35,7 +35,7 @@
         </div>
         <asp:Label ID="lblSearchError" runat="server" Text="" CssClass="pxweb-input-error negative"></asp:Label>
         <div class="searchvalues-listbox-container">
-            <asp:Label ID="SearchResultNumberOfHitsLabel" runat="server"></asp:Label>
+            <asp:Label ID="SearchResultNumberOfHitsLabel" CssClass="pxweb-info-text" runat="server"></asp:Label>
             <asp:ListBox ID="SearchResults" runat="server" class="searchvalues-listbox" />
           </div>
         <div class="flex-row flex-wrap">
@@ -57,9 +57,11 @@
         <asp:Button ID="RemoveButton" Enabled="true" class="searchvalues_removebutton pxweb-buttons arrow-up-icon pxweb-btn negative icon-placement" runat="server" />
         </div>
         <div class="searchvalues-listbox-container">
-            <asp:Label ID="NumberOfChoosenValuesLabelPart1" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
-             <asp:Label ID="NumberOfChoosenValuesLabelPart2" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
-             <asp:Label ID="NumberOfChoosenValuesLabelPart3" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+            <span class="pxweb-info-text">
+                <asp:Label ID="NumberOfChoosenValuesLabelPart1" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+                <asp:Label ID="NumberOfChoosenValuesLabelPart2" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+                <asp:Label ID="NumberOfChoosenValuesLabelPart3" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+            </span>
             <asp:ListBox ID="SelectedVariableValues" runat="server" class="searchvalues-listbox"/>
         </div>
         <asp:Button ID="CancelButton" runat="server" class="align-self-flex-end pxweb-buttons cancel-icon pxweb-btn negative icon-placement" />
