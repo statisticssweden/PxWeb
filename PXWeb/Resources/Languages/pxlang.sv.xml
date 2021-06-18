@@ -41,6 +41,14 @@
   <sentence name="CtrlPerPartOneVariableAllValues" value="Välj en variabel som bas för procentberäkningen" />
   <sentence name="CtrlPerPartOneVariableOneValue" value="Välj en variabel för vilken du vill välja ett värde som bas " />
   <sentence name="CtrlPerPartOneMatrixValue" value="Välj en datacell som bas, du får välja ett värde per variabel " />
+  <sentence name="CtrlPerPartSelectedVariableNameLabel" value="Välj värde från {0}:"/>
+  <sentence name="CtrlPerPartSelectCellLabel" value="Välj cell:"/>
+  <sentence name="CtrlPerPartCompleteButton" value="Slutför" />
+  <sentence name="CtrlCommandBarAccordionOperatationsTitle" value="Fler alternativ" />
+  <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Spara resultat som..." />
+  <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Visa resultat som..." />
+  <sentence name="CtrlCommandBarSaveAsButton" value="Spara" />
+  <sentence name="CtrlCommandBarShowAsButton" value="Visa" />
   <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Ändra och beräkna" />
   <sentence name="CtrlCommandBarSaveAsCaption" value="Spara tabell som" />
   <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Övrigt" />
@@ -240,6 +248,7 @@
   <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Välj hierarkiskt" />
   <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Sök värden" />
   <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Totalt" />
+  <sentence name="CtrlVariableSelectorOptionalVariableText" value="Valfri variabel" />
   <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valda" />
   <sentence name="CtrlVariableSelectorSearchLabel" value="Sök" />
   <sentence name="CtrlVariableSelectorSearchTooltip" value="Sök" />
@@ -371,13 +380,18 @@
   <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Sök varsomhelst i text" />
   <sentence name="CtrlSearchValuesShowAllValues" value="Visa alla värden" />
   <sentence name="CtrlSearchValuesSearch" value="Sök" />
+  <sentence name="CtrlSearchValuesHeader2" value="Avancerad sök för {0}" />
   <sentence name="CtrlSearchValuesSelectionTips" value="För att markera alla inom sökresultatet, klicka på översta värdet, håll nere shifttangenten och klicka på nedersta värdet" />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues2" value="Hämta alla {0} värden" />
   <sentence name="CtrlSearchValuesSearchResultHeader" value="Sökresultat" />
   <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(Antal träffar: {0})" />
   <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Markera alla" />
   <sentence name="CtrlSearchValuesChoosenValues" value="Valda värden" />
   <sentence name="CtrlSearchValuesAddToChoosenValues" value="Lägg till valda värden" />
   <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Ta bort från valda värden" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValuesToolTip" value="Ta bort omarkerade värden från listan av valda värden." />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues2" value="Antal värden: {0} ut av {1}" />
+  <sentence name="CtrlSearchValuesChoosenValuesListboxScreenReader" value="Lista av värden för variablen." />
   <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(Antal värden: {0})" />
   <sentence name="CtrlSearchValuesNoValuesFound" value="Inga värden funna" />
   <sentence name="CtrlSearchValuesNoValuesSelected" value="Inga värden valda" />
@@ -436,6 +450,8 @@
   <sentence name="MasterPageSaveQueryInfoLatest" value="Senaste {0} tidsperioder" />
   <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttid {0} och alla efterkommande tidsperioder " />
   <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Oförändrad tabell" />
+  <sentence name="MasterPageFullscreen" value="Helskärm" />
+  <sentence name="MasterPageExitFullscreen" value="Avsluta helskärm" />
   <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Välj gruppering ---" />
   <sentence name="CtrlSelectFromGroupHeading" value="Välj värden via grupp" />
   <sentence name="CtrlSelectFromGroupShowAggregatedValues" value="Visa aggregerade värden" />
@@ -525,6 +541,7 @@
   <sentence name="PxWebMarkingTipsText" value="At least one indication in every list box has to be made to show a result for each variable. When you wish to &#xD;&#xA;see one or a few variables, mark these only. N.B. To undo a mark, press the button CTRL and click the mouse &#xD;&#xA;button on the text.&#xD;&#xA;&#xD;&#xA;To select all lines in a list box:&#xD;&#xA;- Mark the first line in the list box. Then press the buttons SHIFT and END simultaneously.&#xD;&#xA;&#xD;&#xA;To select/undo a marked line in a list box:&#xD;&#xA;- Press the button CTRL and click the left mouse button on the selected line simultaneously.&#xD;&#xA;&#xD;&#xA;To select more than one line in a list box:&#xD;&#xA;- Mark lines in a row by pressing the left mouse button and slip it over the requested lines. Or, mark the first &#xD;&#xA;line on your list and then press the button SHIFT at the same time as you press the up or down arrows on the keyboard. &#xD;&#xA;- Mark lines, not in a row, by pressing the button CTRL at the same time as you click the left mouse button on the requested lines. &#xD;&#xA;&#xD;&#xA;To search for a specific value in the list box:&#xD;&#xA;- Mark the first line in the list box. Then type the first letter in the line requested. If you fail in getting the right line, &#xD;&#xA;try the typing again until you find the right value. Or use the up or down arrows or the mouse button to look further. " />
   <sentence name="PxWebPresentation" value="Presentation" />
   <sentence name="PxWebTable" value="Tabell" />
+  <sentence name="PxWebTableUserSettingsLegend" value="Vilka rader ska visas?" />
   <sentence name="PxWebTableUserSettingsShow" value="Tabellinställningar" />
   <sentence name="PxWebTableUserSettingsHide" value="Dölj tabellinställningar" />
   <sentence name="PxWebTableUserSettingsZeroOption" value="Rader med noll:" />
@@ -614,7 +631,7 @@
   <sentence name="PxWebMetadataValuesHeader" value ="Värden:"/>
   <sentence name="PxWebMetadataNoVariableMeta" value ="Det finns ingen definition för den här variabeln"/>
   <sentence name="PxWebMetadataNoValueMeta" value ="Det finns inga värden som har definitioner"/>
-
+  <sentence name="PxWebToTheTopButtonLiteralText" value ="Till toppen"/>
 
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
@@ -656,6 +673,8 @@
   <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Bakgrundsprocess"/>
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="Generellt"/>
+  <sentence name="PxWebSwitchToCompactView" value ="Kompaktvy"/>
+  <sentence name="PxWebSwitchToListView" value ="Listvy"/>
 
   <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Databaser" />
   <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Valda PX Databaser kommer att visas i PxWeb" />
