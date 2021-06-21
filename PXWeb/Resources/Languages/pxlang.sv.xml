@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <language xmlns="http://www.pc-axis.scb.se/" name="sv">
+  <sentence name="CtrlChooseVariable" value="Välj en variabel:" />
   <sentence name="CtrlCommandBarFunctionChangeTextPresentation" value="Ändra texter" />
   <sentence name="CtrlChangeTextsHeading" value="Ändra texter" />
   <sentence name="CtrlChangeTextsText" value="Gör önskade ändringar i texterna" />
@@ -7,7 +8,7 @@
   <sentence name="CtrlChangeTextsContentsHeading" value="Innehåll" />
   <sentence name="CtrlChangeTextsUnitsHeading" value="Sort" />
   <sentence name="CtrlChangeTextsVariablesHeading" value="Variabler" />
-  <sentence name="CtrlChangePresentationContinueButton" value="Fortsätt" />
+  <sentence name="CtrlChangePresentationCompleteButton" value="Slutför" />
   <sentence name="CtrlChangePresentationContentsHeading" value="Innehåll" />
   <sentence name="CtrlChangePresentationUnitsHeading" value="Sort" />
   <sentence name="CtrlChangePresentationVariablesHeading" value="Variabler" />
@@ -17,16 +18,17 @@
   <sentence name="CtrlChangeCodeTextPresentationText" value="Text" />
   <sentence name="CtrlChangeCodeTextPresentationCode" value="Kod" />
   <sentence name="CtrlChangeCodeTextPresentationCodeAndText" value="Kod och Text" />
+  <sentence name="CtrlChangeCodeTextPresentationNoneChangeable" value="Inga värden valda" />
   <sentence name="CtrlChangeDecimalContinueButton" value="Fortsätt" />
   <sentence name="CtrlChangeDecimalHeading" value="Ändra decimaler" />
   <sentence name="CtrlChangeDecimalHeaderLabel" value="Skriv in antalet decimlaler du vill använda och tryck på fortsätt" />
-  <sentence name="CtrlChangeDecimalDecimalLabel" value="Antal decimaler (0-6)"/>
+  <sentence name="CtrlChangeDecimalDecimalLabel" value="Antal decimaler (0-6)" />
   <sentence name="CtrlChangeDecimalRangeError" value="Antalet decimaler måste vara mellan 0 och 6" />
   <sentence name="CtrlCommandBarFunctionChangeDecimal" value="Ändra decimaler" />
   <sentence name="CtrlCommandBarFunctionDeleteVariable" value="Ta bort en variabel" />
   <sentence name="CtrlDeleteVariableHeaderLabel" value="Markera variabeln och det värde som ska användas vid borttaget." />
   <sentence name="CtrlDeleteVariableAddToTitleLabel" value="Lägg in värdetexten i tabellrubriken" />
-  <sentence name="CtrlDeleteVariableContinueButton" value="Fortsätt" />
+  <sentence name="CtrlDeleteVariableCompleteButton" value="Slutför" />
   <sentence name="CtrlDeleteVariableErrorDescription" value="Du måste välja minst en variabel och ett värde" />
   <sentence name="CtrlDeleteVariableOneVariable" value="Du kan inte ta bort alla variabler, åtminstone en måste finnas" />
   <sentence name="CtrlCommandBarFunctionDeleteValue" value="Ta bort värde" />
@@ -36,22 +38,35 @@
   <sentence name="CtrlCommandBarFunctionPerPart" value="Procent" />
   <sentence name="CtrlPerPartContinueButton" value="Fortsätt" />
   <sentence name="CtrlPerPartNewValueName" value="Namn på nytt värde" />
+  <sentence name="CtrlPerPartKeepValueRadioLegend" value="Vad ska visas" />
   <sentence name="CtrlPerPartKeepData" value="Visa ursprungsdata och procent" />
   <sentence name="CtrlPerPartPerCentOnly" value="Visa endast procent" />
+  <sentence name="CtrlPerPartSelectOptionRadioLegend" value="Typ av bas:" />
   <sentence name="CtrlPerPartOneVariableAllValues" value="Välj en variabel som bas för procentberäkningen" />
   <sentence name="CtrlPerPartOneVariableOneValue" value="Välj en variabel för vilken du vill välja ett värde som bas " />
   <sentence name="CtrlPerPartOneMatrixValue" value="Välj en datacell som bas, du får välja ett värde per variabel " />
+  <sentence name="CtrlPerPartSelectedVariableNameLabel" value="Välj värde från {0}:" />
+  <sentence name="CtrlPerPartSelectCellLabel" value="Välj cell:" />
+  <sentence name="CtrlPerPartCompleteButton" value="Slutför" />
+  <sentence name="CtrlCommandBarAccordionOperatationsTitle" value="Fler alternativ" />
+  <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Spara resultat som..." />
+  <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Visa resultat som..." />
+  <sentence name="CtrlCommandBarSaveAsButton" value="Spara" />
+  <sentence name="CtrlCommandBarShowAsButton" value="Visa" />
   <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Ändra och beräkna" />
   <sentence name="CtrlCommandBarSaveAsCaption" value="Spara tabell som" />
   <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Övrigt" />
   <sentence name="CtrlCommandBarActionButtonCaption" value="Skicka" />
   <sentence name="CtrlCommandBarPluginSelectorOkButtonCaption" value="Ok" />
-  <sentence name="CtrlCommandBarDownloadFileTitle" value="Spara till fil" />
-  <sentence name="CtrlCommandBarDownloadFileInformation" value="För att spara ner filen klicka på Spara till fil" />
-  <sentence name="CtrlCommandBarDownloadFileLink" value="Spara till fil" />
   <sentence name="CtrlCommandBarFunctionPivotManual" value="Pivotera manuellt" />
   <sentence name="CtrlCommandBarFunctionPivotManualTitle" value="Pivotera manuellt" />
   <sentence name="CtrlCommandBarFunctionPivotManualAlt" value="Pivotera manuellt" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveLeft" value="Flytta till rad" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveRight" value="Flytta till kolumn" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveUp" value="Flytta upp" />
+  <sentence name="CtrlCommandBarFunctionPivotManualMoveDown" value="Flytta ner" />
+  <sentence name="CtrlCommandBarFunctionPivotManualListboxRowScreenReader" value="Välj variabler som ska visas i förspalten" />
+  <sentence name="CtrlCommandBarFunctionPivotManualListboxColumnScreenReader" value="Välj variabler som ska visas i överspalten" />
   <sentence name="CtrlCommandBarFunctionPivotCW" value="Pivotera medsols" />
   <sentence name="CtrlCommandBarFunctionPivotCWTitle" value="Pivotera medsol" />
   <sentence name="CtrlCommandBarFunctionPivotCWAlt" value="Pivotera medsol" />
@@ -130,6 +145,7 @@
   <sentence name="CtrlCommandBarLinkGoogleTitle" value="Google" />
   <sentence name="CtrlCommandBarLinkGoogleAlt" value="Google" />
   <sentence name="CtrlCommandBarFileDownLoadLink" value="Klicka här för att ladda ner filen" />
+  <sentence name="CtrlFootnoteObsnoteLabel" value="Notera:" />
   <sentence name="CtrlFootnoteFootnoteLabel" value="Fotnoter" />
   <sentence name="CtrlFootnoteNoFootnotesLabel" value="Inga fotnoter finns" />
   <sentence name="CtrlHierarchicalVariableSelectAllButton" value="Markera alla" />
@@ -169,12 +185,16 @@
   <sentence name="CtrlChangeValueOrderInstructionChangeOrder" value="Välj värdeordning genom att flytta värden ifrån den ena listan till den andra. De värden som inte flyttas ifrån Från-listan placeras först i tabellen." />
   <sentence name="CtrlChangeValueOrderCancelButton" value="Avbryt" />
   <sentence name="CtrlChangeValueOrderContinueButton" value="Fortsätt" />
+  <sentence name="CtrlChangeValueOrderCompleteButton" value="Slutför" />
   <sentence name="CtrlChangeValueOrderMoveRight" value="Flytta till höger" />
   <sentence name="CtrlChangeValueOrderMoveLeft" value="Flytta till vänster" />
   <sentence name="CtrlChangeValueOrderMoveDown" value="Flytta ner" />
+  <sentence name="CtrlChangeValueOrderMoveUp" value="Flytta upp" />
+  <sentence name="CtrlChangeValueOrderListboxLabel" value="Värden" />
   <sentence name="CtrlChangeValueOrderFromOrder" value="Från värdeordning" />
   <sentence name="CtrlChangeValueOrderToOrder" value="Till värdeordning" />
-  <sentence name="CtrlPivotContinueButton" value="Fortsätt" />
+  <sentence name="CtrlPivotCompleteButton" value="Slutför" />
+  <sentence name="CtrlPivotCancelButton" value="Avbryt" />
   <sentence name="CtrlPivotStubLabel" value="Rader" />
   <sentence name="CtrlPivotHeadingLabel" value="Kolumner" />
   <sentence name="CtrlSaveAsSaveTypeListHeadLabel" value="Spara som filtyp:" />
@@ -198,7 +218,9 @@
   <sentence name="CtrlSumSelectedVariabelValuesTitle" value="Välj värden som ska summeras" />
   <sentence name="CtrlSumVariableNameRequired" value="Namn på nytt värde måste anges" />
   <sentence name="CtrlSumDifferentOperandsRequired" value="Två olika värden måste vara valda." />
+  <sentence name="CtrlSumOptions" value="Vilka värden vill du summera?" />
   <sentence name="CtrlSumContinueButton" value="Summera" />
+  <sentence name="CtrlSumComplete" value="Slutför" />
   <sentence name="CtrlSumKeepValuesText" value="Inkludera orginalvärden" />
   <sentence name="CtrlFirstOperandLabel" value="Första värdet:" />
   <sentence name="CtrlSecondOperandLabel" value="Andra värdet:" />
@@ -229,6 +251,7 @@
   <sentence name="CtrlVariableSelectorInstructionLabel" value="Markera ditt val och tryck på knappen 'Fortsätt'" />
   <sentence name="CtrlVariableSelectorMarkingTipsLink" value="Markeringstips" />
   <sentence name="CtrlVariableSelectorEliminationTooltip" value="Markera minst ett värde" />
+  <sentence name="CtrlVariableSelectorSelectScreenReaderRegion" value="Variabel," />
   <sentence name="CtrlVariableSelectorSelectValues" value="--- Välj indelning ---" />
   <sentence name="CtrlVariableSelectorEliminationLabel" value="För markerade variabler {image} måste minst ett värde väljas" />
   <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Markera alla värden" />
@@ -236,11 +259,13 @@
   <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Avmarkera alla värden" />
   <sentence name="CtrlVariableSelectorDeSelectAllButton" value="Avmarkera alla värden" />
   <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Välj värden via grupp" />
+  <sentence name="CtrlVariableSelectorSelectDropdownGroupingLabel" value="Meny för gruppering av värden" />
   <sentence name="CtrlVariableSelectorMetadataImformationTooltip" value="Definitioner för variabler och värden" />
   <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Välj hierarkiskt" />
   <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Sök värden" />
-  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Totalt" />
   <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Valda" />
+  <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="Totalt" />
+  <sentence name="CtrlVariableSelectorOptionalVariableText" value="Valfri variabel" />
   <sentence name="CtrlVariableSelectorSearchLabel" value="Sök" />
   <sentence name="CtrlVariableSelectorSearchTooltip" value="Sök" />
   <sentence name="CtrlVariableSelectorSearchTextStartCheckBox" value="Början av rad" />
@@ -262,6 +287,7 @@
   <sentence name="CtrlVariableSelectorVariableOverviewHeading" value="Variabel översikt" />
   <sentence name="CtrlVariableSelectorRowOwerflowMessage" value="Det finns mer än 500 värden och därför presenteras de inte automatiskt" />
   <sentence name="CtrlVariableSelectorShowAll" value="Visa Alla" />
+  <sentence name="CtrlVariableSelectorShowHierarchy" value="Visa hirarki" />
   <sentence name="CtrlVariableSelectorSearch" value="Sökfunktion" />
   <sentence name="CtrlVariableSelectorOutputFormatsOutputScreen" value="Visa tabell på skärmen" />
   <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Sök" />
@@ -269,25 +295,18 @@
   <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Inuti ord" />
   <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Början av ord" />
   <sentence name="CtrlVariableSelectorSearchValuesTextbox" value="Sök här" />
+  <sentence name="CtrlVariableSelectorSearchValuesTextboxScreenReader" value="Sökfält för att markera värden i listan" />
+  <sentence name="CtrlVariableSelectorSelectValuesListboxScreenReader" value="Lista med valbara värden för en variabel, Klicka för att markera en eller flera värden." />
+  <sentence name="CtrlVariableSelectorSearchResultSearchWordScreenReader" value="Sök på," />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader1" value=", resulterade i," />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader2" value=", träffar," />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader3" value=", Resultat" />
+  <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader4" value=", värde," />
   <sentence name="CtrlVariableSelectorManyValues" value="Det finns fler än {0} värden och därför visas de inte automatiskt. Använd sökfunktionen för att välja värden." />
   <sentence name="CtrlVariableSelectorLargeValueset" value="(Stor värdemängd)" />
+  <sentence name="CtrlVariableSelectorMetadataCloseButton" value="Stäng" />
   <sentence name="CtrlVariableSelectorActionButton" value="Skicka" />
   <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Dela på tidvariabel" />
-  <sentence name="CtrlSaveQueryCreateHeader" value="Du kan spara dina ändringar för senare användning" />
-  <sentence name="CtrlSaveQueryCreateDescription" value="Du kan även göra en eller fler editeringar/beräkningar innan du sparar." />
-  <sentence name="CtrlSaveQueryCreateTableCode" value="Tabellkod:" />
-  <sentence name="CtrlSaveQueryCreateDescriptionLabel" value="Beskrivning:" />
-  <sentence name="CtrlSaveQueryCreateHeaderTimeVariable" value="Välj tidsvariabel:" />
-  <sentence name="CtrlSaveQueryCreateAlwaysTheSelectedTimePeriod" value="Alltid den valda tidsperioden" />
-  <sentence name="CtrlSaveQueryCreateOnlyTheLastTimePeriod" value="Endast den sista tidsperioden" />
-  <sentence name="CtrlSaveQueryCreateMovingTimeInterval" value="Rörligt tidsintervall (endast de sista tidsperioderna)" />
-  <sentence name="CtrlSaveQueryCreateFixedStartPeriodAndMovingLastPeriod" value="Fast start period och rörlig sista period" />
-  <sentence name="CtrlSaveQueryCreateHeaderPresentation" value="Välj presentation:" />
-  <sentence name="CtrlSaveQueryCreateTableOnScreen" value="Tabell på skärmen" />
-  <sentence name="CtrlSaveQueryCreateDownloadInFileFormat" value="Ladda ner i filformat:" />
-  <sentence name="CtrlSaveQueryCreateCreateWebQueryForDataimportInExcel" value="Skapa en webbfråga för dataimport i Excel" />
-  <sentence name="CtrlSaveQueryCreateSendEmailWhenTableIsUpdated" value="Skicka e-post när tabellen ändras" />
-  <sentence name="CtrlSaveQueryCreateSave" value="Spara tabellspecifikationen" />
   <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Ändra sparad tabellspecifikation" />
   <sentence name="CtrlSaveQueryListEditHeaderLine1" value="Om du vill ta bort en sparad tabellspecifikation så kryssa i kryssrutan på den raden." />
   <sentence name="CtrlSaveQueryListEditHeaderLine2" value="Om du vill ändra tabellnamn eller beskrivning, skriv in de nya texterna." />
@@ -338,6 +357,7 @@
   <sentence name="FileTypePX" value="PX-fil" />
   <sentence name="FileTypeJson" value="Json fil (json)" />
   <sentence name="FileTypeJsonStat" value="JSON-stat fil (json)" />
+  <sentence name="FileTypeJsonStat2" value="JSON-stat 2 fil (json)" />
   <sentence name="FileTypeExcel" value="Excel workbook (xml)" />
   <sentence name="FileTypeExcelDoubleColumn" value="Excel workbook (xml) med kod och text" />
   <sentence name="FileTypeExcelCompleteInfoFile" value="Excel fil som skärm" />
@@ -353,8 +373,12 @@
   <sentence name="FileTypeHtml5Table" value="Html5 tabell (htm)" />
   <sentence name="FileTypeHtml" value="Html fil (htm)" />
   <sentence name="FileTypeRelational" value="Relationstabell som textfil (txt)" />
+  <sentence name="FileTypeChartPng" value="Diagram som PNG (png)" />
+  <sentence name="FileTypeChartGif" value="Diagram som Gif (gif)" />
+  <sentence name="FileTypeChartJpeg" value="Diagram som JPEG (jpg)" />
   <sentence name="FileTypeExcelX" value="Excel (xlsx)" />
   <sentence name="FileTypeExcelXDoubleColumn" value="Excel (xlsx) med kod och text" />
+  <sentence name="FileTypeSDMX" value="SDMX fil" />
   <sentence name="CtrlSearchVariableValuesAddButton" value="Lägg till" />
   <sentence name="CtrlSearchVariableValuesSearchHeader" value="Sök värden för variabeln " />
   <sentence name="CtrlSearchVariableValuesSearchForCode" value="Sök kod:" />
@@ -363,39 +387,26 @@
   <sentence name="CtrlSearchVariableValuesSearchTypeAnywhere" value="Sök varsomhelst i text" />
   <sentence name="CtrlSearchVariableValuesSearch" value="Sök" />
   <sentence name="CtrlSearchVariableValuesAddToVariableSelector" value="Lägg till valda resultat" />
-  <sentence name="CtrlSearchValuesHeader" value="Sök värden för" />
-  <sentence name="CtrlSearchValuesSearchCode" value="Sök kod:" />
-  <sentence name="CtrlSearchValuesSearchValue" value="Sök värde:" />
-  <sentence name="CtrlSearchValuesSearchValueOrCode" value="Sök kod/värde:" />
-  <sentence name="CtrlSearchValuesSearchTypeBeginning" value="Sök i början av kod/text" />
-  <sentence name="CtrlSearchValuesSearchTypeAnywhere" value="Sök varsomhelst i text" />
-  <sentence name="CtrlSearchValuesShowAllValues" value="Visa alla värden" />
-  <sentence name="CtrlSearchValuesSearch" value="Sök" />
+  <sentence name="CtrlSearchValuesHeader2" value="Avancerad sök för {0}" />
   <sentence name="CtrlSearchValuesSelectionTips" value="För att markera alla inom sökresultatet, klicka på översta värdet, håll nere shifttangenten och klicka på nedersta värdet" />
-  <sentence name="CtrlSearchValuesSearchResultHeader" value="Sökresultat" />
-  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(Antal träffar: {0})" />
-  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Markera alla" />
-  <sentence name="CtrlSearchValuesChoosenValues" value="Valda värden" />
-  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Lägg till valda värden" />
-  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Ta bort från valda värden" />
-  <sentence name="CtrlSearchValuesNumberOfChoosenValues" value="(Antal värden: {0})" />
-  <sentence name="CtrlSearchValuesNoValuesFound" value="Inga värden funna" />
-  <sentence name="CtrlSearchValuesNoValuesSelected" value="Inga värden valda" />
-  <sentence name="CtrlSearchValuesCancel" value="Avbryt" />
-  <sentence name="CtrlSearchValuesClear" value="Töm värden" />
-  <sentence name="CtrlSearchValuesAddToVariableSelector" value="Ok" />
+  <sentence name="CtrlSearchValuesSelectAllAvailableValues2" value="Hämta alla {0} värden" />
   <sentence name="CtrlSearchValuesSearchLabel" value="Sök" />
-  <sentence name="CtrlSearchValuesCode" value="Kod" />
-  <sentence name="CtrlSearchValuesValue" value="Värde" />
-  <sentence name="CtrlSearchValuesAllValues" value="Visa alla värden" />
-  <sentence name="CtrlSearchValuesSearchText" value="Text:" />
-  <sentence name="CtrlSearchValuesSearchButton" value="Sök" />
-  <sentence name="CtrlSearchValuesPagerFirstPage" value="Första sidan" />
-  <sentence name="CtrlSearchValuesPagerNumberOfPages" value="Totalt antal sidor" />
-  <sentence name="CtrlSearchValuesPagerLastPage" value="Sista sidan" />
-  <sentence name="CtrlSearchValuesPagerForward" value="Framåt" />
-  <sentence name="CtrlSearchValuesPagerBackward" value="Bakåt" />
-  <sentence name="CtrlSearchValuesSelectAllAvailableValues" value="Välj alla tillgängliga värden" />
+  <sentence name="CtrlSearchValuesSearchResultNumberOfHits" value="(Antal träffar: {0})" />
+  <sentence name="CtrlSearchValuesSearchResultListboxScreenReader" value="Lista med sökträffar" />
+  <sentence name="CtrlSearchValuesSearchResultSelectAll" value="Markera alla" />
+  <sentence name="CtrlSearchValuesAddToChoosenValues" value="Lägg till valda värden" />
+  <sentence name="CtrlSearchValuesAddToChoosenValuesToolTip" value="Lägger till sökresultatet till listan av valda värden" />
+  <sentence name="CtrlSearchValuesChoosenValues" value="Valda värden" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValues" value="Ta bort från valda värden" />
+  <sentence name="CtrlSearchValuesRemoveFromChoosenValuesToolTip" value="Ta bort omarkerade värden från listan av valda värden." />
+  <sentence name="CtrlSearchValuesNumberOfChoosenValues2" value="Antal värden: {0} ut av {1}" />
+  <sentence name="CtrlSearchValuesChoosenValuesListboxScreenReader" value="Lista av värden för variablen." />
+  <sentence name="CtrlSearchValuesCancel" value="Avbryt" />
+  <sentence name="CtrlSearchValuesAddToVariableSelector" value="Ok" />
+  <sentence name="CtrlSearchValuesUserManualScreenReaderRegion" value="Användarmanual för avancerad sök." />
+  <sentence name="CtrlSearchValuesSearchScreenReaderRegion" value="Sök och resultat" />
+  <sentence name="CtrlSearchValuesSelectedValuesScreenReaderRegion" value="Valda värden från sök" />
+  <sentence name="CtrlSearchValuesSearchFieldScreenReader" value="Ange sökord eller kod" />
   <sentence name="CtrlTableQueryShowInformation" value="Gör denna tabell tillgänglig i Din applikation" />
   <sentence name="CtrlTableQueryShowInformationTooltip" value="Få information hur Du kan göra denna tabell tillgänglig i Din applikation" />
   <sentence name="CtrlTableQueryHideInformation" value="Dölj information" />
@@ -405,9 +416,11 @@
   <sentence name="CtrlTableQueryMoreInformation" value="Mer information" />
   <sentence name="CtrlTableQuerySaveQuery" value="Spara API-fråga (json)" />
   <sentence name="CtrlNavigationFlowStep1" value="Välj tabell" />
+  <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Ikon som representerar sidan där du väljer tabell" />
   <sentence name="CtrlNavigationFlowStep2" value="Välj variabel" />
+  <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Ikon som representerar sidan där du väljer variabler och värden" />
   <sentence name="CtrlNavigationFlowStep3" value="Visa tabell" />
-
+  <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Ikon som representerar sidan där resultatet visas" />
   <sentence name="CtrlSaveQueryChoosetimeperiod" value="Uppdateringsalternativ" />
   <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="Hur vill du göra med din sparade sökning om tabellen uppdateras med nya tidsperioder?" />
   <sentence name="CtrlSaveQueryTimeWarning" value="Det går inte att välja att uppdatera sökningen eftersom tidsperioder har slagits ihop manuellt" />
@@ -417,36 +430,49 @@
   <sentence name="CtrlSaveQueryForScreen" value="Som det visas på skärmen" />
   <sentence name="CtrlSaveQueryCancelSaveQuery" value="Avbryt" />
   <sentence name="CtrlSaveQuerybtnCreateQuery" value="Slutför" />
-  <sentence name="CtrlSaveQueryFloatingTimePeriod" value="Uppdatera sökningen med rullande starttidpunkt och oförändrat antal tidsperioder" />  
+  <sentence name="CtrlSaveQueryFloatingTimePeriod" value="Uppdatera sökningen med rullande starttidpunkt och oförändrat antal tidsperioder" />
   <sentence name="CtrlSaveQuerySelectedTimePeriod" value="Uppdatera inte sökningen utan visa samma tidsperioder som på skärmen" />
   <sentence name="CtrlSaveQueryExtendedTimePeriod" value="Uppdatera sökningen med fast starttidpunkt och tillagda nya tidsperioder" />
   <sentence name="CtrlSaveQuerySelectFormat" value="Välj format" />
-  <sentence name="CtrlSaveQuerySelectFormatMissing" value="Välj format för att kunna slutföra" />  
+  <sentence name="CtrlSaveQuerySelectFormatMissing" value="Välj format för att kunna slutföra" />
   <sentence name="CtrlSaveQuerybtnBack" value="Tillbaka" />
   <sentence name="CtrlSaveQueryBookmark" value="Spara som bokmärke" />
   <sentence name="CtrlSaveQueryCopyLink" value="Kopiera" />
+  <sentence name="CtrlSaveQueryCopyLinkCopied" value="Kopierat" />
   <sentence name="CtrlSaveQueryMailQuery" value="Skicka som e-post" />
   <sentence name="CtrlSaveQueryFailedSave" value="Det gick inte att spara frågeställningen" />
   <sentence name="CtrlSaveQueryURLInfo" value="Du kan komma tillbaka till den sparade sökningen med denna länk" />
   <sentence name="CtrlSaveQueryHeadingExplanationText" value="Om spara sökningen" />
   <sentence name="CtrlSaveQueryExplanationText" value="Spara din sökning så att du komma tillbaka till samma tabell igen via en webbadress" />
+  <sentence name="CtrlSaveQueryStepByStep" value="Steg för steg förklaring för sparad fråga" />
   <sentence name="CtrlSaveQueryUpdateSummaryHeading" value="Uppdateringsalternativ:" />
   <sentence name="CtrlSaveQueryOutputSummaryHeading" value="Format:" />
+  <sentence name="CtrlSaveQueryUrlScreenReader" value="URL för sparad fråga" />
   <sentence name="MasterPageSaveQueryInfoHeader" value="Sparad sökning {0}" />
   <sentence name="MasterPageSaveQueryInfoLatest" value="Senaste {0} tidsperioder" />
   <sentence name="MasterPageSaveQueryInfoFromTime" value="Fast starttid {0} och alla efterkommande tidsperioder " />
   <sentence name="MasterPageSaveQueryInfoFixedTimeSelection" value="Oförändrad tabell" />
-  <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Välj gruppering ---" />
+  <sentence name="MasterPageFullscreen" value="Helskärm" />
+  <sentence name="MasterPageExitFullscreen" value="Avsluta helskärm" />
   <sentence name="CtrlSelectFromGroupHeading" value="Välj värden via grupp" />
+  <sentence name="CtrlSelectFromGroupSelectUserManualScreenReaderRegion" value="Användarmanual för att välja värden från grupp" />
+  <sentence name="CtrlSelectFromGroupGroupingScreenReaderRegion" value="Val av gruppering" />
+  <sentence name="CtrlSelectFromGroupGrouping" value="Gruppering:" />
+  <sentence name="CtrlSelectFromGroupSelectGrouping" value="--- Välj gruppering ---" />
+  <sentence name="CtrlSelectFromGroupSelectGroupingScreenReader" value="Lista för grupperingar" />
+  <sentence name="CtrlSelectFromGroupGroupScreenReaderRegion" value="Behandlar grupperingar" />
+  <sentence name="CtrlSelectFromGroupGroups" value="Grupper:" />
+  <sentence name="CtrlSelectFromGroupGroupsScreenReader" value="Lista av grupper i vald gruppering" />
+  <sentence name="CtrlSelectFromGroupRadiobuttonListLegend" value="Visa värden" />
   <sentence name="CtrlSelectFromGroupShowAggregatedValues" value="Visa aggregerade värden" />
   <sentence name="CtrlSelectFromGroupShowSingleValues" value="Visa enkelvärden" />
-  <sentence name="CtrlSelectFromGroupGroups" value="Grupper:" />
-  <sentence name="CtrlSelectFromGroupValues" value="Värden:" />
   <sentence name="CtrlSelectFromGroupSelectGroupsAggregated" value="Välj som aggregerade värden" />
   <sentence name="CtrlSelectFromGroupSelectGroupsSingle" value="Välj som enkelvärden" />
+  <sentence name="CtrlSelectFromGroupValuesScreenReaderRegion" value="Resulterande värden" />
+  <sentence name="CtrlSelectFromGroupValues" value="Värden:" />
+  <sentence name="CtrlSelectFromGroupValuesScreenReader" value="Lista med tillgängliga värden" />
   <sentence name="CtrlSelectFromGroupSelectAndReturn" value="Välj värden och återgå till valsidan" />
   <sentence name="CtrlSelectFromGroupCancel" value="Avbryt" />
-
   <sentence name="PxcYear" value="år" />
   <sentence name="PxcHalfyear" value="halvår" />
   <sentence name="PxcQuarter" value="kvartal" />
@@ -503,15 +529,19 @@
   <sentence name="PageViewFootnoteDialogTitle" value="Fotnoter" />
   <sentence name="PageViewDataSortDescription" value="Klicka på kolumnernas rubrik för att sortera tabellen. Håll inne shift för att sortera efter flera kolumner." />
   <sentence name="PageViewDataSortCopyInstructions" value="För att kopiera tabellen: Välj 'Markera allt' i Redigera-menyn och sedan 'Kopiera'. Alternativt tryck Ctrl+A och sedan Ctrl+C" />
+  <sentence name="PageViewDataSortColumnIsUnsortedSR" value="Tabellen är sorterad på en annan kolumn. Klicka för att sortera fallande på [0}" />
+  <sentence name="PageViewDataSortColumnIsSortedAscSR" value="Tabellen är sorterad i fallande ordning på [0}. Klicka för att sortera i stigande ordning." />
+  <sentence name="PageViewDataSortColumnIsSortedDescSR" value="Tabellen är sorterad i stigande ordning på {0}. klicka för att sortera i fallande ordning." />
   <sentence name="CancelButton" value="Avbryt" />
   <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1" />
   <sentence name="PxWebApplicationName" value="PxWeb 2021 v1" />
   <sentence name="PxWebLogoAlt" value="PxWeb logotyp" />
   <sentence name="PxWebHome" value="Hem" />
+  <sentence name="PxWebHomeImageScreenReader" value="Ikon som representerar hemknappen" />
   <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
-  <sentence name="PxWebSubHeaderChooseVariables" value="Välj variabler"/>
-  <sentence name="PxWebSubHeaderResult" value="Resultat"/>
-  <sentence name="PxWebOfficialStatisticsLogo" value="Logotyp för officiell statistik"/>
+  <sentence name="PxWebSubHeaderChooseVariables" value="Välj variabler" />
+  <sentence name="PxWebSubHeaderResult" value="Resultat" />
+  <sentence name="PxWebOfficialStatisticsLogo" value="Logotyp för officiell statistik" />
   <sentence name="PxWebMenuBurger" value="Meny" />
   <sentence name="PxWebTools" value="Verktyg" />
   <sentence name="PxWebToolsClose" value="Stäng" />
@@ -526,6 +556,7 @@
   <sentence name="PxWebPresentation" value="Presentation" />
   <sentence name="PxWebTable" value="Tabell" />
   <sentence name="PxWebTableUserSettingsShow" value="Tabellinställningar" />
+  <sentence name="PxWebTableUserSettingsLegend" value="Vilka rader ska visas?" />
   <sentence name="PxWebTableUserSettingsHide" value="Dölj tabellinställningar" />
   <sentence name="PxWebTableUserSettingsZeroOption" value="Rader med noll:" />
   <sentence name="PxWebTableUserSettingsZeroOptionShowAll" value="Visa alla rader" />
@@ -570,52 +601,56 @@
   <sentence name="PxWebDataSort" value="Sortera data" />
   <sentence name="PxWebSelectDb" value="Välj databas" />
   <sentence name="PxWebTableCropped" value="Tabellen har blivit beskuren. Maximalt kan {0} rader och {1} kolumner kan visas i tabellen på skärmen" />
+  <sentence name="PxWebTableCroppedHeading" value="Tabellen är avklippt" />
   <sentence name="PxWebPopupDialogOk" value="Ok" />
   <sentence name="PxWebPopupDialogClose" value="Stäng" />
   <sentence name="PxWebSelectVariable" value="Välj variabel" />
   <sentence name="PxWebAboutTable" value="Om tabellen" />
-  <sentence name="PxWebAboutTableContact" value ="Kontakt och information"/>
-  <sentence name="PxWebAboutTableFootnotes" value ="Fotnoter"/>
-  <sentence name="PxWebAboutTableDefinitions" value ="Definitioner för variabler och värden"/>
+  <sentence name="PxWebAboutTableContact" value="Kontakt och information" />
+  <sentence name="PxWebAboutTableFootnotes" value="Fotnoter" />
+  <sentence name="PxWebAboutTableDefinitions" value="Definitioner för variabler och värden" />
   <sentence name="PxWebShowTable" value="Visa tabellen" />
-  
+  <sentence name="PxWebTextOverTableList" value="Välj tabell nummer" />
   <sentence name="PxWebSearchControlLabel" value="Sök i {0}:" />
   <sentence name="PxWebSearchControlButtonText" value="Sök" />
-  <sentence name="PxWebSearchAllFields" value ="Sök i alla fält"/>
-  <sentence name="PxWebSearchSelection" value ="Sök endast i"/>
-  <sentence name="PxWebSearchFieldTitle" value ="Tabellens titel"/>
-  <sentence name="PxWebSearchFieldValue" value ="Värde text"/>
-  <sentence name="PxWebSearchFieldCode" value ="Värdekod"/>
+  <sentence name="PxWebSearchAllFields" value="Sök i alla fält" />
+  <sentence name="PxWebSearchSelection" value="Sök endast i" />
+  <sentence name="PxWebSearchFieldTitle" value="Tabellens titel" />
+  <sentence name="PxWebSearchFieldValue" value="Värde text" />
+  <sentence name="PxWebSearchFieldCode" value="Värdekod" />
   <sentence name="PxWebSearchResultText" value="Sökresultat: ({0} träffar)" />
   <sentence name="PxWebSearchResultColumnTable" value="Tabell" />
   <sentence name="PxWebSearchResultColumnPublished" value="Publicerat" />
-
-  <sentence name="PxWebTitleDefault" value ="PxWeb - välj databas"/>
-  <sentence name="PxWebTitleApiHelp" value ="PxWeb - API-hjälp"/>
-  <sentence name="PxWebTitleChart" value ="PxWeb - diagram"/>
-  <sentence name="PxWebTitleDataSort" value ="PxWeb - sortera"/>
-  <sentence name="PxWebTitleErrorGeneral" value ="PxWeb - Oooops!"/>
-  <sentence name="PxWebTitleFootnotesSelection" value ="PxWeb - fotnot"/>
-  <sentence name="PxWebTitleInformationPresentation" value ="PxWeb - information"/>
-  <sentence name="PxWebTitleInformationSelection" value ="PxWeb - information"/>
-  <sentence name="PxWebTitleMarkingTips" value ="PxWeb - tips"/>
-  <sentence name="PxWebTitleMenu" value ="PxWeb - välj tabell"/>
-  <sentence name="PxWebTitleSearch" value ="PxWeb - sök"/>
-  <sentence name="PxWebTitleSelection" value ="PxWeb - välj variabler och värden"/>
-  <sentence name="PxWebTitleTable" value ="PxWeb - tabell"/>
-  <sentence name="PxWebSavedQueryUnsafeMessage" value ="Texten i tabellen skiljer sig från originalet i databasen eftersom den har ändrats manuellt"/>
-  <sentence name="PxWebGeneralErrorMessage" value ="Ett fel har uppstått. Felet har blivit registrerat"/>
-  <sentence name="PxWebSavedQueryExecuteErrorMessage" value ="Din sparade sökning fungerar inte. Det kan bero på att tabellen flyttats eller tagits bort."/>
-  <sentence name="PxWebReturnToStartpage" value ="Till startsidan"/>
-  <sentence name="PxWebIllegalQuerystringErrorMessage" value ="Ogilltiga tecken i url:en."/>
-  <sentence name="PxWebIllegalCharactersErrorMessage" value ="Innehåller ogiltiga tecken"/>
-  <sentence name="PxWebMetadataSelectVariable" value ="-- Välj variabel --"/>
-  <sentence name="PxWebMetadataVariableHeader" value ="Variabel:"/>
-  <sentence name="PxWebMetadataValuesHeader" value ="Värden:"/>
-  <sentence name="PxWebMetadataNoVariableMeta" value ="Det finns ingen definition för den här variabeln"/>
-  <sentence name="PxWebMetadataNoValueMeta" value ="Det finns inga värden som har definitioner"/>
-
-
+  <sentence name="PxWebTitleDefault" value="PxWeb - välj databas" />
+  <sentence name="PxWebTitleApiHelp" value="PxWeb - API-hjälp" />
+  <sentence name="PxWebTitleChart" value="PxWeb - diagram" />
+  <sentence name="PxWebTitleDataSort" value="PxWeb - sortera" />
+  <sentence name="PxWebTitleErrorGeneral" value="PxWeb - Oooops!" />
+  <sentence name="PxWebTitleFootnotesSelection" value="PxWeb - fotnot" />
+  <sentence name="PxWebTitleInformationPresentation" value="PxWeb - information" />
+  <sentence name="PxWebTitleInformationSelection" value="PxWeb - information" />
+  <sentence name="PxWebTitleMarkingTips" value="PxWeb - tips" />
+  <sentence name="PxWebTitleMenu" value="PxWeb - välj tabell" />
+  <sentence name="PxWebTitleSearch" value="PxWeb - sök" />
+  <sentence name="PxWebTitleSelection" value="PxWeb - välj variabler och värden" />
+  <sentence name="PxWebTitleTable" value="PxWeb - tabell" />
+  <sentence name="PxWebSavedQueryUnsafeMessageHeading" value="Tabellen har blivit ändrad" />
+  <sentence name="PxWebSavedQueryUnsafeMessage" value="Texten i tabellen skiljer sig från originalet i databasen eftersom den har ändrats manuellt" />
+  <sentence name="PxWebGeneralErrorMessage" value="Ett fel har uppstått. Felet har blivit registrerat" />
+  <sentence name="PxWebSavedQueryExecuteErrorMessage" value="Din sparade sökning fungerar inte. Det kan bero på att tabellen flyttats eller tagits bort." />
+  <sentence name="PxWebReturnToStartpage" value="Till startsidan" />
+  <sentence name="PxWebIllegalQuerystringErrorMessage" value="Ogilltiga tecken i url:en." />
+  <sentence name="PxWebIllegalCharactersErrorMessage" value="Innehåller ogiltiga tecken" />
+  <sentence name="PxWebMetadataSelectVariable" value="-- Välj variabel --" />
+  <sentence name="PxWebMetadataVariableHeader" value="Variabel:" />
+  <sentence name="PxWebMetadataValuesHeader" value="Värden:" />
+  <sentence name="PxWebMetadataNoVariableMeta" value="Det finns ingen definition för den här variabeln" />
+  <sentence name="PxWebMetadataNoValueMeta" value="Det finns inga värden som har definitioner" />
+  <sentence name="PxWebToTheTopButtonLiteralText" value="Till toppen" />
+  <sentence name="PxWebSkipToMainContentLinkText" value="Hoppa till huvudinnehållet" />
+  <sentence name="PxWebSkipToMainContentLinkScreenReader" value="Tryck vagnretur för att komma till huvudinnehållet" />
+  <sentence name="PxWebSkipToSelectionLinkText" value="Gå till första variabeln" />
+  <sentence name="PxWebSkipToSelectionLinkScreenReader" value="Nu har du hamnat på en sida där du ska välja variabler och värden för dessa." />
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
   <sentence name="PxWebAdminVersion" value="PxWeb 2021 v1" />
@@ -641,6 +676,7 @@
   <sentence name="PxWebAdminMenuSettingsPresentationCommandBar" value="CommandBar" />
   <sentence name="PxWebAdminMenuTools" value="Verktyg" />
   <sentence name="PxWebAdminMenuToolsGenerateDb" value="Generera databas" />
+  <sentence name="PxWebAdminMenuSettingsNavigation" value="Navigation" />
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Språkhanteraren" />
   <sentence name="PxWebAdminMenuToolsReset" value="Nollställ" />
   <sentence name="PxWebAdminMenuToolsChangePassword" value="Byt lösenord" />
@@ -650,24 +686,24 @@
   <sentence name="PxWebAdminMenuFeaturesChartsGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesApi" value="API" />
   <sentence name="PxWebAdminMenuFeaturesApiGeneral" value="Generellt" />
-  <sentence name="PxWebAdminMenuFeaturesSaveQuery" value="Sparad fråga"/>
-  <sentence name="PxWebAdminMenuFeaturesSaveQueryGeneral" value="Generellt"/>
+  <sentence name="PxWebAdminMenuFeaturesSaveQuery" value="Sparad fråga" />
+  <sentence name="PxWebAdminMenuFeaturesSaveQueryGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesSearch" value="Sök" />
   <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="Generellt" />
-  <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Bakgrundsprocess"/>
-  <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="Generellt"/>
-
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Bakgrundsprocess" />
+  <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="Generellt" />
+  <sentence name="PxWebSwitchToCompactView" value="Kompaktvy" />
+  <sentence name="PxWebSwitchToListView" value="Listvy" />
   <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Databaser" />
   <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Valda PX Databaser kommer att visas i PxWeb" />
   <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="CNMM (Common Nordic Meta Model) Databaser" />
   <sentence name="PxWebAdminSettingsDatabasesCnmmDatabasesInfo" value="Valda CNMM Databaser kommer att visas i PxWeb" />
-  <sentence name="PxWebAdminSettingsDatabasesEnabled" value="Visa"/>
-  <sentence name="PxWebAdminSettingsDatabasesDbCreated" value="Db skapad"/>
-  <sentence name="PxWebAdminSettingsDatabasesIndexStatus" value="Index status"/>
-  <sentence name="PxWebAdminSettingsDatabasesAction" value="Operation"/>
-  <sentence name="PxWebAdminSettingsDatabasesCreateIndex" value="Skapa index"/>
-  <sentence name="PxWebAdminSettingsDatabasesConfirmCreateIndex" value="Vill du skapa ett nytt sökindex?"/>
-
+  <sentence name="PxWebAdminSettingsDatabasesEnabled" value="Visa" />
+  <sentence name="PxWebAdminSettingsDatabasesDbCreated" value="Db skapad" />
+  <sentence name="PxWebAdminSettingsDatabasesIndexStatus" value="Index status" />
+  <sentence name="PxWebAdminSettingsDatabasesAction" value="Operation" />
+  <sentence name="PxWebAdminSettingsDatabasesCreateIndex" value="Skapa index" />
+  <sentence name="PxWebAdminSettingsDatabasesConfirmCreateIndex" value="Vill du skapa ett nytt sökindex?" />
   <sentence name="PxWebAdminSettingsPathsLanguagePath" value="Sökväg språkfiler" />
   <sentence name="PxWebAdminSettingsPathsLanguagePathInfo" value="Sökväg till katalog som innehåller språkfiler" />
   <sentence name="PxWebAdminSettingsPathsImagePath" value="Sökväg bilder" />
@@ -676,12 +712,11 @@
   <sentence name="PxWebAdminSettingsPathsPxDatabasePathInfo" value="Sökväg till katalog som innehåller PX databaser" />
   <sentence name="PxWebAdminSettingsPathsAggregationPath" value="Sökväg aggregering" />
   <sentence name="PxWebAdminSettingsPathsAggregationPathInfo" value="Sökväg till katalog som innehåller aggregeringsfiler" />
-  
   <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownload" value="Max nedladdningsbara celler" />
   <sentence name="PxWebAdminSettingsFileFormatsCellLimitDownloadInfo" value="Maximalt antal celler som kan laddas ned till fil för en tabell" />
-  <sentence name="PxWebAdminSettingsFileBaseName" value="Hämta filnamn från"/>
-  <sentence name="PxWebAdminSettingsFileBaseNameTableId" value="Tabell id"/>
-  <sentence name="PxWebAdminSettingsFileBaseNameMatrix" value="Matrix"/>
+  <sentence name="PxWebAdminSettingsFileBaseName" value="Hämta filnamn från" />
+  <sentence name="PxWebAdminSettingsFileBaseNameTableId" value="Tabell id" />
+  <sentence name="PxWebAdminSettingsFileBaseNameMatrix" value="Matrix" />
   <sentence name="PxWebAdminSettingsFileFormatsFileBaseName" value="Filnamn" />
   <sentence name="PxWebAdminSettingsFileFormatsFileBaseNameInfo" value="Hämta namn på filen från matrix eller tabell id när en tabell laddas ned, till exempel Excel, csv. För att skapa ett unikt filnamn så konkateneras filnamnet med datum och tid." />
   <sentence name="PxWebAdminSettingsFileFormatsExcel" value="Excel" />
@@ -693,7 +728,6 @@
   <sentence name="PxWebAdminSettingsFileFormatsExcelInformationLevelAllInformation" value="All information" />
   <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumn" value="Separat kodkolumn" />
   <sentence name="PxWebAdminSettingsFileFormatsExcelDoubleColumnInfo" value="Om kod alltid ska visas i separat kolumn eller inte" />
-  
   <sentence name="PxWebAdminSettingsGlobalSecrecyOption" value="Sekretesskydd" />
   <sentence name="PxWebAdminSettingsGlobalSecrecyOptionInfo" value="Om datavärden ska förvrängas då de presenteras" />
   <sentence name="PxWebAdminSettingsGlobalSecrecyOptionNone" value="Inget" />
@@ -736,7 +770,7 @@
   <sentence name="PxWebAdminSettingsGlobalStrictAggregationCheckInfo" value="Om strikt kontroll av aggregeringar ska göras eller inte. Om satt till 'Ja' måste aggregeringsfilerna (.agg) ha nyckelordet 'valueset' satt till namnet på aktuellt värdeset. Om dessa inte matchar kommer aggregeringen inte att läggas till." />
   <sentence name="PxWebAdminSettingsGlobalShowInformationTypes" value="Visa informationstyper" />
   <sentence name="PxWebAdminSettingsGlobalShowInformationTypesInfo" value="Vad som ska visas i informationen om tabellen" />
-  <sentence name="PxWebAdminSettingsGlobalShowInfoFile" value="InfoFile"/>
+  <sentence name="PxWebAdminSettingsGlobalShowInfoFile" value="InfoFile" />
   <sentence name="PxWebAdminSettingsGlobalDetailedInformationInfo" value="Ska länken till infofile vara synlig. Om metadata ska visas som länkar så visas en länk till infofile bredvid länken till fotnoter. Om metadata ska visas på flikar så visas länken till infofile under informationsavsnittet på fliken Om tabellen. Länk till infofile visas bara på val av variabler/värden sidan." />
   <sentence name="PxWebAdminSettingsAdministrationUseIPFilter" value="Använd IP filter" />
   <sentence name="PxWebAdminSettingsAdministrationUseIPFilterInfo" value="Om IP filter ska användas vid inloggning till administrationsgränssnittet" />
@@ -786,10 +820,8 @@
   <sentence name="PxWebAdminSettingsMenuMetadataAsIconsInfo" value="Om metadata om tabellen ska visas som ikoner efter tabellnamnet eller som text. Om satt till 'Ja' kommer ikoner att visas, annars som text." />
   <sentence name="PxWebAdminSettingsMenuShowMenuExplanation" value="Visa menyförklaring" />
   <sentence name="PxWebAdminSettingsMenuShowMenuExplanationInfo" value="Om menyförklaring skal visas eller ej. Om det är satt til 'Ja' kommer menyförklaring att visas. Om det är satt till 'Nej' kommer inte menyförklaring att visas. " />
-  
   <sentence name="PxWebAdminSettingsMenuShowTextToMetadata" value="Visa text i anslutning till metadata" />
-  <sentence name="PxWebAdminSettingsMenuShowTextToMetadataInfo" value="Visa en beskrivande text i anslutning till metadata. Om 'Ja' visas till exempel texten 'Modifierad:' innan datum, om 'Nej' visas datumet men ingen text som beskriver metadata." />  
-  
+  <sentence name="PxWebAdminSettingsMenuShowTextToMetadataInfo" value="Visa en beskrivande text i anslutning till metadata. Om 'Ja' visas till exempel texten 'Modifierad:' innan datum, om 'Nej' visas datumet men ingen text som beskriver metadata." />
   <sentence name="PxWebAdminSettingsSelectionCellLimitScreen" value="Max antal celler på skärmen" />
   <sentence name="PxWebAdminSettingsSelectionCellLimitScreenInfo" value="Maximalt antal celler som kan väljas för presentation på skärmen" />
   <sentence name="PxWebAdminSettingsSelectionShowMandatoryMark" value="Markera obligatoriska" />
@@ -820,24 +852,20 @@
   <sentence name="PxWebAdminSettingsSelectionShowAllAvailableValuesSearchButtonInfo" value="Om knappen 'Välj alla tillgängliga värden' ska visas i sök-vyn. Varning! Att sätta denna inställning till 'Ja' kan innebära att webbsidan blir väldigt tung att ladda om variabeln har väldigt många värden." />
   <sentence name="PxWebAdminSettingsSelectionTitleFromMenu" value="Titel från meny" />
   <sentence name="PxWebAdminSettingsSelectionTitleFromMenuInfo" value="Om satt till 'Ja' så kommer tabellens titel visas som den gjorde i menyn" />
-  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitle" value="Standardrubrik"/>
-  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitleInfo" value="Om satt till ja kommer standardrubrik att användas"/>
+  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitle" value="Standardrubrik" />
+  <sentence name="PxWebAdminSettingsSelectionStandardApplicationHeadTitleInfo" value="Om satt till ja kommer standardrubrik att användas" />
   <sentence name="PxWebAdminSettingsSelectionMetadataAsLinks" value="Om tabellen som länkar" />
   <sentence name="PxWebAdminSettingsSelectionMetadataAsLinksInfo" value="Om information om tabellen (fotnoter och information) ska visas som länkar eller direkt på valsidan i en flik." />
-  <sentence name="PxWebAdminSettingsSelectionShowSelectValuesFromGroup" value="Selection from group"/>
-  <sentence name="PxWebAdminSettingsSelectionSelectValuesFromGroupInfo" value="If set to true, a button will be displayed in the variable selector. When the user clicks on this button a dialog will be displayed. In the dialog the user kan select values from singel or aggragated values."/>
-  <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariable" value="Knappar för innehållsvariabel"/>
-  <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariableInfo" value="Om knappar (Välj alla, avmarkera alla, sortera fallande...) ska visas för innehållsvariabler eller inte."/>
+  <sentence name="PxWebAdminSettingsSelectionShowSelectValuesFromGroup" value="Selection from group" />
+  <sentence name="PxWebAdminSettingsSelectionSelectValuesFromGroupInfo" value="If set to true, a button will be displayed in the variable selector. When the user clicks on this button a dialog will be displayed. In the dialog the user kan select values from singel or aggragated values." />
+  <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariable" value="Knappar för innehållsvariabel" />
+  <sentence name="PxWebAdminSettingsSelectionButtonsForContentVariableInfo" value="Om knappar (Välj alla, avmarkera alla, sortera fallande...) ska visas för innehållsvariabler eller inte." />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearch" value="Standard sökemetod" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchInfo" value="Bestämmer om sökningen skal vara fritextsök eller sök i början av varibelnamnet." />
-  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Förvälj första värdet" />
-  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Bestämmer om första värdet för innehålls- samt tidsvariabeln ska förväljas på valsidan" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchFreeText" value="Fritextsök" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Början av ord" />
-
-  <sentence name="PxWebAdminSettingsSelectionEnablePathToMetadataSystem" value="Visa länk till metadata"/>
-  <sentence name="PxWebAdminSettingsSelectionEnablePathToMetadataSystemInfo" value="På sidan för val av variabler och värden visas en ny flik/länk som heter Metadata. När användaren klickar på en metadataikon bredvid en variabel på fliken 'Välj variabel' så öppnas Metadata fliken/länken. Ikonen för metadata visas bredvid variabler med ett definierat metaid."/>
-
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Förvälj första värdet" />
+  <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Bestämmer om första värdet för innehålls- samt tidsvariabeln ska förväljas på valsidan" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Visa navigeringsflöde" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Visa navigeringsflöde under brödsmula. Visar Välj tabell, välj variabel, visa tabell." />
   <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Visa sökknapp" />
@@ -854,7 +882,7 @@
   <sentence name="PxWebAdminSettingsValidationBiggerThanMaxSetting" value="Kan inte vara större än inställningen för maxvärde ({0})" />
   <sentence name="PxWebAdminSettingsValidationMaximumValue" value="Maximalt värde är {0}" />
   <sentence name="PxWebAdminSettingsValidationIllegalColorCode" value="Ogiltig färgkod (förväntat format är #AAAAAA)" />
-  <sentence name="PxWebAdminSettingsValidationIllegalTimeSeries" value="Ogiltiga tider (förväntat format är tt:mm,tt:mm)" />  
+  <sentence name="PxWebAdminSettingsValidationIllegalTimeSeries" value="Ogiltiga tider (förväntat format är tt:mm,tt:mm)" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperations" value="Operationer" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderOperationsInfo" value="Markerade operationer kommer att vara tillgängliga för PxWeb användarna" />
   <sentence name="PxWebAdminSettingsPresentationCommandBarHeaderFileformats" value="Filformat" />
@@ -900,15 +928,14 @@
   <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Välj databas att generera databasfil för" />
   <sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Spåkberoende" />
   <sentence name="PxWebAdminToolsGenerateDbLanguageDependentInfo" value="Visa endast filer på valt språk" />
-  <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sorteringsordning"/>
-  <sentence name="PxWebAdminSortOrderFileName" value="Filnamn"/>
-  <sentence name="PxWebAdminSortOrderMatrix" value="Matrix"/>
-  <sentence name="PxWebAdminSortOrderTitle" value="Beskrivning/Titel"/>
-  <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Välj vad som ska styra sorteringsordningen på tabellerna i databasen"/>
-  <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Skapa sökindex"/>
-  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="Om valt så kommer skapande av sökindex att automatiskt initeras efter att databasen har blivit genererad."/>
-  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInitiated" value="Skapande av sökindex har initierats"/>
-
+  <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sorteringsordning" />
+  <sentence name="PxWebAdminSortOrderFileName" value="Filnamn" />
+  <sentence name="PxWebAdminSortOrderMatrix" value="Matrix" />
+  <sentence name="PxWebAdminSortOrderTitle" value="Beskrivning/Titel" />
+  <sentence name="PxWebAdminToolsGenerateDbSortOrderInfo" value="Välj vad som ska styra sorteringsordningen på tabellerna i databasen" />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndex" value="Skapa sökindex" />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInfo" value="Om valt så kommer skapande av sökindex att automatiskt initeras efter att databasen har blivit genererad." />
+  <sentence name="PxWebAdminToolsGenerateDbCreateIndexInitiated" value="Skapande av sökindex har initierats" />
   <sentence name="PxWebAdminToolsLanguageManagerSelectLanguage" value="--- Välj språk ---" />
   <sentence name="PxWebAdminToolsLanguageManagerInfo" value="Välj vilket språk du vill förändra. Nyckel = Nyckel som identifierar meningen i systemet, Reserv = Mening som kommer att användas om ingen översättning görs, Språk = Meningen i aktuell språk." />
   <sentence name="PxWebAdminToolsLanguageManagerSelectLanguageError" value="Du måste välja språk" />
@@ -943,7 +970,6 @@
   <sentence name="PxWebAdminFeaturesGeneralFeatureBackgroundWorker" value="Bakgrundsprocess" />
   <sentence name="PxWebAdminFeaturesGeneralClearCache" value="Töm cache" />
   <sentence name="PxWebAdminFeaturesGeneralClearCacheInfo" value="Om specificerad kommer cachen att tömmas vid angiven tidpunkt(er). Separera tidpunkter med komma. Exempel: 09:30,12:00,13:49" />
-
   <sentence name="PxWebAdminFeaturesChartsGeneralChartSettings" value="Diagraminställningar" />
   <sentence name="PxWebAdminFeaturesChartsGeneralUserSettings" value="Förvalda värden för användarinställningar" />
   <sentence name="PxWebAdminFeaturesChartsGeneralFontName" value="Typsnitt" />
@@ -1026,15 +1052,14 @@
   <sentence name="PxWebAdminFeaturesApiGeneralEnableCacheInfo" value="Om API-anrop ska cachas eller inte" />
   <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformation" value="Visa API hjälp" />
   <sentence name="PxWebAdminFeaturesApiGeneralShowQueryInformationInfo" value="Om denna inställning är satt till 'Ja' så kommer en API-hjälp länk visas i PxWeb i presentationsvyerna. Klickar användaren på länken visas information hur den aktuella tabellen kan nås via API:et." />
-  <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimitInformationInfo" value="Maximalt antal celler som retuneras via ett API anrop." />
-  <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimit" value="Max retunerade celler " />
-  <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormatInfo" value="Utformatet som kommer att visas i API exemplet" />
-  <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormat" value="Förvalt exempel API utformat" />
   <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButtonInfo" value="Om aktiverat, knappen för att spara API-fråga är synlig" />
   <sentence name="PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton" value="Visa knappen 'Spara API-fråga'" />
   <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryTextInfo" value="Använd institutionens förkortning med små bokstäver. Exempel: 'scb' ger detta filnamn 'scb_table_[tableid].json'" />
   <sentence name="PxWebAdminFeaturesApiGeneralSaveApiQueryText" value="Prefix API-fråga fil" />
-
+  <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimitInformationInfo" value="Maximalt antal celler som retuneras via ett API anrop." />
+  <sentence name="PxWebAdminFeaturesApiGeneralFetchCellLimit" value="Max retunerade celler " />
+  <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormatInfo" value="Utformatet som kommer att visas i API exemplet" />
+  <sentence name="PxWebAdminFeaturesApiGeneralDefaultExampleResponseFormat" value="Förvalt exempel API utformat" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQuerySettings" value="Inställningar för sparad fråga" />
   <sentence name="PxWebAdminSettingsSavedQueryStorageType" value="Lagringstyp" />
   <sentence name="PxWebAdminSettingsSavedQueryStorageTypeFile" value="Fil" />
@@ -1056,12 +1081,10 @@
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterRequestsInfo" value="Maximalt antal anrop som kan göras till sparade frågor från en specifik IP-adress (fungerar ihop med inställningen tidsbegränsning)" />
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterTimespan" value="Tidsbegränsning" />
   <sentence name="PxWebAdminFeaturesSavedQueryGeneralLimiterTimespanInfo" value="Tidsbegränsning (i sekunder) för hur många anrop till sparade frågor som kan göras från en specifik IP-adress (se inställningen Anropsbegränsning)" />
-  
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabases" value="PX databaser" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryPxDatabasesInfo" value="Definierar vilka PX-databaser som har funktionen 'Sparad fråga' aktiverad" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabases" value="CNMM databaser" />
   <sentence name="PxWebAdminFeaturesSaveQueryGeneralSaveQueryCnmmDatabasesInfo" value="Definierar vilka CNMM-databaser som har funktionen 'Sparad fråga' aktiverad" />
-
   <sentence name="PxWebAdminFeaturesSearchGeneralSearchSettings" value="Sök inställningar" />
   <sentence name="PxWebAdminFeaturesSearchGeneralCacheTime" value="Cache tid" />
   <sentence name="PxWebAdminFeaturesSearchGeneralCacheTimeInfo" value="Antal minuter som sökindex kommer att vara cachat" />
@@ -1071,7 +1094,6 @@
   <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorInfo" value="Operator AND/OR som kommer användas om mer än ett ord ingår i ett sökuttryck" />
   <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorAnd" value="AND" />
   <sentence name="PxWebAdminFeaturesSearchGeneralDefaultOperatorOr" value="OR" />
-
   <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSettings" value="Inställningar för bakgrundsprocess" />
   <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSleepTime" value="Vilotid" />
   <sentence name="PxWebAdminFeaturesBackgroundWorkerGeneralSleepTimeInfo" value="Tiden i sekunder som bakgrundsprocessen ska vila mellan iterationer" />
@@ -1085,15 +1107,14 @@
   <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStop" value="Vill du stoppa bakgrundsprocessen?" />
   <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmStart" value="Vill du starta bakgrundsprocessen?" />
   <sentence name="PxWebAdminFeaturesBackgroundWorkerConfirmWakeUp" value="Vill du väcka bakgrundsprocessen?" />
-
   <sentence name="PxWebAdminSettingsGeneralSiteApplicationName" value="Applikationsnamn" />
   <sentence name="PxWebAdminSettingsGeneralSiteApplicationNameInfo" value="Namn på PxWeb installationen" />
   <sentence name="PxWebAdminSettingsGeneralSiteLogoPath" value="Logotyp" />
   <sentence name="PxWebAdminSettingsGeneralSiteLogoPathInfo" value="Namn på filen för logotypen" />
-  <sentence name="PxWebAdminSettingsMainHeaderForTables" value="Huvudrubrik för tabellsidor"/>
-  <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Tabellnamn"/>
-  <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistikområde"/>
-  <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Typ av rubrik som används för tabellsidor"/>
+  <sentence name="PxWebAdminSettingsMainHeaderForTables" value="Huvudrubrik för tabellsidor" />
+  <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Tabellnamn" />
+  <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistikområde" />
+  <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Typ av rubrik som används för tabellsidor" />
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Förvalt språk" />
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Det språk som är förvalt då PxWeb startas" />
   <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Språk" />
@@ -1115,36 +1136,31 @@
   <sentence name="PxWebAdminConfirmSaveSettings" value="Vill du spara inställningarna?" />
   <sentence name="PxWebAdminConfirmGenerateDb" value="Vill du generera ny databas?" />
   <sentence name="PxWebAdminSettingsImplementedInComingVersions" value="Denna funktion kommer att implementeras i en kommande version av PxWeb" />
-
-  <sentence name="UnauthorizedTableMessage" value="Du saknar behörighet för att få se denna tabell!"/>
-  <sentence name="UnauthorizedTableTitle" value="Åtkomst nekad"/>
-
-  <sentence name="UnauthorizedDatabaseMessage" value="Du saknar behörighet för att få se denna databas!"/>
-  <sentence name="UnauthorizedDatabaseTitle" value="Åtkomst nekad"/>
-
-  <sentence name="PxWebAdminUsers" value="Användare"/>
-  <sentence name="PxWebAdminUsersGeneral" value="Generellt"/>
-  <sentence name="PxWebAdminUsersUsername" value="Användarnamn"/>
-  <sentence name="PxWebAdminUsersPassword" value="Lösenord"/>
-  <sentence name="PxWebAdminUsersLoginFailure" value="Ditt inloggningsförsök misslyckades. Försök igen."/>
-  <sentence name="PxWebAdminUsersMail" value="E-post"/>
-  <sentence name="PxWebAdminUsersLocked" value="Låst"/>
-  <sentence name="PxWebAdminUsersExpires" value="Utgår"/>
-  <sentence name="PxWebAdminUsersNeverExpires" value="Aldrig"/>
-  <sentence name="PxWebAdminUsersHasExpired" value="Utgått"/>
-  <sentence name="PxWebAdminUsersRenew" value="Förnya"/>
-  <sentence name="PxWebAdminUsersLicense" value="Licens"/>
-  <sentence name="PxWebAdminUsersLicenseMustBeNumber" value="Licens måste vara ett nummer"/>
-  <sentence name="PxWebAdminUsersCreateNewUser" value="Skapa ny användare"/>
-  <sentence name="PxWebAdminUsersCreateNew" value="Skapa ny"/>
-  <sentence name="PxWebAdminUsersAdmin" value="Admin"/>
-  <sentence name="PxWebAdminUsersDelete" value="Ta bort"/>
-  <sentence name="PxWebAdminUsersEdit" value="Redigera"/>
-  <sentence name="PxWebAdminUsersUpdate" value="Uppdatera"/>
-  <sentence name="PxWebAdminUsersCancel" value="Avbryt"/>
-  <sentence name="PxWebAdminUsersErrorMail" value="E-posten är inte korrekt ifylld"/>
-  <sentence name="PxWebAdminUsersLogin" value="Logga in"/>
-  <sentence name="PxWebAdminUsersAddedUser" value="har lagts till som användare"/>
-  
-  
+  <sentence name="UnauthorizedTableMessage" value="Du saknar behörighet för att få se denna tabell!" />
+  <sentence name="UnauthorizedTableTitle" value="Åtkomst nekad" />
+  <sentence name="UnauthorizedDatabaseMessage" value="Du saknar behörighet för att få se denna databas!" />
+  <sentence name="UnauthorizedDatabaseTitle" value="Åtkomst nekad" />
+  <sentence name="PxWebAdminUsers" value="Användare" />
+  <sentence name="PxWebAdminUsersGeneral" value="Generellt" />
+  <sentence name="PxWebAdminUsersUsername" value="Användarnamn" />
+  <sentence name="PxWebAdminUsersPassword" value="Lösenord" />
+  <sentence name="PxWebAdminUsersLoginFailure" value="Ditt inloggningsförsök misslyckades. Försök igen." />
+  <sentence name="PxWebAdminUsersMail" value="E-post" />
+  <sentence name="PxWebAdminUsersLocked" value="Låst" />
+  <sentence name="PxWebAdminUsersExpires" value="Utgår" />
+  <sentence name="PxWebAdminUsersNeverExpires" value="Aldrig" />
+  <sentence name="PxWebAdminUsersHasExpired" value="Utgått" />
+  <sentence name="PxWebAdminUsersRenew" value="Förnya" />
+  <sentence name="PxWebAdminUsersLicense" value="Licens" />
+  <sentence name="PxWebAdminUsersLicenseMustBeNumber" value="Licens måste vara ett nummer" />
+  <sentence name="PxWebAdminUsersCreateNewUser" value="Skapa ny användare" />
+  <sentence name="PxWebAdminUsersCreateNew" value="Skapa ny" />
+  <sentence name="PxWebAdminUsersAdmin" value="Admin" />
+  <sentence name="PxWebAdminUsersDelete" value="Ta bort" />
+  <sentence name="PxWebAdminUsersEdit" value="Redigera" />
+  <sentence name="PxWebAdminUsersUpdate" value="Uppdatera" />
+  <sentence name="PxWebAdminUsersCancel" value="Avbryt" />
+  <sentence name="PxWebAdminUsersErrorMail" value="E-posten är inte korrekt ifylld" />
+  <sentence name="PxWebAdminUsersLogin" value="Logga in" />
+  <sentence name="PxWebAdminUsersAddedUser" value="har lagts till som användare" />
 </language>
