@@ -529,8 +529,8 @@
   <sentence name="PageViewFootnoteDialogTitle" value="Fotnoter" />
   <sentence name="PageViewDataSortDescription" value="Klicka på kolumnernas rubrik för att sortera tabellen. Håll inne shift för att sortera efter flera kolumner." />
   <sentence name="PageViewDataSortCopyInstructions" value="För att kopiera tabellen: Välj 'Markera allt' i Redigera-menyn och sedan 'Kopiera'. Alternativt tryck Ctrl+A och sedan Ctrl+C" />
-  <sentence name="PageViewDataSortColumnIsUnsortedSR" value="Tabellen är sorterad på en annan kolumn. Klicka för att sortera fallande på [0}" />
-  <sentence name="PageViewDataSortColumnIsSortedAscSR" value="Tabellen är sorterad i fallande ordning på [0}. Klicka för att sortera i stigande ordning." />
+  <sentence name="PageViewDataSortColumnIsUnsortedSR" value="Tabellen är sorterad på en annan kolumn. Klicka för att sortera fallande på {0}" />
+  <sentence name="PageViewDataSortColumnIsSortedAscSR" value="Tabellen är sorterad i fallande ordning på {0}. Klicka för att sortera i stigande ordning." />
   <sentence name="PageViewDataSortColumnIsSortedDescSR" value="Tabellen är sorterad i stigande ordning på {0}. klicka för att sortera i fallande ordning." />
   <sentence name="CancelButton" value="Avbryt" />
   <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1" />
