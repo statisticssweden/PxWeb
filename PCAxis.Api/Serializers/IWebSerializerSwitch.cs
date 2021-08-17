@@ -30,6 +30,12 @@ namespace PCAxis.Api.Serializers
                 case "csv":
                     serializer = new CsvSerializer();
                     break;
+                case "csv2":
+                    serializer = new Csv2Serializer();
+                    break;
+                case "csv3":
+                    serializer = new Csv3Serializer();
+                    break;
                 case "json":
                     serializer = new JsonSerializer();
                     break;

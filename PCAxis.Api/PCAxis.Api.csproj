@@ -100,11 +100,11 @@
     <Reference Include="Oracle.ManagedDataAccess, Version=2.0.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.Core.2.19.60\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Common, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Common.1.0.1\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
+    <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PcAxis.Common.1.0.2\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Core.1.0.2\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+    <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PcAxis.Core.1.0.3\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Encryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Encryption.1.0.0\lib\netstandard2.0\PCAxis.Encryption.dll</HintPath>
@@ -136,8 +136,8 @@
     <Reference Include="PCAxis.Sdmx, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Sdmx.1.0.1\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.2\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
+    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.3\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.1\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
@@ -222,6 +222,8 @@
     <Compile Include="RequestLimiter.cs" />
     <Compile Include="ResponseBucket.cs" />
     <Compile Include="Serializers\ChartSerializer.cs" />
+    <Compile Include="Serializers\Csv2Serializer.cs" />
+    <Compile Include="Serializers\Csv3Serializer.cs" />
     <Compile Include="Serializers\CsvSerializer.cs" />
     <Compile Include="Serializers\IWebSerializer.cs" />
     <Compile Include="Serializers\JsonSerializer.cs" />
