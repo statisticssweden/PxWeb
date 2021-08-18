@@ -423,7 +423,7 @@ Namespace CommandBar
                 If (plugin.Name = "pivotCCW" Or plugin.Name = "pivotCW") Then
                     .CssClass = $"pxweb-btn icon-placement pxweb-buttons {plugin.Name}"
                 Else
-                    .CssClass = $"pxweb-btn icon-placement pxweb-buttons {plugin.Name}"
+                    .CssClass = $"pxweb-btn icon-placement pxweb-buttons pxweb-open-tools-button {plugin.Name}"
                 End If
                 .CommandName = commandName
                 .Text = Me.GetLocalizedString(plugin.NameCode)

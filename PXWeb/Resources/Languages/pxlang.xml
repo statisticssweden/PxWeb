@@ -687,6 +687,8 @@
    <sentence name="PxWebSubHeaderResult" value="Result"/>
    <sentence name="PxWebOfficialStatisticsLogo" value="Logotype for official statistics"/>
    <sentence name="PxWebMenuBurger" value="Menu" />
+   <sentence name="PxWebTools" value="Tools" />
+   <sentence name="PxWebToolsClose" value="Close" />
    <sentence name="PxWebMenu" value="Menu"/>
    <sentence name="PxWebMenuExplanation" value="(C)=county, (M)=municipality, (BU)=Basic statistical unit, (UD)=urban district, (US)=urban settlement. Character in brackets shows the lowest regional level." />
    <sentence name="PxWebSelection" value="Selection"/>
@@ -772,8 +774,7 @@
   <sentence name="PxWebTitleChart" value ="PxWeb - Chart"/>
   <sentence name="PxWebTitleDataSort" value ="PxWeb - Sort"/>
   <sentence name="PxWebTitleErrorGeneral" value ="PxWeb - Oooops!"/>
-  <sentence name="PxWebTitleFootnotesPresentation" value ="PxWeb - Footnotes"/>
-  <sentence name="PxWebTitleFootnotesSelection" value ="PxWeb - Footnotes"/>
+   <sentence name="PxWebTitleFootnotesSelection" value ="PxWeb - Footnotes"/>
   <sentence name="PxWebTitleInformationPresentation" value ="PxWeb - Information"/>
   <sentence name="PxWebTitleInformationSelection" value ="PxWeb - Information"/>
   <sentence name="PxWebTitleMarkingTips" value ="PxWeb - Tips"/>

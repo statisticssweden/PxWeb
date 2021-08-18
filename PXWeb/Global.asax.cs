@@ -17,6 +17,10 @@ using System.Collections.Generic;
 using log4net;
 using PX.Web.Interfaces.Cache;
 using System.Runtime.Caching;
+using System.Web.Http;
+using PXWeb.API;
+using Ninject;
+using Ninject.Web.Common;
 
 namespace PXWeb
 {
@@ -411,15 +415,6 @@ namespace PXWeb
                                            PxUrl.VIEW_CHART_IDENTIFIER + "/" +
                                            "{" + PxUrl.LAYOUT_KEY + "}/",
                                            "~/Chart.aspx");
-            RouteTable.Routes.MapPageRoute("FootnotesPresentationRoute",
-                                           PxUrl.PX_START + "/" +
-                                           "{" + PxUrl.LANGUAGE_KEY + "}/" +
-                                           "{" + PxUrl.DB_KEY + "}/" +
-                                           "{" + PxUrl.PATH_KEY + "}/" +
-                                           "{" + PxUrl.TABLE_KEY + "}/" +
-                                           PxUrl.VIEW_FOOTNOTES_IDENTIFIER + "/" +
-                                           "{" + PxUrl.LAYOUT_KEY + "}/",
-                                           "~/FootnotesPresentation.aspx");
             RouteTable.Routes.MapPageRoute("InformationPresentationRoute",
                                            PxUrl.PX_START + "/" +
                                            "{" + PxUrl.LANGUAGE_KEY + "}/" +
@@ -438,6 +433,8 @@ namespace PXWeb
                                            PxUrl.VIEW_SORTEDTABLE_IDENTIFIER + "/" +
                                            "{" + PxUrl.LAYOUT_KEY + "}/",
                                            "~/DataSort.aspx");
+            
+            RouteTable.Routes.MapHttpRoute(name: "CacheApi", routeTemplate: "api/admin/v1/{controller}");
 
         }
 

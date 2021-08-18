@@ -597,7 +597,6 @@
   <sentence name="PxWebTitleChart" value="Titartagaq" />
   <sentence name="PxWebTitleDataSort" value="Immikkoortitikkit" />
   <sentence name="PxWebTitleErrorGeneral" value="Oooops!" />
-  <sentence name="PxWebTitleFootnotesPresentation" value="Fodnotit" />
   <sentence name="PxWebTitleFootnotesSelection" value="Fodnotit" />
   <sentence name="PxWebTitleInformationPresentation" value="Paasissutissat" />
   <sentence name="PxWebTitleInformationSelection" value="Paasissutissat" />

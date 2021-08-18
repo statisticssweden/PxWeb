@@ -639,7 +639,14 @@ namespace PCAxis.Api
                     stopWatch.Stop();
                     logTime.InfoFormat(System.Reflection.MethodBase.GetCurrentMethod().Name + " Error Done in ms = {0}", stopWatch.ElapsedMilliseconds);
 #endif
-                    context.SendJSONError(Error("Parameter error", false), 404);
+                    try
+                    {
+                        context.SendJSONError(Error("Parameter error", false), 404);
+                    }
+                    catch (Exception sendEx)
+                    {
+                        _logger.Error(String.Format("url={0}, type=error, caller={1}", context.Request.RawUrl, context.Request.UserHostAddress), sendEx);
+                    }
                     _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false ", context.Request.RawUrl, context.Request.UserHostAddress), ex);
                     _logger.Warn(ex);
                 //}

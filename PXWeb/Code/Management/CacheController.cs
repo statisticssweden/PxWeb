@@ -45,6 +45,18 @@ namespace PXWeb.Management
         }
 
         /// <summary>
+        /// Clears cahe item with provided type
+        /// </summary>
+        /// <param name="type">Type of cache item to clear</param>
+        public void Clear(Type type)
+        {
+            if (type != null && _caches != null)
+            {
+                _caches.Find(c => c.GetType().Equals(type))?.Clear();
+            }
+        }
+
+        /// <summary>
         /// Set up the times when we want to clear all PX caches automatically
         /// </summary>
         private void InitializeSchedualClear()
