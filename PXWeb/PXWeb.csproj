@@ -741,13 +741,6 @@
     <Compile Include="ErrorGeneral.aspx.designer.cs">
       <DependentUpon>ErrorGeneral.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FootnotesSelection.aspx.cs">
-      <DependentUpon>FootnotesSelection.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FootnotesSelection.aspx.designer.cs">
-      <DependentUpon>FootnotesSelection.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1004,7 +997,6 @@
   <ItemGroup>
     <Content Include="CommandBarCustomPlugins.config" />
     <Content Include="DataSort.aspx" />
-    <Content Include="FootnotesSelection.aspx" />
     <Content Include="Global.asax" />
     <Content Include="InformationPresentation.aspx" />
     <Content Include="InformationSelection.aspx" />
