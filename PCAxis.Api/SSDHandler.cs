@@ -274,7 +274,7 @@ namespace PCAxis.Api
             // Output handling starts here
             context.Response.Clear();
 
-            IWebSerializer serializer = IWebSerializerSwitch.GetSerializer(tableQuery.Response.Format);
+            IWebSerializer serializer = WebSerializerSwitch.GetSerializer(tableQuery.Response.Format);
 
             //serializer.Serialize(builder.Model, context.Response);
             serializer.Serialize(builder.Model, cacheResponse);

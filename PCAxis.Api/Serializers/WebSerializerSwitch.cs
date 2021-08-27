@@ -15,7 +15,7 @@ namespace PCAxis.Api.Serializers
     /// <summary>
     /// Gets Serializer from format code
     /// </summary>
-    public class IWebSerializerSwitch 
+    public class WebSerializerSwitch 
     {
         
         internal static IWebSerializer GetSerializer(String formatCode)

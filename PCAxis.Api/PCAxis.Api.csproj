@@ -231,7 +231,7 @@
     <Compile Include="Serializers\JsonStatSeriaizer.cs" />
     <Compile Include="Serializers\PxSerializer.cs" />
     <Compile Include="Serializers\SdmxDataSerializer.cs" />
-    <Compile Include="Serializers\IWebSerializerSwitch.cs" />
+    <Compile Include="Serializers\WebSerializerSwitch.cs" />
     <Compile Include="Serializers\XlsxSerializer.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SSDHandler.cs" />
