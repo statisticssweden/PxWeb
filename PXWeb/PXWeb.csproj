@@ -67,9 +67,6 @@
     <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
-    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -741,13 +738,6 @@
     <Compile Include="ErrorGeneral.aspx.designer.cs">
       <DependentUpon>ErrorGeneral.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FootnotesSelection.aspx.cs">
-      <DependentUpon>FootnotesSelection.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FootnotesSelection.aspx.designer.cs">
-      <DependentUpon>FootnotesSelection.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1004,7 +994,6 @@
   <ItemGroup>
     <Content Include="CommandBarCustomPlugins.config" />
     <Content Include="DataSort.aspx" />
-    <Content Include="FootnotesSelection.aspx" />
     <Content Include="Global.asax" />
     <Content Include="InformationPresentation.aspx" />
     <Content Include="InformationSelection.aspx" />
