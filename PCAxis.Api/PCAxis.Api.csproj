@@ -136,8 +136,8 @@
     <Reference Include="PCAxis.Sdmx, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Sdmx.1.0.1\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.2\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
+    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.3\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.1\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
@@ -222,6 +222,8 @@
     <Compile Include="RequestLimiter.cs" />
     <Compile Include="ResponseBucket.cs" />
     <Compile Include="Serializers\ChartSerializer.cs" />
+    <Compile Include="Serializers\Csv2Serializer.cs" />
+    <Compile Include="Serializers\Csv3Serializer.cs" />
     <Compile Include="Serializers\CsvSerializer.cs" />
     <Compile Include="Serializers\IWebSerializer.cs" />
     <Compile Include="Serializers\JsonSerializer.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Serializers\JsonStatSeriaizer.cs" />
     <Compile Include="Serializers\PxSerializer.cs" />
     <Compile Include="Serializers\SdmxDataSerializer.cs" />
+    <Compile Include="Serializers\WebSerializerSwitch.cs" />
     <Compile Include="Serializers\XlsxSerializer.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SSDHandler.cs" />

@@ -274,40 +274,8 @@ namespace PCAxis.Api
             // Output handling starts here
             context.Response.Clear();
 
-            IWebSerializer serializer;
-            switch (tableQuery.Response.Format != null ? tableQuery.Response.Format.ToLower() : null)
-            {
-                case null:
-                case "px":
-                    serializer = new PxSerializer();
-                    break;
-                case "csv":
-                    serializer = new CsvSerializer();
-                    break;
-                case "json":
-                    serializer = new JsonSerializer();
-                    break;
-                case "json-stat":
-                    serializer = new JsonStatSeriaizer();
-                    break;
-                case "json-stat2":
-                    serializer = new JsonStat2Seriaizer();
-                    break;
-                case "xlsx":
-                    serializer = new XlsxSerializer();
-                    break;
-                //case "png":
-                //    int? width = tableQuery.Response.GetParamInt("width");
-                //    int? height = tableQuery.Response.GetParamInt("height");
-                //    string encoding = tableQuery.Response.GetParamString("encoding");
-                //    serializer = new ChartSerializer(width, height, encoding);
-                //    break;
-                case "sdmx":
-                    serializer = new SdmxDataSerializer();
-                    break;
-                default:
-                    throw new NotImplementedException("Serialization for " + tableQuery.Response.Format + " is not implemented");
-            }
+            IWebSerializer serializer = WebSerializerSwitch.GetSerializer(tableQuery.Response.Format);
+
             //serializer.Serialize(builder.Model, context.Response);
             serializer.Serialize(builder.Model, cacheResponse);
             //context.Response.AddHeader("Content-Type", cacheResponse.ContentType);
