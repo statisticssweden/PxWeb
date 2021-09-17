@@ -14,3 +14,4 @@
 - Added admin API endpoint for reseting the caches
 - Fixed so that developers can have there own config files and moved the existing onces to template folder that is used initialy after first build.
 - Removed PxWeb.SavedQuery.Oracle, issue #112
+- Changed "class attribute" to "CssClass attribute" in asp server controllers SearchValues.ascx. 
