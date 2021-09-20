@@ -18,7 +18,7 @@
      </div>
     <hr class="pxweb-divider type-light with-margin"/>
     <h3>
-        <asp:Label ID="lblSearch" runat="server" Text="" class="pxweb-title negative" />
+        <asp:Label ID="lblSearch" runat="server" Text="" CssClass="pxweb-title negative" />
     </h3>
     <asp:Panel ID="SearchRegion" role="region" CssClass="flex-column" runat="server" >
         <div class="flex-row flex-wrap s-margin-top">
@@ -36,7 +36,7 @@
         <asp:Label ID="lblSearchError" runat="server" Text="" CssClass="pxweb-input-error negative"></asp:Label>
         <div class="searchvalues-listbox-container">
             <asp:Label ID="SearchResultNumberOfHitsLabel" CssClass="pxweb-info-text" runat="server"></asp:Label>
-            <asp:ListBox ID="SearchResults" runat="server" class="searchvalues-listbox" />
+            <asp:ListBox ID="SearchResults" runat="server" CssClass="searchvalues-listbox" />
           </div>
         <div class="flex-row flex-wrap">
               <asp:Button runat="server" ID="MoveToResultButton" CssClass="pxweb-buttons arrow-down-icon pxweb-btn negative icon-placement" Enabled="false"/>
@@ -50,25 +50,25 @@
     <div class="s-margin-top"></div>
     <hr class="pxweb-divider type-light with-margin"/>
     <h3>
-     <asp:Label ID="ChoosenValuesLabel" class="pxweb-title negative" runat="server"></asp:Label>
+     <asp:Label ID="ChoosenValuesLabel" CssClass="pxweb-title negative" runat="server"></asp:Label>
     </h3>
-    <asp:Panel ID="SelectedValuesRegion" role="region" class="flex-column" runat="server">
+    <asp:Panel ID="SelectedValuesRegion" role="region" CssClass="flex-column" runat="server">
         <div class="flex-row">
-        <asp:Button ID="RemoveButton" Enabled="true" class="searchvalues_removebutton pxweb-buttons arrow-up-icon pxweb-btn negative icon-placement" runat="server" />
+        <asp:Button ID="RemoveButton" Enabled="true" CssClass="searchvalues_removebutton pxweb-buttons arrow-up-icon pxweb-btn negative icon-placement" runat="server" />
         </div>
         <div class="searchvalues-listbox-container">
             <span class="pxweb-info-text">
-                <asp:Label ID="NumberOfChoosenValuesLabelPart1" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
-                <asp:Label ID="NumberOfChoosenValuesLabelPart2" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
-                <asp:Label ID="NumberOfChoosenValuesLabelPart3" class="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+                <asp:Label ID="NumberOfChoosenValuesLabelPart1" CssClass="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+                <asp:Label ID="NumberOfChoosenValuesLabelPart2" CssClass="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
+                <asp:Label ID="NumberOfChoosenValuesLabelPart3" CssClass="searchvalues_numberofchoosenvalues" runat="server"></asp:Label>
             </span>
-            <asp:ListBox ID="SelectedVariableValues" runat="server" class="searchvalues-listbox"/>
+            <asp:ListBox ID="SelectedVariableValues" runat="server" CssClass="searchvalues-listbox"/>
         </div>
-        <asp:Button ID="CancelButton" runat="server" class="align-self-flex-end pxweb-buttons cancel-icon pxweb-btn negative icon-placement" />
+        <asp:Button ID="CancelButton" runat="server" CssClass="align-self-flex-end pxweb-buttons cancel-icon pxweb-btn negative icon-placement" />
    </asp:Panel>
 </asp:Panel>
 <div class="m-margin-top"></div>
 <div class="flex-row justify-center">
-    <asp:Button ID="DoneButton" runat="server" class="pxweb-btn primary-btn" Enabled="false" />
+    <asp:Button ID="DoneButton" runat="server" CssClass="pxweb-btn primary-btn" Enabled="false" />
 </div>  
 

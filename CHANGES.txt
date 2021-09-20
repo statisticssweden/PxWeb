@@ -1,0 +1,16 @@
+- Added a CHANGES.txt to the PxWeb reop
+- Added support for pivoted serializers i API, issues #154
+- Removed FastMember dependency, issue #160
+- Removed the FootnotSelection and FootnotePresentation page, issue #151, #142
+- Bumped dependencies
+- Fixed bug in the sorting view for swedish, issue #148
+- Added missing translations in swedish, issue #146
+- Carious UI improvments (burger button, shortcut buttons, chart settings navigation flow) 
+- Added error handler for PCAxisSearchIndexer, issue #136
+- Improved logging for the clear method of the API cache, issue 139
+- Imporved error handling in the API, issue #135
+- CSS fixes for footnote display problems
+- Added automated build action for Github
+- Added admin API endpoint for reseting the caches
+- Fixed so that developers can have there own config files and moved the existing onces to template folder that is used initialy after first build.
+- Removed PxWeb.SavedQuery.Oracle, issue #112
