@@ -111,7 +111,7 @@ $scrollbar-color: #b0b0b0;
   font-stretch: normal;
   font-weight: normal;
   line-height: 1.5;
-  color: #222;
+  color: deeppink;
   font-size: 14px;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -124,7 +124,7 @@ $scrollbar-color: #b0b0b0;
   font-weight: normal; }
 
 #pxwebcontent .pxbox.negative {
-  background-color: #F8F7F6;
+  background-color: deeppink;
   border: solid 1px #949494;
   color: #222; }
 
