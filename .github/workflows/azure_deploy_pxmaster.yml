@@ -27,13 +27,23 @@ jobs:
         run: nuget restore PCAxis.PX-Web.sln
 
       - name: Publish to folder
-        run: msbuild PCAxis.PX-Web.sln /nologo /verbosity:m /p:DeployOnBuild=true /p:Configuration=Release /p:_PackageTempDir="\published\"
+        run: msbuild PCAxis.PX-Web.sln /nologo /verbosity:m /p:DeployOnBuild=true /p:Configuration=Release /p:_PackageTempDir="${{ github.workspace }}\to_deploy\"
+        
+      - name: Copy Azure Configfiles
+        run: |
+          cp TheAzureConfigFiles/databases.config to_deploy/.
+          cp TheAzureConfigFiles/Web.config to_deploy/.
+          cp TheAzureConfigFiles/setting.config to_deploy/.
+             
+      - name: Changing title
+        run: sed -i 's/PxWeb 2021 v1/PxWeb 2021 from pullrequest by hack4ssb/g' to_deploy/Resources/Languages/pxlang.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: ASP-app
-          path: '/published/**'
+          path: '${{ github.workspace }}\to_deploy\**'
+
 
   deploy:
     runs-on: windows-latest
