@@ -106,7 +106,7 @@ Public Class FileTypeMarkerControlBase(Of TControl As FileTypeControlBase(Of TCo
         stream.Position = 0
         Dim slength As Integer = CInt(stream.Length)
 
-        Dim buffer(slength) As Byte
+        Dim buffer(slength - 1) As Byte
         stream.Read(buffer, 0, slength)
         stream.Flush()
         stream.Close()
