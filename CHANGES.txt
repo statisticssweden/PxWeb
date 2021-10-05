@@ -1,3 +1,4 @@
+- Fixed bug when downloading files that added an extra byte, issue 167
 - Added a CHANGES.txt to the PxWeb reop
 - Added support for pivoted serializers i API, issues #154
 - Removed FastMember dependency, issue #160
