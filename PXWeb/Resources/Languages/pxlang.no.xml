@@ -688,6 +688,7 @@
   <sentence name="PxWebAdminMenuFeaturesSearchGeneral" value="Generelt" />
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorker" value="Bakgrunnsprosess" />
   <sentence name="PxWebAdminMenuFeaturesBackgroundWorkerGeneral" value="Generelt" />
+  <sentence name="PxWebloginBannerHeaderText" value="Statistikkbanken PX-Web Intern"/>
   <sentence name="PxWebLogin" value="LOGG INN" />
   <sentence name="PxWebLogout" value="LOGG UT" />
   <sentence name="PxWebUsername" value="Lastebruker" />

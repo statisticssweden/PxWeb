@@ -51,7 +51,9 @@
             <% if (PXWeb.Settings.Current.General.Modules.ShowLogin)
                 { %>
                 <div id="loginBanner" class="login">
-                  <h1 class="loginBannerHeader">PxWeb</h1>
+                    <h1 class="loginBannerHeader">
+                        <asp:Label ID="PxWebLoginBannerHeaderText"  runat="server" Text="" ></asp:Label>
+                    </h1>
                   <uc1:Login ID="login"  runat="server"></uc1:Login>
                 </div>
             <%  } %>
