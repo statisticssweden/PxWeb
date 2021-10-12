@@ -339,7 +339,7 @@ Public Class PerPartCodebehind
                         Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, calcPerPartDescription)
                         UpdateOperationsTracker(calcPerPartDescription)
                         Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
-                        LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta.TableID)
+                        LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta)
 
                     Catch ex As PXOperationException
                         Me.ErrorMessagePanel.Visible = True
@@ -398,7 +398,7 @@ Public Class PerPartCodebehind
                 Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, calcPerPartDescription)
                 UpdateOperationsTracker(calcPerPartDescription)
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
-                LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta.TableID)
+                LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
                 Me.ErrorMessageLabel.Text = ex.Message
@@ -427,7 +427,7 @@ Public Class PerPartCodebehind
                 Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, calcPerPartDescription)
                 UpdateOperationsTracker(calcPerPartDescription)
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
-                LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta.TableID)
+                LogFeatureUsage(OperationConstants.PER_PART, calcPerPartDescription.CalculationVariant.ToString, Me.PaxiomModel.Meta)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
                 Me.ErrorMessageLabel.Text = ex.Message
