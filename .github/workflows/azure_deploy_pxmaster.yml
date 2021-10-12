@@ -3,10 +3,7 @@
 
 name: Deploy pull_request to PxWebMaster at Azure 
 
-on:
-  pull_request:
-    branches:
-      - master 
+on: 
   workflow_dispatch:
 
 jobs:
