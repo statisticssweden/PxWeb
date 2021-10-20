@@ -1042,7 +1042,9 @@
   <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Determines whether the first value for the statistical variable and time should be preselected" />
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelection" value="Text for missing footnotes" />
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo" value="Determines whether text for missing footnotes should be displayed" />
-  
+  <sentence name="PxWebAdminSettingsSelectionSortVariableOrder" value="Sort variable order" />
+  <sentence name="PxWebAdminSettingsSelectionSortVariableOrderInfo" value="If set to true, the variable order will be sorted so content, time and mandatory variables are displayed first" />
+
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Show Navigation flow" />
    <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Show Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
 

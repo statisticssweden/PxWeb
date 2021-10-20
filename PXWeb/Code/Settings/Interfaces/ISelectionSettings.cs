@@ -111,5 +111,10 @@ namespace PXWeb
         bool ShowNoFootnoteForSelection { get; }
 
         bool ClientSideValidation { get; }
+
+        /// <summary>
+        /// Decides if variabels shall be sorted (mandatory first) or not on the selection page
+        /// </summary>
+        bool SortVariableOrder { get; }
     }
 }

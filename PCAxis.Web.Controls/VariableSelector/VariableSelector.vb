@@ -165,6 +165,24 @@ Partial Public Class VariableSelector
         End Set
     End Property
 
+    Private _sortVariableOrder As Boolean
+    ''' <summary>
+    ''' Controls if variable order shall be sorted or not on the selection page.
+    ''' If set to true, content, period and mandatory variables will be displayed first.
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property SortVariableOrder() As Boolean
+        Get
+            Return _sortVariableOrder
+        End Get
+        Set(ByVal value As Boolean)
+            _sortVariableOrder = value
+        End Set
+    End Property
+
     Private _selectionFromGroup As Boolean
     ''' <summary>
     ''' Controls when the Selection from group button shall be displayed

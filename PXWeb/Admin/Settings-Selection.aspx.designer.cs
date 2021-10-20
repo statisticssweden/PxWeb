@@ -591,6 +591,33 @@ namespace PXWeb.Admin
         protected global::System.Web.UI.WebControls.ImageButton imgShowNoFootnoteForSelection;
 
         /// <summary>
+        /// lblSortVariableOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSortVariableOrder;
+
+        /// <summary>
+        /// cboSortVariableOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboSortVariableOrder;
+
+        /// <summary>
+        /// imgSortVariableOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgSortVariableOrder;
+
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
