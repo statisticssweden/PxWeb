@@ -128,8 +128,11 @@ namespace PXWeb
 
             xpath = "./clientsideValidation";
             ClientSideValidation = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
+
+            xpath = "./sortVariableOrder";
+            SortVariableOrder = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
         }
-        
+
         /// <summary>
         /// Save the Selection settings to the settings file
         /// </summary>
@@ -203,6 +206,9 @@ namespace PXWeb
 
             xpath = "./clientsideValidation";
             SettingsHelper.SetSettingValue(xpath, selectionNode, ClientSideValidation.ToString());
+
+            xpath = "./sortVariableOrder";
+            SettingsHelper.SetSettingValue(xpath, selectionNode, SortVariableOrder.ToString());
         }
 
         #endregion
@@ -243,6 +249,7 @@ namespace PXWeb
 
         public bool ShowNoFootnoteForSelection { get; set; }
         public bool ClientSideValidation { get; set; }
+        public bool SortVariableOrder { get; set; }
 
         #endregion
 

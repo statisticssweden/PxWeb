@@ -67,7 +67,7 @@ Public Class VariableSelectorCodebehind
     Protected Sub VariableSelector_Load() Handles Me.Load
 
 
-        Dim haveSetCandidateMustSelect As Boolean = True
+        Dim haveSetCandidateMustSelect As Boolean = Marker.SortVariableOrder
         For Each var As Paxiom.Variable In Me.PaxiomModel.Meta.Variables
             If Not var.ExtendedProperties.ContainsKey("CandidateMustSelect") Then
                 haveSetCandidateMustSelect = False
