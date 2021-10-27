@@ -30,7 +30,7 @@
 <script>
 
     jQuery(document).ready(function () {
-        var offset = jQuery('.AspNet-TreeView-Collapse:first').offset();
+        var offset = jQuery('.AspNet-TreeView-Collapse.first').offset();
         if (offset) {
             jQuery('html, body').scrollTop(offset.top);
         }
