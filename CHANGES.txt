@@ -1,3 +1,4 @@
+- Fix for issue #187, scroll expanded branch in treeview into view
 - Fixed bug when downloading files that added an extra byte, issue 167
 - Added a CHANGES.txt to the PxWeb reop
 - Added support for pivoted serializers i API, issues #154
