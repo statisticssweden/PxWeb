@@ -33,7 +33,7 @@ jobs:
           cp TheAzureConfigFiles/setting.config to_deploy/.
              
       - name: Changing title
-        run: sed -i 's/PxWeb 2021 v1/PxWeb 2021 from pullrequest by hack4ssb/g' to_deploy/Resources/Languages/pxlang.xml
+        run: sed -i 's/PxWeb 2021 v1/PxWeb 2021 from any selected branch/g' to_deploy/Resources/Languages/pxlang.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
