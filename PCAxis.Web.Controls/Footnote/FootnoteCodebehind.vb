@@ -193,7 +193,7 @@ Public Class FootnoteCodebehind
                 Dim ObsHeading As String = GetLocalizedString("CtrlFootnoteObsnoteLabel")
                 Dim sbHeader As New StringBuilder()
                 sbHeader.Append("<div class='obs-notes flex-row flex-wrap' role='region' aria-label='Must read' >")
-                sbHeader.Append("<h3 class='obs-notes-h3'>" + "Obs:" + "</h3>")
+                sbHeader.Append("<h3 class='obs-notes-h3'>" + ObsHeading + "</h3>")
                 sbHeader.Append("<div class='footnote_definitionlist only_mandatory'>")
 
                 SetLiteralText(e, "HeaderMandatory", sbHeader.ToString())
