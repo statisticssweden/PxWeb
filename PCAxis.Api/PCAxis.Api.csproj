@@ -98,7 +98,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=2.0.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.Core.2.19.60\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\packages\Oracle.ManagedDataAccess.Core.2.19.110\lib\netstandard2.0\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PcAxis.Common.1.0.2\lib\netstandard2.0\PCAxis.Common.dll</HintPath>
@@ -143,7 +143,7 @@
       <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.1\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PcAxis.Sql.1.1.0\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
+      <HintPath>..\packages\PcAxis.Sql.1.1.3\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
     <Reference Include="PX.Serializers.Json, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PX.Serializers.Json.1.0.1\lib\netstandard2.0\PX.Serializers.Json.dll</HintPath>
