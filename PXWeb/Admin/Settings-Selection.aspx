@@ -181,4 +181,12 @@
         </asp:DropDownList>
         <asp:ImageButton ID="imgShowNoFootnoteForSelection" runat="server" onclick="ShowNoFootnoteForSelectionInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
+    <div class="setting-field">
+        <asp:Label ID="lblSortVariableOrder" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionSortVariableOrder %>"></asp:Label>
+        <asp:DropDownList ID="cboSortVariableOrder" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgSortVariableOrder" runat="server" onclick="SortVariableOrderInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
 </asp:Content>

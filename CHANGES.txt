@@ -1,3 +1,7 @@
+- new version of pcaxis.sql, resolves #190
+- Possible to localize mandatory footnote label, issue #185
+- Added admin setting to control variable sort order on selection page, issue #164 
+- Fixed bug when downloading files that added an extra byte, issue 167
 - Added a CHANGES.txt to the PxWeb reop
 - Added support for pivoted serializers i API, issues #154
 - Removed FastMember dependency, issue #160
@@ -14,3 +18,5 @@
 - Added admin API endpoint for reseting the caches
 - Fixed so that developers can have there own config files and moved the existing onces to template folder that is used initialy after first build.
 - Removed PxWeb.SavedQuery.Oracle, issue #112
+- Changed "class attribute" to "CssClass attribute" in asp server controllers SearchValues.ascx. 
+

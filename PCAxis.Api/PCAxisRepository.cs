@@ -298,8 +298,9 @@ public static class PCAxisRepository
                 }
                 else
                 {
-                    //The user as requested an non vaild selection
-                    return null;
+                    //The user has requested an non valid selection
+                    throw new HttpException(400,
+                        $"The request for variable '{variable.Code}' has an error. Please check your query.");
                 }
             }
 

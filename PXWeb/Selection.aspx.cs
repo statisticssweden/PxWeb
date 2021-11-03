@@ -239,6 +239,7 @@ namespace PXWeb
         /// </summary>
         private void InitializeVariableSelector()
         {
+            VariableSelector1.SortVariableOrder = PXWeb.Settings.Current.Selection.SortVariableOrder;
             VariableSelector1.SelectedTotalCellsLimit = PXWeb.Settings.Current.Selection.CellLimitScreen;
             VariableSelector1.SelectedTotalCellsDownloadLimit = PXWeb.Settings.Current.General.FileFormats.CellLimitDownloads;
             VariableSelector1.ShowElimMark = PXWeb.Settings.Current.Selection.ShowMandatoryMark;
