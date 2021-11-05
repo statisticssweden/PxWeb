@@ -19,7 +19,7 @@ namespace PXWeb.API
         /// Method to clear cache
         /// </summary>
         [HttpPost]
-        public HttpResponseMessage Delete(string database, bool languageDependent = true, string sortBy = "Title")
+        public HttpResponseMessage RebuildMenu(string database, bool languageDependent = true, string sortBy = "Title", bool buildSearchIndex = true)
         {
             var statusCode = HttpStatusCode.Created;
             List<DatabaseMessage> result = null;
@@ -35,6 +35,25 @@ namespace PXWeb.API
 
                 // Clear all caches
                 PXWeb.Management.PxContext.CacheController.Clear();
+
+                //Force that databases are read again
+                PXWeb.DatabasesSettings databases = (PXWeb.DatabasesSettings)PXWeb.Settings.Current.General.Databases;
+                databases.ResetDatabases();
+
+                if (PXWeb.Settings.Current.Features.General.SearchEnabled && buildSearchIndex)
+                {
+                    PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(database);
+                    PXWeb.SearchIndexSettings searchIndex = (PXWeb.SearchIndexSettings)db.SearchIndex;
+
+                    // Check that the status has not been changed by another system before updating it
+                    if (searchIndex.Status != SearchIndexStatusType.Indexing)
+                    {
+                        searchIndex.Status = SearchIndexStatusType.WaitingCreate;
+                        db.Save();
+
+                        //BackgroundWorker.PxWebBackgroundWorker.WakeUp();
+                    }
+                }
             }
             catch (Exception e)
             {
