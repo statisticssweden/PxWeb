@@ -19,7 +19,7 @@ namespace PXWeb.API
         /// Method to clear cache
         /// </summary>
         [HttpPost]
-        public HttpResponseMessage Delete(string database, bool languageDependent = false, string sortBy = "Title")
+        public HttpResponseMessage Delete(string database, bool languageDependent = true, string sortBy = "Title")
         {
             var statusCode = HttpStatusCode.Created;
             List<DatabaseMessage> result = null;
