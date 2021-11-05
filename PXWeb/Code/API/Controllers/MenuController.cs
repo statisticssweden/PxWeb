@@ -30,9 +30,11 @@ namespace PXWeb.API
                 path = System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath);
                 path = System.IO.Path.Combine(path, database);
 
+                
+                result = AdminTool.GenerateDatabase(path, languageDependent, sortBy);
+
                 // Clear all caches
                 PXWeb.Management.PxContext.CacheController.Clear();
-                result = AdminTool.GenerateDatabase(path, languageDependent, sortBy);
             }
             catch (Exception e)
             {
