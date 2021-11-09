@@ -15,6 +15,8 @@ namespace PXWeb.API
     [AuthenticationFilter]
     public class MenuController : ApiController
     {
+        static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(MenuController));
+
         /// <summary>
         /// Method to clear cache
         /// </summary>
@@ -23,6 +25,7 @@ namespace PXWeb.API
         {
             var statusCode = HttpStatusCode.Created;
             List<DatabaseMessage> result = null;
+            _logger.Info("RebuildMenu - started");
             try
             {
                 string path;
@@ -51,13 +54,15 @@ namespace PXWeb.API
                         searchIndex.Status = SearchIndexStatusType.WaitingCreate;
                         db.Save();
 
-                        //BackgroundWorker.PxWebBackgroundWorker.WakeUp();
+                        BackgroundWorker.PxWebBackgroundWorker.HandleSearchIndex(database);
                     }
                 }
+                _logger.Info("RebuildMenu - finished without error");
             }
             catch (Exception e)
             {
                 statusCode = HttpStatusCode.InternalServerError;
+                _logger.Error(e.Message);
             }
             return Request.CreateResponse(statusCode, result);
         }

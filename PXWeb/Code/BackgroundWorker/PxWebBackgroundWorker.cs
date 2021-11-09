@@ -237,7 +237,7 @@ namespace PXWeb.BackgroundWorker
         /// Check if search index shall be created for database (SearchIndex.Status = Waiting). If so create the search index
         /// </summary>
         /// <param name="database">Database id</param>
-        private static void HandleSearchIndex(string database)
+        public static void HandleSearchIndex(string database)
         {
             if (_run == false)
             {
