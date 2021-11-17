@@ -1,3 +1,4 @@
+- Fix for treeview scroll problem, resolves #187
 - new version of pcaxis.sql, resolves #190
 - Possible to localize mandatory footnote label, issue #185
 - Added admin setting to control variable sort order on selection page, issue #164 
