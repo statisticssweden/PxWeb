@@ -165,6 +165,7 @@ namespace PXWeb
             if (!string.IsNullOrEmpty(url.Path))
             {
                 TableOfContent1.ExpandNode = url.Path;
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ScrollToExpanded", "<script type='text/javascript'> jQuery(function() { var offset = jQuery('.AspNet-TreeView-Collapse').last().offset();if (offset) { jQuery('html, body').scrollTop(offset.top); } });</script>  ");
             }
         }
 
