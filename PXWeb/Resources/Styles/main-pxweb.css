@@ -226,6 +226,22 @@ $scrollbar-color: #b0b0b0;
   padding-bottom: 2px;
   padding-left: 1px; }
 
+#pxwebcontent .px-external-search-div {
+  margin: 20px;
+  margin-right: 30px;
+  float: left; }
+
+#pxwebcontent #header .pxweb-link.px-external-search {
+  margin: 4px; }
+
+#pxwebcontent #header .link-text.px-external-search {
+  font-size: 12px;
+  letter-spacing: normal;
+  padding-top: 0px;
+  padding-right: 1px;
+  padding-bottom: 2px;
+  padding-left: 1px; }
+
 #pxwebcontent .tableAlternatingRow {
   background-color: #eee; }
 

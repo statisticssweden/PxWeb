@@ -24,4 +24,14 @@
         </asp:DropDownList>
         <asp:ImageButton ID="imgMainHeaderForTables" runat="server" onclick="imgMainHeaderForTables_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
+
+    <div class="setting-field">
+        <asp:Label ID="lblShowExternalSearchLink" runat="server" Text="<%$ PxString: PxWebAdminSettingsShowExternalSearchLink %>"></asp:Label>
+        <asp:DropDownList ID="cboShowExternalSearchLink" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgShowExternalSearchLink" runat="server" onclick="ShowExternalSearchLinkInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
+
 </asp:Content>

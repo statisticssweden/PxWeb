@@ -43,6 +43,16 @@
                         <span class="siteLogoText"><asp:Literal ID="litAppName" EnableViewState="false" runat="server" /></span>
                 </div>
                 <div class="headerright">
+                <% if (PXWeb.Settings.Current.General.Site.ShowExternalSearchLink)
+                { %>                    
+                    <div class="px-external-search-div flex-column">
+                        <div class="pxweb-link">
+                            <a href="<% =GetLocalizedString("PxWebExternalSearchURL") %>" class="px-external-search">
+                                <span class="link-text px-external-search"><% =GetLocalizedString("PxWebExternalSearchText") %></span>
+                            </a>
+                        </div>
+                    </div>
+                <%  } %>
                     <div class="px-change-lang-div flex-column">
                           <asp:Literal ID="ChangeLanguageLiteral" EnableViewState="false" runat="server" />
                     </div>

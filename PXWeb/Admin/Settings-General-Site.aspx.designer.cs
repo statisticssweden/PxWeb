@@ -105,6 +105,33 @@ namespace PXWeb.Admin
         protected global::System.Web.UI.WebControls.ImageButton imgMainHeaderForTables;
 
         /// <summary>
+        /// lblShowExternalSearchLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblShowExternalSearchLink;
+
+        /// <summary>
+        /// cboShowExternalSearchLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboShowExternalSearchLink;
+
+        /// <summary>
+        /// imgShowExternalSearchLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgShowExternalSearchLink;
+
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

@@ -536,6 +536,8 @@
   <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1" />
   <sentence name="PxWebApplicationName" value="PxWeb 2021 v1" />
   <sentence name="PxWebLogoAlt" value="PxWeb logotyp" />
+  <sentence name="PxWebExternalSearchText" value="Sök"/>
+  <sentence name="PxWebExternalSearchURL" value="https://www.google.se"/>
   <sentence name="PxWebHome" value="Hem" />
   <sentence name="PxWebHomeImageScreenReader" value="Ikon som representerar hemknappen" />
   <sentence name="PxWebChangeToThisLanguage" value="Svenska" />
@@ -1119,6 +1121,8 @@
   <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Tabellnamn" />
   <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistikområde" />
   <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Typ av rubrik som används för tabellsidor" />
+  <sentence name="PxWebAdminSettingsShowExternalSearchLink" value="Visa extern sök"/>
+  <sentence name="PxWebAdminSettingsShowExternalSearchLinkInfo" value="Om länk till extern söksida ska visas eller inte"/>
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Förvalt språk" />
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Det språk som är förvalt då PxWeb startas" />
   <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Språk" />
