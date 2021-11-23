@@ -1,3 +1,4 @@
+- Made the site logo clickable, issue #197
 - Added admin setting to display external search link, issue #195 
 - Fix for treeview scroll problem, resolves #187
 - new version of pcaxis.sql, resolves #190
