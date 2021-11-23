@@ -1,3 +1,4 @@
+- Added admin setting to display external search link, issue #195 
 - Fix for treeview scroll problem, resolves #187
 - new version of pcaxis.sql, resolves #190
 - Possible to localize mandatory footnote label, issue #185
