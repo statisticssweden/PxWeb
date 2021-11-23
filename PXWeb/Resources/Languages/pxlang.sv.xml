@@ -1122,7 +1122,7 @@
   <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistikområde" />
   <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Typ av rubrik som används för tabellsidor" />
   <sentence name="PxWebAdminSettingsShowExternalSearchLink" value="Visa extern sök"/>
-  <sentence name="PxWebAdminSettingsShowExternalSearchLinkInfo" value="Om länk till extern söksida ska visas eller inte"/>
+  <sentence name="PxWebAdminSettingsShowExternalSearchLinkInfo" value="Om länk till extern söksida ska visas eller inte. Detta är vanligtvis söksidan på er webbplats. Editera meningen PxWebExternalSearchURL i språkfilen så att den överrensstämmer med URL:en för er söksida."/>
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Förvalt språk" />
   <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="Det språk som är förvalt då PxWeb startas" />
   <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Språk" />
