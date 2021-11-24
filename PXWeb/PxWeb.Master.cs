@@ -131,6 +131,8 @@ namespace PXWeb
 
             if (!IsPostBack)
             {
+                InitializeLogoLink();
+
                 if (!DoNotUseBreadCrumb())
                 {
                     InitializeBreadcrumb();
@@ -433,7 +435,45 @@ namespace PXWeb
                 navigationFlowControl.Table = url.Table;
             }
         }
-         private void InitializeBreadcrumb()
+
+        private void InitializeLogoLink()
+        {
+            IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
+
+            if (!string.IsNullOrEmpty(url.Database))
+            {
+                try
+                {
+                    IHomepageSettings homepage = PXWeb.Settings.Current.Database[url.Database].Homepages.GetHomepage(url.Language);
+
+                    if (string.IsNullOrWhiteSpace(homepage.Url))
+                    {
+                        return;
+                    }
+
+                    if (homepage.IsExternal)
+                    {
+                        LogoLink.NavigateUrl = homepage.Url;
+                    }
+                    else
+                    {
+                        LogoLink.NavigateUrl = LinkManager.CreateLink(homepage.Url);
+                    }
+                }
+                catch (Exception e)
+                {
+                    log.Debug("url.Database = " + url.Database + ", url.Language = " + url.Language);
+                    log.Error("The error.", e);
+                    throw e;
+                }
+            }
+            else
+            {
+                LogoLink.NavigateUrl = LinkManager.CreateLink("Default.aspx");
+            }
+        }
+
+        private void InitializeBreadcrumb()
          {
             IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
             DatabaseInfo dbi = null;
