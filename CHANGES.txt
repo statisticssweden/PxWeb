@@ -1,4 +1,5 @@
-- new version of pcaxis.sql, resolves #190
+- Added a admin API endpoint for build/rebuild the Menu.xml file for PX file based databases
+- New version of pcaxis.sql, resolves #190
 - Possible to localize mandatory footnote label, issue #185
 - Added admin setting to control variable sort order on selection page, issue #164 
 - Fixed bug when downloading files that added an extra byte, issue 167
