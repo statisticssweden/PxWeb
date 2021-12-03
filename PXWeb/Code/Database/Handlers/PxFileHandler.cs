@@ -52,8 +52,7 @@ namespace PXWeb.Database
                 { 
                     for (int i = 0; i < builder.Errors.Count; i++)
 			        {
-                        logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "PX file is corrupted " + path + " " +  builder.Errors[i].Code });
-                        //logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "PX file is corrupted " + path + " " + PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(builder.Errors[i].Code) });
+                        logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "PX file is corrupted " + path + " " + PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(builder.Errors[i].Code) });
                     }
                     return null;
                 }
@@ -61,8 +60,7 @@ namespace PXWeb.Database
                 {
                     for (int i = 0; i < builder.Warnings.Count; i++)
                     {
-                        logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Warning, Message = "PX file " + path + " " + builder.Warnings[i].Code });
-                        //logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Warning, Message = "PX file " + path + " " + PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(builder.Warnings[i].Code) });
+                        logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Warning, Message = "PX file " + path + " " + PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(builder.Warnings[i].Code) });
                     }
                     return null;
                 }
