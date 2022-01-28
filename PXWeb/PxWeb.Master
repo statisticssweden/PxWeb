@@ -48,6 +48,8 @@
                     </div>
                 </div>
             </header>
+            <main id="place-holder">
+
             <% if (PXWeb.Settings.Current.General.Modules.ShowLogin)
                 { %>
                 <div id="loginBanner" class="login">
@@ -67,7 +69,7 @@
                 </div>
             </div>
            
-            <main id="place-holder">
+            
                 <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
                 </asp:ContentPlaceHolder>
             </main>
