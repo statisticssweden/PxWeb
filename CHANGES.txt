@@ -1,3 +1,4 @@
+- New version of Excel (1.0.2) which has better performance
 - Made the site logo clickable, issue #197
 - Added admin setting to display external search link, issue #195 
 - Fix for treeview scroll problem, resolves #187
