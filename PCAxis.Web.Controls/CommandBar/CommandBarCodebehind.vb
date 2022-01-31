@@ -63,12 +63,15 @@ Namespace CommandBar
         Protected SaveAsLabel As Label
         Protected OperationsLabel As Label
         Protected WithEvents SaveAsBtn As Button
+        Protected WithEvents ShowAsBtn As Button
         Protected ShortcutButtonPanel As Panel
         Protected PluginControlHolder As Panel
         Protected ShowResultAsBody As Panel
         Protected ShowResultAsHeader As HtmlButton
         Protected OptionsBody As Panel
         Protected OperationsHeaderButton As HtmlButton
+        Protected lblLegendShow As Label
+        Protected lblLegendSave As Label
 
 #End Region
 
@@ -271,6 +274,11 @@ Namespace CommandBar
                 SaveAsLabel.Text = GetLocalizedString(ACCORDION_SAVE_AS_TITLE)
                 OperationsLabel.Text = GetLocalizedString(EDIT_AND_CALULATE_CAPTION)
                 SaveAsBtn.Text = GetLocalizedString(BUTTON_SAVE_AS)
+                SaveAsBtn.Attributes.Add("aria-label", GetLocalizedString("CtrlCommandBarSaveAsButtonScreenReader"))
+                ShowAsBtn.Text = GetLocalizedString(BUTTON_SHOW_AS)
+                ShowAsBtn.Attributes.Add("aria-label", GetLocalizedString("CtrlCommandBarShowAsButtonScreenReader"))
+                lblLegendShow.Text = GetLocalizedString("CtrlCommandBarShowAsLegend")
+                lblLegendSave.Text = GetLocalizedString("CtrlCommandBarSaveAsLegend")
 
                 'Add fileformats to the "Save as" dropdown
                 For Each outputFormat As String In Marker.OutputFormats
@@ -654,22 +662,10 @@ Namespace CommandBar
             End With
         End Sub
 
-
-        ''' <summary>
-        ''' Presentation view selected
-        ''' </summary>
-        ''' <param name="sender">The source of the event</param>
-        ''' <param name="e">An EventArgs that contains no event data</param>
-        ''' <remarks></remarks>
-        Private Sub ShowAsRadioButtonList_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ShowAsRadioButtonList.SelectedIndexChanged
-
-            Dim radioButtonList As RadioButtonList = TryCast(sender, RadioButtonList)
-
-            If radioButtonList IsNot Nothing Then
-                Me.PluginID = radioButtonList.SelectedItem.Value
-                radioButtonList.SelectedIndex = 0
+        Private Sub ShowAsBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ShowAsBtn.Click
+            If ShowAsRadioButtonList.SelectedValue IsNot Nothing Then
+                Me.PluginID = ShowAsRadioButtonList.SelectedValue
             End If
-
         End Sub
 
         Private Sub SaveAsBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SaveAsBtn.Click

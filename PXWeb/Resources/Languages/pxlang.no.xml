@@ -55,7 +55,11 @@
   <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Lagre data som..." />
   <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Endre visning" />
   <sentence name="CtrlCommandBarSaveAsButton" value="Lagre" />
+  <sentence name="CtrlCommandBarSaveAsButtonScreenReader" value="Lagre resultatet som " />
+  <sentence name="CtrlCommandBarSaveAsLegend" value="Tilgjengelige format for nedlasting av data. " />
   <sentence name="CtrlCommandBarShowAsButton" value="Vis" />
+  <sentence name="CtrlCommandBarShowAsButtonScreenReader" value="Vis resultatet som " />
+  <sentence name="CtrlCommandBarShowAsLegend" value="Visningsalternativer for resultat av tall. " />
   <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Rediger og beregne" />
   <sentence name="CtrlCommandBarSaveAsCaption" value="Lagre fil som" />
   <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Presentasjonsvisninger" />

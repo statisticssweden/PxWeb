@@ -63,7 +63,11 @@
    <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Save result as..." />
    <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Show result as..." />
    <sentence name="CtrlCommandBarSaveAsButton" value="Save" />
+   <sentence name="CtrlCommandBarSaveAsButtonScreenReader" value="Save result as " />
+   <sentence name="CtrlCommandBarSaveAsLegend" value="Available format for downloading data. " />
    <sentence name="CtrlCommandBarShowAsButton" value="Show" />
+   <sentence name="CtrlCommandBarShowAsButtonScreenReader" value="Show result as " />
+   <sentence name="CtrlCommandBarShowAsLegend" value="Viewing options for result. " />
 	 <sentence name="CtrlCommandBarEditAndCalulateCaption" value="Edit and Calculate"/>
 	 <sentence name="CtrlCommandBarSaveAsCaption" value="Save table as"/>
 	 <sentence name="CtrlCommandBarGraphsAndMapsCaption" value="Presentation views"/>
