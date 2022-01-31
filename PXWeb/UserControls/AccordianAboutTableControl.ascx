@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AccordianAboutTableControl.ascx.cs" Inherits="PXWeb.UserControls.AccordianAboutTableControl" %>
 
-<asp:panel class="pxweb-accordion about-table s-margin-top" id="InformationBox" runat="server" role="complementary">
+<asp:panel class="pxweb-accordion about-table s-margin-top" id="InformationBox" runat="server">
     <button type="button" class="accordion-header closed" id="InformationBoxHeader" aria-expanded="false" onclick="accordionToggle(<%=InformationBox.ClientID %>, this)" >
         <span class="header-text"><asp:Label ID="lblInfo"  runat="server" Text=""></asp:Label></span>
     </button>
