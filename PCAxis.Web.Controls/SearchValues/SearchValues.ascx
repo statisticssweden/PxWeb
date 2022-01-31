@@ -6,9 +6,10 @@
         <asp:Label ID="SearchHeader" CssClass="pxweb-title negative" runat="server" />
     </h2>
     <div id="pxcontent">
-        <asp:Panel ID="UserManualSearchRegion" role="region" runat="server">
-            <asp:Panel ID="UserManualSearch"  CssClass="screenreader-only" runat="server" />
-        </asp:Panel>
+        <pxc:UserManualScreenReader ID="UserManualSearchValues"
+            headerCode="CtrlSearchValuesUserManualScreenReaderRegion"
+            textCode="CtrlSearchValuesUserManualScreenReader"
+            runat="server" ClientIDMode="Static"/>
     </div>
     <div class="flex-row flex-wrap">
         <div class="searchvalues-usage-tips negative flex-column">

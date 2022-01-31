@@ -1,4 +1,5 @@
 <%@ control  inherits="PCAxis.Web.Controls.SelectFromGroupCodebehind" %>
+<%@ Register Assembly="PCAxis.Web.Controls" Namespace="PCAxis.Web.Controls" TagPrefix="pxc" %>
 
 <div class="pxbox negative selectfromgroup-container flex-column">
     <h2>
@@ -6,9 +7,10 @@
     </h2>
 
     <div id="pxcontent">
-      <asp:Panel ID="UserManualGroupingRegion" role="region" runat="server">
-        <asp:Panel ID="UserManualGrouping"  CssClass="screenreader-only" runat="server" />
-      </asp:Panel>
+        <pxc:UserManualScreenReader ID="UserManualSelectFromGroup"
+            headerCode="CtrlSelectFromGroupSelectUserManualScreenReaderRegion"
+            textCode="CtrlSelectFromGroupSelectUserManualScreenReader"
+            runat="server" ClientIDMode="Static"/>
     </div>
 
     <asp:Panel ID="GroupingRegion" role="region" runat="server">

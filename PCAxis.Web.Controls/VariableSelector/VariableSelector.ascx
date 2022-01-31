@@ -3,9 +3,10 @@
 <%@ Import Namespace="PCAxis.Paxiom"%>
 <asp:Panel ID="VariableSelectorPanel" runat="server" >
     <div id="pxcontent"> 
-        <asp:Panel runat="server" ID="UserManualMainRegion" role="region">
-            <asp:Panel ID="UserManualMain" runat="server" CssClass="screenreader-only"></asp:Panel>
-        </asp:Panel>
+        <pxc:UserManualScreenReader ID="UserManualVariableSelector"
+            headerCode="PxWebRegionSelectionUserManualScreenReader"
+            textCode="PxWebSkipToSelectionLinkScreenReader"
+            runat="server" ClientIDMode="Static"/>
     </div>
     <pxc:VariableSelectorMarkingTips runat="server" ID="VariableSelectorMarkingTips"  />    
     <asp:ValidationSummary ID="SelectionValidationSummary" runat="server" DisplayMode="BulletList" role="alert" ShowValidationErrors="true" ShowMessageBox="false" ShowSummary="true" CssClass="variableselector_error_summary" ForeColor="" />   

@@ -52,7 +52,7 @@
   <sentence name="CtrlPerPartSelectCellLabel" value="Velg cellen som skal brukes som basis:"/>
   <sentence name="CtrlPerPartCompleteButton" value="Fullfør" />
   <sentence name="CtrlCommandBarAccordionOperatationsTitle" value="Flere valg" />
-  <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Lagre data som..." />
+  <sentence name="CtrlCommandBarAccordionSaveAsTitle" value="Lagre data som" />
   <sentence name="CtrlCommandBarAccordionShowAsTitle" value="Endre visning" />
   <sentence name="CtrlCommandBarSaveAsButton" value="Lagre" />
   <sentence name="CtrlCommandBarSaveAsButtonScreenReader" value="Lagre resultatet som " />
@@ -517,7 +517,7 @@
   <sentence name="PxcPermil" value="per 1 000" />
   <sentence name="PxcPercentUnitVarExists" value="Kan ikke beregne prosent når måleenheten allerede eksisterer" />
   <sentence name="PxcPermilUnitVarExists" value="Kan ikke beregne rate per 1 000 når måleenheten allerede eksisterer" />
-  <sentence name="PxcKeywordLastUpdated" value="Siste oppdatering" />
+  <sentence name="PxcKeywordLastUpdated" value="Sist endret" />
   <sentence name="PxcKeywordSource" value="Kilde" />
   <sentence name="PxcKeywordContact" value="Kontakt" />
   <sentence name="PxcKeywordOfficialStatistics" value="Offisiell statistikk" />
@@ -548,10 +548,10 @@
   <sentence name="PxWebChangeToThisLanguage" value="Norsk versjon" />
   <sentence name="PxWebMenuBurger" value="Meny" />
   <sentence name="PxWebMenu" value="Meny" />
-  <sentence name="PxWebMenuExplanationRegionHeader" value="Kode på tabeltittel viser laveste regionsnivå: " />
-  <sentence name="PxWebMenuExplanationRegion" value="(F) = fylke, (K) = kommune, (G) = grunnkrets, (B) = bydel, (T) = tettsted." />
+  <sentence name="PxWebMenuExplanationRegionHeader" value="Bokstavkode etter tabelltittel viser laveste regionsnivå:" />
+  <sentence name="PxWebMenuExplanationRegion" value="(F) = fylke, (K) = kommune, (G) = grunnkrets, (B) = bydel, (T) = tettsted" />
   <sentence name="PxWebMenuExplanationTimePeriodHeader" value="Forklaring på tidsperiode:" />
-  <sentence name="PxWebMenuExplanationTimePeriod" value="&lt;B&gt;K&lt;/B&gt;= Kvartal, &lt;B&gt;M&lt;/B&gt; = Måned, &lt;B&gt;U&lt;/B&gt; = Uke" />
+  <sentence name="PxWebMenuExplanationTimePeriod" value="&lt;B&gt;K&lt;/B&gt; = Kvartal, &lt;B&gt;M&lt;/B&gt; = Måned, &lt;B&gt;U&lt;/B&gt; = Uke" />
   <sentence name="PxWebSelection" value="Valg" />
   <sentence name="PxWebInformation" value="Informasjon" />
   <sentence name="PxWebDetailedInformation" value="Detaljert informasjon" />
@@ -609,7 +609,7 @@
   <sentence name="PxWebTableCroppedHeading" value="Tabellen har blitt beskåret"/>
   <sentence name="PxWebPopupDialogClose" value="Lukke" />
   <sentence name="PxWebSelectVariable" value="Velg variabler" />
-  <sentence name="PxWebAboutTable" value="Informasjon om tabell" />
+  <sentence name="PxWebAboutTable" value="Informasjon om tabellen" />
   <sentence name="PxWebAboutTableContact" value="Kontakt og informasjon" />
   <sentence name="PxWebAboutTableFootnotes" value="Fotnoter" />
   <sentence name="PxWebAboutTableDefinitions" value="Definisjoner av variabler og verdier" />
@@ -653,8 +653,11 @@
   <sentence name="PxWebSkipToMainContentLinkText" value="Hopp til hovedinnhold" />
   <sentence name="PxWebSkipToMainContentLinkScreenReader" value="Trykk enter for å gå rett til hovedinnhold" />
   <sentence name="PxWebSkipToSelectionLinkText" value="Gå til første variabel" />
-  <sentence name="PxWebSkipToSelectionLinkUserManualScreenReader" value="Nå har du kommet til skjermbildet for å velge hvilke variabler og verdier du vil ha frem i ditt resultat av tabellen. En variabel er en egenskap ved en statistisk enhet. Side er delt opp i flere bokser, en for hver variabel, hvor du kan velge verdier ved å markere en eller flere. Det starter alltid med statistikkvariabel som er hoved verdien som telles i tabellen. Trykk enter for å gå rett til valg av første variabel." />
-  <sentence name="PxWebSelectionUserManualScreenReaderRegion" value="Bruksanvisning valgskjermbildets hovedside" />
+  <sentence name="PxWebSkipToSelectionLinkScreenReader" value="Nå har du kommet til skjermbildet for å velge hvilke variabler og verdier du vil ha frem i ditt resultat av tabellen. En variabel er en egenskap ved en statistisk enhet. Side er delt opp i flere bokser, en for hver variabel, hvor du kan velge verdier ved å markere en eller flere. Det starter alltid med statistikkvariabel som er hoved verdien som telles i tabellen. Trykk enter for å gå rett til valg av første variabel." />
+  <sentence name="PxWebRegionSelectionUserManualScreenReader" value="Bruksanvisning valgskjermbildets hovedside" />
+  <sentence name="PxWebTableListEmptyFolder" value="Denne mappen er midlertidlig tom" />
+  <sentence name="UserManualScreenReader_TableList_Header" value="Bruksanvisning for denne siden." />
+  <sentence name="UserManualScreenReader_TableList_Text" value="Du er nå på første hovedside av Statistikkbanken, som viser en oversikt over alle tilgjengelige tabeller innenfor det valgte statistikkområdet. Tabellene er gruppert i emner, med en overskrift for hver gruppe. Det er også en geografisk og periodisk forklaring i toppen av tabell-listen, når det finnes tabeller i listen som inneholder disse verdiene." />  
   <sentence name="PxWebAdminLogout" value="Logg ut" />
   <sentence name="PxWebAdminHeading" value="PX-Web - Administrasjon" />
   <sentence name="PxWebAdminHomePage" value="PX-Web - Hjem" />
@@ -871,6 +874,10 @@
   <sentence name="PxWebAdminSettingsSelectionSearchButtonModeManyValues" value="Mange verdier" />
   <sentence name="PxWebAdminSettingsSelectionSearchButtonModeAlways" value="Alltid" />
   <sentence name="PxWebAdminSettingsSelectionSearchButtonModeInfo" value="Styrer når søk-knappen skal vises" />
+  <sentence name="PxWebAdminSettingsSelectionDefaultViewMode" value="Standard visning" />
+  <sentence name="PxWebAdminSettingsSelectionDefaultViewComapact" value="Kompaktvisning" />
+  <sentence name="PxWebAdminSettingsSelectionDefaultViewSimple" value="Listevisning" />
+  <sentence name="PxWebAdminSettingsSelectionDefaultViewModeInfo" value="Styrer hvilken visning som er standard. Kompakt visning viser en komprimert utgave av variabel-boksene på nettsiden. Listevisning viser variabel-boksene under hverandre, og en boks vises på hele skjermbredden." />	
   <sentence name="PxWebAdminSettingsValidationMandatorySetting" value="Obligatorisk felt" />
   <sentence name="PxWebAdminSettingsValidationNonexistentPath" value="Stien finnes ikke" />
   <sentence name="PxWebAdminSettingsValidationNonexistentImage" value="Bilde finnes ikke" />

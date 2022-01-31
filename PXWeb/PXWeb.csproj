@@ -587,6 +587,7 @@
     </Compile>
     <Compile Include="Code\BackgroundWorker\PxWebBackgroundWorker.cs" />
     <Compile Include="Code\CustomControls\HeadingLabel.cs" />
+    <Compile Include="Code\CustomControls\UserManualScreenReader.cs" />
     <Compile Include="Code\Database\Builders\MenuBuilder.cs" />
     <Compile Include="Code\Database\CnmmDatabaseBuilder.cs" />
     <Compile Include="Code\Database\DatabaseSpider.cs" />

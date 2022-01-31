@@ -462,6 +462,7 @@
     <Compile Include="TextSearch\TextSearch.vb">
       <DependentUpon>TextSearch.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserManualScreenReader.vb" />
     <Compile Include="VariableSelector\VariableSelector.vb">
       <DependentUpon>VariableSelector.ascx</DependentUpon>
     </Compile>
