@@ -572,6 +572,7 @@
     </Compile>
     <Compile Include="Code\API\Authentication\AuthenticationFilter.cs" />
     <Compile Include="Code\API\Controllers\CacheController.cs" />
+    <Compile Include="Code\API\Controllers\MenuController.cs" />
     <Compile Include="Code\API\Services\CacheService.cs" />
     <Compile Include="Code\API\Interfaces\ICacheService.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />

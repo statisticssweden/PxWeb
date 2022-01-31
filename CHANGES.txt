@@ -1,8 +1,9 @@
 - New version of Excel (1.0.2) which has better performance
+- Added a admin API endpoint for build/rebuild the Menu.xml file for PX file based databases
 - Made the site logo clickable, issue #197
 - Added admin setting to display external search link, issue #195 
 - Fix for treeview scroll problem, resolves #187
-- new version of pcaxis.sql, resolves #190
+- New version of pcaxis.sql, resolves #190
 - Possible to localize mandatory footnote label, issue #185
 - Added admin setting to control variable sort order on selection page, issue #164 
 - Fixed bug when downloading files that added an extra byte, issue 167
