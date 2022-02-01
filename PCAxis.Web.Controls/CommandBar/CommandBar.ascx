@@ -4,7 +4,7 @@
     <asp:Panel ID="AccordionPanel" CssClass="accordion-panels" runat="server">
         <asp:panel class="pxweb-accordion" id="ShowResultAsPanel" ClientIDMode="Static" runat="server">
             <asp:Label runat="server" CssClass="screenreader-only" ID="emptyLabel" aria-hidden="true" ClientIDMode="Static"></asp:Label>
-            <button type="button" runat="server" class="accordion-header closed" id="ShowResultAsHeader" ClientIDMode="Static" onclick="accordionToggle(ShowResultAsPanel, this)" >
+            <button type="button" runat="server" class="accordion-header closed" id="ShowResultAsHeader" ClientIDMode="Static" aria-expanded="false" onclick="accordionToggle(ShowResultAsPanel, this)" >
                 <span class="header-text"><asp:Label ID="ShowResultLabel"  runat="server"></asp:Label></span>
             </button>
             <div>
@@ -20,7 +20,7 @@
             </div>
         </asp:Panel>
         <asp:panel class="pxweb-accordion" ClientIDMode="Static" id="OperationsPanel" runat="server">
-            <button type="button" runat="server" class="accordion-header closed" ClientIDMode="Static" id="OperationsHeaderButton" onclick="accordionToggle(OperationsPanel, this)" >
+            <button type="button" runat="server" class="accordion-header closed" ClientIDMode="Static" id="OperationsHeaderButton" aria-expanded="false" onclick="accordionToggle(OperationsPanel, this)" >
                 <span class="header-text"><asp:Label ID="OperationsLabel"  runat="server"></asp:Label></span>
             </button>
             <asp:panel runat="server" class="accordion-body closed" ClientIDMode="Static" id="OptionsBody">
@@ -29,7 +29,7 @@
             <asp:panel id="PluginControlHolder" cssclass="commandbar_container" runat="server" visible="false"></asp:panel>
         </asp:Panel>
         <asp:panel class="pxweb-accordion"  ClientIDMode="Static" id="SaveAsPanel" runat="server">
-            <button type="button"  runat="server" class="accordion-header closed" ClientIDMode="Static" id="SaveAsHeaderButton" onclick="accordionToggle(SaveAsPanel, this)" >
+            <button type="button"  runat="server" class="accordion-header closed" ClientIDMode="Static" id="SaveAsHeaderButton" aria-expanded="false" onclick="accordionToggle(SaveAsPanel, this)" >
                 <span class="header-text"><asp:Label ID="SaveAsLabel"  runat="server"></asp:Label></span>
             </button>
             <div>

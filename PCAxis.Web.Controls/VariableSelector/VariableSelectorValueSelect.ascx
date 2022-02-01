@@ -8,7 +8,7 @@
     <asp:Panel runat="server" ID="Panel1" CssClass="variableselector_valuesselect_variabletitle_panel">
             <div class="flex-row flex-wrap-reverse">
                 <asp:Panel runat="server" ID="MetadataPanel" class="metadata-container" Visible="False">
-                    <div role="button" class="metadata-open-btn" tabindex="0" aria-pressed="false" onclick="metadataToggle('<%=metadataPanelLinks.ClientID%>', this)" onkeydown="handleBtnKeyDown(event, '<%=metadataPanelLinks.ClientID%>')">
+                    <div role="button" class="metadata-open-btn" tabindex="0" aria-pressed="false" aria-expanded="false" onclick="metadataToggle('<%=metadataPanelLinks.ClientID%>', this)" onkeydown="handleBtnKeyDown(event, '<%=metadataPanelLinks.ClientID%>')">
                         <div class="metadata-toggle">
                             <asp:Label runat="server" ID="VariableTitleMetadata" Cssclass="variableselector_valuesselect_variabletitle metadata-text-wrap"/>
                        </div>
@@ -146,8 +146,10 @@
         metadataContainer.classList.toggle("open");
         // Check to see if the button is pressed
         var pressed = (element.getAttribute("aria-pressed") === "true");
-        // Change aria-pressed to the opposite state
+        var expanded = (element.getAttribute("aria-expanded") === "true");
+        // Change aria-pressed/aria-expanded to the opposite state
         element.setAttribute("aria-pressed", !pressed);
+        element.setAttribute("aria-expanded", !expanded);
     }
 
     function handleBtnKeyDown(event, metadataPanelLinksId) {
