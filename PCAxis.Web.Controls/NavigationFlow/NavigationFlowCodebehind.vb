@@ -47,6 +47,10 @@ Public Class NavigationFlowCodebehind
     Protected navHrLeft As Literal
     Protected navHrRight As Literal
 
+    Public SectionAriaLabel As String = "NavigationFlow"
+    Protected ExplainAriaLabel As Label
+
+
 
 #End Region
 
@@ -54,18 +58,23 @@ Public Class NavigationFlowCodebehind
 
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            firstStepLabel.Text = GetLocalizedString(LABEL_FIRSTSTEP)
-            secondStepLabel.Text = GetLocalizedString(LABEL_SECONDSTEP)
-            thirdStepLabel.Text = GetLocalizedString(LABEL_THIRDSTEP)
+            SectionAriaLabel = GetLocalizedString("CtrlNavigationFlowSectionScreenReader")
 
-            firstStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_FIRSTSTEP)
-            secondStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_SECONDSTEP)
+            firstStepLabel.Text = GetLocalizedString(LABEL_FIRSTSTEP)
+            firstStepLink.Attributes.Add("aria-label", GetLocalizedString(SCREENREADERTEXT_FIRSTSTEP))
+
+
+            secondStepLabel.Text = GetLocalizedString(LABEL_SECONDSTEP)
+            secondStepLink.Attributes.Add("aria-label", GetLocalizedString(SCREENREADERTEXT_SECONDSTEP))
+
+
+            thirdStepLabel.Text = GetLocalizedString(LABEL_THIRDSTEP)
             thirdStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_THIRDSTEP)
 
             'In case somebody needs to set very spesific margins
             Dim lang As String = LocalizationManager.GetTwoLetterLanguageCode()
-            navHrLeft.Text = "<hr class=""nav-hr-left " + lang + """/>"
-            navHrRight.Text = "<hr class=""nav-hr-right " + lang + """/>"
+            navHrLeft.Text = "<hr aria-hidden=""true"" class=""nav-hr-left " + lang + """/>"
+            navHrRight.Text = "<hr aria-hidden=""true"" class=""nav-hr-right " + lang + """/>"
 
         End If
     End Sub
@@ -126,32 +135,31 @@ Public Class NavigationFlowCodebehind
 
     Public Sub UpdateNavigationFlowMode(ByVal mode As NavigationFlow.NavigationFlowMode)
         'Set right css class on the navigation flow items
-
+        Dim outExplain = GetLocalizedString("CtrlNavigationFlowExplainScreenReader")
         Select Case mode
             Case NavigationFlow.NavigationFlowMode.First
-
                 SetStateOnStep(ACTIVE, FUTURE, FUTURE)
-
-
-
+                firstStepLink.Attributes.Add("aria-hidden", "true")
+                secondStepLink.Attributes.Add("aria-hidden", "true")
+                outExplain += GetLocalizedString(LABEL_FIRSTSTEP)
             Case NavigationFlow.NavigationFlowMode.Second
-
                 SetStateOnStep(PASSIVE, ACTIVE, FUTURE)
-
-
                 SetNavigationLink(mode)
-
+                secondStepLink.Attributes.Add("aria-hidden", "true")
+                outExplain += GetLocalizedString(LABEL_SECONDSTEP)
             Case NavigationFlow.NavigationFlowMode.Third
-
                 SetStateOnStep(PASSIVE, PASSIVE, ACTIVE)
-
                 SetNavigationLink(mode)
-
+                outExplain += GetLocalizedString(LABEL_THIRDSTEP)
             Case Else
-
         End Select
 
+        ExplainAriaLabel.Attributes.Add("class", "screenreader-only")
+        ExplainAriaLabel.Text = outExplain
 
+
+
+        thirdStepLink.Attributes.Add("aria-hidden", "true")
 
     End Sub
 #End Region

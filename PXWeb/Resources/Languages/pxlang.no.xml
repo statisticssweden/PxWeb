@@ -418,12 +418,14 @@
   <sentence name="CtrlTableQueryQueryCaption" value="JSON-spørring: " />
   <sentence name="CtrlTableQueryMoreInformation" value="Mer Informasjon om API mot Statistikkbanken" />
   <sentence name="CtrlTableQuerySaveQuery" value="Lagre API-spørring (json)" />
+  <sentence name="CtrlNavigationFlowSectionScreenReader" value="Oversikt over de tre stegene i prosessen med å få data."/>
+  <sentence name="CtrlNavigationFlowExplainScreenReader" value="De 3 stegene er Velg tabell,  Choose table, Velg variabler og Vis resultat. Du er nå på "/>
   <sentence name="CtrlNavigationFlowStep1" value="Velg tabell" />
-  <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Ikon som betyr Velg tabell" />
+  <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Tilbake til Velg tabell" />
   <sentence name="CtrlNavigationFlowStep2" value="Velg variabler" />
-  <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Ikon som betyr Velg variabler" />
+  <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Tilbake til  Velg variabler" />
   <sentence name="CtrlNavigationFlowStep3" value="Vis resultat" />
-  <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Ikon som betyr Vis resultat" />
+  <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Tilbake til Vis resultat, Hmmm" />
   <sentence name="CtrlSaveQueryChoosetimeperiod" value="Alternativer for å vise tidsperioder" />
   <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="Hvilke perioder ønsker du å ha med når spørringen gjentas?" />
   <sentence name="CtrlSaveQueryTimeWarning" value="Det er ikke mulig å velge å oppdatere spørringen siden tidsperioden har blitt kombinert manuelt" />

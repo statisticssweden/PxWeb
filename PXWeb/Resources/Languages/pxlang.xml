@@ -488,12 +488,15 @@
 	 <sentence name="CtrlTableQueryQueryCaption" value="JSON query:" />
 	 <sentence name="CtrlTableQueryMoreInformation" value="More information" />
     <sentence name="CtrlTableQuerySaveQuery" value="Save API query (json)" />
+    
+   <sentence name="CtrlNavigationFlowSectionScreenReader" value="Overview of the three steps in the process to get the data."/>
+   <sentence name="CtrlNavigationFlowExplainScreenReader" value="The 3 steps are Choose table, Choose variable and Show result. You are currently at "/>
    <sentence name="CtrlNavigationFlowStep1" value="Choose table" />
-   <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Icon representing the page where you Choose table" />   
+   <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Back to Choose table" />   
    <sentence name="CtrlNavigationFlowStep2" value="Choose variable" />
-   <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Icon representing the page where you Choose variable" />  
+   <sentence name="CtrlNavigationFlowStep2ScreenReader" value="Back to Choose variable" />  
    <sentence name="CtrlNavigationFlowStep3" value="Show result" />
-   <sentence name="CtrlNavigationFlowStep3ScreenReader" value="Icon representing the page where you Show Result" />
+   <sentence name="CtrlNavigationFlowStep3ScreenReader" value="The page where you Show Result" />
 
    <sentence name="CtrlSaveQueryChoosetimeperiod" value="Update options" />
    <sentence name="CtrlSaveQueryChoosetimeperiodInformation" value="What do you want to do with your saved query if the tables are updated with new time periods?" />
