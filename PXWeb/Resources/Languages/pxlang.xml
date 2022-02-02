@@ -810,7 +810,9 @@
 
   <!-- UserManualScreenReader -->
 
-
+  <sentence name="UserManualScreenReader_Databases_Header" value="User manual for this page" />
+  <sentence name="UserManualScreenReader_Databases_Text" value="This page is for selecting the database where your want to seach for a table." />
+ 
   <sentence name="UserManualScreenReader_Menu_Header" value="User manual for this page" />
   <sentence name="UserManualScreenReader_Menu_Text" value="You are now in the first main page of PxWeb, where the goal is to select a table. You may find your table by seach or by drilling down in the menu three." />
   <sentence name="UserManualScreenReader_Result_Header" value="User manual for this page" />
