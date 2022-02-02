@@ -807,6 +807,17 @@
   <sentence name="PxWebSkipToSelectionLinkText" value="Go to first variable" />
   <sentence name="PxWebSkipToSelectionLinkScreenReader" value="Now you have come to the page, Choose variable. This page give you the oportunity to select which variables and values you want to display in your result of the table. A variable is a property of a statistical unit. The page is divided into several boxes, one for each variable, where you can select values by click to highlight one or more values. It always starts with the statistics variable which is the main value counted in the table." />
   <sentence name="PxWebRegionSelectionUserManualScreenReader" value="User manual for selection page" />
+
+  <!-- UserManualScreenReader -->
+
+
+  <sentence name="UserManualScreenReader_Menu_Header" value="User manual for this page" />
+  <sentence name="UserManualScreenReader_Menu_Text" value="You are now in the first main page of PxWeb, where the goal is to select a table. You may find your table by seach or by drilling down in the menu three." />
+  <sentence name="UserManualScreenReader_Result_Header" value="User manual for this page" />
+  <sentence name="UserManualScreenReader_Result_Text" value="This page shows the results of the figures you selected on the variable-page in PxWeb. On this result-page you can download the numbers in another format, pivot or edit them. You can also save them as a saved query, which can be sent to others or used as a link the next time you want to see these numbers with new time periods." />
+ 
+  
+  
    <!-- PX-Web Administration -->
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>

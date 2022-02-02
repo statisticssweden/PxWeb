@@ -660,6 +660,10 @@
   <sentence name="PxWebTableListEmptyFolder" value="Denne mappen er midlertidlig tom" />
   <sentence name="UserManualScreenReader_TableList_Header" value="Bruksanvisning for denne siden." />
   <sentence name="UserManualScreenReader_TableList_Text" value="Du er nå på første hovedside av Statistikkbanken, som viser en oversikt over alle tilgjengelige tabeller innenfor det valgte statistikkområdet. Tabellene er gruppert i emner, med en overskrift for hver gruppe. Det er også en geografisk og periodisk forklaring i toppen av tabell-listen, når det finnes tabeller i listen som inneholder disse verdiene." />  
+  <sentence name="UserManualScreenReader_Menu_Header" value="Bruksanvisning for denne siden." />
+  <sentence name="UserManualScreenReader_Menu_Text" value="Du er nå på første hovedside av Statistikkbanken, hvor målet er å velge en tabell. Det kan gjøres ved å bla deg nedover i menytreet eller ved å bruke søk." />
+  <sentence name="UserManualScreenReader_Result_Header" value="Bruksanvisning for denne siden." />
+  <sentence name="UserManualScreenReader_Result_Text" value="Denne siden viser resultat av de tallene du valgte på variablene på forrige side i Statistikkbanken. På denne siden kan du laste ned tallene i et annet format, pivotere eller redigere dem. Du kan også lagre dem som en lagret spørring, som kan sendes til andre eller benyttes som lenke neste gang du vil se disse tallene med nye tidsperioder." />
   <sentence name="PxWebAdminLogout" value="Logg ut" />
   <sentence name="PxWebAdminHeading" value="PX-Web - Administrasjon" />
   <sentence name="PxWebAdminHomePage" value="PX-Web - Hjem" />
