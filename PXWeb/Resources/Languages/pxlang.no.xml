@@ -711,6 +711,8 @@
   <sentence name="PxWebLoggedOut" value="Du ble logget ut" />
   <sentence name="PxWebSwitchToCompactView" value="Kompaktvisning" />
   <sentence name="PxWebSwitchToListView" value="Listevisning" />
+  <sentence name="PxWebSwitchToCompactViewScreenReader" value="Endrer visuelt oppsett. Listevisning gjør at én variabelboks benytter hele skjermbredden. Kompaktvisning viser flere bokser per linje. Nå vises listevisning." />
+  <sentence name="PxWebSwitchToListViewScreenReader" value="Endrer visuelt oppsett. Listevisning gjør at én variabelboks benytter hele skjermbredden. Kompaktvisning viser flere bokser per linje. Nå vises kompaktvisning."/>
   <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX-databaser" />
   <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Valgte PX-databaser vil bli vist i PX-Web" />
   <sentence name="PxWebAdminSettingsDatabasesCnmmDatabases" value="CNMM (Common Nordic Meta Model) databaser" />

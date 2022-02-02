@@ -873,8 +873,10 @@
   <sentence name="PxWebLoggedIn" value="Logged in as"/>
   <sentence name="PxWebLoginMissingUserOrPassw" value="Userid and password must be filled in"/>
   <sentence name="PxWebLoggedOut" value="You where logged out"/>
-    <sentence name="PxWebSwitchToCompactView" value ="Expert view"/>
+  <sentence name="PxWebSwitchToCompactView" value ="Compact view"/>
   <sentence name="PxWebSwitchToListView" value ="List view"/>
+  <sentence name="PxWebSwitchToCompactViewScreenReader" value="Changes visual layout. In the list view a single variable box utilizes the entire screen width. In the compact view there are many boxes per line. Now displaying list view." />
+  <sentence name="PxWebSwitchToListViewScreenReader" value="Changes visual layout. In the list view a single variable box utilizes the entire screen width. In the compact view there are many boxes per line. Now displaying compact view."/>	
 
 	 <sentence name="PxWebAdminSettingsDatabasesPxDatabases" value="PX Databases"/>
 	 <sentence name="PxWebAdminSettingsDatabasesPxDatabasesInfo" value="Selected PX Databases will be displayed in PxWeb"/>
