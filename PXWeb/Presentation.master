@@ -83,6 +83,7 @@
                         </h1>
                     </div>
                     <div  id="pxcontent"> 
+                        <pxwebCustomControl:UserManualScreenReader ID="UserManualResult" manualFor="Result" runat="server" ClientIDMode="Static"/>
                         <asp:ContentPlaceHolder ID="cphMain" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
