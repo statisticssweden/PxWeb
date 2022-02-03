@@ -24,6 +24,7 @@ namespace PXWeb.Admin
                 // Read settings
                 txtApplicationName.Text = PXWeb.Settings.Current.General.Site.ApplicationName;
                 cboMainHeaderForTables.SelectedValue = PXWeb.Settings.Current.General.Site.MainHeaderForTables.ToString();
+                cboShowExternalSearchLink.SelectedValue = PXWeb.Settings.Current.General.Site.ShowExternalSearchLink.ToString();
             }
         }
 
@@ -55,6 +56,8 @@ namespace PXWeb.Admin
                                 site.MainHeaderForTables = MainHeaderForTablesType.TableName;
                                 break;
                         }
+
+                        site.ShowExternalSearchLink = bool.Parse(cboShowExternalSearchLink.SelectedValue);
 
                         PXWeb.Settings.Save();
                     }
@@ -111,6 +114,11 @@ namespace PXWeb.Admin
         protected void imgMainHeaderForTables_Click(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsMainHeaderForTables", "PxWebAdminSettingsMainHeaderForTablesInfo");
+        }
+
+        protected void ShowExternalSearchLinkInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminSettingsShowExternalSearchLink", "PxWebAdminSettingsShowExternalSearchLinkInfo");
         }
     }
 }

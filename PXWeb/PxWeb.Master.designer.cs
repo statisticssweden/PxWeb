@@ -69,6 +69,15 @@ namespace PXWeb
         protected global::System.Web.UI.WebControls.HyperLink SkipToMain;
 
         /// <summary>
+        /// LogoLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink LogoLink;
+
+        /// <summary>
         /// imgSiteLogo control.
         /// </summary>
         /// <remarks>
