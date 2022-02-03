@@ -53,7 +53,7 @@ namespace PXWeb.Database
                     for (int i = 0; i < builder.Errors.Count; i++)
 			        {
                         logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "PX file is corrupted " + path + " " + PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(builder.Errors[i].Code) });
-			        }
+                    }
                     return null;
                 }
                 if (builder.Warnings.Count > 0)

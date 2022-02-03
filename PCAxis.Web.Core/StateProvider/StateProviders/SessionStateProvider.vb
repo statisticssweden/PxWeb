@@ -15,7 +15,7 @@ Namespace StateProvider.StateProviders
         ''' <param name="data">The item to add</param>
         ''' <remarks></remarks>
         Protected Overrides Sub OnAdd(ByVal fullName As String, ByVal data As Object)
-            If HttpContext.Current IsNot Nothing Then
+            If HttpContext.Current IsNot Nothing And HttpContext.Current.Session IsNot Nothing Then
                 HttpContext.Current.Session.Add(fullName, data)
             End If
         End Sub
@@ -27,7 +27,7 @@ Namespace StateProvider.StateProviders
         ''' <returns><c>True</c> if the session contains the item, otherwise <c>False</c></returns>
         ''' <remarks></remarks>
         Protected Overrides Function OnContains(ByVal fullName As String) As Boolean
-            If HttpContext.Current IsNot Nothing Then
+            If HttpContext.Current IsNot Nothing And HttpContext.Current.Session IsNot Nothing Then
                 If HttpContext.Current.Session.Item(fullName) IsNot Nothing Then
                     Return True
                 Else

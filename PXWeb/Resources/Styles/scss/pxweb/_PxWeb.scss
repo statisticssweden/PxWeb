@@ -130,23 +130,28 @@
     vertical-align: middle;
 }
 
-#pxwebcontent .px-change-lang-div {
-  margin: 20px;
-  margin-right: 30px;
+#pxwebcontent #header .px-change-lang-div, #pxwebcontent #header .px-external-search-div {
+    margin: 20px;
+    margin-right: 30px;
 }
 
-#pxwebcontent #header .pxweb-link.px-change-lang {
-  margin: 4px;
+#pxwebcontent #header .pxweb-link.px-change-lang, #pxwebcontent #header .pxweb-link.px-external-search {
+    margin: 4px;
 }
 
-#pxwebcontent #header .link-text.px-change-lang {
-  font-size: 12px;
-  letter-spacing: normal;
-  padding-top: 0px;
-  padding-right: 1px;
-  padding-bottom: 2px;
-  padding-left: 1px;
+#pxwebcontent #header .link-text.px-change-lang, #pxwebcontent #header .link-text.px-external-search {
+    font-size: 12px;
+    letter-spacing: normal;
+    padding-top: 0px;
+    padding-right: 1px;
+    padding-bottom: 2px;
+    padding-left: 1px;
 }
+
+#pxwebcontent .px-external-search-div {
+    float: left;
+}
+
 
 #pxwebcontent .tableAlternatingRow {
   background-color: $tableAlternatingRow-grey;

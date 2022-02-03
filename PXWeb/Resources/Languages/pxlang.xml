@@ -680,6 +680,8 @@
 	 <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1"/>
 	 <sentence name="PxWebApplicationName" value="PxWeb 2021 v1"/>
    <sentence name="PxWebLogoAlt" value="PxWeb Logotype"/>
+   <sentence name="PxWebExternalSearchText" value="Search"/>
+   <sentence name="PxWebExternalSearchURL" value="https://www.google.com"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="English" />
@@ -1323,6 +1325,8 @@
    <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Table name"/> 
    <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistics area"/>
    <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Type of heading that will be used for table pages"/>
+   <sentence name="PxWebAdminSettingsShowExternalSearchLink" value="Show external search"/>
+   <sentence name="PxWebAdminSettingsShowExternalSearchLinkInfo" value="If link to external search page shall be displayed or not. This is typically the big search on your website. Edit the PxWebExternalSearchURL sentence in the language file to match the URL of your search page."/>
    <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Default language"/>
 	 <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="The default language for the PxWeb site"/>
 	 <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Language"/>

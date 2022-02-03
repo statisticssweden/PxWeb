@@ -39,10 +39,22 @@
             <header id="header" class="header flex-row flex-wrap justify-space-between">
                 <asp:HyperLink runat="server" ID="SkipToMain" CssClass="screenreader-only pxweb-link"></asp:HyperLink>
                 <div class="headerleft flex-row" role="banner">
+                    <asp:HyperLink runat="server" ID="LogoLink">
                         <img id="imgSiteLogo"  enableviewstate="false" runat="server" src="" alt="" class="imgSiteLogo" />
-                        <span class="siteLogoText"><asp:Literal ID="litAppName" EnableViewState="false" runat="server" /></span>
+                    </asp:HyperLink>
+                    <span class="siteLogoText"><asp:Literal ID="litAppName" EnableViewState="false" runat="server" /></span>
                 </div>
                 <div class="headerright">
+                <% if (PXWeb.Settings.Current.General.Site.ShowExternalSearchLink)
+                { %>                    
+                    <div class="px-external-search-div flex-column">
+                        <div class="pxweb-link">
+                            <a href="<% =GetLocalizedString("PxWebExternalSearchURL") %>" class="px-external-search">
+                                <span class="link-text px-external-search"><% =GetLocalizedString("PxWebExternalSearchText") %></span>
+                            </a>
+                        </div>
+                    </div>
+                <%  } %>
                     <div class="px-change-lang-div flex-column">
                           <asp:Literal ID="ChangeLanguageLiteral" EnableViewState="false" runat="server" />
                     </div>

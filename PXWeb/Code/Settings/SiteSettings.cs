@@ -38,6 +38,9 @@ namespace PXWeb
 
             xpath = "./mainHeaderForTables";
             MainHeaderForTables = SettingsHelper.GetSettingValue(xpath, siteNode, MainHeaderForTablesType.TableName);
+ 
+            xpath = "./showExternalSearchLink";
+            ShowExternalSearchLink = SettingsHelper.GetSettingValue(xpath, siteNode, false);
         }
 
         /// <summary>
@@ -56,6 +59,9 @@ namespace PXWeb
 
             xpath = "./mainHeaderForTables";
             SettingsHelper.SetSettingValue(xpath, siteNode, MainHeaderForTables.ToString());
+
+            xpath = "./showExternalSearchLink";
+            SettingsHelper.SetSettingValue(xpath, siteNode, ShowExternalSearchLink.ToString());
         }
 
         #endregion
@@ -66,6 +72,8 @@ namespace PXWeb
         public string LogoPath { get; set; }
 
         public MainHeaderForTablesType MainHeaderForTables { get; set; }
+
+        public bool ShowExternalSearchLink { get; set; }
 
         #endregion
     }

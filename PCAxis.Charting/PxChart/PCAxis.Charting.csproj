@@ -78,8 +78,8 @@
     <Reference Include="PCAxis.PX.Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCAxis.PX.Core.1.0.2\lib\netstandard2.0\PCAxis.PX.Core.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.PxExtend, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCAxis.PxExtend.1.0.2\lib\netstandard2.0\PCAxis.PxExtend.dll</HintPath>
+    <Reference Include="PCAxis.PxExtend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCAxis.PxExtend.1.0.3\lib\netstandard2.0\PCAxis.PxExtend.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
