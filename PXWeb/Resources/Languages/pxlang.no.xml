@@ -314,6 +314,7 @@
   
   <sentence name="CtrlVariableSelectorManyValues" value="Det er flere enn {0} verdier, og derfor blir de ikke vist automatisk. Bruk lenken &quot;Avansert søk&quot;, eller &quot;Velg verdier fra gruppe&quot;." />
   <sentence name="CtrlVariableSelectorLargeValueset" value="(Stor verdimengde)" />
+  <sentence name="CtrlVariableSelectorMetadataAriaLabel" value="Eksterne lenker til metadata om {0}" />
   <sentence name="CtrlVariableSelectorMetadataCloseButton" value="Lukk" />
   <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Dele tidsvariabel" />
   <sentence name="CtrlSaveQueryListEditHeaderStrong" value="Redigere lagret tabellspesifikasjon" />

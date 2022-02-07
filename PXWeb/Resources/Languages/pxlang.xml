@@ -338,7 +338,9 @@
    <sentence name="CtrlVariableSelectorSearchResultHitsScreenReader4" value=", value, " />
 	 <sentence name="CtrlVariableSelectorManyValues" value="There are more than {0} values and therefore they are not shown automatically. Use links for &quot;Advanced search&quot; or &quot;Select values from group&quot;." />
 	 <sentence name="CtrlVariableSelectorLargeValueset" value="(Large valueset)" />
+   <sentence name="CtrlVariableSelectorMetadataAriaLabel" value="External links to metadata about {0}" />
    <sentence name="CtrlVariableSelectorMetadataCloseButton" value="Close" />
+   
    <sentence name="CtrlVariableSelectorActionButton" value="Send" />
 
 	 <sentence name="CtrlCommandBarFunctionSplitTimeVar" value="Split time variable"/>
