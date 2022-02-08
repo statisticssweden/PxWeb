@@ -287,9 +287,9 @@
    <sentence name="CtrlVariableSelectorSelectScreenReaderRegion" value="Variable, " />
 	 <sentence name="CtrlVariableSelectorSelectValues" value="--- Select classification ---"/>
 	 <sentence name="CtrlVariableSelectorEliminationLabel" value="For variables marked {image} you need to select at least one value"/>
-	 <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Select all"/>
+	 <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Select all values"/>
    <sentence name="CtrlVariableSelectorSelectAllButton" value="Select all" />
-   <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Deselect all"/>
+   <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Deselect all selected"/>
    <sentence name="CtrlVariableSelectorDeSelectAllButton" value="Deselect all" />
    <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Go to: Select values from group"/>
    <sentence name="CtrlVariableSelectorSelectDropdownGroupingLabel" value="Dropdown menu for groupings of values" />

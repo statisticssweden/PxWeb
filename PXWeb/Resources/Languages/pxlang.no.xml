@@ -263,9 +263,9 @@
   <sentence name="CtrlVariableSelectorSelectScreenReaderRegion" value="Variabel, " />
   <sentence name="CtrlVariableSelectorSelectValues" value="--- Velg inndeling ---" />
   <sentence name="CtrlVariableSelectorEliminationLabel" value="For variabler markert med {image} må du velge minst en verdi" />
-  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Velg alle" />
+  <sentence name="CtrlVariableSelectorSelectAllTooltip" value="Velg alle verdier" />
   <sentence name="CtrlVariableSelectorSelectAllButton" value="Velg alle" />
-  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Opphev alle" />
+  <sentence name="CtrlVariableSelectorDeSelectAllTooltip" value="Fjern alle markeringene" />
   <sentence name="CtrlVariableSelectorDeSelectAllButton" value="Opphev alle" />
   <sentence name="CtrlVariableSelectorSelectFromGroupTooltip" value="Gå til: Velg verdier fra gruppe" />
   <sentence name="CtrlVariableSelectorSelectDropdownGroupingLabel" value="Nedtrekksmeny for grupperinger av kodelisten" />
