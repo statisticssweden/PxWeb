@@ -667,3 +667,9 @@ function setUpdatedRadioLabelForButton(selectedRadioOption, button, ariaLabelBas
         jQuery('#' + button.id).attr("aria-label", ariaLabelBase + labelSelectedRadio);
     }
 }
+
+//Set focus for element
+function setFocusOnElement(elementId) {
+    var element = jQuery('#' + elementId);
+    element.focus();
+}

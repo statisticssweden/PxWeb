@@ -49,7 +49,8 @@
     <asp:Panel ID="SaveFilePanel" runat="server" CssClass="commandbar_savefilelink">
         <asp:HyperLink ID="SaveFileLink" runat="server" Target="_blank"></asp:HyperLink>
     </asp:Panel>
-
+    <asp:HiddenField runat="server" ID="PluginButtonUsed" ClientIDMode="Static"/>
+    <asp:HiddenField runat="server" ID="AccordionState" ClientIDMode="Static"/>
 </asp:Panel>
 
 <script>

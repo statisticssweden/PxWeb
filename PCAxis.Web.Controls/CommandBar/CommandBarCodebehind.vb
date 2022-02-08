@@ -40,7 +40,7 @@ Namespace CommandBar
 
 
         Private _isImageButtonsLoaded As Boolean = False
-        Private _isPluginIdChanged As Boolean = False        
+        Private _isPluginIdChanged As Boolean = False
 
 
 #Region "Controls"
@@ -72,7 +72,8 @@ Namespace CommandBar
         Protected OperationsHeaderButton As HtmlButton
         Protected lblLegendShow As Label
         Protected lblLegendSave As Label
-
+        Protected PluginButtonUsed As HiddenField
+        Protected AccordionState As HiddenField
 #End Region
 
 #Region " Properties "
@@ -675,7 +676,7 @@ Namespace CommandBar
                 'If only one parameter the whole url is set as key
                 If System.Web.HttpUtility.ParseQueryString(selectedValue).Count > 1
                     DownloadFile(System.Web.HttpUtility.ParseQueryString(selectedValue).Get("downloadfile"))
-                Else 
+                Else
                     DownloadFile(System.Web.HttpUtility.ParseQueryString(selectedValue).Get(0))
                 End If
             End If
@@ -800,7 +801,10 @@ Namespace CommandBar
             'If this is a plugin
             If e.CommandName = COMMAND_PLUGIN_IMAGES Then
                 Me.PluginID = e.CommandArgument.ToString
-
+                PluginButtonUsed.Value = CType(sender, Button).ClientID
+                If (CType(sender, Button).Parent.ClientID = "OperationsButtonsPanel") Then
+                    AccordionState.Value = "open"
+                End If
             ElseIf e.CommandName = COMMAND_PLUGIN_SHORTCUT Then
                 'if this is shortcut, use the commandargument as a plugin key and HandlePlugin will get the correct pluign to load
                 'Shortcuts can only have one plugin
@@ -861,7 +865,7 @@ Namespace CommandBar
                 .Controls.Clear()
                 .Visible = False
             End With
-            OperationsPanel.Focus()
+            HandleFocus()
         End Sub
 
 
@@ -873,6 +877,29 @@ Namespace CommandBar
             Dim args As New PxActionEventArgs(actionType, actionName)
             PxActionEventHelper.SetModelProperties(args, PaxiomManager.PaxiomModel)
             Marker.OnPxActionEvent(args)
+        End Sub
+
+        ''' <summary>
+        ''' Set focus back to button used to trigger operation
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub HandleFocus()
+            HandleAccordionState()
+
+            Page.ClientScript.RegisterClientScriptBlock(GetType(Page), "setFocusOnElement", "jQuery(document).ready(function(){setFocusOnElement('" & PluginButtonUsed.Value & "')});", True)
+
+            PluginButtonUsed.Value = String.Empty
+        End Sub
+
+        ''' <summary>
+        ''' Check if operations accordion should be left open
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub HandleAccordionState()
+                If AccordionState.Value = "open" Then
+                    Page.ClientScript.RegisterClientScriptBlock(GetType(Page), "openAccordion", "jQuery(document).ready(function(){openAccordion('OperationsHeaderButton', 'OptionsBody')});", True)
+                    AccordionState.Value = String.Empty
+                End If
         End Sub
     End Class
 
