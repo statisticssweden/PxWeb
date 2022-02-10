@@ -112,7 +112,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected OptionalVariableText As Label
     Protected MetadataCloseLabel As Label
     Protected SearchTip As Label
-
+    Protected Searchguide As HtmlGenericControl
 
     Protected ActionButton As Button
 
@@ -202,6 +202,7 @@ Public Class VariableSelectorValueSelectCodebehind
         HierarchicalSelectButton.ImageUrl = imgurl
         'Add CSSClass for checkbox label
         SearchValuesBeginningOfWordCheckBox.LabelAttributes.Add("class", "checkbox-label")
+        SearchValuesBeginningOfWordCheckBox.InputAttributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSearchguide"))
 
         ' --- Visibility for select hierarcical button
         If (Not Marker.Variable.Hierarchy.IsHierarchy) Or (Not Marker.ShowHierarchies) Then

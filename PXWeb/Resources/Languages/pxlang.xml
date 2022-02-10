@@ -295,6 +295,7 @@
    <sentence name="CtrlVariableSelectorSelectDropdownGroupingLabel" value="Dropdown menu for groupings of values" />
    <sentence name="CtrlVariableSelectorMetadataImformationTooltip" value="Definitions for variables and values"/>
 	 <sentence name="CtrlVariableSelectorHierarchicalTooltip" value="Select hierarcically"/>
+	 <sentence name="CtrlVariableSelectorSearchguide" value="This checkbox is connected to the following searchfield. Check this box if you only want those values which begins with the search criteria." />
 	 <sentence name="CtrlVariableSelectorSearchValuesTooltip" value="Search"/>
    <sentence name="CtrlVariableSelectorSummarySelectedLabel" value="Selected"/>
    <sentence name="CtrlVariableSelectorSummaryTotalLabel" value="of total"/>
@@ -326,7 +327,7 @@
 	 <sentence name="CtrlVariableSelectorOutputFormatsOutputScreen" value="Show table on screen" />
 	 <sentence name="CtrlVariableSelectorSearchValuesHeading" value="Search" />
    <sentence name="CtrlVariableSelectorSearchValuesBeginningOfTextCheckBox" value="Beginning of row" />
-	 <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Inside word" />
+	 <sentence name="CtrlVariableSelectorSearchValuesInsideTextCheckBox" value="Only search from beginning of text" />
    <sentence name="CtrlVariableSelectorSearchValuesBeginningOfWordCheckBox" value="Beginning of word" />
    <sentence name="CtrlVariableSelectorSearchValuesTextbox" value="Search" />
    <sentence name="CtrlVariableSelectorSearchValuesTextboxScreenReader" value="Field for searching for a specific value in the list box. This is examples of values you can search for." />
@@ -1063,7 +1064,7 @@
   <sentence name="PxWebAdminSettingsSelectionDefaultSearch" value="Default search method" />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchInfo" value="Choose if search is set to free text or beginning of word." />
   <sentence name="PxWebAdminSettingsSelectionDefaultSearchFreeText" value="Free text search" />
-  <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Beginning of word" />
+  <sentence name="PxWebAdminSettingsSelectionDefaultSearchBeginningOfWord" value="Only search from beginning of text" />
   <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTime" value="Preselected first value" />
   <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Determines whether the first value for the statistical variable and time should be preselected" />
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelection" value="Text for missing footnotes" />

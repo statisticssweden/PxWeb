@@ -70,7 +70,9 @@
                     Text="*" ErrorMessage="*" ValidateEmptyText="True" CssClass="px_setting_validator" Display="Dynamic" >
                 </asp:CustomValidator>
             </div>
-            <asp:ValidationSummary ID="ValidationSummary" DisplayMode="BulletList" role="alert" CssClass="px_setting_validation_summary variableselector_error_summary flex-column" runat="server" />
+            <div role="region" id="validationsummarychartnotifyscreenreader" aria-live="assertive" aria-atomic="true">
+                <asp:ValidationSummary ID="ValidationSummary" DisplayMode="BulletList" role="alert" CssClass="px_setting_validation_summary variableselector_error_summary flex-column" runat="server" />
+             </div>
             <div id="divSettingButtons" class="container_exit_buttons_row">
                 <asp:Button ID="btnCancelChartSettings" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: PxWebChartUserSettingsCancel %>" OnClientClick="closeAccordion('SettingsHeader', 'SettingsBody'); return false;" />
                 <asp:Button ID="btnApply" Text="<%$ PxString: PxWebChartUserSettingsApply %>" CssClass="pxweb-btn primary-btn no-margin-right" runat="server" onclick="ApplySettings_Click" />
