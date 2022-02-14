@@ -21,19 +21,19 @@
     <h3>
         <asp:Label ID="lblSearch" runat="server" Text="" CssClass="pxweb-title negative" />
     </h3>
-    <asp:Panel ID="SearchRegion" role="region" CssClass="flex-column" runat="server" >
-        <div class="flex-row flex-wrap s-margin-top">
+  <asp:Panel ID="SearchRegion" role="region" CssClass="flex-column" runat="server" >
+  <asp:CheckBox runat="server" ID="SearchValuesBeginningOfWordCheckBox" Visible="true" Enabled="true" CssClass="variableselector_valuesselect_search_textstart_checkbox pxweb-checkbox negative" />
+      <div class="flex-row flex-wrap s-margin-top">
             <div class="pxweb-input search-panel">
                 <div class="input-wrapper">
                     <asp:TextBox ID="SearchValuesTextbox" CssClass="with-icon" runat="server"></asp:TextBox>
                     <asp:LinkButton ID="SearchValuesButton" CssClass="icon-wrapper search-icon" runat="server">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                       <span class="hidden">wave temp fix..</span>
                     </asp:LinkButton>
                 </div>
             </div>
-            <asp:CheckBox runat="server" ID="SearchValuesBeginningOfWordCheckBox" Visible="true" Enabled="true" CssClass="variableselector_valuesselect_search_textstart_checkbox pxweb-checkbox negative" />
         </div>
+        </asp:Panel>
         <asp:Label ID="lblSearchError" runat="server" Text="" CssClass="pxweb-input-error negative"></asp:Label>
         <div class="searchvalues-listbox-container">
             <asp:Label ID="SearchResultNumberOfHitsLabel" CssClass="pxweb-info-text" runat="server"></asp:Label>
