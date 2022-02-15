@@ -63,13 +63,14 @@ Public Class NavigationFlowCodebehind
             firstStepLabel.Text = GetLocalizedString(LABEL_FIRSTSTEP)
             firstStepLink.Attributes.Add("aria-label", GetLocalizedString(SCREENREADERTEXT_FIRSTSTEP))
 
+            'firstStepImage.AlternateText = "" ' GetLocalizedString(SCREENREADERTEXT_FIRSTSTEP)
 
             secondStepLabel.Text = GetLocalizedString(LABEL_SECONDSTEP)
             secondStepLink.Attributes.Add("aria-label", GetLocalizedString(SCREENREADERTEXT_SECONDSTEP))
-
+            'secondStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_SECONDSTEP)
 
             thirdStepLabel.Text = GetLocalizedString(LABEL_THIRDSTEP)
-            thirdStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_THIRDSTEP)
+            'thirdStepImage.AlternateText = GetLocalizedString(SCREENREADERTEXT_THIRDSTEP)
 
             'In case somebody needs to set very spesific margins
             Dim lang As String = LocalizationManager.GetTwoLetterLanguageCode()
