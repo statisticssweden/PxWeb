@@ -314,7 +314,7 @@ Public Class SumCodebehind
             Try
                 Dim s As New PCAxis.Paxiom.Operations.Sum
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(s.Execute(Me.PaxiomModel, SumDesc)))
-                LogFeatureUsage(OperationConstants.SUM, "SumAll", Me.PaxiomModel.Meta.TableID)
+                LogFeatureUsage(OperationConstants.SUM, "SumAll", Me.PaxiomModel.Meta)
                 UpdateOperationsTracker(SumDesc)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
@@ -394,7 +394,7 @@ Public Class SumCodebehind
                         Dim s As New PCAxis.Paxiom.Operations.Sum
                         UpdateOperationsTracker(SumDesc)
                         Me.OnFinished(New CommandBarPluginFinishedEventArgs(s.Execute(Me.PaxiomModel, SumDesc)))
-                        LogFeatureUsage(OperationConstants.SUM, _sumOperation.ToString, Me.PaxiomModel.Meta.TableID)
+                        LogFeatureUsage(OperationConstants.SUM, _sumOperation.ToString, Me.PaxiomModel.Meta)
                     Else
                         Me.ErrorMessagePanel.Visible = True
                         Me.ErrorMessageLabel.Text = "SumCodebehind.SumSelected():Wrong number of values."

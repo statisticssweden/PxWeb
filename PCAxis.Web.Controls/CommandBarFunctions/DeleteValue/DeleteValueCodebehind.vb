@@ -139,7 +139,7 @@ Public Class DeleteValueCodebehind
             Next
             If sels.Count > 0 Then
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(p.Execute(Me.PaxiomModel, sels.ToArray())))
-                LogFeatureUsage(OperationConstants.DELETE_VALUE, Me.PaxiomModel.Meta.TableID)
+                LogFeatureUsage(OperationConstants.DELETE_VALUE, Me.PaxiomModel.Meta)
                 UpdateOperationsTracker(sels.ToArray())
             End If
         Else

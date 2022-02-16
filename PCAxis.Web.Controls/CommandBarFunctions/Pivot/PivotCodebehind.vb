@@ -213,7 +213,7 @@ Public Class PivotCodebehind
         'Me.PaxiomModel = p.Execute(Me.PaxiomModel, pd.ToArray())
         ' raise event
         Me.OnFinished(New CommandBarPluginFinishedEventArgs(p.Execute(Me.PaxiomModel, pd.ToArray())))
-        LogFeatureUsage(OperationConstants.PIVOT, Me.PaxiomModel.Meta.TableID)
+        LogFeatureUsage(OperationConstants.PIVOT, Me.PaxiomModel.Meta)
         PaxiomManager.OperationsTracker.AddStep(OperationConstants.PIVOT, pd.ToArray())
     End Sub
 

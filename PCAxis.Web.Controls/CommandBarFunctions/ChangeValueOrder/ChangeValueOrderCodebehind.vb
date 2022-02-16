@@ -251,7 +251,7 @@ Public Class ChangeValueOrderCodebehind
             'Apply new value order
             ChangeValueOrder()
             Me.OnFinished(New CommandBarPluginFinishedEventArgs(PaxiomModel))
-            LogFeatureUsage(OperationConstants.CHANGE_VALUE_ORDER, Me.PaxiomModel.Meta.TableID)
+            LogFeatureUsage(OperationConstants.CHANGE_VALUE_ORDER, Me.PaxiomModel.Meta)
         End If
     End Sub
 
