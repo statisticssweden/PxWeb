@@ -650,3 +650,26 @@ function closeAccordion(buttonId, bodyId) {
     accordionButton.setAttribute('aria-expanded', 'false');
     accordionBody.classList.add('closed');
 }
+
+//Set text for button with text from selected radio on load
+function setOnLoadRadioLabelForButton(radioButtonList, button, ariaLabelBase) {
+    var selectedLabel = jQuery("label[for='" + jQuery('#' + radioButtonList.id + " input[type='radio']:checked").attr('id') + "']");
+
+    if (selectedLabel.length > 0) {
+        jQuery('#' + button.id).attr("aria-label", ariaLabelBase + selectedLabel[0].innerText);
+    };
+}
+
+//Update text for button with selected radio buttonlabel when changed
+function setUpdatedRadioLabelForButton(selectedRadioOption, button, ariaLabelBase) {
+    if (jQuery(selectedRadioOption).is(':checked')) {
+        var labelSelectedRadio = selectedRadioOption.nextElementSibling.innerText;
+        jQuery('#' + button.id).attr("aria-label", ariaLabelBase + labelSelectedRadio);
+    }
+}
+
+//Set focus for element
+function setFocusOnElement(elementId) {
+    var element = jQuery('#' + elementId);
+    element.focus();
+}

@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="ContentSettingsLabel" ContentPlaceHolderID="cphSettingsLabel">
-    <button type="button" class="accordion-header closed" id="SettingsHeader" onclick="accordionToggle(SettingsAccordionPanel, this)" >
+    <button type="button" class="accordion-header closed" id="SettingsHeader" aria-expanded="false" onclick="accordionToggle(SettingsAccordionPanel, this)" >
         <span class="header-text"><asp:Label ID="SettingsLabel"  runat="server"></asp:Label></span>
     </button>
 </asp:Content>                       

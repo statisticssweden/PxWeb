@@ -211,12 +211,12 @@ Public Class FootnoteCodebehind
                 'Dim HeadingForOnTableNotes As String = GetLocalizedString("CtrlFootnoteFootnoteOnTableHeading")
                 Dim sbAccordion As New StringBuilder()
                 sbAccordion.Append("<div role='region' aria-label=" + headerText + " class='pxweb-accordion accordion-notes' id='FootnoteAccordion'>")
-                sbAccordion.Append("  <button type='button' class='accordion-header closed' onclick='accordionToggle(FootnoteAccordion, this)'>")
+                sbAccordion.Append("  <button type='button' class='accordion-header closed' aria-expanded='false' onclick='accordionToggle(FootnoteAccordion, this)'>")
                 sbAccordion.Append("      <span role='heading' aria-level='2' class='header-text'>")
                 sbAccordion.Append(headerText)
                 sbAccordion.Append(" </span>")
                 sbAccordion.Append("  </button>")
-                sbAccordion.Append("<div class='accordion-body closed'>")
+                sbAccordion.Append("<div><div class='accordion-body closed'>")
                 'If Me.hasNonMandatoryNoteOnTable Then
                 'sbAccordion.Append(" <h3>" + HeadingForOnTableNotes + "</h3>")
                 'End If
@@ -225,7 +225,7 @@ Public Class FootnoteCodebehind
             Case ListItemType.Item, ListItemType.AlternatingItem
                 SetLiteralText(e, "NonMandatoryFootnoteItem", GetFootnoteText(e))
             Case ListItemType.Footer
-                SetLiteralText(e, "FootnoteAccordionEnd", "</div></div>")
+                SetLiteralText(e, "FootnoteAccordionEnd", "</div></div></div>")
         End Select
     End Sub
 
