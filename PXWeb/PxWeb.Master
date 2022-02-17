@@ -67,8 +67,8 @@
                 </div>
             <%  } %>
            
-            <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>
             </header>
+            <pxc:Breadcrumb ID="breadcrumb1" runat="server"/>
             <main id="place-holder">
             
             <pxwebCustomControl:HeadingLabel ID="lblH1Title" runat="server" Text="" CssClass="h1title"></pxwebCustomControl:HeadingLabel>
