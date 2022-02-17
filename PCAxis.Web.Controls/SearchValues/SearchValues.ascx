@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-        </asp:Panel>
         <asp:Label ID="lblSearchError" runat="server" Text="" CssClass="pxweb-input-error negative"></asp:Label>
         <div class="searchvalues-listbox-container">
             <asp:Label ID="SearchResultNumberOfHitsLabel" CssClass="pxweb-info-text" runat="server"></asp:Label>
