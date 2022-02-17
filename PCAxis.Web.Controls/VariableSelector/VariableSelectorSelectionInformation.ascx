@@ -42,9 +42,11 @@
     var _toManySelectedCellsText;
     var _toManySelectedRowsText;
     var _toManySelectedColumnsText;
-
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
+        el = document.getElementById("selectioninfo");
+        el.ariaBusy = "true";
         GetListboxSelections("ValuesListBox");
+        el.ariaBusy = "false";
     });
 
 
