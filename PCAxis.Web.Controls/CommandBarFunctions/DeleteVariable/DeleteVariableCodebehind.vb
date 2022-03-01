@@ -170,7 +170,7 @@ Public Class DeleteVariableCodebehind
                 Dim model As PXModel = paxiomOperation.Execute(Me.PaxiomModel, deleteDescription)
                 UpdateOperationsTracker(deleteDescription)
                 Me.OnFinished(New CommandBarPluginFinishedEventArgs(model))
-                LogFeatureUsage(OperationConstants.DELETE_VARIABLE, Me.PaxiomModel.Meta.TableID)
+                LogFeatureUsage(OperationConstants.DELETE_VARIABLE, Me.PaxiomModel.Meta)
             Catch ex As PXOperationException
                 Me.ErrorMessagePanel.Visible = True
                 Me.ErrorMessageLabel.Text = ex.Message
