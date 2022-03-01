@@ -228,12 +228,23 @@ namespace PXWeb
             {
                 TableManager.Settings.ZeroOption = (ZeroOptionType)Enum.Parse(typeof(ZeroOptionType), rblZeroOption.SelectedValue, true);
                 Table1.RemoveRowsOption = TableManager.Settings.ZeroOption;
-                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT, "HideRows", 
-                      TableManager.Settings.ZeroOption.ToString(), PaxiomManager.PaxiomModel.Meta.TableID);
-
-
-
+                logFeatureUsage();
             }
         }
+
+        private void logFeatureUsage()
+        {
+            if (string.IsNullOrEmpty(PaxiomManager.PaxiomModel.Meta.TableID))
+            {
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT_PXFILE, "HideRows",
+                  TableManager.Settings.ZeroOption.ToString(), PaxiomManager.PaxiomModel.Meta.Matrix);
+            }
+            else
+            {
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT_CNMM, "HideRows",
+                  TableManager.Settings.ZeroOption.ToString(), PaxiomManager.PaxiomModel.Meta.TableID);
+            }
+        }
+
     }
 }

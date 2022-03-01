@@ -33,17 +33,22 @@ Namespace CommandBar.Plugin
             Marker.OnFinished(args)
         End Sub
 
-        Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal featureVariant As String, ByVal maintable As String)
-            FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT, featureType, featureVariant, maintable)
+        Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal featureVariant As String, ByVal pxMeta As Paxiom.PXMeta)
+            If pxMeta.TableID Is Nothing Then
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT_PXFILE, featureType, featureVariant, pxMeta.Matrix)
+            Else
+                FeatureUsageLogger.InfoFormat(LogFormat.FEATURE_USAGE_LOG_FORMAT_CNMM, featureType, featureVariant, pxMeta.TableID)
+            End If
         End Sub
 
-        Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal maintable As String)
-            LogFeatureUsage(featureType, "Null", maintable)
+        Protected Sub LogFeatureUsage(ByVal featureType As String, ByVal pxMeta As Paxiom.PXMeta)
+            LogFeatureUsage(featureType, "Null", pxMeta)
         End Sub
     End Class
 
     Public Class LogFormat
-        Public Const FEATURE_USAGE_LOG_FORMAT As String = "Feature={0}, Variant={1}, maintable={2}"
+        Public Const FEATURE_USAGE_LOG_FORMAT_CNMM As String = "Feature={0}, Variant={1}, maintable={2}"
+        Public Const FEATURE_USAGE_LOG_FORMAT_PXFILE As String = "Feature={0}, Variant={1}, matrix={2}"
     End Class
 
 
