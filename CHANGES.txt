@@ -25,4 +25,23 @@
 - Fixed so that developers can have there own config files and moved the existing onces to template folder that is used initialy after first build.
 - Removed PxWeb.SavedQuery.Oracle, issue #112
 - Changed "class attribute" to "CssClass attribute" in asp server controllers SearchValues.ascx. 
-
+- Removed role=banner inside a header
+- Moved main-element to end of header. So that all elements is inside header, main  or footer
+- Added confirm-button in Change view menu to stop submit when select radio-button using keyboard.
+- Change in "save as" so that screenreader will tell if accordian is open or closed.
+- Added javascropt in "save as" so that screenreader reads what filteype is saved.
+- Added description to screenreader describing the radiobuttons selection.
+- Added screenreader text in language-files describing menu in presentation-page
+- Added "screenreader user manual" for screenreader descibing the page.
+- Removed role="complementary" on information about table. Wrong use of aria role.
+- Retain focus on auto-submit button after submitting page (change valueset / group)
+- Added aria-expanded on accordian to tell screenreader status on accordian
+- Remove <br> from contact-info due to screenreader problems.
+- Added div to api-accordian to get screenreader to read correct.
+- On naviagation , hide image and non-clickable links for screenreader
+- Added aria-label for layout-button
+- In metadata on selectionpage, better text (for screenreader)
+- On presentaionpage, keep focus on operationbutton and maintain status on menu (open/closed)
+- Better text for screenreader on buttons on selectionpage.
+- Added aria-live on selection page describing selection status and validation errors.
+- Moved checkbox for search in front of search-field. Better to read (screenreader) checkbox text before searchfield connected to checkbox.

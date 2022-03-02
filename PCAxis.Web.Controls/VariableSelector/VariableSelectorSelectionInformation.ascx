@@ -17,12 +17,14 @@
     </div>
     <div class="flex-column justify-center s-margin-top">
         <asp:PlaceHolder runat="server" ID="CellSelectionInformationPlaceHolder">
-            <div class="flex-row justify-center">
-            <asp:Label runat="server" ID="SelectedCellsLabel"/>
-            <asp:Label runat="server" ID="SelectedCellsNumberLabel" CssClass="font-bold xs-margin-left"/>                
-            </div>
-            <div class="flex-row justify-center">
-                <asp:Label runat="server" ID="SelectedCellsLimitLabel"/>
+            <div role="region" id="selectioninfo" aria-live="polite" aria-atomic="true">
+                <div class="flex-row justify-center">
+                <asp:Label runat="server" ID="SelectedCellsLabel"/>
+                <asp:Label runat="server" ID="SelectedCellsNumberLabel" CssClass="font-bold xs-margin-left"/>                
+                </div>
+                <div class="flex-row justify-center">
+                    <asp:Label runat="server" ID="SelectedCellsLimitLabel"/>
+                </div>
             </div>
         </asp:PlaceHolder>
     </div>
