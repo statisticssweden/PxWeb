@@ -15,6 +15,15 @@ namespace PXWeb
     {
 
         /// <summary>
+        /// UserManualDatabases control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::PXWeb.CustomControls.UserManualScreenReader UserManualDatabases;
+
+        /// <summary>
         /// rptDatabases control.
         /// </summary>
         /// <remarks>

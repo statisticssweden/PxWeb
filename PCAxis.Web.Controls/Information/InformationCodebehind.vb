@@ -89,9 +89,9 @@ Public Class InformationCodebehind
         sbAccordion.Append($"<div class='pxweb-nested-accordion' id='div{informationType}'>")
         sbAccordion.Append(
             $"<button type='button' class='nested-accordion-header closed' id='btn{informationType _
-                              }' aria-expanded='true' onclick='nestedAccordionToggle(div{informationType}, this)'>")
+                              }' aria-expanded='false' onclick='nestedAccordionToggle(div{informationType}, this)'>")
         sbAccordion.Append($"<span class='header-text'><span>{text}</span></span></button>")
-        sbAccordion.Append("<div class='nested-accordion-body closed'>")
+        sbAccordion.Append("<div class='nested-accordion-body closed flex-column' >")
         literal.Text = sbAccordion.ToString()
     End Sub
 

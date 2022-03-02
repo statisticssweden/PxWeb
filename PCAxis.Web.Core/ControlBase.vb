@@ -322,7 +322,8 @@ Public MustInherit Class ControlBase(Of TControl As ControlBase(Of TControl, TMa
     ''' <returns>A <see cref="String" /> with # replaced with <br /></returns>
     Protected Function FormatString(ByVal value As String) As String
         If Not String.IsNullOrEmpty(value) Then
-            value = value.Replace("#", "<br />")
+            value = "<div>" + value + "</div>"
+            value = value.Replace("#", "</div><div>")
             'Add an regexp for to find epost@dsdsd.no and adds a mailto
             Dim theRegex As New System.Text.RegularExpressions.Regex("\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")
             Dim matches As System.Text.RegularExpressions.MatchCollection = theRegex.Matches(value)

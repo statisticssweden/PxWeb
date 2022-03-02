@@ -55,7 +55,7 @@ Public Class VariableSelectorValueSelectCodebehind
 #End Region
 
 #Region "Localized strings"
-
+    Public AriaLabelMetadata As String
 #End Region
 
 #Region "Controls"
@@ -112,7 +112,7 @@ Public Class VariableSelectorValueSelectCodebehind
     Protected OptionalVariableText As Label
     Protected MetadataCloseLabel As Label
     Protected SearchTip As Label
-
+    Protected Searchguide As HtmlGenericControl
 
     Protected ActionButton As Button
 
@@ -202,6 +202,7 @@ Public Class VariableSelectorValueSelectCodebehind
         HierarchicalSelectButton.ImageUrl = imgurl
         'Add CSSClass for checkbox label
         SearchValuesBeginningOfWordCheckBox.LabelAttributes.Add("class", "checkbox-label")
+        SearchValuesBeginningOfWordCheckBox.InputAttributes.Add("aria-label", GetLocalizedString("CtrlVariableSelectorSearchguide"))
 
         ' --- Visibility for select hierarcical button
         If (Not Marker.Variable.Hierarchy.IsHierarchy) Or (Not Marker.ShowHierarchies) Then
@@ -522,6 +523,7 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' Render language strings.
     ''' </summary>
     Private Sub SetLocalizedText()
+        AriaLabelMetadata = String.Format(GetLocalizedString("CtrlVariableSelectorMetadataAriaLabel"), Marker.Variable.Name)
 
         ' --- Search values link button
         SearchButton.Text = String.Format("<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSearchLabel"))
@@ -533,10 +535,15 @@ Public Class VariableSelectorValueSelectCodebehind
         ' --- Select all button
         SelectAllButton.ToolTip = GetLocalizedString("CtrlVariableSelectorSelectAllTooltip")
         SelectAllButton.Text = GetLocalizedString("CtrlVariableSelectorSelectAllButton")
+        SelectAllButton.Attributes.Add("aria-label", SelectAllButton.ToolTip)
+        SelectAllButton.Attributes.Add("aria-description", "")
 
         ' --- Deselect all button
         DeselectAllButton.ToolTip = GetLocalizedString("CtrlVariableSelectorDeSelectAllTooltip")
         DeselectAllButton.Text = GetLocalizedString("CtrlVariableSelectorDeSelectAllButton")
+        DeselectAllButton.Attributes.Add("aria-label", DeselectAllButton.ToolTip)
+        DeselectAllButton.Attributes.Add("aria-description", "")
+
 
         ' --- Select from groups link button
         SelectionFromGroupButton.Text = String.Format("<span class='link-text'>{0}</span>", GetLocalizedString("CtrlVariableSelectorSelectFromGroupTooltip"))
@@ -988,6 +995,9 @@ Public Class VariableSelectorValueSelectCodebehind
                 ActionButton.Visible = False
             End If
 
+            'Retain focus on dropdownlist after selected index changed
+            GroupingDropDown.Focus()
+
         End If
     End Sub
 
@@ -1210,7 +1220,11 @@ Public Class VariableSelectorValueSelectCodebehind
         Dim currentItem As MetaItem = TryCast(e.Item.DataItem, MetaItem)
 
         Dim lbl As Label = TryCast(itm.FindControl("lblVariableValueName"),Label)
-        lbl.Text = currentItem.Name
+        If String.IsNullOrWhiteSpace(currentItem.Name) Then
+            lbl.Visible = False
+        Else
+            lbl.Text = currentItem.Name
+        End If
 
         Dim rep As Repeater = TryCast(itm.FindControl("VariableValueLinksRepeater"), Repeater)
         rep.DataSource = currentItem.Links
@@ -1238,13 +1252,13 @@ Public Class VariableSelectorValueSelectCodebehind
     Private Function GetVariableLinks() As List(Of MetaItem)
         Dim lst = New List(Of MetaItem)
         Dim itm = New MetaItem()
-        itm.Name = Marker.Variable.Name
+        itm.Name = "" ' Marker.Variable.Name
 
-        If Not String.IsNullOrWhiteSpace(Marker.Variable.MetaId)
+        If Not String.IsNullOrWhiteSpace(Marker.Variable.MetaId) Then
             itm.Links = Marker.MetaLinkProvider.GetVariableLinks(Marker.Variable.MetaId, LocalizationManager.CurrentCulture.Name).ToList()
         End If
-        
-        If itm.Links IsNot Nothing
+
+        If itm.Links IsNot Nothing Then
             lst.Add(itm)
         End If
 
@@ -1252,20 +1266,25 @@ Public Class VariableSelectorValueSelectCodebehind
     End Function
 
     Private Function GetValueLinks() As List(Of MetaItem)
-        Dim links = New List(Of MetaItem)
+        Dim myOut = New List(Of MetaItem)
         For Each value As Value In Marker.Variable.Values
-            If Not String.IsNullOrWhiteSpace(value.MetaId)
-                Dim itm = new MetaItem()
+            If Not String.IsNullOrWhiteSpace(value.MetaId) Then
+                Dim itm = New MetaItem()
                 itm.Name = value.Text
-                itm.Links = Marker.MetaLinkProvider.GetValueLinks(value.MetaId,LocalizationManager.CurrentCulture.Name).ToList()
+                itm.Links = Marker.MetaLinkProvider.GetValueLinks(value.MetaId, LocalizationManager.CurrentCulture.Name).ToList()
                 ' Only display value if it has metadata links
-                If itm.Links.Count > 0Then
-                    links.Add(itm)
+                If itm.Links.Count > 0 Then
+                    If itm.Links.Count = 1 Then
+                        'Moves the value.Text from the "link heading" to the link text
+                        itm.Links(0).LinkText = itm.Links(0).LinkText + " " + value.Text
+                        itm.Name = ""
+                    End If
+                    myOut.Add(itm)
                 End If
             End If
-        Next  
+        Next
 
-        Return links
+        Return myOut
     End Function
 
     Private Sub FillMetaData()

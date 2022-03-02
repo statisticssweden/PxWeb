@@ -8,7 +8,7 @@
     <asp:Panel runat="server" ID="Panel1" CssClass="variableselector_valuesselect_variabletitle_panel">
             <div class="flex-row flex-wrap-reverse">
                 <asp:Panel runat="server" ID="MetadataPanel" class="metadata-container" Visible="False">
-                    <div role="button" class="metadata-open-btn" tabindex="0" aria-pressed="false" onclick="metadataToggle('<%=metadataPanelLinks.ClientID%>', this)" onkeydown="handleBtnKeyDown(event, '<%=metadataPanelLinks.ClientID%>')">
+                    <div role="button" class="metadata-open-btn" aria-label="<%= AriaLabelMetadata %>" tabindex="0" aria-pressed="false" aria-expanded="false" onclick="metadataToggle('<%=metadataPanelLinks.ClientID%>', this)" onkeydown="handleBtnKeyDown(event, '<%=metadataPanelLinks.ClientID%>')">
                         <div class="metadata-toggle">
                             <asp:Label runat="server" ID="VariableTitleMetadata" Cssclass="variableselector_valuesselect_variabletitle metadata-text-wrap"/>
                        </div>
@@ -63,6 +63,7 @@
             </div>
         </div>
         <asp:Panel runat="server" ID="SearchPanel" CssClass="flex-row flex-wrap s-margin-top">
+          <asp:CheckBox runat="server" ID="SearchValuesBeginningOfWordCheckBox" CssClass="variableselector_valuesselect_search_textstart_checkbox pxweb-checkbox negative" />
             <div class="pxweb-input search-panel">
                 <asp:Label runat="server" ID="SearchTip" CssClass="screenreader-only"></asp:Label>
                 <div class="input-wrapper">
@@ -72,19 +73,20 @@
                     </asp:LinkButton>
                 </div>
             </div>
-            <asp:CheckBox runat="server" ID="SearchValuesBeginningOfWordCheckBox" CssClass="variableselector_valuesselect_search_textstart_checkbox pxweb-checkbox negative" />
         </asp:Panel>
     </asp:Panel>
     <asp:Panel ID="HiddenEventButtons" runat="server" Visible="false" CssClass="variableselector_valuesselect_hiddeneventbutton_panel">
     </asp:Panel>
     <!--<hr class="pxweb-divider type-light with-margin"/>-->
     <asp:Panel runat="server" ID="SelectedStatistics" CssClass="variableselector_valuesselect_statistics_panel">
-        <p>
-        <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesSelectedTitel" /></span>
-        <asp:Label runat="server" id="NumberValuesSelected" CssClass="variableselector_valuesselect_statistics"/>
-        <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesTotalTitel" /></span>
-        <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesTotal"  /></span>
-        </p>
+        <div role="region" id="SelectedStatisticsynotifyscreenreader" aria-live="polite" aria-atomic="true">
+            <p>
+            <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesSelectedTitel" /></span>
+            <asp:Label runat="server" id="NumberValuesSelected" CssClass="variableselector_valuesselect_statistics"/>
+            <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesTotalTitel" /></span>
+            <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesTotal"  /></span>
+            </p>
+        </div>
     </asp:Panel>
     <asp:Panel ID="OptionalVariablePanel" runat="server" CssClass="optional-variable-panel flex-row align-center">
         <div class="optional-variable-icon-panel">
@@ -106,12 +108,12 @@
     OnServerValidate="ValidateListBox_ServerValidate" ForeColor=""  
     ValidateEmptyText="True"  ValidationGroup="ChangeStatus" EnableClientScript="true"  Display="Dynamic"  Enabled="false" ></asp:CustomValidator>--%>
 
-
-             <asp:CustomValidator ID="MustSelectCustom" runat="server" ErrorMessage="" Role="alert" CssClass="flex-row pxweb-input-error negative"
-    ControlToValidate="ValuesListBox" SetFocusOnError="false"  Display="Dynamic"
-    OnServerValidate="ValidateListBox_ServerValidate" ClientValidationFunction="ValidateListBox"  ForeColor=""  
-    ValidateEmptyText="True"></asp:CustomValidator>
-
+    <div role="region" id="errornotifyscreenreader" aria-live="assertive" aria-atomic="true">
+        <asp:CustomValidator ID="MustSelectCustom" runat="server" ErrorMessage="" Role="alert" CssClass="flex-row pxweb-input-error negative"
+        ControlToValidate="ValuesListBox" SetFocusOnError="false"  Display="Dynamic"
+        OnServerValidate="ValidateListBox_ServerValidate" ClientValidationFunction="ValidateListBox"  ForeColor=""  
+        ValidateEmptyText="True"></asp:CustomValidator>
+    </div>
 
 </asp:Panel>
 
@@ -146,8 +148,10 @@
         metadataContainer.classList.toggle("open");
         // Check to see if the button is pressed
         var pressed = (element.getAttribute("aria-pressed") === "true");
-        // Change aria-pressed to the opposite state
+        var expanded = (element.getAttribute("aria-expanded") === "true");
+        // Change aria-pressed/aria-expanded to the opposite state
         element.setAttribute("aria-pressed", !pressed);
+        element.setAttribute("aria-expanded", !expanded);
     }
 
     function handleBtnKeyDown(event, metadataPanelLinksId) {

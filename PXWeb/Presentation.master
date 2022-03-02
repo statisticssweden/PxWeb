@@ -38,20 +38,24 @@
                 </div>
                 <pxc:commandbar id="CommandBar1" runat="server"  />
                 <asp:panel class="pxweb-accordion" id="SaveQueryPanel" runat="server">
-                    <button type="button" class="accordion-header closed" id="SaveQueryHeader" onclick="accordionToggle(<%=SaveQueryPanel.ClientID %>, this)" >
+                    <button type="button" class="accordion-header closed" id="SaveQueryHeader" aria-expanded="false" onclick="accordionToggle(<%=SaveQueryPanel.ClientID %>, this)" >
                         <span class="header-text"><asp:Label ID="SaveQueryLabel"  runat="server"></asp:Label></span>
                     </button>
-                    <div class="accordion-body closed" id="SaveQueryBody">
-                        <ucSaveQuery:SaveQuery runat="server" id="SavedQueryFeature" />
+                    <div>
+                        <div class="accordion-body closed" id="SaveQueryBody">
+                            <ucSaveQuery:SaveQuery runat="server" id="SavedQueryFeature" />
+                        </div>
                     </div>
                 </asp:panel>
 
                 <asp:panel class="pxweb-accordion" ClientIDMode="Static" id="SettingsAccordionPanel" runat="server">
                         <asp:ContentPlaceHolder ID="cphSettingsLabel" runat="server">
                         </asp:ContentPlaceHolder>
-                    <div class="accordion-body closed" id="SettingsBody">
-                        <asp:ContentPlaceHolder ID="cphSettings" runat="server">
-                        </asp:ContentPlaceHolder>
+                    <div>
+                        <div class="accordion-body closed" id="SettingsBody">
+                            <asp:ContentPlaceHolder ID="cphSettings" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
                     </div>
                 </asp:panel>
             </div>
@@ -79,6 +83,7 @@
                         </h1>
                     </div>
                     <div  id="pxcontent"> 
+                        <pxwebCustomControl:UserManualScreenReader ID="UserManualResult" manualFor="Result" runat="server" ClientIDMode="Static"/>
                         <asp:ContentPlaceHolder ID="cphMain" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
