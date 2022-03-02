@@ -20,12 +20,12 @@
                     <asp:Label ID="lblResultAs" runat="server" AssociatedControlID="ddlOutputFormats" Text="Result as" CssClass="font-heading"></asp:Label>
                     <asp:dropdownlist id="ddlOutputFormats" runat="server" CssClass="commandbar_saveas_dropdownlist saveas_dropdownlist xs-margin-top">
                     </asp:dropdownlist>
-                    <asp:Label ID="lblFormatError"  runat="server" cssClass="savequery_error"></asp:Label>
+                    <asp:Label ID="lblFormatError" role="alert" runat="server" cssClass="savequery_error"></asp:Label>
                 </div>
                 <div class="container_exit_buttons_row">
                     <asp:Button ID="btnCancelSaveQuery" runat="server" CssClass="pxweb-btn" Text="<%$ PxString: CtrlSaveQueryCancelSaveQuery %>" OnClientClick="cancelSavequery(); return false;" />
                     <asp:Button ID="btnCreateSaveQuery" runat="server" CssClass="pxweb-btn primary-btn container_continuebutton " Text="<%$ PxString: CtrlSaveQuerybtnCreateQuery %>"  OnClick="CreateSavedQueryUrl"   />                
-                    <asp:Label ID="lblError"  runat="server"  cssClass="savequery_error" Text="<%$ PxString: CtrlSaveQueryFailedSave %>" Visible="false"></asp:Label>
+                    <asp:Label ID="lblError"  runat="server" role="alert" cssClass="savequery_error" Text="<%$ PxString: CtrlSaveQueryFailedSave %>" Visible="false"></asp:Label>
                 </div>
             </asp:Panel>
         </asp:Panel>
