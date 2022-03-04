@@ -164,6 +164,9 @@ namespace PXWeb.UserControls
                 ddlOutputFormats.CssClass = "saveas_dropdownlist_error";
                 lblFormatError.Style.Add("visibility", "visible");
                 pnl2_SaveQuerySelection.Style.Add("display", "inline-block");
+                //Keeps accordion open
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "openAccordion",
+                    "jQuery(document).ready(function(){openAccordion('SaveQueryHeader', 'SaveQueryBody')});", true);
                 return;
             }
 
@@ -280,12 +283,16 @@ namespace PXWeb.UserControls
                 //Hide and show the right panels
                 pnl2_SaveQuerySelection.Style.Add("display", "none");
                 pnl3_ShowSaveQueryUrl.Style.Add("display", "inline-block");
-                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "openAccordion",
-                    "jQuery(document).ready(function(){openAccordion('SaveQueryHeader', 'SaveQueryBody')});", true);
             }
             catch (Exception ex)
             {
                 lblError.Visible = true;
+            }
+            finally
+            {
+                //Keeps accordion open
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "openAccordion",
+                    "jQuery(document).ready(function(){openAccordion('SaveQueryHeader', 'SaveQueryBody')});", true);
             }
         }
         

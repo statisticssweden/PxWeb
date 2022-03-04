@@ -36,7 +36,8 @@
             </svg><asp:Literal ID="ToTheTopButtonLiteralText" runat="server"/>
         </asp:LinkButton>
         <div id="wrap">
-            <header id="header" class="header flex-row flex-wrap justify-space-between">
+            <header id="header">
+              <div class="header flex-row flex-wrap justify-space-between">
                 <asp:HyperLink runat="server" ID="SkipToMain" CssClass="screenreader-only pxweb-link"></asp:HyperLink>
                 <div class="headerleft flex-row">
                     <asp:HyperLink runat="server" ID="LogoLink">
@@ -59,6 +60,7 @@
                           <asp:Literal ID="ChangeLanguageLiteral" EnableViewState="false" runat="server" />
                     </div>
                 </div>
+              </div>
             <% if (PXWeb.Settings.Current.General.Modules.ShowLogin)
                 { %>
                 <div id="loginBanner" class="login">

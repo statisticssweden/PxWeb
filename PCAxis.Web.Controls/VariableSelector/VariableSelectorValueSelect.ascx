@@ -79,7 +79,7 @@
     </asp:Panel>
     <!--<hr class="pxweb-divider type-light with-margin"/>-->
     <asp:Panel runat="server" ID="SelectedStatistics" CssClass="variableselector_valuesselect_statistics_panel">
-        <div role="region" id="SelectedStatisticsynotifyscreenreader" aria-live="polite" aria-atomic="true">
+        <div runat="server" role="region" id="SelectedStatisticsnotifyscreenreader" aria-live="polite" aria-atomic="true">
             <p>
             <span class="variableselector_valuesselect_statistics"><asp:Literal runat="server" ID="NumberValuesSelectedTitel" /></span>
             <asp:Label runat="server" id="NumberValuesSelected" CssClass="variableselector_valuesselect_statistics"/>
@@ -108,7 +108,7 @@
     OnServerValidate="ValidateListBox_ServerValidate" ForeColor=""  
     ValidateEmptyText="True"  ValidationGroup="ChangeStatus" EnableClientScript="true"  Display="Dynamic"  Enabled="false" ></asp:CustomValidator>--%>
 
-    <div role="region" id="errornotifyscreenreader" aria-live="assertive" aria-atomic="true">
+    <div role="region" runat="server" id="errornotifyscreenreader" aria-live="assertive" aria-atomic="true">
         <asp:CustomValidator ID="MustSelectCustom" runat="server" ErrorMessage="" Role="alert" CssClass="flex-row pxweb-input-error negative"
         ControlToValidate="ValuesListBox" SetFocusOnError="false"  Display="Dynamic"
         OnServerValidate="ValidateListBox_ServerValidate" ClientValidationFunction="ValidateListBox"  ForeColor=""  

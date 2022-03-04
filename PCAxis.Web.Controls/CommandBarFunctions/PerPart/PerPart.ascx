@@ -103,7 +103,7 @@
             </asp:Panel>   
      
         <!-- Errormessage  -->
-         <asp:Panel runat="server" ID="ErrorMessagePanel" Visible="false">
+         <asp:Panel runat="server" ID="ErrorMessagePanel" role="alert" Visible="false">
             <div class="flex-row px-messages small">
                <div class="Information-warning-box-icon small"></div>
                <asp:Label ID="InfoMessageLabel" runat="server" CssClass="xs-margin-left" Text="" />
