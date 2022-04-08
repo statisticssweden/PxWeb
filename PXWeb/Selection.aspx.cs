@@ -679,10 +679,10 @@ namespace PXWeb
             HttpCookie myLayoutCookie = Request.Cookies[layoutCookie];
 
             if (myLayoutCookie == null)
-                _selectionLayout = LayoutFormat.simple;
+                _selectionLayout = LayoutFormat.compact;
             else
             {
-                _selectionLayout = Request.Cookies[layoutCookie].Value.ToString() == "compact" ? LayoutFormat.compact : LayoutFormat.simple;
+                _selectionLayout = Request.Cookies[layoutCookie].Value.ToString() != "compact" ? LayoutFormat.simple : LayoutFormat.compact;
             }
             if (_selectionLayout== LayoutFormat.compact)
             {

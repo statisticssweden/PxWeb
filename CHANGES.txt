@@ -1,3 +1,4 @@
+- Made the compact view the default view on the selection page.
 - Added lang-attribute to change-language-link (for screen-reader)
 - New version of Excel (1.0.2) which has better performance
 - Added a admin API endpoint for build/rebuild the Menu.xml file for PX file based databases
