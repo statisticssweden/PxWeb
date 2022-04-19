@@ -1071,9 +1071,10 @@
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo" value="Determines whether text for missing footnotes should be displayed" />
   <sentence name="PxWebAdminSettingsSelectionSortVariableOrder" value="Sort variable order" />
   <sentence name="PxWebAdminSettingsSelectionSortVariableOrderInfo" value="If set to true, the variable order will be sorted so content, time and mandatory variables are displayed first" />
-
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowCodeAndTextInAdvancedSearchResult" value="Always show code and text in search result" />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowCodeAndTextInAdvancedSearchResultInfo" value="If set to 'True', code and text will always be displayed in the advanced search result for variable values. If set to 'False', display of code and text will be determined by metadata." />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Show Navigation flow" />
-   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Show Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
+  <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Show Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
 
 	 <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Search button mode"/>
 	 <sentence name="PxWebAdminSettingsSelectionSearchButtonModeManyValues" value="Many values"/>

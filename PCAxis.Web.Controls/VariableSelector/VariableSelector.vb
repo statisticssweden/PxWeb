@@ -807,6 +807,21 @@ Partial Public Class VariableSelector
         End Set
     End Property
 
+    Private _alwaysShowCodeAndTextInAdvancedSearchResult As Boolean = False
+    ''' <summary>
+    ''' If set to True, code and text will always be displayed in the search result.
+    ''' If set to False, code and text will be displayed according to the metadata.
+    ''' </summary>
+    ''' <returns></returns>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property AlwaysShowCodeAndTextInAdvancedSearchResult() As Boolean
+        Get
+            Return _alwaysShowCodeAndTextInAdvancedSearchResult
+        End Get
+        Set(ByVal value As Boolean)
+            _alwaysShowCodeAndTextInAdvancedSearchResult = value
+        End Set
+    End Property
 
     Private _reloadGroupings As Boolean = False
     Public Property ReloadGroupings() As Boolean

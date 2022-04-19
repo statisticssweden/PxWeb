@@ -131,6 +131,9 @@ namespace PXWeb
 
             xpath = "./sortVariableOrder";
             SortVariableOrder = SettingsHelper.GetSettingValue(xpath, selectionNode, true);
+
+            xpath = "./alwaysShowCodeAndTextInAdvancedSearchResult";
+            AlwaysShowCodeAndTextInAdvancedSearchResult = SettingsHelper.GetSettingValue(xpath, selectionNode, false);
         }
 
         /// <summary>
@@ -209,6 +212,9 @@ namespace PXWeb
 
             xpath = "./sortVariableOrder";
             SettingsHelper.SetSettingValue(xpath, selectionNode, SortVariableOrder.ToString());
+
+            xpath = "./alwaysShowCodeAndTextInAdvancedSearchResult";
+            SettingsHelper.SetSettingValue(xpath, selectionNode, AlwaysShowCodeAndTextInAdvancedSearchResult.ToString());
         }
 
         #endregion
@@ -250,6 +256,7 @@ namespace PXWeb
         public bool ShowNoFootnoteForSelection { get; set; }
         public bool ClientSideValidation { get; set; }
         public bool SortVariableOrder { get; set; }
+        public bool AlwaysShowCodeAndTextInAdvancedSearchResult { get; set; }
 
         #endregion
 

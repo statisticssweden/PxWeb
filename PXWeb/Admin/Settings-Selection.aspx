@@ -189,4 +189,12 @@
         </asp:DropDownList>
         <asp:ImageButton ID="imgSortVariableOrder" runat="server" onclick="SortVariableOrderInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
     </div>
+    <div class="setting-field">
+        <asp:Label ID="lblAlwaysShowCodeAndTextInAdvancedSearchResult" runat="server" Text="<%$ PxString: PxWebAdminSettingsSelectionAlwaysShowCodeAndTextInAdvancedSearchResult %>"></asp:Label>
+        <asp:DropDownList ID="cboAlwaysShowCodeAndTextInAdvancedSearchResult" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgAlwaysShowCodeAndTextInAdvancedSearchResult" runat="server" onclick="AlwaysShowCodeAndTextInAdvancedSearchResultInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
 </asp:Content>
