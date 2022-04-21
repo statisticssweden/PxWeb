@@ -1,3 +1,4 @@
+- New admin setting to control display of code and text in the advanced serach result for variable values
 - Made the compact view the default view on the selection page.
 - Added lang-attribute to change-language-link (for screen-reader)
 - New version of Excel (1.0.2) which has better performance
