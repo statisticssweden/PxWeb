@@ -116,5 +116,10 @@ namespace PXWeb
         /// Decides if variabels shall be sorted (mandatory first) or not on the selection page
         /// </summary>
         bool SortVariableOrder { get; }
+
+        /// <summary>
+        /// Controls display of code and text in advanced search reasult.
+        /// </summary>
+        bool AlwaysShowCodeAndTextInAdvancedSearchResult { get; }
     }
 }

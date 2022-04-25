@@ -285,6 +285,7 @@ namespace PXWeb
             VariableSelector1.ShowTableNameInSearch = false;
             VariableSelector1.ValuesetMustBeSelectedFirst = PXWeb.Settings.Current.Selection.ValuesetMustBeSelectedFirst;
             VariableSelector1.ShowAllAvailableValuesSearchButton = PXWeb.Settings.Current.Selection.ShowAllAvailableValuesSearchButton;
+            VariableSelector1.AlwaysShowCodeAndTextInAdvancedSearchResult = PXWeb.Settings.Current.Selection.AlwaysShowCodeAndTextInAdvancedSearchResult;
         }
 
         /// <summary>

@@ -119,6 +119,7 @@ Public Class VariableSelectorCodebehind
         Me.SearchVariableValues.SearchInformationLinkURL = Marker.SearchInformationLinkURL
         Me.SearchVariableValues.ShowTableName = Marker.ShowTableNameInSearch
         Me.SearchVariableValues.ShowAllAvailableValuesButton = Marker.ShowAllAvailableValuesSearchButton
+        Me.SearchVariableValues.AlwaysShowCodeAndTextInSearchResult = Marker.AlwaysShowCodeAndTextInAdvancedSearchResult
 
         InitializeSelectedValuesetsAndGroupingsOnLoad()
 

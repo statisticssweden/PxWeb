@@ -119,6 +119,21 @@ Partial Public Class SearchValues
         End Set
     End Property
 
+    Private _alwaysShowCodeAndTextInSearchResult As Boolean = False
+    ''' <summary>
+    ''' If set to True, code and text will always be displayed in the search result.
+    ''' If set to False, code and text will be displayed according to the metadata.
+    ''' </summary>
+    ''' <returns></returns>
+    <PropertyPersistState(PersistStateType.PerControlAndPage)>
+    Public Property AlwaysShowCodeAndTextInSearchResult() As Boolean
+        Get
+            Return _alwaysShowCodeAndTextInSearchResult
+        End Get
+        Set(ByVal value As Boolean)
+            _alwaysShowCodeAndTextInSearchResult = value
+        End Set
+    End Property
 
     ''' <summary>
     ''' Read only property for exposing the Client ID of the search button

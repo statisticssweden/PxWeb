@@ -390,12 +390,12 @@ Public Class SearchValuesCodebehind
         SearchResults.Items.Clear()
 
         For Each v As Value In v_final
-            Select Case Me.Marker.Variable.PresentationText
-                Case 0
-                    liS = New ListItem(v.Code, v.Code)
-                Case Else
-                    liS = New ListItem(v.Text, v.Code)
-            End Select
+            If Marker.AlwaysShowCodeAndTextInSearchResult Then
+                liS = New ListItem(v.CodeAndValue, v.Code)
+            Else
+                liS = New ListItem(v.Text, v.Code)
+            End If
+
             liS.Selected = True
             SearchResults.Items.Add(liS)
         Next

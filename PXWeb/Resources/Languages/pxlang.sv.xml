@@ -872,6 +872,8 @@
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo" value="Styr om text ska visas om fotnoter saknas" />
   <sentence name="PxWebAdminSettingsSelectionSortVariableOrder" value="Sorterad variabelordning" />
   <sentence name="PxWebAdminSettingsSelectionSortVariableOrderInfo" value="Om satt till 'Ja' kommer variabelordningen sorteras så att innehåll, tid och obligatoriska variabler visas först" />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowCodeAndTextInAdvancedSearchResult" value="Alltid kod och text i sökresultat" />
+  <sentence name="PxWebAdminSettingsSelectionAlwaysShowCodeAndTextInAdvancedSearchResultInfo" value="Om satt till 'Ja' kommer alltid kod och text visas i det avancerade sökresultatet för variabelvärden. Om satt till 'Nej' bestäms visning av kod och text av metadata." />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Visa navigeringsflöde" />
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Visa navigeringsflöde under brödsmula. Visar Välj tabell, välj variabel, visa tabell." />
   <sentence name="PxWebAdminSettingsSelectionSearchButtonMode" value="Visa sökknapp" />
