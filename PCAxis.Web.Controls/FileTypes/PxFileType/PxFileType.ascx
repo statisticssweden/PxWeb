@@ -1,1 +1,0 @@
-<%@ control inherits="PCAxis.Web.Controls.PxFileTypeCodebehind" %>
