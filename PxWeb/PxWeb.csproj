@@ -7,7 +7,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="App_Data\**" />
+    <Compile Remove="logs\**" />
+    <Content Remove="App_Data\**" />
+    <Content Remove="logs\**" />
+    <EmbeddedResource Remove="App_Data\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="App_Data\**" />
+    <None Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="databases.config" />
+    <Content Remove="setting.config" />
+    <Content Remove="SqlDb.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\README.md" />
+    <None Include="wwwroot\web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
   </ItemGroup>
 
 </Project>
