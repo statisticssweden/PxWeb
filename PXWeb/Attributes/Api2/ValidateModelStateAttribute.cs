@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace PxWeb.Attributes.Api
+namespace PxWeb.Attributes.Api2
 {
     /// <summary>
     /// Model state validation attribute

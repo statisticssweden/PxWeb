@@ -18,7 +18,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace PxWeb.Models.Api
+namespace PxWeb.Models.Api2
 { 
     /// <summary>
     /// 

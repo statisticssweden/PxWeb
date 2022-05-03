@@ -21,7 +21,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using PxWeb.Filters.Api;
+using PxWeb.Filters.Api2;
 
 
 namespace IO.Swagger

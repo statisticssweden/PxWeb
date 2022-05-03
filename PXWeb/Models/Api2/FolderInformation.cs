@@ -18,13 +18,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace PxWeb.Models.Api
+namespace PxWeb.Models.Api2
 { 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Folder : NavigationItem, IEquatable<Folder>
+    public partial class FolderInformation : NavigationItem, IEquatable<FolderInformation>
     { 
         /// <summary>
         /// Gets or Sets Tags
@@ -32,13 +32,6 @@ namespace PxWeb.Models.Api
 
         [DataMember(Name="tags")]
         public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FolderContents
-        /// </summary>
-
-        [DataMember(Name="folderContents")]
-        public List<NavigationItem> FolderContents { get; set; }
 
         /// <summary>
         /// Links to ...
@@ -55,9 +48,8 @@ namespace PxWeb.Models.Api
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Folder {\n");
+            sb.Append("class FolderInformation {\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  FolderContents: ").Append(FolderContents).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -81,15 +73,15 @@ namespace PxWeb.Models.Api
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Folder)obj);
+            return obj.GetType() == GetType() && Equals((FolderInformation)obj);
         }
 
         /// <summary>
-        /// Returns true if Folder instances are equal
+        /// Returns true if FolderInformation instances are equal
         /// </summary>
-        /// <param name="other">Instance of Folder to be compared</param>
+        /// <param name="other">Instance of FolderInformation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Folder other)
+        public bool Equals(FolderInformation other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -99,11 +91,6 @@ namespace PxWeb.Models.Api
                     Tags == other.Tags ||
                     Tags != null &&
                     Tags.SequenceEqual(other.Tags)
-                ) && 
-                (
-                    FolderContents == other.FolderContents ||
-                    FolderContents != null &&
-                    FolderContents.SequenceEqual(other.FolderContents)
                 ) && 
                 (
                     Links == other.Links ||
@@ -124,8 +111,6 @@ namespace PxWeb.Models.Api
                 // Suitable nullity checks etc, of course :)
                     if (Tags != null)
                     hashCode = hashCode * 59 + Tags.GetHashCode();
-                    if (FolderContents != null)
-                    hashCode = hashCode * 59 + FolderContents.GetHashCode();
                     if (Links != null)
                     hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
@@ -135,12 +120,12 @@ namespace PxWeb.Models.Api
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Folder left, Folder right)
+        public static bool operator ==(FolderInformation left, FolderInformation right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Folder left, Folder right)
+        public static bool operator !=(FolderInformation left, FolderInformation right)
         {
             return !Equals(left, right);
         }

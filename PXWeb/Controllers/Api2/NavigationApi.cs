@@ -12,10 +12,10 @@ using Swashbuckle.AspNetCore.Annotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-using PxWeb.Models.Api;
-using PxWeb.Attributes.Api;
+using PxWeb.Models.Api2;
+using PxWeb.Attributes.Api2;
 
-namespace IO.Swagger.Controllers
+namespace PxWeb.Controllers.Api2
 { 
     /// <summary>
     /// 
@@ -30,7 +30,7 @@ namespace IO.Swagger.Controllers
         /// <param name="lang">The language if the default is not what you want.</param>
         /// <response code="200">Success</response>
         [HttpGet]
-        [Route("/v1/navigation/{id}")]
+        [Route("/v2/navigation/{id}")]
         [ValidateModelState]
         [SwaggerOperation("GetNavigationById")]
         [SwaggerResponse(statusCode: 200, type: typeof(NavigationItem), description: "Success")]
@@ -54,7 +54,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Success</response>
         /// <response code="429">Error respsone for 429</response>
         [HttpGet]
-        [Route("/v1/navigation")]
+        [Route("/v2/navigation")]
         [ValidateModelState]
         [SwaggerOperation("GetNavigationRoot")]
         [SwaggerResponse(statusCode: 200, type: typeof(NavigationItem), description: "Success")]

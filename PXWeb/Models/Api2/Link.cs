@@ -18,14 +18,30 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace PxWeb.Models.Api
+namespace PxWeb.Models.Api2
 { 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Heading : NavigationItem, IEquatable<Heading>
+    public partial class Link : IEquatable<Link>
     { 
+        /// <summary>
+        /// Gets or Sets Rel
+        /// </summary>
+        [Required]
+
+        [DataMember(Name="rel")]
+        public string Rel { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Href
+        /// </summary>
+        [Required]
+
+        [DataMember(Name="href")]
+        public string Href { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +49,9 @@ namespace PxWeb.Models.Api
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Heading {\n");
+            sb.Append("class Link {\n");
+            sb.Append("  Rel: ").Append(Rel).Append("\n");
+            sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -42,7 +60,7 @@ namespace PxWeb.Models.Api
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -56,20 +74,30 @@ namespace PxWeb.Models.Api
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Heading)obj);
+            return obj.GetType() == GetType() && Equals((Link)obj);
         }
 
         /// <summary>
-        /// Returns true if Heading instances are equal
+        /// Returns true if Link instances are equal
         /// </summary>
-        /// <param name="other">Instance of Heading to be compared</param>
+        /// <param name="other">Instance of Link to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Heading other)
+        public bool Equals(Link other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    Rel == other.Rel ||
+                    Rel != null &&
+                    Rel.Equals(other.Rel)
+                ) && 
+                (
+                    Href == other.Href ||
+                    Href != null &&
+                    Href.Equals(other.Href)
+                );
         }
 
         /// <summary>
@@ -82,6 +110,10 @@ namespace PxWeb.Models.Api
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Rel != null)
+                    hashCode = hashCode * 59 + Rel.GetHashCode();
+                    if (Href != null)
+                    hashCode = hashCode * 59 + Href.GetHashCode();
                 return hashCode;
             }
         }
@@ -89,12 +121,12 @@ namespace PxWeb.Models.Api
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Heading left, Heading right)
+        public static bool operator ==(Link left, Link right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Heading left, Heading right)
+        public static bool operator !=(Link left, Link right)
         {
             return !Equals(left, right);
         }

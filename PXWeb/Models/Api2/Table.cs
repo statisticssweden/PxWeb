@@ -18,13 +18,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace PxWeb.Models.Api
+namespace PxWeb.Models.Api2
 { 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class FolderInformation : NavigationItem, IEquatable<FolderInformation>
+    public partial class Table : NavigationItem, IEquatable<Table>
     { 
         /// <summary>
         /// Gets or Sets Tags
@@ -32,6 +32,50 @@ namespace PxWeb.Models.Api
 
         [DataMember(Name="tags")]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// For treeNodeType \&quot;table\&quot;
+        /// </summary>
+        /// <value>For treeNodeType \&quot;table\&quot;</value>
+
+        [DataMember(Name="updated")]
+        public DateTime? Updated { get; set; }
+
+        /// <summary>
+        /// Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S
+        /// </summary>
+        /// <value>Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S</value>
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public enum CategoryEnum
+        {
+            /// <summary>
+            /// Enum InternalEnum for internal
+            /// </summary>
+            [EnumMember(Value = "internal")]
+            InternalEnum = 0,
+            /// <summary>
+            /// Enum OfficialEnum for official
+            /// </summary>
+            [EnumMember(Value = "official")]
+            OfficialEnum = 1,
+            /// <summary>
+            /// Enum PrivateEnum for private
+            /// </summary>
+            [EnumMember(Value = "private")]
+            PrivateEnum = 2,
+            /// <summary>
+            /// Enum SectionEnum for section
+            /// </summary>
+            [EnumMember(Value = "section")]
+            SectionEnum = 3        }
+
+        /// <summary>
+        /// Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S
+        /// </summary>
+        /// <value>Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S</value>
+
+        [DataMember(Name="category")]
+        public CategoryEnum? Category { get; set; }
 
         /// <summary>
         /// Links to ...
@@ -48,8 +92,10 @@ namespace PxWeb.Models.Api
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FolderInformation {\n");
+            sb.Append("class Table {\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -73,15 +119,15 @@ namespace PxWeb.Models.Api
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((FolderInformation)obj);
+            return obj.GetType() == GetType() && Equals((Table)obj);
         }
 
         /// <summary>
-        /// Returns true if FolderInformation instances are equal
+        /// Returns true if Table instances are equal
         /// </summary>
-        /// <param name="other">Instance of FolderInformation to be compared</param>
+        /// <param name="other">Instance of Table to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FolderInformation other)
+        public bool Equals(Table other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -91,6 +137,16 @@ namespace PxWeb.Models.Api
                     Tags == other.Tags ||
                     Tags != null &&
                     Tags.SequenceEqual(other.Tags)
+                ) && 
+                (
+                    Updated == other.Updated ||
+                    Updated != null &&
+                    Updated.Equals(other.Updated)
+                ) && 
+                (
+                    Category == other.Category ||
+                    Category != null &&
+                    Category.Equals(other.Category)
                 ) && 
                 (
                     Links == other.Links ||
@@ -111,6 +167,10 @@ namespace PxWeb.Models.Api
                 // Suitable nullity checks etc, of course :)
                     if (Tags != null)
                     hashCode = hashCode * 59 + Tags.GetHashCode();
+                    if (Updated != null)
+                    hashCode = hashCode * 59 + Updated.GetHashCode();
+                    if (Category != null)
+                    hashCode = hashCode * 59 + Category.GetHashCode();
                     if (Links != null)
                     hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
@@ -120,12 +180,12 @@ namespace PxWeb.Models.Api
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(FolderInformation left, FolderInformation right)
+        public static bool operator ==(Table left, Table right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(FolderInformation left, FolderInformation right)
+        public static bool operator !=(Table left, Table right)
         {
             return !Equals(left, right);
         }
