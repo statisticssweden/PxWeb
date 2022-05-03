@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace IO.Swagger.Filters
+namespace PxWeb.Filters.Api
 {
     /// <summary>
     /// Path Parameter Validation Rules Filter
