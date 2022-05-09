@@ -19,18 +19,18 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace PxWeb.Models.Api2
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class FolderInformation : NavigationItem, IEquatable<FolderInformation>
-    { 
+    public partial class FolderInformation : FolderContentItem, IEquatable<FolderInformation>
+    {
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
 
-        [DataMember(Name="tags")]
+        [DataMember(Name = "tags")]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace PxWeb.Models.Api2
         /// </summary>
         /// <value>Links to ...</value>
 
-        [DataMember(Name="links")]
+        [DataMember(Name = "links")]
         public List<Link> Links { get; set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace PxWeb.Models.Api2
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -86,12 +86,12 @@ namespace PxWeb.Models.Api2
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
+            return
                 (
                     Tags == other.Tags ||
                     Tags != null &&
                     Tags.SequenceEqual(other.Tags)
-                ) && 
+                ) &&
                 (
                     Links == other.Links ||
                     Links != null &&
@@ -109,16 +109,16 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Tags != null)
+                if (Tags != null)
                     hashCode = hashCode * 59 + Tags.GetHashCode();
-                    if (Links != null)
+                if (Links != null)
                     hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
         public static bool operator ==(FolderInformation left, FolderInformation right)
         {
@@ -130,7 +130,7 @@ namespace PxWeb.Models.Api2
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }

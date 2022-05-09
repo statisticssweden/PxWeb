@@ -19,13 +19,27 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace PxWeb.Models.Api2
-{
+{ 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Heading : FolderContentItem, IEquatable<Heading>
-    {
+    public partial class TablesResponse : IEquatable<TablesResponse>
+    { 
+        /// <summary>
+        /// Gets or Sets Page
+        /// </summary>
+
+        [DataMember(Name="page")]
+        public PagePage Page { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+
+        [DataMember(Name="links")]
+        public List<Link> Links { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +47,9 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Heading {\n");
+            sb.Append("class TablesResponse {\n");
+            sb.Append("  Page: ").Append(Page).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -42,7 +58,7 @@ namespace PxWeb.Models.Api2
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -56,20 +72,30 @@ namespace PxWeb.Models.Api2
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Heading)obj);
+            return obj.GetType() == GetType() && Equals((TablesResponse)obj);
         }
 
         /// <summary>
-        /// Returns true if Heading instances are equal
+        /// Returns true if TablesResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of Heading to be compared</param>
+        /// <param name="other">Instance of TablesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Heading other)
+        public bool Equals(TablesResponse other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    Page == other.Page ||
+                    Page != null &&
+                    Page.Equals(other.Page)
+                ) && 
+                (
+                    Links == other.Links ||
+                    Links != null &&
+                    Links.SequenceEqual(other.Links)
+                );
         }
 
         /// <summary>
@@ -82,24 +108,28 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Page != null)
+                    hashCode = hashCode * 59 + Page.GetHashCode();
+                    if (Links != null)
+                    hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-#pragma warning disable 1591
+        #pragma warning disable 1591
 
-        public static bool operator ==(Heading left, Heading right)
+        public static bool operator ==(TablesResponse left, TablesResponse right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Heading left, Heading right)
+        public static bool operator !=(TablesResponse left, TablesResponse right)
         {
             return !Equals(left, right);
         }
 
-#pragma warning restore 1591
+        #pragma warning restore 1591
         #endregion Operators
     }
 }

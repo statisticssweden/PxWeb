@@ -19,19 +19,19 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace PxWeb.Models.Api2
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
     public partial class Link : IEquatable<Link>
-    { 
+    {
         /// <summary>
         /// Gets or Sets Rel
         /// </summary>
         [Required]
 
-        [DataMember(Name="rel")]
+        [DataMember(Name = "rel")]
         public string Rel { get; set; }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace PxWeb.Models.Api2
         /// </summary>
         [Required]
 
-        [DataMember(Name="href")]
+        [DataMember(Name = "href")]
         public string Href { get; set; }
 
         /// <summary>
@@ -87,12 +87,12 @@ namespace PxWeb.Models.Api2
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
+            return
                 (
                     Rel == other.Rel ||
                     Rel != null &&
                     Rel.Equals(other.Rel)
-                ) && 
+                ) &&
                 (
                     Href == other.Href ||
                     Href != null &&
@@ -110,16 +110,16 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Rel != null)
+                if (Rel != null)
                     hashCode = hashCode * 59 + Rel.GetHashCode();
-                    if (Href != null)
+                if (Href != null)
                     hashCode = hashCode * 59 + Href.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
         public static bool operator ==(Link left, Link right)
         {
@@ -131,7 +131,7 @@ namespace PxWeb.Models.Api2
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }

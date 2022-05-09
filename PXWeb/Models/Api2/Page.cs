@@ -19,13 +19,20 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace PxWeb.Models.Api2
-{
+{ 
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Heading : FolderContentItem, IEquatable<Heading>
-    {
+    public partial class Page : IEquatable<Page>
+    { 
+        /// <summary>
+        /// Gets or Sets _Page
+        /// </summary>
+
+        [DataMember(Name="page")]
+        public PagePage _Page { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +40,8 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Heading {\n");
+            sb.Append("class Page {\n");
+            sb.Append("  _Page: ").Append(_Page).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -42,7 +50,7 @@ namespace PxWeb.Models.Api2
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -56,20 +64,25 @@ namespace PxWeb.Models.Api2
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Heading)obj);
+            return obj.GetType() == GetType() && Equals((Page)obj);
         }
 
         /// <summary>
-        /// Returns true if Heading instances are equal
+        /// Returns true if Page instances are equal
         /// </summary>
-        /// <param name="other">Instance of Heading to be compared</param>
+        /// <param name="other">Instance of Page to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Heading other)
+        public bool Equals(Page other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    _Page == other._Page ||
+                    _Page != null &&
+                    _Page.Equals(other._Page)
+                );
         }
 
         /// <summary>
@@ -82,24 +95,26 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (_Page != null)
+                    hashCode = hashCode * 59 + _Page.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-#pragma warning disable 1591
+        #pragma warning disable 1591
 
-        public static bool operator ==(Heading left, Heading right)
+        public static bool operator ==(Page left, Page right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Heading left, Heading right)
+        public static bool operator !=(Page left, Page right)
         {
             return !Equals(left, right);
         }
 
-#pragma warning restore 1591
+        #pragma warning restore 1591
         #endregion Operators
     }
 }
