@@ -30,7 +30,7 @@ namespace PxWeb.Controllers.Api2
         /// <param name="lang">The language if the default is not what you want.</param>
         /// <response code="200">Success</response>
         [HttpGet]
-        [Route("/v1/navigation/{id}")]
+        [Route("/v2/navigation/{id}")]
         [ValidateModelState]
         [SwaggerOperation("GetNavigationById")]
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
@@ -54,7 +54,7 @@ namespace PxWeb.Controllers.Api2
         /// <response code="200">Success</response>
         /// <response code="429">Error respsone for 429</response>
         [HttpGet]
-        [Route("/v1/navigation")]
+        [Route("/v2/navigation")]
         [ValidateModelState]
         [SwaggerOperation("GetNavigationRoot")]
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]

@@ -32,7 +32,7 @@ namespace PxWeb.Controllers.Api2
         /// <param name="id">Id</param>
         /// <response code="200">Success</response>
         [HttpGet]
-        [Route("/v1/tables/{id}")]
+        [Route("/v2/tables/{id}")]
         [ValidateModelState]
         [SwaggerOperation("GetTableById")]
         [SwaggerResponse(statusCode: 200, type: typeof(Table), description: "Success")]
@@ -59,7 +59,7 @@ namespace PxWeb.Controllers.Api2
         /// <param name="pageSize">Pagination: Decides how many tables per page</param>
         /// <response code="200">Success</response>
         [HttpGet]
-        [Route("/v1/tables")]
+        [Route("/v2/tables")]
         [ValidateModelState]
         [SwaggerOperation("ListAllTables")]
         [SwaggerResponse(statusCode: 200, type: typeof(TablesResponse), description: "Success")]
