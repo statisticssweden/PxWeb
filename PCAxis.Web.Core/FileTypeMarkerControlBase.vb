@@ -123,7 +123,7 @@ Public Class FileTypeMarkerControlBase(Of TControl As FileTypeControlBase(Of TCo
         'r.End()
 
         r.Flush()
-        'r.SuppressContent = True
+        r.SuppressContent = True
         System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest()
 
         'Page.Response.Clear()
