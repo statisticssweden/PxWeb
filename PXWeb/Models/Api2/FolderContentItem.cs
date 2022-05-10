@@ -19,18 +19,18 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace PxWeb.Models.Api2
-{
+{ 
     /// <summary>
-    /// Folder item
+    /// Navigation item.
     /// </summary>
     [DataContract]
-    public partial class Folder : IEquatable<Folder>
-    {
+    public partial class FolderContentItem : IEquatable<FolderContentItem>
+    { 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
 
-        [DataMember(Name = "id")]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace PxWeb.Models.Api2
         /// </summary>
         /// <value>One of heading, table, folder or folder-information</value>
 
-        [DataMember(Name = "objectType")]
+        [DataMember(Name="objectType")]
         public string ObjectType { get; set; }
 
         /// <summary>
@@ -46,38 +46,16 @@ namespace PxWeb.Models.Api2
         /// </summary>
         /// <value>Display text</value>
 
-        [DataMember(Name = "label")]
+        [DataMember(Name="label")]
         public string Label { get; set; }
 
         /// <summary>
-        /// Longer text describing node.
+        /// Longer text describing node. If no longer text exist, same as label
         /// </summary>
-        /// <value>Longer text describing node.</value>
+        /// <value>Longer text describing node. If no longer text exist, same as label</value>
 
-        [DataMember(Name = "description")]
+        [DataMember(Name="description")]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Tags
-        /// </summary>
-
-        [DataMember(Name = "tags")]
-        public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FolderContents
-        /// </summary>
-
-        [DataMember(Name = "folderContents")]
-        public List<FolderContentItem> FolderContents { get; set; }
-
-        /// <summary>
-        /// Links to ...
-        /// </summary>
-        /// <value>Links to ...</value>
-
-        [DataMember(Name = "links")]
-        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,14 +64,11 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Folder {\n");
+            sb.Append("class FolderContentItem {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  FolderContents: ").Append(FolderContents).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,54 +91,39 @@ namespace PxWeb.Models.Api2
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Folder)obj);
+            return obj.GetType() == GetType() && Equals((FolderContentItem)obj);
         }
 
         /// <summary>
-        /// Returns true if Folder instances are equal
+        /// Returns true if FolderContentItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of Folder to be compared</param>
+        /// <param name="other">Instance of FolderContentItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Folder other)
+        public bool Equals(FolderContentItem other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return
+            return 
                 (
                     Id == other.Id ||
                     Id != null &&
                     Id.Equals(other.Id)
-                ) &&
+                ) && 
                 (
                     ObjectType == other.ObjectType ||
                     ObjectType != null &&
                     ObjectType.Equals(other.ObjectType)
-                ) &&
+                ) && 
                 (
                     Label == other.Label ||
                     Label != null &&
                     Label.Equals(other.Label)
-                ) &&
+                ) && 
                 (
                     Description == other.Description ||
                     Description != null &&
                     Description.Equals(other.Description)
-                ) &&
-                (
-                    Tags == other.Tags ||
-                    Tags != null &&
-                    Tags.SequenceEqual(other.Tags)
-                ) &&
-                (
-                    FolderContents == other.FolderContents ||
-                    FolderContents != null &&
-                    FolderContents.SequenceEqual(other.FolderContents)
-                ) &&
-                (
-                    Links == other.Links ||
-                    Links != null &&
-                    Links.SequenceEqual(other.Links)
                 );
         }
 
@@ -177,38 +137,32 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                if (Id != null)
+                    if (Id != null)
                     hashCode = hashCode * 59 + Id.GetHashCode();
-                if (ObjectType != null)
+                    if (ObjectType != null)
                     hashCode = hashCode * 59 + ObjectType.GetHashCode();
-                if (Label != null)
+                    if (Label != null)
                     hashCode = hashCode * 59 + Label.GetHashCode();
-                if (Description != null)
+                    if (Description != null)
                     hashCode = hashCode * 59 + Description.GetHashCode();
-                if (Tags != null)
-                    hashCode = hashCode * 59 + Tags.GetHashCode();
-                if (FolderContents != null)
-                    hashCode = hashCode * 59 + FolderContents.GetHashCode();
-                if (Links != null)
-                    hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-#pragma warning disable 1591
+        #pragma warning disable 1591
 
-        public static bool operator ==(Folder left, Folder right)
+        public static bool operator ==(FolderContentItem left, FolderContentItem right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Folder left, Folder right)
+        public static bool operator !=(FolderContentItem left, FolderContentItem right)
         {
             return !Equals(left, right);
         }
 
-#pragma warning restore 1591
+        #pragma warning restore 1591
         #endregion Operators
     }
 }

@@ -21,41 +21,38 @@ using Newtonsoft.Json;
 namespace PxWeb.Models.Api2
 { 
     /// <summary>
-    /// Navigation item.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class NavigationItem : IEquatable<NavigationItem>
+    public partial class PagePage : IEquatable<PagePage>
     { 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets PageNumber
         /// </summary>
 
-        [DataMember(Name="id")]
-        public string Id { get; set; }
+        [DataMember(Name="pageNumber")]
+        public int? PageNumber { get; set; }
 
         /// <summary>
-        /// One of heading, table, folder or folder-information
+        /// Gets or Sets PageSize
         /// </summary>
-        /// <value>One of heading, table, folder or folder-information</value>
 
-        [DataMember(Name="objectType")]
-        public string ObjectType { get; set; }
+        [DataMember(Name="pageSize")]
+        public int? PageSize { get; set; }
 
         /// <summary>
-        /// Display text
+        /// Gets or Sets TotalElements
         /// </summary>
-        /// <value>Display text</value>
 
-        [DataMember(Name="label")]
-        public string Label { get; set; }
+        [DataMember(Name="totalElements")]
+        public int? TotalElements { get; set; }
 
         /// <summary>
-        /// Longer text describing node.
+        /// Gets or Sets TotalPages
         /// </summary>
-        /// <value>Longer text describing node.</value>
 
-        [DataMember(Name="description")]
-        public string Description { get; set; }
+        [DataMember(Name="totalPages")]
+        public int? TotalPages { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,11 +61,11 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NavigationItem {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
-            sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class PagePage {\n");
+            sb.Append("  PageNumber: ").Append(PageNumber).Append("\n");
+            sb.Append("  PageSize: ").Append(PageSize).Append("\n");
+            sb.Append("  TotalElements: ").Append(TotalElements).Append("\n");
+            sb.Append("  TotalPages: ").Append(TotalPages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,39 +88,39 @@ namespace PxWeb.Models.Api2
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((NavigationItem)obj);
+            return obj.GetType() == GetType() && Equals((PagePage)obj);
         }
 
         /// <summary>
-        /// Returns true if NavigationItem instances are equal
+        /// Returns true if PagePage instances are equal
         /// </summary>
-        /// <param name="other">Instance of NavigationItem to be compared</param>
+        /// <param name="other">Instance of PagePage to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NavigationItem other)
+        public bool Equals(PagePage other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
+                    PageNumber == other.PageNumber ||
+                    PageNumber != null &&
+                    PageNumber.Equals(other.PageNumber)
                 ) && 
                 (
-                    ObjectType == other.ObjectType ||
-                    ObjectType != null &&
-                    ObjectType.Equals(other.ObjectType)
+                    PageSize == other.PageSize ||
+                    PageSize != null &&
+                    PageSize.Equals(other.PageSize)
                 ) && 
                 (
-                    Label == other.Label ||
-                    Label != null &&
-                    Label.Equals(other.Label)
+                    TotalElements == other.TotalElements ||
+                    TotalElements != null &&
+                    TotalElements.Equals(other.TotalElements)
                 ) && 
                 (
-                    Description == other.Description ||
-                    Description != null &&
-                    Description.Equals(other.Description)
+                    TotalPages == other.TotalPages ||
+                    TotalPages != null &&
+                    TotalPages.Equals(other.TotalPages)
                 );
         }
 
@@ -137,14 +134,14 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (ObjectType != null)
-                    hashCode = hashCode * 59 + ObjectType.GetHashCode();
-                    if (Label != null)
-                    hashCode = hashCode * 59 + Label.GetHashCode();
-                    if (Description != null)
-                    hashCode = hashCode * 59 + Description.GetHashCode();
+                    if (PageNumber != null)
+                    hashCode = hashCode * 59 + PageNumber.GetHashCode();
+                    if (PageSize != null)
+                    hashCode = hashCode * 59 + PageSize.GetHashCode();
+                    if (TotalElements != null)
+                    hashCode = hashCode * 59 + TotalElements.GetHashCode();
+                    if (TotalPages != null)
+                    hashCode = hashCode * 59 + TotalPages.GetHashCode();
                 return hashCode;
             }
         }
@@ -152,12 +149,12 @@ namespace PxWeb.Models.Api2
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(NavigationItem left, NavigationItem right)
+        public static bool operator ==(PagePage left, PagePage right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(NavigationItem left, NavigationItem right)
+        public static bool operator !=(PagePage left, PagePage right)
         {
             return !Equals(left, right);
         }

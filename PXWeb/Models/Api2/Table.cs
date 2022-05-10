@@ -19,18 +19,18 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace PxWeb.Models.Api2
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Table : NavigationItem, IEquatable<Table>
-    { 
+    public partial class Table : FolderContentItem, IEquatable<Table>
+    {
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
 
-        [DataMember(Name="tags")]
+        [DataMember(Name = "tags")]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace PxWeb.Models.Api2
         /// </summary>
         /// <value>For treeNodeType \&quot;table\&quot;</value>
 
-        [DataMember(Name="updated")]
+        [DataMember(Name = "updated")]
         public DateTime? Updated { get; set; }
 
         /// <summary>
@@ -67,14 +67,15 @@ namespace PxWeb.Models.Api2
             /// Enum SectionEnum for section
             /// </summary>
             [EnumMember(Value = "section")]
-            SectionEnum = 3        }
+            SectionEnum = 3
+        }
 
         /// <summary>
         /// Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S
         /// </summary>
         /// <value>Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S</value>
 
-        [DataMember(Name="category")]
+        [DataMember(Name = "category")]
         public CategoryEnum? Category { get; set; }
 
         /// <summary>
@@ -82,8 +83,39 @@ namespace PxWeb.Models.Api2
         /// </summary>
         /// <value>Links to ...</value>
 
-        [DataMember(Name="links")]
+        [DataMember(Name = "links")]
         public List<Link> Links { get; set; }
+
+        /// <summary>
+        /// List of varibles name
+        /// </summary>
+        /// <value>List of varibles name</value>
+
+        [DataMember(Name = "variablesName")]
+        public List<string> VariablesName { get; set; }
+
+        /// <summary>
+        /// First period
+        /// </summary>
+        /// <value>First period</value>
+
+        [DataMember(Name = "firstPeriod")]
+        public string FirstPeriod { get; set; }
+
+        /// <summary>
+        /// Last period
+        /// </summary>
+        /// <value>Last period</value>
+
+        [DataMember(Name = "lastPeriod")]
+        public string LastPeriod { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Discontinued
+        /// </summary>
+
+        [DataMember(Name = "discontinued")]
+        public bool? Discontinued { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,6 +129,10 @@ namespace PxWeb.Models.Api2
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  VariablesName: ").Append(VariablesName).Append("\n");
+            sb.Append("  FirstPeriod: ").Append(FirstPeriod).Append("\n");
+            sb.Append("  LastPeriod: ").Append(LastPeriod).Append("\n");
+            sb.Append("  Discontinued: ").Append(Discontinued).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,7 +141,7 @@ namespace PxWeb.Models.Api2
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -132,26 +168,46 @@ namespace PxWeb.Models.Api2
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
+            return
                 (
                     Tags == other.Tags ||
                     Tags != null &&
                     Tags.SequenceEqual(other.Tags)
-                ) && 
+                ) &&
                 (
                     Updated == other.Updated ||
                     Updated != null &&
                     Updated.Equals(other.Updated)
-                ) && 
+                ) &&
                 (
                     Category == other.Category ||
                     Category != null &&
                     Category.Equals(other.Category)
-                ) && 
+                ) &&
                 (
                     Links == other.Links ||
                     Links != null &&
                     Links.SequenceEqual(other.Links)
+                ) &&
+                (
+                    VariablesName == other.VariablesName ||
+                    VariablesName != null &&
+                    VariablesName.SequenceEqual(other.VariablesName)
+                ) &&
+                (
+                    FirstPeriod == other.FirstPeriod ||
+                    FirstPeriod != null &&
+                    FirstPeriod.Equals(other.FirstPeriod)
+                ) &&
+                (
+                    LastPeriod == other.LastPeriod ||
+                    LastPeriod != null &&
+                    LastPeriod.Equals(other.LastPeriod)
+                ) &&
+                (
+                    Discontinued == other.Discontinued ||
+                    Discontinued != null &&
+                    Discontinued.Equals(other.Discontinued)
                 );
         }
 
@@ -165,20 +221,28 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Tags != null)
+                if (Tags != null)
                     hashCode = hashCode * 59 + Tags.GetHashCode();
-                    if (Updated != null)
+                if (Updated != null)
                     hashCode = hashCode * 59 + Updated.GetHashCode();
-                    if (Category != null)
+                if (Category != null)
                     hashCode = hashCode * 59 + Category.GetHashCode();
-                    if (Links != null)
+                if (Links != null)
                     hashCode = hashCode * 59 + Links.GetHashCode();
+                if (VariablesName != null)
+                    hashCode = hashCode * 59 + VariablesName.GetHashCode();
+                if (FirstPeriod != null)
+                    hashCode = hashCode * 59 + FirstPeriod.GetHashCode();
+                if (LastPeriod != null)
+                    hashCode = hashCode * 59 + LastPeriod.GetHashCode();
+                if (Discontinued != null)
+                    hashCode = hashCode * 59 + Discontinued.GetHashCode();
                 return hashCode;
             }
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
         public static bool operator ==(Table left, Table right)
         {
@@ -190,7 +254,7 @@ namespace PxWeb.Models.Api2
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }
