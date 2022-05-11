@@ -14,11 +14,14 @@ namespace PxWeb
 
             // Add services to the container.
 
+            // Add configuration
+            builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
+            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
 
             var app = builder.Build();
 
