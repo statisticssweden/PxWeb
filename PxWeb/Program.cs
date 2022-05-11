@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PxWeb.Config.Api2;
 
 namespace PxWeb
 {
@@ -17,6 +18,7 @@ namespace PxWeb
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
 
             var app = builder.Build();
 
