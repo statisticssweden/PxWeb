@@ -24,6 +24,10 @@ namespace PxWeb.Controllers.Api2
         /// <response code="429">Error respsone for 429</response>
         [HttpGet]
         [Route("/v2/config")]
+        [ValidateModelState]
+        [SwaggerOperation("GetConfiguration")]
+        [SwaggerResponse(statusCode: 200, type: typeof(PxApiConfigurationOptions), description: "Success")]
+        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
         public virtual IActionResult GetConfiguration()
         {
             ////TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -31,23 +35,11 @@ namespace PxWeb.Controllers.Api2
 
             ////TODO: Uncomment the next line to return response 429 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             //// return StatusCode(429, default(Problem));
-            //string exampleJson = null;
-            //exampleJson = "{\n  \"description\" : \"description\",\n  \"folderContents\" : [ {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  }, {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  } ],\n  \"links\" : [ {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  }, {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  } ],\n  \"id\" : \"id\",\n  \"label\" : \"label\",\n  \"objectType\" : \"objectType\",\n  \"tags\" : [ \"tags\", \"tags\" ]\n}";
 
-            //var example = exampleJson != null
-            //? JsonConvert.DeserializeObject<Folder>(exampleJson)
-            //: default(Folder);            //TODO: Change the data returned
-            //return new ObjectResult(example);
-
-            PxApiConfigurationOptions op = new PxApiConfigurationOptions();
-            //op.Language = "sv";
-            //op.ApiVersion = "2.0";
-            op = _pxApiConfigurationService.GetConfiguration();
+            var op = _pxApiConfigurationService.GetConfiguration();
 
             return new ObjectResult(op);
         }
 
-
-        //public IActionResult GetConfiguration() => Ok(_pxApiConfigurationService.GetConfiguration());
     }
 }
