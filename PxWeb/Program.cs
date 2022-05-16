@@ -58,7 +58,10 @@ namespace PxWeb
 
             app.MapControllers();
 
-            app.UseIpRateLimiting();
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseIpRateLimiting();
+            }
 
             app.Run();
         }
