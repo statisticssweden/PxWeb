@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using PxWeb.Attributes.Api2;
 using PxWeb.Config.Api2;
 using PxWeb.Models.Api2;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -11,10 +13,12 @@ namespace PxWeb.Controllers.Api2
     public class ConfigurationApiController : ControllerBase
     {
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
+        private readonly ILogger<ConfigurationApiController> _logger;
 
-        public ConfigurationApiController(IPxApiConfigurationService pxApiConfigurationService)
+        public ConfigurationApiController(IPxApiConfigurationService pxApiConfigurationService, ILogger<ConfigurationApiController> logger)
         {
             _pxApiConfigurationService = pxApiConfigurationService;
+            _logger = logger;
         }
 
         /// <summary>
@@ -35,10 +39,17 @@ namespace PxWeb.Controllers.Api2
 
             ////TODO: Uncomment the next line to return response 429 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             //// return StatusCode(429, default(Problem));
+            try
+            {
+                var op = _pxApiConfigurationService.GetConfiguration();
 
-            var op = _pxApiConfigurationService.GetConfiguration();
 
-            return new ObjectResult(op);
+                return new ObjectResult(op);
+            }
+            catch (NullReferenceException ex) {
+                _logger.LogError("GetConfigtion caused an exception", ex);
+            }
+            return StatusCode(500, new Problem() { Status = 500, Title = "Something went wrong fetching the API configuration", Type = "https://TODO/ConfigError", });
         }
 
     }
