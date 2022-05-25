@@ -1,8 +1,10 @@
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PxWeb.Config.Api2;
+using System.Collections.Generic;
 
 namespace PxWeb
 {
@@ -29,7 +31,6 @@ namespace PxWeb
 
             // inject counter and rules stores
             builder.Services.AddInMemoryRateLimiting();
-            
 
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
@@ -43,6 +44,48 @@ namespace PxWeb
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            // Get Cors configuration from appsettings.json
+            bool corsEnbled = false;            
+            bool.TryParse(builder.Configuration.GetSection("PxApiConfiguration:Cors:Enabled").Value.Trim(), out corsEnbled);
+           
+            if (corsEnbled) 
+            {
+                bool allowAnyOrigin = false;
+                var withOriginsConfig = builder.Configuration.GetSection("PxApiConfiguration:Cors:Origins").Value;
+                string withOrigins = string.Empty;
+
+                if (withOriginsConfig.Trim() == "*")
+                {
+                    allowAnyOrigin = true;
+                }
+                else
+                {
+                    string result = string.Empty;
+                    foreach (var origin in withOriginsConfig.Split(','))
+                    {
+                        result = result + "\"" + origin.Trim() + "\", ";
+                    }
+                    withOrigins = result.Remove(result.Length - 2);
+                }
+
+                builder.Services.AddCors(options =>
+                {
+                    options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        if (allowAnyOrigin)
+                        {
+                            policy.AllowAnyOrigin();
+                        }
+                        else
+                        {
+                            policy.WithOrigins(withOrigins);
+                        }                         
+                    });
+                });
+            }
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -52,7 +95,7 @@ namespace PxWeb
                 app.UseSwaggerUI();
             //}
 
-            app.UseHttpsRedirection();
+            app.UseHttpsRedirection();         
 
             app.UseAuthorization();
 
