@@ -81,9 +81,11 @@ namespace PxWeb
                         else
                         {
                             policy.WithOrigins(withOrigins);
-                        }                         
+                        }
                     });
                 });
+
+
             }
 
             var app = builder.Build();
@@ -95,7 +97,12 @@ namespace PxWeb
                 app.UseSwaggerUI();
             //}
 
-            app.UseHttpsRedirection();         
+            app.UseHttpsRedirection();
+
+            if (corsEnbled)
+            {
+                app.UseCors();
+            }
 
             app.UseAuthorization();
 
