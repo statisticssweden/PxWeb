@@ -4,13 +4,11 @@ namespace PxWeb.Models.Api2
 {
     public class ConfigResponse
     {
-
-
         public string ApiVersion { get; set; }
 
-        public IEnumerable<Language> Languages { get; set; }
+        public List<Language> Languages { get; set; }
 
-        public Language DefaultLanguage { get; set; }
+        public string DefaultLanguage { get; set; }
 
         public int MaxDataCells { get; set; }
 
@@ -18,11 +16,11 @@ namespace PxWeb.Models.Api2
 
         public int TimeWindow { get; set; }
 
-        public IEnumerable<SourceReference> SourceReferences { get; set; }
+        public List<SourceReference> SourceReferences { get; set; }
 
-        public string Licens { get; set; }
+        public string License { get; set; }
 
-        public IEnumerable<Feature> Features { get; set; }
+        public List<Feature> Features { get; set; }
 
     }
 }

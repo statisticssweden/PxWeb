@@ -13,5 +13,6 @@ namespace PxWeb.Config.Api2
         public int MaxCalls { get; set; } = 1;
         public int TimeWindow { get; set; } = 1;
         public List<Feature> Features { get; set; } = new List<Feature>();
+        public string License { get; set; }
     }
 }
