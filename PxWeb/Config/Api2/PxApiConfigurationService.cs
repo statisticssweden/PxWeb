@@ -13,7 +13,7 @@ namespace PxWeb.Config.Api2
         
         public PxApiConfigurationOptions GetConfiguration()
         {
-            return _configOptions;
+            return  _configOptions;
         }
     }
 }
