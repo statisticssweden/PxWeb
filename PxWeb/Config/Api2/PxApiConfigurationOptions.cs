@@ -16,5 +16,5 @@ namespace PxWeb.Config.Api2
         public List<Feature> Features { get; set; } = new List<Feature>();
         public string License { get; set; }
         public List<SourceReference> SourceReferences { get; set; }
-    }
+        public Cors Cors { get; set; } }
 }

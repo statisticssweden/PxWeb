@@ -74,7 +74,11 @@ namespace PxWeb.Controllers.Api2
                     License = op.License,
                     MaxCalls = op.MaxCalls,
                     MaxDataCells = op.MaxDataCells, 
-                    TimeWindow = op.TimeWindow
+                    TimeWindow = op.TimeWindow,
+                    Cors = new Models.Api2.Cors
+                    {
+                        Enabled = op.Cors.Enabled
+                    }
                 };
                 
                 return new ObjectResult(configResponse);
