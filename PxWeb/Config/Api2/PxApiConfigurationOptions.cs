@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PxWeb.Models.Api2;
 
 namespace PxWeb.Config.Api2
 {
@@ -14,5 +15,6 @@ namespace PxWeb.Config.Api2
         public int TimeWindow { get; set; } = 1;
         public List<Feature> Features { get; set; } = new List<Feature>();
         public string License { get; set; }
+        public List<SourceReference> SourceReferences { get; set; }
     }
 }
