@@ -19,8 +19,9 @@ namespace PxWeb.Models.Api2
         public List<SourceReference> SourceReferences { get; set; }
 
         public string License { get; set; }
-
+        
         public List<Feature> Features { get; set; }
 
+        public Cors Cors { get; set; }
     }
 }

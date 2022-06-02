@@ -56,7 +56,11 @@ namespace PxWeb.Controllers.Api2
                          Lable = x.Label
                         }
                     ).ToList(),
-                    SourceReferences = new List<SourceReference>(),
+                    SourceReferences = op.SourceReferences.Select(x => new Models.Api2.SourceReference
+                    {
+                        Language = x.Language,
+                        Text = x.Text
+                    }).ToList(),
                     Features = op.Features.Select(x => new Models.Api2.Feature
                     {
                         Id = x.Id,
@@ -69,14 +73,18 @@ namespace PxWeb.Controllers.Api2
                     DefaultLanguage = op.DefaultLanguage,
                     License = op.License,
                     MaxCalls = op.MaxCalls,
-                    MaxDataCells = op.MaxDataCells,
-                    TimeWindow = op.TimeWindow
+                    MaxDataCells = op.MaxDataCells, 
+                    TimeWindow = op.TimeWindow,
+                    Cors = new Models.Api2.Cors
+                    {
+                        Enabled = op.Cors.Enabled
+                    }
                 };
                 
                 return new ObjectResult(configResponse);
             }
             catch (NullReferenceException ex) {
-                _logger.LogError("GetConfigtion caused an exception", ex);
+                _logger.LogError("GetConfiguration caused an exception", ex);
             }
             return StatusCode(500, new Problem() { Status = 500, Title = "Something went wrong fetching the API configuration", Type = "https://TODO/ConfigError", });
         }
