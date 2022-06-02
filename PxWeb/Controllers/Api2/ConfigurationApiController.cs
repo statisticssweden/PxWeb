@@ -61,26 +61,20 @@ namespace PxWeb.Controllers.Api2
                         Language = x.Language,
                         Text = x.Text
                     }).ToList(),
-                    Features = op.Features.Select(x => new Models.Api2.Feature
-                    {
-                        Id = x.Id,
-                        Params = x.Params.Select(y => new Models.Api2.Param
-                        {
-                            Key = y.Key,
-                            Value = y.Value
-                        }).ToList()
-                    }).ToList(),
+                    Features = new List<Feature>(),
                     DefaultLanguage = op.DefaultLanguage,
                     License = op.License,
                     MaxCalls = op.MaxCalls,
                     MaxDataCells = op.MaxDataCells, 
                     TimeWindow = op.TimeWindow,
-                    Cors = new Models.Api2.Cors
-                    {
-                        Enabled = op.Cors.Enabled
-                    }
                 };
-                
+
+                Feature cors = new Feature() { Id = "CORS", Params = new List<Param>() };
+                Param param = new Param() { Key = "enabled", Value = op.Cors.Enabled.ToString() };
+                cors.Params.Add(param);
+                configResponse.Features.Add(cors);
+
+
                 return new ObjectResult(configResponse);
             }
             catch (NullReferenceException ex) {

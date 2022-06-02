@@ -6,6 +6,6 @@ namespace PxWeb.Models.Api2
     {
         public string Id { get; set; }
 
-        public IEnumerable<Param> Params { get; set; }
+        public List<Param> Params { get; set; }
     }
 }
