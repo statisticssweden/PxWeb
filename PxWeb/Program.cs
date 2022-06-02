@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PxWeb.Code.Api2;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
 
@@ -50,34 +51,7 @@ namespace PxWeb
 
 
             // Handle CORS configuration from appsettings.json
-            bool corsEnbled = IsCORSEnabled(builder);        
-            
-            if (corsEnbled) 
-            {
-                string[] origins = GetCORSOrigins(builder);
-                bool allowAnyOrigin = false;
-
-                if (origins[0] == "*" || origins[0] == "")
-                {
-                    allowAnyOrigin = true;
-                }
-
-                builder.Services.AddCors(options =>
-                {
-                    options.AddDefaultPolicy(
-                    policy =>
-                    {
-                        if (allowAnyOrigin)
-                        {
-                            policy.AllowAnyOrigin();
-                        }
-                        else
-                        {
-                            policy.WithOrigins(origins);
-                        }
-                    });
-                });
-            }
+            bool corsEnbled = builder.Services.ConfigurePxCORS(builder, _logger);
 
             var app = builder.Build();
 
@@ -106,51 +80,5 @@ namespace PxWeb
 
             app.Run();
         }
-
-        /// <summary>
-        /// Check configuration file if CORS is enabled
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        private static bool IsCORSEnabled(WebApplicationBuilder builder)
-        {
-            bool corsEnbled = false;
-
-            try
-            {
-                bool.TryParse(builder.Configuration.GetSection("PxApiConfiguration:Cors:Enabled").Value.Trim(), out corsEnbled);
-            }
-            catch (System.Exception)
-            {
-                corsEnbled = false;
-                _logger.LogError("Could not read CORS Enabled configuration");
-            }
-
-            return corsEnbled;
-        }
-
-        /// <summary>
-        /// Get CORS origins from configuration file
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        private static string[] GetCORSOrigins(WebApplicationBuilder builder)
-        {
-            string[] origins = { "" };
-
-            try
-            {
-                var originsConfig = builder.Configuration.GetSection("PxApiConfiguration:Cors:Origins").Value;
-                origins = originsConfig.Split(',', System.StringSplitOptions.TrimEntries);
-            }
-            catch (System.Exception)
-            {
-                _logger.LogError("Could not read CORS origins configuration");
-            }
-
-            return origins;
-        }
-
     }
-
 }
