@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
+using System.Linq;
+using PxWeb.Filters.Api2;
 
 namespace PxWeb
 {
@@ -38,8 +40,17 @@ namespace PxWeb
             // Add configuration
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
-
-            builder.Services.AddControllers();
+            
+            var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
+                .AsEnumerable()
+                .Where(p => p.Value != null && p.Key.ToLower().Contains("id") )
+                .Select(p => p.Value)
+                .ToList();
+            
+            builder.Services.AddControllers(x => 
+                x.Filters.Add(new LangValidationFilter(langList))
+                );
+            
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
