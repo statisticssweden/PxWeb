@@ -6,6 +6,10 @@ using PxWeb.Config.Api2;
 using PxWeb.Models.Api2;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using Language = PxWeb.Models.Api2.Language;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -30,7 +34,7 @@ namespace PxWeb.Controllers.Api2
         [Route("/v2/config")]
         [ValidateModelState]
         [SwaggerOperation("GetConfiguration")]
-        [SwaggerResponse(statusCode: 200, type: typeof(PxApiConfigurationOptions), description: "Success")]
+        [SwaggerResponse(statusCode: 200, type: typeof(ConfigResponse), description: "Success")]
         [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
         public virtual IActionResult GetConfiguration()
         {
@@ -42,12 +46,45 @@ namespace PxWeb.Controllers.Api2
             try
             {
                 var op = _pxApiConfigurationService.GetConfiguration();
-
-
-                return new ObjectResult(op);
+                
+                var configResponse = new ConfigResponse
+                {
+                    ApiVersion = op.ApiVersion,
+                    Languages = op.Languages.Select(x => new Language
+                        {
+                         Id = x.Id,
+                         Lable = x.Label
+                        }
+                    ).ToList(),
+                    SourceReferences = op.SourceReferences.Select(x => new Models.Api2.SourceReference
+                    {
+                        Language = x.Language,
+                        Text = x.Text
+                    }).ToList(),
+                    Features = op.Features.Select(x => new Models.Api2.Feature
+                    {
+                        Id = x.Id,
+                        Params = x.Params.Select(y => new Models.Api2.Param
+                        {
+                            Key = y.Key,
+                            Value = y.Value
+                        }).ToList()
+                    }).ToList(),
+                    DefaultLanguage = op.DefaultLanguage,
+                    License = op.License,
+                    MaxCalls = op.MaxCalls,
+                    MaxDataCells = op.MaxDataCells, 
+                    TimeWindow = op.TimeWindow,
+                    Cors = new Models.Api2.Cors
+                    {
+                        Enabled = op.Cors.Enabled
+                    }
+                };
+                
+                return new ObjectResult(configResponse);
             }
             catch (NullReferenceException ex) {
-                _logger.LogError("GetConfigtion caused an exception", ex);
+                _logger.LogError("GetConfiguration caused an exception", ex);
             }
             return StatusCode(500, new Problem() { Status = 500, Title = "Something went wrong fetching the API configuration", Type = "https://TODO/ConfigError", });
         }
