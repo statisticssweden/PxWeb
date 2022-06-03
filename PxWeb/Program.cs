@@ -40,14 +40,14 @@ namespace PxWeb
             // Add configuration
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
-            
+
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()
-                .Where(p => p.Value != null && p.Key.ToLower().Contains("id") )
+                .Where(p => p.Value != null && p.Key.ToLower().Contains("id"))
                 .Select(p => p.Value)
                 .ToList();
-            
-            builder.Services.AddControllers(x => 
+
+            builder.Services.AddControllers(x =>
                 x.Filters.Add(new LangValidationFilter(langList))
                 );
             
