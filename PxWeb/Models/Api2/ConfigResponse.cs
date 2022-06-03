@@ -21,7 +21,5 @@ namespace PxWeb.Models.Api2
         public string License { get; set; }
         
         public List<Feature> Features { get; set; }
-
-        public Cors Cors { get; set; }
     }
 }
