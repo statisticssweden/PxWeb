@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using PxWeb.Code.Api2;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
 
@@ -10,12 +12,15 @@ namespace PxWeb
 {
     public class Program
     {
+        private static ILogger<Program> _logger;
+
         public static void Main(string[] args)
         {
 
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            _logger = builder.Logging.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
 
             // needed to load configuration from appsettings.json
             builder.Services.AddOptions();
@@ -45,48 +50,8 @@ namespace PxWeb
             builder.Services.AddSwaggerGen();
 
 
-            // Get Cors configuration from appsettings.json
-            bool corsEnbled = false;            
-            bool.TryParse(builder.Configuration.GetSection("PxApiConfiguration:Cors:Enabled").Value.Trim(), out corsEnbled);
-           
-            if (corsEnbled) 
-            {
-                bool allowAnyOrigin = false;
-                var withOriginsConfig = builder.Configuration.GetSection("PxApiConfiguration:Cors:Origins").Value;
-                string withOrigins = string.Empty;
-
-                if (withOriginsConfig.Trim() == "*")
-                {
-                    allowAnyOrigin = true;
-                }
-                else
-                {
-                    string result = string.Empty;
-                    foreach (var origin in withOriginsConfig.Split(','))
-                    {
-                        result = result + "\"" + origin.Trim() + "\", ";
-                    }
-                    withOrigins = result.Remove(result.Length - 2);
-                }
-
-                builder.Services.AddCors(options =>
-                {
-                    options.AddDefaultPolicy(
-                    policy =>
-                    {
-                        if (allowAnyOrigin)
-                        {
-                            policy.AllowAnyOrigin();
-                        }
-                        else
-                        {
-                            policy.WithOrigins(withOrigins);
-                        }
-                    });
-                });
-
-
-            }
+            // Handle CORS configuration from appsettings.json
+            bool corsEnbled = builder.Services.ConfigurePxCORS(builder, _logger);
 
             var app = builder.Build();
 
@@ -115,7 +80,5 @@ namespace PxWeb
 
             app.Run();
         }
-
     }
-
 }
