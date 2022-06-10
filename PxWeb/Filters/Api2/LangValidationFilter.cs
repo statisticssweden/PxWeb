@@ -21,38 +21,12 @@ namespace PxWeb.Filters.Api2
 
             if (!string.IsNullOrEmpty(lanValues) && !_languages.Exists(x => x.ToString() == lanValues))
             {
-                //context.Result = new CustomResult("No such language" );
-                context.Result = new NotFoundResult();
+                context.Result = new BadRequestObjectResult($"language {lanValues} is not a valid language");
             }
         }
 
         public void OnResourceExecuted(ResourceExecutedContext context)
         {
         }
-
-        public class CustomResult : NotFoundResult
-        {
-            private readonly string Reason;
-
-            public CustomResult(string reason) : base()
-            {
-                Reason = reason;
-            }
-
-            public override void ExecuteResult(ActionContext context)
-            {
-                if (context == null)
-                {
-                    throw new ArgumentNullException(nameof(context));
-                }
-                //context.HttpContext.Response.HttpContext.Features.Get<IHttpResponseFeature>().ReasonPhrase = Reason;
-                context.HttpContext.Response.StatusCode = StatusCode;
-                
-                var bytes = Encoding.UTF8.GetBytes(Reason);
-                context.HttpContext.Response.Body.WriteAsync(bytes, 0, bytes.Length);
-
-            }
-        }
-
     }
 }
