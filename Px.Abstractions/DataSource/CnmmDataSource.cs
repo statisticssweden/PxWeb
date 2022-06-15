@@ -14,7 +14,49 @@ namespace Px.Abstractions.DataSource
         public PxMenuBase CreateMenu(string id, string language)
         {
             //Create database object to return
-            DatamodelMenu retMenu = ConfigDatamodelMenu.Create(language);
+            DatamodelMenu retMenu = ConfigDatamodelMenu.Create(
+                language,
+                PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"],
+                                        m =>
+                                        {
+                                            //m.RootSelection = string.IsNullOrEmpty(nodeId) ? new ItemSelection() : PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId);
+                                            //m.RootSelection = string.IsNullOrEmpty(menu) && string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection(menu, selection);
+                                            m.AlterItemBeforeStorage = item =>
+                                            {
+                                                if (item is PCAxis.Menu.Url)
+                                                {
+                                                    PCAxis.Menu.Url url = (PCAxis.Menu.Url)item;
+                                                }
+
+                                                if (item is TableLink)
+                                                {
+                                                    TableLink tbl = (TableLink)item;
+                                                    string tblId = tbl.ID.Selection;
+                                                    //if (!string.IsNullOrEmpty(dbid))
+                                                    //{
+                                                    //    tbl.ID = new ItemSelection(item.ID.Menu, dbid + ":" + tbl.ID.Selection); // Hantering av flera databaser!
+                                                    //}
+
+
+
+                                                    if (tbl.Published.HasValue)
+                                                    {
+                                                        // Store date in the PC-Axis date format
+                                                        tbl.SetAttribute("modified", tbl.Published.Value.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT));
+                                                    }
+
+                                                }
+
+                                                if (String.IsNullOrEmpty(item.SortCode))
+                                                {
+                                                    item.SortCode = item.Text;
+                                                }
+                                            };
+                                            m.Restriction = item =>
+                                            {
+                                                return true;
+                                            };
+                                        });
             retMenu.RootItem.Sort();
 
             return retMenu;
