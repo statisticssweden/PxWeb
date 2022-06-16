@@ -37,6 +37,9 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
         public virtual IActionResult GetNavigationById([FromRoute][Required] string id, [FromQuery] string lang)
         {
+            CnmmDataSource src = new CnmmDataSource();
+            src.CreateMenu(id, lang);
+
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));
             string exampleJson = null;
@@ -63,7 +66,7 @@ namespace PxWeb.Controllers.Api2
         public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
         {
             CnmmDataSource src = new CnmmDataSource();
-            src.CreateMenu("", "sv");
+            src.CreateMenu("", lang);
             
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));

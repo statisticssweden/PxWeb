@@ -13,6 +13,9 @@ namespace Px.Abstractions.DataSource
     {
         public PxMenuBase CreateMenu(string id, string language)
         {
+            // TODO: skapa ItemSElection via ItemSelectionResolverCnmm och sätt denna som RootSelection nedan
+            //ItemSelection itmSel = ItemSelectionResolverCnmm.Resolve(id);
+
             //Create database object to return
             DatamodelMenu retMenu = ConfigDatamodelMenu.Create(
                 language,
@@ -20,7 +23,7 @@ namespace Px.Abstractions.DataSource
                                         m =>
                                         {
                                             //m.RootSelection = string.IsNullOrEmpty(nodeId) ? new ItemSelection() : PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId);
-                                            //m.RootSelection = string.IsNullOrEmpty(menu) && string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection(menu, selection);
+                                            m.RootSelection = string.IsNullOrEmpty(id) ? new ItemSelection() : new ItemSelection("START", id);
                                             m.AlterItemBeforeStorage = item =>
                                             {
                                                 if (item is PCAxis.Menu.Url)
