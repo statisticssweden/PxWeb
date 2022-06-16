@@ -13,7 +13,7 @@ namespace Px.Abstractions.DataSource
     {
         public PxMenuBase CreateMenu(string id, string language)
         {
-            // TODO: skapa ItemSElection via ItemSelectionResolverCnmm och sätt denna som RootSelection nedan
+            // TODO: skapa ItemSelection via ItemSelectionResolverCnmm och sätt denna som RootSelection nedan
             //ItemSelection itmSel = ItemSelectionResolverCnmm.Resolve(id);
 
             //Create database object to return

@@ -65,7 +65,9 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
         public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
         {
-            CnmmDataSource src = new CnmmDataSource();
+            //TODO: Get datasource from appsetting via dependency injection
+            //CnmmDataSource src = new CnmmDataSource();
+            PxFileDataSource src = new PxFileDataSource();
             src.CreateMenu("", lang);
             
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
