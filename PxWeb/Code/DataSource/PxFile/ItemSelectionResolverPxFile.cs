@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PCAxis.Menu;
+﻿using PCAxis.Menu;
 using Px.Abstractions.Interfaces;
 
-namespace Px.Abstractions.DataSource
+namespace PxWeb.Code.DataSource.PxFile
 {
     public class ItemSelectionResolverPxFile : IItemSelectionResolver
     {

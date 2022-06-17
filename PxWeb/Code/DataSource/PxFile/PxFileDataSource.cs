@@ -1,14 +1,9 @@
 ﻿using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using Px.Abstractions.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Px.Abstractions.DataSource
+namespace PxWeb.Code.DataSource.PxFile
 {
     public class PxFileDataSource : IDataSource
     {
@@ -37,10 +32,10 @@ namespace Px.Abstractions.DataSource
                         };
                     });
 
-                //ItemSelection cid = PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.PX).GetSelection(nodeId);
-                //menu.SetCurrentItemBySelection(cid.Menu, cid.Selection);
-                //currentItem = menu.CurrentItem;
-                return menu;
+            //ItemSelection cid = PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.PX).GetSelection(nodeId);
+            //menu.SetCurrentItemBySelection(cid.Menu, cid.Selection);
+            //currentItem = menu.CurrentItem;
+            return menu;
             //}
             //currentItem = null;
             //return null;

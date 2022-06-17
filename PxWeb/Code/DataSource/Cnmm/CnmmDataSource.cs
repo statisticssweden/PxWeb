@@ -1,13 +1,8 @@
 ﻿using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using Px.Abstractions.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Px.Abstractions.DataSource
+namespace PxWeb.Code.DataSource.Cnmm
 {
     public class CnmmDataSource : IDataSource
     {
@@ -20,7 +15,7 @@ namespace Px.Abstractions.DataSource
 
         public PxMenuBase CreateMenu(string id, string language)
         {
-            ItemSelection itmSel = _itemSelectionResolver.Resolve((id));
+            ItemSelection itmSel = _itemSelectionResolver.Resolve(id);
 
             //Create database object to return
             DatamodelMenu retMenu = ConfigDatamodelMenu.Create(
@@ -32,9 +27,9 @@ namespace Px.Abstractions.DataSource
                                             m.RootSelection = itmSel;
                                             m.AlterItemBeforeStorage = item =>
                                             {
-                                                if (item is PCAxis.Menu.Url)
+                                                if (item is Url)
                                                 {
-                                                    PCAxis.Menu.Url url = (PCAxis.Menu.Url)item;
+                                                    Url url = (Url)item;
                                                 }
 
                                                 if (item is TableLink)
@@ -56,7 +51,7 @@ namespace Px.Abstractions.DataSource
 
                                                 }
 
-                                                if (String.IsNullOrEmpty(item.SortCode))
+                                                if (string.IsNullOrEmpty(item.SortCode))
                                                 {
                                                     item.SortCode = item.Text;
                                                 }

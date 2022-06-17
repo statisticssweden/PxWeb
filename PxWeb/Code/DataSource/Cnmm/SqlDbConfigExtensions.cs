@@ -4,11 +4,8 @@ using PCAxis.Sql.DbConfig;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Px.Abstractions.DataSource
+namespace PxWeb.Code.DataSource.Cnmm
 {
     public static class SqlDbConfigExtensions
     {
@@ -23,15 +20,15 @@ namespace Px.Abstractions.DataSource
             }
             else if (DB is SqlDbConfig_22)
             {
-                sql = GetMenuLookupQuery2_2(DB as SqlDbConfig_22);
+                sql = (DB as SqlDbConfig_22).GetMenuLookupQuery2_2();
             }
             else if (DB is SqlDbConfig_23)
             {
-                sql = GetMenuLookupQuery2_3(DB as SqlDbConfig_23);
+                sql = (DB as SqlDbConfig_23).GetMenuLookupQuery2_3();
             }
             else if (DB is SqlDbConfig_24)
             {
-                sql = GetMenuLookupQuery2_4(DB as SqlDbConfig_24);
+                sql = (DB as SqlDbConfig_24).GetMenuLookupQuery2_4();
             }
             else
             {

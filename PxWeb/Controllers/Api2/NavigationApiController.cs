@@ -11,10 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
-using Px.Abstractions.DataSource;
 using Px.Abstractions.Interfaces;
 
 namespace PxWeb.Controllers.Api2
