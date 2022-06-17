@@ -10,7 +10,10 @@ namespace Px.Abstractions.DataSource
             //todo: Try to get from cache
             //todo : Get ItemSelection from pcaxis.sql from Norway
 
-            var itemSelection = string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection("START", selection);
+            var lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"].GetMenuLookup();
+
+
+            var itemSelection = string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection(lookupTable[selection], selection);
             
             //todo: store in cache
             
