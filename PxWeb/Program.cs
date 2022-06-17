@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using PxWeb.Code.Api2;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
+using Px.Abstractions.DataSource;
+using Px.Abstractions.Interfaces;
 
 namespace PxWeb
 {
@@ -39,6 +41,11 @@ namespace PxWeb
 
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+            //TODO: Get datasource from appsetting 
+            builder.Services.AddTransient<IDataSource, CnmmDataSource>();
+            builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
+
 
             // Add configuration
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));

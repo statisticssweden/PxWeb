@@ -15,6 +15,7 @@ using System.ComponentModel.DataAnnotations;
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
 using Px.Abstractions.DataSource;
+using Px.Abstractions.Interfaces;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -24,6 +25,13 @@ namespace PxWeb.Controllers.Api2
     [ApiController]
     public class NavigationApiController : ControllerBase
     {
+        private readonly IDataSource _dataSource;
+
+        public NavigationApiController(IDataSource dataSource)
+        {
+            _dataSource = dataSource;
+        }
+
         /// <summary>
         /// Gets navigation item with the given id.
         /// </summary>
@@ -37,8 +45,9 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
         public virtual IActionResult GetNavigationById([FromRoute][Required] string id, [FromQuery] string lang)
         {
-            CnmmDataSource src = new CnmmDataSource();
-            src.CreateMenu(id, lang);
+
+            
+            _dataSource.CreateMenu(id, lang);
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));
@@ -65,10 +74,7 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
         public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
         {
-            //TODO: Get datasource from appsetting via dependency injection
-            //CnmmDataSource src = new CnmmDataSource();
-            PxFileDataSource src = new PxFileDataSource();
-            src.CreateMenu("", lang);
+            _dataSource.CreateMenu("", lang);
             
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));
