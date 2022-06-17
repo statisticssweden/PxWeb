@@ -4,18 +4,16 @@ using Microsoft.Extensions.Caching.Memory;
 using PCAxis.Menu;
 using Px.Abstractions.Interfaces;
 
-namespace PxWeb.Code.DataSource.Cnmm
+namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
     public class ItemSelectionResolverCnmm : IItemSelectionResolver
     {
         private readonly IMemoryCache _memoryCache;
-
-        private const string CacheKey = "lookupTableCacheKey";
-
-
-        public ItemSelectionResolverCnmm(IMemoryCache memoryCache)
+        private readonly IItemSelectionResolverFactory _pcAxisFactory;
+        public ItemSelectionResolverCnmm(IMemoryCache memoryCache, IItemSelectionResolverFactory pcAxisFactory)
         {
             _memoryCache = memoryCache;
+            _pcAxisFactory = pcAxisFactory;
         }
 
         public ItemSelection Resolve(string selection)
@@ -24,10 +22,11 @@ namespace PxWeb.Code.DataSource.Cnmm
             
             if (!_memoryCache.TryGetValue("LookUpTableCache", out Dictionary<string,string> lookupTable))
             {
-                lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"].GetMenuLookup();  
+                lookupTable = _pcAxisFactory.GetMenuLookup();  
+                //lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"].GetMenuLookup();  
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromSeconds(30));
+                    .SetSlidingExpiration(TimeSpan.FromSeconds(3));
 
                 _memoryCache.Set("LookUpTableCache", lookupTable, cacheEntryOptions);
             }
