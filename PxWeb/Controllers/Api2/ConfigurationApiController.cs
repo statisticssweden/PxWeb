@@ -51,10 +51,10 @@ namespace PxWeb.Controllers.Api2
                 {
                     ApiVersion = op.ApiVersion,
                     Languages = op.Languages.Select(x => new Language
-                        {
-                         Id = x.Id,
-                         Lable = x.Label
-                        }
+                    {
+                        Id = x.Id,
+                        Lable = x.Label
+                    }
                     ).ToList(),
                     SourceReferences = op.SourceReferences.Select(x => new Models.Api2.SourceReference
                     {
@@ -65,7 +65,7 @@ namespace PxWeb.Controllers.Api2
                     DefaultLanguage = op.DefaultLanguage,
                     License = op.License,
                     MaxCalls = op.MaxCalls,
-                    MaxDataCells = op.MaxDataCells, 
+                    MaxDataCells = op.MaxDataCells,
                     TimeWindow = op.TimeWindow,
                 };
 
