@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Code.Api2.DataSource
 {
@@ -9,9 +10,17 @@ namespace PxWeb.Code.Api2.DataSource
     }
     public class ItemSelectionResolverFactory : IItemSelectionResolverFactory
     {
+        private readonly ICnmmConfigurationService _cnmmConfigurationService;
+
+        public ItemSelectionResolverFactory(ICnmmConfigurationService cnmmConfigurationService)
+        {
+            _cnmmConfigurationService = cnmmConfigurationService;
+        }
+
         public Dictionary<string, string> GetMenuLookup()
          {
-             return PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"].GetMenuLookup();
+            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
+            return PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[cnmmOptions.DatabaseID].GetMenuLookup();
         }
     }
 }
