@@ -1,28 +1,33 @@
 ﻿using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using Px.Abstractions.Interfaces;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
     public class CnmmDataSource : IDataSource
     {
+        private readonly ICnmmConfigurationService _cnmmConfigurationService;
         private readonly IItemSelectionResolver _itemSelectionResolver;
         private readonly IItemSelectionResolverFactory _pcAxisFactory;
 
-        public CnmmDataSource(IItemSelectionResolver itemSelectionResolver,IItemSelectionResolverFactory pcAxisFactory)
+        public CnmmDataSource(ICnmmConfigurationService cnmmConfigurationService, IItemSelectionResolver itemSelectionResolver,IItemSelectionResolverFactory pcAxisFactory)
         {
+            _cnmmConfigurationService = cnmmConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
             _pcAxisFactory = pcAxisFactory;
         }
 
         public PxMenuBase CreateMenu(string id, string language)
         {
+            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
+
             ItemSelection itmSel = _itemSelectionResolver.Resolve(id);
             
             //Create database object to return
             DatamodelMenu retMenu = ConfigDatamodelMenu.Create(
                 language,
-                PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"],
+                PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[cnmmOptions.DatabaseID],
                 m =>
                                         {
                                             //m.RootSelection = string.IsNullOrEmpty(nodeId) ? new ItemSelection() : PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId);

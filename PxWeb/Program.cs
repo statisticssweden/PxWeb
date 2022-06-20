@@ -48,18 +48,25 @@ namespace PxWeb
 
             //TODO: Get datasource from appsetting 
 
-            var dataSource = builder.Configuration.GetSection("PxApiConfiguration:DataSource");
+            var dataSource = builder.Configuration.GetSection("DataSource:DataSource");
             
             if(dataSource.Value.ToUpper() == "PX")
+            {
                 builder.Services.AddTransient<IDataSource, PxFileDataSource>();
+
+            }
             else
+            {
                 builder.Services.AddTransient<IDataSource, CnmmDataSource>();
-            
-            builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
-            builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverFactory>();
+                builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
+                builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverFactory>();
+            }
 
 
             // Add configuration
+            builder.Services.Configure<CnmmConfigurationOptions>(builder.Configuration.GetSection("DataSource:CNMM"));
+            builder.Services.AddTransient<ICnmmConfigurationService, CnmmConfigurationService>();
+
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
 
