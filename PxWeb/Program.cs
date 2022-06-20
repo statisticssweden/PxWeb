@@ -47,7 +47,14 @@ namespace PxWeb
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
             //TODO: Get datasource from appsetting 
-            builder.Services.AddTransient<IDataSource, PxFileDataSource>();
+
+            var dataSource = builder.Configuration.GetSection("PxApiConfiguration:DataSource");
+            
+            if(dataSource.Value.ToUpper() == "PX")
+                builder.Services.AddTransient<IDataSource, PxFileDataSource>();
+            else
+                builder.Services.AddTransient<IDataSource, CnmmDataSource>();
+            
             builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
             builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverFactory>();
 
