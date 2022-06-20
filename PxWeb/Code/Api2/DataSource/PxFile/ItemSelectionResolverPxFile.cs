@@ -1,7 +1,7 @@
 ﻿using PCAxis.Menu;
 using Px.Abstractions.Interfaces;
 
-namespace PxWeb.Code.DataSource.PxFile
+namespace PxWeb.Code.Api2.DataSource.PxFile
 {
     public class ItemSelectionResolverPxFile : IItemSelectionResolver
     {

@@ -1,11 +1,11 @@
-﻿using PCAxis.Sql;
-using PCAxis.Sql.DbClient;
-using PCAxis.Sql.DbConfig;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using PCAxis.Sql;
+using PCAxis.Sql.DbClient;
+using PCAxis.Sql.DbConfig;
 
-namespace PxWeb.Code.DataSource.Cnmm
+namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
     public static class SqlDbConfigExtensions
     {

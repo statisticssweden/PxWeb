@@ -8,8 +8,8 @@ using PxWeb.Code.Api2;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
 using Px.Abstractions.Interfaces;
-using PxWeb.Code.DataSource.Cnmm;
-using PxWeb.Code.DataSource.PxFile;
+using PxWeb.Code.Api2.DataSource;
+using PxWeb.Code.Api2.DataSource.Cnmm;
 
 namespace PxWeb
 {
@@ -46,6 +46,7 @@ namespace PxWeb
             //TODO: Get datasource from appsetting 
             builder.Services.AddTransient<IDataSource, PxFileDataSource>();
             builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
+            builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverFactory>();
 
 
             // Add configuration
