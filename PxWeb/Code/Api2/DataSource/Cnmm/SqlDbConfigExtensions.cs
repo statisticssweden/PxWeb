@@ -41,21 +41,17 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
-                if (menuLookup.ContainsKey(row[1] as string))
+                string key = row[1].ToString().ToUpper();
+
+                // TODO: Is this ok? What happens if the table/node are present on many nodes?
+                if (!menuLookup.ContainsKey(key))
                 {
-                    Console.WriteLine(row[0] + " " + row[1]);
+                    menuLookup.Add(key, row[0] as string); // Key always uppercase
                 }
                 else
                 {
-                    //menuLookup.Add(row[1].ToString().ToUpper(), row[0] as string); // Key always uppercase
-
-                    string key = row[1].ToString().ToUpper();
-
-                    // TODO: Is this ok? What happens if the table/node are present on many nodes?
-                    if (!menuLookup.ContainsKey(key))
-                    {
-                        menuLookup.Add(key, row[0] as string); // Key always uppercase
-                    }
+                    // TODO: Log that this is a duplicate key
+                    Console.WriteLine(row[0] + " " + row[1]);
                 }
             }
 
