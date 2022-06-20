@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System.IO;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Hosting;
 using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using Px.Abstractions.Interfaces;
@@ -7,6 +9,13 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 {
     public class PxFileDataSource : IDataSource
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+        public PxFileDataSource(IHostingEnvironment hostingEnvironment)
+        {
+            _hostingEnvironment = hostingEnvironment;
+        }
+        
         public PxMenuBase CreateMenu(string id, string language)
         {
             ////Get menu-file
@@ -22,10 +31,13 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             //    //string _xmlFile = HttpContext.Current.Server.MapPath(sb.ToString());
 
             //TODO: get path to database from appsetting
-            string _xmlFile = @"C:\dev\Github\PxWeb\PXWeb\Resources\PX\Databases\Example\Menu.xml";
-            //string contentRootPath = _webHostEnvironment.ContentRootPath;
+            //string _xmlFile = @"C:\dev\Github\PxWeb\PXWeb\Resources\PX\Databases\Example\Menu.xml";
+            //string contentRootPath = _hostingEnvironment.ContentRootPath;
+            string webRootPath = _hostingEnvironment.WebRootPath;
+            string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
 
-            XmlMenu menu = new XmlMenu(XDocument.Load(_xmlFile), language,
+
+            XmlMenu menu = new XmlMenu(XDocument.Load(xmlFilePath), language,
                     m =>
                     {
                         m.Restriction = item =>
