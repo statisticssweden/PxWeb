@@ -10,7 +10,7 @@ using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 
-namespace PxWeb.UnitTests.NewFolder
+namespace PxWeb.UnitTests.DataSource
 {
     [TestClass]
     public class CnmmDataSourceTest

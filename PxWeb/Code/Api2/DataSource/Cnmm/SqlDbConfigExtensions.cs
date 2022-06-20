@@ -47,7 +47,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                 }
                 else
                 {
-                    menuLookup.Add(row[1] as string, row[0] as string);
+                    menuLookup.Add(row[1].ToString().ToUpper(), row[0] as string); // Key always uppercase
                 }
             }
 

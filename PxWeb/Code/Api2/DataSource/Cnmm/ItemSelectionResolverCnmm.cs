@@ -25,14 +25,15 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                 lookupTable = _pcAxisFactory.GetMenuLookup();  
                 //lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"].GetMenuLookup();  
 
+                // TODO: Get cache time from appsetting
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromSeconds(3));
 
                 _memoryCache.Set("LookUpTableCache", lookupTable, cacheEntryOptions);
             }
-            
+
             //todo: what todo if selection not present in lookuptable? 
-            var itemSelection = string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection(lookupTable[selection.ToUpper()], selection.ToUpper());
+            var itemSelection = string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection(lookupTable[selection.ToUpper()], selection);
             
             return itemSelection;
         }
