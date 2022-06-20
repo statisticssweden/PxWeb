@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <Folder Include="Mappers\" />
+    <Folder Include="wwwroot\Database\" />
   </ItemGroup>
 
   <ItemGroup>

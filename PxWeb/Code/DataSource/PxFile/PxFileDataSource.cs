@@ -23,6 +23,8 @@ namespace PxWeb.Code.DataSource.PxFile
 
             //TODO: get path to database from appsetting
             string _xmlFile = @"C:\dev\Github\PxWeb\PXWeb\Resources\PX\Databases\Example\Menu.xml";
+            //string contentRootPath = _webHostEnvironment.ContentRootPath;
+
             XmlMenu menu = new XmlMenu(XDocument.Load(_xmlFile), language,
                     m =>
                     {

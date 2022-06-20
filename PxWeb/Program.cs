@@ -9,6 +9,7 @@ using PxWeb.Config.Api2;
 using System.Collections.Generic;
 using Px.Abstractions.Interfaces;
 using PxWeb.Code.DataSource.Cnmm;
+using PxWeb.Code.DataSource.PxFile;
 
 namespace PxWeb
 {
@@ -43,7 +44,7 @@ namespace PxWeb
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
             //TODO: Get datasource from appsetting 
-            builder.Services.AddTransient<IDataSource, CnmmDataSource>();
+            builder.Services.AddTransient<IDataSource, PxFileDataSource>();
             builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
 
 

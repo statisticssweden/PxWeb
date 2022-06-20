@@ -1,0 +1,45 @@
+CHARSET="ANSI";
+AXIS-VERSION="2006";
+LANGUAGE="en";
+CREATION-DATE="20060705 14:21";
+DECIMALS=2;
+SHOWDECIMALS=1;
+MATRIX="PR0101B3";
+AGGREGALLOWED=NO;
+SUBJECT-AREA="Prices and Consumption";
+SUBJECT-CODE="PR";
+TITLE="Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group and"
+"period";
+CONTENTS="Consumer Price Index (CPI) (by COICOP), 1980=100";
+UNITS="Index";
+STUB="Product group";
+HEADING="period";
+VALUES("Product group")="01 Food and non-alcoholic beverages","01.1 Food","01.1.1 Bread and cereals",
+"01.1.2 Meat","01.1.3 Fish","01.1.4 Milk, cheese and eggs","01.1.5 Oils and fats","01.1.6 Fruit";
+VALUES("period")="2006M01","2006M02","2006M03","2006M04","2006M05";
+TIMEVAL("period")=TLIST(M1),"200601","200602","200603","200604","200605";
+CODES("Product group")="01","01.1","01.1.1","01.1.2","01.1.3","01.1.4","01.1.5","01.1.6";
+DOMAIN("Product group")="Product group COICOP";
+LAST-UPDATED="20060611 14:31";
+STOCKFA="A";
+SOURCE="Statistics Sweden";
+CONTACT="Stefan Gunér, SCB#Tel: 08-506 940 75#Fax: 08-506 946 04#E-mail: stefan.guner@sc"
+"b.se#Martin Ribe, SCB#Tel: 08-506 948 54#Fax: 08-506 946 04#E-mail: martin.ribe"
+"@scb.se";
+DATABASE="SDB";
+BASEPERIOD="1980";
+INFOFILE="PR0101";
+NOTEX="Index numbers for main and subgroups have in some cases been adjusted to take i"
+"nto account certain inadequacies in the basic data on prices or in the methods "
+"used for calculating the originally published index numbers. They are consisten"
+"t with shadow index numbers for total CPI. Product classification follows COICO"
+"P (Classification of Individual Consumption by Purpose).";
+DATA=
+236.96 238.58 238.72 238.29 242.10 
+246.09 247.92 248.02 247.59 251.92 
+245.29 243.62 245.30 244.74 244.98 
+229.29 232.20 232.15 232.04 232.88 
+316.30 314.92 321.89 315.31 332.75 
+266.87 267.35 266.96 266.31 267.75 
+208.83 211.21 211.75 211.54 211.70 
+232.19 227.03 231.75 232.83 238.17 
