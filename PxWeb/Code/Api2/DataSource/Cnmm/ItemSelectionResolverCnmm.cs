@@ -9,18 +9,18 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
     public class ItemSelectionResolverCnmm : IItemSelectionResolver
     {
         private readonly IMemoryCache _memoryCache;
-        private readonly IItemSelectionResolverFactory _pcAxisFactory;
-        public ItemSelectionResolverCnmm(IMemoryCache memoryCache, IItemSelectionResolverFactory pcAxisFactory)
+        private readonly IItemSelectionResolverFactory _itemSelectionResolverFactory;
+        public ItemSelectionResolverCnmm(IMemoryCache memoryCache, IItemSelectionResolverFactory itemSelectionResolverFactory)
         {
             _memoryCache = memoryCache;
-            _pcAxisFactory = pcAxisFactory;
+            _itemSelectionResolverFactory = itemSelectionResolverFactory;
         }
 
         public ItemSelection Resolve(string selection)
         {
             if (!_memoryCache.TryGetValue("LookUpTableCache", out Dictionary<string,string> lookupTable))
             {
-                lookupTable = _pcAxisFactory.GetMenuLookup();  
+                lookupTable = _itemSelectionResolverFactory.GetMenuLookup();  
 
                 // TODO: Get cache time from appsetting
                 var cacheEntryOptions = new MemoryCacheEntryOptions()

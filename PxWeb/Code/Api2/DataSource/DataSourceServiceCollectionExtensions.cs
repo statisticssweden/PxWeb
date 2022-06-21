@@ -28,7 +28,7 @@ namespace PxWeb.Code.Api2.DataSource
                 // CNMM data source
                 builder.Services.AddTransient<IDataSource, CnmmDataSource>();
                 builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
-                builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverFactory>();
+                builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverCnmmFactory>();
 
                 // Add configuration
                 builder.Services.Configure<CnmmConfigurationOptions>(builder.Configuration.GetSection("DataSource:CNMM"));

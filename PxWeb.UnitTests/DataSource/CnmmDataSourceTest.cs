@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using PxWeb.Code.Api2.DataSource;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 
 namespace PxWeb.UnitTests.DataSource
