@@ -4,38 +4,27 @@ using Microsoft.AspNetCore.Hosting;
 using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using Px.Abstractions.Interfaces;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Code.Api2.DataSource.PxFile
 {
     public class PxFileDataSource : IDataSource
     {
+        private readonly IPxFileConfigurationService _pxFileConfigurationService;
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        public PxFileDataSource(IHostingEnvironment hostingEnvironment)
+        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IHostingEnvironment hostingEnvironment)
         {
+            _pxFileConfigurationService = pxFileConfigurationService;
             _hostingEnvironment = hostingEnvironment;
         }
         
         public PxMenuBase CreateMenu(string id, string language)
         {
-            ////Get menu-file
-            //DatabaseInfo currentdb = PXWeb.Settings.Current.General.Databases.GetPxDatabase(dbid);
+            var pxOptions = _pxFileConfigurationService.GetConfiguration();
 
-            //if (currentdb != null)
-            //{
-            //    StringBuilder sb = new StringBuilder(PXWeb.Settings.Current.General.Paths.PxDatabasesPath);
-            //    sb.Append("/");
-            //    sb.Append(currentdb.Id);
-            //    sb.Append("/");
-            //    sb.Append(PXWeb.Settings.Current.General.Databases.PxDatabaseFilename);
-            //    //string _xmlFile = HttpContext.Current.Server.MapPath(sb.ToString());
-
-            //TODO: get path to database from appsetting
-            //string _xmlFile = @"C:\dev\Github\PxWeb\PXWeb\Resources\PX\Databases\Example\Menu.xml";
-            //string contentRootPath = _hostingEnvironment.ContentRootPath;
             string webRootPath = _hostingEnvironment.WebRootPath;
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
-
 
             XmlMenu menu = new XmlMenu(XDocument.Load(xmlFilePath), language,
                     m =>

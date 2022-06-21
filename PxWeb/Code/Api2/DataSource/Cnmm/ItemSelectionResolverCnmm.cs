@@ -18,16 +18,13 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
         public ItemSelection Resolve(string selection)
         {
-            //todo : Get ItemSelection from pcaxis.sql from Norway
-            
             if (!_memoryCache.TryGetValue("LookUpTableCache", out Dictionary<string,string> lookupTable))
             {
                 lookupTable = _pcAxisFactory.GetMenuLookup();  
-                //lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases["ssd"].GetMenuLookup();  
 
                 // TODO: Get cache time from appsetting
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromSeconds(3));
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(10));
 
                 _memoryCache.Set("LookUpTableCache", lookupTable, cacheEntryOptions);
             }

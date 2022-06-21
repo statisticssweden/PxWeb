@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace PxWeb.Code.Api2
 {
-    public static class CorsHandler
+    public static class CorsServiceCollectionExtensions
     {
         /// <summary>
         /// Extension method to handle CORS configuration
