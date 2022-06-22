@@ -23,6 +23,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="SqlDb.config.token" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SqlDb.config.token" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\README.md" />
     <None Include="wwwroot\web.config" />
   </ItemGroup>
