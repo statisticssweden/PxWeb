@@ -18,6 +18,8 @@ namespace PxWeb.Code.Api2.DataSource
             {
                 // Px-file data source
                 builder.Services.AddTransient<IDataSource, PxFileDataSource>();
+                builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverPxFile>();
+                builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectorResolverPxFactory>();
 
                 // Add configuration
                 builder.Services.Configure<PxFileConfigurationOptions>(builder.Configuration.GetSection("DataSource:PX"));

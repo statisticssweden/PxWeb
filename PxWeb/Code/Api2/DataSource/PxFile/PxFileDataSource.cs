@@ -11,11 +11,13 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     public class PxFileDataSource : IDataSource
     {
         private readonly IPxFileConfigurationService _pxFileConfigurationService;
+        private readonly IItemSelectionResolver _itemSelectionResolver;
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IHostingEnvironment hostingEnvironment)
+        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, IHostingEnvironment hostingEnvironment)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
+            _itemSelectionResolver = itemSelectionResolver;
             _hostingEnvironment = hostingEnvironment;
         }
         
@@ -25,6 +27,8 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
             string webRootPath = _hostingEnvironment.WebRootPath;
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
+
+            ItemSelection itmSel = _itemSelectionResolver.Resolve(id);
 
             XmlMenu menu = new XmlMenu(XDocument.Load(xmlFilePath), language,
                     m =>
