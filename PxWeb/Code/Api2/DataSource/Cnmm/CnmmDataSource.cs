@@ -22,7 +22,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
 
-            ItemSelection itmSel = _itemSelectionResolver.Resolve(id);
+            ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id);
             
             //Create database object to return
             DatamodelMenu retMenu = ConfigDatamodelMenu.Create(

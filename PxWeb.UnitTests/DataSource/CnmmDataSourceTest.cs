@@ -11,6 +11,7 @@ namespace PxWeb.UnitTests.DataSource
         [TestMethod]
         public void ResolveShouldResolveItemCollection()
         {
+            string language = "en";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
@@ -20,11 +21,11 @@ namespace PxWeb.UnitTests.DataSource
             var testFactory = new TestFactory();
             var dict = testFactory.GetMenuLookup();
             
-            pcAxisFactory.Setup(x => x.GetMenuLookup()).Returns(dict);
+            pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
             
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
             
-            var result = resolver.Resolve("AA0003");
+            var result = resolver.Resolve(language, "AA0003");
 
             Assert.IsNotNull(result);
             Assert.AreEqual("AA", result.Menu);
@@ -34,6 +35,7 @@ namespace PxWeb.UnitTests.DataSource
         [TestMethod]
         public void ResolveEmtySelectionItemShouldReturnStart()
         {
+            string language = "en";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
@@ -44,11 +46,11 @@ namespace PxWeb.UnitTests.DataSource
             var dict = testFactory.GetMenuLookup();
 
 
-            pcAxisFactory.Setup(x => x.GetMenuLookup()).Returns(dict);
+            pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
 
-            var result = resolver.Resolve("");
+            var result = resolver.Resolve(language, "");
 
             Assert.AreEqual("START",result.Menu );
             Assert.AreEqual("START", result.Selection);

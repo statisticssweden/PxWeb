@@ -16,11 +16,14 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             _itemSelectionResolverFactory = itemSelectionResolverFactory;
         }
 
-        public ItemSelection Resolve(string selection)
+        public ItemSelection Resolve(string language, string selection)
         {
+            //TODO: Handle language
+            language = "sv";
+
             if (!_memoryCache.TryGetValue("LookUpTableCache", out Dictionary<string,string> lookupTable))
             {
-                lookupTable = _itemSelectionResolverFactory.GetMenuLookup();  
+                lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);  
 
                 // TODO: Get cache time from appsetting
                 var cacheEntryOptions = new MemoryCacheEntryOptions()

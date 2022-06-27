@@ -4,6 +4,6 @@ namespace Px.Abstractions.Interfaces
 {
     public interface IItemSelectionResolver
     {
-        ItemSelection Resolve(string selection);
+        ItemSelection Resolve(string language, string selection);
     }
 }
