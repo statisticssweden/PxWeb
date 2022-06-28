@@ -14,6 +14,8 @@ using System.ComponentModel.DataAnnotations;
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
 using Px.Abstractions.Interfaces;
+using PxWeb.Config.Api2;
+using PxWeb.Helper.Api2;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -24,10 +26,12 @@ namespace PxWeb.Controllers.Api2
     public class NavigationApiController : ControllerBase
     {
         private readonly IDataSource _dataSource;
-
-        public NavigationApiController(IDataSource dataSource)
+        private readonly ILanguageHelper _languageHelper;
+        
+        public NavigationApiController(IDataSource dataSource,ILanguageHelper languageHelper )
         {
             _dataSource = dataSource;
+            _languageHelper = languageHelper;
         }
 
         /// <summary>
@@ -45,6 +49,8 @@ namespace PxWeb.Controllers.Api2
         public virtual IActionResult GetNavigationById([FromRoute(Name = "id")][Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists = true;
+
+            lang = _languageHelper.HandleLanguage(lang);
 
             _dataSource.CreateMenu(id, lang, out selectionExists);
 
@@ -80,6 +86,8 @@ namespace PxWeb.Controllers.Api2
         public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists;
+
+            lang = _languageHelper.HandleLanguage(lang);
 
             _dataSource.CreateMenu("", lang, out selectionExists);
             

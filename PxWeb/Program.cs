@@ -13,6 +13,7 @@ using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
+using PxWeb.Helper.Api2;
 
 namespace PxWeb
 {
@@ -49,7 +50,9 @@ namespace PxWeb
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
+            
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
+            builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
 
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()
