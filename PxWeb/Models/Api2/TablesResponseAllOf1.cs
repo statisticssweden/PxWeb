@@ -20,20 +20,8 @@ namespace PxWeb.Models.Api2
     /// 
     /// </summary>
     [DataContract]
-    public partial class TablesResponse : IEquatable<TablesResponse>
+    public partial class TablesResponseAllOf1 : IEquatable<TablesResponseAllOf1>
     {
-        /// <summary>
-        /// Gets or Sets Tables
-        /// </summary>
-        [DataMember(Name="tables", EmitDefaultValue=false)]
-        public List<Table> Tables { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Page
-        /// </summary>
-        [DataMember(Name="page", EmitDefaultValue=false)]
-        public PagePage Page { get; set; }
-
         /// <summary>
         /// Gets or Sets Links
         /// </summary>
@@ -47,9 +35,7 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TablesResponse {\n");
-            sb.Append("  Tables: ").Append(Tables).Append("\n");
-            sb.Append("  Page: ").Append(Page).Append("\n");
+            sb.Append("class TablesResponseAllOf1 {\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -73,31 +59,20 @@ namespace PxWeb.Models.Api2
         {
             if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((TablesResponse)obj);
+            return obj.GetType() == GetType() && Equals((TablesResponseAllOf1)obj);
         }
 
         /// <summary>
-        /// Returns true if TablesResponse instances are equal
+        /// Returns true if TablesResponseAllOf1 instances are equal
         /// </summary>
-        /// <param name="other">Instance of TablesResponse to be compared</param>
+        /// <param name="other">Instance of TablesResponseAllOf1 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TablesResponse other)
+        public bool Equals(TablesResponseAllOf1 other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
-                (
-                    Tables == other.Tables ||
-                    Tables != null &&
-                    other.Tables != null &&
-                    Tables.SequenceEqual(other.Tables)
-                ) && 
-                (
-                    Page == other.Page ||
-                    Page != null &&
-                    Page.Equals(other.Page)
-                ) && 
                 (
                     Links == other.Links ||
                     Links != null &&
@@ -116,10 +91,6 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Tables != null)
-                    hashCode = hashCode * 59 + Tables.GetHashCode();
-                    if (Page != null)
-                    hashCode = hashCode * 59 + Page.GetHashCode();
                     if (Links != null)
                     hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
@@ -129,12 +100,12 @@ namespace PxWeb.Models.Api2
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(TablesResponse left, TablesResponse right)
+        public static bool operator ==(TablesResponseAllOf1 left, TablesResponseAllOf1 right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(TablesResponse left, TablesResponse right)
+        public static bool operator !=(TablesResponseAllOf1 left, TablesResponseAllOf1 right)
         {
             return !Equals(left, right);
         }

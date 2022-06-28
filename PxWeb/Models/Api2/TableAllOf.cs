@@ -20,38 +20,11 @@ using PxWeb.Converters;
 namespace PxWeb.Models.Api2
 { 
     /// <summary>
-    /// 
+    /// Table item
     /// </summary>
     [DataContract]
-    public partial class Table : IEquatable<Table>
+    public partial class TableAllOf : IEquatable<TableAllOf>
     {
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=true)]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// One of heading, table, folder or folder-information
-        /// </summary>
-        /// <value>One of heading, table, folder or folder-information</value>
-        [DataMember(Name="objectType", EmitDefaultValue=false)]
-        public string ObjectType { get; set; }
-
-        /// <summary>
-        /// Display text
-        /// </summary>
-        /// <value>Display text</value>
-        [DataMember(Name="label", EmitDefaultValue=true)]
-        public string? Label { get; set; }
-
-        /// <summary>
-        /// Longer text describing node. If no longer text exist, same as label
-        /// </summary>
-        /// <value>Longer text describing node. If no longer text exist, same as label</value>
-        [DataMember(Name="description", EmitDefaultValue=true)]
-        public string? Description { get; set; }
-
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
@@ -148,11 +121,7 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Table {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
-            sb.Append("  Label: ").Append(Label).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class TableAllOf {\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
@@ -183,40 +152,20 @@ namespace PxWeb.Models.Api2
         {
             if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Table)obj);
+            return obj.GetType() == GetType() && Equals((TableAllOf)obj);
         }
 
         /// <summary>
-        /// Returns true if Table instances are equal
+        /// Returns true if TableAllOf instances are equal
         /// </summary>
-        /// <param name="other">Instance of Table to be compared</param>
+        /// <param name="other">Instance of TableAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Table other)
+        public bool Equals(TableAllOf other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
-                (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    ObjectType == other.ObjectType ||
-                    ObjectType != null &&
-                    ObjectType.Equals(other.ObjectType)
-                ) && 
-                (
-                    Label == other.Label ||
-                    Label != null &&
-                    Label.Equals(other.Label)
-                ) && 
-                (
-                    Description == other.Description ||
-                    Description != null &&
-                    Description.Equals(other.Description)
-                ) && 
                 (
                     Tags == other.Tags ||
                     Tags != null &&
@@ -272,14 +221,6 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (ObjectType != null)
-                    hashCode = hashCode * 59 + ObjectType.GetHashCode();
-                    if (Label != null)
-                    hashCode = hashCode * 59 + Label.GetHashCode();
-                    if (Description != null)
-                    hashCode = hashCode * 59 + Description.GetHashCode();
                     if (Tags != null)
                     hashCode = hashCode * 59 + Tags.GetHashCode();
                     if (Updated != null)
@@ -303,12 +244,12 @@ namespace PxWeb.Models.Api2
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Table left, Table right)
+        public static bool operator ==(TableAllOf left, TableAllOf right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Table left, Table right)
+        public static bool operator !=(TableAllOf left, TableAllOf right)
         {
             return !Equals(left, right);
         }
