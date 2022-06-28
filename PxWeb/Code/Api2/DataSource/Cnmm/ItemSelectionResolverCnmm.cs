@@ -19,24 +19,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
         public ItemSelection Resolve(string language, string selection, out bool selectionExists)
         {
-
-            //if (!_memoryCache.TryGetValue("LookUpTableCache", out Dictionary<string,string> lookupTable))
-            //{
-            //    lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);  
-
-            //    // TODO: Get cache time from appsetting
-            //    var cacheEntryOptions = new MemoryCacheEntryOptions()
-            //        .SetSlidingExpiration(TimeSpan.FromMinutes(10));
-
-            //    _memoryCache.Set("LookUpTableCache", lookupTable, cacheEntryOptions);
-            //}
-
-
-            ////todo: what todo if selection not present in lookuptable? 
-            //var itemSelection = string.IsNullOrEmpty(selection) ? new ItemSelection() : new ItemSelection(lookupTable[selection.ToUpper()], selection);
-
-            //return itemSelection;
-
             selectionExists = true;
             ItemSelection itemSelection = new ItemSelection();
 
