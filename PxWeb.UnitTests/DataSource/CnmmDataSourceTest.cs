@@ -11,7 +11,7 @@ namespace PxWeb.UnitTests.DataSource
         [TestMethod]
         public void ResolveShouldResolveItemCollection()
         {
-            string language = "en";
+            string language = "sv";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
@@ -24,8 +24,10 @@ namespace PxWeb.UnitTests.DataSource
             pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
             
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
-            
-            var result = resolver.Resolve(language, "AA0003");
+
+            bool selectionExists;
+
+            var result = resolver.Resolve(language, "AA0003", out selectionExists);
 
             Assert.IsNotNull(result);
             Assert.AreEqual("AA", result.Menu);
@@ -50,7 +52,9 @@ namespace PxWeb.UnitTests.DataSource
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
 
-            var result = resolver.Resolve(language, "");
+            bool selectionExists;
+
+            var result = resolver.Resolve(language, "", out selectionExists);
 
             Assert.AreEqual("START",result.Menu );
             Assert.AreEqual("START", result.Selection);

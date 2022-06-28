@@ -43,12 +43,11 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
         public virtual IActionResult GetNavigationById([FromRoute][Required] string id, [FromQuery] string lang)
         {
+            bool selectionExists = true;
 
-            try
-            {
-                _dataSource.CreateMenu(id, lang);
-            }
-            catch (System.NullReferenceException)
+            _dataSource.CreateMenu(id, lang, out selectionExists);
+
+            if (!selectionExists)
             {
                 return new BadRequestObjectResult("No such node id " + id);
             }
@@ -78,7 +77,9 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
         public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
         {
-            _dataSource.CreateMenu("", lang);
+            bool selectionExists;
+
+            _dataSource.CreateMenu("", lang, out selectionExists);
             
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));

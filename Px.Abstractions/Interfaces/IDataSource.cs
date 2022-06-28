@@ -4,14 +4,14 @@ namespace Px.Abstractions.Interfaces
 {
     public interface IDataSource
     {
-
         /// <summary>
         /// Get Menu
         /// </summary>
         /// <param name="id"></param>
         /// <param name="language"></param>
+        /// <param name="selectionExists"></param>
         /// <returns></returns>
-        PxMenuBase CreateMenu(string id, string language);
+        PxMenuBase CreateMenu(string id, string language, out bool selectionExists);
 
         ///// <summary>
         ///// Create builder

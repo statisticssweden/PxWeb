@@ -21,14 +21,14 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             _hostingEnvironment = hostingEnvironment;
         }
         
-        public PxMenuBase CreateMenu(string id, string language)
+        public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
         {
             var pxOptions = _pxFileConfigurationService.GetConfiguration();
 
             string webRootPath = _hostingEnvironment.WebRootPath;
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
 
-            ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id);
+            ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id, out selectionExists);
 
             XmlMenu menu = new XmlMenu(XDocument.Load(xmlFilePath), language,
                     m =>
@@ -38,14 +38,8 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                             return true;
                         };
                     });
-
-            //ItemSelection cid = PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.PX).GetSelection(nodeId);
             menu.SetCurrentItemBySelection(itmSel.Menu, itmSel.Selection);
-            //currentItem = menu.CurrentItem;
             return menu;
-            //}
-            //currentItem = null;
-            //return null;
         }
     }
 }
