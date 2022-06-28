@@ -38,9 +38,8 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             {
                 if (lookupTable.ContainsKey(selection.ToUpper()))
                 {
-                    string menu = lookupTable[selection.ToUpper()];
-                    itemSelection.Menu = menu;
-                    itemSelection.Selection = Path.Combine(menu, selection);
+                    itemSelection.Menu = lookupTable[selection.ToUpper()];
+                    itemSelection.Selection = selection;
                 }
                 else
                 {
