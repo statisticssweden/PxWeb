@@ -22,38 +22,38 @@ namespace PxWeb.Filters.Api2
 
             foreach (var par in pars)
             {
-                var swaggerParam = operation.Parameters.SingleOrDefault(p => p.Name == par.Name);
+                var openapiParam = operation.Parameters.SingleOrDefault(p => p.Name == par.Name);
 
-                var attributes = ((ControllerParameterDescriptor)par.ParameterDescriptor).ParameterInfo.CustomAttributes;
+                var attributes = ((ControllerParameterDescriptor)par.ParameterDescriptor).ParameterInfo.CustomAttributes.ToList();
 
-                if (attributes != null && attributes.Count() > 0 && swaggerParam != null)
+                // See https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/1147
+                // and https://mikeralphson.github.io/openapi/2017/03/15/openapi3.0.0-rc0
+                // Basically OpenAPI v3 body parameters are split out into RequestBody and the properties have moved to schema
+                if (attributes.Any() && openapiParam != null)
                 {
                     // Required - [Required]
                     var requiredAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(RequiredAttribute));
                     if (requiredAttr != null)
                     {
-                        swaggerParam.Required = true;
+                        openapiParam.Required = true;
                     }
 
                     // Regex Pattern [RegularExpression]
                     var regexAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(RegularExpressionAttribute));
                     if (regexAttr != null)
                     {
-                        string regex = (string)regexAttr.ConstructorArguments[0].Value;
-                        if (swaggerParam is OpenApiParameter)
-                        {
-                            ((OpenApiParameter)swaggerParam).Schema.Pattern = regex;
-                        }
+                        var regex = (string)regexAttr.ConstructorArguments[0].Value;
+                        openapiParam.Schema.Pattern = regex;
                     }
 
                     // String Length [StringLength]
-                    int? minLenght = null, maxLength = null;
+                    int? minLength = null, maxLength = null;
                     var stringLengthAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(StringLengthAttribute));
                     if (stringLengthAttr != null)
                     {
                         if (stringLengthAttr.NamedArguments.Count == 1)
                         {
-                            minLenght = (int)stringLengthAttr.NamedArguments.Single(p => p.MemberName == "MinimumLength").TypedValue.Value;
+                            minLength = (int)stringLengthAttr.NamedArguments.Single(p => p.MemberName == "MinimumLength").TypedValue.Value;
                         }
                         maxLength = (int)stringLengthAttr.ConstructorArguments[0].Value;
                     }
@@ -61,7 +61,7 @@ namespace PxWeb.Filters.Api2
                     var minLengthAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(MinLengthAttribute));
                     if (minLengthAttr != null)
                     {
-                        minLenght = (int)minLengthAttr.ConstructorArguments[0].Value;
+                        minLength = (int)minLengthAttr.ConstructorArguments[0].Value;
                     }
 
                     var maxLengthAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(MaxLengthAttribute));
@@ -70,27 +70,105 @@ namespace PxWeb.Filters.Api2
                         maxLength = (int)maxLengthAttr.ConstructorArguments[0].Value;
                     }
 
-                    if (swaggerParam is OpenApiParameter)
+                    if (minLength != null)
                     {
-                        ((OpenApiParameter)swaggerParam).Schema.MinLength = minLenght;
-                        ((OpenApiParameter)swaggerParam).Schema.MaxLength = maxLength;
+                        openapiParam.Schema.MinLength = minLength;
+                    }
+
+                    if (maxLength != null)
+                    {
+                        openapiParam.Schema.MaxLength = maxLength;
                     }
 
                     // Range [Range]
                     var rangeAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(RangeAttribute));
                     if (rangeAttr != null)
                     {
-                        int rangeMin = (int)rangeAttr.ConstructorArguments[0].Value;
-                        int rangeMax = (int)rangeAttr.ConstructorArguments[1].Value;
+                        var rangeMin = (int)rangeAttr.ConstructorArguments[0].Value;
+                        var rangeMax = (int)rangeAttr.ConstructorArguments[1].Value;
 
-                        if (swaggerParam is OpenApiParameter)
-                        {
-                            ((OpenApiParameter)swaggerParam).Schema.Minimum = rangeMin;
-                            ((OpenApiParameter)swaggerParam).Schema.Maximum = rangeMax;
-                        }
+                        openapiParam.Schema.MinLength = rangeMin;
+                        openapiParam.Schema.MaxLength = rangeMax;
                     }
                 }
             }
         }
+
+        //public void Apply(OpenApiOperation operation, OperationFilterContext context)
+        //{
+        //    var pars = context.ApiDescription.ParameterDescriptions;
+
+        //    foreach (var par in pars)
+        //    {
+        //        var swaggerParam = operation.Parameters.SingleOrDefault(p => p.Name == par.Name);
+
+        //        var attributes = ((ControllerParameterDescriptor)par.ParameterDescriptor).ParameterInfo.CustomAttributes;
+
+        //        if (attributes != null && attributes.Count() > 0 && swaggerParam != null)
+        //        {
+        //            // Required - [Required]
+        //            var requiredAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(RequiredAttribute));
+        //            if (requiredAttr != null)
+        //            {
+        //                swaggerParam.Required = true;
+        //            }
+
+        //            // Regex Pattern [RegularExpression]
+        //            var regexAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(RegularExpressionAttribute));
+        //            if (regexAttr != null)
+        //            {
+        //                string regex = (string)regexAttr.ConstructorArguments[0].Value;
+        //                if (swaggerParam is OpenApiParameter)
+        //                {
+        //                    ((OpenApiParameter)swaggerParam).Schema.Pattern = regex;
+        //                }
+        //            }
+
+        //            // String Length [StringLength]
+        //            int? minLenght = null, maxLength = null;
+        //            var stringLengthAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(StringLengthAttribute));
+        //            if (stringLengthAttr != null)
+        //            {
+        //                if (stringLengthAttr.NamedArguments.Count == 1)
+        //                {
+        //                    minLenght = (int)stringLengthAttr.NamedArguments.Single(p => p.MemberName == "MinimumLength").TypedValue.Value;
+        //                }
+        //                maxLength = (int)stringLengthAttr.ConstructorArguments[0].Value;
+        //            }
+
+        //            var minLengthAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(MinLengthAttribute));
+        //            if (minLengthAttr != null)
+        //            {
+        //                minLenght = (int)minLengthAttr.ConstructorArguments[0].Value;
+        //            }
+
+        //            var maxLengthAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(MaxLengthAttribute));
+        //            if (maxLengthAttr != null)
+        //            {
+        //                maxLength = (int)maxLengthAttr.ConstructorArguments[0].Value;
+        //            }
+
+        //            if (swaggerParam is OpenApiParameter)
+        //            {
+        //                ((OpenApiParameter)swaggerParam).Schema.MinLength = minLenght;
+        //                ((OpenApiParameter)swaggerParam).Schema.MaxLength = maxLength;
+        //            }
+
+        //            // Range [Range]
+        //            var rangeAttr = attributes.FirstOrDefault(p => p.AttributeType == typeof(RangeAttribute));
+        //            if (rangeAttr != null)
+        //            {
+        //                int rangeMin = (int)rangeAttr.ConstructorArguments[0].Value;
+        //                int rangeMax = (int)rangeAttr.ConstructorArguments[1].Value;
+
+        //                if (swaggerParam is OpenApiParameter)
+        //                {
+        //                    ((OpenApiParameter)swaggerParam).Schema.Minimum = rangeMin;
+        //                    ((OpenApiParameter)swaggerParam).Schema.Maximum = rangeMax;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

@@ -12,9 +12,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     {
         private readonly IPxFileConfigurationService _pxFileConfigurationService;
         private readonly IItemSelectionResolver _itemSelectionResolver;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, IHostingEnvironment hostingEnvironment)
+        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, IWebHostEnvironment hostingEnvironment)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;

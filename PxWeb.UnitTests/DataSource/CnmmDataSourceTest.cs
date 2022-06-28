@@ -1,7 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using PCAxis.Menu;
+using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.UnitTests.DataSource
 {
@@ -61,25 +64,35 @@ namespace PxWeb.UnitTests.DataSource
         }
 
 
-
+        [Ignore]
         [TestMethod]
         public void ShouldReturnMenu()
         {
+            //todo, mock database 
+            string language = "en";
+            var memorymock = new Mock<IMemoryCache>();
+            var entryMock = new Mock<ICacheEntry>();
+            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
-           // var resolverMock = new Mock<IItemSelectionResolver>();
+            var configServiceMock = new Mock<ICnmmConfigurationService>(); 
 
-           // ItemSelection itemSelection = new ItemSelection();
+            var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
-           // resolverMock.Setup(x => x.Resolve(It.IsAny<string>())).Returns(itemSelection);
-           ////resolverMock.Setup(x => x.Resolve(). )
-
-           // var datasource = new CnmmDataSource(resolverMock.Object);
-            
-           // var result = datasource.CreateMenu("hej", "hej");
+            var testFactory = new TestFactory();
+            var dict = testFactory.GetMenuLookup();
 
 
+            pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
 
+            var datasource = new CnmmDataSource(configServiceMock.Object,  resolver );
+
+            bool selectionExists;
+
+            var result = datasource.CreateMenu("AA0003", language, out selectionExists);
+
+            Assert.IsNotNull(result);
         }
 
     }

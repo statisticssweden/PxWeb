@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PCAxis.Menu;
+﻿using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
@@ -10,13 +9,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
     {
         private readonly ICnmmConfigurationService _cnmmConfigurationService;
         private readonly IItemSelectionResolver _itemSelectionResolver;
-        private readonly IItemSelectionResolverFactory _pcAxisFactory;
 
-        public CnmmDataSource(ICnmmConfigurationService cnmmConfigurationService, IItemSelectionResolver itemSelectionResolver,IItemSelectionResolverFactory pcAxisFactory)
+        public CnmmDataSource(ICnmmConfigurationService cnmmConfigurationService, IItemSelectionResolver itemSelectionResolver)
         {
             _cnmmConfigurationService = cnmmConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
-            _pcAxisFactory = pcAxisFactory;
         }
 
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)

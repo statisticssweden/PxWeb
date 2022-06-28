@@ -41,7 +41,8 @@ namespace PxWeb.Controllers.Api2
         [ValidateModelState]
         [SwaggerOperation("GetNavigationById")]
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
-        public virtual IActionResult GetNavigationById([FromRoute][Required] string id, [FromQuery] string lang)
+        //public virtual IActionResult GetNavigationById([FromRoute][Required] string id, [FromQuery] string lang)
+        public virtual IActionResult GetNavigationById([FromRoute(Name = "id")][Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists = true;
 
@@ -75,7 +76,8 @@ namespace PxWeb.Controllers.Api2
         [SwaggerOperation("GetNavigationRoot")]
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
         [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
-        public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
+        //public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
+        public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists;
 
