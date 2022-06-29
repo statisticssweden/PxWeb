@@ -11,5 +11,8 @@
         <asp:DropDownList ID="cboLanguage" runat="server" AutoPostBack="true" ></asp:DropDownList>
         <asp:ImageButton ID="imgSelectPreferredLanguageInfo" runat="server" onclick="imgSelectPreferredLanguage_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
+    <div>
+        <asp:TextBox ID="textID" runat="server" Text"T<%% PxString: sujefi %></asp:TextBox>
+    </div>
 
 </asp:Content>

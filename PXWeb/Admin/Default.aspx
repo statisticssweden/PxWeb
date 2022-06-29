@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminDefault.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PXWeb.Admin.Default" Title="PX-Web Administration" %>
+﻿<pxc:JavascriptTester ID="JavascriptTester1" runat="server"></pxc:JavascriptTester>
+
+<%@ Page Language="C#" MasterPageFile="~/Admin/AdminDefault.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PXWeb.Admin.Default" Title="PX-Web Administration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderAdmin" runat="server">
 <center>
     <div id="AdminHomeWrapper">
