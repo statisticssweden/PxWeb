@@ -248,6 +248,7 @@
     <Content Include="Admin\Features-Search-General.aspx" />
     <Content Include="Admin\Settings-Navigation.aspx" />
     <Content Include="Admin\Users-General.aspx" />
+    <Content Include="Admin\Tools-XMLGenerator.aspx" />
     <Content Include="ApiHelp.aspx" />
     <Content Include="DbScript\SQL\Create_SavedQueryMeta.sql" />
     <Content Include="Login.aspx" />
@@ -562,6 +563,13 @@
     </Compile>
     <Compile Include="Admin\Users-General.aspx.designer.cs">
       <DependentUpon>Users-General.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Tools-XMLGenerator.aspx.cs">
+      <DependentUpon>Tools-XMLGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Tools-XMLGenerator.aspx.designer.cs">
+      <DependentUpon>Tools-XMLGenerator.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApiHelp.aspx.cs">
       <DependentUpon>ApiHelp.aspx</DependentUpon>
