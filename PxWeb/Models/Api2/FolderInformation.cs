@@ -15,12 +15,16 @@ using System.Runtime.Serialization;
 using System.Text;
 
 namespace PxWeb.Models.Api2
-{ 
+{
+    // TODO: Wrong parent created by yaml
+
+
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class FolderInformation : IEquatable<FolderInformation>
+    //public partial class FolderInformation : IEquatable<FolderInformation>
+    public partial class FolderInformation : FolderContentItem
     {
         /// <summary>
         /// Gets or Sets Id

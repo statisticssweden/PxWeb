@@ -16,6 +16,7 @@ using PxWeb.Attributes.Api2;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
 using PxWeb.Helper.Api2;
+using PCAxis.Menu;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -52,22 +53,62 @@ namespace PxWeb.Controllers.Api2
 
             lang = _languageHelper.HandleLanguage(lang);
 
-            _dataSource.CreateMenu(id, lang, out selectionExists);
+            PxMenuBase menu = _dataSource.CreateMenu(id, lang, out selectionExists);
 
             if (!selectionExists)
             {
                 return new BadRequestObjectResult("No such node id " + id);
             }
 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Folder));
-            string exampleJson = null;
-            exampleJson = "{\n  \"description\" : \"description\",\n  \"folderContents\" : [ {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  }, {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  } ],\n  \"links\" : [ {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  }, {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  } ],\n  \"id\" : \"id\",\n  \"label\" : \"label\",\n  \"objectType\" : \"objectType\",\n  \"tags\" : [ \"tags\", \"tags\" ]\n}";
+            if (menu == null)
+            {
+                return new BadRequestObjectResult("Error reading data");
+            }
 
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Folder>(exampleJson)
-            : default(Folder);            //TODO: Change the data returned
-            return new ObjectResult(example);
+            if (menu.CurrentItem == null)
+            {
+                return new BadRequestObjectResult("Error reading node data");
+            }
+
+            PxMenuItem itm = (PxMenuItem)menu.CurrentItem;
+
+            Folder folder = new Folder
+            {
+                Id = itm.ID.Selection,
+                ObjectType = typeof(Folder).Name,
+                Label = itm.Text,
+                Description = itm.Description,
+                Tags = null // TODO: Implement later
+            };
+
+            foreach(Item child in itm.SubItems)
+            {
+                //switch (child.GetType())
+                //{
+                //    case typeof(PxMenuItem):
+                //        FolderInformation fi = new FolderInformation
+                //        {
+                //            Description = ""
+                //        };
+                //        folder.FolderContents.Add(fi);
+                //    default:
+                //        break;
+                //}
+
+            }
+
+            ////TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            //// return StatusCode(200, default(Folder));
+            //string exampleJson = null;
+            //exampleJson = "{\n  \"description\" : \"description\",\n  \"folderContents\" : [ {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  }, {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  } ],\n  \"links\" : [ {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  }, {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  } ],\n  \"id\" : \"id\",\n  \"label\" : \"label\",\n  \"objectType\" : \"objectType\",\n  \"tags\" : [ \"tags\", \"tags\" ]\n}";
+
+            //var example = exampleJson != null
+            //? JsonConvert.DeserializeObject<Folder>(exampleJson)
+            //: default(Folder);            //TODO: Change the data returned
+            //return new ObjectResult(example);
+
+            return new ObjectResult(folder);
+
         }
 
         /// <summary>

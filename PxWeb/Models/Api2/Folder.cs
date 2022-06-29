@@ -22,6 +22,12 @@ namespace PxWeb.Models.Api2
     [DataContract]
     public partial class Folder : IEquatable<Folder>
     {
+        // TODO: Not created by yaml
+        public Folder()
+        {
+            FolderContents = new List<FolderContentItem> { };   
+        }
+        
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
