@@ -19,21 +19,24 @@ namespace PXWeb.Admin
 {
     public partial class Tools_XMLGenerator : System.Web.UI.Page
     {
-        string _fallbackPath;
-        string _languagePath;
-        XmlNodeList _xmlnodesFallback;
+        protected void fillDatabases(DropDownList ddl)
+        {
+            foreach (var db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
+            {
+                ddl.Items.Add(new ListItem(db.Id, db.Id));
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GetCultures();
-
-                foreach (var db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
-                {
-                    cboSelectDb.Items.Add(new ListItem(db.Id, db.Id));
-                }
-
+                GetCultures(cboLanguage);
+                fillDatabases(cboSelectDb);
+                List<DropDownList> list = new List<DropDownList> { new DropDownList() };
+                GetCultures(list[0]);
+                rptLanguages.DataSource = list;
+                rptLanguages.DataBind();
             }
 
         }
@@ -67,7 +70,12 @@ namespace PXWeb.Admin
 
         protected void btnGenerateXML_Click(object sender, EventArgs e)
         {
-
+            string baseURI = textBoxSelectBaseURI.Text;
+            string catalogTitle = textBoxSelectCatalogTitle.Text;
+            string catalogDescription = textBoxSelectCatalogDesc.Text;
+            string license = textBoxSelectLicense.Text;
+            string preferredLanguage = string.Join("",cboLanguage.Text.Take(2));
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
 
 
@@ -75,16 +83,16 @@ namespace PXWeb.Admin
         /// <summary>
         /// Populate dropdown with languages
         /// </summary>
-        private void GetCultures()
+        private void GetCultures(DropDownList ddl)
         {
-            cboLanguage.DataSource = CultureInfo.GetCultures(CultureTypes.AllCultures);
-            cboLanguage.DataTextField = "EnglishName";
-            cboLanguage.DataValueField = "Name";
-            cboLanguage.DataBind();
-            sortDropDown(ref cboLanguage, false);
+            ddl.DataSource = CultureInfo.GetCultures(CultureTypes.AllCultures);
+            ddl.DataTextField = "EnglishName";
+            ddl.DataValueField = "Name";
+            ddl.DataBind();
+            sortDropDown(ref ddl, false);
 
             ListItem li = new ListItem(Master.GetLocalizedString("PxWebAdminToolsLanguageManagerSelectLanguage"), "");
-            cboLanguage.Items.Insert(0, li);
+            ddl.Items.Insert(0, li);
         }
 
         /// <summary> 

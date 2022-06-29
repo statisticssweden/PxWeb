@@ -32,8 +32,27 @@
         <asp:ImageButton ID="imgSelectLicense" runat="server" onclick="imgSelectBaseURI_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
 
+     <div>
+        <asp:Label ID="lblLanguages" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorLanguages %>"></asp:Label>
+        <asp:ImageButton ID="imgLanguages" runat="server" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/> <br />
+        <asp:Repeater ID="rptLanguages" runat="server">
+            <HeaderTemplate>
+                <div class="setting-field">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <asp:Label ID="lblSelectLanguage2" runat="server" Text="test"></asp:Label>
+                <asp:DropDownList ID="cboLanguage2" runat="server" AutoPostBack="true" ></asp:DropDownList>
+            </ItemTemplate>
+            <FooterTemplate>
+                </div>
+            </FooterTemplate>
+        </asp:Repeater>
+    </div>
+
      <div class="setting-field">
          <asp:Button ID="btnGenerateXML" onclick="btnGenerateXML_Click" runat="server" Text="<%$ PxString: PxWebAdminGenerateButton %>" />
     </div>
+
+
 
 </asp:Content>
