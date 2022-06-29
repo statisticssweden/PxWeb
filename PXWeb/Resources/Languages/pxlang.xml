@@ -1154,11 +1154,16 @@
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectPreferredLanguageInfo" value="Select the main language of the database"/>
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURI" value="Base URI"/>
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURIInfo" value="Select the base URI for links in the xml file. Doesn't have to be real links."/>
-	 <sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database"/>
-	 <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Generate CNMM database"/>
-	 <sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Select one of the databases to generate the database description file"/>
-	 <sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Select one of the databases to generate the database description file"/>
-	 <sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Language dependent"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitle" value="Catalog Title"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitleInfo" value="Select the title of the generated XML catalog"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogDescInfo" value="Select the description of the generated XML catalog"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogDesc" value="Catalog Description"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectLicense" value="Licence"/>
+	<sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database"/>
+	<sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Generate CNMM database"/>
+	<sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Select one of the databases to generate the database description file"/>
+	<sentence name="PxWebAdminToolsGenerateCnmmDbSelectDbInfo" value="Select one of the databases to generate the database description file"/>
+	<sentence name="PxWebAdminToolsGenerateDbLanguageDependent" value="Language dependent"/>
 	 <sentence name="PxWebAdminToolsGenerateDbLanguageDependentInfo" value="Show all files despite of the selected language."/>
   <sentence name="PxWebAdminToolsGenerateDbSortOrder" value="Sort order"/>
   <sentence name="PxWebAdminSortOrderFileName" value="File name"/>

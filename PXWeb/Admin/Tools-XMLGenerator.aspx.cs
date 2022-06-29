@@ -47,6 +47,31 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectPreferredLanguage", "PxWebAdminToolsXMLGeneratorSelectPreferredLanguageInfo");
         }
 
+        protected void imgSelectBaseURI_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectBaseURI", "PxWebAdminToolsXMLGeneratorSelectBaseURIInfo");
+        }
+        protected void imgSelectCatalogTitle_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectCatalogTitle", "PxWebAdminToolsXMLGeneratorSelectCatalogTitleInfo");
+        }
+
+        protected void imgSelectCatalogDesc_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectCatalogDesc", "PxWebAdminToolsXMLGeneratorSelectCatalogDescInfo");
+        }
+        protected void imgSelectLicense_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", "PxWebAdminToolsXMLGeneratorSelectLicenseInfo");
+        }
+
+        protected void btnGenerateXML_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         /// <summary>
         /// Populate dropdown with languages
         /// </summary>
