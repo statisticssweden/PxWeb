@@ -149,13 +149,24 @@ namespace PxWeb.Controllers.Api2
                     table.Links.Add(childLink);
 
                     folder.FolderContents.Add(table);
-
+                }
+                else if (child is Headline)
+                {
+                    Heading heading = new Heading
+                    {
+                        Id = child.ID.Selection,
+                        ObjectType = typeof(Heading).Name,
+                        Label = child.Text,
+                        Description = child.Description
+                    };
+                    folder.FolderContents.Add(heading);
                 }
 
 
 
+
             }
-            
+
             ////TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             //// return StatusCode(200, default(Folder));
             //string exampleJson = null;
