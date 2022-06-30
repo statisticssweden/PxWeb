@@ -72,6 +72,11 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectApiURL", "PxWebAdminToolsXMLGeneratorSelectApiURLInfo");
         }
+        
+        protected void imgSelectPublisher_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectPublisher", "PxWebAdminToolsXMLGeneratorSelectPublisherInfo");
+        }
 
         private string firstTwo(string s) {
             return s.Substring(0,2);
@@ -83,6 +88,9 @@ namespace PXWeb.Admin
             string catalogTitle = textBoxSelectCatalogTitle.Text;
             string catalogDescription = textBoxSelectCatalogDesc.Text;
             string license = textBoxSelectLicense.Text;
+            string baseApiUrl = textBoxSelectApiURL.Text;
+            string landingPageUrl = textBoxSelectLandingPageURL.Text;
+            string publisher = textBoxSelectPublisher.Text;
 
             List<string> languages = new List<string>();
             string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
