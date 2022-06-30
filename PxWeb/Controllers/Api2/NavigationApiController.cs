@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
+using Px.Abstractions.Interfaces;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -23,6 +23,13 @@ namespace PxWeb.Controllers.Api2
     [ApiController]
     public class NavigationApiController : ControllerBase
     {
+        private readonly IDataSource _dataSource;
+
+        public NavigationApiController(IDataSource dataSource)
+        {
+            _dataSource = dataSource;
+        }
+
         /// <summary>
         /// Gets navigation item with the given id.
         /// </summary>
@@ -36,6 +43,15 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
         public virtual IActionResult GetNavigationById([FromRoute][Required] string id, [FromQuery] string lang)
         {
+            bool selectionExists = true;
+
+            _dataSource.CreateMenu(id, lang, out selectionExists);
+
+            if (!selectionExists)
+            {
+                return new BadRequestObjectResult("No such node id " + id);
+            }
+
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));
             string exampleJson = null;
@@ -61,6 +77,10 @@ namespace PxWeb.Controllers.Api2
         [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
         public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
         {
+            bool selectionExists;
+
+            _dataSource.CreateMenu("", lang, out selectionExists);
+            
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Folder));
 

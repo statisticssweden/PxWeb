@@ -20,7 +20,6 @@
   <ItemGroup>
     <Content Remove="databases.config" />
     <Content Remove="setting.config" />
-    <Content Remove="SqlDb.config" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +39,11 @@
 
   <ItemGroup>
     <Folder Include="Mappers\" />
+    <Folder Include="wwwroot\Database\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Px.Abstractions\Px.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

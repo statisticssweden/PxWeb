@@ -9,6 +9,10 @@ using PxWeb.Config.Api2;
 using System.Collections.Generic;
 using System.Linq;
 using PxWeb.Filters.Api2;
+using Px.Abstractions.Interfaces;
+using PxWeb.Code.Api2.DataSource;
+using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Code.Api2.DataSource.PxFile;
 
 namespace PxWeb
 {
@@ -42,7 +46,8 @@ namespace PxWeb
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
-            // Add configuration
+            builder.Services.AddPxDataSource(builder);
+
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
 

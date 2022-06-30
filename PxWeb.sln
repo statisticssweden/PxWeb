@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E25553
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PxWeb", "PxWeb\PxWeb.csproj", "{9800E2DD-D8BD-4D11-9907-A39FED4EDD0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PxWeb.UnitTests", "PxWeb.UnitTests\PxWeb.UnitTests.csproj", "{D0FA67A0-F9B5-4EBA-B88D-73392674EDE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PxWeb.UnitTests", "PxWeb.UnitTests\PxWeb.UnitTests.csproj", "{D0FA67A0-F9B5-4EBA-B88D-73392674EDE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Px.Abstractions", "Px.Abstractions\Px.Abstractions.csproj", "{FE888E78-FAC2-4B2C-BB85-E762C0C53A97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{D0FA67A0-F9B5-4EBA-B88D-73392674EDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0FA67A0-F9B5-4EBA-B88D-73392674EDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0FA67A0-F9B5-4EBA-B88D-73392674EDE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE888E78-FAC2-4B2C-BB85-E762C0C53A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE888E78-FAC2-4B2C-BB85-E762C0C53A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE888E78-FAC2-4B2C-BB85-E762C0C53A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE888E78-FAC2-4B2C-BB85-E762C0C53A97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

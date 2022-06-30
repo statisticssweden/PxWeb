@@ -1,0 +1,120 @@
+CHARSET="ANSI";
+AXIS-VERSION="2005";
+LANGUAGE="en";
+LANGUAGES="en","sv";
+CREATION-DATE="20050217 18:34";
+DECIMALS=0;
+SHOWDECIMALS=0;
+MATRIX="BE0101F1";
+SUBJECT-CODE="BE";
+SUBJECT-AREA="Population";
+SUBJECT-AREA[sv]="Befolkning";
+DESCRIPTION="Migration for Sweden, Stockholm county and some municipalities";
+DESCRIPTION[sv]="Flyttningar för Sverige, Stockholms län och några kommuner";
+TITLE="Migration by region, age, period, type and sex";
+TITLE[sv]="Flyttningar efter region, ålder, tid, typ och kön";
+CONTENTS="Migration";
+CONTENTS[sv]="Flyttningar";
+DESCRIPTIONDEFAULT=YES;
+UNITS="number";
+UNITS[sv]="antal";
+STUB="region","age";
+STUB[sv]="region","ålder";
+HEADING="period","type","sex";
+HEADING[sv]="tid","typ","kön";
+CONTVARIABLE="type";
+CONTVARIABLE[sv]="typ";
+VALUES("region")="00 Sweden","01 Stockholm county","0114 Upplands Väsby","0115 Vallentuna";
+VALUES[sv]("region")="00 Riket","01 Stockholms län","0114 Upplands Väsby","0115 Vallentuna";
+VALUES("age")="20","21","22";
+VALUES[sv]("ålder")="20","21","22";
+VALUES("period")="2003";
+VALUES[sv]("tid")="2003";
+VALUES("type")="Inmigrated","Outmigrated";
+VALUES[sv]("typ")="Inflyttade","Utflyttade";
+VALUES("sex")="men","women";
+VALUES[sv]("kön")="män","kvinnor";
+TIMEVAL("period")=TLIST(A1),"2003";
+TIMEVAL[sv]("tid")=TLIST(A1),"2003";
+CODES("region")="00","01","0114","0115";
+CODES[sv]("region")="00","01","0114","0115";
+CODES("age")="20","21","22";
+CODES[sv]("ålder")="20","21","22";
+CODES("type")="BE0101F1","BE0101F2";
+CODES[sv]("typ")="BE0101F1","BE0101F2";
+CODES("sex")="1","2";
+CODES[sv]("kön")="1","2";
+DOMAIN("region")="Region1999/2003";
+DOMAIN[sv]("region")="Region1999/2003";
+DOMAIN("age")="Age";
+DOMAIN[sv]("ålder")="Ålder";
+DOMAIN("sex")="Sex";
+DOMAIN[sv]("kön")="Kön";
+ELIMINATION("region")="00 Sweden";
+ELIMINATION[sv]("region")="00 Riket";
+ELIMINATION("sex")=YES;
+ELIMINATION[sv]("kön")=YES;
+MAP("region")="Sweden_m";
+MAP[sv]("region")="Sweden_m";
+LAST-UPDATED("Inmigrated")="20040212 16:28";
+LAST-UPDATED[sv]("Inflyttade")="20040212 16:28";
+LAST-UPDATED("Outmigrated")="20040212 16:28";
+LAST-UPDATED[sv]("Utflyttade")="20040212 16:28";
+STOCKFA("Inmigrated")="F";
+STOCKFA[sv]("Inflyttade")="F";
+STOCKFA("Outmigrated")="F";
+STOCKFA[sv]("Utflyttade")="F";
+UNITS("Inmigrated")="number";
+UNITS[sv]("Inflyttade")="antal";
+UNITS("Outmigrated")="number";
+UNITS[sv]("Utflyttade")="antal";
+SOURCE="Statistics Sweden";
+SOURCE[sv]="Statistiska centralbyrån (SCB)";
+CONTACT("Inmigrated")="Ewa Eriksson, SCB#Tel: +46 19-17 67 43#Fax: +46 19-17 69 42#E-mail: befolkning@scb.se";
+CONTACT[sv]("Inflyttade")="Ewa Eriksson, SCB#Tel: 019-17 67 43#Fax: 019-17 69 42#E-mail: befolkning@scb.se";
+DATABASE="SDB";
+DATABASE[sv]="SDB";
+INFOFILE="BE0101";
+INFOFILE[sv]="BE0101x";
+NOTE="Test English note";
+NOTE[sv]="Test svensk not";
+NOTE("region")="Since 1 January 1999, a new regional division has been established. Parts of Sö"
+"dertälje municipality (code 0181) have formed a new municipality called Nykvarn"
+" (code 0140).";
+NOTE[sv]("region")="Ny regional indelning fr.o.m. 1999-01-01. Delar av Södertälje kommun (kod 0181)"
+" bildar en ny kommun benämnd Nykvarn (kod 0140).";
+NOTE("age")="Age refers to age attained by the end of the year, i.e. in principal, an accoun"
+"t for the year of birth.";
+NOTE[sv]("ålder")="Med ålder avses uppnådd ålder vid årets slut, d.v.s. i princip en redovisning e"
+"fter födelseår.";
+VALUENOTEX("type","Inmigrated")="Migration cannot be added with regard to regions. When, for instance, municipal"
+"ities are added to metropolitan areas, migration to the region is added to migr"
+"ations within the region.#With calcutating of age-specific rates per 1 000 of t"
+"he mean population you shall use the mean population per year of birth. And som"
+"e more";
+VALUENOTEX[sv]("typ","Inflyttade")="Flyttningar kan inte summeras vad avser region. Vid t ex summering av kommuner "
+"till storstadsområde, summeras flyttningar till regionen med flyttningar inom r"
+"egionen.#Vid beräkning av åldersdifferentierade tal per 1 000 av medelfolkmängd"
+"en skall medelfolkmängden per födelseår användas.";
+VALUENOTEX("type","Outmigrated")="Migration cannot be added with regard to regions. When, for instance, municipal"
+"ities are added to metropolitan areas, migration from the region is added to mi"
+"grations within the region.#With calcutating of age-specific rates per 1 000 of"
+" the mean population you shall use the mean population per year of birth. And s"
+"ome more";
+VALUENOTEX[sv]("typ","Utflyttade")="Flyttningar kan inte summeras vad avser region. Vid t ex summering av kommuner "
+"till storstadsområde summeras flyttningar från regionen med flyttningar inom re"
+"gionen.#Vid beräkning av åldersdifferentierade tal per 1 000 av medelfolkmängde"
+"n skall medelfolkmängden per födelseår användas.";
+DATA=
+456 938 223 327 
+613 948 305 464 
+835 968 325 511 
+590 1017 480 741 
+771 1145 668 993 
+924 1273 672 906 
+14 38 22 43 
+21 36 34 57 
+26 36 34 34 
+17 20 22 30 
+13 21 29 42 
+20 23 33 35;

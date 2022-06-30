@@ -1,0 +1,177 @@
+CHARSET="ANSI";
+AXIS-VERSION="2005";
+LANGUAGE="en";
+LANGUAGES="en","sv","fi";
+CREATION-DATE="20050217 18:34";
+DECIMALS=0;
+SHOWDECIMALS=0;
+MATRIX="BE0101F1";
+SUBJECT-CODE="BE";
+SUBJECT-AREA="Population";
+SUBJECT-AREA[sv]="Befolkning";
+SUBJECT-AREA[fi]="Väestö";
+TITLE="Migration by region, age, period, type and sex";
+TITLE[sv]="Flyttningar efter region, ålder, tid, typ och kön";
+TITLE[fi]="Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli";
+CONTENTS="Migration";
+CONTENTS[sv]="Flyttningar";
+CONTENTS[fi]="Väestönmuutokset";
+UNITS="number";
+UNITS[sv]="antal";
+UNITS[fi]="henkilö";
+STUB="region","age";
+STUB[sv]="region","ålder";
+STUB[fi]="kunta","ikä";
+HEADING="period","type","sex";
+HEADING[sv]="tid","typ","kön";
+HEADING[fi]="aika","tyypi","sukupuoli";
+CONTVARIABLE="type";
+CONTVARIABLE[sv]="typ";
+CONTVARIABLE[fi]="tyypi";
+VALUES("region")="00 Sweden","01 Stockholm county","0114 Upplands Väsby","0115 Vallentuna";
+VALUES[sv]("region")="00 Riket","01 Stockholms län","0114 Upplands Väsby","0115 Vallentuna";
+VALUES[fi]("kunta")="Ruotsi","01 Stockholms län","0114 Upplands Väsby","0115 Vallentuna";
+VALUES("age")="20","21","22";
+VALUES[sv]("ålder")="20","21","22";
+VALUES[fi]("ikä")="20","21","22";
+VALUES("period")="2003";
+VALUES[sv]("tid")="2003";
+VALUES[fi]("aika")="2003";
+VALUES("type")="Inmigrated","Outmigrated";
+VALUES[sv]("typ")="Inflyttade","Utflyttade";
+VALUES[fi]("tyypi")="Tulomuutto","Lähtömuutto";
+VALUES("sex")="men","women";
+VALUES[sv]("kön")="män","kvinnor";
+VALUES[fi]("sukupuoli")="miehet","naiset";
+TIMEVAL("period")=TLIST(A1),"2003";
+TIMEVAL[sv]("tid")=TLIST(A1),"2003";
+TIMEVAL[fi]("aika")=TLIST(A1),"2003";
+CODES("region")="00","01","0114","0115";
+CODES[sv]("region")="00","01","0114","0115";
+CODES[fi]("kunta")="00","01","0114","0115";
+CODES("age")="20","21","22";
+CODES[sv]("ålder")="20","21","22";
+CODES[fi]("ikä")="20","21","22";
+CODES("type")="BE0101F1","BE0101F2";
+CODES[sv]("typ")="BE0101F1","BE0101F2";
+CODES[fi]("tyypi")="BE0101F1","BE0101F2";
+CODES("sex")="1","2";
+CODES[sv]("kön")="1","2";
+CODES[fi]("sukupuoli")="1","2";
+DOMAIN("region")="Region1999/2003";
+DOMAIN[sv]("region")="Region1999/2003";
+DOMAIN[fi]("kunta")="kunta1999/2003";
+DOMAIN("age")="Age";
+DOMAIN[sv]("ålder")="Ålder";
+DOMAIN[fi]("ikä")="ikä";
+DOMAIN("sex")="Sex";
+DOMAIN[sv]("kön")="Kön";
+DOMAIN[fi]("sukupuoli")="sukupuoli";
+ELIMINATION("region")="00 Sweden";
+ELIMINATION[sv]("region")="00 Riket";
+ELIMINATION[fi]("kunta")="Ruotsi";
+LAST-UPDATED("Inmigrated")="20040212 16:28";
+LAST-UPDATED[sv]("Inflyttade")="20040212 16:28";
+LAST-UPDATED[fi]("Tulomuutto")="20040212 16:28";
+LAST-UPDATED("Outmigrated")="20040212 16:28";
+LAST-UPDATED[sv]("Utflyttade")="20040212 16:28";
+LAST-UPDATED[fi]("Lähtömuutto")="20040212 16:28";
+STOCKFA("Inmigrated")="F";
+STOCKFA[sv]("Inflyttade")="F";
+STOCKFA[fi]("Tulomuutto")="F";
+STOCKFA("Outmigrated")="F";
+STOCKFA[sv]("Utflyttade")="F";
+STOCKFA[fi]("Lähtömuutto")="F";
+UNITS("Inmigrated")="number";
+UNITS[sv]("Inflyttade")="antal";
+UNITS[fi]("Tulomuutto")="henkilö";
+UNITS("Outmigrated")="number";
+UNITS[sv]("Utflyttade")="antal";
+UNITS[fi]("Lähtömuutto")="henkilö";
+SOURCE="Statistics Sweden";
+SOURCE[sv]="Statistiska centralbyrån (SCB)";
+SOURCE[fi]="SCB";
+CONTACT("Inmigrated")="Ewa Eriksson, SCB#Tel: +46 19-17 67 43#Fax: +46 19-17 69 42#E-mail: befolkning@scb.se";
+CONTACT[sv]("Inflyttade")="Ewa Eriksson, SCB#Tel: 019-17 67 43#Fax: 019-17 69 42#E-mail: befolkning@scb.se";
+CONTACT[fi]("Tulomuutto")="Ewa Eriksson, SCB#Tel: 019-17 67 43#Fax: 019-17 69 42#E-mail: befolkning@scb.se";
+DATABASE="SDB";
+DATABASE[sv]="SDB";
+DATABASE[fi]="SDB";
+INFOFILE="BE0101";
+INFOFILE[sv]="BE0101x";
+INFOFILE[fi]="BE0101y";
+NOTE="Test English note";
+NOTE[sv]="Test svensk not";
+NOTE[fi]="Test suomalainen alaviite";
+NOTEX="Mandatory English note";
+NOTEX[sv]="Obligatorisk svensk not";
+NOTEX[fi]="Obligatorisk suomalainen alaviite";
+NOTEX("region")="Mandatory footnote for region.";
+NOTEX[sv]("region")="Obligatorisk fotnot för region.";
+NOTEX[fi]("kunta")="Obligatorisk suomalainen alaviite, kunta.";
+NOTEX("age")="Mandatory footnote for age.";
+NOTEX[sv]("ålder")="Obligatorisk fotnot för ålder.";
+NOTEX[fi]("ikä")="Obligatorisk suomalainen alaviite, ikä.";
+NOTE("region")="Since 1 January 1999, a new regional division has been established. Parts of Sö"
+"dertälje municipality (code 0181) have formed a new municipality called Nykvarn"
+" (code 0140).";
+NOTE[sv]("region")="Ny regional indelning fr.o.m. 1999-01-01. Delar av Södertälje kommun (kod 0181)"
+" bildar en ny kommun benämnd Nykvarn (kod 0140).";
+NOTE[fi]("kunta")="Ny regional indelning fr.o.m. 1999-01-01. Delar av Södertälje kommun (kod 0181)"
+" bildar en ny kommun benämnd Nykvarn (kod 0140).";
+NOTE("age")="Age refers to age attained by the end of the year, i.e. in principal, an accoun"
+"t for the year of birth.";
+NOTE[sv]("ålder")="Med ålder avses uppnådd ålder vid årets slut, d.v.s. i princip en redovisning e"
+"fter födelseår.";
+NOTE[fi]("ikä")="Med ålder avses uppnådd ålder vid årets slut, d.v.s. i princip en redovisning e"
+"fter födelseår.";
+VALUENOTEX("type","Inmigrated")="Migration cannot be added with regard to regions. When, for instance, municipal"
+"ities are added to metropolitan areas, migration to the region is added to migr"
+"ations within the region.#With calcutating of age-specific rates per 1 000 of t"
+"he mean population you shall use the mean population per year of birth. And som"
+"e more";
+VALUENOTEX[sv]("typ","Inflyttade")="Flyttningar kan inte summeras vad avser region. Vid t ex summering av kommuner "
+"till storstadsområde, summeras flyttningar till regionen med flyttningar inom r"
+"egionen.#Vid beräkning av åldersdifferentierade tal per 1 000 av medelfolkmängd"
+"en skall medelfolkmängden per födelseår användas.";
+VALUENOTEX[fi]("tyypi","Tulomuutto")="Väestönmuutokset kan inte summeras vad avser region. Vid t ex summering av kommuner "
+"till storstadsområde, summeras flyttningar till regionen med flyttningar inom r"
+"egionen.#Vid beräkning av åldersdifferentierade tal per 1 000 av medelfolkmängd"
+"en skall medelfolkmängden per födelseår användas.";
+VALUENOTEX("type","Outmigrated")="Migration cannot be added with regard to regions. When, for instance, municipal"
+"ities are added to metropolitan areas, migration from the region is added to mi"
+"grations within the region.#With calcutating of age-specific rates per 1 000 of"
+" the mean population you shall use the mean population per year of birth. And s"
+"ome more";
+VALUENOTEX[sv]("typ","Utflyttade")="Flyttningar kan inte summeras vad avser region. Vid t ex summering av kommuner "
+"till storstadsområde summeras flyttningar från regionen med flyttningar inom re"
+"gionen.#Vid beräkning av åldersdifferentierade tal per 1 000 av medelfolkmängde"
+"n skall medelfolkmängden per födelseår användas.";
+VALUENOTEX[fi]("tyypi","Lähtömuutto")="Väestönmuutokset kan inte summeras vad avser region. Vid t ex summering av kommuner "
+"till storstadsområde summeras flyttningar från regionen med flyttningar inom re"
+"gionen.#Vid beräkning av åldersdifferentierade tal per 1 000 av medelfolkmängde"
+"n skall medelfolkmängden per födelseår användas.";
+VALUENOTE("type","Inmigrated")="Request value note for inmigrated";
+VALUENOTE[sv]("typ","Inflyttade")="Frivillig fotnot för inflyttade.";
+VALUENOTE[fi]("tyypi","Tulomuutto")="Frivillig suomalainen alaviite, tulomuutto.";
+VALUENOTE("type","Outmigrated")="Request footnote for outmigrated";
+VALUENOTE[sv]("typ","Utflyttade")="Frivillig fotnot för utflyttade.";
+VALUENOTE[fi]("tyypi","Lähtömuutto")="Frivillig suomalainen alaviite, lähtömuutto.";
+CELLNOTE("*","20","*","Inmigrated","*")="Cellnote inmigrated 20 years";
+CELLNOTE[sv]("*","20","*","Inflyttade","*")="Cellnot inflyttade 20 år.";
+CELLNOTE[sv]("*","20","*","Utflyttade","*")="Cellnot för utflyttade 20 år.";
+CELLNOTE[fi]("*","20","*","Tulomuutto","*")="Cellnot suomalainen alaviite, tulomuutto, 20.";
+CELLNOTE[fi]("*","20","*","Lähtömuutto","*")="Cellnot suomalainen alaviite, lähtömuuto, 20.";
+DATA=
+456 938 223 327 
+613 948 305 464 
+835 968 325 511 
+590 1017 480 741 
+771 1145 668 993 
+924 1273 672 906 
+14 38 22 43 
+21 36 34 57 
+26 36 34 34 
+17 20 22 30 
+13 21 29 42 
+20 23 33 35;
