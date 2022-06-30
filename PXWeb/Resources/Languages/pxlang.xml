@@ -857,7 +857,8 @@
 
 
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Language Manager"/>
-  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="XML Generator"/>
+  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generate XML"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorLanguages" value="Select wanted languages"/>
 	 <sentence name="PxWebAdminMenuToolsReset" value="Reset"/>
 	 <sentence name="PxWebAdminMenuToolsChangePassword" value="Change password"/>
 	 <sentence name="PxWebAdminMenuFeatures" value="Features"/>
