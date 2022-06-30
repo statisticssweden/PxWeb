@@ -18,39 +18,43 @@ using Newtonsoft.Json;
 using PxWeb.Converters;
 
 namespace PxWeb.Models.Api2
-{ 
+{
+
+    // TODO: Wrong parent from yaml
+    //    public partial class Table : IEquatable<Table>
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
-    public partial class Table : IEquatable<Table>
+    public partial class Table : FolderContentItem
     {
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=true)]
-        public string? Id { get; set; }
+        //TODO: Generated wrong from yaml
+        ///// <summary>
+        ///// Gets or Sets Id
+        ///// </summary>
+        //[DataMember(Name="id", EmitDefaultValue=true)]
+        //public string? Id { get; set; }
 
-        /// <summary>
-        /// One of heading, table, folder or folder-information
-        /// </summary>
-        /// <value>One of heading, table, folder or folder-information</value>
-        [DataMember(Name="objectType", EmitDefaultValue=false)]
-        public string ObjectType { get; set; }
+        ///// <summary>
+        ///// One of heading, table, folder or folder-information
+        ///// </summary>
+        ///// <value>One of heading, table, folder or folder-information</value>
+        //[DataMember(Name="objectType", EmitDefaultValue=false)]
+        //public string ObjectType { get; set; }
 
-        /// <summary>
-        /// Display text
-        /// </summary>
-        /// <value>Display text</value>
-        [DataMember(Name="label", EmitDefaultValue=true)]
-        public string? Label { get; set; }
+        ///// <summary>
+        ///// Display text
+        ///// </summary>
+        ///// <value>Display text</value>
+        //[DataMember(Name="label", EmitDefaultValue=true)]
+        //public string? Label { get; set; }
 
-        /// <summary>
-        /// Longer text describing node. If no longer text exist, same as label
-        /// </summary>
-        /// <value>Longer text describing node. If no longer text exist, same as label</value>
-        [DataMember(Name="description", EmitDefaultValue=true)]
-        public string? Description { get; set; }
+        ///// <summary>
+        ///// Longer text describing node. If no longer text exist, same as label
+        ///// </summary>
+        ///// <value>Longer text describing node. If no longer text exist, same as label</value>
+        //[DataMember(Name="description", EmitDefaultValue=true)]
+        //public string? Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags

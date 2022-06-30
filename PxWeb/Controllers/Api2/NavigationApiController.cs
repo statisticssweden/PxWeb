@@ -116,15 +116,20 @@ namespace PxWeb.Controllers.Api2
                     fi.Links.Add(childLink);
                     folder.FolderContents.Add(fi);
                 }
-                //else if (child is TableLink)
-                //{
-                //    Table table = new Table
-                //    {
+                else if (child is TableLink)
+                {
+                    Table table = new Table
+                    {
+                        Id = child.ID.Selection,
+                        ObjectType = typeof(Table).Name,
+                        Description = child.Description,
+                        Label = child.Text,
+                        Updated = ((TableLink)child).Published
+                    };
+                    folder.FolderContents.Add(table);
 
-                //    };
+                }
 
-                //}
-                
 
 
                 //switch (child.GetType())
