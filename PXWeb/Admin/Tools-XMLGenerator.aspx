@@ -24,7 +24,17 @@
     <div class="setting-field">
         <asp:Label ID="lblSelectLicense" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectLicense %>">"></asp:Label>
         <asp:TextBox ID="textBoxSelectLicense" runat="server"></asp:TextBox>
-        <asp:ImageButton ID="imgSelectLicense" runat="server" onclick="imgSelectBaseURI_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+        <asp:ImageButton ID="imgSelectLicense" runat="server" onclick="imgSelectLicense_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    </div>
+    <div class="setting-field">
+        <asp:Label ID="lblSelectApiURL" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectApiURL %>">"></asp:Label>
+        <asp:TextBox ID="textBoxSelectApiURL" runat="server"></asp:TextBox>
+        <asp:ImageButton ID="imgSelectApiURL" runat="server" onclick="imgSelectApiURL_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    </div>
+    <div class="setting-field">
+        <asp:Label ID="lblSelectLandingPageURL" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectLandingPageURL %>">"></asp:Label>
+        <asp:TextBox ID="textBoxSelectLandingPageURL" runat="server"></asp:TextBox>
+        <asp:ImageButton ID="imgSelectLandingPageURL" runat="server" onclick="imgSelectLandingPageURL_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
 
      <div class="setting-field">

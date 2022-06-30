@@ -1151,8 +1151,6 @@
 
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectDb" value="Generate XML for a PX database"/>
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectDbInfo" value="Select one of the databases to generate the database XML file"/>
-	 <sentence name="PxWebAdminToolsXMLGeneratorSelectPreferredLanguage" value="Main database language"/>
-	 <sentence name="PxWebAdminToolsXMLGeneratorSelectPreferredLanguageInfo" value="Select the main language of the database"/>
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURI" value="Base URI"/>
 	 <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURIInfo" value="Select the base URI for links in the xml file. Doesn't have to be real links."/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitle" value="Catalog Title"/>
@@ -1160,6 +1158,11 @@
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogDescInfo" value="Select the description of the generated XML catalog"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogDesc" value="Catalog Description"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectLicense" value="Licence"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectLicenseInfo" value="URL for a Licence"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectApiURL" value="Base API URL"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectApiURLInfo" value="Base URL for API requests"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURL" value="Landing page base URL"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Base URL for the datasets"/>
 	<sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database"/>
 	<sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Generate CNMM database"/>
 	<sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Select one of the databases to generate the database description file"/>

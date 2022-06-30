@@ -42,33 +42,6 @@ namespace PXWeb.Admin
         protected global::System.Web.UI.WebControls.ImageButton imgSelectDbInfo;
 
         /// <summary>
-        /// lblSelectPreferredLanguage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSelectPreferredLanguage;
-
-        /// <summary>
-        /// cboLanguage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboLanguage;
-
-        /// <summary>
-        /// imgSelectPreferredLanguageInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgSelectPreferredLanguageInfo;
-
-        /// <summary>
         /// lblSelectBaseURI control.
         /// </summary>
         /// <remarks>
@@ -177,31 +150,58 @@ namespace PXWeb.Admin
         protected global::System.Web.UI.WebControls.ImageButton imgSelectLicense;
 
         /// <summary>
-        /// lblLanguages control.
+        /// lblSelectApiURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLanguages;
+        protected global::System.Web.UI.WebControls.Label lblSelectApiURL;
 
         /// <summary>
-        /// imgLanguages control.
+        /// textBoxSelectApiURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgLanguages;
+        protected global::System.Web.UI.WebControls.TextBox textBoxSelectApiURL;
 
         /// <summary>
-        /// rptLanguages control.
+        /// imgSelectApiURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptLanguages;
+        protected global::System.Web.UI.WebControls.ImageButton imgSelectApiURL;
+
+        /// <summary>
+        /// lblSelectLandingPageURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectLandingPageURL;
+
+        /// <summary>
+        /// textBoxSelectLandingPageURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textBoxSelectLandingPageURL;
+
+        /// <summary>
+        /// imgSelectLandingPageURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgSelectLandingPageURL;
 
         /// <summary>
         /// btnGenerateXML control.
