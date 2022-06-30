@@ -58,9 +58,6 @@ namespace PxWeb.Controllers.Api2
         {
             bool selectionExists = true;
 
-
-            string urlBase = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/v2/";
-
             lang = _languageHelper.HandleLanguage(lang);
 
             PxMenuBase menu = _dataSource.CreateMenu(id, lang, out selectionExists);
@@ -80,14 +77,58 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            PxMenuItem itm = (PxMenuItem)menu.CurrentItem;
+            Folder folder = GetFolder((PxMenuItem)menu.CurrentItem);
 
+            return new ObjectResult(folder);
+
+        }
+
+
+        /// <summary>
+        /// Browse the database structure
+        /// </summary>
+        /// <param name="lang">The language if the default is not what you want.</param>
+        /// <response code="200">Success</response>
+        /// <response code="429">Error respsone for 429</response>
+        [HttpGet]
+        [Route("/v2/navigation")]
+        [ValidateModelState]
+        [SwaggerOperation("GetNavigationRoot")]
+        [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
+        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
+        //public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
+        public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
+        {
+            bool selectionExists = true;
+
+            lang = _languageHelper.HandleLanguage(lang);
+
+            PxMenuBase menu = _dataSource.CreateMenu("", lang, out selectionExists);
+
+            if (menu == null)
+            {
+                return new BadRequestObjectResult("Error reading data");
+            }
+
+            if (menu.CurrentItem == null)
+            {
+                return new BadRequestObjectResult("Error reading node data");
+            }
+
+            Folder folder = GetFolder((PxMenuItem)menu.CurrentItem);
+
+            return new ObjectResult(folder);
+        }
+
+        private Folder GetFolder(PxMenuItem currentItem)
+        {
+            string urlBase = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/v2/";
             Folder folder = new Folder
             {
-                Id = itm.ID.Selection,
+                Id = currentItem.ID.Selection,
                 ObjectType = typeof(Folder).Name,
-                Label = itm.Text,
-                Description = itm.Description,
+                Label = currentItem.Text,
+                Description = currentItem.Description,
                 Tags = null // TODO: Implement later
             };
 
@@ -98,7 +139,7 @@ namespace PxWeb.Controllers.Api2
             folder.Links.Add(link);
 
 
-            foreach (Item child in itm.SubItems)
+            foreach (Item child in currentItem.SubItems)
             {
                 if (child is PxMenuItem)
                 {
@@ -162,22 +203,9 @@ namespace PxWeb.Controllers.Api2
                     folder.FolderContents.Add(heading);
                 }
 
-
-
-
             }
 
-            ////TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            //// return StatusCode(200, default(Folder));
-            //string exampleJson = null;
-            //exampleJson = "{\n  \"description\" : \"description\",\n  \"folderContents\" : [ {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  }, {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  } ],\n  \"links\" : [ {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  }, {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  } ],\n  \"id\" : \"id\",\n  \"label\" : \"label\",\n  \"objectType\" : \"objectType\",\n  \"tags\" : [ \"tags\", \"tags\" ]\n}";
-
-            //var example = exampleJson != null
-            //? JsonConvert.DeserializeObject<Folder>(exampleJson)
-            //: default(Folder);            //TODO: Change the data returned
-            //return new ObjectResult(example);
-
-            return new ObjectResult(folder);
+            return folder;
 
         }
 
@@ -203,39 +231,5 @@ namespace PxWeb.Controllers.Api2
             }
         }
 
-        /// <summary>
-        /// Browse the database structure
-        /// </summary>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        /// <response code="429">Error respsone for 429</response>
-        [HttpGet]
-        [Route("/v2/navigation")]
-        [ValidateModelState]
-        [SwaggerOperation("GetNavigationRoot")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
-        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
-        //public virtual IActionResult GetNavigationRoot([FromQuery] string lang)
-        public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
-        {
-            bool selectionExists;
-
-            lang = _languageHelper.HandleLanguage(lang);
-
-            _dataSource.CreateMenu("", lang, out selectionExists);
-            
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Folder));
-
-            //TODO: Uncomment the next line to return response 429 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(429, default(Problem));
-            string exampleJson = null;
-            exampleJson = "{\n  \"description\" : \"description\",\n  \"folderContents\" : [ {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  }, {\n    \"description\" : \"description\",\n    \"id\" : \"id\",\n    \"label\" : \"label\",\n    \"objectType\" : \"objectType\"\n  } ],\n  \"links\" : [ {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  }, {\n    \"rel\" : \"rel\",\n    \"href\" : \"href\"\n  } ],\n  \"id\" : \"id\",\n  \"label\" : \"label\",\n  \"objectType\" : \"objectType\",\n  \"tags\" : [ \"tags\", \"tags\" ]\n}";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Folder>(exampleJson)
-            : default(Folder);            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
     }
 }
