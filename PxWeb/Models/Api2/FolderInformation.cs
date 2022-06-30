@@ -26,32 +26,35 @@ namespace PxWeb.Models.Api2
     //public partial class FolderInformation : IEquatable<FolderInformation>
     public partial class FolderInformation : FolderContentItem
     {
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=true)]
-        public string? Id { get; set; }
 
-        /// <summary>
-        /// One of heading, table, folder or folder-information
-        /// </summary>
-        /// <value>One of heading, table, folder or folder-information</value>
-        [DataMember(Name="objectType", EmitDefaultValue=false)]
-        public string ObjectType { get; set; }
+        //TODO: Generated wrong from yaml
 
-        /// <summary>
-        /// Display text
-        /// </summary>
-        /// <value>Display text</value>
-        [DataMember(Name="label", EmitDefaultValue=true)]
-        public string? Label { get; set; }
+        ///// <summary>
+        ///// Gets or Sets Id
+        ///// </summary>
+        //[DataMember(Name="id", EmitDefaultValue=true)]
+        //public string? Id { get; set; }
 
-        /// <summary>
-        /// Longer text describing node. If no longer text exist, same as label
-        /// </summary>
-        /// <value>Longer text describing node. If no longer text exist, same as label</value>
-        [DataMember(Name="description", EmitDefaultValue=true)]
-        public string? Description { get; set; }
+        ///// <summary>
+        ///// One of heading, table, folder or folder-information
+        ///// </summary>
+        ///// <value>One of heading, table, folder or folder-information</value>
+        //[DataMember(Name="objectType", EmitDefaultValue=false)]
+        //public string ObjectType { get; set; }
+
+        ///// <summary>
+        ///// Display text
+        ///// </summary>
+        ///// <value>Display text</value>
+        //[DataMember(Name="label", EmitDefaultValue=true)]
+        //public string? Label { get; set; }
+
+        ///// <summary>
+        ///// Longer text describing node. If no longer text exist, same as label
+        ///// </summary>
+        ///// <value>Longer text describing node. If no longer text exist, same as label</value>
+        //[DataMember(Name="description", EmitDefaultValue=true)]
+        //public string? Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
@@ -63,7 +66,7 @@ namespace PxWeb.Models.Api2
         /// Links to ...
         /// </summary>
         /// <value>Links to ...</value>
-        [DataMember(Name="links", EmitDefaultValue=true)]
+        [DataMember(Name = "links", EmitDefaultValue = true)]
         public List<Link> Links { get; set; }
 
         /// <summary>

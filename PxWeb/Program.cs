@@ -8,12 +8,15 @@ using PxWeb.Code.Api2;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using PxWeb.Filters.Api2;
 using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Helper.Api2;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PxWeb
 {
@@ -53,7 +56,7 @@ namespace PxWeb
             
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
-
+            
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()
                 .Where(p => p.Value != null && p.Key.ToLower().Contains("id"))
@@ -62,8 +65,16 @@ namespace PxWeb
 
             builder.Services.AddControllers(x =>
                 x.Filters.Add(new LangValidationFilter(langList))
-                );
-            
+                )
+                .AddNewtonsoftJson(opts =>
+            {
+                opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                opts.SerializerSettings.Converters.Add(new StringEnumConverter
+                {
+                    NamingStrategy = new CamelCaseNamingStrategy()
+                });
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
