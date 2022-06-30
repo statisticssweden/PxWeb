@@ -23,6 +23,7 @@ using PxWeb.Config.Api2;
 using PxWeb.Helper.Api2;
 using PCAxis.Menu;
 using Link = PxWeb.Models.Api2.Link;
+using System.IO;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -58,7 +59,7 @@ namespace PxWeb.Controllers.Api2
             bool selectionExists = true;
 
 
-            string urlBase = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/v2/navigation/";
+            string urlBase = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/v2/";
 
             lang = _languageHelper.HandleLanguage(lang);
 
@@ -93,7 +94,7 @@ namespace PxWeb.Controllers.Api2
             folder.Links = new List<Link>();
             Link link = new Link();
             link.Rel = "self";
-            link.Href = urlBase + folder.Id;
+            link.Href = urlBase + Path.Combine("navigation/", folder.Id);
             folder.Links.Add(link);
 
 
@@ -112,7 +113,7 @@ namespace PxWeb.Controllers.Api2
                     fi.Links = new List<Link>();
                     Link childLink = new Link();
                     childLink.Rel = "folder";
-                    childLink.Href = urlBase + fi.Id;
+                    childLink.Href = urlBase + Path.Combine("navigation/", fi.Id);
                     fi.Links.Add(childLink);
                     folder.FolderContents.Add(fi);
                 }
@@ -124,26 +125,34 @@ namespace PxWeb.Controllers.Api2
                         ObjectType = typeof(Table).Name,
                         Description = child.Description,
                         Label = child.Text,
-                        Updated = ((TableLink)child).Published
+                        Updated = ((TableLink)child).Published,
+                        Tags = null, // TODO: Implement later
+                        Category = GetCategory(((TableLink)child).Category),
+                        FirstPeriod = ((TableLink)child).StartTime,
+                        LastPeriod = ((TableLink)child).EndTime
                     };
+                    table.Links = new List<Link>();
+
+                    Link childLink = new Link();
+                    childLink.Rel = "self";
+                    childLink.Href = urlBase + Path.Combine($"tables/{table.Id}");
+                    table.Links.Add(childLink);
+
+                    childLink = new Link();
+                    childLink.Rel = "metadata";
+                    childLink.Href = urlBase + Path.Combine($"tables/{table.Id}/metadata");
+                    table.Links.Add(childLink);
+
+                    childLink = new Link();
+                    childLink.Rel = "data";
+                    childLink.Href = urlBase + Path.Combine($"tables/{table.Id}/data");
+                    table.Links.Add(childLink);
+
                     folder.FolderContents.Add(table);
 
                 }
 
 
-
-                //switch (child.GetType())
-                //{
-                //    case  typeov PxMenuItem:
-                //        FolderInformation fi = new FolderInformation
-                //        {
-                //            Description = ""
-                //        };
-                //        folder.FolderContents.Add(fi);
-                //        break;
-                //    default:
-                //        break;
-                //}
 
             }
             
@@ -159,6 +168,28 @@ namespace PxWeb.Controllers.Api2
 
             return new ObjectResult(folder);
 
+        }
+
+        /// <summary>
+        /// Translate Menu enum to PxApi enum
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
+        private Table.CategoryEnum GetCategory(PresCategory category)
+        {
+            switch (category)
+            {
+                case PresCategory.NotSet: //TODO: how shall we handle NotSet?
+                    return Table.CategoryEnum.PrivateEnum;
+                case PresCategory.Official:
+                    return Table.CategoryEnum.OfficialEnum;
+                case PresCategory.Internal:
+                    return Table.CategoryEnum.InternalEnum;
+                case PresCategory.Private:
+                    return Table.CategoryEnum.PrivateEnum;
+                default:
+                    return Table.CategoryEnum.PrivateEnum; //TODO: How shall we handle this?
+            }
         }
 
         /// <summary>
