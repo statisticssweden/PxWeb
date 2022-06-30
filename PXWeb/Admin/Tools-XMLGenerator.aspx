@@ -36,6 +36,11 @@
         <asp:TextBox ID="textBoxSelectLandingPageURL" runat="server"></asp:TextBox>
         <asp:ImageButton ID="imgSelectLandingPageURL" runat="server" onclick="imgSelectLandingPageURL_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
+    <div class="setting-field">
+        <asp:Label ID="lblSelectPublisher" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectPublisher %>">"></asp:Label>
+        <asp:TextBox ID="textBoxSelectPublisher" runat="server"></asp:TextBox>
+        <asp:ImageButton ID="imgSelectPublisher" runat="server" onclick="imgSelectPublisher_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    </div>
 
      <div class="setting-field">
          <asp:Button ID="btnGenerateXML" onclick="btnGenerateXML_Click" runat="server" Text="<%$ PxString: PxWebAdminGenerateButton %>" />

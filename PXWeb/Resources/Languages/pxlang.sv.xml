@@ -682,6 +682,7 @@
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Språkhanteraren" />
   <sentence name="PxWebAdminMenuToolsReset" value="Nollställ" />
   <sentence name="PxWebAdminMenuToolsChangePassword" value="Byt lösenord" />
+  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generate XML"/>
   <sentence name="PxWebAdminMenuFeatures" value="Funktioner" />
   <sentence name="PxWebAdminMenuFeaturesGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesCharts" value="Diagram" />
@@ -981,7 +982,9 @@
  <sentence name="PxWebAdminToolsXMLGeneratorSelectApiURLInfo" value="Baslänk för att komma åt API"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURL" value="Ingångssida datamängder"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Ingångssida till webbsida som ger tillgång till datamängden eller dess distributioner och/eller ytterligare information"/>
-  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funktion" />
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisher" value="Utgivare"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisherInfo" value="Utgivare av datan"/>
+ <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funktion" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Förkryssade funktioner kommer att finnas tillgängliga i administrationsgränssnittet samt i PxWeb" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Diagram" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureApi" value="API" />
