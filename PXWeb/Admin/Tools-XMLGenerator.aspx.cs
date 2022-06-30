@@ -63,6 +63,16 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", "PxWebAdminToolsXMLGeneratorSelectLicenseInfo");
         }
 
+        protected void imgSelectLandingPageURL_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLandingPageURL", "PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo");
+        }
+
+        protected void imgSelectApiURL_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectApiURL", "PxWebAdminToolsXMLGeneratorSelectApiURLInfo");
+        }
+
         private string firstTwo(string s) {
             return s.Substring(0,2);
         }
@@ -73,54 +83,13 @@ namespace PXWeb.Admin
             string catalogTitle = textBoxSelectCatalogTitle.Text;
             string catalogDescription = textBoxSelectCatalogDesc.Text;
             string license = textBoxSelectLicense.Text;
+
             List<string> languages = new List<string>();
             string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
             foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages) {
                 languages.Add(firstTwo(ls.Name));
             }
-            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense",preferredLanguage);
             //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
-        }
-
-        /// <summary> 
-        /// Sorts the dropdown in descending order 
-        /// </summary> 
-        /// <param name="pList">the list to sort</param> 
-        /// <param name="pByValue">Sort the list by values or text</param>  
-        private void sortDropDown(ref DropDownList pList, bool pByValue)
-        {
-            SortedList lListItems = new SortedList();
-            string key;
-
-            //add listbox items to SortedList  
-            foreach (ListItem lItem in pList.Items)
-            {
-                if (!string.IsNullOrEmpty(lItem.Value))
-                {
-                    if (pByValue)
-                    {
-                        key = lItem.Value + " (" + lItem.Text + ")";
-                    }
-                    else
-                    {
-                        key = lItem.Text + " (" + lItem.Value + ")";
-                    }
-
-                    if (!lListItems.Contains(key))
-                    {
-                        lListItems.Add(key, lItem);
-                    }
-                }
-            }
-
-            //clear dropdown 
-            pList.Items.Clear();
-
-            //add sorted items to dropdown 
-            for (int i = 0; i < lListItems.Count; i++)
-            {
-                pList.Items.Add((ListItem)lListItems[lListItems.GetKey(i)]);
-            }
         }
     }
 }
