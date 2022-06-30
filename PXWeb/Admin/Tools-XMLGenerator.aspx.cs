@@ -19,7 +19,7 @@ namespace PXWeb.Admin
 {
     public partial class Tools_XMLGenerator : System.Web.UI.Page
     {
-        protected void fillDatabases(DropDownList ddl)
+        protected void fillPxDatabases(DropDownList ddl)
         {
             foreach (var db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
             {
@@ -31,12 +31,7 @@ namespace PXWeb.Admin
         {
             if (!IsPostBack)
             {
-                GetCultures(cboLanguage);
-                fillDatabases(cboSelectDb);
-                List<DropDownList> list = new List<DropDownList> { new DropDownList() };
-                GetCultures(list[0]);
-                rptLanguages.DataSource = list;
-                rptLanguages.DataBind();
+                fillPxDatabases(cboSelectDb);
             }
 
         }
@@ -68,31 +63,23 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", "PxWebAdminToolsXMLGeneratorSelectLicenseInfo");
         }
 
+        private string firstTwo(string s) {
+            return s.Substring(0,2);
+        }
+
         protected void btnGenerateXML_Click(object sender, EventArgs e)
         {
             string baseURI = textBoxSelectBaseURI.Text;
             string catalogTitle = textBoxSelectCatalogTitle.Text;
             string catalogDescription = textBoxSelectCatalogDesc.Text;
             string license = textBoxSelectLicense.Text;
-            string preferredLanguage = string.Join("",cboLanguage.Text.Take(2));
-            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
-        }
-
-
-
-        /// <summary>
-        /// Populate dropdown with languages
-        /// </summary>
-        private void GetCultures(DropDownList ddl)
-        {
-            ddl.DataSource = CultureInfo.GetCultures(CultureTypes.AllCultures);
-            ddl.DataTextField = "EnglishName";
-            ddl.DataValueField = "Name";
-            ddl.DataBind();
-            sortDropDown(ref ddl, false);
-
-            ListItem li = new ListItem(Master.GetLocalizedString("PxWebAdminToolsLanguageManagerSelectLanguage"), "");
-            ddl.Items.Insert(0, li);
+            List<string> languages = new List<string>();
+            string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
+            foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages) {
+                languages.Add(firstTwo(ls.Name));
+            }
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense",preferredLanguage);
+            //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
 
         /// <summary> 
