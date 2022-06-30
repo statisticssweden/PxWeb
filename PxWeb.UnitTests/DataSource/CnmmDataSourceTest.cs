@@ -31,6 +31,7 @@ namespace PxWeb.UnitTests.DataSource
 
             Assert.IsNotNull(result);
             Assert.AreEqual("AA", result.Menu);
+            Assert.IsTrue(selectionExists);
         }
 
 

@@ -46,8 +46,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
                 string key = row[1].ToString().ToUpper();
-
-                // TODO: Is this ok? What happens if the table/node are present on many nodes?
+                
                 if (!menuLookup.ContainsKey(key))
                 {
                     menuLookup.Add(key, row[0] as string); // Key always uppercase
