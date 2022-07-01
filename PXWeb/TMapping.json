@@ -1,0 +1,23 @@
+{
+"Arbetsmarknad": "SOCI",
+"Befolkning": "SOCI",
+"Boende, byggande och bebyggelse": "SOCI",
+"Demokrati": "JUST",
+"Energi": "ENER",
+"Finansmarknad": "ECON",
+"Handel med varor och tjänster": "ECON",
+"Hushållens ekonomi": "ECON",
+"Hälso- och sjukvård": "HEAL",
+"Jord- och skogsbruk, fiske": "AGRI",
+"Kultur och fritid": "EDUC",
+"Levnadsförhållanden": "SOCI",
+"Miljö": "ENVI",
+"Nationalräkenskaper": "ECON",
+"Näringsverksamhet": "ECON",
+"Offentlig ekonomi": "GOVE",
+"Priser och konsumtion": "ECON",
+"Socialtjänst": "SOCI",
+"Transporter och kommunikationer": "TRAN",
+"Utbildning och forskning": "EDUC",
+"Ämnesövergripande statistik": "SOCI"
+}
