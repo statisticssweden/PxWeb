@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:adms="http://www.w3.org/ns/adms#" xmlns:odrs="http://schema.theodi.org/odrs#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:store="https://catalog.scb.se/store/" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:es="http://entrystore.org/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <dcat:catalog>
+    <dcterms:title>ewfwef</dcterms:title>
+    <dcterms:description>wef</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:license rdf:resource="wef" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:Dataset rdf:resource="wwefdataset/5" />
+    <dcat:Dataset rdf:resource="wwefdataset/8" />
+    <dcat:Dataset rdf:resource="wwefdataset/11" />
+    <dcat:Dataset rdf:resource="wwefdataset/14" />
+    <dcat:Dataset rdf:resource="wwefdataset/17" />
+    <dcat:Dataset rdf:resource="wwefdataset/20" />
+    <dcat:Dataset rdf:resource="wwefdataset/23" />
+    <dcat:Dataset rdf:resource="wwefdataset/26" />
+    <dcat:Dataset rdf:resource="wwefdataset/30" />
+    <dcat:Dataset rdf:resource="wwefdataset/33" />
+    <dcat:Dataset rdf:resource="wwefdataset/36" />
+    <dcat:Dataset rdf:resource="wwefdataset/39" />
+    <dcat:Dataset rdf:resource="wwefdataset/42" />
+    <dcat:Dataset rdf:resource="wwefdataset/45" />
+  </dcat:catalog>
+  <foaf:Organization rdf:about="wweforganization/1">
+    <foaf:name>wef</foaf:name>
+  </foaf:Organization>
+  <dcat:Dataset rdf:about="wwefdataset/5">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/3" />
+    <dcat:distribution rdf:resource="wwefdistribution/4" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">AttributesCellnotes</dcat:keyword>
+    <dcat:keyword xml:lang="sv">AttributesCellnotes</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/8">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/6" />
+    <dcat:distribution rdf:resource="wwefdistribution/7" />
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvdescdefault.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1ensvdescdefault.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/11">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/9" />
+    <dcat:distribution rdf:resource="wwefdistribution/10" />
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/14">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/12" />
+    <dcat:distribution rdf:resource="wwefdistribution/13" />
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln2.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/17">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/15" />
+    <dcat:distribution rdf:resource="wwefdistribution/16" />
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/20">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/18" />
+    <dcat:distribution rdf:resource="wwefdistribution/19" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvcontvarerror.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">error</dcat:keyword>
+    <dcat:keyword xml:lang="en">multilang</dcat:keyword>
+    <dcat:keyword xml:lang="sv">error</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1ensvcontvarerror.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1ensvcontvarerror.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/23">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/21" />
+    <dcat:distribution rdf:resource="wwefdistribution/22" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvdescdefaulterror.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">error</dcat:keyword>
+    <dcat:keyword xml:lang="en">multilang</dcat:keyword>
+    <dcat:keyword xml:lang="sv">error</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1ensvdescdefaulterror.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1ensvdescdefaulterror.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/26">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/24" />
+    <dcat:distribution rdf:resource="wwefdistribution/25" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln2error.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">error</dcat:keyword>
+    <dcat:keyword xml:lang="en">multilang</dcat:keyword>
+    <dcat:keyword xml:lang="sv">error</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/30">
+    <dcterms:title xml:lang="en">Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</dcterms:title>
+    <dcterms:title xml:lang="sv">Konsumentprisindex (KPI) (enligt COICOP), 1980=100 eftervaru-/tjänstegrupp och tid.</dcterms:title>
+    <dcterms:description xml:lang="en">Index numbers for main and subgroups have in some cases been adjusted to take into account certain inadequacies in the basic data on prices or in the methods used for calculating the originally published index numbers. They are consistent with shadow index numbers for total CPI. Product classification follows COICOP (Classification of Individual Consumption by Purpose).</dcterms:description>
+    <dcterms:description xml:lang="sv">Indextal för huvud- och undergrupper är i en del fall baserade på index för varor och tjänster som är justerade med avseende på brister i det prisunderlag eller de beräkningsmetoder som låg till grund för beräkning av de ursprungligen redovisade indextalen. De är därmed konsistenta med skuggindextalen för KPI totalt.Produktindelning enligt COICOP (Classification of Individual Consumption by Purpose).
+Indextal för huvud- och undergrupper är i en del fall justerade med avseende på brister i det prisunderlag eller de beräkningsmetoder som legat till grund för de ursprungligen redovisade indextalen. De är därmed konsistenta med skuggindextalen för KPI totalt.Redovisning enligt denna äldre produktindelning upphör efter år 2000.</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/27" />
+    <dcat:distribution rdf:resource="wwefdistribution/28" />
+    <dcat:distribution rdf:resource="wwefdistribution/29" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2006-07-07T08:37:00</dcterms:modified>
+    <dcterms:identifier>PR0101B3hier2lang.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Hierarchies</dcat:keyword>
+    <dcat:keyword xml:lang="sv">Hierarchies</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/PR0101B3hier2lang.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/PR0101B3hier2lang.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/33">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/31" />
+    <dcat:distribution rdf:resource="wwefdistribution/32" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>officialstatistics.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Misc</dcat:keyword>
+    <dcat:keyword xml:lang="en">OfficialStatistics</dcat:keyword>
+    <dcat:keyword xml:lang="sv">Misc</dcat:keyword>
+    <dcat:keyword xml:lang="sv">OfficialStatistics</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/officialstatistics.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/officialstatistics.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/36">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/34" />
+    <dcat:distribution rdf:resource="wwefdistribution/35" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvdescdefault.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1ensvdescdefault.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/39">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/37" />
+    <dcat:distribution rdf:resource="wwefdistribution/38" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/42">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/40" />
+    <dcat:distribution rdf:resource="wwefdistribution/41" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln2.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="wwefdataset/45">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="wweforganization/1" />
+    <dcterms:creator rdf:resource="wweforganization/2" />
+    <dcat:distribution rdf:resource="wwefdistribution/43" />
+    <dcat:distribution rdf:resource="wwefdistribution/44" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="wefen/ssd/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="wefsv/ssd/BE0101F1langensvolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <foaf:Organization rdf:about="wweforganization/1">
+    <foaf:name>wef</foaf:name>
+  </foaf:Organization>
+  <foaf:Organization rdf:about="wweforganization/2">
+    <foaf:name>Statistiska centralbyrån (SCB)</foaf:name>
+  </foaf:Organization>
+  <foaf:Organization rdf:about="wweforganization/27">
+    <foaf:name>Statistiska centralbyrån</foaf:name>
+  </foaf:Organization>
+  <dcat:Distribution rdf:about="wwefdistribution/3">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/4">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/6">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/7">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/9">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/10">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/12">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/13">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/15">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/16">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/18">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/19">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/21">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/22">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/24">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/25">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/28">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/29">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/31">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/32">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/34">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/35">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/37">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/38">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/40">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/41">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/43">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfen/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="wwefdistribution/44">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="ewfsv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+</rdf:RDF>

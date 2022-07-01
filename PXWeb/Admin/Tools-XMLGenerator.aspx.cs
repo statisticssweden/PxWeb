@@ -14,6 +14,7 @@ using PXWeb.Database;
 using System.Xml;
 using System.Globalization;
 using System.Collections.Generic;
+using System.IO;
 using Px.Rdf;
 
 namespace PXWeb.Admin
@@ -125,8 +126,7 @@ namespace PXWeb.Admin
             foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages) {
                 languages.Add(firstTwo(ls.Name));
             }
-            
-            string themeMapping = HttpContext.Current.Server.MapPath("~/Tmapping.json");
+            string themeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json");
             string dbType = cboSelectDbType.SelectedItem.Value;
             string dbid = "";
             IFetcher fetcher;
@@ -136,6 +136,8 @@ namespace PXWeb.Admin
             switch (dbType) {
                 case "PX":
                     dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/Menu.xml";
+                    string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/TMapping.json";
+                    if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
                     fetcher = new PcAxisFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
                     break;
                 case "CMNN":
@@ -167,7 +169,7 @@ namespace PXWeb.Admin
                         ThemeMapping = themeMapping
             };
 
-            XML.writeToFile("C:/Temp/dcat-ap.xml", settings);
+            XML.writeToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
             //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
     }
