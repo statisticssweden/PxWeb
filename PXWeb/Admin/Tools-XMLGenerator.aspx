@@ -1,6 +1,15 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Tools-XMLGenerator.aspx.cs" Inherits="PXWeb.Admin.Tools_XMLGenerator" %>
 <%@ MasterType VirtualPath="~/Admin/Admin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderAdmin" runat="server">
+
+    <div class="setting-field">
+        <asp:Label ID="lblSelectDbType" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectDbType %>">"></asp:Label>
+        <asp:DropDownList ID="cboSelectDbType" onselectedindexchanged="cboSelectDbType_SelectedIndexChanged" AutoPostBack="true" runat="server">
+            <asp:ListItem Value="PX" Text="PX"></asp:ListItem>
+            <asp:ListItem Value="CMNN" Text="CMNN"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:ImageButton ID="imgSelectDbTypeInfo" runat="server" onclick="imgSelectDbType_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    </div>
     <div class="setting-field">
         <asp:Label ID="lblSelectDb" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectDb %>">"></asp:Label>
         <asp:DropDownList ID="cboSelectDb" runat="server"></asp:DropDownList>

@@ -968,8 +968,10 @@
   <sentence name="PxWebAdminToolsChangePasswordWrongPassword" value="Felaktigt lösenord" />
   <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Verifiering felaktig" />
   <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Lösenordet har ändrats" />
-  <sentence name="PxWebAdminToolsXMLGeneratorSelectDb" value="Generate XML for a PX database"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDb" value="Databas"/>
   <sentence name="PxWebAdminToolsXMLGeneratorSelectDbInfo" value="Välj en databas att generera XML-fil för"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDbTypeInfo" value="Välj typ av databas"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDbType" value="Databastyp"/>
   <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURI" value="Base URI"/>
   <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURIInfo" value="Välj baslänk för att bygga länkar i XML-filen"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitle" value="Titel katalog"/>

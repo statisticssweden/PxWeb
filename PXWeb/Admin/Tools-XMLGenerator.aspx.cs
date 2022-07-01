@@ -19,12 +19,34 @@ namespace PXWeb.Admin
 {
     public partial class Tools_XMLGenerator : System.Web.UI.Page
     {
+
+        protected void clearDropDown(DropDownList ddl)
+        {
+            ddl.Items.Clear();
+            ddl.DataBind();
+            ddl.ClearSelection();
+        }
         protected void fillPxDatabases(DropDownList ddl)
         {
+            clearDropDown(ddl);
             foreach (var db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
             {
                 ddl.Items.Add(new ListItem(db.Id, db.Id));
             }
+        }
+
+        protected void fillCNMMDatabases(DropDownList ddl)
+        {
+            clearDropDown(ddl);
+            foreach (var db in PXWeb.Settings.Current.General.Databases.AllCnmmDatabases)
+            {
+                ddl.Items.Add(new ListItem(db.Id, db.Id));
+            }
+        }
+        protected void cboSelectDbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSelectDbType.SelectedItem.Value == "PX") fillPxDatabases(cboSelectDbType);
+            else fillCNMMDatabases(cboSelectDbType);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,12 +54,18 @@ namespace PXWeb.Admin
             if (!IsPostBack)
             {
                 fillPxDatabases(cboSelectDb);
+                fillCNMMDatabases(cboSelectDb);
             }
 
         }
         protected void imgSelectDb_Click(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectDb", "PxWebAdminToolsXMLGeneratorSelectDbInfo");
+        }
+
+        protected void imgSelectDbType_Click(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectDbType", "PxWebAdminToolsXMLGeneratorSelectDbTypeInfo");
         }
 
         protected void imgSelectPreferredLanguage_Click(object sender, ImageClickEventArgs e)
@@ -97,6 +125,8 @@ namespace PXWeb.Admin
             foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages) {
                 languages.Add(firstTwo(ls.Name));
             }
+
+            
             //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
     }
