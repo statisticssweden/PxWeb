@@ -14,6 +14,7 @@ using PXWeb.Database;
 using System.Xml;
 using System.Globalization;
 using System.Collections.Generic;
+using Px.Rdf;
 
 namespace PXWeb.Admin
 {
@@ -45,8 +46,8 @@ namespace PXWeb.Admin
         }
         protected void cboSelectDbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboSelectDbType.SelectedItem.Value == "PX") fillPxDatabases(cboSelectDbType);
-            else fillCNMMDatabases(cboSelectDbType);
+            if (cboSelectDbType.SelectedItem.Value == "PX") fillPxDatabases(cboSelectDb);
+            else fillCNMMDatabases(cboSelectDb);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -54,7 +55,6 @@ namespace PXWeb.Admin
             if (!IsPostBack)
             {
                 fillPxDatabases(cboSelectDb);
-                fillCNMMDatabases(cboSelectDb);
             }
 
         }
@@ -125,8 +125,49 @@ namespace PXWeb.Admin
             foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages) {
                 languages.Add(firstTwo(ls.Name));
             }
-
             
+            string themeMapping = HttpContext.Current.Server.MapPath("~/Tmapping.json");
+            string dbType = cboSelectDbType.SelectedItem.Value;
+            string dbid = "";
+            IFetcher fetcher;
+
+            string currPath = HttpContext.Current.Server.MapPath("~");
+
+            switch (dbType) {
+                case "PX":
+                    dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/Menu.xml";
+                    fetcher = new PcAxisFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
+                    break;
+                case "CMNN":
+                    dbid = cboSelectDb.SelectedItem.Value;
+                    fetcher = new SQLFetcher();
+                    break;
+                default:
+                    Master.ShowInfoDialog("Error", "Please select a database");
+                    return;
+            }
+
+            RdfSettings settings = new RdfSettings {
+                        BaseUri = baseURI, // Base uri, can be anything
+        
+                        BaseApiUrl = baseApiUrl,// Base url for api request
+
+                        PreferredLanguage = preferredLanguage, // language code 2 letters
+
+                        Languages =  languages,// Read from settings
+
+                        CatalogTitle = catalogTitle,
+                        CatalogDescription = catalogDescription,
+
+                        PublisherName = publisher,
+                        DBid = dbid,
+                        Fetcher =  fetcher,// Create depending on chosen database
+                        LandingPageUrl = landingPageUrl,
+                        License = license,
+                        ThemeMapping = themeMapping
+            };
+
+            XML.writeToFile("C:/Temp/dcat-ap.xml", settings);
             //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
     }
