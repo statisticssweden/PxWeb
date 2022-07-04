@@ -682,7 +682,7 @@
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Språkhanteraren" />
   <sentence name="PxWebAdminMenuToolsReset" value="Nollställ" />
   <sentence name="PxWebAdminMenuToolsChangePassword" value="Byt lösenord" />
-  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generate XML"/>
+  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generera XML"/>
   <sentence name="PxWebAdminMenuFeatures" value="Funktioner" />
   <sentence name="PxWebAdminMenuFeaturesGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesCharts" value="Diagram" />
@@ -972,7 +972,7 @@
   <sentence name="PxWebAdminToolsXMLGeneratorSelectDbInfo" value="Välj en databas att generera XML-fil för"/>
   <sentence name="PxWebAdminToolsXMLGeneratorSelectDbTypeInfo" value="Välj typ av databas"/>
   <sentence name="PxWebAdminToolsXMLGeneratorSelectDbType" value="Databastyp"/>
-  <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURI" value="Base URI"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURI" value="Baslänk RDF"/>
   <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURIInfo" value="Välj baslänk för att bygga länkar i XML-filen"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitle" value="Titel katalog"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitleInfo" value="Välj titel för katalogen som skapas"/>
