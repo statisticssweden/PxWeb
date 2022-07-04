@@ -24,6 +24,7 @@ using PxWeb.Helper.Api2;
 using PCAxis.Menu;
 using Link = PxWeb.Models.Api2.Link;
 using System.IO;
+using PxWeb.Mappers;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -35,11 +36,13 @@ namespace PxWeb.Controllers.Api2
     {
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
+        private readonly IResponseMapper _responseMapper;   
         
-        public NavigationApiController(IDataSource dataSource,ILanguageHelper languageHelper )
+        public NavigationApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper )
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
+            _responseMapper = responseMapper;   
         }
 
         /// <summary>
@@ -77,7 +80,7 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = GetFolder((PxMenuItem)menu.CurrentItem);
+            Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
 
             return new ObjectResult(folder);
 
@@ -115,121 +118,11 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = GetFolder((PxMenuItem)menu.CurrentItem);
+            Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
 
             return new ObjectResult(folder);
         }
 
-        private Folder GetFolder(PxMenuItem currentItem)
-        {
-            string urlBase = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/v2/";
-            Folder folder = new Folder
-            {
-                Id = Path.GetFileName(currentItem.ID.Selection),
-                //Id = currentItem.ID.Selection,
-                ObjectType = typeof(Folder).Name,
-                Label = currentItem.Text,
-                Description = currentItem.Description,
-                Tags = null // TODO: Implement later
-            };
-
-            folder.Links = new List<Link>();
-            Link link = new Link();
-            link.Rel = "self";
-            link.Href = urlBase + Path.Combine("navigation/", folder.Id);
-            folder.Links.Add(link);
-
-
-            foreach (Item child in currentItem.SubItems)
-            {
-                if (child is PxMenuItem)
-                {
-                    FolderInformation fi = new FolderInformation
-                    {
-                        Id = Path.GetFileName(child.ID.Selection),
-                        ObjectType = typeof(FolderInformation).Name,
-                        Description = child.Description,
-                        Label = child.Text
-                    };
-
-                    fi.Links = new List<Link>();
-                    Link childLink = new Link();
-                    childLink.Rel = "folder";
-                    childLink.Href = urlBase + Path.Combine("navigation/",  Path.GetFileName(fi.Id));
-                    fi.Links.Add(childLink);
-                    folder.FolderContents.Add(fi);
-                }
-                else if (child is TableLink)
-                {
-                    Table table = new Table
-                    {
-                        Id = Path.GetFileName(child.ID.Selection),
-                        ObjectType = typeof(Table).Name,
-                        Description = child.Description,
-                        Label = child.Text,
-                        Updated = ((TableLink)child).Published,
-                        Tags = null, // TODO: Implement later
-                        Category = GetCategory(((TableLink)child).Category),
-                        FirstPeriod = ((TableLink)child).StartTime,
-                        LastPeriod = ((TableLink)child).EndTime
-                    };
-                    table.Links = new List<Link>();
-
-                    Link childLink = new Link();
-                    childLink.Rel = "self";
-                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}");
-                    table.Links.Add(childLink);
-
-                    childLink = new Link();
-                    childLink.Rel = "metadata";
-                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/metadata");
-                    table.Links.Add(childLink);
-
-                    childLink = new Link();
-                    childLink.Rel = "data";
-                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/data");
-                    table.Links.Add(childLink);
-
-                    folder.FolderContents.Add(table);
-                }
-                else if (child is Headline)
-                {
-                    Heading heading = new Heading
-                    {
-                        Id = Path.GetFileName(child.ID.Selection),
-                        ObjectType = typeof(Heading).Name,
-                        Label = child.Text,
-                        Description = child.Description
-                    };
-                    folder.FolderContents.Add(heading);
-                }
-            }
-
-            return folder;
-
-        }
-
-        /// <summary>
-        /// Translate Menu enum to PxApi enum
-        /// </summary>
-        /// <param name="category"></param>
-        /// <returns></returns>
-        private Table.CategoryEnum GetCategory(PresCategory category)
-        {
-            switch (category)
-            {
-                case PresCategory.NotSet: //TODO: how shall we handle NotSet?
-                    return Table.CategoryEnum.PrivateEnum;
-                case PresCategory.Official:
-                    return Table.CategoryEnum.OfficialEnum;
-                case PresCategory.Internal:
-                    return Table.CategoryEnum.InternalEnum;
-                case PresCategory.Private:
-                    return Table.CategoryEnum.PrivateEnum;
-                default:
-                    return Table.CategoryEnum.PrivateEnum; //TODO: How shall we handle this?
-            }
-        }
 
     }
 }
