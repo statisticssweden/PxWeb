@@ -53,9 +53,11 @@ namespace PXWeb.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.EnableSave(new EventHandler(MasterSave_Click));
             if (!IsPostBack)
             {
                 fillPxDatabases(cboSelectDb);
+                ReadSettings();
             }
 
         }
@@ -111,6 +113,46 @@ namespace PXWeb.Admin
             return s.Substring(0,2);
         }
 
+        /// <summary>
+        /// Read and display Charts settings  
+        /// </summary>
+        private void ReadSettings()
+        {
+            textBoxSelectBaseURI.Text = Settings.Current.Dcat.BaseURI;
+            textBoxSelectApiURL.Text = Settings.Current.Dcat.BaseApiUrl;
+            textBoxSelectLandingPageURL.Text = Settings.Current.Dcat.LandingPageUrl;
+            textBoxSelectPublisher.Text = Settings.Current.Dcat.Publisher;
+            textBoxSelectCatalogTitle.Text = Settings.Current.Dcat.CatalogTitle;
+            textBoxSelectCatalogDesc.Text = Settings.Current.Dcat.CatalogDescription;
+            cboSelectDb.Text = Settings.Current.Dcat.Database;
+            cboSelectDbType.Text = Settings.Current.Dcat.DatabaseType;
+            textBoxSelectLicense.Text = Settings.Current.Dcat.License;
+        }
+
+        protected void MasterSave_Click(object sender, EventArgs e) {
+            if (PXWeb.Settings.BeginUpdate())
+            {
+                try
+                {
+                    PXWeb.DcatSettings dcats  = (PXWeb.DcatSettings)PXWeb.Settings.NewSettings.Dcat;
+                    dcats.BaseURI = textBoxSelectBaseURI.Text;
+                    dcats.BaseApiUrl = textBoxSelectApiURL.Text;
+                    dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
+                    dcats.Publisher = textBoxSelectPublisher.Text;
+                    dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
+                    dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
+                    dcats.Database = cboSelectDb.Text;
+                    dcats.DatabaseType = cboSelectDbType.Text;
+                    dcats.License = textBoxSelectLicense.Text;
+
+                    PXWeb.Settings.Save();
+                }
+                finally
+                {
+                    PXWeb.Settings.EndUpdate();
+                }
+            }
+        }
         protected void btnGenerateXML_Click(object sender, EventArgs e)
         {
             string baseURI = textBoxSelectBaseURI.Text;

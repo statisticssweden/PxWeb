@@ -636,6 +636,7 @@
     <Compile Include="Code\Settings\ChartFontSettings.cs" />
     <Compile Include="Code\Settings\ChartGuidelinesSettings.cs" />
     <Compile Include="Code\Settings\ChartLegendSettings.cs" />
+    <Compile Include="Code\Settings\DcatSettings.cs" />
     <Compile Include="Code\Settings\ChartsSettings.cs" />
     <Compile Include="Code\Settings\CnmmDatabaseInfo.cs" />
     <Compile Include="Code\Settings\CommandBarSettings.cs" />
@@ -662,6 +663,7 @@
     <Compile Include="Code\Settings\Interfaces\IChartFontSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartGuidelinesSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartLegendSettings.cs" />
+    <Compile Include="Code\Settings\Interfaces\IDcatSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\ICommandBarSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IDatabaseSettings.cs" />

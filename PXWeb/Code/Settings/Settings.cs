@@ -67,6 +67,12 @@ namespace PXWeb
         /// </summary>
         private NavigationSettings _navigationSettings;
 
+
+        /// <summary>
+        /// Dcat settings
+        /// </summary>
+        private DcatSettings _dcatSettings;
+
         /// <summary>
         /// Dictionary with settings per database 
         /// </summary>
@@ -147,6 +153,10 @@ namespace PXWeb
             xpath = "/settings/navigation";
             node = xdoc.SelectSingleNode(xpath);
             ((NavigationSettings)_newSettings.Navigation).Save(node);
+
+            xpath = "/settings/dcat";
+            node = xdoc.SelectSingleNode(xpath);
+            ((DcatSettings)_newSettings.Dcat).Save(node);
 
             xdoc.Save(_path);
             _logger.Info("Settings-file was successfully saved");
@@ -327,6 +337,11 @@ namespace PXWeb
                 //node = SettingsHelper.GetNode(xdoc, xpath);
                 node = xdoc.SelectSingleNode(xpath);
                 _navigationSettings = new NavigationSettings(node);
+
+                xpath = "/settings/dcat";
+                //node = SettingsHelper.GetNode(xdoc, xpath);
+                node = xdoc.SelectSingleNode(xpath);
+                _dcatSettings = new DcatSettings(node);
 
             }
             catch (System.Exception ex)
@@ -583,6 +598,11 @@ namespace PXWeb
         /// Presentation settings
         /// </summary>
         public INavigationSettings Navigation { get { return _navigationSettings; } }
+
+        /// <summary>
+        /// Dcat settings
+        /// </summary>
+        public IDcatSettings Dcat { get { return _dcatSettings; } }
 
         /// <summary>
         /// Features settings
