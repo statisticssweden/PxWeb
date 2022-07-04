@@ -125,7 +125,8 @@ namespace PxWeb.Controllers.Api2
             string urlBase = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/v2/";
             Folder folder = new Folder
             {
-                Id = currentItem.ID.Selection,
+                Id = Path.GetFileName(currentItem.ID.Selection),
+                //Id = currentItem.ID.Selection,
                 ObjectType = typeof(Folder).Name,
                 Label = currentItem.Text,
                 Description = currentItem.Description,
@@ -145,7 +146,7 @@ namespace PxWeb.Controllers.Api2
                 {
                     FolderInformation fi = new FolderInformation
                     {
-                        Id = child.ID.Selection,
+                        Id = Path.GetFileName(child.ID.Selection),
                         ObjectType = typeof(FolderInformation).Name,
                         Description = child.Description,
                         Label = child.Text
@@ -154,7 +155,7 @@ namespace PxWeb.Controllers.Api2
                     fi.Links = new List<Link>();
                     Link childLink = new Link();
                     childLink.Rel = "folder";
-                    childLink.Href = urlBase + Path.Combine("navigation/", fi.Id);
+                    childLink.Href = urlBase + Path.Combine("navigation/",  Path.GetFileName(fi.Id));
                     fi.Links.Add(childLink);
                     folder.FolderContents.Add(fi);
                 }
@@ -162,7 +163,7 @@ namespace PxWeb.Controllers.Api2
                 {
                     Table table = new Table
                     {
-                        Id = child.ID.Selection,
+                        Id = Path.GetFileName(child.ID.Selection),
                         ObjectType = typeof(Table).Name,
                         Description = child.Description,
                         Label = child.Text,
@@ -176,17 +177,17 @@ namespace PxWeb.Controllers.Api2
 
                     Link childLink = new Link();
                     childLink.Rel = "self";
-                    childLink.Href = urlBase + Path.Combine($"tables/{table.Id}");
+                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}");
                     table.Links.Add(childLink);
 
                     childLink = new Link();
                     childLink.Rel = "metadata";
-                    childLink.Href = urlBase + Path.Combine($"tables/{table.Id}/metadata");
+                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/metadata");
                     table.Links.Add(childLink);
 
                     childLink = new Link();
                     childLink.Rel = "data";
-                    childLink.Href = urlBase + Path.Combine($"tables/{table.Id}/data");
+                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/data");
                     table.Links.Add(childLink);
 
                     folder.FolderContents.Add(table);
@@ -195,14 +196,13 @@ namespace PxWeb.Controllers.Api2
                 {
                     Heading heading = new Heading
                     {
-                        Id = child.ID.Selection,
+                        Id = Path.GetFileName(child.ID.Selection),
                         ObjectType = typeof(Heading).Name,
                         Label = child.Text,
                         Description = child.Description
                     };
                     folder.FolderContents.Add(heading);
                 }
-
             }
 
             return folder;
