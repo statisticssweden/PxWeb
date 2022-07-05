@@ -22,12 +22,6 @@ namespace PxWeb.Models.Api2
     [DataContract]
     public partial class Folder : IEquatable<Folder>
     {
-        // TODO: Not created by yaml
-        public Folder()
-        {
-            FolderContents = new List<FolderContentItem> { };   
-        }
-        
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
@@ -61,18 +55,21 @@ namespace PxWeb.Models.Api2
         [DataMember(Name="tags", EmitDefaultValue=true)]
         public List<string> Tags { get; set; }
 
+        // TODO: Wrong property order from yaml (switch Links and FolderContents)
+
+        /// <summary>
+        /// Links to ...
+        /// </summary>
+        /// <value>Links to ...</value>
+        [DataMember(Name = "links", EmitDefaultValue = true)]
+        public List<Link> Links { get; set; }
+
         /// <summary>
         /// Gets or Sets FolderContents
         /// </summary>
         [DataMember(Name="folderContents", EmitDefaultValue=true)]
         public List<FolderContentItem> FolderContents { get; set; }
 
-        /// <summary>
-        /// Links to ...
-        /// </summary>
-        /// <value>Links to ...</value>
-        [DataMember(Name="links", EmitDefaultValue=true)]
-        public List<Link> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

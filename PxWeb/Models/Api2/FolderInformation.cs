@@ -28,6 +28,7 @@ namespace PxWeb.Models.Api2
     {
 
         //TODO: Generated wrong from yaml
+        //TODO: Need to generate order for properties in yaml
 
         ///// <summary>
         ///// Gets or Sets Id
@@ -59,14 +60,14 @@ namespace PxWeb.Models.Api2
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
-        [DataMember(Name="tags", EmitDefaultValue=true)]
+        [DataMember(Name="tags", EmitDefaultValue=true, Order = 5)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Links to ...
         /// </summary>
         /// <value>Links to ...</value>
-        [DataMember(Name = "links", EmitDefaultValue = true)]
+        [DataMember(Name = "links", EmitDefaultValue = true, Order = 6)]
         public List<Link> Links { get; set; }
 
         /// <summary>

@@ -21,6 +21,9 @@ namespace PxWeb.Models.Api2
 {
 
     // TODO: Wrong parent from yaml
+    //TODO: Need to generate order for properties in yaml
+
+
     //    public partial class Table : IEquatable<Table>
     /// <summary>
     /// 
@@ -59,14 +62,14 @@ namespace PxWeb.Models.Api2
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
-        [DataMember(Name="tags", EmitDefaultValue=true)]
+        [DataMember(Name="tags", EmitDefaultValue=true, Order = 11)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// For treeNodeType \&quot;table\&quot;
         /// </summary>
         /// <value>For treeNodeType \&quot;table\&quot;</value>
-        [DataMember(Name="updated", EmitDefaultValue=true)]
+        [DataMember(Name="updated", EmitDefaultValue=true, Order = 5)]
         public DateTime? Updated { get; set; }
 
 
@@ -108,41 +111,41 @@ namespace PxWeb.Models.Api2
         /// Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S
         /// </summary>
         /// <value>Mostly for internal use. Which category table belongs to. internal, official, private or section. I, O, P, S</value>
-        [DataMember(Name="category", EmitDefaultValue=true)]
+        [DataMember(Name="category", EmitDefaultValue=true, Order = 6)]
         public CategoryEnum Category { get; set; } = CategoryEnum.OfficialEnum;
 
         /// <summary>
         /// Links to ...
         /// </summary>
         /// <value>Links to ...</value>
-        [DataMember(Name="links", EmitDefaultValue=true)]
+        [DataMember(Name="links", EmitDefaultValue=true, Order = 12)]
         public List<Link> Links { get; set; }
 
         /// <summary>
         /// List of varibles name
         /// </summary>
         /// <value>List of varibles name</value>
-        [DataMember(Name="variablesName", EmitDefaultValue=false)]
+        [DataMember(Name="variablesName", EmitDefaultValue=false, Order = 7)]
         public List<string> VariablesName { get; set; }
 
         /// <summary>
         /// First period
         /// </summary>
         /// <value>First period</value>
-        [DataMember(Name="firstPeriod", EmitDefaultValue=false)]
+        [DataMember(Name="firstPeriod", EmitDefaultValue=false, Order = 8)]
         public string FirstPeriod { get; set; }
 
         /// <summary>
         /// Last period
         /// </summary>
         /// <value>Last period</value>
-        [DataMember(Name="lastPeriod", EmitDefaultValue=false)]
+        [DataMember(Name="lastPeriod", EmitDefaultValue=false, Order = 9)]
         public string LastPeriod { get; set; }
 
         /// <summary>
         /// Gets or Sets Discontinued
         /// </summary>
-        [DataMember(Name="discontinued", EmitDefaultValue=true)]
+        [DataMember(Name="discontinued", EmitDefaultValue=true, Order = 10)]
         public bool Discontinued { get; set; }
 
         /// <summary>

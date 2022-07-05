@@ -17,6 +17,7 @@ using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Helper.Api2;
 using Microsoft.AspNetCore.Mvc;
+using PxWeb.Mappers;
 
 namespace PxWeb
 {
@@ -56,7 +57,8 @@ namespace PxWeb
             
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
-            
+            builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()
                 .Where(p => p.Value != null && p.Key.ToLower().Contains("id"))

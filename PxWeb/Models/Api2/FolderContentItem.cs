@@ -20,31 +20,34 @@ namespace PxWeb.Models.Api2
     [DataContract]
     public partial class FolderContentItem : IEquatable<FolderContentItem>
     {
+
+        //TODO: Need to generate order for properties in yaml
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=true)]
+        [DataMember(Name="id", EmitDefaultValue=true, Order=1)]
         public string? Id { get; set; }
 
         /// <summary>
         /// One of heading, table, folder or folder-information
         /// </summary>
         /// <value>One of heading, table, folder or folder-information</value>
-        [DataMember(Name="objectType", EmitDefaultValue=false)]
+        [DataMember(Name="objectType", EmitDefaultValue=false, Order=2)]
         public string ObjectType { get; set; }
 
         /// <summary>
         /// Display text
         /// </summary>
         /// <value>Display text</value>
-        [DataMember(Name="label", EmitDefaultValue=true)]
+        [DataMember(Name="label", EmitDefaultValue=true, Order=3)]
         public string? Label { get; set; }
 
         /// <summary>
         /// Longer text describing node. If no longer text exist, same as label
         /// </summary>
         /// <value>Longer text describing node. If no longer text exist, same as label</value>
-        [DataMember(Name="description", EmitDefaultValue=true)]
+        [DataMember(Name="description", EmitDefaultValue=true, Order=4)]
         public string? Description { get; set; }
 
         /// <summary>
