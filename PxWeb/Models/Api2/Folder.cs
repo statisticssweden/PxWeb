@@ -55,6 +55,8 @@ namespace PxWeb.Models.Api2
         [DataMember(Name="tags", EmitDefaultValue=true)]
         public List<string> Tags { get; set; }
 
+        // TODO: Wrong property order from yaml (switch Links and FolderContents)
+
         /// <summary>
         /// Links to ...
         /// </summary>

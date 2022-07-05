@@ -38,10 +38,13 @@ namespace PxWeb.Mappers
                         Id = Path.GetFileName(child.ID.Selection),
                         ObjectType = typeof(FolderInformation).Name,
                         Description = child.Description,
-                        Label = child.Text
+                        Label = child.Text,
+                        Tags = null,
+                        Links = new List<Models.Api2.Link>()
                     };
 
-                    fi.Links = new List<Models.Api2.Link>();
+                    //fi.; // TODO: Implement later
+                    //fi.Links = new List<Models.Api2.Link>();
                     Models.Api2.Link childLink = new Models.Api2.Link();
                     childLink.Rel = "folder";
                     childLink.Href = urlBase + Path.Combine("navigation/", Path.GetFileName(fi.Id));
