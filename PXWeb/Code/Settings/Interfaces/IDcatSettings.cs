@@ -48,7 +48,7 @@ namespace PXWeb
 
 
         /// <summary>
-        /// Type of database (cmnn or px)
+        /// Type of database (cnmm or px)
         /// </summary>
         string DatabaseType { get; }
 

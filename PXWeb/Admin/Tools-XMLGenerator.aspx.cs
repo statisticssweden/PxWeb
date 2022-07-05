@@ -182,7 +182,7 @@ namespace PXWeb.Admin
                     if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
                     fetcher = new PcAxisFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
                     break;
-                case "CMNN":
+                case "CNMM":
                     dbid = cboSelectDb.SelectedItem.Value;
                     fetcher = new SQLFetcher();
                     break;
@@ -210,8 +210,14 @@ namespace PXWeb.Admin
                         License = license,
                         ThemeMapping = themeMapping
             };
-
-            XML.writeToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
+            try
+            {
+                XML.writeToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
+            }
+            catch(PCAxis.Menu.Exceptions.InvalidMenuFromXMLException)
+            {
+                Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorLanguageError", "PxWebAdminToolsXMLGeneratorLanguageErrorInfo");
+            }
             //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
     }

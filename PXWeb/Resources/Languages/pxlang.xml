@@ -1167,6 +1167,8 @@
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Base URL for the datasets"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectPublisher" value="Publisher"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectPublisherInfo" value="Publisher of the data"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorLanguageError" value="Error"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorLanguageErrorInfo" value="Chosen preferred language not available for chosen database"/>
 	<sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database"/>
 	<sentence name="PxWebAdminToolsGenerateCnmmDbSelectDb" value="Generate CNMM database"/>
 	<sentence name="PxWebAdminToolsGenerateDbSelectDbInfo" value="Select one of the databases to generate the database description file"/>

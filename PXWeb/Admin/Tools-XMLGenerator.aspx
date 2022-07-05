@@ -6,7 +6,7 @@
         <asp:Label ID="lblSelectDbType" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectDbType %>">"></asp:Label>
         <asp:DropDownList ID="cboSelectDbType" onselectedindexchanged="cboSelectDbType_SelectedIndexChanged" AutoPostBack="true" runat="server">
             <asp:ListItem Value="PX" Text="PX"></asp:ListItem>
-            <asp:ListItem Value="CMNN" Text="CMNN"></asp:ListItem>
+            <asp:ListItem Value="CNMM" Text="CNMM"></asp:ListItem>
         </asp:DropDownList>
         <asp:ImageButton ID="imgSelectDbTypeInfo" runat="server" onclick="imgSelectDbType_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>

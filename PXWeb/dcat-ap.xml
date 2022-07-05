@@ -1,63 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF xmlns:adms="http://www.w3.org/ns/adms#" xmlns:odrs="http://schema.theodi.org/odrs#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:store="https://catalog.scb.se/store/" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:es="http://entrystore.org/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <dcat:catalog>
-    <dcterms:title>kat</dcterms:title>
-    <dcterms:description>desc</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:license rdf:resource="https://ww.licens.com" />
+    <dcterms:title>Catalog title</dcterms:title>
+    <dcterms:description>Catalog description</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/5" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/9" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/13" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/17" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/20" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/23" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/26" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/30" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/34" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/37" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/40" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/44" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/48" />
-    <dcat:Dataset rdf:resource="https://ww.hej.comdataset/51" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/5" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/8" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/11" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/14" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/17" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/20" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/23" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/26" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/30" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/33" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/36" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/39" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/42" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/dataset/45" />
   </dcat:catalog>
-  <foaf:Organization rdf:about="https://ww.hej.comorganization/1">
+  <foaf:Organization rdf:about="https://baseURI.com/organization/1">
     <foaf:name>SCB</foaf:name>
   </foaf:Organization>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/5">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/5">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
-    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:description xml:lang="fi">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/1" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/2" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/3" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/4" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/3" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/4" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">AttributesCellnotes</dcat:keyword>
     <dcat:keyword xml:lang="sv">AttributesCellnotes</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvfiolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvfiolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comfi/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvfiolikacelln.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/9">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/8">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/7" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/8" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/7" />
     <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1ensvdescdefault.px</dcterms:identifier>
@@ -65,23 +60,20 @@
     <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1ensvdescdefault.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1ensvdescdefault.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/13">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/11">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
-    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:description xml:lang="fi">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/1" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/10" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/11" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/12" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/9" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/10" />
     <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
@@ -89,25 +81,20 @@
     <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvfiolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvfiolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comfi/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvfiolikacelln.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/17">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/14">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
-    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:description xml:lang="fi">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/1" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/14" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/15" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/16" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/12" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/13" />
     <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvfiolikacelln2.px</dcterms:identifier>
@@ -115,22 +102,20 @@
     <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvfiolikacelln2.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvfiolikacelln2.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comfi/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvfiolikacelln2.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/20">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/17">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/18" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/19" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/15" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/16" />
     <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/SOCI" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvolikacelln.px</dcterms:identifier>
@@ -138,20 +123,20 @@
     <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvolikacelln.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/23">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/20">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/21" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/22" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/18" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/19" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1ensvcontvarerror.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">error</dcat:keyword>
@@ -160,20 +145,20 @@
     <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1ensvcontvarerror.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1ensvcontvarerror.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1ensvcontvarerror.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1ensvcontvarerror.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/26">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/23">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/24" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/25" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/21" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/22" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1ensvdescdefaulterror.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">error</dcat:keyword>
@@ -182,23 +167,20 @@
     <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1ensvdescdefaulterror.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1ensvdescdefaulterror.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1ensvdescdefaulterror.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1ensvdescdefaulterror.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/30">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/26">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
-    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:description xml:lang="fi">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/1" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/27" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/28" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/29" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/24" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/25" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvfiolikacelln2error.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">error</dcat:keyword>
@@ -207,43 +189,41 @@
     <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvfiolikacelln2error.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvfiolikacelln2error.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comfi/ssd/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvfiolikacelln2error.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/34">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/30">
     <dcterms:title xml:lang="en">Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</dcterms:title>
     <dcterms:title xml:lang="sv">Konsumentprisindex (KPI) (enligt COICOP), 1980=100 eftervaru-/tjänstegrupp och tid.</dcterms:title>
     <dcterms:description xml:lang="en">Index numbers for main and subgroups have in some cases been adjusted to take into account certain inadequacies in the basic data on prices or in the methods used for calculating the originally published index numbers. They are consistent with shadow index numbers for total CPI. Product classification follows COICOP (Classification of Individual Consumption by Purpose).</dcterms:description>
     <dcterms:description xml:lang="sv">Indextal för huvud- och undergrupper är i en del fall baserade på index för varor och tjänster som är justerade med avseende på brister i det prisunderlag eller de beräkningsmetoder som låg till grund för beräkning av de ursprungligen redovisade indextalen. De är därmed konsistenta med skuggindextalen för KPI totalt.Produktindelning enligt COICOP (Classification of Individual Consumption by Purpose).
 Indextal för huvud- och undergrupper är i en del fall justerade med avseende på brister i det prisunderlag eller de beräkningsmetoder som legat till grund för de ursprungligen redovisade indextalen. De är därmed konsistenta med skuggindextalen för KPI totalt.Redovisning enligt denna äldre produktindelning upphör efter år 2000.</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/31" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/32" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/33" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/27" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/28" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/29" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2006-07-07T08:37:00</dcterms:modified>
     <dcterms:identifier>PR0101B3hier2lang.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">Hierarchies</dcat:keyword>
     <dcat:keyword xml:lang="sv">Hierarchies</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/PR0101B3hier2lang.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/PR0101B3hier2lang.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/PR0101B3hier2lang.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/PR0101B3hier2lang.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/37">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/33">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/35" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/36" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/31" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/32" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>officialstatistics.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">Misc</dcat:keyword>
@@ -252,311 +232,265 @@ Indextal för huvud- och undergrupper är i en del fall justerade med avseende p
     <dcat:keyword xml:lang="sv">OfficialStatistics</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/officialstatistics.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/officialstatistics.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/officialstatistics.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/officialstatistics.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/40">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/36">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/38" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/39" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/34" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/35" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1ensvdescdefault.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
     <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1ensvdescdefault.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1ensvdescdefault.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/44">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/39">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
-    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:description xml:lang="fi">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/1" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/41" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/42" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/43" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/37" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/38" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
     <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvfiolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvfiolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comfi/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvfiolikacelln.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/48">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/42">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
-    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:description xml:lang="fi">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/1" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/45" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/46" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/47" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/40" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/41" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvfiolikacelln2.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
     <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvfiolikacelln2.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvfiolikacelln2.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comfi/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvfiolikacelln2.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <dcat:Dataset rdf:about="https://ww.hej.comdataset/51">
+  <dcat:Dataset rdf:about="https://baseURI.com/dataset/45">
     <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
     <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
     <dcterms:description xml:lang="en">-</dcterms:description>
     <dcterms:description xml:lang="sv">-</dcterms:description>
-    <dcterms:publisher rdf:resource="https://ww.hej.comorganization/1" />
-    <dcterms:creator rdf:resource="https://ww.hej.comorganization/6" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/49" />
-    <dcat:distribution rdf:resource="https://ww.hej.comdistribution/50" />
+    <dcterms:publisher rdf:resource="https://baseURI.com/organization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/organization/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/43" />
+    <dcat:distribution rdf:resource="https://baseURI.com/distribution/44" />
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
     <dcterms:identifier>BE0101F1langensvolikacelln.px</dcterms:identifier>
     <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
     <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comen/ssd/BE0101F1langensvolikacelln.px" />
-    <dcat:landingPage rdf:resource="https://ww.hej.comsv/ssd/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/en/ssd/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://baseLandingPage.com/sv/ssd/BE0101F1langensvolikacelln.px" />
     <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
     <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
   </dcat:Dataset>
-  <foaf:Organization rdf:about="https://ww.hej.comorganization/1">
+  <foaf:Organization rdf:about="https://baseURI.com/organization/1">
     <foaf:name>SCB</foaf:name>
   </foaf:Organization>
-  <foaf:Organization rdf:about="https://ww.hej.comorganization/6">
+  <foaf:Organization rdf:about="https://baseURI.com/organization/2">
     <foaf:name>Statistiska centralbyrån (SCB)</foaf:name>
   </foaf:Organization>
-  <foaf:Organization rdf:about="https://ww.hej.comorganization/31">
+  <foaf:Organization rdf:about="https://baseURI.com/organization/27">
     <foaf:name>Statistiska centralbyrån</foaf:name>
   </foaf:Organization>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/2">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/3">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/3">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/4">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/4">
-    <dcterms:title>Data (fi)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
-  </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/7">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/6">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/8">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/7">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/10">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/9">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/11">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/10">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/12">
-    <dcterms:title>Data (fi)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
-  </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/14">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/12">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/15">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/13">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/16">
-    <dcterms:title>Data (fi)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
-  </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/18">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/15">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/19">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/16">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/21">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/18">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/22">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/19">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/24">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/21">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/25">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/22">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/27">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/24">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/28">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/25">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/29">
-    <dcterms:title>Data (fi)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
-  </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/32">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/28">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/33">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/29">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/35">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/31">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/36">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/32">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/38">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/34">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/39">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/35">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/41">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/37">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/42">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/38">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/43">
-    <dcterms:title>Data (fi)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
-  </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/45">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/40">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/46">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/41">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/47">
-    <dcterms:title>Data (fi)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
-    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
-    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
-  </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/49">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/43">
     <dcterms:title>Data (en)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comen/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/en/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
-  <dcat:Distribution rdf:about="https://ww.hej.comdistribution/50">
+  <dcat:Distribution rdf:about="https://baseURI.com/distribution/44">
     <dcterms:title>Data (sv)</dcterms:title>
-    <dcat:accessURL rdf:resource="https://ww.hej.comsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
+    <dcat:accessURL rdf:resource="https://baseAPI.com/sv/C:\Temp\PxWeb\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
     <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
     <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
   </dcat:Distribution>
