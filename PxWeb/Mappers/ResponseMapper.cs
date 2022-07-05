@@ -27,6 +27,7 @@ namespace PxWeb.Mappers
             link.Href = urlBase + Path.Combine("navigation/", folder.Id);
             folder.Links.Add(link);
 
+            folder.FolderContents = new List<FolderContentItem> { };
 
             foreach (Item child in currentItem.SubItems)
             {
