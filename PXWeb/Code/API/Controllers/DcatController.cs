@@ -31,7 +31,7 @@ namespace PXWeb.API
                     PreferredLanguage = preferredLanguage,
                     ThemeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json")
                 };
-                if (databaseTypeLower == "cmnn") {
+                if (databaseTypeLower == "cnmm") {
                     settings.Fetcher = new SQLFetcher();
                     settings.DBid = database;
                 }

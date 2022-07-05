@@ -986,6 +986,8 @@
  <sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Ingångssida till webbsida som ger tillgång till datamängden eller dess distributioner och/eller ytterligare information"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisher" value="Utgivare"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisherInfo" value="Utgivare av datan"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorLanguageError" value="Fel"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorLanguageErrorInfo" value="Det valda språket finns inte tillgängligt för den valda databasen"/>
  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funktion" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Förkryssade funktioner kommer att finnas tillgängliga i administrationsgränssnittet samt i PxWeb" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Diagram" />
