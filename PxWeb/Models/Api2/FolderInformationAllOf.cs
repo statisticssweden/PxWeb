@@ -14,30 +14,25 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace PxWeb.Models.Api2
+namespace PxWeb.Models.Api2 
 { 
     /// <summary>
-    /// 
+    /// Folder information item
     /// </summary>
     [DataContract]
-    public partial class TablesResponse : IEquatable<TablesResponse>
+    public partial class FolderInformationAllOf : IEquatable<FolderInformationAllOf>
     {
         /// <summary>
-        /// Gets or Sets Tables
+        /// Gets or Sets Tags
         /// </summary>
-        [DataMember(Name="tables", EmitDefaultValue=false)]
-        public List<Table> Tables { get; set; }
+        [DataMember(Name="tags", EmitDefaultValue=true)]
+        public List<string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or Sets Page
+        /// Links to ...
         /// </summary>
-        [DataMember(Name="page", EmitDefaultValue=false)]
-        public PagePage Page { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name="links", EmitDefaultValue=false)]
+        /// <value>Links to ...</value>
+        [DataMember(Name="links", EmitDefaultValue=true)]
         public List<Link> Links { get; set; }
 
         /// <summary>
@@ -47,9 +42,8 @@ namespace PxWeb.Models.Api2
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TablesResponse {\n");
-            sb.Append("  Tables: ").Append(Tables).Append("\n");
-            sb.Append("  Page: ").Append(Page).Append("\n");
+            sb.Append("class FolderInformationAllOf {\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -73,30 +67,25 @@ namespace PxWeb.Models.Api2
         {
             if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((TablesResponse)obj);
+            return obj.GetType() == GetType() && Equals((FolderInformationAllOf)obj);
         }
 
         /// <summary>
-        /// Returns true if TablesResponse instances are equal
+        /// Returns true if FolderInformationAllOf instances are equal
         /// </summary>
-        /// <param name="other">Instance of TablesResponse to be compared</param>
+        /// <param name="other">Instance of FolderInformationAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TablesResponse other)
+        public bool Equals(FolderInformationAllOf other)
         {
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Tables == other.Tables ||
-                    Tables != null &&
-                    other.Tables != null &&
-                    Tables.SequenceEqual(other.Tables)
-                ) && 
-                (
-                    Page == other.Page ||
-                    Page != null &&
-                    Page.Equals(other.Page)
+                    Tags == other.Tags ||
+                    Tags != null &&
+                    other.Tags != null &&
+                    Tags.SequenceEqual(other.Tags)
                 ) && 
                 (
                     Links == other.Links ||
@@ -116,10 +105,8 @@ namespace PxWeb.Models.Api2
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Tables != null)
-                    hashCode = hashCode * 59 + Tables.GetHashCode();
-                    if (Page != null)
-                    hashCode = hashCode * 59 + Page.GetHashCode();
+                    if (Tags != null)
+                    hashCode = hashCode * 59 + Tags.GetHashCode();
                     if (Links != null)
                     hashCode = hashCode * 59 + Links.GetHashCode();
                 return hashCode;
@@ -129,12 +116,12 @@ namespace PxWeb.Models.Api2
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(TablesResponse left, TablesResponse right)
+        public static bool operator ==(FolderInformationAllOf left, FolderInformationAllOf right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(TablesResponse left, TablesResponse right)
+        public static bool operator !=(FolderInformationAllOf left, FolderInformationAllOf right)
         {
             return !Equals(left, right);
         }

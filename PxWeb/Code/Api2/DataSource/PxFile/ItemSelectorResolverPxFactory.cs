@@ -13,10 +13,10 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     public class ItemSelectorResolverPxFactory : IItemSelectionResolverFactory
     {
         private readonly IPxFileConfigurationService _pxFileConfigurationService;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly ILogger _logger;
 
-        public ItemSelectorResolverPxFactory(IPxFileConfigurationService pxFileConfigurationService, IHostingEnvironment hostingEnvironment, ILogger<ItemSelectorResolverPxFactory> logger)
+        public ItemSelectorResolverPxFactory(IPxFileConfigurationService pxFileConfigurationService, IWebHostEnvironment hostingEnvironment, ILogger<ItemSelectorResolverPxFactory> logger)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
             _hostingEnvironment = hostingEnvironment;

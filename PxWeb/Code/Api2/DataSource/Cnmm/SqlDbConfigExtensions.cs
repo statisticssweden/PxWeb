@@ -20,19 +20,19 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             string sql;
             if (DB is SqlDbConfig_21)
             {
-                sql = GetMenuLookupQuery2_1(DB as SqlDbConfig_21);
+                sql = GetMenuLookupQuery2_1(DB as SqlDbConfig_21, language);
             }
             else if (DB is SqlDbConfig_22)
             {
-                sql = (DB as SqlDbConfig_22).GetMenuLookupQuery2_2();
+                sql = (DB as SqlDbConfig_22).GetMenuLookupQuery2_2(language);
             }
             else if (DB is SqlDbConfig_23)
             {
-                sql = (DB as SqlDbConfig_23).GetMenuLookupQuery2_3();
+                sql = (DB as SqlDbConfig_23).GetMenuLookupQuery2_3(language);
             }
             else if (DB is SqlDbConfig_24)
             {
-                sql = (DB as SqlDbConfig_24).GetMenuLookupQuery2_4();
+                sql = (DB as SqlDbConfig_24).GetMenuLookupQuery2_4(language);
             }
             else
             {
@@ -61,24 +61,52 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             return menuLookup;
         }
 
-        private static string GetMenuLookupQuery2_1(SqlDbConfig_21 DB)
+        private static string GetMenuLookupQuery2_1(SqlDbConfig_21 DB, string language)
         {
-            return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            if (!DB.isSecondaryLanguage(language))
+            {
+                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            }
+            else
+            {
+                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+            }
         }
 
-        private static string GetMenuLookupQuery2_2(this SqlDbConfig_22 DB)
+        private static string GetMenuLookupQuery2_2(this SqlDbConfig_22 DB, string language)
         {
-            return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            if (!DB.isSecondaryLanguage(language))
+            {
+                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            }
+            else
+            {
+                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+            }
         }
 
-        private static string GetMenuLookupQuery2_3(this SqlDbConfig_23 DB)
+        private static string GetMenuLookupQuery2_3(this SqlDbConfig_23 DB, string language)
         {
-            return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            if (!DB.isSecondaryLanguage(language))
+            {
+                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            }
+            else
+            {
+                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+            }
         }
 
-        private static string GetMenuLookupQuery2_4(this SqlDbConfig_24 DB)
+        private static string GetMenuLookupQuery2_4(this SqlDbConfig_24 DB, string language)
         {
-            return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            if (!DB.isSecondaryLanguage(language))
+            {
+                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+            }
+            else
+            {
+                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+            }
         }
 
 
