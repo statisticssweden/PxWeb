@@ -180,11 +180,11 @@ namespace PXWeb.Admin
                     dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/Menu.xml";
                     string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/TMapping.json";
                     if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
-                    fetcher = new PcAxisFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
+                    fetcher = new PXFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
                     break;
                 case "CNMM":
                     dbid = cboSelectDb.SelectedItem.Value;
-                    fetcher = new SQLFetcher();
+                    fetcher = new CNMMFetcher();
                     break;
                 default:
                     Master.ShowInfoDialog("Error", "Please select a database");

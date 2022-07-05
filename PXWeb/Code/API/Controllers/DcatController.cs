@@ -32,7 +32,7 @@ namespace PXWeb.API
                     ThemeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json")
                 };
                 if (databaseTypeLower == "cnmm") {
-                    settings.Fetcher = new SQLFetcher();
+                    settings.Fetcher = new CNMMFetcher();
                     settings.DBid = database;
                 }
                 else if(databaseTypeLower == "px")
@@ -40,7 +40,7 @@ namespace PXWeb.API
                     settings.DBid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + database + "/Menu.xml";
                     string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + database + "/TMapping.json";
                     if (File.Exists(localThemeMapping)) settings.ThemeMapping = localThemeMapping;
-                    settings.Fetcher = new PcAxisFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
+                    settings.Fetcher = new PXFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
                 }
                 else
                 {
