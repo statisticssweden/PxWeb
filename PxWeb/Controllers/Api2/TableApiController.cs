@@ -36,7 +36,6 @@ namespace PxWeb.Controllers.Api2
         [ValidateModelState]
         [SwaggerOperation("GetTableById")]
         [SwaggerResponse(statusCode: 200, type: typeof(Table), description: "Success")]
-        //public virtual IActionResult GetTableById([FromRoute][Required]string id)
         public virtual IActionResult GetTableById([FromRoute(Name = "id")][Required] string id)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -64,7 +63,6 @@ namespace PxWeb.Controllers.Api2
         [ValidateModelState]
         [SwaggerOperation("ListAllTables")]
         [SwaggerResponse(statusCode: 200, type: typeof(TablesResponse), description: "Success")]
-        //public virtual IActionResult ListAllTables([FromQuery]string query, [FromQuery]int? pastDays, [FromQuery]bool? includeDiscontinued, [FromQuery]int? pageNumber, [FromQuery]int? pageSize)
         public virtual IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
