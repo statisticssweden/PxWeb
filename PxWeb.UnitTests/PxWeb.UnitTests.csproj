@@ -507,6 +507,7 @@
     <Content Include="Database\Menu.xml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\Misc\OfficialStatistics\officialstatistics.px">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

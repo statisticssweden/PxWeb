@@ -1,0 +1,50 @@
+CHARSET="ANSI";
+AXIS-VERSION="2006";
+CODEPAGE="Windows-1252";
+LANGUAGE="en";
+CREATION-DATE="20060707 18:04";
+DECIMALS=0;
+SHOWDECIMALS=0;
+MATRIX="BE0101A1";
+SUBJECT-CODE="BE";
+SUBJECT-AREA="Population";
+TITLE="Population by region, marital status, period and sex.Distribution by number and Per cent.";
+CONTENTS="Population";
+STUB="region","marital status";
+HEADING="period","$$SORT","sex";
+VALUES("region")="01 Stockholm county","03 Uppsala county","04 Södermanland county";
+VALUES("marital status")="single","married","widowers/widows","divorced";
+VALUES("period")="2004","2005";
+VALUES("$$SORT")="number","Per cent";
+VALUES("sex")="men","women";
+TIMEVAL("period")=TLIST(A1),"2004","2005";
+CODES("region")="01","03","04";
+CODES("marital status")="OG","G","ÄNKL","SK";
+CODES("sex")="1","2";
+DOMAIN("marital status")="Marital status";
+DOMAIN("sex")="Sex";
+MAP("region")="Sweden_county";
+PRECISION("$$SORT","Per cent")=2;
+LAST-UPDATED="20060209 15:20";
+STOCKFA="S";
+UNITS="?";
+REFPERIOD="31 Dec each year";
+CONTACT="   Befolkningsstatistik, SCB#Tel: 019-17 60 10#E-mail: befolkning@scb.se";
+DATABASE="SDB";
+SOURCE="Statistics Sweden";
+INFOFILE="BE0101";
+NOTEX="The tables show the conditions on December 31st for each respective year according to administrative subdivisions of January 1st of the following year";
+DATA=
+ 522028.00  473644.00  52.43  47.57  528282.00  479346.00  52.43  47.57 
+ 297649.00  299470.00  49.85  50.15  300198.00  301731.00  49.87  50.13 
+ 16710.00  67116.00  19.93  80.07  16578.00  66248.00  20.02  79.98 
+ 82895.00  113388.00  42.23  57.77  83303.00  114259.00  42.17  57.83 
+ 84478.00  76684.00  52.42  47.58  85023.00  77258.00  52.39  47.61 
+ 50304.00  50548.00  49.88  50.12  50555.00  50765.00  49.90  50.10 
+ 2993.00  11019.00  21.36  78.64  3003.00  10887.00  21.62  78.38 
+ 11541.00  14997.00  43.49  56.51  11673.00  15203.00  43.43  56.57 
+ 67601.00  57757.00  53.93  46.07  67737.00  57988.00  53.88  46.12 
+ 46845.00  46917.00  49.96  50.04  46984.00  47078.00  49.95  50.05 
+ 3430.00  13046.00  20.82  79.18  3422.00  12903.00  20.96  79.04 
+ 11471.00  14003.00  45.03  54.97  11622.00  14161.00  45.08  54.92 
+;

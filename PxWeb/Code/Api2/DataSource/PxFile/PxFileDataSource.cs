@@ -23,9 +23,6 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
         
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
         {
-            var pxOptions = _pxFileConfigurationService.GetConfiguration();
-
-            string webRootPath = _hostingEnvironment.WebRootPath;
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
 
             ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id, out selectionExists);
