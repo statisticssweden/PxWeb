@@ -16,7 +16,7 @@ using PCAxis.Chart;
 namespace PXWeb
 {
     /// <summary>
-    /// Internal class for reading and writing the Chart settings
+    /// Internal class for reading and writing the Dcat settings
     /// </summary>
     internal class DcatSettings : IDcatSettings
     {
@@ -29,7 +29,7 @@ namespace PXWeb
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="chartsNode">XML-node for the Charts settings</param>
+        /// <param name="chartsNode">XML-node for the Dcat settings</param>
         public DcatSettings(XmlNode chartsNode)
         {
             string xpath;
@@ -64,9 +64,9 @@ namespace PXWeb
         }
 
         /// <summary>
-        /// Save Features.Charts settings to the settings file
+        /// Save Dcat settings to the settings file
         /// </summary>
-        /// <param name="generalNode">XML-node for the Features.Charts settings</param>
+        /// <param name="generalNode">XML-node for the Dcat settings</param>
         public void Save(XmlNode chartsNode)
         {
             string xpath;

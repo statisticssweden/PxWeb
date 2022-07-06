@@ -7,7 +7,7 @@ using PCAxis.Chart;
 namespace PXWeb
 {
     /// <summary>
-    /// Interface for the chart settings
+    /// Interface for the dcat settings
     /// </summary>
     public interface IDcatSettings
     {
