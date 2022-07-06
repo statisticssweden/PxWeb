@@ -212,7 +212,7 @@ namespace PXWeb.Admin
             };
             try
             {
-                XML.writeToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
+                XML.WriteToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
             }
             catch(PCAxis.Menu.Exceptions.InvalidMenuFromXMLException)
             {
