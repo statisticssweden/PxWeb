@@ -38,6 +38,7 @@ namespace PXWeb.API
                 else if(databaseTypeLower == "px")
                 {
                     settings.DBid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + database + "/Menu.xml";
+                    if (!File.Exists(settings.DBid)) return Request.CreateResponse(HttpStatusCode.BadRequest, $"Database does not exist: {database}");
                     string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + database + "/TMapping.json";
                     if (File.Exists(localThemeMapping)) settings.ThemeMapping = localThemeMapping;
                     settings.Fetcher = new PXFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
