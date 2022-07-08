@@ -73,10 +73,10 @@ namespace PCAxis.Chart
                 // Guideline color
                 area.AxisY.MajorGrid.LineColor = System.Drawing.ColorTranslator.FromHtml(settings.GuidelinesColor);
                 area.AxisX.MajorGrid.LineColor = System.Drawing.ColorTranslator.FromHtml(settings.GuidelinesColor);
-
-                area.BackColor = System.Drawing.ColorTranslator.FromHtml(settings.BackgroundColorGraphs);
-                
+                Color color = System.Drawing.ColorTranslator.FromHtml(settings.BackgroundColorGraphs);
+                area.BackColor = Color.FromArgb(settings.ChartAlpha, color);     
             }
+
             //If line thickness is more than 0 draw a line around the chart
             if ( settings.LineThicknessPhrame > 0 )
             {
@@ -145,6 +145,8 @@ namespace PCAxis.Chart
             chart.Palette = ChartColorPalette.None;
             chart.PaletteCustomColors = lstColors.ToArray();
 
+            Color backgroundColor = ColorTranslator.FromHtml(settings.BackgroundColor);
+            chart.BackColor = Color.FromArgb(settings.BackgroundAlpha, backgroundColor);
             return chart;
 
         }

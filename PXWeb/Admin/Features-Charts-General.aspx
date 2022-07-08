@@ -14,18 +14,25 @@
             BindColorPicker('Guidelines', '#AAAAAA');
 
             BindColorPicker('AddColor', '#000000');
+
+            BindColorPicker('BackgroundColor', '#FFFFFF');
+
             $('.customWidget>div').css('z-index', '1000');
+
 
             $('.customWidgetSideControls>input:text').blur(function (event) {
                 var id = this.tabIndex;
                 switch (id) {
                     case 10000:
-                        id = "Guidelines";
+                        id = "BackgroundColor";
                         break;
                     case 10001:
-                        id = "BackgroundColorGraphs";
+                        id = "Guidelines";
                         break;
                     case 10002:
+                        id = "BackgroundColorGraphs";
+                        break;
+                    case 10003:
                         id = "LineColorPhrame";
                         break;
                     case 10005:
@@ -139,6 +146,33 @@
             ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
         </div>
     </asp:Panel>
+
+        <div class="setting-field">
+        <asp:Label ID="lblBackgroundColor" runat="server" CssClass="settingFieldText" Text="<%$ PxString: PxWebAdminFeaturesChartsGeneralBackgroundColor %>"></asp:Label>         
+        <div class="settingFieldControls">
+            <div id="customWidgetBackgroundColor" class="customWidget">
+                <div id="selectorBackgroundColor" class="colorpickerselector">
+                    <div style="background-color: <%# BackgroundColor %>"></div>
+                </div>
+                <div id="pickerBackgroundColor" class="colorpickercontainer"></div>
+            </div>
+            <div id="deleteButtonBackgroundColor" class="customWidgetSideControls">
+                <asp:TextBox runat="server" TabIndex="10000" MaxLength="7"  ID="txtBackgroundColor" CssClass="selectedColorBackgroundColor colorTextField" />
+                <asp:ImageButton ID="imgBackgroundColor" runat="server" onclick="BackgroundColorInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+            </div>    
+        </div>
+         <asp:CustomValidator ID="validatorBackgroundColor" runat="server" 
+        ControlToValidate="txtBackgroundColor" OnServerValidate="ValidateColor"
+        ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
+
+        <asp:Label ID="lblBackgroundAlpha" runat="server" Text="<%$ PxString: PxWebAdminFeaturesChartsGeneralBackgroundAlpha %>"></asp:Label>
+        <asp:TextBox ID="txtBackgroundAlpha" runat="server" CssClass="mediuminput" MaxLength="3"></asp:TextBox>
+        <asp:ImageButton ID="imgBackgroundAlpha" runat="server" onclick="BackgroundAlphaInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+         <asp:CustomValidator ID="BackgroundAlphaValidator" runat="server" 
+        ControlToValidate="txtBackgroundAlpha" OnServerValidate="ValidateAlpha"
+        ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
+    </div>
+
     <div class="setting-field">
         <asp:Label ID="lblGuidelinesColor" runat="server" CssClass="settingFieldText" Text="<%$ PxString: PxWebAdminFeaturesChartsGeneralGuidelinesColor %>"></asp:Label>         
         <div class="settingFieldControls">
@@ -149,7 +183,7 @@
                 <div id="pickerGuidelines" class="colorpickercontainer"></div>
             </div>
             <div id="deleteButtonGuidelines" class="customWidgetSideControls">
-                <asp:TextBox runat="server" TabIndex="10000" MaxLength="7"  ID="txtGuidelinesColor" CssClass="selectedColorGuidelines colorTextField" />
+                <asp:TextBox runat="server" TabIndex="10001" MaxLength="7"  ID="txtGuidelinesColor" CssClass="selectedColorGuidelines colorTextField" />
                 <asp:ImageButton ID="imgGuidelinesColor" runat="server" onclick="GuidelinesColorInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
             </div>    
         </div>
@@ -167,12 +201,19 @@
                 <div id="pickerBackgroundColorGraphs" class="colorpickercontainer"></div>
             </div>
             <div id="deleteButtonBackgroundColorGraphs" class="customWidgetSideControls">
-                <asp:TextBox runat="server" TabIndex="10001" MaxLength="7"  ID="txtBackgroundColorGraphs" CssClass="selectedColorBackgroundColorGraphs colorTextField" />
+                <asp:TextBox runat="server" TabIndex="10002" MaxLength="7"  ID="txtBackgroundColorGraphs" CssClass="selectedColorBackgroundColorGraphs colorTextField" />
                 <asp:ImageButton ID="imgBackgroundColorGraphs" runat="server" onclick="BackgroundColorGraphsInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
             </div>    
         </div>
          <asp:CustomValidator ID="CustomValidator3" runat="server" 
         ControlToValidate="txtBackgroundColorGraphs" OnServerValidate="ValidateColor"
+        ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
+
+        <asp:Label ID="lblChartAlpha" runat="server" Text="<%$ PxString: PxWebAdminFeaturesChartsGeneralChartAlpha %>"></asp:Label>
+        <asp:TextBox ID="txtChartAlpha" runat="server" CssClass="mediuminput" MaxLength="3"></asp:TextBox>
+        <asp:ImageButton ID="imgChartAlpha" runat="server" onclick="ChartAlphaInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+         <asp:CustomValidator ID="validatorChartAlpha" runat="server" 
+        ControlToValidate="txtChartAlpha" OnServerValidate="ValidateAlpha"
         ErrorMessage="*" ValidateEmptyText="True" CssClass="setting-field-validator" ></asp:CustomValidator>
     </div>
     <div class="setting-field">
@@ -185,7 +226,7 @@
                 <div id="pickerLineColorPhrame" class="colorpickercontainer"></div>
             </div>
             <div id="deleteLineColorPhrame" class="customWidgetSideControls">
-                <asp:TextBox runat="server" TabIndex="10002" MaxLength="7"  ID="txtLineColorPhrame" CssClass="selectedColorLineColorPhrame colorTextField" />
+                <asp:TextBox runat="server" TabIndex="10003" MaxLength="7"  ID="txtLineColorPhrame" CssClass="selectedColorLineColorPhrame colorTextField" />
                 <asp:ImageButton ID="imgLineColorPhrame" runat="server" onclick="LineColorPhrameInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
             </div>    
         </div>
@@ -195,7 +236,7 @@
     </div>
     <div class="setting-field">
         <asp:Label ID="lblLineThicknessPhrame" runat="server" Text="<%$ PxString: PxWebAdminFeaturesChartsGeneralLineThicknessPhrame %>"></asp:Label>
-        <asp:TextBox ID="txtLineThicknessPhrame" runat="server" CssClass="smallinput" MaxLength="10" TabIndex="10003"></asp:TextBox>
+        <asp:TextBox ID="txtLineThicknessPhrame" runat="server" CssClass="smallinput" MaxLength="10" TabIndex="10004"></asp:TextBox>
         <asp:ImageButton ID="imgLineThicknessPhrame" runat="server" onclick="LineThicknessPhrameInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
          <asp:CustomValidator ID="CustomValidatorPhrame" runat="server" 
         ControlToValidate="txtLineThicknessPhrame" OnServerValidate="ValidateLineThicknessPhrame"

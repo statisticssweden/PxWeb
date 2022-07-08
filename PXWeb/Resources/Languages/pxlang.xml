@@ -1258,7 +1258,13 @@
   <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessPhrameInfo" value="Select line thickness of the frame around the chart. If not specified, so there will be no frame."/>
   <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphs" value="Background color chart"/>
   <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphsInfo" value="Choose a background color to the chart."/>
-  <sentence name="PxWebChartsSourceLabel" value="Source:" />
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColor" value="Background color"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorInfo" value="Choose a background color behind the chart."/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundAlpha" value="Background alpha"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundAlphaInfo" value="Choose alpha / transparency of the background. Must be a value between 0 and 255 where 0 is completely transparent and 255 opaque."/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralChartAlpha" value="Chart background alpha"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralChartAlphaInfo" value="Choose alpha / transparency of the chart background. Must be a value between 0 and 255 where 0 is completely transparent and 255 opaque."/>
+	<sentence name="PxWebChartsSourceLabel" value="Source:" />
 	 <sentence name="PxWebChartsSource" value="Statistics Sweden" />
 
 	 <sentence name="PxWebAdminFeaturesApiGeneralApiSettings" value="API settings" />
