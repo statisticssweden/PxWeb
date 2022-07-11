@@ -85,7 +85,7 @@ Namespace CommandBar
         ''' <value>If a plugin is loaded that is is returned, otherwise the id is <c>null</c></value>
         ''' <returns>The id of the currently loaded plugin or <c>null</c></returns>
         ''' <remarks>This is used to recreate the plugin at postback and to change which plugin to load</remarks>
-        <Attributes.PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)> _
+        <Attributes.PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
         Protected Property PluginID() As String
             Get
                 Return _pluginID
@@ -107,7 +107,7 @@ Namespace CommandBar
         ''' <value>If <c>True</c> then there is no need to populate the dropdowns, otherwise the dropdowns need to be populated</value>
         ''' <returns><c>True</c> if the dropdowns are loaded, otherwise <c>False</c></returns>
         ''' <remarks></remarks>
-        <Attributes.PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)> _
+        <Attributes.PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
         Protected Property IsDropDownsLoaded() As Boolean
             Get
                 Return _isDropDownsLoaded
@@ -206,7 +206,7 @@ Namespace CommandBar
             Dim shortCutPanel = DirectCast(Me.Parent.Parent.FindControl("CommandBarShortCuts"), Panel)
 
             AccordionPanel.Visible = False
-            shortcutPanel.Visible = False
+            shortCutPanel.Visible = False
 
             'Ensure there is a CommandBarPlugin filter
             If Marker.CommandBarFilter Is Nothing Then
@@ -219,10 +219,10 @@ Namespace CommandBar
                     FillDropDowns()
                     AccordionPanel.Visible = True
                     FillShortcutButtons(shortCutPanel)
-                    shortcutPanel.Visible = True
+                    shortCutPanel.Visible = True
                 Case CommandBarViewMode.ImageButtons
                     FillButtons(shortCutPanel)
-                    shortcutPanel.Visible = True
+                    shortCutPanel.Visible = True
             End Select
 
             If shortCutPanel.Controls.Count > 0 Then
@@ -296,7 +296,7 @@ Namespace CommandBar
                 Next
 
                 If SaveAsRadioButtonList.Items.Count > 0 Then
-                    SaveAsRadioButtonList.Items(0).Selected = true
+                    SaveAsRadioButtonList.Items(0).Selected = True
                 End If
 
                 'Add plugins to the presentation views dropdown
@@ -443,7 +443,7 @@ Namespace CommandBar
                 End If
             End With
 
-            Return Button
+            Return button
         End Function
 
         Private Function CreateFileformatShortcutButton(ByVal filetype As FileType, ByVal fileformat As String) As Button
@@ -460,6 +460,7 @@ Namespace CommandBar
                 .ID = String.Format(FORMAT_SHORTCUT_FILE, fileformat, Globalization.CultureInfo.InvariantCulture)
                 .CommandArgument = fileformat
                 .ToolTip = Me.GetLocalizedString(fileformat)
+                .Text = Me.GetLocalizedString(fileformat)
                 .CommandName = COMMAND_PLUGIN_SHORTCUT
                 .CssClass = $"pxweb-btn icon-placement pxweb-buttons {fileformat}"
                 If IsJavascriptEnabled() And (Not String.IsNullOrEmpty(fileformat)) Then
