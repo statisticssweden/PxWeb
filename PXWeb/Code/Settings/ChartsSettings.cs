@@ -117,6 +117,15 @@ namespace PXWeb
             xpath = "./backgroundColorGraphs";
             BackgroundColorGraphs = SettingsHelper.GetSettingValue(xpath, chartsNode, "#FFFFFF");
 
+            xpath = "./backgroundAlpha";
+            BackgroundAlpha = SettingsHelper.GetSettingValue(xpath, chartsNode, 255);
+
+            xpath = "./chartAlpha";
+            ChartAlpha = SettingsHelper.GetSettingValue(xpath, chartsNode, 255);
+
+            xpath = "./backgroundColor";
+            BackgroundColor = SettingsHelper.GetSettingValue(xpath, chartsNode, "#FFFFFF");
+
         }
 
         /// <summary>
@@ -188,6 +197,15 @@ namespace PXWeb
             xpath = "./backgroundColorGraphs";
             SettingsHelper.SetSettingValue(xpath, chartsNode, BackgroundColorGraphs.ToString());
 
+            xpath = "./backgroundAlpha";
+            SettingsHelper.SetSettingValue(xpath, chartsNode, BackgroundAlpha.ToString());
+
+            xpath = "./chartAlpha";
+            SettingsHelper.SetSettingValue(xpath, chartsNode, ChartAlpha.ToString());
+
+            xpath = "./backgroundColor";
+            SettingsHelper.SetSettingValue(xpath, chartsNode, BackgroundColor.ToString());
+
         }
 
         #endregion
@@ -211,6 +229,9 @@ namespace PXWeb
         public string BackgroundColorGraphs { get; set; }
         public int LineThicknessPhrame { get; set; }
         public String LineColorPhrame { get; set; }
+        public string BackgroundColor { get; set; }
+        public int BackgroundAlpha { get; set; }
+        public int ChartAlpha { get; set; }
         public ChartSettings.SortType TimeSortOrder { get; set; }
         public ChartSettings.OrientationType LabelOrientation { get; set; }
         public IChartFontSettings Font

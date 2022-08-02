@@ -43,6 +43,15 @@ namespace PXWeb.Admin
             }
         }
 
+        private string _backgroundColor = "#FFFFFF";
+        public string BackgroundColor
+        {
+            get
+            {
+                return _backgroundColor;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Very ugly fix for weird javascript error that only occur in IE11.
@@ -119,6 +128,10 @@ namespace PXWeb.Admin
             txtLineColorPhrame.Text = PXWeb.Settings.Current.Features.Charts.LineColorPhrame.ToString();
             _backgroundColorGraphs = PXWeb.Settings.Current.Features.Charts.BackgroundColorGraphs.ToString();
             txtBackgroundColorGraphs.Text = PXWeb.Settings.Current.Features.Charts.BackgroundColorGraphs.ToString();
+            _backgroundColor = PXWeb.Settings.Current.Features.Charts.BackgroundColor.ToString();
+            txtBackgroundColor.Text = PXWeb.Settings.Current.Features.Charts.BackgroundColor.ToString();
+            txtChartAlpha.Text = PXWeb.Settings.Current.Features.Charts.ChartAlpha.ToString();
+            txtBackgroundAlpha.Text = PXWeb.Settings.Current.Features.Charts.BackgroundAlpha.ToString();
 
             rptColors.DataSource = PXWeb.Settings.Current.Features.Charts.Colors;
             rptColors.DataBind();
@@ -176,6 +189,10 @@ namespace PXWeb.Admin
                         _lineColorPhrame = txtLineColorPhrame.Text;
                         charts.BackgroundColorGraphs = txtBackgroundColorGraphs.Text;
                         _backgroundColorGraphs = txtBackgroundColorGraphs.Text;
+                        charts.BackgroundColor = txtBackgroundColor.Text;
+                        _backgroundColor = txtBackgroundColor.Text;
+                        charts.BackgroundAlpha = int.Parse(txtBackgroundAlpha.Text);
+                        charts.ChartAlpha = int.Parse(txtChartAlpha.Text);
 
                         SetColors(rptColors, (List<string>)charts.Colors);
 
@@ -396,6 +413,38 @@ namespace PXWeb.Admin
             if (int.Parse(args.Value) > 100)
             {
                 SetValidationError(val, args, "PxWebAdminSettingsValidationMaximumValue", "100");
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Validates alpha value (0, 255)
+        /// </summary>
+        /// <param name="source">Validator object</param>
+        /// <param name="args">Validation arguments</param>
+        public void ValidateAlpha(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            CustomValidator val = (CustomValidator)source;
+            int alpha;
+            try
+            {
+                alpha = int.Parse(args.Value);
+            }
+            catch (System.FormatException e)
+            {
+                SetValidationError(val, args, "Invalid number");
+                return;
+            }
+
+            if (alpha > 255)
+            {
+                SetValidationError(val, args, "Alpha must not be higher than 255");
+                return;
+            }
+
+            if (alpha < 0)
+            {
+                SetValidationError(val, args, "Alpha must not be lower than 0");
                 return;
             }
         }
@@ -660,6 +709,11 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralGuidelinesColor", "PxWebAdminFeaturesChartsGeneralGuidelinesColorInfo");
         }
+
+        protected void BackgroundColorInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralBackgroundColor", "PxWebAdminFeaturesChartsGeneralBackgroundColorInfo");
+        }
         protected void GuidelinesHorizontalInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralGuidelinesHorizontal", "PxWebAdminFeaturesChartsGeneralGuidelinesHorizontalInfo");
@@ -695,6 +749,14 @@ namespace PXWeb.Admin
         protected void BackgroundColorGraphsInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralBackgroundColorGraphs", "PxWebAdminFeaturesChartsGeneralBackgroundColorGraphsInfo");
+        }
+        protected void ChartAlphaInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralAlpha", "PxWebAdminFeaturesChartsGeneralChartAlphaInfo");
+        }
+        protected void BackgroundAlphaInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralAlpha", "PxWebAdminFeaturesChartsGeneralBackgroundAlphaInfo");
         }
         protected void LineColorPhrameInfo(object sender, ImageClickEventArgs e)
         {

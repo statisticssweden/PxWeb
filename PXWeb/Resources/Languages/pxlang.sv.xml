@@ -1037,6 +1037,12 @@
   <sentence name="PxWebAdminFeaturesChartsGeneralLineThicknessPhrameInfo" value="Välj linjetjockleken på ramen runt diagrammet. Om inget anges så visas ingen ram." />
   <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphs" value="Bakgrundsfärg diagram" />
   <sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorGraphsInfo" value="Välj bakgrundsfärg till diagram." />
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColor" value="Bakgrundsfärg"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundColorInfo" value="Välj bakgrundsfärg"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundAlpha" value="Transparens bakgrund"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralChartAlpha" value="Transparens diagram"/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralBackgroundAlphaInfo" value="Välj transparens för bakgrunden. Måste vara ett värde mellan 0 och 255 där 0 är helt genomskinlig."/>
+	<sentence name="PxWebAdminFeaturesChartsGeneralChartAlphaInfo" value="Välj transparens för bakgrunden till diagrammet. Måste vara ett värde mellan 0 och 255 där 0 är helt genomskinlig."/>
   <sentence name="PxWebChartsSourceLabel" value="Källa:" />
   <sentence name="PxWebChartsSource" value="Statistiska centralbyrån (SCB)" />
   <sentence name="PxWebAdminFeaturesApiGeneralApiSettings" value="API inställningar" />
