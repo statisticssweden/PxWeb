@@ -110,6 +110,8 @@ namespace PxWeb
                 app.UseIpRateLimiting();
             }
 
+            app.UseCacheMiddleware();
+
             app.Run();
         }
     }
