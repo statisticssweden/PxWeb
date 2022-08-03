@@ -7,12 +7,11 @@ using System;
 
 namespace PxWeb
 {
-    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class CacheMiddleware
     {
-        private readonly TimeSpan _cacheLength = new TimeSpan(0, 0, 10);
+        private readonly TimeSpan _cacheLength = new TimeSpan(0, 0, 10); // 10 seconds
         private readonly RequestDelegate _next;
-        //private Dictionary<string, ResponseEntry> cache;
+
         private readonly IMemoryCache _memoryCache;
 
         public CacheMiddleware(RequestDelegate next)
@@ -20,7 +19,6 @@ namespace PxWeb
             _next = next;
             MemoryCacheOptions memoryCacheOptions = new MemoryCacheOptions();
             _memoryCache = new MemoryCache(memoryCacheOptions);
-            //cache = new Dictionary<string, ResponseEntry>();
         }
         private async Task<string> readResponse(HttpContext httpContext)
         {
