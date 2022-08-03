@@ -1,4 +1,7 @@
 - Upgraded the Newtonsoft JSON library dependenvis to 13.0.1 due to a vulnerability issue
+- Fixed marking tips translation in Swedish
+- Fixed shortcut texts for file formats in commandbar
+- Added transparancy option for charts
 - Removed the dynamic content that as faulty generated when downloading files
 - New admin setting to control display of code and text in the advanced serach result for variable values
 - Made the compact view the default view on the selection page.

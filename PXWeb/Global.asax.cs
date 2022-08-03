@@ -181,7 +181,9 @@ namespace PXWeb
             settings.LineThicknessPhrame = Settings.Current.Features.Charts.LineThicknessPhrame;
             settings.LogotypePath = Settings.Current.General.Paths.ImagesPath;
             settings.LineColorPhrame = Settings.Current.Features.Charts.LineColorPhrame;
-           
+            settings.BackgroundColor = Settings.Current.Features.Charts.BackgroundColor;
+            settings.BackgroundAlpha = Settings.Current.Features.Charts.BackgroundAlpha;
+            settings.ChartAlpha = Settings.Current.Features.Charts.ChartAlpha;
         }
 
         protected void Application_Start(object sender, EventArgs e)

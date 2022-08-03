@@ -460,6 +460,7 @@ Namespace CommandBar
                 .ID = String.Format(FORMAT_SHORTCUT_FILE, fileformat, Globalization.CultureInfo.InvariantCulture)
                 .CommandArgument = fileformat
                 .ToolTip = Me.GetLocalizedString(fileformat)
+                .Text = Me.GetLocalizedString(fileformat)
                 .CommandName = COMMAND_PLUGIN_SHORTCUT
                 .CssClass = $"pxweb-btn icon-placement pxweb-buttons {fileformat}"
                 If IsJavascriptEnabled() And (Not String.IsNullOrEmpty(fileformat)) Then

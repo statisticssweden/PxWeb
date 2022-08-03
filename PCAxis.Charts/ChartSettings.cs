@@ -55,6 +55,9 @@ namespace PCAxis.Chart
         public int LegendHeight { get; set; }
         public CultureInfo CurrentCulture { get; set; }
         public List<string> Colors { get; set; }
+        public int ChartAlpha { get; set; }
+        public int BackgroundAlpha { get; set; }
+        public string BackgroundColor { get; set; }
         public string Logotype { get; set; }
         public string FontName { get; set; }
         public bool ShowSource { get; set; }
@@ -95,7 +98,9 @@ namespace PCAxis.Chart
             LineColorPhrame = "#000000";
             Logotype = "";
             LogotypePath = "";
-            
+            BackgroundAlpha = 255;
+            ChartAlpha = 255;
+            BackgroundColor = "#ffffff";
 
         }
 

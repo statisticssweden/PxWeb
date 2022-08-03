@@ -68,10 +68,26 @@ namespace PXWeb
         bool ShowSource { get; }
 
         /// <summary>
+        /// Color on the background
+        /// </summary>
+        string BackgroundColor { get; }
+
+        /// <summary>
+        /// Alpha of the color on the background
+        /// </summary>
+        int BackgroundAlpha { get; }
+
+
+        /// <summary>
         /// Color on the background in the graph
         /// </summary>
         string BackgroundColorGraphs { get; }
-        
+
+        /// <summary>
+        /// Alpha of the color on the background in the graph
+        /// </summary>
+        int ChartAlpha { get; }
+
         /// <summary>
         /// Line thickness on phrame 
         /// </summary>
