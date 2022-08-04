@@ -46,7 +46,11 @@ namespace PxWeb
 
             // Get url
             string url = $"{request.Method}:{request.Scheme}://{request.Host.Value}{request.Path}{request.QueryString}";
-            string key = $"{url}:{body}";
+            string key = $"{url}";
+            if (request.Method == "POST" && body != "")
+            {
+                key += $":{body}";
+            }
 
             var cachedValue = _memoryCache.GetOrCreate(
                 key,
