@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.UnitTests
 {
@@ -61,6 +62,13 @@ namespace PxWeb.UnitTests
             dict.Add("INTGR5LUA", "AA0003F");
 
             return dict;
+        }
+
+        public PxApiConfigurationOptions GetPxApiConfiguration()
+        {
+            PxApiConfigurationOptions pxApiConfigurationOptions = new PxApiConfigurationOptions();
+
+            return pxApiConfigurationOptions;   
         }
     }
 }
