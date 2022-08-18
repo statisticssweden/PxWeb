@@ -136,8 +136,8 @@
     <Reference Include="PCAxis.Sdmx, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Sdmx.1.0.1\lib\netstandard2.0\PCAxis.Sdmx.dll</HintPath>
     </Reference>
-    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.3\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
+    <Reference Include="PCAxis.Serializers.JsonStat, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PCAxis.Serializers.JsonStat.1.0.5\lib\netstandard2.0\PCAxis.Serializers.JsonStat.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Serializers.JsonStat2, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Serializers.JsonStat2.1.0.1\lib\netstandard2.0\PCAxis.Serializers.JsonStat2.dll</HintPath>
