@@ -61,14 +61,40 @@ namespace PxWeb.UnitTests.DataSource
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory);
             var datasource = new PxFileDataSource(configServiceMock.Object, resolver, hostingEnvironmentMock.Object);
             bool selectionExists;
-
-            //var result = datasource.CreateMenu("alias", language, out selectionExists);
+            
             var result = datasource.CreateMenu("", language, out selectionExists);
-
-
+            
             Assert.IsNotNull(result);
         }
 
+        [TestMethod]
+        [DeploymentItem(@"Database")]
+        public void ResolveShouldResolveItemCollection()
+        {
+            string language = "en";
+            var memorymock = new Mock<IMemoryCache>();
+            var entryMock = new Mock<ICacheEntry>();
+            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
+
+            var configServiceMock = new Mock<IPxFileConfigurationService>();
+            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+
+            var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
+
+            hostingEnvironmentMock
+                .Setup(m => m.WebRootPath)
+                .Returns("");
+
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory);
+            
+            bool selectionExists;
+
+            var result = resolver.Resolve(language, "ALIAS", out selectionExists);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Example", result.Menu);
+            Assert.IsTrue(selectionExists);
+        }
 
 
 
