@@ -21,8 +21,8 @@ namespace PCAxis.Html5Table.Web.Controls
         {
 			using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
 			{
-				PCAxis.Html5Table.Html5TableSerializer ser;
-				ser = new Html5TableSerializer();
+                PCAxis.Serializers.Html5TableSerializer ser;
+				ser = new PCAxis.Serializers.Html5TableSerializer();
 
 
 				ser.Serialize(PaxiomManager.PaxiomModel, stream);

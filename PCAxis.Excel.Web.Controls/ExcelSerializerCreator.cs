@@ -11,8 +11,8 @@ namespace PCAxis.Excel.Web.Controls
 
         public Paxiom.IPXModelStreamSerializer Create(string fileInfo)
         {
-            PCAxis.Excel.XlsxSerializer ser;
-            ser = new XlsxSerializer();
+            PCAxis.Serializers.XlsxSerializer ser;
+            ser = new PCAxis.Serializers.XlsxSerializer();
 
             if (fileInfo.Equals("FileTypeExcelXDoubleColumn"))
             {

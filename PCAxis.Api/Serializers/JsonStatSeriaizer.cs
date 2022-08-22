@@ -14,7 +14,7 @@ namespace PCAxis.Api.Serializers
         public void Serialize(PCAxis.Paxiom.PXModel model, ResponseBucket cacheResponse)
         {
             cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-            var jsonStatSerializer = new PCAxis.Serializers.JsonStat.JsonStatSerializer();
+            var jsonStatSerializer = new PCAxis.Serializers.JsonStatSerializer();
 
             var geoVariablesStr = ConfigurationManager.AppSettings["geoVariables"];
 

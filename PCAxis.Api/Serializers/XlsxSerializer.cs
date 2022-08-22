@@ -18,7 +18,7 @@ namespace PCAxis.Api.Serializers
 
         public void Serialize(PCAxis.Paxiom.PXModel model, HttpResponse httpResponse)
         {
-            PCAxis.Excel.XlsxSerializer serializer = new PCAxis.Excel.XlsxSerializer();
+            PCAxis.Serializers.XlsxSerializer serializer = new PCAxis.Serializers.XlsxSerializer();
             serializer.InformationLevel = PCAxis.Paxiom.InformationLevelType.AllInformation;
             serializer.DoubleColumn = PCAxis.Paxiom.Settings.Files.DoubleColumnFile;
             httpResponse.AddHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=" + System.Text.Encoding.Default.WebName);
@@ -34,7 +34,7 @@ namespace PCAxis.Api.Serializers
         public void Serialize(PCAxis.Paxiom.PXModel model, ResponseBucket cacheResponse)
         {
             cacheResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=" + System.Text.Encoding.Default.WebName;
-            PCAxis.Excel.XlsxSerializer serializer = new PCAxis.Excel.XlsxSerializer();
+            PCAxis.Serializers.XlsxSerializer serializer = new PCAxis.Serializers.XlsxSerializer();
             serializer.InformationLevel = PCAxis.Paxiom.InformationLevelType.AllInformation;
             serializer.DoubleColumn = PCAxis.Paxiom.Settings.Files.DoubleColumnFile;
 

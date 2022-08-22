@@ -39,8 +39,8 @@ namespace PCAxis.Excel.Web.Controls
 
             using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
             {
-                PCAxis.Excel.XlsxSerializer ser;
-                ser = new XlsxSerializer();
+                PCAxis.Serializers.XlsxSerializer ser;
+                ser = new PCAxis.Serializers.XlsxSerializer();
 
                 if (this.SelectedFormat.Equals("FileTypeExcelXDoubleColumn"))
                 {
