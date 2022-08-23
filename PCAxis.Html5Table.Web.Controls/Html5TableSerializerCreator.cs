@@ -13,8 +13,8 @@ namespace PCAxis.Html5Table.Web.Controls
 
 		public Paxiom.IPXModelStreamSerializer Create(string fileInfo)
 		{
-			PCAxis.Html5Table.Html5TableSerializer ser;
-			ser = new Html5TableSerializer();
+			PCAxis.Serializers.Html5TableSerializer ser;
+			ser = new PCAxis.Serializers.Html5TableSerializer();
 
 			return ser;
 		}

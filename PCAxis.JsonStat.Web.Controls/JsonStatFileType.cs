@@ -21,8 +21,8 @@ namespace PCAxis.JsonStat.Web.Controls
         {
             using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
             {
-                PCAxis.Serializers.JsonStat.JsonStatSerializer ser;
-                ser = new Serializers.JsonStat.JsonStatSerializer();
+                PCAxis.Serializers.JsonStatSerializer ser;
+                ser = new PCAxis.Serializers.JsonStatSerializer();
 
                 var geoVariablesStr = ConfigurationManager.AppSettings["geoVariables"];
 

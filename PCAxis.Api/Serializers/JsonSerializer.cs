@@ -20,7 +20,7 @@ namespace PCAxis.Api.Serializers
         public void Serialize(PCAxis.Paxiom.PXModel model, ResponseBucket cacheResponse)
         {
             cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-            PCAxis.Paxiom.IPXModelStreamSerializer serializer = new PX.Serializers.Json.JsonSerializer();
+            PCAxis.Paxiom.IPXModelStreamSerializer serializer = new PCAxis.Serializers.JsonSerializer();
 
             using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
             {

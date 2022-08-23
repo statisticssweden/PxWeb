@@ -11,7 +11,7 @@ namespace PCAxis.JsonStat2.Web.Controls
     {
         public PCAxis.Paxiom.IPXModelStreamSerializer Create(string fileInfo)
         {
-            var ser = new PCAxis.Serializers.JsonStat2.JsonStat2Serializer();
+            var ser = new PCAxis.Serializers.JsonStat2Serializer();
 
             //var geoVariablesStr = ConfigurationManager.AppSettings["geoVariables"];
 

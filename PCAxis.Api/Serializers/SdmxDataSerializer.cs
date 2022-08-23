@@ -13,7 +13,7 @@ namespace PCAxis.Api.Serializers
         public void Serialize(PCAxis.Paxiom.PXModel model, ResponseBucket cacheResponse)
         {
             cacheResponse.ContentType = "text/xml; charset=" + System.Text.Encoding.Default.WebName;
-            PCAxis.Paxiom.IPXModelStreamSerializer serializer = new PCAxis.Sdmx.SdmxDataSerializer();
+            PCAxis.Paxiom.IPXModelStreamSerializer serializer = new PCAxis.Serializers.SdmxDataSerializer();
 
             using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
             {
