@@ -33,7 +33,7 @@ Public Module PxWebControlExtensions
             End If
             format = PCAxis.Paxiom.Settings.GetLocale(lang).DateFormat
 
-            Return dt.ToString(format, Globalization.CultureInfo.InvariantCulture)
+            Return dt.ToString(format, System.Globalization.CultureInfo.InvariantCulture)
         Else
             Return dateString
         End If
