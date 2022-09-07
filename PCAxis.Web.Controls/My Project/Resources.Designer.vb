@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -81,26 +81,29 @@ Namespace My.Resources
         '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         '''&lt;commandBar xmlns=&quot;http://www.pc-axis.scb.se/CommandBarPluginSchema.xsd&quot;&gt;
         '''  &lt;plugins&gt;
-        '''    &lt;plugin name=&quot;pivotManual&quot; type=&quot;PCAxis.Web.Controls.Pivot, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30&quot; hasUI=&quot;true&quot; nameCode=&quot;CtrlCommandBarFunctionPivotManual&quot; Image=&quot;button_pivot.png&quot; ShortcutImage=&quot;small_button_pivot.gif&quot;&gt;
+        '''    &lt;plugin name=&quot;pivotManual&quot; type=&quot;PCAxis.Web.Controls.Pivot, PCAxis.Web.Controls, Version=1.1.0.0&quot; hasUI=&quot;true&quot; nameCode=&quot;CtrlCommandBarFunctionPivotManual&quot; Image=&quot;button_pivot.png&quot; ShortcutImage=&quot;small_button_pivot.gif&quot; SortOrder=&quot;0&quot;&gt;
         '''      &lt;properties&gt;
-        '''        &lt;property key=&quot;DownButtonImagePath&quot; value=&quot;MoveDown.gif&quot; /&gt;
-        '''        &lt;property  [rest of string was truncated]&quot;;.
+        '''        &lt;property key=&quot;ListSize&quot; value=&quot;8&quot; /&gt;
+        '''      &lt;/properties&gt;
+        '''    &lt;/plugin&gt;
+        '''    &lt;plugin name=&quot;pivotCW&quot; type=&quot;PCAxis. [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property CommandBarPluginsOperations() As String
             Get
                 Return ResourceManager.GetString("CommandBarPluginsOperations", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         '''&lt;commandBar xmlns=&quot;http://www.pc-axis.scb.se/CommandBarPluginSchema.xsd&quot;&gt;
         '''  &lt;plugins&gt;
-        '''		&lt;plugin name=&quot;tableViewLayout1&quot; type=&quot;PCAxis.Web.Controls.TableView, PCAxis.Web.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30&quot; hasUI=&quot;false&quot; nameCode=&quot;CtrlPresentationViewTableLayout1&quot; Image=&quot;button_layout_1.png&quot; ShortcutImage=&quot;small_button_layout_1.png&quot;&gt;
+        '''		&lt;plugin name=&quot;tableViewLayout1&quot; type=&quot;PCAxis.Web.Controls.TableView, PCAxis.Web.Controls, Version=1.1.0.0&quot; hasUI=&quot;false&quot; nameCode=&quot;CtrlPresentationViewTableLayout1&quot; Image=&quot;button_layout_1.png&quot; ShortcutImage=&quot;small_button_layout_1.png&quot; SortOrder=&quot;0&quot;&gt;
         '''			 &lt;properties&gt;
         '''				  &lt;property key=&quot;layout&quot; value=&quot;tableViewLayout1&quot; /&gt;
         '''			 &lt;/properties&gt;
-        ''' [rest of string was truncated]&quot;;.
+        '''		&lt;/plugin&gt;
+        '''		&lt;plugin name=&quot;tableV [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property CommandBarPluginsViews() As String
             Get
@@ -115,10 +118,11 @@ Namespace My.Resources
         '''xsi:schemaLocation=&quot;http://www.scb.se ../XSDSchemas/FileSchema.xsd&quot;&gt;
         '''	 &lt;FileType Active=&quot;true&quot;&gt;
         '''		  &lt;Type&gt;px&lt;/Type&gt;
-        '''		  &lt;AssemblyQualifiedName&gt;PCAxis.Paxiom.PXFileSerializer, PCAxis.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=c0a818bde8f95c30&lt;/AssemblyQualifiedName&gt;
+        '''		  &lt;AssemblyQualifiedName&gt;PCAxis.Paxiom.PXFileSerializer, PCAxis.Core, Version=1.1.0.0&lt;/AssemblyQualifiedName&gt;
         '''      &lt;Creator&gt;PCAxis.Web.Controls.PxFileSerializerCreator, PCAxis.Web.Controls&lt;/Creator&gt;
         '''		  &lt;FileInfos&gt;
-        '''			 [rest of string was truncated]&quot;;.
+        '''				&lt;FileInfo&gt;FileTypePX&lt;/FileInfo&gt;
+        '''		  &lt;/FileInfos&gt; [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property FileConfig() As String
             Get
