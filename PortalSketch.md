@@ -10,7 +10,6 @@ flowchart TB
    SSBPXWeb[PXWeb GUI]:::guiStyle
    SSBPXWebApi[PXWeb Api]
    SSBBackend[CNMM]
-   SSBPXWebApi --- SSBBackend
    end
    
    
