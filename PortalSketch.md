@@ -9,11 +9,13 @@ flowchart TB
    subgraph SSB
    SSBPXWeb[PXWeb GUI]:::guiStyle
    SSBPXWebApi[PXWeb Api]
+   SSBBackend[CNMM]
    end
    
    subgraph SCB
    SCBPXWeb[PXWeb GUI]:::guiStyle
    SCBPXWebApi[PXWeb Api]
+   SCBBackend{{PX-files}}
    end
    
    PortalPXWeb --> PortalPXWebApi
