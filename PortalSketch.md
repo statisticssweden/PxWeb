@@ -6,7 +6,7 @@ flowchart TB
    PortalPXWebApi[PXWeb Api]
    end 
    
-   subgraph SSB
+   subgraph pxapi2-master-cnmm.scb.se
    SSBPXWeb[PXWeb GUI]:::guiStyle
    SSBPXWebApi[PXWeb Api]
    SSBBackend[CNMM]
