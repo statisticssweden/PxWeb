@@ -10,7 +10,9 @@ flowchart TB
    SSBPXWeb[PXWeb GUI]:::guiStyle
    SSBPXWebApi[PXWeb Api]
    SSBBackend[CNMM]
+   SSBPXWebApi --- SSBBackend
    end
+   
    
    subgraph pxapi2-master-px.scb.se
    SCBPXWeb[PXWeb GUI]:::guiStyle
