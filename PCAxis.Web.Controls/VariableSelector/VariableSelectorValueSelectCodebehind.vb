@@ -244,6 +244,7 @@ Public Class VariableSelectorValueSelectCodebehind
             If Marker.Variable.HasGroupings() Or Marker.Variable.HasValuesets() Then
                 'If Marker.Variable.CurrentGrouping Is Nothing And Marker.Variable.CurrentValueSet Is Nothing Then
                 'If RedrawGroupingValues() Then
+
                 li = New ListItem(Me.GetLocalizedString("CtrlVariableSelectorSelectValues"), "")
                 If Not GroupingDropDown.Items.Contains(li) Then
                     GroupingDropDown.Items.Add(li)
@@ -1060,7 +1061,13 @@ Public Class VariableSelectorValueSelectCodebehind
     Friend Function ApplyGrouping(ByVal code As String, Optional ByVal clearSelection As Boolean = True, Optional ByVal include As Nullable(Of GroupingIncludesType) = Nothing) As Boolean
         Dim ok As Boolean = False
 
-        If code.StartsWith("gr__") Then
+        If (code.Equals("") And Not (Marker.ValuesetMustBeSelectedFirst)) Then
+            Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
+            vsInfo.ID = "_ALL_"
+            Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, vsInfo)
+            Marker.SelectedGroupingPresentation = GroupingIncludesType.SingleValues
+            ok = True
+        ElseIf code.StartsWith("gr__") Then
             'Apply grouping
             Dim grpInfo As PCAxis.Paxiom.GroupingInfo
             grpInfo = Marker.Variable.GetGroupingInfoById(code.Replace("gr__", "")) 'Remove grouping prefix
