@@ -9,7 +9,12 @@ namespace Px.Search
     public class SearchResult
     {
         public string Id { get; set; }
-        //TODO mor props
+        public string Label { get; set; }
+        public DateTime Updated { get; set; }
+        public string[] Tags { get; set; }
+        public string Category { get; set; }
+        public string Source { get; set; }
+        public float Score { get; set; }
 
         public SearchResult(string id)
         {

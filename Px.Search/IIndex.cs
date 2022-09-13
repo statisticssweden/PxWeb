@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace Px.Search
 {
-    public interface IIndex
+    public interface IIndex //TODO Should maybe inherit IDisposable
     {
         void BeginWrite(string language);
 
         void EndWrite(string language);
 
-        void AddEntry(string id); //TODO more params
+        void BeginUpdate(string language);
 
-        void UpdateEntry(string id); //TODO more params
+        void EndUpdate(string language);
+
+        void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source); 
+
+        void UpdateEntry(string id, string label, DateTime updated, string[] tags, string category, string source);
 
         void RemoveEntry(string id);
     }

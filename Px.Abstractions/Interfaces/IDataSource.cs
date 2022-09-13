@@ -21,7 +21,7 @@ namespace Px.Abstractions.Interfaces
         ///// <param name="selection">Selection</param>
         ///// <param name="language">Language</param>
         ///// <returns></returns>
-        //IPXModelBuilder CreateBuilder(IDatabaseInfo dbi, string menu, string selection, string language);
+        IPXModelBuilder CreateBuilder(string id, string language);
 
         //string GetSource(IDatabaseInfo dbi, PCAxis.Paxiom.PXModel model, string language);
     }
