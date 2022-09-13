@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="PCAxis.Menu" Version="1.0.1" />
-    <PackageReference Include="PCAxis.Menu.ConfigDatamodelMenu" Version="1.0.3" />
   </ItemGroup>
 
 </Project>

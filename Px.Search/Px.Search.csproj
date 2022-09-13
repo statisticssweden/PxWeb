@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PCAxis.Menu" Version="1.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Px.Abstractions\Px.Abstractions.csproj" />
   </ItemGroup>
 

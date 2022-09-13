@@ -6,12 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using PCAxis.Menu;
 using System.Net.Http;
-using PCAxis.Sql.Parser_21;
-using PCAxis.Paxiom.Localization;
-using PCAxis.Sql.DbConfig;
 using System.Data;
 using System.IO;
-using log4net.Util;
 
 namespace Px.Search
 {

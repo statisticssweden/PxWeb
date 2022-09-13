@@ -10,5 +10,10 @@ namespace Px.Search
     {
         public string Id { get; set; }
         //TODO mor props
+
+        public SearchResult(string id)
+        {
+            Id = id;
+        }
     }
 }
