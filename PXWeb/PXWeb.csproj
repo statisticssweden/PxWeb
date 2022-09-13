@@ -146,6 +146,9 @@
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PcAxis.Sql.1.1.4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
+    <Reference Include="Px.Rdf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Px.Rdf.1.0.2\lib\netstandard2.0\Px.Rdf.dll</HintPath>
+    </Reference>
     <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.2\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>
     </Reference>
