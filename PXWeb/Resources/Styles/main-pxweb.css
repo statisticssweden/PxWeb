@@ -141,8 +141,8 @@ $scrollbar-color: #b0b0b0;
 }
 
 #pxwebcontent .pxbox.negative {
-  background-color: #F8F7F6;
-  border: solid 1px #949494;
+  /*    background-color: $pxbox-background;
+      border: solid 1px $pxbox-border;*/
   color: #222;
 }
 
@@ -3872,12 +3872,12 @@ span.AspNet-TreeView-Collapse::before {
 }
 
 #pxwebcontent .variableselector_valuesselect_box_compact {
-  margin-right: 20px;
+  /*margin-right: 20px;*/
 }
 
 @media screen and (min-width: 400px) {
   #pxwebcontent .variableselector_valuesselect_box_compact {
-    margin-right: 20px;
+    /*margin-right: 20px;*/
     width: 350px;
     min-width: 350px;
   }
@@ -4117,6 +4117,21 @@ span.AspNet-TreeView-Collapse::before {
   width: 22px;
   height: 21px;
   border: solid #3396d2 2px;
+}
+
+.variableselector_variable_box_container {
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.variableselector_variable_box_container > div {
+  background-color: #F8F7F6;
+  border: solid 1px #949494;
+  color: #222;
+}
+
+#pxwebcontent .variableselector_variable_box_container > div > div.m-margin-top {
+  margin-top: 0;
 }
 
 /* **********************************  _fullscreen.scss *********************************** */

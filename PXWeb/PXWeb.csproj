@@ -350,6 +350,10 @@
     <Content Include="Resources\Styles\scss\not_in_use\_AReadMe.txt" />
     <Content Include="Resources\Styles\scss\common\_nested-accordion.scss" />
     <Content Include="Resources\PX\Databases\Example\Misc\OfficialStatistics\officialstatistics.px" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <None Include="Scripts\jquery-3.5.1.js" />
     <None Include="Scripts\jquery-3.5.1.min.js" />
