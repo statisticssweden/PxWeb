@@ -244,7 +244,6 @@ Public Class VariableSelectorValueSelectCodebehind
             If Marker.Variable.HasGroupings() Or Marker.Variable.HasValuesets() Then
                 'If Marker.Variable.CurrentGrouping Is Nothing And Marker.Variable.CurrentValueSet Is Nothing Then
                 'If RedrawGroupingValues() Then
-
                 li = New ListItem(Me.GetLocalizedString("CtrlVariableSelectorSelectValues"), "")
                 If Not GroupingDropDown.Items.Contains(li) Then
                     GroupingDropDown.Items.Add(li)
@@ -1062,6 +1061,9 @@ Public Class VariableSelectorValueSelectCodebehind
         Dim ok As Boolean = False
 
         If (code.Equals("") And Not (Marker.ValuesetMustBeSelectedFirst)) Then
+            'Code "" means that the option --Select classification-- has been selected in the dropdown.
+            'This shall result in the values in the dropdown being restored to the initial ones.
+            'Restore of values is performed by applying the valueset _ALL_.
             Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
             vsInfo.ID = "_ALL_"
             Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, vsInfo)
