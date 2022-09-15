@@ -142,8 +142,8 @@ $scrollbar-color: #b0b0b0;
 
 #pxwebcontent .pxbox.negative {
   /*    background-color: $pxbox-background;
-      border: solid 1px $pxbox-border;*/
-  color: #222;
+      border: solid 1px $pxbox-border;
+      color: $pxbox-ink;*/
 }
 
 #pxwebcontent #wrap {

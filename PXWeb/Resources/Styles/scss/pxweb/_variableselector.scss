@@ -312,9 +312,9 @@
 }
 
 .variableselector_variable_box_container > div {
-    background-color: #F8F7F6;
-    border: solid 1px #949494;
-    color: #222;
+    background-color: $pxbox-background;
+    border: solid 1px $pxbox-border;
+    color: $pxbox-ink;
 }
 
 #pxwebcontent .variableselector_variable_box_container > div > div.m-margin-top {
