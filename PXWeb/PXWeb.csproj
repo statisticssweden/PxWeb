@@ -146,6 +146,9 @@
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PcAxis.Sql.1.1.4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
+    <Reference Include="Px.Rdf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Px.Rdf.1.0.2\lib\netstandard2.0\Px.Rdf.dll</HintPath>
+    </Reference>
     <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.2\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>
     </Reference>
@@ -242,6 +245,7 @@
     <Content Include="Admin\Features-Search-General.aspx" />
     <Content Include="Admin\Settings-Navigation.aspx" />
     <Content Include="Admin\Users-General.aspx" />
+    <Content Include="Admin\Tools-XMLGenerator.aspx" />
     <Content Include="ApiHelp.aspx" />
     <Content Include="DbScript\SQL\Create_SavedQueryMeta.sql" />
     <Content Include="Login.aspx" />
@@ -557,6 +561,13 @@
     <Compile Include="Admin\Users-General.aspx.designer.cs">
       <DependentUpon>Users-General.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Tools-XMLGenerator.aspx.cs">
+      <DependentUpon>Tools-XMLGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Tools-XMLGenerator.aspx.designer.cs">
+      <DependentUpon>Tools-XMLGenerator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ApiHelp.aspx.cs">
       <DependentUpon>ApiHelp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -628,6 +639,7 @@
     <Compile Include="Code\Settings\ChartFontSettings.cs" />
     <Compile Include="Code\Settings\ChartGuidelinesSettings.cs" />
     <Compile Include="Code\Settings\ChartLegendSettings.cs" />
+    <Compile Include="Code\Settings\DcatSettings.cs" />
     <Compile Include="Code\Settings\ChartsSettings.cs" />
     <Compile Include="Code\Settings\CnmmDatabaseInfo.cs" />
     <Compile Include="Code\Settings\CommandBarSettings.cs" />
@@ -654,6 +666,7 @@
     <Compile Include="Code\Settings\Interfaces\IChartFontSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartGuidelinesSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartLegendSettings.cs" />
+    <Compile Include="Code\Settings\Interfaces\IDcatSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\ICommandBarSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IDatabaseSettings.cs" />

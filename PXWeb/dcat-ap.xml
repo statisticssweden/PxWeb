@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:adms="http://www.w3.org/ns/adms#" xmlns:odrs="http://schema.theodi.org/odrs#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:store="https://catalog.scb.se/store/" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:es="http://entrystore.org/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <dcat:catalog>
+    <dcterms:title>SCB</dcterms:title>
+    <dcterms:description>Statistikdatabasen SCB - Mycket bra</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/5" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/9" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/13" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/17" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/20" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/23" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/26" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/30" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/34" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/37" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/40" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/44" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/48" />
+    <dcat:Dataset rdf:resource="https://baseURI.com/saveddataset/51" />
+  </dcat:catalog>
+  <foaf:Organization rdf:about="https://baseURI.com/savedorganization/1">
+    <foaf:name>SCB</foaf:name>
+  </foaf:Organization>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/5">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:description xml:lang="fi">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/2" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/3" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/4" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">AttributesCellnotes</dcat:keyword>
+    <dcat:keyword xml:lang="sv">AttributesCellnotes</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/fi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/9">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/7" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/8" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvdescdefault.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvdescdefault.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/13">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:description xml:lang="fi">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/10" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/11" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/12" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/fi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/17">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:description xml:lang="fi">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/14" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/15" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/16" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln2.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/fi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/20">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/18" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/19" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Population </dcat:keyword>
+    <dcat:keyword xml:lang="sv">Befolkning</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/23">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/21" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/22" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvcontvarerror.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">error</dcat:keyword>
+    <dcat:keyword xml:lang="en">multilang</dcat:keyword>
+    <dcat:keyword xml:lang="sv">error</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvcontvarerror.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvcontvarerror.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/26">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/24" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/25" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvdescdefaulterror.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">error</dcat:keyword>
+    <dcat:keyword xml:lang="en">multilang</dcat:keyword>
+    <dcat:keyword xml:lang="sv">error</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvdescdefaulterror.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvdescdefaulterror.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/30">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:description xml:lang="fi">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/27" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/28" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/29" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln2error.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">error</dcat:keyword>
+    <dcat:keyword xml:lang="en">multilang</dcat:keyword>
+    <dcat:keyword xml:lang="sv">error</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilang</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2error.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/fi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/34">
+    <dcterms:title xml:lang="en">Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</dcterms:title>
+    <dcterms:title xml:lang="sv">Konsumentprisindex (KPI) (enligt COICOP), 1980=100 eftervaru-/tjänstegrupp och tid.</dcterms:title>
+    <dcterms:description xml:lang="en">Index numbers for main and subgroups have in some cases been adjusted to take into account certain inadequacies in the basic data on prices or in the methods used for calculating the originally published index numbers. They are consistent with shadow index numbers for total CPI. Product classification follows COICOP (Classification of Individual Consumption by Purpose).</dcterms:description>
+    <dcterms:description xml:lang="sv">Indextal för huvud- och undergrupper är i en del fall baserade på index för varor och tjänster som är justerade med avseende på brister i det prisunderlag eller de beräkningsmetoder som låg till grund för beräkning av de ursprungligen redovisade indextalen. De är därmed konsistenta med skuggindextalen för KPI totalt.Produktindelning enligt COICOP (Classification of Individual Consumption by Purpose).
+Indextal för huvud- och undergrupper är i en del fall justerade med avseende på brister i det prisunderlag eller de beräkningsmetoder som legat till grund för de ursprungligen redovisade indextalen. De är därmed konsistenta med skuggindextalen för KPI totalt.Redovisning enligt denna äldre produktindelning upphör efter år 2000.</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/31" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/32" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/33" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2006-07-07T08:37:00</dcterms:modified>
+    <dcterms:identifier>PR0101B3hier2lang.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Hierarchies</dcat:keyword>
+    <dcat:keyword xml:lang="sv">Hierarchies</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/PR0101B3hier2lang.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/PR0101B3hier2lang.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/MONTHLY" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/37">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/35" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/36" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>officialstatistics.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">Misc</dcat:keyword>
+    <dcat:keyword xml:lang="en">OfficialStatistics</dcat:keyword>
+    <dcat:keyword xml:lang="sv">Misc</dcat:keyword>
+    <dcat:keyword xml:lang="sv">OfficialStatistics</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/officialstatistics.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/officialstatistics.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/40">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/38" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/39" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1ensvdescdefault.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvdescdefault.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1ensvdescdefault.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/44">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:description xml:lang="fi">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/41" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/42" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/43" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/fi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/48">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:title xml:lang="fi">Väestönmuutokset muuttujina kunta, ikä, aika, tyypi ja sukupuoli</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:description xml:lang="fi">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/45" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/46" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/47" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvfiolikacelln2.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/fi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <dcat:Dataset rdf:about="https://baseURI.com/saveddataset/51">
+    <dcterms:title xml:lang="en">Migration by region, age, period, type and sex</dcterms:title>
+    <dcterms:title xml:lang="sv">Flyttningar efter region, ålder, tid, typ och kön</dcterms:title>
+    <dcterms:description xml:lang="en">-</dcterms:description>
+    <dcterms:description xml:lang="sv">-</dcterms:description>
+    <dcterms:publisher rdf:resource="https://baseURI.com/savedorganization/1" />
+    <dcterms:creator rdf:resource="https://baseURI.com/savedorganization/6" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/49" />
+    <dcat:distribution rdf:resource="https://baseURI.com/saveddistribution/50" />
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2004-02-12T16:28:00</dcterms:modified>
+    <dcterms:identifier>BE0101F1langensvolikacelln.px</dcterms:identifier>
+    <dcat:keyword xml:lang="en">multilanguage</dcat:keyword>
+    <dcat:keyword xml:lang="sv">multilanguage</dcat:keyword>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/en/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvolikacelln.px" />
+    <dcat:landingPage rdf:resource="https://www.landingPage.com/sv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/BE0101F1langensvolikacelln.px" />
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/ANNUAL" />
+    <dcterms:accessRights rdf:resource="http://publications.europa.eu/resource/authority/access-right/PUBLIC" />
+  </dcat:Dataset>
+  <foaf:Organization rdf:about="https://baseURI.com/savedorganization/1">
+    <foaf:name>SCB</foaf:name>
+  </foaf:Organization>
+  <foaf:Organization rdf:about="https://baseURI.com/savedorganization/6">
+    <foaf:name>Statistiska centralbyrån (SCB)</foaf:name>
+  </foaf:Organization>
+  <foaf:Organization rdf:about="https://baseURI.com/savedorganization/31">
+    <foaf:name>Statistiska centralbyrån</foaf:name>
+  </foaf:Organization>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/2">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/3">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/4">
+    <dcterms:title>Data (fi)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\AttributesCellnotes/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/7">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/8">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/10">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/11">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/12">
+    <dcterms:title>Data (fi)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/14">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/15">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/16">
+    <dcterms:title>Data (fi)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/18">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/19">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\alias/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/21">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/22">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvcontvarerror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/24">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/25">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1ensvdescdefaulterror.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/27">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/28">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/29">
+    <dcterms:title>Data (fi)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\error/Example\error\multilang/BE0101F1langensvfiolikacelln2error.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/32">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/33">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Hierarchies/PR0101B3hier2lang.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/35">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/36">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\Misc/Example\Misc\OfficialStatistics/officialstatistics.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/38">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/39">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1ensvdescdefault.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/41">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/42">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/43">
+    <dcterms:title>Data (fi)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/45">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/46">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/47">
+    <dcterms:title>Data (fi)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedfi/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvfiolikacelln2.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/49">
+    <dcterms:title>Data (en)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/saveden/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+  <dcat:Distribution rdf:about="https://baseURI.com/saveddistribution/50">
+    <dcterms:title>Data (sv)</dcterms:title>
+    <dcat:accessURL rdf:resource="https://www.testApi.com/savedsv/C:\Temp\PxGit\PxWebFork\PXWeb\Resources\PX\Databases\Example/Menu.xml/Example\multilanguage/BE0101F1langensvolikacelln.px" />
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SWE" />
+    <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </dcat:Distribution>
+</rdf:RDF>

@@ -438,6 +438,7 @@ namespace PXWeb
             
             RouteTable.Routes.MapHttpRoute(name: "CacheApi", routeTemplate: "api/admin/v1/{controller}");
             RouteTable.Routes.MapHttpRoute(name: "MenuApi", routeTemplate: "api/admin/v1/{controller}/{database}");
+            RouteTable.Routes.MapHttpRoute(name: "DcatApi", routeTemplate: "api/admin/v1/{controller}/{databaseType}/{database}");
 
         }
 
