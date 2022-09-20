@@ -9,16 +9,13 @@ namespace PxWeb
 {
     public class CacheMiddleware
     {
-        private readonly TimeSpan _cacheLength = new TimeSpan(0, 0, 10); // 10 seconds
         private readonly RequestDelegate _next;
-
-        private readonly IMemoryCache _memoryCache;
+        private readonly ApiCache _cache;
 
         public CacheMiddleware(RequestDelegate next)
         {
             _next = next;
-            MemoryCacheOptions memoryCacheOptions = new MemoryCacheOptions();
-            _memoryCache = new MemoryCache(memoryCacheOptions);
+            _cache = ApiCache.Current;
         }
         private async Task<string> readResponse(HttpContext httpContext)
         {
@@ -51,18 +48,20 @@ namespace PxWeb
             {
                 key += $":{body}";
             }
-
-            var cachedValue = _memoryCache.GetOrCreate(
-                key,
-                cacheEntry =>
-                {
-                    cacheEntry.AbsoluteExpirationRelativeToNow = _cacheLength;
-                    return readResponse(httpContext).Result;
-                }
-            );
+            ResponseBucket response;
+            if (_cache.Get(key) is null)
+            {
+                response = new ResponseBucket();
+                response.Response = readResponse(httpContext).Result;
+                _cache.Set(key, response);
+            }
+            else
+            {
+                response = _cache.Get(key);
+            }
 
             httpContext.Response.ContentType = "application/json; charset = UTF-8";
-            await httpContext.Response.WriteAsync(cachedValue);
+            await httpContext.Response.WriteAsync(response.Response);
         }
     }
 
