@@ -140,12 +140,6 @@ $scrollbar-color: #b0b0b0;
   font-weight: normal;
 }
 
-#pxwebcontent .pxbox.negative {
-  /*    background-color: $pxbox-background;
-      border: solid 1px $pxbox-border;
-      color: $pxbox-ink;*/
-}
-
 #pxwebcontent #wrap {
   margin: 0px auto;
   max-width: 1180px;
