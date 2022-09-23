@@ -5,6 +5,7 @@ using Microsoft.Extensions.Caching.Memory;
 using PCAxis.Menu;
 using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Code.Api2.DataSource.PxFile
 {
@@ -13,14 +14,18 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
         private readonly IMemoryCache _memoryCache;
         private readonly IItemSelectionResolverFactory _itemSelectionResolverFactory;
+        private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public ItemSelectionResolverPxFile(IMemoryCache memoryCache, IItemSelectionResolverFactory itemSelectionResolverFactory)
+        public ItemSelectionResolverPxFile(IMemoryCache memoryCache, IItemSelectionResolverFactory itemSelectionResolverFactory, IPxApiConfigurationService pxApiConfigurationService)
         {
             _memoryCache = memoryCache;
             _itemSelectionResolverFactory = itemSelectionResolverFactory;
+            _pxApiConfigurationService = pxApiConfigurationService;
         }
         public ItemSelection Resolve(string language, string selection, out bool selectionExists)
         {
+            var op = _pxApiConfigurationService.GetConfiguration();
+
             selectionExists = true;
             ItemSelection itemSelection = new ItemSelection();
             
@@ -29,9 +34,8 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             {
                 lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);
               
-                    // TODO: Get cache time from appsetting
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(10));
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(op.CacheTime));
 
                 _memoryCache.Set(lookupTableName, lookupTable, cacheEntryOptions);
             }
