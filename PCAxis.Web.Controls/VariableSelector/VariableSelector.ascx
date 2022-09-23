@@ -55,33 +55,6 @@
 </asp:Panel>
 <script>
 
-    // if the elements in the group collection differs in height
-    // then all gets the height of the tallest element
-    function equalHeight(group) {
-        var tallest = 0;
-        var i = 0;
-        var prevHeight = 0;
-        var allHeightsAreEqual = true;
-        for (i=0; i < group.length; i++) {                
-            var height = group.eq(i).height() + 30;
-            if (height > tallest) 
-                tallest = height;
-            if (i > 0 && prevHeight != height)
-                allHeightsAreEqual = false;                       
-            prevHeight = height;
-        }
-
-        if (!allHeightsAreEqual) {
-            for (i = 0; i < group.length; i++) {
-                group.eq(i).height(tallest);
-            }
-        }
-    }
-
-    var delayedEqualHeight = function (group) {
-        setTimeout(function () { equalHeight(group); }, 350);
-    }
-
     jQuery(document).ready(function () {
         var containerclass = document.getElementsByClassName('variableselector_variable_box_container');
         var boxelement = document.getElementsByClassName('variableselector_valuesselect_box');
@@ -95,7 +68,6 @@
                 }  
                 jQuery(".variableselector_valuesselect_box").resizable({ handles: 'e', minWidth: 150 });
                 var group = jQuery(".variableselector_valuesselect_box");
-                delayedEqualHeight(group);
             }
             else {
                 containerclass[0].classList.add('flex-column');
@@ -111,29 +83,6 @@
         });
         PCAxis_HideElement(".variableselector_valuesselect_action");
     });
-
-
-
-
-//    (function () {
-//  var originalValidationSummaryOnSubmit = window.ValidationSummaryOnSubmit;
-//  window.ValidationSummaryOnSubmit = function (validationGroup) {
-//    var originalScrollTo = window.scrollTo;
-//    window.scrollTo = function() { };
-//    originalValidationSummaryOnSubmit(validationGroup);
-//    window.scrollTo = originalScrollTo;
-//  }
-//}());
-
-
-
-//window.scrollTo = function () { };
-  
-//validationSummary.onpropertychange = function () {
-//     if (this.style.display != 'none') {
-//          validationSummary.scrollIntoView();
-//     }
-//}
 
     function ValidateAll()
     {
