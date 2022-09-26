@@ -5,13 +5,28 @@ using Moq;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
-using System.Threading.Tasks;
 
 namespace PxWeb.UnitTests.DataSource
 {
     [TestClass]
     public class PXDataSourceTest
     {
+
+        internal static string GetFullPathToFile(string pathRelativeUnitTestingFile)
+        {
+            string folderProjectLevel = GetPathToPxWebProject();
+            string final = System.IO.Path.Combine(folderProjectLevel, pathRelativeUnitTestingFile);
+            return final;
+        }
+
+        private static string GetPathToPxWebProject()
+        {
+            string pathAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folderAssembly = System.IO.Path.GetDirectoryName(pathAssembly);
+            if (folderAssembly.EndsWith("\\") == false) folderAssembly = folderAssembly + "\\";
+            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly + "..\\..\\..\\..\\");
+            return folderProjectLevel;
+        }
 
         [TestMethod]
         public void ResolveEmtySelectionItemShouldReturnStart()
@@ -44,9 +59,9 @@ namespace PxWeb.UnitTests.DataSource
 
 
         [TestMethod]
-        [DeploymentItem(@"Database")]
         public void ShouldReturnMenu()
         {
+            
             //arrange
             var testFactory = new TestFactory();
             string language = "en";
@@ -62,11 +77,13 @@ namespace PxWeb.UnitTests.DataSource
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
-            
+
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+
             hostingEnvironmentMock
-            .Setup(m => m.WebRootPath)
-            .Returns("");
-            
+                .Setup(m => m.WebRootPath)
+                .Returns(wwwrootPath);
+
             var resolver = new ItemSelectionResolverCnmm( memorymock.Object, pcAxisFactory, configMock.Object);
             var datasource = new PxFileDataSource(configServiceMock.Object, resolver, hostingEnvironmentMock.Object);
             bool selectionExists;
@@ -77,9 +94,8 @@ namespace PxWeb.UnitTests.DataSource
             //assert
             Assert.IsNotNull(result);
         }
-
+        
         [TestMethod]
-        [DeploymentItem(@"Database")]
         public void ResolveShouldResolveItemCollection()
         {
             var testFactory = new TestFactory();
@@ -97,9 +113,11 @@ namespace PxWeb.UnitTests.DataSource
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+
             hostingEnvironmentMock
                 .Setup(m => m.WebRootPath)
-                .Returns("");
+                .Returns(wwwrootPath);
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
 
