@@ -363,6 +363,11 @@
     <None Include="Scripts\jquery-3.5.1.min.js" />
     <None Include="Scripts\jquery-3.5.1.slim.js" />
     <None Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Search.aspx" />
     <Content Include="UserControls\AccordianAboutTableControl.ascx" />
     <Content Include="UserControls\Login.ascx" />
@@ -1447,6 +1452,8 @@
     <Content Include="Resources\Styles\scss\color-themes\_official.scss" />
     <None Include="Scripts\jquery-3.5.1.slim.min.map" />
     <None Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
     <None Include="set-rights-2003.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
