@@ -43,8 +43,6 @@ namespace PxWeb.Mappers
                         Links = new List<Models.Api2.Link>()
                     };
 
-                    //fi.; // TODO: Implement later
-                    //fi.Links = new List<Models.Api2.Link>();
                     Models.Api2.Link childLink = new Models.Api2.Link();
                     childLink.Rel = "folder";
                     childLink.Href = urlBase + Path.Combine("navigation/", Path.GetFileName(fi.Id));

@@ -85,6 +85,8 @@ namespace PxWeb
             // Handle CORS configuration from appsettings.json
             bool corsEnbled = builder.Services.ConfigurePxCORS(builder, _logger);
 
+            builder.Logging.AddLog4Net();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

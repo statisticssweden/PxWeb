@@ -11,10 +11,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
     {
         public static Dictionary<string, string> GetMenuLookup(this SqlDbConfig DB, string language)
         {
-            //TODO: Handle language
-
-
-
             var menuLookup = new Dictionary<string, string>();
 
             string sql;
