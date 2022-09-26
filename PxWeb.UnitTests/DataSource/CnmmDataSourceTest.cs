@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.UnitTests.DataSource
 {
