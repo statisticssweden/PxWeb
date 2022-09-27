@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using PCAxis.Menu;
-using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Config.Api2;
 

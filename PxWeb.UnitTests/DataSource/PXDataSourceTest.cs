@@ -1,13 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Net.Mime;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using PCAxis.Sql.DbConfig;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
@@ -17,6 +11,22 @@ namespace PxWeb.UnitTests.DataSource
     [TestClass]
     public class PXDataSourceTest
     {
+
+        internal static string GetFullPathToFile(string pathRelativeUnitTestingFile)
+        {
+            string folderProjectLevel = GetPathToPxWebProject();
+            string final = System.IO.Path.Combine(folderProjectLevel, pathRelativeUnitTestingFile);
+            return final;
+        }
+
+        private static string GetPathToPxWebProject()
+        {
+            string pathAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folderAssembly = System.IO.Path.GetDirectoryName(pathAssembly);
+            if (folderAssembly.EndsWith("\\") == false) folderAssembly = folderAssembly + "\\";
+            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly + "..\\..\\..\\..\\");
+            return folderProjectLevel;
+        }
 
         [TestMethod]
         public void ResolveEmtySelectionItemShouldReturnStart()
@@ -47,93 +57,78 @@ namespace PxWeb.UnitTests.DataSource
             Assert.AreEqual("START", result.Selection);
         }
 
-        [Ignore]
+
         [TestMethod]
-        //[DeploymentItem(@"..\..\..\..\PxWeb\test.txt")]
-        [DeploymentItem(@"..\..\..\..\PxWeb\wwwroot\Database\Menu.xml")]
         public void ShouldReturnMenu()
         {
-
-
-            //var test= System.IO.File.ReadAllText("test.txt");
-
-            //var test = System.IO.File.ReadAllText(@"..\..\..\..\PxWeb\test.txt");
-            var test = System.IO.File.ReadAllText(@"..\..\..\..\PxWeb\wwwroot\Database\Menu.xml");
-
-            //todo, mock database 
+            
+            //arrange
+            var testFactory = new TestFactory();
             string language = "en";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
             var configMock = new Mock<IPxApiConfigurationService>();
-
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
             var configServiceMock = new Mock<IPxFileConfigurationService>();
-
-            var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
+            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
             
-            var logger = new Mock<ILogger>();
-            var testFactory = new TestFactory();
-//            var dict = testFactory.GetMenuLookup();
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
-        var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+            var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-        
-
-
-        var pcAxisFactoryNy =
-            new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
-
-            //hostingEnvironmentMock
-            //    .Setup(m => m.EnvironmentName)
-            //    .Returns("Hosting:UnitTestEnvironment");
-
-            string fileName = "ich_will.mp3";
-            string path = Path.Combine(Environment.CurrentDirectory, @"Data\", fileName);
-
-            var p = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"JukeboxV2.0\JukeboxV2.0\Datos\ich will.mp3");
-
-
-            var projectFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            var file = Path.Combine(projectFolder, @"TestData\Test.xml");
-
-            AppDomain root = AppDomain.CurrentDomain;
-
-            string dataSource = AppDomain.CurrentDomain.BaseDirectory + "TestDb.mdb";
-
-            var f = "test.txt";
-
-
-            //DeploymentItemAttribute Class
-
-
-
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
 
             hostingEnvironmentMock
-            .Setup(m => m.WebRootPath)
-            .Returns("C:\\Users\\SCBMOSS\\source\\repos\\PxWeb_api2\\PxWeb\\wwwroot");
+                .Setup(m => m.WebRootPath)
+                .Returns(wwwrootPath);
 
+            var resolver = new ItemSelectionResolverCnmm( memorymock.Object, pcAxisFactory, configMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, hostingEnvironmentMock.Object);
+            bool selectionExists;
 
+            //act
+            var result = datasource.CreateMenu("", language, out selectionExists);
 
-            //hostingEnvironment.Setup(
-            //x => x.WebRootPath() = $"C:\\Users\\SCBMOSS\\source\\repos\\PxWeb_api2\\PxWeb\\wwwroot\\Database");
-            //    // pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
+            //assert
+            Assert.IsNotNull(result);
+        }
+        
+        [TestMethod]
+        public void ResolveShouldResolveItemCollection()
+        {
+            var testFactory = new TestFactory();
+            string language = "en";
+            var memorymock = new Mock<IMemoryCache>();
+            var entryMock = new Mock<ICacheEntry>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
+
+            var configServiceMock = new Mock<IPxFileConfigurationService>();
+            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
 
             var config = testFactory.GetPxApiConfiguration();
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
+            var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactoryNy, configMock.Object);
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
 
-            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, hostingEnvironmentMock.Object);
+            hostingEnvironmentMock
+                .Setup(m => m.WebRootPath)
+                .Returns(wwwrootPath);
+
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
 
             bool selectionExists;
 
-            var result = datasource.CreateMenu("alias", language, out selectionExists);
+            var result = resolver.Resolve(language, "ALIAS", out selectionExists);
 
             Assert.IsNotNull(result);
+            Assert.AreEqual("Example", result.Menu);
+            Assert.IsTrue(selectionExists);
         }
-
 
 
 
