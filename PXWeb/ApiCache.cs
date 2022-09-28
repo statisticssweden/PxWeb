@@ -15,7 +15,7 @@ namespace PxWeb
     /// <summary>
     /// Implementation class for the API cache
     /// </summary>
-    public class ApiCache: IPxCache<string, ResponseBucket>
+    public class ApiCache: IPxCache
     {
         /// <summary>
         /// Delegate that waits for something after the cache has been cleaned
@@ -30,6 +30,8 @@ namespace PxWeb
         private static DateTime _cachedStartTime;
         private static ApiCache _current;
         private static MemoryCache _cache;
+        private static bool _enableCache;
+        private static TimeSpan _cacheTime;
 
         /// <summary>
         /// Get the (Singleton) ApiCache object
@@ -57,9 +59,10 @@ namespace PxWeb
 
             _cachedStartTime = DateTime.MinValue;
 
-            _apiCacheLogger.DebugFormat("Settings.Current.EnableCache = {0}", Settings.Current.EnableCache);
+            _apiCacheLogger.DebugFormat("Settings.Current.EnableCache = {0}", _enableCache);
             _cache = new MemoryCache(new MemoryCacheOptions());
 
+            _cacheTime = new TimeSpan(0, 1, 0); // Later to be read from appsettings
         }
 
         /// <summary>
@@ -67,12 +70,12 @@ namespace PxWeb
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public ResponseBucket Get(string key)
+        public T Get<T>(Object key)
         {
 
             if (!IsEnabled())
             {
-                return null;
+                return default(T);
             }
 
             //Check if the cache controller has set a coherence checker
@@ -86,21 +89,16 @@ namespace PxWeb
                 }
             }
 
-            return _cache.Get(key) as ResponseBucket;
+            return (T) _cache.Get(key);
         }
 
         /// <summary>
         /// Stores a object in the cache
         /// </summary>
         /// <param name="data"></param>
-        public void Set(string key, ResponseBucket data)
+        public void Set(object key, object value)
         {
-            TimeSpan time = new TimeSpan(0, 0, 10); // Read from appsettings later
-
-            //Check if caching is enabled
-            if (!Settings.Current.EnableCache) return;
-
-            if (_cache.Get(key) == null && data.CreationTime > _cachedStartTime)
+            if (_cache.Get(key) == null)
             {
                 if (_apiCacheLogger.IsDebugEnabled)
                 {
@@ -111,7 +109,7 @@ namespace PxWeb
                 {
                     if (_cache.Get(key) == null)
                     {
-                        _cache.Set(key, data, time);
+                        _cache.Set(key, value, _cacheTime);
                     }
                 }
             }
@@ -130,7 +128,7 @@ namespace PxWeb
 
         public bool IsEnabled()
         {
-            return Settings.Current.EnableCache;
+            return _enableCache;
         }
 
         public void Clear()
@@ -143,7 +141,7 @@ namespace PxWeb
         public void Disable()
         {
             _logger.Info("Cache disabled");
-            Settings.Current.EnableCache = false;
+            _enableCache = false;
         }
 
         public void Enable()
@@ -151,7 +149,7 @@ namespace PxWeb
             if (_defaultCacheValue)
             {
                 _logger.Info("Cache enabled");
-                Settings.Current.EnableCache = true;
+                _enableCache = true;
             }
         }
 

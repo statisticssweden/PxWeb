@@ -16,6 +16,7 @@ namespace PxWeb
         {
             _next = next;
             _cache = ApiCache.Current;
+            _cache.Enable();
         }
         private async Task<string> readResponse(HttpContext httpContext)
         {
@@ -48,20 +49,21 @@ namespace PxWeb
             {
                 key += $":{body}";
             }
-            ResponseBucket response;
-            if (_cache.Get(key) is null)
+
+            string response;
+
+            if (_cache.Get<string>(key) is null)
             {
-                response = new ResponseBucket();
-                response.Response = readResponse(httpContext).Result;
+                response = readResponse(httpContext).Result;
                 _cache.Set(key, response);
             }
             else
             {
-                response = _cache.Get(key);
+                response = _cache.Get<string>(key);
             }
 
             httpContext.Response.ContentType = "application/json; charset = UTF-8";
-            await httpContext.Response.WriteAsync(response.Response);
+            await httpContext.Response.WriteAsync(response);
         }
     }
 

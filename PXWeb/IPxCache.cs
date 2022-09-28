@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace PxWeb
 {
-    public interface IPxCache<S, T>
+    public interface IPxCache
     {
         void SetCoherenceChecker(Func<bool> coherenceChecker);
         bool IsEnabled();
         void Clear();
         void Disable();
         void Enable();
-        T Get(S key);
-        void Set(S key, T value);
+        T? Get<T>(Object key);
+        void Set(Object key, Object value);
         bool DefaultEnabled { get; }
 
     }
