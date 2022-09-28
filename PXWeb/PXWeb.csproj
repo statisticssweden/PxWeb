@@ -327,7 +327,7 @@
     <Content Include="Resources\PX\Databases\Example\Menu.xml" />
     <Content Include="Resources\Scripts\format.20110630-1100.min.js" />
     <Content Include="Resources\Scripts\jquery-3.5.1.min.js" />
-    <Content Include="Resources\Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Resources\Scripts\jquery-ui.min.js" />
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
@@ -343,7 +343,7 @@
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.css" />
     <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.min.css" />
-    <Content Include="Resources\Styles\jQuery\redmond\theme.css" />
+    <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.theme.min.css" />
     <Content Include="Resources\Styles\main-common.css" />
     <Content Include="Resources\Styles\main-common.min.css" />
     <Content Include="Resources\Styles\main-custom.css" />
@@ -358,11 +358,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
-    <None Include="Scripts\jquery-3.5.1.js" />
-    <None Include="Scripts\jquery-3.5.1.min.js" />
-    <None Include="Scripts\jquery-3.5.1.slim.js" />
-    <None Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Search.aspx" />
     <Content Include="UserControls\AccordianAboutTableControl.ascx" />
     <Content Include="UserControls\Login.ascx" />
@@ -1445,8 +1440,6 @@
     <Content Include="Resources\Styles\scss\_icons.scss" />
     <Content Include="Resources\Styles\scss\_variables.scss" />
     <Content Include="Resources\Styles\scss\color-themes\_official.scss" />
-    <None Include="Scripts\jquery-3.5.1.slim.min.map" />
-    <None Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="set-rights-2003.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
