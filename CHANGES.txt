@@ -1,3 +1,4 @@
+- Added support to restore variable values by selecting --Select classification--
 - Changed to the PcAxis.Serializers nuget package
 - Upgraded the Newtonsoft JSON library dependenvis to 13.0.1 due to a vulnerability issue
 - Fixed marking tips translation in Swedish
