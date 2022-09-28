@@ -1062,7 +1062,7 @@ Public Class VariableSelectorValueSelectCodebehind
         Dim ok As Boolean = False
 
         If (code.Equals("_RESTORE_") And Not (Marker.ValuesetMustBeSelectedFirst)) Then
-            'Code "" means that the option --Select classification-- has been selected in the dropdown.
+            'Code "_RESTORE_" means that the option --Select classification-- has been selected in the dropdown.
             'This shall result in the values in the dropdown being restored to the initial ones.
             'Restore of values is performed by applying the valueset _ALL_.
             Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
