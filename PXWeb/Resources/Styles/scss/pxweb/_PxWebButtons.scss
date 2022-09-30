@@ -31,6 +31,22 @@
     }
 }
 
+@mixin button-two-colored-icons-pxweb ($icon, $rename: "") {
+    $name: #{$icon}-icon;
+
+    @if $rename != "" {
+        $name: $rename;
+    }
+
+    &.#{$name} {
+        background-image: get-icon( #{$icon}, $btn-icon, $btn-icon-second-color);
+
+        &:hover, &:focus {
+            background-image: get-icon( #{$icon}, $btn-icon-hover, $btn-icon-second-color-hover);
+        }
+    }
+}
+
 @mixin button-icons-pxbox ($icon, $rename:"") {
   $name: #{$icon}-icon;
   @if $rename != "" {
@@ -71,6 +87,7 @@
   @include button-icons-pxweb( 'line-graph', 'chartViewLine');
   @include button-icons-pxweb( 'chevrons-down', 'tableViewSorted');
   @include button-icons-pxweb( 'download', 'download-icon');
+  @include button-two-colored-icons-pxweb( 'excel', 'FileTypeExcelX');
 
 
   @include button-icons-pxbox( 'database');

@@ -45,7 +45,8 @@ $icons: (
   'x-plain':                 '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%%COLOR%%" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
   'alert-triangle':          '<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="%%COLOR%%" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
   'download':                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%%COLOR%%" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>',
-  'envelope':                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%%COLOR%%" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>'
+  'envelope':                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%%COLOR%%" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+  'excel':                   '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18.5 15.5" ><polygon fill="%%COLOR%%" points="0, 1 0, 15 10, 15.5 10,0.1" /><line stroke="%%COLOR2%%" x1="2.75" y1="4" x2="7" y2="12"></line><line stroke="%%COLOR2%%" x1="2.75" y1="12" x2="7" y2="4"></line><polygon fill="%%COLOR2%%" stroke="%%COLOR%%" stroke-width="1" points="9.9, 2.5 9.9, 12.5 18, 12.5 18, 2.5" /><line stroke="%%COLOR%%" stroke-width="1" x1="11" y1="4.7"  x2="13.3"  y2="4.7"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="14" y1="4.7"  x2="16.3"  y2="4.7"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="11" y1="6.5"  x2="13.3"  y2="6.5"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="14" y1="6.5"  x2="16.3"  y2="6.5"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="11" y1="8.3"  x2="13.3"  y2="8.3"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="14" y1="8.3"  x2="16.3"  y2="8.3"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="11" y1="10.1"  x2="13.3"  y2="10.1"></line><line stroke="%%COLOR%%"  stroke-width="1" x1="14" y1="10.1"  x2="16.3"  y2="10.1"></line></svg>'
 );
 
 @function str-replace( $string, $search, $replace: '' ) {
@@ -59,7 +60,7 @@ $icons: (
   @return $string;
 }
 
-@function get-icon( $icon, $color: #fff ) {
+@function get-icon( $icon, $color: #fff, $secondColor: "" ) {
 
   @if 'color' != type-of( $color ) {
 
@@ -70,8 +71,13 @@ $icons: (
   @if map-has-key( $icons, $icon ) {
 
     $icon: map-get( $icons, $icon );
-    $placeholder: '%%COLOR%%';
-    $data-uri: str-replace( url( $data-svg-prefix + $icon ), $placeholder, $color);
+
+    $placeholderColor: '%%COLOR%%';
+    $data-uri: str-replace( url( $data-svg-prefix + $icon ), $placeholderColor, $color);
+    @if $secondColor != "" {
+        $placeholderSecondColor: '%%COLOR2%%';
+        $data-uri: str-replace($data-uri, $placeholderSecondColor, $secondColor);
+    }
 
     @return str-replace( $data-uri, '#', '%23' );
   }
