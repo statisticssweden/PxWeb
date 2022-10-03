@@ -403,27 +403,8 @@ Public Class VariableSelectorValueSelectCodebehind
     ''' Render ListBox with variable values for selection.
     ''' </summary>
     Private Sub RenderValuesListbox()
-        'If ShowValues() Then
-
-        'Match grouping selected in the interface. Use of backbutton may have caused missmatches
-        'between model on server and sclections sent by the interface.
-        'If GroupingDropDown.SelectedValue.Length > 0 Then
-        '    Marker.SelectedGrouping = GroupingDropDown.SelectedValue
-        'End If
-        'If (Not Marker.Variable.CurrentGrouping Is Nothing) AndAlso (Marker.SelectedGrouping.Length > 4) Then
-        '    If Not (Marker.Variable.CurrentGrouping.Name).Equals(Marker.SelectedGrouping.Substring(4)) Then
-        '        If ApplyGrouping(Marker.SelectedGrouping) Then
-        '            UpdateDisplayModeUI()
-        '        End If
-        '    End If
-        'End If
-
-
-
-
         ValuesListBox.SelectionMode = ListSelectionMode.Multiple
         ValuesListBox.Rows = Marker.ListSize
-
 
         Dim valuesToShow As Values = Nothing
 
