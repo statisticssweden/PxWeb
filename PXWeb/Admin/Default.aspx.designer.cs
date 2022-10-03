@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb.Admin {
-    
-    
-    public partial class Default {
-        
+namespace PXWeb.Admin
+{
+
+
+    public partial class Default
+    {
+
         /// <summary>
         /// lblHeading control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHeading;
-        
+
         /// <summary>
         /// imgAdmin control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgAdmin;
-        
+
         /// <summary>
         /// lblVersion control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblVersion;
-        
+
         /// <summary>
         /// lnkHomepage control.
         /// </summary>

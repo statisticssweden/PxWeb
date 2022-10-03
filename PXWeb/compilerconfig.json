@@ -10,5 +10,9 @@
   {
     "outputFile": "Resources/Styles/main-custom.css",
     "inputFile": "Resources/Styles/scss/main-custom.scss"
+  },
+  {
+    "outputFile": "Resources/Styles/scss/pxweb/_variableselector.css",
+    "inputFile": "Resources/Styles/scss/pxweb/_variableselector.scss"
   }
 ]

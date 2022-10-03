@@ -40,6 +40,9 @@
 				<siteMapNode title="PxWebAdminMenuToolsReset"  description="" >
 					 <siteMapNode url="~/Admin/Tools-Reset.aspx" title="PxWebAdminMenuToolsReset"  description="" />
 				</siteMapNode>
+				<siteMapNode title="PxWebAdminMenuToolsXMLGenerator"  description="" >
+					<siteMapNode url="~/Admin/Tools-XMLGenerator.aspx" title="PxWebAdminMenuToolsXMLGenerator"  description="" />
+			   </siteMapNode>
 		  </siteMapNode>
 		  <siteMapNode title="PxWebAdminMenuFeatures"  description="" >
 				<siteMapNode title="PxWebAdminMenuFeaturesGeneral"  description="" >

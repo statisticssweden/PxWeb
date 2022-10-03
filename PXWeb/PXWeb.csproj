@@ -146,6 +146,9 @@
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PcAxis.Sql.1.1.4\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
+    <Reference Include="Px.Rdf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Px.Rdf.1.0.2\lib\netstandard2.0\Px.Rdf.dll</HintPath>
+    </Reference>
     <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.2\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>
     </Reference>
@@ -242,6 +245,7 @@
     <Content Include="Admin\Features-Search-General.aspx" />
     <Content Include="Admin\Settings-Navigation.aspx" />
     <Content Include="Admin\Users-General.aspx" />
+    <Content Include="Admin\Tools-XMLGenerator.aspx" />
     <Content Include="ApiHelp.aspx" />
     <Content Include="DbScript\SQL\Create_SavedQueryMeta.sql" />
     <Content Include="Login.aspx" />
@@ -323,7 +327,7 @@
     <Content Include="Resources\PX\Databases\Example\Menu.xml" />
     <Content Include="Resources\Scripts\format.20110630-1100.min.js" />
     <Content Include="Resources\Scripts\jquery-3.5.1.min.js" />
-    <Content Include="Resources\Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Resources\Scripts\jquery-ui.min.js" />
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
@@ -339,7 +343,7 @@
     <Content Include="Resources\Styles\jQuery\redmond\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.css" />
     <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.min.css" />
-    <Content Include="Resources\Styles\jQuery\redmond\theme.css" />
+    <Content Include="Resources\Styles\jQuery\redmond\jquery-ui.theme.min.css" />
     <Content Include="Resources\Styles\main-common.css" />
     <Content Include="Resources\Styles\main-common.min.css" />
     <Content Include="Resources\Styles\main-custom.css" />
@@ -350,11 +354,10 @@
     <Content Include="Resources\Styles\scss\not_in_use\_AReadMe.txt" />
     <Content Include="Resources\Styles\scss\common\_nested-accordion.scss" />
     <Content Include="Resources\PX\Databases\Example\Misc\OfficialStatistics\officialstatistics.px" />
-    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
-    <None Include="Scripts\jquery-3.5.1.js" />
-    <None Include="Scripts\jquery-3.5.1.min.js" />
-    <None Include="Scripts\jquery-3.5.1.slim.js" />
-    <None Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <Content Include="Search.aspx" />
     <Content Include="UserControls\AccordianAboutTableControl.ascx" />
     <Content Include="UserControls\Login.ascx" />
@@ -557,6 +560,13 @@
     <Compile Include="Admin\Users-General.aspx.designer.cs">
       <DependentUpon>Users-General.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Tools-XMLGenerator.aspx.cs">
+      <DependentUpon>Tools-XMLGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Tools-XMLGenerator.aspx.designer.cs">
+      <DependentUpon>Tools-XMLGenerator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ApiHelp.aspx.cs">
       <DependentUpon>ApiHelp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -628,6 +638,7 @@
     <Compile Include="Code\Settings\ChartFontSettings.cs" />
     <Compile Include="Code\Settings\ChartGuidelinesSettings.cs" />
     <Compile Include="Code\Settings\ChartLegendSettings.cs" />
+    <Compile Include="Code\Settings\DcatSettings.cs" />
     <Compile Include="Code\Settings\ChartsSettings.cs" />
     <Compile Include="Code\Settings\CnmmDatabaseInfo.cs" />
     <Compile Include="Code\Settings\CommandBarSettings.cs" />
@@ -654,6 +665,7 @@
     <Compile Include="Code\Settings\Interfaces\IChartFontSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartGuidelinesSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartLegendSettings.cs" />
+    <Compile Include="Code\Settings\Interfaces\IDcatSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IChartSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\ICommandBarSettings.cs" />
     <Compile Include="Code\Settings\Interfaces\IDatabaseSettings.cs" />
@@ -1428,8 +1440,6 @@
     <Content Include="Resources\Styles\scss\_icons.scss" />
     <Content Include="Resources\Styles\scss\_variables.scss" />
     <Content Include="Resources\Styles\scss\color-themes\_official.scss" />
-    <None Include="Scripts\jquery-3.5.1.slim.min.map" />
-    <None Include="Scripts\jquery-3.5.1.min.map" />
     <None Include="set-rights-2003.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

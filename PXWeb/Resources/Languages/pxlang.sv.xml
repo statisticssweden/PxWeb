@@ -682,6 +682,7 @@
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Språkhanteraren" />
   <sentence name="PxWebAdminMenuToolsReset" value="Nollställ" />
   <sentence name="PxWebAdminMenuToolsChangePassword" value="Byt lösenord" />
+  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generera XML"/>
   <sentence name="PxWebAdminMenuFeatures" value="Funktioner" />
   <sentence name="PxWebAdminMenuFeaturesGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesCharts" value="Diagram" />
@@ -967,7 +968,27 @@
   <sentence name="PxWebAdminToolsChangePasswordWrongPassword" value="Felaktigt lösenord" />
   <sentence name="PxWebAdminToolsChangePasswordVerifyIncorrect" value="Verifiering felaktig" />
   <sentence name="PxWebAdminToolsChangePasswordSuccess" value="Lösenordet har ändrats" />
-  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funktion" />
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDb" value="Databas"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDbInfo" value="Välj en databas att generera XML-fil för"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDbTypeInfo" value="Välj typ av databas"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectDbType" value="Databastyp"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURI" value="Baslänk RDF"/>
+  <sentence name="PxWebAdminToolsXMLGeneratorSelectBaseURIInfo" value="Välj baslänk för att bygga länkar i XML-filen"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitle" value="Titel katalog"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogTitleInfo" value="Välj titel för katalogen som skapas"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogDescInfo" value="Beskrivning katalog"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectCatalogDesc" value="Beskrivning av den skapade katalogen"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectLicense" value="Licens"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectLicenseInfo" value="URL till en licens"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectApiURL" value="Baslänk API"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectApiURLInfo" value="Baslänk för att komma åt API"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURL" value="Ingångssida datamängder"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Ingångssida till webbsida som ger tillgång till datamängden eller dess distributioner och/eller ytterligare information"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisher" value="Utgivare"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisherInfo" value="Utgivare av datan"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorLanguageError" value="Fel"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorLanguageErrorInfo" value="Det valda språket finns inte tillgängligt för den valda databasen"/>
+ <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funktion" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureInfo" value="Förkryssade funktioner kommer att finnas tillgängliga i administrationsgränssnittet samt i PxWeb" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureCharts" value="Diagram" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureApi" value="API" />

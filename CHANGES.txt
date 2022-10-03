@@ -1,3 +1,5 @@
+- Added security header for Strict Transport and change value on header referrer-policy
+- Added security header for cache-control
 - Added support to restore variable values by selecting --Select classification--
 - Changed to the PcAxis.Serializers nuget package
 - Upgraded the Newtonsoft JSON library dependenvis to 13.0.1 due to a vulnerability issue
@@ -54,3 +56,4 @@
 - Better text for screenreader on buttons on selectionpage.
 - Added aria-live on selection page describing selection status and validation errors.
 - Moved checkbox for search in front of search-field. Better to read (screenreader) checkbox text before searchfield connected to checkbox.
+
