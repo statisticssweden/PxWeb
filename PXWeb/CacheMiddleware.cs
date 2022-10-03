@@ -10,13 +10,10 @@ namespace PxWeb
     public class CacheMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ApiCache _cache;
 
         public CacheMiddleware(RequestDelegate next)
         {
             _next = next;
-            _cache = ApiCache.Current;
-            _cache.Enable();
         }
         private async Task<string> readResponse(HttpContext httpContext)
         {
@@ -36,7 +33,7 @@ namespace PxWeb
             }
         }
 
-        public async Task Invoke(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext, IPxCache cache)
         {
             HttpRequest request = httpContext.Request;
 
@@ -51,15 +48,15 @@ namespace PxWeb
             }
 
             string response;
-
-            if (_cache.Get<string>(key) is null)
+            string? cached = cache.Get<string>(key);
+            if (cached is null)
             {
                 response = readResponse(httpContext).Result;
-                _cache.Set(key, response);
+                cache.Set(key, response);
             }
             else
             {
-                response = _cache.Get<string>(key);
+                response = cached;
             }
 
             httpContext.Response.ContentType = "application/json; charset = UTF-8";

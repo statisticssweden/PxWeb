@@ -15,7 +15,6 @@ namespace PxWeb
         void Enable();
         T? Get<T>(Object key);
         void Set(Object key, Object value);
-        bool DefaultEnabled { get; }
 
     }
 }

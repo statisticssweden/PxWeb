@@ -50,6 +50,9 @@ namespace PxWeb
 
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            builder.Services.AddSingleton<IPxCache>(x => 
+                new PxCache(x.GetRequiredService<ILogger<PxCache>>())
+            );
 
             builder.Services.AddPxDataSource(builder);
 

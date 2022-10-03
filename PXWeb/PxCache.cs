@@ -9,13 +9,14 @@ using System.Globalization;
 using System.Web;
 using System.Configuration;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 
 namespace PxWeb
 {
     /// <summary>
     /// Implementation class for the API cache
     /// </summary>
-    public class ApiCache: IPxCache
+    public class PxCache: IPxCache
     {
         /// <summary>
         /// Delegate that waits for something after the cache has been cleaned
@@ -23,45 +24,17 @@ namespace PxWeb
         public delegate bool CacheReenabler();
         private Func<bool> _coherenceChecker;
 
-        private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(ApiCache));
-        private static log4net.ILog _apiCacheLogger = log4net.LogManager.GetLogger("api-cache-logger");
-        private static string CacheLock = "lock";
-        private static bool _defaultCacheValue;
-        private static DateTime _cachedStartTime;
-        private static ApiCache _current;
-        private static MemoryCache _cache;
-        private static bool _enableCache;
-        private static TimeSpan _cacheTime;
+        private ILogger<PxCache> _logger;
+        private string _cacheLock = "lock";
+        private MemoryCache _cache;
+        private bool _enableCache;
+        private TimeSpan _cacheTime;
 
-        /// <summary>
-        /// Get the (Singleton) ApiCache object
-        /// </summary>
-        public static ApiCache Current
+        public PxCache(ILogger<PxCache> logger)
         {
-            get
-            {
-                if (_current == null)
-                {
-                    _current = new ApiCache();
-                }
-                return _current;
-            }
-        }
-
-        private ApiCache()
-        {
-            //Parse if cahce should be enabled
-            string strCacheEnabled = ConfigurationManager.AppSettings["enableCache"];
-            if (strCacheEnabled != null)
-                _defaultCacheValue = bool.Parse(strCacheEnabled);
-            else
-                _defaultCacheValue = true;
-
-            _cachedStartTime = DateTime.MinValue;
-
-            _apiCacheLogger.DebugFormat("Settings.Current.EnableCache = {0}", _enableCache);
+            _logger = logger;
             _cache = new MemoryCache(new MemoryCacheOptions());
-
+            _enableCache = true;
             _cacheTime = new TimeSpan(0, 1, 0); // Later to be read from appsettings
         }
 
@@ -70,12 +43,11 @@ namespace PxWeb
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public T Get<T>(Object key)
+        public T? Get<T>(Object key)
         {
-
             if (!IsEnabled())
             {
-                return default(T);
+                return default;
             }
 
             //Check if the cache controller has set a coherence checker
@@ -98,16 +70,13 @@ namespace PxWeb
         /// <param name="data"></param>
         public void Set(object key, object value)
         {
-            if (_cache.Get(key) == null)
+            if (_cache.Get(key) is null)
             {
-                if (_apiCacheLogger.IsDebugEnabled)
-                {
-                    _apiCacheLogger.DebugFormat("Adding key={0} to Cache", key);
-                }
+                _logger.LogDebug("Adding key={0} to Cache", key);
 
-                lock (CacheLock)
+                lock (_cacheLock)
                 {
-                    if (_cache.Get(key) == null)
+                    if (_cache.Get(key) is null)
                     {
                         _cache.Set(key, value, _cacheTime);
                     }
@@ -120,7 +89,7 @@ namespace PxWeb
         /// </summary>
         private void ClearCache()
         {
-            lock (CacheLock)
+            lock (_cacheLock)
             {
                 _cache.Compact(1.0);
             }
@@ -133,33 +102,26 @@ namespace PxWeb
 
         public void Clear()
         {
-            _logger.Info("Cache cleared started");
+            _logger.LogInformation("Cache cleared started");
             ClearCache();
-            _logger.Info("Cache cleared finished");
+            _logger.LogInformation("Cache cleared finished");
         }
 
         public void Disable()
         {
-            _logger.Info("Cache disabled");
+            _logger.LogInformation("Cache disabled");
             _enableCache = false;
         }
 
         public void Enable()
         {
-            if (_defaultCacheValue)
-            {
-                _logger.Info("Cache enabled");
-                _enableCache = true;
-            }
+            _logger.LogInformation("Cache enabled");
+            _enableCache = true;
         }
 
         public void SetCoherenceChecker(Func<bool> coherenceChecker)
         {
             _coherenceChecker = coherenceChecker;
-        }
-        public bool DefaultEnabled
-        {
-            get { return _defaultCacheValue; }
         }
     }
 }
