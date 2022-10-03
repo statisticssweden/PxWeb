@@ -17,7 +17,7 @@
     <link href="<%= ResolveUrl("~/Resources/Styles/main-custom.css") + "?v=" + DisplayVersion %>" rel="stylesheet" type="text/css" media="screen" />
     
     <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-3.5.1.min.js") %>?v=<%= DisplayVersion %>"></script>
-    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-ui-1.12.1.min.js") %>?v=<%= DisplayVersion %>"></script>
+    <script src="<%= ResolveUrl("~/Resources/Scripts/jquery-ui.min.js") %>?v=<%= DisplayVersion %>"></script>
     <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.client.js") %>?v=<%= DisplayVersion %>"></script>
     <script src="<%= ResolveUrl("~/Resources/Scripts/pcaxis.web.controls.js") %>?v=<%= DisplayVersion %>"></script>
     <script src="<%= ResolveUrl("~/Resources/Scripts/jquery.tablesorter.min.js") %>?v=<%= DisplayVersion %>"></script>
