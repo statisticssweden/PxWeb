@@ -18,6 +18,8 @@ using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Helper.Api2;
 using Microsoft.AspNetCore.Mvc;
 using PxWeb.Mappers;
+using System;
+using Microsoft.Extensions.Options;
 
 namespace PxWeb
 {
@@ -50,14 +52,15 @@ namespace PxWeb
 
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
-            builder.Services.AddSingleton<IPxCache>(x => 
-                new PxCache(x.GetRequiredService<ILogger<PxCache>>())
-            );
 
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
-            
+
+            builder.Services.AddSingleton<IPxCache>(x =>
+                new PxCache(x.GetRequiredService<ILogger<PxCache>>(), x.GetRequiredService<IOptions<PxApiConfigurationOptions>>())
+            );
+
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();

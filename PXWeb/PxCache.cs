@@ -10,6 +10,8 @@ using System.Web;
 using System.Configuration;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using PxWeb.Config.Api2;
 
 namespace PxWeb
 {
@@ -30,12 +32,20 @@ namespace PxWeb
         private bool _enableCache;
         private TimeSpan _cacheTime;
 
+        public PxCache(ILogger<PxCache> logger, IOptions<PxApiConfigurationOptions> configOptions)
+        {
+            _logger = logger;
+            _cache = new MemoryCache(new MemoryCacheOptions());
+            _enableCache = true;
+            _cacheTime = TimeSpan.FromSeconds(configOptions.Value.CacheTime);
+        }
+
         public PxCache(ILogger<PxCache> logger)
         {
             _logger = logger;
             _cache = new MemoryCache(new MemoryCacheOptions());
             _enableCache = true;
-            _cacheTime = new TimeSpan(0, 1, 0); // Later to be read from appsettings
+            _cacheTime = TimeSpan.FromSeconds(10);
         }
 
         /// <summary>
