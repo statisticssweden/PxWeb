@@ -1,3 +1,4 @@
+- Changed Referrer-Policy to same-origin
 - Added security header for Strict Transport and change value on header referrer-policy
 - Added security header for cache-control
 - Added support to restore variable values by selecting --Select classification--
