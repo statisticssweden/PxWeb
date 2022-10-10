@@ -57,9 +57,7 @@ namespace PxWeb
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
 
-            builder.Services.AddSingleton<IPxCache>(x =>
-                new PxCache(x.GetRequiredService<ILogger<PxCache>>(), x.GetRequiredService<IOptions<PxApiConfigurationOptions>>())
-            );
+            builder.Services.AddSingleton<IPxCache, PxCache>();
 
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
