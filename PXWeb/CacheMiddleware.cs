@@ -10,12 +10,13 @@ namespace PxWeb
     public class CacheMiddleware
     {
         private readonly RequestDelegate _next;
+        private string _cacheLock = "lock";
 
         public CacheMiddleware(RequestDelegate next)
         {
             _next = next;
         }
-        private async Task<string> readResponse(HttpContext httpContext)
+        private async Task<HttpResponse> readResponse(HttpContext httpContext)
         {
             using (var ms = new MemoryStream())
             {
@@ -29,16 +30,14 @@ namespace PxWeb
 
                 httpContext.Response.Body = originalStream;
 
-                return body;
+                string contentType = httpContext.Response.ContentType;
+                HttpResponse response = new HttpResponse(body, contentType);
+                return response;
             }
         }
 
-        public async Task Invoke(HttpContext httpContext, IPxCache cache)
+        private string generateKey(HttpRequest request, string body)
         {
-            HttpRequest request = httpContext.Request;
-
-            string body = await new StreamReader(request.Body).ReadToEndAsync();
-
             // Get url
             string url = $"{request.Method}:{request.Scheme}://{request.Host.Value}{request.Path}{request.QueryString}";
             string key = $"{url}";
@@ -46,22 +45,42 @@ namespace PxWeb
             {
                 key += $":{body}";
             }
+            return key;
+        }
 
-            string response;
-            string? cached = cache.Get<string>(key);
+        public async Task Invoke(HttpContext httpContext, IPxCache cache)
+        {
+            HttpRequest request = httpContext.Request;
+
+            string body = await new StreamReader(request.Body).ReadToEndAsync();
+            string key = generateKey(request, body);
+
+            HttpResponse response;
+            HttpResponse? cached = cache.Get<HttpResponse>(key);
             if (cached is null)
             {
                 response = readResponse(httpContext).Result;
-                // Checl if key exists, lock
-                cache.Set(key, response);
+ 
+                lock (_cacheLock)
+                {
+                    HttpResponse? freshCached = cache.Get<HttpResponse>(key);
+                    if (freshCached is null)
+                    {
+                        cache.Set(key, response);
+                    }
+                    else
+                    {
+                        response = freshCached;
+                    }
+                }
             }
             else
             {
                 response = cached;
             }
 
-            httpContext.Response.ContentType = "application/json; charset = UTF-8";
-            await httpContext.Response.WriteAsync(response);
+            httpContext.Response.ContentType = response.contentType;
+            await httpContext.Response.WriteAsync(response.content);
         }
     }
 
