@@ -148,6 +148,11 @@ namespace PCAxis.Chart
             Color backgroundColor = ColorTranslator.FromHtml(settings.BackgroundColor);
             chart.BackColor = Color.FromArgb(settings.BackgroundAlpha, backgroundColor);
 
+            if (chart.Legends.Count > 0)
+            {
+                chart.Legends[0].BackColor = Color.FromArgb(settings.BackgroundAlpha, backgroundColor);
+            }
+
             if (settings.BackgroundAlpha != 255)
             {
                 chart.AntiAliasing = AntiAliasingStyles.Graphics;
