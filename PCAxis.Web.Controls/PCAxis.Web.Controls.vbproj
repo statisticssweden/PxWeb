@@ -78,7 +78,7 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PcAxis.Core.1.2.1\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
+      <HintPath>..\packages\PcAxis.Core.1.2.2\lib\netstandard2.0\PCAxis.Core.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Menu, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCAxis.Menu.1.0.1\lib\netstandard2.0\PCAxis.Menu.dll</HintPath>
