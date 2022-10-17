@@ -16,7 +16,7 @@ namespace PxWeb
         {
             _next = next;
         }
-        private async Task<HttpResponse> readResponse(HttpContext httpContext)
+        private async Task<CachedResponse> readResponse(HttpContext httpContext)
         {
             using (var ms = new MemoryStream())
             {
@@ -31,7 +31,8 @@ namespace PxWeb
                 httpContext.Response.Body = originalStream;
 
                 string contentType = httpContext.Response.ContentType;
-                HttpResponse response = new HttpResponse(body, contentType);
+                int responseCode = httpContext.Response.StatusCode;
+                CachedResponse response = new CachedResponse(body, contentType, responseCode);
                 return response;
             }
         }
@@ -55,15 +56,15 @@ namespace PxWeb
             string body = await new StreamReader(request.Body).ReadToEndAsync();
             string key = generateKey(request, body);
 
-            HttpResponse response;
-            HttpResponse? cached = cache.Get<HttpResponse>(key);
+            CachedResponse response;
+            CachedResponse? cached = cache.Get<CachedResponse>(key);
             if (cached is null)
             {
                 response = readResponse(httpContext).Result;
  
                 lock (_cacheLock)
                 {
-                    HttpResponse? freshCached = cache.Get<HttpResponse>(key);
+                    CachedResponse? freshCached = cache.Get<CachedResponse>(key);
                     if (freshCached is null)
                     {
                         cache.Set(key, response);
@@ -80,6 +81,8 @@ namespace PxWeb
             }
 
             httpContext.Response.ContentType = response.contentType;
+            httpContext.Response.StatusCode = response.responseCode;
+
             await httpContext.Response.WriteAsync(response.content);
         }
     }
