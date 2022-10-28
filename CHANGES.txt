@@ -1,3 +1,4 @@
+=== Release of PxWeb 2022 v1 ===
 - Changed Referrer-Policy to same-origin
 - Added security header for Strict Transport and change value on header referrer-policy
 - Added security header for cache-control
