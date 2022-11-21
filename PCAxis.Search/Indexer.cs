@@ -26,7 +26,7 @@ namespace PCAxis.Search
         private string _database;
         private string _language;
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(Indexer));
-
+        private static log4net.ILog _emailLogger = log4net.LogManager.GetLogger("EmailLogger");
         #endregion
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace PCAxis.Search
                     if (db == null)
                     {
                         _logger.Error("Failed to access database '" + _database + "'. Creation of search index aborted.");
-                        writer.Rollback(); 
+                        writer.Rollback();
                         _logger.Error("Rollback of '" + _database + "' done");
                         return false;
                     }
@@ -98,19 +98,33 @@ namespace PCAxis.Search
                         dbType = DatabaseType.CNMM;
                     }
 
+                    List<string> errorTables = new List<string>();
                     if (db.RootItem != null)
                     {
                         foreach (var item in db.RootItem.SubItems)
                         {
                             if (item is PCAxis.Menu.PxMenuItem)
                             {
-                                TraverseDatabase(dbType, item as PxMenuItem, writer, "/" + item.ID.Selection);
+                                List<string> nestedErrorTables = TraverseDatabase(dbType, item as PxMenuItem, writer, "/" + item.ID.Selection);
+                                errorTables.AddRange(nestedErrorTables);
                             }
                             else if (item is PCAxis.Menu.TableLink)
                             {
-                                IndexTable(dbType, (TableLink)item, "/" + item.ID.Menu, writer);
+                                try
+                                {
+                                    IndexTable(dbType, (TableLink)item, "/" + item.ID.Menu, writer);
+                                }
+                                catch
+                                {
+                                    errorTables.Add(item.ID.Selection);
+                                }
                             }
                         }
+                    }
+
+                    if (errorTables.Count > 0)
+                    {
+                        _emailLogger.ErrorFormat("Error while indexing following tables: {0}", string.Join("; ", errorTables));
                     }
 
                     writer.Optimize();
@@ -149,50 +163,66 @@ namespace PCAxis.Search
                         return false;
                     }
 
+                    List<string> errorTables = new List<string>();
+
                     foreach (TableUpdate table in tableList)
                     {
-                        doUpdate = false;
-                        PXModel model = PxModelManager.Current.GetModel(DatabaseType.CNMM, _database, _language, table.Id);
-
-                        // Get default value for title
-                        title = model.Meta.Title;
-
-                        // Get table title from _menuMethod
-                        // table.Path is supposed to have the following format: path/path/path
-                        // Example: BE/BE0101/BE0101A
-                        pathParts = table.Path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        if (pathParts.Length > 1)
+                        try
                         {
-                            menu = pathParts[pathParts.Length - 1];
-                            selection = table.Id;
 
-                            node = new ItemSelection(menu, selection);
-                            PCAxis.Menu.PxMenuBase db = _menuMethod(_database, node, _language, out currentTable);
+                            doUpdate = false;
+                            PXModel model = PxModelManager.Current.GetModel(DatabaseType.CNMM, _database, _language, table.Id);
 
-                            if (currentTable != null)
+                            // Get default value for title
+                            title = model.Meta.Title;
+
+                            // Get table title from _menuMethod
+                            // table.Path is supposed to have the following format: path/path/path
+                            // Example: BE/BE0101/BE0101A
+                            pathParts = table.Path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+                            if (pathParts.Length > 1)
                             {
-                                if (currentTable is TableLink)
+                                menu = pathParts[pathParts.Length - 1];
+                                selection = table.Id;
+
+                                node = new ItemSelection(menu, selection);
+                                PCAxis.Menu.PxMenuBase db = _menuMethod(_database, node, _language, out currentTable);
+
+                                if (currentTable != null)
                                 {
-                                    doUpdate = true;
-                                    // Get table title from the menu method
-                                    if (!string.IsNullOrEmpty(currentTable.Text))
+                                    if (currentTable is TableLink)
                                     {
-                                        title = currentTable.Text;
-                                    }
-                                    if (((TableLink)currentTable).Published != null)
-                                    {
-                                        published = (DateTime)((TableLink)currentTable).Published;
+                                        doUpdate = true;
+                                        // Get table title from the menu method
+                                        if (!string.IsNullOrEmpty(currentTable.Text))
+                                        {
+                                            title = currentTable.Text;
+                                        }
+                                        if (((TableLink)currentTable).Published != null)
+                                        {
+                                            published = (DateTime)((TableLink)currentTable).Published;
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        if (doUpdate)
-                        {
-                            UpdatePaxiomDocument(writer, _database, table.Id, table.Path, table.Id, title, published, model.Meta);
-                            _logger.Info("Search index " + _database + " - " + _language + " updated table " + table.Id);
+                            if (doUpdate)
+                            {
+                                UpdatePaxiomDocument(writer, _database, table.Id, table.Path, table.Id, title, published, model.Meta);
+                                _logger.Info("Search index " + _database + " - " + _language + " updated table " + table.Id);
+                            }
                         }
+                        catch (Exception e)
+                        {
+                            string tableInfo = table.Path;
+                            errorTables.Add(tableInfo);
+                        }
+                    }
+
+                    if (errorTables.Count > 0)
+                    {
+                        _emailLogger.ErrorFormat("Error while indexing following tables: {0}", string.Join("; ", errorTables));
                     }
 
                     writer.Optimize();
@@ -218,28 +248,39 @@ namespace PCAxis.Search
         /// <param name="itm">Current node in database to add Document objects for</param>
         /// <param name="writer">IndexWriter object</param>
         /// <param name="path">Path within the database for this node</param>
-        private void TraverseDatabase(PCAxis.Web.Core.Enums.DatabaseType dbType, PxMenuItem itm, IndexWriter writer, string path)
+        private List<string> TraverseDatabase(PCAxis.Web.Core.Enums.DatabaseType dbType, PxMenuItem itm, IndexWriter writer, string path)
         {
+            List<string> errorTables = new List<string>();
             PCAxis.Menu.Item newItem;
             PCAxis.Menu.PxMenuBase db = _menuMethod(_database, itm.ID, _language, out newItem);
             PxMenuItem m = (PxMenuItem)newItem;
 
             if (m == null)
             {
-                return;
+                return errorTables;
             }
 
             foreach (var item in m.SubItems)
             {
                 if (item is PxMenuItem)
                 {
-                    TraverseDatabase(dbType, item as PxMenuItem, writer, path + "/" + item.ID.Selection);
+                    List<string> nestedErrorTables = TraverseDatabase(dbType, item as PxMenuItem, writer, path + "/" + item.ID.Selection);
+                    errorTables.AddRange(nestedErrorTables);
                 }
                 else if (item is TableLink)
                 {
-                    IndexTable(dbType, (TableLink)item, path, writer);
+                    try
+                    {
+                        IndexTable(dbType, (TableLink)item, path, writer);
+                    }
+                    catch
+                    {
+                        errorTables.Add(item.ID.Selection);
+                    }
                 }
             }
+
+            return errorTables;
         }
 
 
@@ -334,7 +375,7 @@ namespace PCAxis.Search
         private IndexWriter CreateIndexWriter(bool createIndex)
         {
             FSDirectory fsDir = FSDirectory.Open(_indexDirectory);
-            
+
             if (IndexWriter.IsLocked(fsDir))
             {
                 _logger.Error("Index directory " + _indexDirectory + " is locked - cannot write index");
@@ -401,7 +442,7 @@ namespace PCAxis.Search
                 {
                     return doc;
                 }
-               
+
                 doc.Add(new Field(SearchConstants.SEARCH_FIELD_DOCID, id, Field.Store.YES, Field.Index.NOT_ANALYZED)); // Used as id when updating a document - NOT searchable!!!
                 doc.Add(new Field(SearchConstants.SEARCH_FIELD_SEARCHID, id, Field.Store.NO, Field.Index.ANALYZED)); // Used for finding a document by id - will be used for generating URL from just the tableid - Searchable!!!
                 doc.Add(new Field(SearchConstants.SEARCH_FIELD_PATH, path, Field.Store.YES, Field.Index.NO));
@@ -418,12 +459,12 @@ namespace PCAxis.Search
                 doc.Add(new Field(SearchConstants.SEARCH_FIELD_GROUPINGCODES, meta.GetAllGroupingCodes(), Field.Store.NO, Field.Index.ANALYZED));
                 doc.Add(new Field(SearchConstants.SEARCH_FIELD_VALUESETS, meta.GetAllValuesets(), Field.Store.NO, Field.Index.ANALYZED));
                 doc.Add(new Field(SearchConstants.SEARCH_FIELD_VALUESETCODES, meta.GetAllValuesetCodes(), Field.Store.NO, Field.Index.ANALYZED));
-                doc.Add(new Field(SearchConstants.SEARCH_FIELD_TABLEID, meta.TableID == null?meta.Matrix:meta.TableID, Field.Store.YES, Field.Index.ANALYZED));
+                doc.Add(new Field(SearchConstants.SEARCH_FIELD_TABLEID, meta.TableID == null ? meta.Matrix : meta.TableID, Field.Store.YES, Field.Index.ANALYZED));
                 if (!string.IsNullOrEmpty(meta.Synonyms))
                 {
                     doc.Add(new Field(SearchConstants.SEARCH_FIELD_SYNONYMS, meta.Synonyms, Field.Store.NO, Field.Index.ANALYZED));
                 }
-                              
+
             }
 
             return doc;
