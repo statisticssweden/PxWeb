@@ -98,7 +98,7 @@ namespace Px.Search
 
         private void IndexTable(string id, string language, IIndex index)
         {
-            //Create a Builder from backand
+            //Create a Builder from backend
             //Call BuildForSelection
             //Extract metadata 
             //call AddEntry on the index

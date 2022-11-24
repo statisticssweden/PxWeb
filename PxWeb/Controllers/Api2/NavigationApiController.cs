@@ -39,6 +39,41 @@ namespace PxWeb.Controllers.Api2
         }
 
         /// <summary>
+        /// Browse the database structure
+        /// </summary>
+        /// <param name="lang">The language if the default is not what you want.</param>
+        /// <response code="200">Success</response>
+        /// <response code="429">Error respsone for 429</response>
+        [HttpGet]
+        [Route("/v2/navigation")]
+        [ValidateModelState]
+        [SwaggerOperation("GetNavigationRoot")]
+        [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
+        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
+        public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
+        {
+            bool selectionExists = true;
+
+            lang = _languageHelper.HandleLanguage(lang);
+
+            PxMenuBase menu = _dataSource.CreateMenu("", lang, out selectionExists);
+
+            if (menu == null)
+            {
+                return new BadRequestObjectResult("Error reading data");
+            }
+
+            if (menu.CurrentItem == null)
+            {
+                return new BadRequestObjectResult("Error reading node data");
+            }
+
+            Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
+
+            return new ObjectResult(folder);
+        }
+
+        /// <summary>
         /// Gets navigation item with the given id.
         /// </summary>
         /// <param name="id">Id</param>
@@ -79,40 +114,7 @@ namespace PxWeb.Controllers.Api2
         }
 
 
-        /// <summary>
-        /// Browse the database structure
-        /// </summary>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        /// <response code="429">Error respsone for 429</response>
-        [HttpGet]
-        [Route("/v2/navigation")]
-        [ValidateModelState]
-        [SwaggerOperation("GetNavigationRoot")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
-        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
-        public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
-        {
-            bool selectionExists = true;
-
-            lang = _languageHelper.HandleLanguage(lang);
-
-            PxMenuBase menu = _dataSource.CreateMenu("", lang, out selectionExists);
-
-            if (menu == null)
-            {
-                return new BadRequestObjectResult("Error reading data");
-            }
-
-            if (menu.CurrentItem == null)
-            {
-                return new BadRequestObjectResult("Error reading node data");
-            }
-
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
-
-            return new ObjectResult(folder);
-        }
+       
 
 
     }
