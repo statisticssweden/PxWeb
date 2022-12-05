@@ -36,7 +36,7 @@ jobs:
         run: sed -i 's/PxWeb 2021 v1/PxWeb 2021 from any selected branch/g' to_deploy/Resources/Languages/pxlang.xml
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ASP-app
           path: '${{ github.workspace }}\to_deploy\**'
