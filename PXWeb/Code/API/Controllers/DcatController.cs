@@ -47,7 +47,8 @@ namespace PXWeb.API
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid database type");
                 }
-                XML.WriteToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
+                string savePath = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/" + database + "/dcat-ap.xml");
+                XML.WriteToFile(savePath, settings);
                 return Request.CreateResponse(HttpStatusCode.OK, $"Xml file created successfully, {databaseType}");
             }
         }
