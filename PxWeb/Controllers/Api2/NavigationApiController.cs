@@ -18,6 +18,7 @@ using Px.Abstractions.Interfaces;
 using PxWeb.Helper.Api2;
 using PCAxis.Menu;
 using PxWeb.Mappers;
+using PxWeb.Api2.Server.Models;
 
 namespace PxWeb.Controllers.Api2
 {

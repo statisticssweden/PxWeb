@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
-
+using PxWeb.Api2.Server.Models;
 
 namespace PxWeb.Controllers.Api2
 { 
