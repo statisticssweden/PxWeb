@@ -26,31 +26,20 @@ namespace PxWeb.Controllers.Api2
     /// 
     /// </summary>
     [ApiController]
-    public class NavigationApiController : ControllerBase
+    public class NavigationApiController : PxWeb.Api2.Server.Controllers.NavigationApiController
     {
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
-        private readonly IResponseMapper _responseMapper;   
-        
-        public NavigationApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper )
+        private readonly IResponseMapper _responseMapper;
+
+        public NavigationApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
-            _responseMapper = responseMapper;   
+            _responseMapper = responseMapper;
         }
 
-        /// <summary>
-        /// Gets navigation item with the given id.
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        [HttpGet]
-        [Route("/v2/navigation/{id}")]
-        [ValidateModelState]
-        [SwaggerOperation("GetNavigationById")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
-        public virtual IActionResult GetNavigationById([FromRoute(Name = "id")][Required] string id, [FromQuery(Name = "lang")] string? lang)
+        public override IActionResult GetNavigationById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists = true;
 
@@ -76,23 +65,9 @@ namespace PxWeb.Controllers.Api2
             Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
 
             return new ObjectResult(folder);
-
         }
 
-
-        /// <summary>
-        /// Browse the database structure
-        /// </summary>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        /// <response code="429">Error respsone for 429</response>
-        [HttpGet]
-        [Route("/v2/navigation")]
-        [ValidateModelState]
-        [SwaggerOperation("GetNavigationRoot")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Folder), description: "Success")]
-        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
-        public virtual IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
+        public override IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists = true;
 
@@ -115,6 +90,10 @@ namespace PxWeb.Controllers.Api2
             return new ObjectResult(folder);
         }
 
+        public override IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
+        {
+            throw new System.NotImplementedException();
+        }
 
     }
 }
