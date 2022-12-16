@@ -18,6 +18,9 @@ using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Helper.Api2;
 using Microsoft.AspNetCore.Mvc;
 using PxWeb.Mappers;
+using Newtonsoft.Json;
+using System;
+using PxWeb.Code.Api2.NewtonsoftConfiguration;
 
 namespace PxWeb
 {
@@ -70,16 +73,22 @@ namespace PxWeb
                 )
                 .AddNewtonsoftJson(opts =>
             {
-                opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                //opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                opts.SerializerSettings.ContractResolver = new BaseFirstContractResolver();
                 opts.SerializerSettings.Converters.Add(new StringEnumConverter
                 {
                     NamingStrategy = new CamelCaseNamingStrategy()
                 });
+                opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                // Sort endpoints
+                c.OrderActionsBy((apiDesc) => $"{apiDesc.ActionDescriptor.RouteValues["controller"]}_{apiDesc.RelativePath}");
+            });
 
 
             // Handle CORS configuration from appsettings.json
@@ -115,4 +124,5 @@ namespace PxWeb
             app.Run();
         }
     }
+
 }
