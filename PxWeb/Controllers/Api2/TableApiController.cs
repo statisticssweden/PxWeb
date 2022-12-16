@@ -26,55 +26,6 @@ namespace PxWeb.Controllers.Api2
     [ApiController]
     public class TableApiController : PxWeb.Api2.Server.Controllers.TableApiController
     {
-        ///// <summary>
-        ///// Endpoint to get table by {id}
-        ///// </summary>
-        ///// <param name="id">Id</param>
-        ///// <response code="200">Success</response>
-        //[HttpGet]
-        //[Route("/v2/tables/{id}")]
-        //[ValidateModelState]
-        //[SwaggerOperation("GetTableById")]
-        //[SwaggerResponse(statusCode: 200, type: typeof(Table), description: "Success")]
-        //public virtual IActionResult GetTableById([FromRoute(Name = "id")][Required] string id)
-        //{ 
-        //    //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-        //    // return StatusCode(200, default(Table));
-        //    string exampleJson = null;
-        //    exampleJson = "\"\"";
-
-        //                var example = exampleJson != null
-        //                ? JsonConvert.DeserializeObject<Table>(exampleJson)
-        //                : default(Table);            //TODO: Change the data returned
-        //    return new ObjectResult(example);
-        //}
-
-        ///// <summary>
-        ///// Endpoint for listing tables
-        ///// </summary>
-        ///// <param name="query">Selects only tables that that matches a criteria which is specified by the search parameter.</param>
-        ///// <param name="pastDays">Selects only tables that was updated from the time of execution going back number of days stated by the parameter pastDays. Valid values for past days are integers between 1 and ?</param>
-        ///// <param name="includeDiscontinued">Decides if discontinued tables are included in response.</param>
-        ///// <param name="pageNumber">Pagination: Decides which page number to return</param>
-        ///// <param name="pageSize">Pagination: Decides how many tables per page</param>
-        ///// <response code="200">Success</response>
-        //[HttpGet]
-        //[Route("/v2/tables")]
-        //[ValidateModelState]
-        //[SwaggerOperation("ListAllTables")]
-        //[SwaggerResponse(statusCode: 200, type: typeof(TablesResponse), description: "Success")]
-        //public virtual IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
-        //{ 
-        //    //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-        //    // return StatusCode(200, default(TablesResponse));
-        //    string exampleJson = null;
-        //    exampleJson = "\"\"";
-
-        //                var example = exampleJson != null
-        //                ? JsonConvert.DeserializeObject<TablesResponse>(exampleJson)
-        //                : default(TablesResponse);            //TODO: Change the data returned
-        //    return new ObjectResult(example);
-        //}
         public override IActionResult GetMetadataById([FromRoute(Name = "id"), Required] string id)
         {
             throw new NotImplementedException();
