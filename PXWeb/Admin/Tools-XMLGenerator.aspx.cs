@@ -173,8 +173,7 @@ namespace PXWeb.Admin
             string dbid;
             IFetcher fetcher;
 
-            string savePath = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/" + cboSelectDb.SelectedItem.Value + "/dcat-ap.xml");
-
+            string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + cboSelectDb.SelectedItem.Value + "/dcat-ap.xml");
             switch (dbType) {
                 case "PX":
                     dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/Menu.xml";
