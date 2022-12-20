@@ -39,6 +39,17 @@ namespace PxWeb.Controllers.Api2
             _responseMapper = responseMapper;
         }
 
+        /// <summary>
+        /// Gets navigation item with the given id.
+        /// HttpGet
+        /// Route /api/v2/navigation/{id}
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="lang">The language if the default is not what you want.</param>
+        /// <response code="200">Success</response>
+        /// <response code="400">Error respsone for 400</response>
+        /// <response code="404">Error respsone for 404</response>
+        /// <response code="429">Error respsone for 429</response>
         public override IActionResult GetNavigationById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists = true;
@@ -67,6 +78,17 @@ namespace PxWeb.Controllers.Api2
             return new ObjectResult(folder);
         }
 
+        /// <summary>
+        /// Browse the database structure
+        /// HttpGet
+        /// Route /api/v2/navigation
+        /// </summary>
+        /// <param name="lang">The language if the default is not what you want.</param>
+        /// <response code="200">Success</response>
+        /// <response code="400">Error respsone for 400</response>
+        /// <response code="404">Error respsone for 404</response>
+        /// <response code="429">Error respsone for 429</response>
+
         public override IActionResult GetNavigationRoot([FromQuery(Name = "lang")] string? lang)
         {
             bool selectionExists = true;
@@ -90,6 +112,17 @@ namespace PxWeb.Controllers.Api2
             return new ObjectResult(folder);
         }
 
+        /// <summary>
+        /// Endpoint for listing tables
+        /// HttpGet
+        /// Route /api/v2/tables
+        /// </summary>
+        /// <param name="query">Selects only tables that that matches a criteria which is specified by the search parameter.</param>
+        /// <param name="pastDays">Selects only tables that was updated from the time of execution going back number of days stated by the parameter pastDays. Valid values for past days are integers between 1 and ?</param>
+        /// <param name="includeDiscontinued">Decides if discontinued tables are included in response.</param>
+        /// <param name="pageNumber">Pagination: Decides which page number to return</param>
+        /// <param name="pageSize">Pagination: Decides how many tables per page</param>
+        /// <response code="200">Success</response>
         public override IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
             throw new System.NotImplementedException();
