@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using PCAxis.Paxiom;
+using PCAxis.Sql.DbConfig;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
 
@@ -24,7 +25,20 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
         public IPXModelBuilder CreateBuilder(string id, string language)
         {
-            throw new System.NotImplementedException();
+            var builder = new PCAxis.Paxiom.PXFileBuilder();
+
+            var tablePath = GetTablePath(id);
+
+            string path = Path.Combine(_hostingEnvironment.WebRootPath, tablePath);
+            builder.SetPath(path);
+            builder.SetPreferredLanguage(language);
+            return builder;
+        }
+
+        private string GetTablePath(string id)
+        {
+            //TODO: Get path from selection attribute in Menu.xml
+            return @"Database\AggregallowedNo\PR0101B3.px";
         }
 
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)

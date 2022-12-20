@@ -17,9 +17,7 @@ namespace Px.Abstractions.Interfaces
         /// <summary>
         /// Create builder
         /// </summary>
-        /// <param name="dbi">Database</param>
-        /// <param name="menu">Menu</param>
-        /// <param name="selection">Selection</param>
+        /// <param name="id">Table id</param>
         /// <param name="language">Language</param>
         /// <returns></returns>
         IPXModelBuilder CreateBuilder(string id, string language);
