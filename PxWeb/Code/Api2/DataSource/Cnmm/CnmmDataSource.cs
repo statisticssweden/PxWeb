@@ -1,5 +1,6 @@
 ﻿using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
+using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
 
@@ -14,6 +15,16 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             _cnmmConfigurationService = cnmmConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
+        }
+
+        public IPXModelBuilder CreateBuilder(string id, string language)
+        {
+            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
+
+            var builder = new PCAxis.PlugIn.Sql.PXSQLBuilder();
+            builder.SetPath(cnmmOptions.DatabaseID + ":" + id);
+            builder.SetPreferredLanguage(language);
+            return builder;
         }
 
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)

@@ -3,6 +3,7 @@ using System.Xml.Linq;
 using Microsoft.AspNetCore.Hosting;
 using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
+using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
 
@@ -20,7 +21,12 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             _itemSelectionResolver = itemSelectionResolver;
             _hostingEnvironment = hostingEnvironment;
         }
-        
+
+        public IPXModelBuilder CreateBuilder(string id, string language)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
         {
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");

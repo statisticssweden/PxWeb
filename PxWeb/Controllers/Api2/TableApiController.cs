@@ -17,6 +17,10 @@ using System.ComponentModel.DataAnnotations;
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
 using PxWeb.Api2.Server.Models;
+using PCAxis.Paxiom;
+using Px.Abstractions.Interfaces;
+using PxWeb.Helper.Api2;
+using PxWeb.Mappers;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -26,6 +30,17 @@ namespace PxWeb.Controllers.Api2
     [ApiController]
     public class TableApiController : PxWeb.Api2.Server.Controllers.TableApiController
     {
+        private readonly IDataSource _dataSource;
+        private readonly ILanguageHelper _languageHelper;
+        private readonly IResponseMapper _responseMapper;
+
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        {
+            _dataSource = dataSource;
+            _languageHelper = languageHelper;
+            _responseMapper = responseMapper;
+        }
+
         /// <summary>
         /// Endpoint to get metadata about table by {id}
         /// HttpGet
@@ -54,7 +69,18 @@ namespace PxWeb.Controllers.Api2
         /// <response code="429">Error respsone for 429</response>
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id)
         {
-            throw new NotImplementedException();
+            //TODO: lang should be an optional parameter
+            string lang = "en";
+
+            lang = _languageHelper.HandleLanguage(lang);
+            IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
+            builder.BuildForSelection();
+            var model = builder.Model;
+
+            Table t = new Table();
+            t.Id = model.Meta.MainTable;
+            t.Label = model.Meta.Title;
+            return new ObjectResult(t);
         }
 
         /// <summary>
