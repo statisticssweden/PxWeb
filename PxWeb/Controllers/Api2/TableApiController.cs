@@ -16,16 +16,30 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
-
+using Px.Abstractions.Interfaces;
+using PxWeb.Helper.Api2;
+using PxWeb.Mappers;
+using PCAxis.Paxiom;
 
 namespace PxWeb.Controllers.Api2
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class TableApiController : ControllerBase
-    { 
+    {
+        private readonly IDataSource _dataSource;
+        private readonly ILanguageHelper _languageHelper;
+        private readonly IResponseMapper _responseMapper;
+
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        {
+            _dataSource = dataSource;
+            _languageHelper = languageHelper;
+            _responseMapper = responseMapper;
+        }
+
         /// <summary>
         /// Endpoint to get table by {id}
         /// </summary>
@@ -37,7 +51,12 @@ namespace PxWeb.Controllers.Api2
         [SwaggerOperation("GetTableById")]
         [SwaggerResponse(statusCode: 200, type: typeof(Table), description: "Success")]
         public virtual IActionResult GetTableById([FromRoute(Name = "id")][Required] string id)
-        { 
+        {
+            string lang = _languageHelper.HandleLanguage("en");
+            IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
+            builder.BuildForSelection();
+            var model = builder.Model;
+
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Table));
             string exampleJson = null;
