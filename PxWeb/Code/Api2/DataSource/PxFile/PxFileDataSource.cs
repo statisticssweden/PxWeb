@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System;
+using System.IO;
+using System.Xml;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Hosting;
 using PCAxis.Menu;
@@ -14,12 +17,14 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     {
         private readonly IPxFileConfigurationService _pxFileConfigurationService;
         private readonly IItemSelectionResolver _itemSelectionResolver;
+        private readonly ITablePathResolver _tablePathResolver;
         private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, IWebHostEnvironment hostingEnvironment)
+        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver, IWebHostEnvironment hostingEnvironment)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
+            _tablePathResolver = tablePathResolver;
             _hostingEnvironment = hostingEnvironment;
         }
 
@@ -27,18 +32,12 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
         {
             var builder = new PCAxis.Paxiom.PXFileBuilder();
 
-            var tablePath = GetTablePath(id);
-
-            string path = Path.Combine(_hostingEnvironment.WebRootPath, tablePath);
+            var path = _tablePathResolver.Resolve(language, id, out bool selectionExists);
+       
+            //TODO: check values
             builder.SetPath(path);
             builder.SetPreferredLanguage(language);
             return builder;
-        }
-
-        private string GetTablePath(string id)
-        {
-            //TODO: Get path from selection attribute in Menu.xml
-            return @"Database\AggregallowedNo\PR0101B3.px";
         }
 
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
@@ -58,5 +57,6 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             menu.SetCurrentItemBySelection(itmSel.Menu, itmSel.Selection);
             return menu;
         }
+
     }
 }
