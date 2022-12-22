@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
 
 namespace PxWeb.UnitTests.DataSource
@@ -72,40 +73,41 @@ namespace PxWeb.UnitTests.DataSource
         }
 
 
-        //[Ignore]
-        //[TestMethod]
-        //public void ShouldReturnMenu()
-        //{
-        //    //todo, mock database 
-        //    string language = "en";
-        //    var memorymock = new Mock<IMemoryCache>();
-        //    var entryMock = new Mock<ICacheEntry>();
-        //    var configMock = new Mock<IPxApiConfigurationService>();
+        [Ignore]
+        [TestMethod]
+        public void ShouldReturnMenu()
+        {
+            //todo, mock database 
+            string language = "en";
+            var memorymock = new Mock<IMemoryCache>();
+            var entryMock = new Mock<ICacheEntry>();
+            var configMock = new Mock<IPxApiConfigurationService>();
 
-        //    memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
+            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
-        //    var configServiceMock = new Mock<ICnmmConfigurationService>(); 
+            var configServiceMock = new Mock<ICnmmConfigurationService>();
 
-        //    var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
+            var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
-        //    var testFactory = new TestFactory();
-        //    var dict = testFactory.GetMenuLookup();
+            var testFactory = new TestFactory();
+            var dict = testFactory.GetMenuLookup();
 
-        //    var config = testFactory.GetPxApiConfiguration();
-        //    configMock.Setup(x => x.GetConfiguration()).Returns(config);
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
-        //    pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
+            pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
-        //    var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
+            var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object);
 
-        //    var datasource = new CnmmDataSource(configServiceMock.Object,  resolver );
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
 
-        //    bool selectionExists;
+            bool selectionExists;
 
-        //    var result = datasource.CreateMenu("AA0003", language, out selectionExists);
+            var result = datasource.CreateMenu("AA0003", language, out selectionExists);
 
-        //    Assert.IsNotNull(result);
-        //}
+            Assert.IsNotNull(result);
+        }
 
     }
 }

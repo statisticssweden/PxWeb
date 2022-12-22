@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PxWeb.Code.Api2.DataSource.Cnmm;
@@ -72,6 +73,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+            var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
             
             var config = testFactory.GetPxApiConfiguration();
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
@@ -85,7 +87,8 @@ namespace PxWeb.UnitTests.DataSource
                 .Returns(wwwrootPath);
 
             var resolver = new ItemSelectionResolverCnmm( memorymock.Object, pcAxisFactory, configMock.Object);
-            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, hostingEnvironmentMock.Object);
+            var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object);
             bool selectionExists;
 
             //act
@@ -126,7 +129,7 @@ namespace PxWeb.UnitTests.DataSource
             var result = resolver.Resolve(language, "ALIAS", out selectionExists);
 
             Assert.IsNotNull(result);
-            Assert.AreEqual("Example", result.Menu);
+            Assert.AreEqual("Database", result.Menu);
             Assert.IsTrue(selectionExists);
         }
 
