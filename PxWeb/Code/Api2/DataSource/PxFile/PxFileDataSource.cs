@@ -28,16 +28,28 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             _hostingEnvironment = hostingEnvironment;
         }
 
+        /// <summary>
+        /// Create a PxFileBuilder
+        /// </summary>
+        /// <param name="id">Table id</param>
+        /// <param name="language">Language</param>
+        /// <returns>Builder object, null if builder could not be created</returns>
         public IPXModelBuilder CreateBuilder(string id, string language)
         {
             var builder = new PCAxis.Paxiom.PXFileBuilder();
 
             var path = _tablePathResolver.Resolve(language, id, out bool selectionExists);
        
-            //TODO: check values
-            builder.SetPath(path);
-            builder.SetPreferredLanguage(language);
-            return builder;
+            if (selectionExists)
+            {
+                builder.SetPath(path);
+                builder.SetPreferredLanguage(language);
+                return builder;
+            }
+            else
+            { 
+                return null; 
+            }
         }
 
         public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)

@@ -69,18 +69,33 @@ namespace PxWeb.Controllers.Api2
         /// <response code="429">Error respsone for 429</response>
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id)
         {
-            //TODO: lang should be an optional parameter
+            //TODO: lang should be an optional parameter - fix yaml
             string lang = "en";
 
             lang = _languageHelper.HandleLanguage(lang);
             IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
-            builder.BuildForSelection();
-            var model = builder.Model;
 
-            Table t = new Table();
-            t.Id = model.Meta.MainTable;
-            t.Label = model.Meta.Title;
-            return new ObjectResult(t);
+            if (builder != null)
+            {
+                try
+                {
+                    builder.BuildForSelection();
+                    var model = builder.Model;
+
+                    Table t = new Table();
+                    t.Id = model.Meta.MainTable;
+                    t.Label = model.Meta.Title;
+                    return new ObjectResult(t);
+                }
+                catch (Exception)
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         /// <summary>

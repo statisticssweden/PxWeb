@@ -16,7 +16,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
             var path = cnmmOptions.DatabaseID + ":" + id;
-            //TODO: check all values
             selectionExists = true;
             return path;
         }

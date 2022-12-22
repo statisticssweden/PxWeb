@@ -49,7 +49,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             {
                 if (lookupTable.ContainsKey(id.ToUpper()))
                 {
-                    tablePath = lookupTable[id.ToUpper()];
+                    tablePath = Path.Combine(_hostingEnvironment.WebRootPath, lookupTable[id.ToUpper()]);
                 }
                 else
                 {
@@ -57,9 +57,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                 }
             }
 
-            string path = Path.Combine(_hostingEnvironment.WebRootPath, tablePath);
-
-            return path;
+            return tablePath;
         }
 
         private Dictionary<string, string> GetPxTableLookup(string language)
