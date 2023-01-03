@@ -133,7 +133,61 @@ namespace PxWeb.UnitTests.DataSource
             Assert.IsTrue(selectionExists);
         }
 
+        [TestMethod]
+        public void ShouldResolveTablePath()
+        {
+            string language = "en";
+            var resolver = GetTablePathResolver();
+
+            bool selectionExists;
+
+            var result = resolver.Resolve(language, "officialstatistics.px", out selectionExists);
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(selectionExists);
+        }
+
+        [TestMethod]
+        public void ShouldNotResolveTablePath()
+        {
+            string language = "en";
+            var resolver = GetTablePathResolver();
+
+            bool selectionExists;
+
+            var result = resolver.Resolve(language, "officialstatistics2.px", out selectionExists);
+
+            Assert.AreEqual("", result);
+            Assert.IsFalse(selectionExists);
+        }
+
+        private TablePathResolverPxFile GetTablePathResolver()
+        {
+            var testFactory = new TestFactory();
+            var memorymock = new Mock<IMemoryCache>();
+            var entryMock = new Mock<ICacheEntry>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
+
+            var configServiceMock = new Mock<IPxFileConfigurationService>();
+            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+            var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
 
 
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+
+            var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
+
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+
+            hostingEnvironmentMock
+                .Setup(m => m.WebRootPath)
+                .Returns(wwwrootPath);
+
+            var resolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
+
+            return resolver;
+        }
     }
 }
