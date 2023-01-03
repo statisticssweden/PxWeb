@@ -122,7 +122,7 @@ namespace PxWeb.UnitTests.DataSource
                 .Setup(m => m.WebRootPath)
                 .Returns(wwwrootPath);
 
-            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
+            var resolver = new ItemSelectionResolverPxFile(memorymock.Object, pcAxisFactory, configMock.Object);
 
             bool selectionExists;
 
