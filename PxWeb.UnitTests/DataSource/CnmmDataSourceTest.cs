@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using PCAxis.Menu;
-using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Config.Api2;
 
@@ -17,6 +15,8 @@ namespace PxWeb.UnitTests.DataSource
             string language = "sv";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
             
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
@@ -24,9 +24,12 @@ namespace PxWeb.UnitTests.DataSource
             var testFactory = new TestFactory();
             var dict = testFactory.GetMenuLookup();
             
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+            
             pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
             
-            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
 
             bool selectionExists;
 
@@ -44,6 +47,8 @@ namespace PxWeb.UnitTests.DataSource
             string language = "en";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
@@ -51,10 +56,12 @@ namespace PxWeb.UnitTests.DataSource
             var testFactory = new TestFactory();
             var dict = testFactory.GetMenuLookup();
 
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
             pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
-            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
 
             bool selectionExists;
 
@@ -73,6 +80,8 @@ namespace PxWeb.UnitTests.DataSource
             string language = "en";
             var memorymock = new Mock<IMemoryCache>();
             var entryMock = new Mock<ICacheEntry>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
             var configServiceMock = new Mock<ICnmmConfigurationService>(); 
@@ -82,10 +91,12 @@ namespace PxWeb.UnitTests.DataSource
             var testFactory = new TestFactory();
             var dict = testFactory.GetMenuLookup();
 
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
             pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
-            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object);
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
 
             var datasource = new CnmmDataSource(configServiceMock.Object,  resolver );
 
