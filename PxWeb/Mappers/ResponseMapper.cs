@@ -11,7 +11,7 @@ namespace PxWeb.Mappers
     {
         public Folder GetFolder(PxMenuItem currentItem, HttpContext httpContext)
         {
-            string urlBase = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/v2/";
+            string urlBase = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/api/v2/";
             Folder folder = new Folder
             {
                 Id = Path.GetFileName(currentItem.ID.Selection),
