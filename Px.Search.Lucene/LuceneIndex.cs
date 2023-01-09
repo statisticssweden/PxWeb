@@ -11,7 +11,17 @@ namespace Px.Search.Lucene
 
     public class LuceneIndex : IIndex
     {
-        public void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
+        private string _indexDirectory;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="indexDirectory">Index directory</param>
+        public LuceneIndex(string indexDirectory)
+        {
+            _indexDirectory = indexDirectory;
+        }
+                public void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
         {
             throw new NotImplementedException();
         }

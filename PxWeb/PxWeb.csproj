@@ -46,6 +46,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Px.Abstractions\Px.Abstractions.csproj" />
+    <ProjectReference Include="..\Px.Search.Lucene\Px.Search.Lucene.csproj" />
+    <ProjectReference Include="..\Px.Search\Px.Search.csproj" />
   </ItemGroup>
 
 </Project>
