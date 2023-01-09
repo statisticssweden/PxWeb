@@ -64,8 +64,7 @@ namespace PxWeb
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
 
-            // TODO: Get search backend from configuration -> in PxApiConfiguration section -> Indexer
-            builder.Services.AddTransient<ISearchBackend, LuceneBackend>();
+            builder.Services.AddPxSearchEngine(builder);
 
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()
