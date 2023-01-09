@@ -20,6 +20,7 @@ namespace PxWeb.Code.Api2.DataSource
                 builder.Services.AddTransient<IDataSource, PxFileDataSource>();
                 builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverPxFile>();
                 builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectorResolverPxFactory>();
+                builder.Services.AddTransient<ITablePathResolver, TablePathResolverPxFile>();
 
                 // Add configuration
                 builder.Services.Configure<PxFileConfigurationOptions>(builder.Configuration.GetSection("DataSource:PX"));
@@ -31,6 +32,7 @@ namespace PxWeb.Code.Api2.DataSource
                 builder.Services.AddTransient<IDataSource, CnmmDataSource>();
                 builder.Services.AddTransient<IItemSelectionResolver, ItemSelectionResolverCnmm>();
                 builder.Services.AddTransient<IItemSelectionResolverFactory, ItemSelectionResolverCnmmFactory>();
+                builder.Services.AddTransient<ITablePathResolver, TablePathResolverCnmm>();
 
                 // Add configuration
                 builder.Services.Configure<CnmmConfigurationOptions>(builder.Configuration.GetSection("DataSource:CNMM"));
