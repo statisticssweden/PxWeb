@@ -21,7 +21,7 @@ namespace Px.Search.Lucene
         {
             _indexDirectory = indexDirectory;
         }
-                public void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
+        public void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
         {
             throw new NotImplementedException();
         }

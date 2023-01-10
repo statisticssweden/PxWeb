@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Px.Search.Lucene;
 using Px.Search;
+using PxWeb.Config.Api2;
+using Px.Search.Lucene.Config;
 
 namespace PxWeb.Code.Api2
 {
@@ -15,6 +17,14 @@ namespace PxWeb.Code.Api2
             {
                 // Lucene search engine
                 builder.Services.AddTransient<ISearchBackend, LuceneBackend>();
+
+                // Add configuration
+                builder.Services.Configure<LuceneConfigurationOptions>(builder.Configuration.GetSection("LuceneConfiguration"));
+                builder.Services.AddTransient<ILuceneConfigurationService, LuceneConfigurationService>();
+            }
+            else
+            {
+                throw new System.Exception("No search engine configured for PxApi");
             }
 
         }
