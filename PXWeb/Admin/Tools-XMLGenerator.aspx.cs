@@ -170,11 +170,10 @@ namespace PXWeb.Admin
             }
             string themeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json");
             string dbType = cboSelectDbType.SelectedItem.Value;
-            string dbid = "";
+            string dbid;
             IFetcher fetcher;
 
-            string currPath = HttpContext.Current.Server.MapPath("~");
-
+            string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + cboSelectDb.SelectedItem.Value + "/dcat-ap.xml");
             switch (dbType) {
                 case "PX":
                     dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/Menu.xml";
@@ -212,7 +211,7 @@ namespace PXWeb.Admin
             };
             try
             {
-                XML.WriteToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
+                XML.WriteToFile(savePath, settings);
             }
             catch(PCAxis.Menu.Exceptions.InvalidMenuFromXMLException)
             {

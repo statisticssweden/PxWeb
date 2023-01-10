@@ -37,17 +37,18 @@ namespace PXWeb.API
                 }
                 else if(databaseTypeLower == "px")
                 {
-                    settings.DBid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + database + "/Menu.xml";
+                    settings.DBid = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + database + "/Menu.xml";
                     if (!File.Exists(settings.DBid)) return Request.CreateResponse(HttpStatusCode.BadRequest, $"Database does not exist: {database}");
-                    string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + database + "/TMapping.json";
+                    string localThemeMapping = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + database + "/TMapping.json";
                     if (File.Exists(localThemeMapping)) settings.ThemeMapping = localThemeMapping;
-                    settings.Fetcher = new PXFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
+                    settings.Fetcher = new PXFetcher(HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath));
                 }
                 else
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid database type");
                 }
-                XML.WriteToFile(HttpContext.Current.Server.MapPath("~/dcat-ap.xml"), settings);
+                string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + database + "/dcat-ap.xml");
+                XML.WriteToFile(savePath, settings);
                 return Request.CreateResponse(HttpStatusCode.OK, $"Xml file created successfully, {databaseType}");
             }
         }
