@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Px.Abstractions.Interfaces;
 using Px.Search;
 using PxWeb.Api2.Server.Models;
+using PxWeb.Config.Api2;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 
@@ -13,11 +14,13 @@ namespace PxWeb.Controllers.Api2.Admin
     {
         private readonly IDataSource _dataSource;
         private readonly ISearchBackend _backend;
+        private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public IndexController(IDataSource dataSource, ISearchBackend backend)
+        public IndexController(IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
         {
             _dataSource = dataSource;
             _backend = backend; 
+            _pxApiConfigurationService = pxApiConfigurationService; 
         }
 
         [HttpGet]
@@ -29,8 +32,17 @@ namespace PxWeb.Controllers.Api2.Admin
         {
             List<string> languages = new List<string>();
 
-            //TODO: Get languages from configuration
-            languages.Add("en");
+            var config = _pxApiConfigurationService.GetConfiguration();
+
+            if (config.Languages.Count == 0)
+            {
+                throw new System.Exception("No languages configured for PxApi");
+            }
+
+            foreach (var lang in config.Languages)
+            {
+                languages.Add(lang.Id);
+            }
 
             Indexer indexer = new Indexer(_dataSource, _backend);
             indexer.IndexDatabase(languages);
