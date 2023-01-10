@@ -11,7 +11,8 @@ namespace Px.Search.Lucene
 
     public class LuceneIndex : IIndex
     {
-        private string _indexDirectory;
+        private string _indexDirectoryBase;
+        private string _indexDirectoryCurrent;
 
         /// <summary>
         /// Constructor
@@ -19,7 +20,7 @@ namespace Px.Search.Lucene
         /// <param name="indexDirectory">Index directory</param>
         public LuceneIndex(string indexDirectory)
         {
-            _indexDirectory = indexDirectory;
+            _indexDirectoryBase = indexDirectory;
         }
         public void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
         {
@@ -33,7 +34,7 @@ namespace Px.Search.Lucene
 
         public void BeginWrite(string language)
         {
-            throw new NotImplementedException();
+            _indexDirectoryCurrent = Path.Combine(_indexDirectoryBase, language);
         }
 
         public void EndUpdate(string language)
