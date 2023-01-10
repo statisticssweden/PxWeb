@@ -10,6 +10,7 @@ using System.Collections.Generic;
 namespace PxWeb.Controllers.Api2.Admin
 {
     [ApiController]
+    //[ApiExplorerSettings(IgnoreApi = true)]
     public class IndexController : ControllerBase
     {
         private readonly IDataSource _dataSource;
