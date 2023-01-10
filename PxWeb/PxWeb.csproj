@@ -32,7 +32,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PCAxis.Menu.ConfigDatamodelMenu" Version="1.0.4" />
-    <PackageReference Include="PxWeb.Api2.Server" Version="0.0.2-alpha.0.12" />
+    <PackageReference Include="PxWeb.Api2.Server" Version="0.0.2-alpha.0.14" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.4.0" />

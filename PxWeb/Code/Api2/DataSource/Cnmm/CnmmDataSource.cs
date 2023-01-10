@@ -76,7 +76,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                                 item.SortCode = item.Text;
                             }
                         };
-                        m.Restriction = item => { return true; };
+                        m.Restriction = item => { return true; }; // TODO: Will show all tables! Even though they are not published...
                     });
                 retMenu.RootItem.Sort();
                 return retMenu;
