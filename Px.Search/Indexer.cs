@@ -61,25 +61,29 @@ namespace Px.Search
         private void TraverseDatabase(string id, string language, IIndex index)
         {
             bool exists;
+
             PxMenuBase m = _source.CreateMenu(id, language, out exists);
 
-            if (m == null)
+            if (m == null || !exists || m.CurrentItem == null)
             {
                 return;
             }
 
-            //TODO make sure that the loop works as intended. That is that it looks for all sub leveles and call itself.
-            foreach (var item in m.RootItem.SubItems)
+            if (m.CurrentItem is PxMenuItem)
             {
-                if (item is PxMenuItem)
+                foreach (var item in ((PxMenuItem)(m.CurrentItem)).SubItems)
                 {
-                    TraverseDatabase(item.ID.Selection, language, index);
-                }
-                else if (item is TableLink)
-                {
-                    IndexTable(item.ID.Selection, language, index);
+                    if (item is PxMenuItem)
+                    {
+                        TraverseDatabase(item.ID.Selection, language, index);
+                    }
+                    else if (item is TableLink)
+                    {
+                        IndexTable(item.ID.Selection, language, index);
+                    }
                 }
             }
+
         }
 
 

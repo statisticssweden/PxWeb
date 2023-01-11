@@ -66,7 +66,24 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                             return true;
                         };
                     });
+
             menu.SetCurrentItemBySelection(itmSel.Menu, itmSel.Selection);
+
+            // Fix selection for subitems - we only want the last part...
+            if (menu.CurrentItem is PxMenuItem)
+            {
+                foreach (var item in ((PxMenuItem)(menu.CurrentItem)).SubItems)
+                {
+                    if (item is PxMenuItem)
+                    {
+                        if (item.ID.Selection.Contains('\\'))
+                        {
+                            item.ID.Selection = Path.GetFileName(item.ID.Selection);
+                        }
+                    }
+                }
+            }
+
             return menu;
         }
 
