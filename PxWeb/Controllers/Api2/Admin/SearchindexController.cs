@@ -11,21 +11,21 @@ namespace PxWeb.Controllers.Api2.Admin
 {
     [ApiController]
     //[ApiExplorerSettings(IgnoreApi = true)]
-    public class IndexController : ControllerBase
+    public class SearchindexController : ControllerBase
     {
         private readonly IDataSource _dataSource;
         private readonly ISearchBackend _backend;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public IndexController(IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
+        public SearchindexController(IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
         {
             _dataSource = dataSource;
             _backend = backend; 
             _pxApiConfigurationService = pxApiConfigurationService; 
         }
 
-        [HttpGet]
-        [Route("/api/v2/admin/index")]
+        [HttpPost]
+        [Route("/api/v2/admin/searchindex")]
         [SwaggerOperation("IndexDatabase")]
         [SwaggerResponse(statusCode: 200, description: "Success")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
