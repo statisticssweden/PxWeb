@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,9 @@ namespace Px.Search
 
         void EndUpdate(string language);
 
-        void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source); 
+        void AddEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta); 
 
-        void UpdateEntry(string id, string label, DateTime updated, string[] tags, string category, string source);
+        void UpdateEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta);
 
         void RemoveEntry(string id);
     }

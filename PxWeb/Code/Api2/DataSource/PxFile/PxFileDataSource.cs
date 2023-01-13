@@ -74,17 +74,26 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             {
                 foreach (var item in ((PxMenuItem)(menu.CurrentItem)).SubItems)
                 {
-                    if (item is PxMenuItem)
+                    if ((item is PxMenuItem) || (item is TableLink))
                     {
-                        if (item.ID.Selection.Contains('\\'))
-                        {
-                            item.ID.Selection = Path.GetFileName(item.ID.Selection);
-                        }
+                        item.ID.Selection = GetIdentifierWithoutPath(item.ID.Selection);
                     }
                 }
             }
 
             return menu;
+        }
+
+        private string GetIdentifierWithoutPath(string id)
+        {
+            if (id.Contains('\\'))
+            {
+                return Path.GetFileName(id);
+            }
+            else
+            {
+                return id;
+            }
         }
 
     }

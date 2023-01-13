@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,8 @@ namespace Px.Search.Lucene
         {
             _indexDirectoryBase = indexDirectory;
         }
-        public void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
+
+        public void AddEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
         {
             throw new NotImplementedException();
         }
@@ -52,7 +54,7 @@ namespace Px.Search.Lucene
             throw new NotImplementedException();
         }
 
-        public void UpdateEntry(string id, string label, DateTime updated, string[] tags, string category, string source)
+        public void UpdateEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
         {
             throw new NotImplementedException();
         }

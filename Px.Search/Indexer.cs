@@ -8,6 +8,8 @@ using PCAxis.Menu;
 using System.Net.Http;
 using System.Data;
 using System.IO;
+using PCAxis.Paxiom;
+using PCAxis.Paxiom.Extensions;
 
 namespace Px.Search
 {
@@ -106,7 +108,78 @@ namespace Px.Search
             //Call BuildForSelection
             //Extract metadata 
             //call AddEntry on the index
-            throw new NotImplementedException();
+
+            IPXModelBuilder builder = _source.CreateBuilder(id, language);
+
+            if (builder != null)
+            {
+                try
+                {
+                    builder.BuildForSelection();
+                    var model = builder.Model;
+
+                    DateTime updated = GetLastModified(model.Meta);
+                    string[] tags = new string[] {};
+
+                    index.AddEntry(id, updated, null, tags, model.Meta);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+
         }
+
+
+        /// <summary>
+        /// Get the date when the table was last updated
+        /// </summary>
+        /// <param name="meta"></param>
+        /// <returns>
+        /// The date when the table was last updated.
+        /// If the date when the table was last updatedcould not be determined, DateTime.MinValue is returned.
+        /// </returns>
+        private static DateTime GetLastModified(PCAxis.Paxiom.PXMeta meta)
+        {
+            DateTime modified = DateTime.MinValue;  
+            DateTime maxDate = DateTime.MinValue;
+            if (meta.ContentVariable != null)
+            {
+                foreach (var value in meta.ContentVariable.Values)
+                {
+                    if (value.ContentInfo != null)
+                    {
+                        if (value.ContentInfo.LastUpdated != "")
+                        {
+                            DateTime d = value.ContentInfo.LastUpdated.PxDateStringToDateTime();
+                            maxDate = maxDate > d ? maxDate : d;
+                        }
+                    }
+                }
+                if (meta.ContentInfo != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(meta.ContentInfo.LastUpdated))
+                    {
+                        DateTime d = meta.ContentInfo.LastUpdated.PxDateStringToDateTime();
+                        maxDate = maxDate > d ? maxDate : d;
+                    }
+                }
+                if (maxDate != DateTime.MinValue)
+                {
+                    modified = maxDate;
+                }
+            }
+            else
+            {
+                if (meta.ContentInfo != null)
+                {
+                    modified = meta.ContentInfo.LastUpdated.PxDateStringToDateTime();
+                }
+            }
+
+            return modified;
+        }
+
     }
 }
