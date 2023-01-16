@@ -66,7 +66,7 @@ namespace Px.Search.Lucene
 
         public void BeginUpdate(string language)
         {
-            throw new NotImplementedException();
+            BeginWrite(language);
         }
 
         public void BeginWrite(string language)
@@ -82,7 +82,7 @@ namespace Px.Search.Lucene
 
         public void EndUpdate(string language)
         {
-            throw new NotImplementedException();
+            EndWrite(language);
         }
 
         public void EndWrite(string language)

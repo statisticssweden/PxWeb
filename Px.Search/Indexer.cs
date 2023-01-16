@@ -100,10 +100,11 @@ namespace Px.Search
         /// <param name="languages">list of languages codes that the search index will be able to be searched for</param>
         public void UpdateTableEntries(List<string> tables, List<string> languages)
         {
-            var index = _backend.GetIndex();
-
-            //for each combination of table and language and within a index.BeginUpdate(language) and index.BeginUpdate(language)
-            //call IndexTable
+            using (var index = _backend.GetIndex())
+            {
+                //for each combination of table and language and within a index.BeginUpdate(language) and index.BeginUpdate(language)
+                //call UpdateTable(id, lang, index)
+            }
         }
 
         private void IndexTable(string id, string language, IIndex index)
@@ -118,7 +119,7 @@ namespace Px.Search
                     var model = builder.Model;
 
                     DateTime updated = model.Meta.GetLastUpdated().PxDateStringToDateTime();
-                    string[] tags = new string[] {};
+                    string[] tags = new string[] { };
 
                     index.AddEntry(id, updated, null, tags, model.Meta);
                 }
@@ -127,6 +128,33 @@ namespace Px.Search
                     return;
                 }
             }
+
+        }
+        private void UpdateTable(string id, string language, IIndex index)
+        {
+            IPXModelBuilder builder = _source.CreateBuilder(id, language);
+
+            if (builder != null)
+            {
+                try
+                {
+                    builder.BuildForSelection();
+                    var model = builder.Model;
+
+                    DateTime updated = model.Meta.GetLastUpdated().PxDateStringToDateTime();
+                    string[] tags = new string[] { };
+
+                    index.UpdateEntry(id, updated, null, tags, model.Meta);
+                    return;
+                }
+                catch (Exception)
+                {
+                    // TODO..
+                }
+            }
+
+            index.RemoveEntry(id);
+            return;
 
         }
 
