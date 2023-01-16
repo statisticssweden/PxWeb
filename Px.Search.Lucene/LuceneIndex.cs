@@ -157,6 +157,8 @@ namespace Px.Search.Lucene
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETS, meta.GetAllValuesets(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETCODES, meta.GetAllValuesetCodes(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TABLEID, meta.TableID == null ? meta.Matrix : meta.TableID, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DISCONTINUED, discontinued == null ? "False" : discontinued.ToString(), Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TAGS, GetAllTags(tags), Field.Store.YES));
                 if (!string.IsNullOrEmpty(meta.Synonyms))
                 {
                     doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SYNONYMS, meta.Synonyms, Field.Store.NO));
@@ -174,6 +176,17 @@ namespace Px.Search.Lucene
                 _writer.Rollback();
                 _writer = null;
             }
+        }
+
+        public static string GetAllTags(string[] tags)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (string tag in tags)
+            {
+                builder.Append(tag);
+                builder.Append(" ");
+            }
+            return builder.ToString();
         }
     }
 }
