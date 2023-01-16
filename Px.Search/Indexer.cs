@@ -30,26 +30,30 @@ namespace Px.Search
         public void IndexDatabase(List<string> languages)
         {
             bool selectionExisits;
-            var index = _backend.GetIndex();
-            foreach (var language in languages) {
-                index.BeginWrite(language);
-                
-                //Get the root item from the database
-                var item = _source.CreateMenu("", language, out selectionExisits);
-                if (selectionExisits) {
-                     
-                    if (item == null)
-                    {
-                        //TODO throw Exception?
-                        return;
-                    }
+            using (var index = _backend.GetIndex())
+            {
+                foreach (var language in languages)
+                {
+                    index.BeginWrite(language);
 
-                    if (item.CurrentItem != null && item.CurrentItem is PxMenuItem)
+                    //Get the root item from the database
+                    var item = _source.CreateMenu("", language, out selectionExisits);
+                    if (selectionExisits)
                     {
-                        TraverseDatabase(item.CurrentItem.ID.Selection, language, index);
+
+                        if (item == null)
+                        {
+                            //TODO throw Exception?
+                            return;
+                        }
+
+                        if (item.CurrentItem != null && item.CurrentItem is PxMenuItem)
+                        {
+                            TraverseDatabase(item.CurrentItem.ID.Selection, language, index);
+                        }
                     }
+                    index.EndWrite(language);
                 }
-                index.EndWrite(language);
             }
         }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Px.Search
 {
-    public interface IIndex //TODO Should maybe inherit IDisposable
+    public interface IIndex : IDisposable
     {
         void BeginWrite(string language);
 

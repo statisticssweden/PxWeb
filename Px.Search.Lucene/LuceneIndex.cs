@@ -88,6 +88,7 @@ namespace Px.Search.Lucene
         public void EndWrite(string language)
         {
             _writer.Dispose();
+            _writer = null;
         }
 
         public void AddEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
@@ -164,6 +165,15 @@ namespace Px.Search.Lucene
             }
 
             return doc;
+        }
+
+        public void Dispose()
+        {
+            if (_writer != null)
+            {
+                _writer.Rollback();
+                _writer = null;
+            }
         }
     }
 }
