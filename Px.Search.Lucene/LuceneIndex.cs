@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using Lucene.Net.Analysis.Standard;
 using System.IO;
 using System.Security.Policy;
+using Lucene.Net.Search;
+using static System.Net.WebRequestMethods;
 
 namespace Px.Search.Lucene
 {
@@ -105,7 +107,9 @@ namespace Px.Search.Lucene
 
         public void RemoveEntry(string id)
         {
-            throw new NotImplementedException();
+            //check if document exists, if true deletes existing
+            var searchQuery = new TermQuery(new Term(SearchConstants.SEARCH_FIELD_DOCID, id));
+            _writer.DeleteDocuments(searchQuery);   
         }
 
         /// <summary>

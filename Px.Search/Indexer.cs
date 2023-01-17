@@ -104,6 +104,17 @@ namespace Px.Search
             {
                 //for each combination of table and language and within a index.BeginUpdate(language) and index.BeginUpdate(language)
                 //call UpdateTable(id, lang, index)
+                foreach (var language in languages)
+                {
+                    index.BeginUpdate(language);
+
+                    foreach (var table in tables)
+                    {
+                        UpdateTable(table, language, index);
+                    }
+
+                    index.EndUpdate(language);
+                }
             }
         }
 
