@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Px.Abstractions.Interfaces;
 using Px.Search;
 using PxWeb.Api2.Server.Models;
@@ -18,12 +19,14 @@ namespace PxWeb.Controllers.Api2.Admin
         private readonly IDataSource _dataSource;
         private readonly ISearchBackend _backend;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
+        private readonly ILogger<SearchindexController> _logger;
 
-        public SearchindexController(IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
+        public SearchindexController(IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ILogger<SearchindexController> logger)
         {
             _dataSource = dataSource;
             _backend = backend; 
             _pxApiConfigurationService = pxApiConfigurationService; 
+            _logger = logger;
         }
 
         /// <summary>
@@ -51,7 +54,7 @@ namespace PxWeb.Controllers.Api2.Admin
                 languages.Add(lang.Id);
             }
 
-            Indexer indexer = new Indexer(_dataSource, _backend);
+            Indexer indexer = new Indexer(_dataSource, _backend, _logger);
             indexer.IndexDatabase(languages);
 
             return Ok();
@@ -89,7 +92,7 @@ namespace PxWeb.Controllers.Api2.Admin
                 languages.Add(lang.Id);
             }
 
-            Indexer indexer = new Indexer(_dataSource, _backend);
+            Indexer indexer = new Indexer(_dataSource, _backend, _logger);
             indexer.UpdateTableEntries(tableList, languages);
 
             return Ok();

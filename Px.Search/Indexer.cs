@@ -10,6 +10,8 @@ using System.Data;
 using System.IO;
 using PCAxis.Paxiom;
 using PCAxis.Paxiom.Extensions;
+using Microsoft.Extensions.Logging;
+
 
 namespace Px.Search
 {
@@ -17,10 +19,13 @@ namespace Px.Search
     {
         private IDataSource _source;
         private ISearchBackend _backend;
-        public Indexer(IDataSource dataSource, ISearchBackend backend)
+        private ILogger _logger;
+
+        public Indexer(IDataSource dataSource, ISearchBackend backend, ILogger logger)
         {
             _source = dataSource;
             _backend = backend;
+            _logger = logger;   
         }
         
         /// <summary>
@@ -43,7 +48,7 @@ namespace Px.Search
 
                         if (item == null)
                         {
-                            //TODO throw Exception?
+                            _logger.LogError("IndexDatabase : Could not get root level for database");
                             return;
                         }
 
@@ -72,6 +77,7 @@ namespace Px.Search
 
             if (m == null || !exists || m.CurrentItem == null)
             {
+                _logger.LogError($"TraverseDatabase : Could not get database level with id {id} for language {language}");
                 return;
             }
 
@@ -136,8 +142,12 @@ namespace Px.Search
                 }
                 catch (Exception)
                 {
-                    return;
+                    _logger.LogError($"IndexTable : Could not build table with id {id} for language {language}");
                 }
+            }
+            else
+            {
+                _logger.LogError($"IndexTable : Could not build table with id {id} for language {language}");
             }
 
         }
@@ -160,8 +170,12 @@ namespace Px.Search
                 }
                 catch (Exception)
                 {
-                    // TODO..
+                    _logger.LogError($"UpdateTable : Could not build table with id {id} for language {language}");
                 }
+            }
+            else
+            {
+                _logger.LogError($"UpdateTable : Could not build table with id {id} for language {language}");
             }
 
             index.RemoveEntry(id);
