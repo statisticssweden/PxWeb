@@ -1,3 +1,5 @@
+=== Release of PxWeb 2023 v1 ===
+- JSON format, added text for the variable values
 === Release of PxWeb 2022 v1 ===
 - Changed Referrer-Policy to same-origin
 - Added security header for Strict Transport and change value on header referrer-policy
