@@ -80,6 +80,11 @@ namespace Px.Search.Lucene
 
             _indexDirectoryCurrent = Path.Combine(_indexDirectoryBase, language);
             _writer = CreateIndexWriter();  
+
+            if (_writer == null)
+            {
+                throw new Exception("Could not create IndexWriter. Index directory may be locked by another IndexWriter");
+            }
         }
 
         public void EndUpdate(string language)
