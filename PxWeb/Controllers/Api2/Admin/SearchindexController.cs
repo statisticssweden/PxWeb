@@ -40,24 +40,33 @@ namespace PxWeb.Controllers.Api2.Admin
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         public IActionResult IndexDatabase()
         {
-            List<string> languages = new List<string>();
-
-            var config = _pxApiConfigurationService.GetConfiguration();
-
-            if (config.Languages.Count == 0)
+            try
             {
-                throw new System.Exception("No languages configured for PxApi");
-            }
+                List<string> languages = new List<string>();
 
-            foreach (var lang in config.Languages)
+                var config = _pxApiConfigurationService.GetConfiguration();
+
+                if (config.Languages.Count == 0)
+                {
+                    _logger.LogError("No languages configured for PxApi");
+                    return BadRequest();
+                }
+
+                foreach (var lang in config.Languages)
+                {
+                    languages.Add(lang.Id);
+                }
+
+                Indexer indexer = new Indexer(_dataSource, _backend, _logger);
+                indexer.IndexDatabase(languages);
+
+                return Ok();
+            }
+            catch (System.Exception ex)
             {
-                languages.Add(lang.Id);
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
-
-            Indexer indexer = new Indexer(_dataSource, _backend, _logger);
-            indexer.IndexDatabase(languages);
-
-            return Ok();
         }
 
         /// <summary>
@@ -72,30 +81,40 @@ namespace PxWeb.Controllers.Api2.Admin
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         public IActionResult IndexDatabase([FromQuery(Name = "tables"), Required] string tables)
         {
-            List<string> languages = new List<string>();
-            List<string> tableList = tables.Split(',').ToList();
-
-            if (tableList.Count == 0)
+            try
             {
-                throw new System.Exception("No tables specified for index update");
+                List<string> languages = new List<string>();
+                List<string> tableList = tables.Split(',').ToList();
+
+                if (tableList.Count == 0)
+                {
+                    _logger.LogError("No tables specified for index update");
+                    return BadRequest();
+                }
+
+                var config = _pxApiConfigurationService.GetConfiguration();
+
+                if (config.Languages.Count == 0)
+                {
+                    _logger.LogError("No languages configured for PxApi");
+                    return BadRequest();
+                }
+
+                foreach (var lang in config.Languages)
+                {
+                    languages.Add(lang.Id);
+                }
+
+                Indexer indexer = new Indexer(_dataSource, _backend, _logger);
+                indexer.UpdateTableEntries(tableList, languages);
+
+                return Ok();
             }
-
-            var config = _pxApiConfigurationService.GetConfiguration();
-
-            if (config.Languages.Count == 0)
+            catch (System.Exception ex)
             {
-                throw new System.Exception("No languages configured for PxApi");
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
-
-            foreach (var lang in config.Languages)
-            {
-                languages.Add(lang.Id);
-            }
-
-            Indexer indexer = new Indexer(_dataSource, _backend, _logger);
-            indexer.UpdateTableEntries(tableList, languages);
-
-            return Ok();
         }
 
     }

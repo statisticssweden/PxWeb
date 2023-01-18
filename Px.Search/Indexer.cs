@@ -108,8 +108,6 @@ namespace Px.Search
         {
             using (var index = _backend.GetIndex())
             {
-                //for each combination of table and language and within a index.BeginUpdate(language) and index.BeginUpdate(language)
-                //call UpdateTable(id, lang, index)
                 foreach (var language in languages)
                 {
                     index.BeginUpdate(language);
