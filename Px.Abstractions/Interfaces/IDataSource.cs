@@ -12,7 +12,7 @@ namespace Px.Abstractions.Interfaces
         /// <param name="language"></param>
         /// <param name="selectionExists"></param>
         /// <returns></returns>
-        PxMenuBase CreateMenu(string id, string language, out bool selectionExists);
+        Item CreateMenu(string id, string language, out bool selectionExists);
 
         /// <summary>
         /// Create builder

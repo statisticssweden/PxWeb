@@ -11,6 +11,7 @@ using System.IO;
 using PCAxis.Paxiom;
 using PCAxis.Paxiom.Extensions;
 using Microsoft.Extensions.Logging;
+using PCAxis.Paxiom.Localization;
 
 
 namespace Px.Search
@@ -52,9 +53,9 @@ namespace Px.Search
                             return;
                         }
 
-                        if (item.CurrentItem != null && item.CurrentItem is PxMenuItem)
+                        if (item != null && item is PxMenuItem)
                         {
-                            TraverseDatabase(item.CurrentItem.ID.Selection, language, index);
+                            TraverseDatabase(item.ID.Selection, language, index);
                         }
                     }
                     index.EndWrite(language);
@@ -73,25 +74,25 @@ namespace Px.Search
         {
             bool exists;
 
-            PxMenuBase m = _source.CreateMenu(id, language, out exists);
+            Item item = _source.CreateMenu(id, language, out exists);
 
-            if (m == null || !exists || m.CurrentItem == null)
+            if (item == null || !exists)
             {
                 _logger.LogError($"TraverseDatabase : Could not get database level with id {id} for language {language}");
                 return;
             }
 
-            if (m.CurrentItem is PxMenuItem)
+            if (item is PxMenuItem)
             {
-                foreach (var item in ((PxMenuItem)(m.CurrentItem)).SubItems)
+                foreach (var subitem in ((PxMenuItem)item).SubItems)
                 {
-                    if (item is PxMenuItem)
+                    if (subitem is PxMenuItem)
                     {
-                        TraverseDatabase(item.ID.Selection, language, index);
+                        TraverseDatabase(subitem.ID.Selection, language, index);
                     }
-                    else if (item is TableLink)
+                    else if (subitem is TableLink)
                     {
-                        IndexTable(item.ID.Selection, language, index);
+                        IndexTable(subitem.ID.Selection, (TableLink)subitem, language, index);
                     }
                 }
             }
@@ -106,6 +107,8 @@ namespace Px.Search
         /// <param name="languages">list of languages codes that the search index will be able to be searched for</param>
         public void UpdateTableEntries(List<string> tables, List<string> languages)
         {
+            bool exists;
+
             using (var index = _backend.GetIndex())
             {
                 foreach (var language in languages)
@@ -114,7 +117,16 @@ namespace Px.Search
 
                     foreach (var table in tables)
                     {
-                        UpdateTable(table, language, index);
+                        Item item = _source.CreateMenu(table, language, out exists);
+
+                        if (exists && item is TableLink)
+                        {
+                            UpdateTable(table, (TableLink)item, language, index);
+                        }
+                        else
+                        {
+                            index.RemoveEntry(table);
+                        }
                     }
 
                     index.EndUpdate(language);
@@ -122,7 +134,7 @@ namespace Px.Search
             }
         }
 
-        private void IndexTable(string id, string language, IIndex index)
+        private void IndexTable(string id, TableLink tblLink, string language, IIndex index)
         {
             IPXModelBuilder builder = _source.CreateBuilder(id, language);
 
@@ -132,11 +144,9 @@ namespace Px.Search
                 {
                     builder.BuildForSelection();
                     var model = builder.Model;
+                    TableInformation tbl = GetTableInformation(id, tblLink);
 
-                    DateTime updated = model.Meta.GetLastUpdated().PxDateStringToDateTime();
-                    string[] tags = new string[] { };
-
-                    index.AddEntry(id, updated, null, tags, model.Meta);
+                    index.AddEntry(tbl, model.Meta);
                 }
                 catch (Exception)
                 {
@@ -149,7 +159,7 @@ namespace Px.Search
             }
 
         }
-        private void UpdateTable(string id, string language, IIndex index)
+        private void UpdateTable(string id, TableLink tblLink, string language, IIndex index)
         {
             IPXModelBuilder builder = _source.CreateBuilder(id, language);
 
@@ -159,12 +169,9 @@ namespace Px.Search
                 {
                     builder.BuildForSelection();
                     var model = builder.Model;
+                    TableInformation tbl = GetTableInformation(id, tblLink);
 
-                    DateTime updated = model.Meta.GetLastUpdated().PxDateStringToDateTime();
-                    string[] tags = new string[] { };
-
-                    index.UpdateEntry(id, updated, null, tags, model.Meta);
-                    return;
+                    index.UpdateEntry(tbl, model.Meta);
                 }
                 catch (Exception)
                 {
@@ -175,11 +182,25 @@ namespace Px.Search
             {
                 _logger.LogError($"UpdateTable : Could not build table with id {id} for language {language}");
             }
-
-            index.RemoveEntry(id);
-            return;
-
         }
 
+        private TableInformation GetTableInformation(string id, TableLink tblLink)
+        {
+            TableInformation tbl = new TableInformation
+            {
+                Id = id,
+                Label = tblLink.Text,
+                Description = tblLink.Description,
+                SortCode = tblLink.SortCode,
+                Updated = tblLink.LastUpdated,
+                Discontinued = null, // TODO: Implement later
+                Category = tblLink.Category.ToString(), // TODO: Convert 'O' -> 'Public' and so on...
+                FirstPeriod = "", // TODO: get 
+                LastPeriod = "", // TODO: get
+                Tags = new string[] { } // TODO: Implement later
+            };
+
+            return tbl; 
+        }
     }
 }

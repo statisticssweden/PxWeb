@@ -56,24 +56,19 @@ namespace PxWeb.Controllers.Api2
 
             lang = _languageHelper.HandleLanguage(lang);
 
-            PxMenuBase menu = _dataSource.CreateMenu(id, lang, out selectionExists);
+            Item item = _dataSource.CreateMenu(id, lang, out selectionExists);
 
             if (!selectionExists)
             {
                 return new BadRequestObjectResult("No such node id " + id);
             }
 
-            if (menu == null)
-            {
-                return new BadRequestObjectResult("Error reading data");
-            }
-
-            if (menu.CurrentItem == null)
+            if (item == null)
             {
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
+            Folder folder = _responseMapper.GetFolder((PxMenuItem)item, HttpContext);
 
             return new ObjectResult(folder);
         }
@@ -95,19 +90,14 @@ namespace PxWeb.Controllers.Api2
 
             lang = _languageHelper.HandleLanguage(lang);
 
-            PxMenuBase menu = _dataSource.CreateMenu("", lang, out selectionExists);
+            Item item = _dataSource.CreateMenu("", lang, out selectionExists);
 
-            if (menu == null)
-            {
-                return new BadRequestObjectResult("Error reading data");
-            }
-
-            if (menu.CurrentItem == null)
+            if (item == null)
             {
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)menu.CurrentItem, HttpContext);
+            Folder folder = _responseMapper.GetFolder((PxMenuItem)item, HttpContext);
 
             return new ObjectResult(folder);
         }

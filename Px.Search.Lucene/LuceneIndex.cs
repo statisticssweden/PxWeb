@@ -98,15 +98,20 @@ namespace Px.Search.Lucene
             _writer = null;
         }
 
-        public void AddEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
+        //public void AddEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
+        //{
+        //    Document doc = GetDocument(id, updated, discontinued, tags, meta);
+        //    _writer.AddDocument(doc);
+        //}
+        public void AddEntry(TableInformation tbl, PXMeta meta)
         {
-            Document doc = GetDocument(id, updated, discontinued, tags, meta);
+            Document doc = GetDocument(tbl, meta);
             _writer.AddDocument(doc);
         }
 
-        public void UpdateEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
+        public void UpdateEntry(TableInformation tbl, PXMeta meta)
         {
-            Document doc = GetDocument(id, updated, discontinued, tags, meta);
+            Document doc = GetDocument(tbl, meta);
             _writer.UpdateDocument(new Term(SearchConstants.SEARCH_FIELD_DOCID, doc.Get(SearchConstants.SEARCH_FIELD_DOCID)), doc);
         }
 
@@ -126,38 +131,88 @@ namespace Px.Search.Lucene
         /// <param name="tags">Table tags</param>
         /// <param name="meta">PXMeta object</param>
         /// <returns>Document object representing the table</returns>
-        private Document GetDocument(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
+        //private Document GetDocument(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta)
+        //{
+        //    Document doc = new Document();
+        //    DateTime updated2;
+        //    string strUpdated = "";
+
+        //    if (meta != null)
+        //    {
+        //        //if (string.IsNullOrEmpty(path) || string.IsNullOrEmpty(table) || string.IsNullOrEmpty(database) || string.IsNullOrEmpty(meta.Title) || string.IsNullOrEmpty(meta.Matrix) || meta.Variables.Count == 0)
+        //        //{
+        //        //    return doc;
+        //        //}
+        //        if (string.IsNullOrEmpty(meta.Title) || string.IsNullOrEmpty(meta.Matrix) || meta.Variables.Count == 0)
+        //        {
+        //            return doc;
+        //        }
+
+        //        if (updated != null)
+        //        {
+        //            updated2 = updated.Value;
+        //            strUpdated = updated2.DateTimeToPxDateString();
+        //        }
+
+        //        doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DOCID, id, Field.Store.YES)); // Used as id when updating a document - NOT searchable!!!
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SEARCHID, id, Field.Store.NO)); // Used for finding a document by id - will be used for generating URL from just the tableid - Searchable!!!
+        //        //doc.Add(new StoredField(SearchConstants.SEARCH_FIELD_PATH, path));
+        //        //doc.Add(new StoredField(SearchConstants.SEARCH_FIELD_TABLE, table));
+        //        //doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DATABASE, database, Field.Store.YES));
+        //        doc.Add(new StringField(SearchConstants.SEARCH_FIELD_PUBLISHED, strUpdated, Field.Store.YES));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_MATRIX, meta.Matrix, Field.Store.YES));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TITLE, meta.Title, Field.Store.YES));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VARIABLES, string.Join(" ", (from v in meta.Variables select v.Name).ToArray()), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_PERIOD, meta.GetTimeValues(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUES, meta.GetAllValues(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_CODES, meta.GetAllCodes(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_GROUPINGS, meta.GetAllGroupings(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_GROUPINGCODES, meta.GetAllGroupingCodes(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETS, meta.GetAllValuesets(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETCODES, meta.GetAllValuesetCodes(), Field.Store.NO));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TABLEID, meta.TableID == null ? meta.Matrix : meta.TableID, Field.Store.YES));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DISCONTINUED, discontinued == null ? "False" : discontinued.ToString(), Field.Store.YES));
+        //        doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TAGS, GetAllTags(tags), Field.Store.YES));
+        //        if (!string.IsNullOrEmpty(meta.Synonyms))
+        //        {
+        //            doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SYNONYMS, meta.Synonyms, Field.Store.NO));
+        //        }
+
+        //    }
+
+        //    return doc;
+        //}
+
+        private Document GetDocument(TableInformation tbl, PXMeta meta)
         {
             Document doc = new Document();
             DateTime updated2;
             string strUpdated = "";
 
-            if (meta != null)
+            if (tbl != null && meta != null)
             {
-                //if (string.IsNullOrEmpty(path) || string.IsNullOrEmpty(table) || string.IsNullOrEmpty(database) || string.IsNullOrEmpty(meta.Title) || string.IsNullOrEmpty(meta.Matrix) || meta.Variables.Count == 0)
-                //{
-                //    return doc;
-                //}
-                if (string.IsNullOrEmpty(meta.Title) || string.IsNullOrEmpty(meta.Matrix) || meta.Variables.Count == 0)
+                if (string.IsNullOrEmpty(tbl.Label) || string.IsNullOrEmpty(meta.Matrix) || meta.Variables.Count == 0)
                 {
                     return doc;
                 }
 
-                if (updated != null)
+                if (tbl.Updated != null)
                 {
-                    updated2 = updated.Value;
+                    updated2 = tbl.Updated.Value;
                     strUpdated = updated2.DateTimeToPxDateString();
                 }
 
-                doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DOCID, id, Field.Store.YES)); // Used as id when updating a document - NOT searchable!!!
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SEARCHID, id, Field.Store.NO)); // Used for finding a document by id - will be used for generating URL from just the tableid - Searchable!!!
-                //doc.Add(new StoredField(SearchConstants.SEARCH_FIELD_PATH, path));
-                //doc.Add(new StoredField(SearchConstants.SEARCH_FIELD_TABLE, table));
-                //doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DATABASE, database, Field.Store.YES));
-                doc.Add(new StringField(SearchConstants.SEARCH_FIELD_PUBLISHED, strUpdated, Field.Store.YES));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_MATRIX, meta.Matrix, Field.Store.YES));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TITLE, meta.Title, Field.Store.YES));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VARIABLES, string.Join(" ", (from v in meta.Variables select v.Name).ToArray()), Field.Store.NO));
+                doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DOCID, tbl.Id, Field.Store.YES)); // Used as id when updating a document - NOT searchable!!!
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SEARCHID, tbl.Id, Field.Store.NO)); // Used for finding a document by id - will be used for generating URL from just the tableid - Searchable!!!
+                doc.Add(new StringField(SearchConstants.SEARCH_FIELD_UPDATED, strUpdated, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_MATRIX, meta.Matrix, Field.Store.YES)); // ???
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TITLE, tbl.Label, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DESCRIPTION, tbl.Description, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SORTCODE, tbl.SortCode, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_CATEGORY, tbl.Category, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_FIRSTPERIOD, tbl.FirstPeriod, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_LASTPERIOD, tbl.LastPeriod, Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VARIABLES, string.Join(" ", (from v in meta.Variables select v.Name).ToArray()), Field.Store.YES)); // ???
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_PERIOD, meta.GetTimeValues(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUES, meta.GetAllValues(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_CODES, meta.GetAllCodes(), Field.Store.NO));
@@ -165,14 +220,12 @@ namespace Px.Search.Lucene
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_GROUPINGCODES, meta.GetAllGroupingCodes(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETS, meta.GetAllValuesets(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETCODES, meta.GetAllValuesetCodes(), Field.Store.NO));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TABLEID, meta.TableID == null ? meta.Matrix : meta.TableID, Field.Store.YES));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DISCONTINUED, discontinued == null ? "False" : discontinued.ToString(), Field.Store.YES));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TAGS, GetAllTags(tags), Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DISCONTINUED, tbl.Discontinued == null ? "Unknown" : tbl.Discontinued.ToString(), Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TAGS, GetAllTags(tbl.Tags), Field.Store.YES));
                 if (!string.IsNullOrEmpty(meta.Synonyms))
                 {
                     doc.Add(new TextField(SearchConstants.SEARCH_FIELD_SYNONYMS, meta.Synonyms, Field.Store.NO));
                 }
-
             }
 
             return doc;

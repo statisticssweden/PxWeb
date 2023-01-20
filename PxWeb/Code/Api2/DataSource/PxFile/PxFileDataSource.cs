@@ -52,11 +52,23 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             }
         }
 
-        public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
+        public Item CreateMenu(string id, string language, out bool selectionExists)
         {
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
 
             ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id, out selectionExists);
+
+            //if (!selectionExists)
+            //{
+            //    // Is id a Table?
+            //    var path = _tablePathResolver.Resolve(language, id, out selectionExists);
+                
+            //    if (selectionExists)
+            //    {
+            //        itmSel = new ItemSelection(Path.GetDirectoryName(path), path);
+            //    }
+            //}
+
 
             XmlMenu menu = new XmlMenu(XDocument.Load(xmlFilePath), language,
                     m =>
@@ -70,7 +82,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             menu.SetCurrentItemBySelection(itmSel.Menu, itmSel.Selection);
 
             // Fix selection for subitems - we only want the last part...
-            if (menu.CurrentItem is PxMenuItem)
+            if (menu.CurrentItem is PxMenuItem) 
             {
                 foreach (var item in ((PxMenuItem)(menu.CurrentItem)).SubItems)
                 {
@@ -81,7 +93,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                 }
             }
 
-            return menu;
+            return menu.CurrentItem;
         }
 
         private string GetIdentifierWithoutPath(string id)
