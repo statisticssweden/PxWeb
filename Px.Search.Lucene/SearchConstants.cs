@@ -30,6 +30,5 @@ namespace Px.Search.Lucene
         public const string SEARCH_FIELD_VALUESETS = "valuesets";
         public const string SEARCH_FIELD_VALUESETCODES = "valuesetcodes";
         public const string SEARCH_FIELD_SYNONYMS = "synonyms";
-        public const string SEARCH_FIELD_TABLEID = "tableid";
     }
 }

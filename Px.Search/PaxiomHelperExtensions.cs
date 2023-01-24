@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCAxis.Paxiom.Extensions;
+using System.Collections.Immutable;
 
 namespace Px.Search
 {
@@ -68,6 +69,30 @@ namespace Px.Search
             return "";
         }
 
+        public static string GetFirstTimeValue(this PXMeta meta)
+        {
+            for (int i = 0; i < meta.Variables.Count; i++)
+            {
+                if (meta.Variables[i].IsTime)
+                {
+                    var lst = (from v in meta.Variables[i].Values select v.Value).OrderBy(x => x);
+                    return lst.First();
+                }
+            }
+            return "";
+        }
+        public static string GetLastTimeValue(this PXMeta meta)
+        {
+            for (int i = 0; i < meta.Variables.Count; i++)
+            {
+                if (meta.Variables[i].IsTime)
+                {
+                    var lst = (from v in meta.Variables[i].Values select v.Value).OrderBy(x => x);
+                    return lst.Last();
+                }
+            }
+            return "";
+        }
         public static string GetAllValues(this PXMeta meta)
         {
             StringBuilder builder = new StringBuilder();

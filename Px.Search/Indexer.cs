@@ -144,7 +144,7 @@ namespace Px.Search
                 {
                     builder.BuildForSelection();
                     var model = builder.Model;
-                    TableInformation tbl = GetTableInformation(id, tblLink);
+                    TableInformation tbl = GetTableInformation(id, tblLink, model.Meta);
 
                     index.AddEntry(tbl, model.Meta);
                 }
@@ -169,7 +169,7 @@ namespace Px.Search
                 {
                     builder.BuildForSelection();
                     var model = builder.Model;
-                    TableInformation tbl = GetTableInformation(id, tblLink);
+                    TableInformation tbl = GetTableInformation(id, tblLink, model.Meta);
 
                     index.UpdateEntry(tbl, model.Meta);
                 }
@@ -184,7 +184,7 @@ namespace Px.Search
             }
         }
 
-        private TableInformation GetTableInformation(string id, TableLink tblLink)
+        private TableInformation GetTableInformation(string id, TableLink tblLink, PXMeta meta)
         {
             TableInformation tbl = new TableInformation
             {
@@ -194,13 +194,31 @@ namespace Px.Search
                 SortCode = tblLink.SortCode,
                 Updated = tblLink.LastUpdated,
                 Discontinued = null, // TODO: Implement later
-                Category = tblLink.Category.ToString(), // TODO: Convert 'O' -> 'Public' and so on...
-                FirstPeriod = "", // TODO: get 
-                LastPeriod = "", // TODO: get
+                Category = GetCategory(tblLink), 
+                FirstPeriod = meta.GetFirstTimeValue(), 
+                LastPeriod = meta.GetLastTimeValue(), 
+                VariableNames = (from v in meta.Variables select v.Name).ToArray(), 
                 Tags = new string[] { } // TODO: Implement later
             };
 
             return tbl; 
+        }
+
+        private string GetCategory(TableLink tblLink)
+        {
+            switch (tblLink.Category)
+            {
+                case PresCategory.NotSet:
+                    return "";
+                case PresCategory.Official:
+                    return "public";
+                case PresCategory.Internal:
+                    return "internal";
+                case PresCategory.Private:
+                    return "private";
+                default:
+                    return "";
+            }
         }
     }
 }
