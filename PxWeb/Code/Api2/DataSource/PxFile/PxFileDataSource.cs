@@ -58,18 +58,6 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
             ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id, out selectionExists);
 
-            //if (!selectionExists)
-            //{
-            //    // Is id a Table?
-            //    var path = _tablePathResolver.Resolve(language, id, out selectionExists);
-                
-            //    if (selectionExists)
-            //    {
-            //        itmSel = new ItemSelection(Path.GetDirectoryName(path), path);
-            //    }
-            //}
-
-
             XmlMenu menu = new XmlMenu(XDocument.Load(xmlFilePath), language,
                     m =>
                     {
