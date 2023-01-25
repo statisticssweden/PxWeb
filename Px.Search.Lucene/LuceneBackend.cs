@@ -28,8 +28,8 @@ namespace Px.Search.Lucene
 
         public ISearcher GetSearcher()
         {
-            //TODO Create and initialize an instance of LuceneSearcher
-            throw new NotImplementedException();
+            string path = GetIndexDirectoryPath();
+            return new LuceneSearcher(path);
         }
 
  

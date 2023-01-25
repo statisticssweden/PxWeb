@@ -19,6 +19,7 @@ using PxWeb.Helper.Api2;
 using PCAxis.Menu;
 using PxWeb.Mappers;
 using PxWeb.Api2.Server.Models;
+using Px.Search;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -29,12 +30,14 @@ namespace PxWeb.Controllers.Api2
     public class NavigationApiController : PxWeb.Api2.Server.Controllers.NavigationApiController
     {
         private readonly IDataSource _dataSource;
+        private readonly ISearchBackend _backend;
         private readonly ILanguageHelper _languageHelper;
         private readonly IResponseMapper _responseMapper;
 
-        public NavigationApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        public NavigationApiController(IDataSource dataSource, ISearchBackend backend, ILanguageHelper languageHelper, IResponseMapper responseMapper)
         {
             _dataSource = dataSource;
+            _backend = backend;
             _languageHelper = languageHelper;
             _responseMapper = responseMapper;
         }
@@ -115,7 +118,11 @@ namespace PxWeb.Controllers.Api2
         /// <response code="200">Success</response>
         public override IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
-            throw new System.NotImplementedException();
+            string lang = "en";
+            Searcher searcher = new Searcher(_dataSource, _backend);
+            searcher.Find(query, lang);
+
+            return Ok();
         }
 
     }
