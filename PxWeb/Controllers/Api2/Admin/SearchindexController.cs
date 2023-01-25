@@ -79,12 +79,12 @@ namespace PxWeb.Controllers.Api2.Admin
         [SwaggerOperation("IndexDatabase")]
         [SwaggerResponse(statusCode: 200, description: "Success")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
-        public IActionResult IndexDatabase([FromQuery(Name = "tables"), Required] string tables)
+        public IActionResult IndexDatabase([FromBody, Required] string[] tables)
         {
             try
             {
                 List<string> languages = new List<string>();
-                List<string> tableList = tables.Split(',').ToList();
+                List<string> tableList = new List<string>(tables);
 
                 if (tableList.Count == 0)
                 {
