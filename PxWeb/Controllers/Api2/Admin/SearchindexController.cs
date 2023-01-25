@@ -73,7 +73,7 @@ namespace PxWeb.Controllers.Api2.Admin
         /// Update index for the specified tables
         /// </summary>
         /// <param name="tables"></param>
-        /// <returns>Comma separated list of table ids that should be updated in the index</returns>
+        /// <returns></returns>
         [HttpPatch]
         [Route("/api/v2/admin/searchindex")]
         [SwaggerOperation("IndexDatabase")]
