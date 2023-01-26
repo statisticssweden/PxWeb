@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
+using System.Net;
+using System.Linq;
 
 namespace PxWeb.Middleware
 {
@@ -18,11 +20,20 @@ namespace PxWeb.Middleware
             _adminProtectionConfigurationService = adminProtectionConfigurationService;
         }
 
-        public Task Invoke(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext)
         {
             AdminProtectionConfigurationOptions options = _adminProtectionConfigurationService.GetConfiguration();
             List<string> ipWhitelist = options.IpWhitelist;
-            return _next(httpContext);
+            IPAddress? ip = httpContext.Connection.RemoteIpAddress;
+            bool match = ipWhitelist.Where(x => IPAddress.Parse(x).Equals(ip)).Any();
+            if (!match)
+            {
+                httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
+                return;
+            }
+            await _next(httpContext);
+           
+
         }
     }
 
