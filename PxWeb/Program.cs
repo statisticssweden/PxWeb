@@ -102,6 +102,7 @@ namespace PxWeb
 
             var app = builder.Build();
 
+
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
@@ -116,6 +117,11 @@ namespace PxWeb
             }
 
             app.UseAuthorization();
+
+            app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/v2/admin"), appBuilder =>
+            {
+                appBuilder.UseAdminProtectionIpWhitelist();
+            });
 
             app.MapControllers();
 
