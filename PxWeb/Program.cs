@@ -21,6 +21,7 @@ using PxWeb.Mappers;
 using Newtonsoft.Json;
 using System;
 using PxWeb.Code.Api2.NewtonsoftConfiguration;
+using PxWeb.Middleware;
 
 namespace PxWeb
 {
@@ -57,8 +58,11 @@ namespace PxWeb
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
+            builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
+
             
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
+            builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
 
@@ -104,7 +108,6 @@ namespace PxWeb
                 app.UseSwagger();
                 app.UseSwaggerUI();
             //}
-
             app.UseHttpsRedirection();
 
             if (corsEnbled)
