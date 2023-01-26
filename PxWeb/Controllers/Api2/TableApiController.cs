@@ -41,37 +41,15 @@ namespace PxWeb.Controllers.Api2
             _responseMapper = responseMapper;
         }
 
-        /// <summary>
-        /// Endpoint to get metadata about table by {id}
-        /// HttpGet
-        /// Route /api/v2/tables/{id}/metadata
-        /// </summary>
-        /// <remarks>**Used for listing detailed information about a specific table** * List all variables and values and all other metadata needed to be able to fetch data  * Also links to where to:   + Fetch   - Where to get information about codelists  * 2 output formats   + Custom json    - JSON-stat2  </remarks>
-        /// <param name="id">Id</param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetMetadataById([FromRoute(Name = "id"), Required] string id)
+
+        public override IActionResult GetMetadataById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Endpoint to get table by {id}
-        /// HttpGet
-        /// Route /api/v2/tables/{id}
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id)
-        {
-            //TODO: lang should be an optional parameter - fix yaml
-            string lang = "en";
 
+        public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
+        {
             lang = _languageHelper.HandleLanguage(lang);
             IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
 
@@ -98,19 +76,7 @@ namespace PxWeb.Controllers.Api2
             }
         }
 
-        /// <summary>
-        /// List information about the codelist that is associated with the table.
-        /// HttpGet
-        /// Route /api/v2/tables/{id}/codelists/{codeListId}
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <param name="codeListId">Identifier for a code list</param>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromRoute(Name = "codeListId"), Required] string codeListId, [FromQuery(Name = "lang")] string? lang)
+        public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             throw new NotImplementedException();
         }

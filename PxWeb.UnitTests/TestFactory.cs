@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PCAxis.Paxiom;
 using PxWeb.Config.Api2;
 
 namespace PxWeb.UnitTests
@@ -69,6 +71,31 @@ namespace PxWeb.UnitTests
             PxApiConfigurationOptions pxApiConfigurationOptions = new PxApiConfigurationOptions();
 
             return pxApiConfigurationOptions;   
+        }
+
+        public static PXModel GetPxModel()
+        {
+            PXModel pxModel = new PXModel();
+
+            Variable timeVar = new Variable("Period", PlacementType.Heading);
+            timeVar.IsTime = true;
+
+            timeVar.Values.Add(new Value("2018M01"));
+            timeVar.Values.Add(new Value("2018M02"));
+            timeVar.Values.Add(new Value("2018M03"));
+            timeVar.Values.Add(new Value("2018M04"));
+            timeVar.Values.Add(new Value("2018M05"));
+            timeVar.Values.Add(new Value("2018M06"));
+            timeVar.Values.Add(new Value("2018M07"));
+            timeVar.Values.Add(new Value("2018M08"));
+            timeVar.Values.Add(new Value("2018M09"));
+            timeVar.Values.Add(new Value("2018M10"));
+            timeVar.Values.Add(new Value("2018M11"));
+            timeVar.Values.Add(new Value("2018M12"));
+
+            pxModel.Meta.AddVariable(timeVar);
+
+            return pxModel;
         }
     }
 }

@@ -21,6 +21,8 @@ using PxWeb.Mappers;
 using Newtonsoft.Json;
 using System;
 using PxWeb.Code.Api2.NewtonsoftConfiguration;
+using Px.Search;
+using Px.Search.Lucene;
 
 namespace PxWeb
 {
@@ -61,6 +63,8 @@ namespace PxWeb
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+
+            builder.Services.AddPxSearchEngine(builder);
 
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()

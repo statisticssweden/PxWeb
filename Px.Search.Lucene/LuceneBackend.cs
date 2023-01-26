@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Px.Search.Lucene.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,27 @@ namespace Px.Search.Lucene
 {
     public class LuceneBackend : ISearchBackend
     {
-        //TODO Add config settings if necessary for initializing the objects
-        //use the options pattern and DI
+
+        private readonly ILuceneConfigurationService _luceneConfigurationService;
+
+        public LuceneBackend(ILuceneConfigurationService luceneConfigurationService)
+        {
+            _luceneConfigurationService = luceneConfigurationService;   
+        }
+
         public IIndex GetIndex()
         {
-            //TODO Create and initialize an instance of LeceneIndex
-            throw new NotImplementedException();
+            string path = _luceneConfigurationService.GetIndexDirectoryPath();
+            return new LuceneIndex(path);
         }
 
         public ISearcher GetSearcher()
         {
-            //TODO Create and initialize an instance of LeceneSeracher
-            throw new NotImplementedException();
+            string path = _luceneConfigurationService.GetIndexDirectoryPath();
+            return new LuceneSearcher(path);
         }
+
+ 
+
     }
 }

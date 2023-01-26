@@ -10,7 +10,7 @@ namespace PxWeb.Helper.Api2
         {
             _pxApiConfigurationService = pxApiConfigurationService;
         }
-        public string HandleLanguage(string lang)
+        public string HandleLanguage(string? lang)
         {
             if (lang == null)
             {

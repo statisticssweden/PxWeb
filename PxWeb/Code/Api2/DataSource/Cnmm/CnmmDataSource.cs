@@ -30,11 +30,12 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             return builder;
         }
 
-        public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
+        public Item CreateMenu(string id, string language, out bool selectionExists)
         {
             var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
 
             ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id, out selectionExists);
+            TableLink tblFix = null;
 
             if (selectionExists)
             {
@@ -44,7 +45,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                     PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[cnmmOptions.DatabaseID],
                     m =>
                     {
-                        //m.RootSelection = string.IsNullOrEmpty(nodeId) ? new ItemSelection() : PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId);
                         m.RootSelection = itmSel;
                         m.AlterItemBeforeStorage = item =>
                         {
@@ -56,12 +56,10 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                             if (item is TableLink)
                             {
                                 TableLink tbl = (TableLink) item;
-                                string tblId = tbl.ID.Selection;
-                                //if (!string.IsNullOrEmpty(dbid))
-                                //{
-                                //    tbl.ID = new ItemSelection(item.ID.Menu, dbid + ":" + tbl.ID.Selection); // Hantering av flera databaser!
-                                //}
-
+                                if (string.Compare(tbl.ID.Selection, id, true) == 0)
+                                {
+                                    tblFix = tbl;
+                                }
 
                                 if (tbl.Published.HasValue)
                                 {
@@ -76,10 +74,10 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                                 item.SortCode = item.Text;
                             }
                         };
-                        m.Restriction = item => { return true; };
+                        m.Restriction = item => { return true; }; // TODO: Will show all tables! Even though they are not published...
                     });
                 retMenu.RootItem.Sort();
-                return retMenu;
+                return tblFix != null ? tblFix : retMenu.CurrentItem;
             }
             return null;
         }

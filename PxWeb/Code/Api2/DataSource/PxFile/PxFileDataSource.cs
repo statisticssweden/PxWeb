@@ -52,7 +52,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             }
         }
 
-        public PxMenuBase CreateMenu(string id, string language, out bool selectionExists)
+        public Item CreateMenu(string id, string language, out bool selectionExists)
         {
             string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
 
@@ -66,8 +66,34 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                             return true;
                         };
                     });
+
             menu.SetCurrentItemBySelection(itmSel.Menu, itmSel.Selection);
-            return menu;
+
+            // Fix selection for subitems - we only want the last part...
+            if (menu.CurrentItem is PxMenuItem) 
+            {
+                foreach (var item in ((PxMenuItem)(menu.CurrentItem)).SubItems)
+                {
+                    if ((item is PxMenuItem) || (item is TableLink))
+                    {
+                        item.ID.Selection = GetIdentifierWithoutPath(item.ID.Selection);
+                    }
+                }
+            }
+
+            return menu.CurrentItem;
+        }
+
+        private string GetIdentifierWithoutPath(string id)
+        {
+            if (id.Contains('\\'))
+            {
+                return Path.GetFileName(id);
+            }
+            else
+            {
+                return id;
+            }
         }
 
     }
