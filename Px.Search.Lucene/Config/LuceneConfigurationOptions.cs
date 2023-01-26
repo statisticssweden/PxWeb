@@ -2,6 +2,6 @@
 {
     public class LuceneConfigurationOptions
     {
-        public string IndexDirectory { get; set; }
+        public string? IndexDirectory { get; set; }
     }
 }

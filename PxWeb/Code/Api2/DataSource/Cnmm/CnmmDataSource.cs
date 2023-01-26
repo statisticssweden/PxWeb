@@ -45,7 +45,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                     PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[cnmmOptions.DatabaseID],
                     m =>
                     {
-                        //m.RootSelection = string.IsNullOrEmpty(nodeId) ? new ItemSelection() : PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId);
                         m.RootSelection = itmSel;
                         m.AlterItemBeforeStorage = item =>
                         {
@@ -57,11 +56,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                             if (item is TableLink)
                             {
                                 TableLink tbl = (TableLink) item;
-                                //string tblId = tbl.ID.Selection;
-                                //if (!string.IsNullOrEmpty(dbid))
-                                //{
-                                //    tbl.ID = new ItemSelection(item.ID.Menu, dbid + ":" + tbl.ID.Selection); // Hantering av flera databaser!
-                                //}
                                 if (string.Compare(tbl.ID.Selection, id, true) == 0)
                                 {
                                     tblFix = tbl;

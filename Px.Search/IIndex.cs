@@ -17,10 +17,8 @@ namespace Px.Search
 
         void EndUpdate(string language);
 
-        //void AddEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta);
         void AddEntry(TableInformation tbl, PXMeta meta);
 
-        //void UpdateEntry(string id, DateTime? updated, bool? discontinued, string[] tags, PXMeta meta);
         void UpdateEntry(TableInformation tbl, PXMeta meta);
 
         void RemoveEntry(string id);

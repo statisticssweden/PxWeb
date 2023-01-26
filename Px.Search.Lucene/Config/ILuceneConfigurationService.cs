@@ -3,5 +3,6 @@
     public interface ILuceneConfigurationService
     {
         LuceneConfigurationOptions GetConfiguration();
+        string GetIndexDirectoryPath();
     }
 }

@@ -186,20 +186,11 @@ namespace Px.Search
 
         private TableInformation GetTableInformation(string id, TableLink tblLink, PXMeta meta)
         {
-            TableInformation tbl = new TableInformation
-            {
-                Id = id,
-                Label = tblLink.Text,
-                Description = tblLink.Description,
-                SortCode = tblLink.SortCode,
-                Updated = tblLink.LastUpdated,
-                Discontinued = null, // TODO: Implement later
-                Category = GetCategory(tblLink), 
-                FirstPeriod = meta.GetFirstTimeValue(), 
-                LastPeriod = meta.GetLastTimeValue(), 
-                VariableNames = (from v in meta.Variables select v.Name).ToArray(), 
-                Tags = new string[] { } // TODO: Implement later
-            };
+            TableInformation tbl = new TableInformation(id, tblLink.Text, GetCategory(tblLink), meta.GetFirstTimeValue(), meta.GetLastTimeValue(), (from v in meta.Variables select v.Name).ToArray());
+            tbl.Description = tblLink.Description;
+            tbl.SortCode = tblLink.SortCode;
+            tbl.Updated = tblLink.LastUpdated;
+            tbl.Discontinued = null; // TODO: Implement later
 
             return tbl; 
         }
