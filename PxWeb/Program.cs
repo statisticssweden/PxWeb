@@ -121,6 +121,7 @@ namespace PxWeb
             app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/v2/admin"), appBuilder =>
             {
                 appBuilder.UseAdminProtectionIpWhitelist();
+                appBuilder.UseAdminProtectionKey();
             });
 
             app.MapControllers();

@@ -9,12 +9,12 @@ using System.Linq;
 namespace PxWeb.Middleware
 {
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
-    public class AdminProtectionIpWhitelistMiddleware
+    public class AdminProtectionKeyMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly IAdminProtectionConfigurationService _adminProtectionConfigurationService;
 
-        public AdminProtectionIpWhitelistMiddleware(RequestDelegate next, IAdminProtectionConfigurationService adminProtectionConfigurationService)
+        public AdminProtectionKeyMiddleware(RequestDelegate next, IAdminProtectionConfigurationService adminProtectionConfigurationService)
         {
             _next = next;
             _adminProtectionConfigurationService = adminProtectionConfigurationService;
@@ -23,26 +23,25 @@ namespace PxWeb.Middleware
         public async Task Invoke(HttpContext httpContext)
         {
             AdminProtectionConfigurationOptions options = _adminProtectionConfigurationService.GetConfiguration();
-            List<string> ipWhitelist = options.IpWhitelist;
-            IPAddress? ip = httpContext.Connection.RemoteIpAddress;
-            bool match = ipWhitelist.Where(x => IPAddress.Parse(x).Equals(ip)).Any();
+            string adminHeader = httpContext.Request.Headers["API_ADMIN_KEY"];
+            bool match = options.AdminKey == adminHeader;
             if (!match)
             {
                 httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
                 return;
             }
             await _next(httpContext);
-           
+
 
         }
     }
 
     // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class AdminProtectionIpWhitelistMiddlewareExtensions
+    public static class AdminProtectionKeyMiddlewareExtensions
     {
-        public static IApplicationBuilder UseAdminProtectionIpWhitelist(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseAdminProtectionKey(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<AdminProtectionIpWhitelistMiddleware>();
+            return builder.UseMiddleware<AdminProtectionKeyMiddleware>();
         }
     }
 }
