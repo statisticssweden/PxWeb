@@ -25,7 +25,7 @@ namespace Px.Search.Lucene
     {
         private string _indexDirectoryBase = "";
         private string _indexDirectoryCurrent = "";
-        private IndexWriter _writer;
+        private IndexWriter? _writer;
 
         /// <summary>
         /// Constructor
@@ -94,27 +94,39 @@ namespace Px.Search.Lucene
 
         public void EndWrite(string language)
         {
-            _writer.Dispose();
-            _writer = null;
+            if (_writer != null)
+            {
+                _writer.Dispose();
+                _writer = null;
+            }
         }
 
         public void AddEntry(TableInformation tbl, PXMeta meta)
         {
             Document doc = GetDocument(tbl, meta);
-            _writer.AddDocument(doc);
+            if (_writer != null)
+            {
+                _writer.AddDocument(doc);
+            }
         }
 
         public void UpdateEntry(TableInformation tbl, PXMeta meta)
         {
             Document doc = GetDocument(tbl, meta);
-            _writer.UpdateDocument(new Term(SearchConstants.SEARCH_FIELD_DOCID, doc.Get(SearchConstants.SEARCH_FIELD_DOCID)), doc);
+            if (_writer != null)
+            {
+                _writer.UpdateDocument(new Term(SearchConstants.SEARCH_FIELD_DOCID, doc.Get(SearchConstants.SEARCH_FIELD_DOCID)), doc);
+            }
         }
 
         public void RemoveEntry(string id)
         {
             //check if document exists, if true deletes existing
             var searchQuery = new TermQuery(new Term(SearchConstants.SEARCH_FIELD_DOCID, id));
-            _writer.DeleteDocuments(searchQuery);   
+            if (_writer != null)
+            {
+                _writer.DeleteDocuments(searchQuery);
+            }
         }
 
 
