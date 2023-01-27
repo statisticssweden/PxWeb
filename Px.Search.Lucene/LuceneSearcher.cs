@@ -89,6 +89,7 @@ namespace Px.Search.Lucene
 
             // Default fields
             fields = new[] { SearchConstants.SEARCH_FIELD_DOCID,
+                                SearchConstants.SEARCH_FIELD_SEARCHID,                                
                                 SearchConstants.SEARCH_FIELD_UPDATED,
                                 SearchConstants.SEARCH_FIELD_MATRIX,
                                 SearchConstants.SEARCH_FIELD_TITLE,
@@ -98,6 +99,13 @@ namespace Px.Search.Lucene
                                 SearchConstants.SEARCH_FIELD_FIRSTPERIOD,
                                 SearchConstants.SEARCH_FIELD_LASTPERIOD,
                                 SearchConstants.SEARCH_FIELD_VARIABLES,
+                                SearchConstants.SEARCH_FIELD_PERIOD,
+                                SearchConstants.SEARCH_FIELD_VALUES,
+                                SearchConstants.SEARCH_FIELD_CODES,
+                                SearchConstants.SEARCH_FIELD_GROUPINGS,
+                                SearchConstants.SEARCH_FIELD_GROUPINGCODES,
+                                SearchConstants.SEARCH_FIELD_VALUESETS,
+                                SearchConstants.SEARCH_FIELD_VALUESETCODES,
                                 SearchConstants.SEARCH_FIELD_DISCONTINUED,
                                 SearchConstants.SEARCH_FIELD_TAGS
             };
