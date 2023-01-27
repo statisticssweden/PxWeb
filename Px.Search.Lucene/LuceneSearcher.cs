@@ -10,14 +10,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+using Lucene.Net.Documents;
+using Microsoft.AspNetCore.Http;
+using static Lucene.Net.Util.Fst.Util;
 
 namespace Px.Search.Lucene
 {
     public class LuceneSearcher : ISearcher
     {
-        private string _indexDirectory = "";
-        private IndexReader _reader;
         private IndexSearcher _indexSearcher;
+        private static Operator _defaultOperator = Operator.OR;
 
         /// <summary>
         /// Constructor
@@ -33,23 +36,46 @@ namespace Px.Search.Lucene
 
             IndexReader reader = DirectoryReader.Open(fsDir);
             _indexSearcher = new IndexSearcher(reader);
-
-            _indexDirectory = indexDirectory;
         }
 
-        public IEnumerable<SearchResult> Find(string searchExpression, string language)
+        public IEnumerable<SearchResult> Find(string searchExpression, string language, int pageSize, int pageNumber)
         {
             //Search the right index depending on the language and give back a search result.
             // See https://github.com/statisticssweden/Px.Search.Lucene/blob/main/Px.Search.Lucene/LuceneSearcher.cs
 
-            //List<SearchResultItem> searchResult = new List<SearchResultItem>();
+            var skipRecords = pageSize * (pageNumber - 1);
+            List<SearchResult> searchResultList = new List<SearchResult>();
             string[] fields = GetSearchFields();
             LuceneVersion luceneVersion = LuceneVersion.LUCENE_48;
 
             QueryParser qp = new MultiFieldQueryParser(luceneVersion,
                                                        fields,
                                                        new StandardAnalyzer(luceneVersion));
-            throw new NotImplementedException();
+            qp.DefaultOperator = _defaultOperator;
+            Query q = qp.Parse(searchExpression);
+            //TODO: kolla upp TotalHits, kan den överskrida skipRecords+pageSize?
+            TopDocs topDocs = _indexSearcher.Search(q,skipRecords+pageSize);
+            ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
+
+            for (int i = skipRecords; i < topDocs.TotalHits; i++)
+            {
+                if (i > (skipRecords + pageSize) - 1)
+                {
+                    break;
+                }
+                Document doc = _indexSearcher.Doc(scoreDocs[i].Doc);
+                var searchResult = new SearchResult(
+                    doc.Get(SearchConstants.SEARCH_FIELD_DOCID),
+                    doc.Get(SearchConstants.SEARCH_FIELD_TITLE),
+                    doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
+                    doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
+                    doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
+                    doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
+                );
+                searchResultList.Add(searchResult);
+            }
+
+            return searchResultList;
         }
 
         /// <summary>
@@ -78,5 +104,6 @@ namespace Px.Search.Lucene
 
             return fields;
         }
+       
     }
 }

@@ -120,7 +120,13 @@ namespace PxWeb.Controllers.Api2
         {
             string lang = "en";
             Searcher searcher = new Searcher(_dataSource, _backend);
-            searcher.Find(query, lang);
+            //TODO Hämta default värden för pageSize och pageNumber från config
+            if(pageNumber== null)
+                pageNumber = 1;
+            if(pageSize==null)
+                pageSize = 20;
+            if(query!=null)
+                return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
 
             return Ok();
         }
