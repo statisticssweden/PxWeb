@@ -21,7 +21,7 @@ namespace Px.Search
         }
         public IEnumerable<SearchResult> Find(string searchExpression, string language, int pageSize = 20, int pageNumber = 1)
         {
-            var searcher = _backend.GetSearcher();
+            var searcher = _backend.GetSearcher(language);
 
             return searcher.Find(searchExpression, language, pageSize, pageNumber);
         }

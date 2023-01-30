@@ -26,13 +26,14 @@ namespace Px.Search.Lucene
         /// Constructor
         /// </summary>
         /// <param name="indexDirectory">Index directory</param>
-        public LuceneSearcher(string indexDirectory)
+        public LuceneSearcher(string indexDirectory, string language)
         {
             if (string.IsNullOrWhiteSpace(indexDirectory))
             {
                 throw new ArgumentNullException("Index directory not defined for Lucene");
             }
-            FSDirectory fsDir = FSDirectory.Open(indexDirectory);
+          
+            FSDirectory fsDir = FSDirectory.Open(Path.Combine(indexDirectory, language));
 
             IndexReader reader = DirectoryReader.Open(fsDir);
             _indexSearcher = new IndexSearcher(reader);
@@ -53,7 +54,6 @@ namespace Px.Search.Lucene
                                                        new StandardAnalyzer(luceneVersion));
             qp.DefaultOperator = _defaultOperator;
             Query q = qp.Parse(searchExpression);
-            //TODO: kolla upp TotalHits, kan den överskrida skipRecords+pageSize?
             TopDocs topDocs = _indexSearcher.Search(q,skipRecords+pageSize);
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
 
@@ -72,6 +72,7 @@ namespace Px.Search.Lucene
                     doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
                     doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
                 );
+                searchResult.Score= scoreDocs[i].Score; 
                 searchResultList.Add(searchResult);
             }
 
