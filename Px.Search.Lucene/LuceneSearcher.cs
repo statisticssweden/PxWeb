@@ -38,10 +38,16 @@ namespace Px.Search.Lucene
             IndexReader reader = DirectoryReader.Open(fsDir);
             _indexSearcher = new IndexSearcher(reader);
         }
-
+        /// <summary>
+        /// Search the right index depending on the language and give back a search result
+        /// </summary>
+        /// <param name="searchExpression"></param>
+        /// <param name="language"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageNumber"></param>
+        /// <returns></returns>
         public IEnumerable<SearchResult> Find(string searchExpression, string language, int pageSize, int pageNumber)
         {
-            //Search the right index depending on the language and give back a search result.
             // See https://github.com/statisticssweden/Px.Search.Lucene/blob/main/Px.Search.Lucene/LuceneSearcher.cs
 
             var skipRecords = pageSize * (pageNumber - 1);
