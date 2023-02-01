@@ -118,9 +118,21 @@ namespace PxWeb.Controllers.Api2
         /// <response code="200">Success</response>
         public override IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
-            string lang = "en";
             Searcher searcher = new Searcher(_dataSource, _backend);
-            searcher.Find(query, lang);
+
+            //TODO: lägg språk som inparameter
+            string lang = "en";
+
+            lang = _languageHelper.HandleLanguage(lang);
+            //TODO: Hämta default värden för pageSize från config
+            if (pageNumber== null || pageNumber <= 0)
+                pageNumber = 1;
+            
+            if(pageSize==null || pageSize <= 0)
+                pageSize = 20;
+
+            if(query!=null)
+                return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
 
             return Ok();
         }

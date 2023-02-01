@@ -17,5 +17,6 @@ namespace PxWeb.Config.Api2
         public List<SourceReference> SourceReferences { get; set; }
         public Cors Cors { get; set; }
         public int CacheTime { get; set; } = 5;
+        public int PageSize { get; set; }
     }
 }

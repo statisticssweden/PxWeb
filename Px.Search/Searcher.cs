@@ -1,6 +1,7 @@
 ﻿using Px.Abstractions.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,11 @@ namespace Px.Search
             _source = dataSource;
             _backend = backend;
         }
-
-        public IEnumerable<SearchResult> Find(string searchExpression, string language)
+        public IEnumerable<SearchResult> Find(string searchExpression, string language, int pageSize = 20, int pageNumber = 1)
         {
-            var searcher = _backend.GetSearcher();
+            var searcher = _backend.GetSearcher(language);
 
-            return searcher.Find(searchExpression, language);
+            return searcher.Find(searchExpression, language, pageSize, pageNumber);
         }
     }
 }

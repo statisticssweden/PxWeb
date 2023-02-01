@@ -23,10 +23,10 @@ namespace Px.Search.Lucene
             return new LuceneIndex(path);
         }
 
-        public ISearcher GetSearcher()
+        public ISearcher GetSearcher(string language)
         {
             string path = _luceneConfigurationService.GetIndexDirectoryPath();
-            return new LuceneSearcher(path);
+            return new LuceneSearcher(path, language);
         }
 
  
