@@ -14,6 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Lucene.Net.Documents;
 using Microsoft.AspNetCore.Http;
 using static Lucene.Net.Util.Fst.Util;
+using static Lucene.Net.Util.Packed.PackedInt32s;
 
 namespace Px.Search.Lucene
 {
@@ -62,6 +63,8 @@ namespace Px.Search.Lucene
             Query q = qp.Parse(searchExpression);
             TopDocs topDocs = _indexSearcher.Search(q,skipRecords+pageSize);
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
+            DateTime updated;
+            bool discontinued;
 
             for (int i = skipRecords; i < topDocs.TotalHits; i++)
             {
@@ -78,6 +81,20 @@ namespace Px.Search.Lucene
                     doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
                     doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
                 );
+                searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);
+                searchResult.SortCode = doc.Get(SearchConstants.SEARCH_FIELD_SORTCODE);          
+                if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
+                {
+                    searchResult.Updated = updated;
+                }
+                if (bool.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_DISCONTINUED), out discontinued))
+                {
+                    searchResult.Discontinued = discontinued;
+                }                
+                searchResult.Category = doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY);
+                searchResult.FirstPeriod = doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD);
+                searchResult.LastPeriod = doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD);
+                searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
                 searchResult.Score= scoreDocs[i].Score; 
                 searchResultList.Add(searchResult);
             }

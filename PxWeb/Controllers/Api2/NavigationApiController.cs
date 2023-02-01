@@ -125,10 +125,12 @@ namespace PxWeb.Controllers.Api2
 
             lang = _languageHelper.HandleLanguage(lang);
             //TODO: Hämta default värden för pageSize från config
-            if (pageNumber== null)
+            if (pageNumber== null || pageNumber <= 0)
                 pageNumber = 1;
-            if(pageSize==null)
+            
+            if(pageSize==null || pageSize <= 0)
                 pageSize = 20;
+
             if(query!=null)
                 return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
 
