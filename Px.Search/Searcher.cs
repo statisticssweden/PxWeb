@@ -23,7 +23,7 @@ namespace Px.Search
         {
             var searcher = _backend.GetSearcher(language);
 
-            return searcher.Find(searchExpression, language, pageSize, pageNumber);
+            return searcher.Find(searchExpression, pageSize, pageNumber);
         }
     }
 }
