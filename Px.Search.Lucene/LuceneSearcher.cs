@@ -47,7 +47,7 @@ namespace Px.Search.Lucene
         /// <param name="pageSize"></param>
         /// <param name="pageNumber"></param>
         /// <returns></returns>
-        public IEnumerable<SearchResult> Find(string searchExpression, string language, int pageSize, int pageNumber)
+        public IEnumerable<SearchResult> Find(string searchExpression, int pageSize, int pageNumber)
         {
             // See https://github.com/statisticssweden/Px.Search.Lucene/blob/main/Px.Search.Lucene/LuceneSearcher.cs
 
