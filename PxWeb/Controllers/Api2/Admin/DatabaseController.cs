@@ -38,7 +38,7 @@ namespace PxWeb.Controllers.Api2.Admin
         [SwaggerResponse(statusCode: 200, description: "Success")]
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         [SwaggerResponse(statusCode: 405, description: "Method Not Allowed")]
-        public IActionResult Database()
+        public IActionResult Database([FromQuery(Name = "langdependent")] bool? langDependent, [FromQuery(Name = "sortorder")] string? sortOrder)
         {
             try
             {
@@ -60,12 +60,10 @@ namespace PxWeb.Controllers.Api2.Admin
                     langs.Add(lang.Id);
                 }
 
-                // TODO: get from querystring parameters
-                bool langDependent = false;
-                string sortOrder = "Matrix";
+                string sorting = GetSorting(sortOrder);
                 string databasePath = Path.Combine(_hostingEnvironment.RootPath, "Database");
 
-                spider.Builders.Add(new MenuBuilder(_configOptions, _hostingEnvironment, langs.ToArray(), langDependent) { SortOrder = GetSortOrder(sortOrder) });
+                spider.Builders.Add(new MenuBuilder(_configOptions, _hostingEnvironment, langs.ToArray(), GetLangDependent(langDependent)) { SortOrder = GetSortOrder(sorting) });
                 spider.Search(databasePath);
 
                 List<DatabaseMessage> messages = spider.Messages;
@@ -76,6 +74,38 @@ namespace PxWeb.Controllers.Api2.Admin
             {
                 _logger.LogError(ex.Message);
                 return BadRequest();
+            }
+        }
+
+        private bool GetLangDependent(bool? langDependent)
+        {
+            if (langDependent == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (bool)langDependent;
+            }
+        }
+
+        private string GetSorting(string? sortOrder)
+        {
+            if (string.IsNullOrWhiteSpace(sortOrder))
+            {
+                return "Matrix";
+            }
+
+            switch ((string)sortOrder)
+            {
+                case "Matrix":
+                    return "Matrix";
+                case "Title":
+                    return "Title";
+                case "FileName":
+                    return "FileName";
+                default:
+                    return "Matrix";
             }
         }
 
