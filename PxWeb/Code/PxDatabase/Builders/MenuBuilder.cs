@@ -128,7 +128,7 @@ namespace PXWeb.Database
             foreach (var language in _languages)
             {
                 //ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length)), id.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length));
-                ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(_hostingEnvironment.RootPath.Length)), id.Substring(_hostingEnvironment.RootPath.Length));
+                ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(_hostingEnvironment.RootPath.Length + 1)), id.Substring(_hostingEnvironment.RootPath.Length + 1));
                 PxMenuItem newItem = new PxMenuItem(null, name, "", name, cid.Menu, cid.Selection, "");
                 _currentItems[language].AddSubItem(newItem);
                 _currentItems[language] = newItem;
@@ -281,7 +281,7 @@ namespace PXWeb.Database
         {
 
             //ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length)), path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length));
-            ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(_hostingEnvironment.RootPath.Length)), path.Substring(_hostingEnvironment.RootPath.Length));
+            ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(_hostingEnvironment.RootPath.Length + 1)), path.Substring(_hostingEnvironment.RootPath.Length + 1));
 
             //TableLink tbl = new TableLink(meta.DescriptionDefault ? meta.Description : meta.Title ?? meta.Description, meta.Matrix, meta.DescriptionDefault ? meta.Description : meta.Title ?? meta.Description, cid.Menu, cid.Selection, meta.Description ?? "",
             //                          LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "",
