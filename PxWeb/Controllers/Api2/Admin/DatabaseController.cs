@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
 using Px.Search;
 using PxWeb.Code.Api2.DataSource.PxFile;
+using PxWeb.Config.Api2;
+using PXWeb.Database;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace PxWeb.Controllers.Api2.Admin
 {
@@ -12,12 +21,16 @@ namespace PxWeb.Controllers.Api2.Admin
     public class DatabaseController : ControllerBase
     {
         private readonly IDataSource _dataSource;
+        private readonly PxApiConfigurationOptions _configOptions;
         private readonly ILogger<DatabaseController> _logger;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public DatabaseController(IDataSource dataSource, ILogger<DatabaseController> logger)
+        public DatabaseController(IDataSource dataSource, IOptions<PxApiConfigurationOptions> configOptions, ILogger<DatabaseController> logger, IWebHostEnvironment hostingEnvironment)
         {
-            _dataSource = dataSource;   
+            _dataSource = dataSource;
+            _configOptions = configOptions.Value;
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [HttpPut]
@@ -35,6 +48,29 @@ namespace PxWeb.Controllers.Api2.Admin
                     return StatusCode(405, "Only possible to generate database for PX-file databases");
                 }
 
+                PXWeb.Database.DatabaseSpider spider;
+                spider = new PXWeb.Database.DatabaseSpider();
+                spider.Handles.Add(new AliasFileHandler(_configOptions));
+                spider.Handles.Add(new LinkFileHandler(_configOptions));
+                spider.Handles.Add(new PxFileHandler());
+                spider.Handles.Add(new MenuSortFileHandler(_configOptions));
+
+                List<string> langs = new List<string>();
+                foreach (Language lang in _configOptions.Languages)
+                {
+                    langs.Add(lang.Id);
+                }
+
+                // TODO: get from querystring parameters
+                bool langDependent = false;
+                string sortOrder = "Matrix";
+                string databasePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database");
+
+                spider.Builders.Add(new MenuBuilder(_configOptions, _hostingEnvironment, langs.ToArray(), langDependent) { SortOrder = GetSortOrder(sortOrder) });
+                spider.Search(databasePath);
+
+                List<DatabaseMessage> messages = spider.Messages;
+
                 return Ok();
             }
             catch (System.Exception ex)
@@ -42,6 +78,22 @@ namespace PxWeb.Controllers.Api2.Admin
                 _logger.LogError(ex.Message);
                 return BadRequest();
             }
+        }
+
+        private static Func<PCAxis.Paxiom.PXMeta, string, string> GetSortOrder(string sortOrder)
+        {
+            switch (sortOrder)
+            {
+                case "Matrix":
+                    return (meta, path) => meta.Matrix;
+                case "Title":
+                    return (meta, path) => !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title;
+                case "FileName":
+                    return (meta, path) => System.IO.Path.GetFileNameWithoutExtension(path);
+                default:
+                    break;
+            }
+            return (meta, path) => path;
         }
     }
 }

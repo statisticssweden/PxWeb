@@ -23,6 +23,7 @@ using System;
 using PxWeb.Code.Api2.NewtonsoftConfiguration;
 using Px.Search;
 using Px.Search.Lucene;
+using System.Text;
 
 namespace PxWeb
 {
@@ -33,6 +34,8 @@ namespace PxWeb
         public static void Main(string[] args)
         {
 
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
