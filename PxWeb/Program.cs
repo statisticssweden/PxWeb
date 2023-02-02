@@ -24,6 +24,7 @@ using PxWeb.Code.Api2.NewtonsoftConfiguration;
 using Px.Search;
 using Px.Search.Lucene;
 using System.Text;
+using PxWeb.Code;
 
 namespace PxWeb
 {
@@ -66,6 +67,7 @@ namespace PxWeb
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+            builder.Services.AddTransient<IPxHost, PxWebHost>();
 
             builder.Services.AddPxSearchEngine(builder);
 

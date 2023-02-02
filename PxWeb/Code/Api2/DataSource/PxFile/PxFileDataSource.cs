@@ -3,7 +3,6 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
-using Microsoft.AspNetCore.Hosting;
 using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using PCAxis.Paxiom;
@@ -18,9 +17,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
         private readonly IPxFileConfigurationService _pxFileConfigurationService;
         private readonly IItemSelectionResolver _itemSelectionResolver;
         private readonly ITablePathResolver _tablePathResolver;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IPxHost _hostingEnvironment;
 
-        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver, IWebHostEnvironment hostingEnvironment)
+        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver, IPxHost hostingEnvironment)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
@@ -54,7 +53,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
         public Item CreateMenu(string id, string language, out bool selectionExists)
         {
-            string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
+            string xmlFilePath = Path.Combine(_hostingEnvironment.RootPath, "Database", "Menu.xml");
 
             ItemSelection itmSel = _itemSelectionResolver.Resolve(language, id, out selectionExists);
 

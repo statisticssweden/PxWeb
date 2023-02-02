@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -23,9 +22,9 @@ namespace PxWeb.Controllers.Api2.Admin
         private readonly IDataSource _dataSource;
         private readonly PxApiConfigurationOptions _configOptions;
         private readonly ILogger<DatabaseController> _logger;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IPxHost _hostingEnvironment;
 
-        public DatabaseController(IDataSource dataSource, IOptions<PxApiConfigurationOptions> configOptions, ILogger<DatabaseController> logger, IWebHostEnvironment hostingEnvironment)
+        public DatabaseController(IDataSource dataSource, IOptions<PxApiConfigurationOptions> configOptions, ILogger<DatabaseController> logger, IPxHost hostingEnvironment)
         {
             _dataSource = dataSource;
             _configOptions = configOptions.Value;
@@ -64,7 +63,7 @@ namespace PxWeb.Controllers.Api2.Admin
                 // TODO: get from querystring parameters
                 bool langDependent = false;
                 string sortOrder = "Matrix";
-                string databasePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database");
+                string databasePath = Path.Combine(_hostingEnvironment.RootPath, "Database");
 
                 spider.Builders.Add(new MenuBuilder(_configOptions, _hostingEnvironment, langs.ToArray(), langDependent) { SortOrder = GetSortOrder(sortOrder) });
                 spider.Search(databasePath);

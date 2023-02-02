@@ -8,7 +8,7 @@ using PCAxis.Paxiom.Extensions;
 using System.IO;
 using PxWeb.Config.Api2;
 using PCAxis.Paxiom;
-using Microsoft.AspNetCore.Hosting;
+using Px.Abstractions.Interfaces;
 
 namespace PXWeb.Database
 {
@@ -26,7 +26,7 @@ namespace PXWeb.Database
         private static log4net.ILog _logger4Net = log4net.LogManager.GetLogger(typeof(MenuBuilder));
 
         private readonly PxApiConfigurationOptions _configOptions;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IPxHost _hostingEnvironment;
 
 
         public Func<PCAxis.Paxiom.PXMeta, string, string> SortOrder
@@ -47,7 +47,7 @@ namespace PXWeb.Database
         /// </summary>
         /// <param name="languages">Languages that the database structure will be created for</param>
         /// <param name="languagDependent">If only file with the specific language should be included in the menu</param>
-        public MenuBuilder(PxApiConfigurationOptions configOptions, IWebHostEnvironment hostingEnvironment, string[] languages, bool languageDependent)
+        public MenuBuilder(PxApiConfigurationOptions configOptions, IPxHost hostingEnvironment, string[] languages, bool languageDependent)
         {
             _configOptions = configOptions; 
             _hostingEnvironment = hostingEnvironment;
@@ -128,7 +128,7 @@ namespace PXWeb.Database
             foreach (var language in _languages)
             {
                 //ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length)), id.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length));
-                ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(_hostingEnvironment.WebRootPath.Length)), id.Substring(_hostingEnvironment.WebRootPath.Length));
+                ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(_hostingEnvironment.RootPath.Length)), id.Substring(_hostingEnvironment.RootPath.Length));
                 PxMenuItem newItem = new PxMenuItem(null, name, "", name, cid.Menu, cid.Selection, "");
                 _currentItems[language].AddSubItem(newItem);
                 _currentItems[language] = newItem;
@@ -281,7 +281,7 @@ namespace PXWeb.Database
         {
 
             //ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length)), path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length));
-            ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(_hostingEnvironment.WebRootPath.Length)), path.Substring(_hostingEnvironment.WebRootPath.Length));
+            ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(_hostingEnvironment.RootPath.Length)), path.Substring(_hostingEnvironment.RootPath.Length));
 
             //TableLink tbl = new TableLink(meta.DescriptionDefault ? meta.Description : meta.Title ?? meta.Description, meta.Matrix, meta.DescriptionDefault ? meta.Description : meta.Title ?? meta.Description, cid.Menu, cid.Selection, meta.Description ?? "",
             //                          LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "",

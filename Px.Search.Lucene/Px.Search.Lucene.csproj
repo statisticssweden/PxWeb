@@ -16,8 +16,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Px.Search\Px.Search.csproj" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+
 </Project>

@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Px.Abstractions\Px.Abstractions.csproj" />
     <ProjectReference Include="..\PxWeb\PxWeb.csproj" />
   </ItemGroup>
 

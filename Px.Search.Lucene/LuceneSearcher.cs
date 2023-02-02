@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using Lucene.Net.Documents;
-using Microsoft.AspNetCore.Http;
 using static Lucene.Net.Util.Fst.Util;
 using static Lucene.Net.Util.Packed.PackedInt32s;
 
