@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using log4net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PxWeb.Config.Api2;

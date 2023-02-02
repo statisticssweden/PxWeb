@@ -63,7 +63,7 @@ namespace PxWeb.Controllers.Api2.Admin
                 string sorting = GetSorting(sortOrder);
                 string databasePath = Path.Combine(_hostingEnvironment.RootPath, "Database");
 
-                spider.Builders.Add(new MenuBuilder(_configOptions, _hostingEnvironment, langs.ToArray(), GetLangDependent(langDependent)) { SortOrder = GetSortOrder(sorting) });
+                spider.Builders.Add(new MenuBuilder(_configOptions, _logger, _hostingEnvironment, langs.ToArray(), GetLangDependent(langDependent)) { SortOrder = GetSortOrder(sorting) });
                 spider.Search(databasePath);
 
                 List<DatabaseMessage> messages = spider.Messages;

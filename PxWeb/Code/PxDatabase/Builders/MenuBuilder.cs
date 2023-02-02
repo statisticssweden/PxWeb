@@ -9,6 +9,7 @@ using System.IO;
 using PxWeb.Config.Api2;
 using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace PXWeb.Database
 {
@@ -20,10 +21,10 @@ namespace PXWeb.Database
         private Dictionary<string, PxMenuItem> _currentItems = new Dictionary<string, PxMenuItem>();
         private string[] _languages;
         private Func<PCAxis.Paxiom.PXMeta, string, string> _sortOrder;
-        private DatabaseLogger _logger;
+        private DatabaseLogger _buildLogger;
         private bool _languageDependent;
         private Dictionary<PxMenuItem, List<string>> _links = new Dictionary<PxMenuItem, List<string>>();
-        private static log4net.ILog _logger4Net = log4net.LogManager.GetLogger(typeof(MenuBuilder));
+        private ILogger _logger;
 
         private readonly PxApiConfigurationOptions _configOptions;
         private readonly IPxHost _hostingEnvironment;
@@ -47,9 +48,10 @@ namespace PXWeb.Database
         /// </summary>
         /// <param name="languages">Languages that the database structure will be created for</param>
         /// <param name="languagDependent">If only file with the specific language should be included in the menu</param>
-        public MenuBuilder(PxApiConfigurationOptions configOptions, IPxHost hostingEnvironment, string[] languages, bool languageDependent)
+        public MenuBuilder(PxApiConfigurationOptions configOptions, ILogger logger, IPxHost hostingEnvironment, string[] languages, bool languageDependent)
         {
             _configOptions = configOptions; 
+            _logger = logger;
             _hostingEnvironment = hostingEnvironment;
             _languages = languages;
             _languageDependent = languageDependent;
@@ -64,10 +66,10 @@ namespace PXWeb.Database
         /// <param name="path"></param>
         public void BeginBuild(string path, DatabaseLogger logger)
         {
-            _logger4Net.InfoFormat("Start building menu for {0}", path);
-            _logger = logger;
+            _logger.LogInformation("Start building menu for {0}", path);
+            _buildLogger = logger;
             //TODO set use Date format
-            _logger(new DatabaseMessage() {MessageType = DatabaseMessage.BuilderMessageType.Information, Message = "Menu build started " + DateTime.Now.ToString() });
+            _buildLogger(new DatabaseMessage() {MessageType = DatabaseMessage.BuilderMessageType.Information, Message = "Menu build started " + DateTime.Now.ToString() });
             string folderName = System.IO.Path.GetFileNameWithoutExtension(path);
             foreach (var language in _languages)
             {
@@ -99,14 +101,14 @@ namespace PXWeb.Database
             {
                 //doc.Save(System.IO.Path.Combine(path, PXWeb.Settings.Current.General.Databases.PxDatabaseFilename));
                 doc.Save(System.IO.Path.Combine(path, "Menu.xml"));
-                _logger4Net.InfoFormat("Finished building menu for {0}", path);
+                _logger.LogInformation("Finished building menu for {0}", path);
             }
             catch (Exception e)
             {
                 var errorMessage = string.Format("Cannot create file {0}. {1}", path, e.Message);
 
-                _logger4Net.Error(errorMessage);
-                _logger(new DatabaseMessage()
+                _logger.LogError(errorMessage);
+                _buildLogger(new DatabaseMessage()
                 {
                     MessageType = DatabaseMessage.BuilderMessageType.Error,
                     Message = errorMessage
@@ -114,7 +116,7 @@ namespace PXWeb.Database
             }
 
             //TODO set use Date format
-            _logger(new DatabaseMessage()
+            _buildLogger(new DatabaseMessage()
             {
                 MessageType = DatabaseMessage.BuilderMessageType.Information,
                 Message = "Menu build ended " + DateTime.Now.ToString()
