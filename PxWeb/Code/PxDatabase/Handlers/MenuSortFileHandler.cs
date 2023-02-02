@@ -1,4 +1,5 @@
-﻿using PxWeb.Config.Api2;
+﻿using Microsoft.Extensions.Logging;
+using PxWeb.Config.Api2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,13 @@ namespace PXWeb.Database
     /// </summary>
     public class MenuSortFileHandler : IItemHandler
     {
-        private log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(MenuSortFileHandler));
+        private ILogger _logger;
         private readonly PxApiConfigurationOptions _configOptions;
 
-        public MenuSortFileHandler(PxApiConfigurationOptions configOptions)
+        public MenuSortFileHandler(PxApiConfigurationOptions configOptions, ILogger logger)
         {
             _configOptions = configOptions;
+            _logger = logger;   
         }
 
         #region IItemHandler Members
@@ -78,7 +80,7 @@ namespace PXWeb.Database
             catch (System.IO.IOException ex)
             {
                 logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "Could not read file " + path });
-                _logger.Warn(ex.ToString());
+                _logger.LogWarning(ex.ToString());
                 return null;
             }
 

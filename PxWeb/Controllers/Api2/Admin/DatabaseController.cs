@@ -49,10 +49,10 @@ namespace PxWeb.Controllers.Api2.Admin
 
                 PXWeb.Database.DatabaseSpider spider;
                 spider = new PXWeb.Database.DatabaseSpider();
-                spider.Handles.Add(new AliasFileHandler(_configOptions));
-                spider.Handles.Add(new LinkFileHandler(_configOptions));
+                spider.Handles.Add(new AliasFileHandler(_configOptions, _logger));
+                spider.Handles.Add(new LinkFileHandler(_configOptions, _logger));
                 spider.Handles.Add(new PxFileHandler());
-                spider.Handles.Add(new MenuSortFileHandler(_configOptions));
+                spider.Handles.Add(new MenuSortFileHandler(_configOptions, _logger));
 
                 List<string> langs = new List<string>();
                 foreach (Language lang in _configOptions.Languages)

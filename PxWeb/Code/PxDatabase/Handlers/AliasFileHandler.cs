@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using log4net;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PxWeb.Config.Api2;
 
@@ -13,12 +14,13 @@ namespace PXWeb.Database
     /// </summary>
     public class AliasFileHandler : IItemHandler
     {
-        private log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(AliasFileHandler));
+        private ILogger _logger;
         private readonly PxApiConfigurationOptions _configOptions;
 
-        public AliasFileHandler(PxApiConfigurationOptions configOptions)
+        public AliasFileHandler(PxApiConfigurationOptions configOptions, ILogger logger)
         {
             _configOptions = configOptions;
+            _logger = logger;
         }
 
         #region IItemHandler Members
@@ -81,7 +83,7 @@ namespace PXWeb.Database
             catch (System.IO.IOException ex)
             {
                 logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "Could not read file " + path });
-                _logger.Warn(ex.ToString());
+                _logger.LogWarning(ex.ToString());
                 return null;
             }
             
