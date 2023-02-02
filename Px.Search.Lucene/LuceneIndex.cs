@@ -42,10 +42,14 @@ namespace Px.Search.Lucene
         }
 
         /// <summary>
-        /// Get Lucene.Net IndexWriter object 
+        /// Get Lucene.Net IndexWriter object
         /// </summary>
+        /// <param name="create">
+        /// If true, the existing index will be overwritten
+        /// If false, the existing index will be appended
+        /// </param>
         /// <returns>IndexWriter object. If the Index directory is locked, null is returned</returns>
-        private IndexWriter CreateIndexWriter()
+        private IndexWriter CreateIndexWriter(bool create)
         {
             FSDirectory fsDir = FSDirectory.Open(_indexDirectoryCurrent);
             if (IndexWriter.IsLocked(fsDir))
@@ -58,7 +62,8 @@ namespace Px.Search.Lucene
 
             IndexWriterConfig config = new IndexWriterConfig(luceneVersion, analyzer)
             {
-                OpenMode = OpenMode.CREATE_OR_APPEND // Creates a new index if one does not exist, otherwise it opens the index and documents will be appended.
+                // Overwrite or append existing index
+                OpenMode = create ? OpenMode.CREATE : OpenMode.CREATE_OR_APPEND 
             };
 
             IndexWriter writer = new IndexWriter(fsDir, config);
@@ -68,7 +73,18 @@ namespace Px.Search.Lucene
 
         public void BeginUpdate(string language)
         {
-            BeginWrite(language);
+            if (string.IsNullOrWhiteSpace(language))
+            {
+                throw new ArgumentNullException("Language not specified");
+            }
+
+            _indexDirectoryCurrent = Path.Combine(_indexDirectoryBase, language);
+            _writer = CreateIndexWriter(false);
+
+            if (_writer == null)
+            {
+                throw new Exception("Could not create IndexWriter. Index directory may be locked by another IndexWriter");
+            }
         }
 
         public void BeginWrite(string language)
@@ -79,7 +95,7 @@ namespace Px.Search.Lucene
             }
 
             _indexDirectoryCurrent = Path.Combine(_indexDirectoryBase, language);
-            _writer = CreateIndexWriter();  
+            _writer = CreateIndexWriter(true);  
 
             if (_writer == null)
             {
