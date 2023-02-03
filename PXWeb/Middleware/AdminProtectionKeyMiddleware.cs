@@ -12,19 +12,18 @@ namespace PxWeb.Middleware
     public class AdminProtectionKeyMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IAdminProtectionConfigurationService _adminProtectionConfigurationService;
+        private readonly AdminProtectionConfigurationOptions _adminProtectionConfigurationOptions;
 
         public AdminProtectionKeyMiddleware(RequestDelegate next, IAdminProtectionConfigurationService adminProtectionConfigurationService)
         {
             _next = next;
-            _adminProtectionConfigurationService = adminProtectionConfigurationService;
+            _adminProtectionConfigurationOptions = adminProtectionConfigurationService.GetConfiguration();
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
-            AdminProtectionConfigurationOptions options = _adminProtectionConfigurationService.GetConfiguration();
             string adminHeader = httpContext.Request.Headers["API_ADMIN_KEY"];
-            bool match = options.AdminKey == adminHeader;
+            bool match = _adminProtectionConfigurationOptions.AdminKey != null && _adminProtectionConfigurationOptions.AdminKey == adminHeader;
             if (!match)
             {
                 httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;

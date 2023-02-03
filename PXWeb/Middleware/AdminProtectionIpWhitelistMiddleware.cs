@@ -12,18 +12,17 @@ namespace PxWeb.Middleware
     public class AdminProtectionIpWhitelistMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IAdminProtectionConfigurationService _adminProtectionConfigurationService;
+        private readonly AdminProtectionConfigurationOptions _adminProtectionConfigurationOptions;
 
         public AdminProtectionIpWhitelistMiddleware(RequestDelegate next, IAdminProtectionConfigurationService adminProtectionConfigurationService)
         {
             _next = next;
-            _adminProtectionConfigurationService = adminProtectionConfigurationService;
+            _adminProtectionConfigurationOptions = adminProtectionConfigurationService.GetConfiguration();
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
-            AdminProtectionConfigurationOptions options = _adminProtectionConfigurationService.GetConfiguration();
-            List<string> ipWhitelist = options.IpWhitelist;
+            List<string> ipWhitelist = _adminProtectionConfigurationOptions.IpWhitelist;
             IPAddress? ip = httpContext.Connection.RemoteIpAddress;
             bool match = ipWhitelist.Where(x => IPAddress.Parse(x).Equals(ip)).Any();
             if (!match)
