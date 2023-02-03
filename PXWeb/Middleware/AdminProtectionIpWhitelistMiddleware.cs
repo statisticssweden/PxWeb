@@ -13,18 +13,20 @@ namespace PxWeb.Middleware
     {
         private readonly RequestDelegate _next;
         private readonly AdminProtectionConfigurationOptions _adminProtectionConfigurationOptions;
+        private readonly HashSet<string> _ipWhitelist = new HashSet<string>();
 
         public AdminProtectionIpWhitelistMiddleware(RequestDelegate next, IAdminProtectionConfigurationService adminProtectionConfigurationService)
         {
             _next = next;
             _adminProtectionConfigurationOptions = adminProtectionConfigurationService.GetConfiguration();
+            List<string> ipWhitelist = _adminProtectionConfigurationOptions.IpWhitelist;
+            foreach (string ip in ipWhitelist) _ipWhitelist.Add(ip);
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
-            List<string> ipWhitelist = _adminProtectionConfigurationOptions.IpWhitelist;
             IPAddress? ip = httpContext.Connection.RemoteIpAddress;
-            bool match = ipWhitelist.Where(x => IPAddress.Parse(x).Equals(ip)).Any();
+            bool match = ip != null && _ipWhitelist.Contains(ip.ToString());
             if (!match)
             {
                 httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
