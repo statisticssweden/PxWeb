@@ -8,6 +8,6 @@ namespace Px.Search
 {
     public interface ISearcher
     {
-        IEnumerable<SearchResult> Find(string searchExpression, string language);
+        IEnumerable<SearchResult> Find(string searchExpression, int pageSize, int pageNumber);
     }
 }

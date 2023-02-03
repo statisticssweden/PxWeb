@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using PCAxis.Sql;
 using PCAxis.Sql.DbClient;
 using PCAxis.Sql.DbConfig;
@@ -52,6 +53,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                     // TODO: Log that this is a duplicate key
                     Console.WriteLine(row[0] + " " + row[1]);
                 }
+            }
+
+            if (!menuLookup.ContainsKey("START"))
+            {
+                menuLookup.Add("START", "START"); 
             }
 
             return menuLookup;

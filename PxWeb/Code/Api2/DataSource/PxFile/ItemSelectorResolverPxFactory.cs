@@ -39,26 +39,36 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                     xdoc.Load(xmlFilePath);
                 }
 
+                // Add Menu levels to lookup table
                 string xpath = string.Format("//Language [@lang='{0}']//MenuItem", language);
+                AddItemsToMenuLookup(xdoc, menuLookup, xpath);
 
-                foreach (XmlElement childEl in xdoc.SelectNodes(xpath))
-                {
-                    string selection = childEl.GetAttribute("selection");
-                    var menu = Path.GetDirectoryName(selection);
-                    var sel = Path.GetFileName(selection).ToUpper();
-                    if (!menuLookup.ContainsKey(sel))
-                    {
-                        menuLookup.Add(sel, menu);
-                    }
-                }
+                // Add Tables to lookup table
+                xpath = string.Format("//Language [@lang='{0}']//Link", language);
+                AddItemsToMenuLookup(xdoc, menuLookup, xpath);
             }
-            
+
             catch (Exception e)
             {
                 _logger.LogError($"Error loading MenuLookup table for language {language}", e);
             }
 
             return menuLookup;
+        }
+
+        private void AddItemsToMenuLookup(XmlDocument xdoc, Dictionary<string, string> menuLookup, string xpath)
+        {
+            foreach (XmlElement childEl in xdoc.SelectNodes(xpath))
+            {
+                string selection = childEl.GetAttribute("selection");
+                var menu = Path.GetDirectoryName(selection);
+                var sel = Path.GetFileName(selection).ToUpper();
+                if (!menuLookup.ContainsKey(sel))
+                {
+                    menuLookup.Add(sel, menu);
+                }
+            }
+
         }
     }
 }

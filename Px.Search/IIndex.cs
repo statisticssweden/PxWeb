@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Px.Search
 {
-    public interface IIndex //TODO Should maybe inherit IDisposable
+    public interface IIndex : IDisposable
     {
         void BeginWrite(string language);
 
@@ -16,9 +17,9 @@ namespace Px.Search
 
         void EndUpdate(string language);
 
-        void AddEntry(string id, string label, DateTime updated, string[] tags, string category, string source); 
+        void AddEntry(TableInformation tbl, PXMeta meta);
 
-        void UpdateEntry(string id, string label, DateTime updated, string[] tags, string category, string source);
+        void UpdateEntry(TableInformation tbl, PXMeta meta);
 
         void RemoveEntry(string id);
     }

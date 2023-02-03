@@ -2,6 +2,6 @@
 {
     public interface ILanguageHelper
     {
-        string HandleLanguage(string lang);
+        string HandleLanguage(string? lang);
     }
 }
