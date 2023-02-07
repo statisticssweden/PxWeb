@@ -19,6 +19,7 @@ namespace PXWeb.Database
 
         private Dictionary<string, PxMenuItem> _languageRoots = new Dictionary<string, PxMenuItem>();
         private Dictionary<string, PxMenuItem> _currentItems = new Dictionary<string, PxMenuItem>();
+        private Dictionary<string, string> _matrixDict = new Dictionary<string, string>();
         private string[] _languages;
         private Func<PCAxis.Paxiom.PXMeta, string, string> _sortOrder;
         private DatabaseLogger _buildLogger;
@@ -218,6 +219,21 @@ namespace PXWeb.Database
             else if (item is PCAxis.Paxiom.PXMeta)
             {
                 PCAxis.Paxiom.PXMeta meta = (PCAxis.Paxiom.PXMeta)item;
+
+                // Check if table with this MATRIX is already added
+                if (_matrixDict.ContainsKey(meta.Matrix))
+                {
+                    _buildLogger(new DatabaseMessage()
+                    {
+                        MessageType = DatabaseMessage.BuilderMessageType.Information,
+                        Message = "Duplicate MATRIX " + meta.Matrix + " adding " + path + " already exists at " + _matrixDict[meta.Matrix]
+                    });
+                }
+                else
+                {
+                    _matrixDict.Add(meta.Matrix, path);
+                }
+
                 foreach (var language in _languages)
                 {
                     if (meta.HasLanguage(language))
