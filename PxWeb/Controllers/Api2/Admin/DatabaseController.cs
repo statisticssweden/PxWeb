@@ -93,31 +93,31 @@ namespace PxWeb.Controllers.Api2.Admin
         {
             if (string.IsNullOrWhiteSpace(sortOrder))
             {
-                return "Matrix";
+                return "matrix";
             }
 
-            switch ((string)sortOrder)
+            switch (sortOrder.ToLower())
             {
-                case "Matrix":
-                    return "Matrix";
-                case "Title":
-                    return "Title";
-                case "FileName":
-                    return "FileName";
+                case "matrix":
+                    return "matrix";
+                case "title":
+                    return "title";
+                case "filename":
+                    return "filename";
                 default:
-                    return "Matrix";
+                    return "matrix";
             }
         }
 
         private static Func<PCAxis.Paxiom.PXMeta, string, string> GetSortOrder(string sortOrder)
         {
-            switch (sortOrder)
+            switch (sortOrder.ToLower())
             {
-                case "Matrix":
+                case "matrix":
                     return (meta, path) => meta.Matrix;
-                case "Title":
+                case "title":
                     return (meta, path) => !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title;
-                case "FileName":
+                case "filename":
                     return (meta, path) => System.IO.Path.GetFileNameWithoutExtension(path);
                 default:
                     break;
