@@ -15,8 +15,6 @@ namespace PXWeb.Database
 {
     class MenuBuilder : IDatabaseBuilder
     {
-
-
         private Dictionary<string, PxMenuItem> _languageRoots = new Dictionary<string, PxMenuItem>();
         private Dictionary<string, PxMenuItem> _currentItems = new Dictionary<string, PxMenuItem>();
         private Dictionary<string, string> _matrixDict = new Dictionary<string, string>();
@@ -94,13 +92,11 @@ namespace PXWeb.Database
                     from lang in _languages 
                     select new XElement("Language", 
                              new XAttribute("lang", lang),
-                             //new XAttribute("default", lang == Settings.Current.General.Language.DefaultLanguage),
                              new XAttribute("default", lang == _configOptions.DefaultLanguage),
                              (_languageRoots[lang].HasSubItems?(XNode)_languageRoots[lang].SubItems[0].GetAsXML(): (XNode)new XComment("No items")))));
 
             try
             {
-                //doc.Save(System.IO.Path.Combine(path, PXWeb.Settings.Current.General.Databases.PxDatabaseFilename));
                 doc.Save(System.IO.Path.Combine(path, "Menu.xml"));
                 _logger.LogInformation("Finished building menu for {0}", path);
             }
@@ -130,7 +126,6 @@ namespace PXWeb.Database
             string name = System.IO.Path.GetFileNameWithoutExtension(id);
             foreach (var language in _languages)
             {
-                //ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length)), id.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length));
                 ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(id.Substring(_hostingEnvironment.RootPath.Length + 1)), id.Substring(_hostingEnvironment.RootPath.Length + 1));
                 PxMenuItem newItem = new PxMenuItem(null, name, "", name, cid.Menu, cid.Selection, "");
                 _currentItems[language].AddSubItem(newItem);
@@ -202,7 +197,6 @@ namespace PXWeb.Database
                 {
                     if (CheckIfLinkShallBeAdded(path, _currentItems[itm.Language]))
                     {
-                        //Url url = new Url(itm.Text, "", path, "", PresCategory.NotSet, itm.Location, LinkPres.NotSet);
                         Url url = new Url(itm.Text, "", "MENU_TEST", itm.Location, "", PresCategory.NotSet, itm.Location, LinkPres.NotSet);
                         _currentItems[itm.Language].SubItems.Add(url);
                     }
@@ -297,18 +291,7 @@ namespace PXWeb.Database
 
         private TableLink CreateTableLink(PCAxis.Paxiom.PXMeta meta, string path)
         {
-
-            //ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length)), path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length));
             ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(_hostingEnvironment.RootPath.Length + 1)), path.Substring(_hostingEnvironment.RootPath.Length + 1));
-
-            //TableLink tbl = new TableLink(meta.DescriptionDefault ? meta.Description : meta.Title ?? meta.Description, meta.Matrix, meta.DescriptionDefault ? meta.Description : meta.Title ?? meta.Description, cid.Menu, cid.Selection, meta.Description ?? "",
-            //                          LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "",
-            //                          PresCategory.Official);
-
-
-            //TableLink tbl = new TableLink(!string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, path.Substring(System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath).Length), meta.Description ?? "",
-            //                              LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "",
-            //                              PresCategory.Official);
 
             TableLink tbl = new TableLink( !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.Matrix ?? "", PresCategory.Official);
             
@@ -329,8 +312,6 @@ namespace PXWeb.Database
                     {
                         tbl.SetAttribute("autoOpen", "true");
                     }
-                    //TODO Use Data format
-                    //tbl.SetAttribute("updated", info.LastWriteTime.ToString());
                     
                     // Store dates in the PC-Axis date format
                     tbl.SetAttribute("updated", info.LastWriteTime.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT));
@@ -373,9 +354,6 @@ namespace PXWeb.Database
                 }
                 if (maxDate != DateTime.MinValue)
                 {
-                    //TODO Use Date format
-                    //date = maxDate.ToString();
-                    
                     // Store date in the PC-Axis date format
                     date = maxDate.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT);
                 }
@@ -390,7 +368,6 @@ namespace PXWeb.Database
 
             if (string.IsNullOrEmpty(date))
             {
-                //date = maxDate.ToString();
                 date = "";
             }
 

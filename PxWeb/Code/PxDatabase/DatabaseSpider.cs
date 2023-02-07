@@ -114,7 +114,6 @@ namespace PXWeb.Database
                 SearchRecursive(item);
             }
 
-            //
             SignalStopNewLevel(path);
         }
 
@@ -124,26 +123,21 @@ namespace PXWeb.Database
             {
                 if (item.CanHandle(path)) return item;
             }
-            //Return 
             return null;
         }
 
         private void SignalStartNewLevel(string path)
         {
-            //string name = System.IO.Path.GetFileName(path);
             foreach (var item in Builders)
             {
-                //item.BeginNewLevel(name);
                 item.BeginNewLevel(path);
             }
         }
 
         private void SignalStopNewLevel(string path)
         {
-            //string name = System.IO.Path.GetDirectoryName(path);
             foreach (var item in Builders)
             {
-                //item.EndNewLevel(name);
                 item.EndNewLevel(path);
             }
         }
