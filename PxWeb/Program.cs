@@ -21,6 +21,7 @@ using PxWeb.Mappers;
 using Newtonsoft.Json;
 using System;
 using PxWeb.Code.Api2.NewtonsoftConfiguration;
+using PxWeb.Middleware;
 using Px.Search;
 using Px.Search.Lucene;
 
@@ -59,8 +60,11 @@ namespace PxWeb
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
+            builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
+
             
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
+            builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
 
@@ -102,13 +106,13 @@ namespace PxWeb
 
             var app = builder.Build();
 
+
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
                 app.UseSwagger();
                 app.UseSwaggerUI();
             //}
-
             app.UseHttpsRedirection();
 
             if (corsEnbled)
@@ -117,6 +121,12 @@ namespace PxWeb
             }
 
             app.UseAuthorization();
+
+            app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/v2/admin"), appBuilder =>
+            {
+                appBuilder.UseAdminProtectionIpWhitelist();
+                appBuilder.UseAdminProtectionKey();
+            });
 
             app.MapControllers();
 
@@ -128,5 +138,4 @@ namespace PxWeb
             app.Run();
         }
     }
-
 }
