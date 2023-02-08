@@ -19,6 +19,7 @@ using System.Diagnostics;
 using PCAxis.Web.Controls;
 using log4net;
 using PX.Web.Interfaces.Cache;
+using PXWeb.Code.Management;
 
 namespace PXWeb.Management
 {
@@ -55,6 +56,12 @@ namespace PXWeb.Management
             
             PCAxis.Paxiom.IPXModelBuilder builder;
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
+
+            if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM && !CnmmDatabaseRootHelper.Check(path))
+            {
+                HttpContext.Current.Response.Redirect(LinkManager.CreateLink("~/Menu.aspx", new LinkManager.LinkItem() { Key = "msg", Value = "UnauthorizedTable" }));
+            }
+
             PCAxis.Web.Controls.PathHandler pHandler;
 
             pHandler = PCAxis.Web.Controls.PathHandlerFactory.Create(dbi.Type);
@@ -363,6 +370,9 @@ namespace PXWeb.Management
 
         private static PCAxis.Menu.Item GetCnmmMenuItem(string dbid, string nodeId, string lang)
         {
+            
+            nodeId = CnmmDatabaseRootHelper.GetId(nodeId);
+               
             PCAxis.Menu.Item menuItem = null;
             GetCnmmMenuAndItem(dbid, nodeId, lang, out menuItem);
 
@@ -402,7 +412,7 @@ namespace PXWeb.Management
 
         private static PxMenuBase GetCnmmMenuAndItem(string dbid, string nodeId, string lang, out PCAxis.Menu.Item currentItem)
         {
-
+            
             //Get selected language in PX-Web
             //string pxLang = PCAxis.Web.Core.Management.LocalizationManager.GetTwoLetterLanguageCode();
             //string dbLang = PxContext.GetCnmmDbLanguage(dbid, pxLang);

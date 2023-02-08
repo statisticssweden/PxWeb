@@ -8,6 +8,7 @@ using PCAxis.Web.Core.Management;
 using System.Globalization;
 using PCAxis.Web.Controls.CommandBar.Plugin;
 using PCAxis.Web.Controls;
+using PXWeb.Code.Management;
 
 namespace PXWeb
 {
@@ -91,6 +92,15 @@ namespace PXWeb
 
             if (!IsPostBack)
             {
+                string db = PxUrlObject.Database;
+                string path = PxUrlObject.Path;
+
+                DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
+               
+                if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM && !CnmmDatabaseRootHelper.Check(path))
+                {
+                    HttpContext.Current.Response.Redirect(LinkManager.CreateLink("~/Menu.aspx", new LinkManager.LinkItem() { Key = "msg", Value = "UnauthorizedTable" }));
+                }
 
                 if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel != null)
                 {
