@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PxWeb
+namespace PxWeb.Code.Api2.Cache
 {
     public interface IPxCache
     {
@@ -13,8 +13,8 @@ namespace PxWeb
         void Clear();
         void Disable();
         void Enable();
-        T? Get<T>(Object key);
-        void Set(Object key, Object value);
+        T? Get<T>(object key);
+        void Set(object key, object value);
 
     }
 }

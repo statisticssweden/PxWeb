@@ -13,12 +13,12 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PxWeb.Config.Api2;
 
-namespace PxWeb
+namespace PxWeb.Code.Api2.Cache
 {
     /// <summary>
     /// Implementation class for the API cache
     /// </summary>
-    public class PxCache: IPxCache
+    public class PxCache : IPxCache
     {
         /// <summary>
         /// Delegate that waits for something after the cache has been cleaned
@@ -53,7 +53,7 @@ namespace PxWeb
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public T? Get<T>(Object key)
+        public T? Get<T>(object key)
         {
             if (!IsEnabled())
             {
@@ -71,7 +71,7 @@ namespace PxWeb
                 }
             }
 
-            return (T) _cache.Get(key);
+            return (T)_cache.Get(key);
         }
 
         /// <summary>

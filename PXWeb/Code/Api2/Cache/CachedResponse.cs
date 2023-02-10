@@ -1,4 +1,4 @@
-﻿namespace PxWeb
+﻿namespace PxWeb.Code.Api2.Cache
 {
     public class CachedResponse
     {
@@ -8,7 +8,7 @@
         public CachedResponse(string content, string responseType, int responseCode)
         {
             this.content = content;
-            this.contentType = responseType;
+            contentType = responseType;
             this.responseCode = responseCode;
         }
     }

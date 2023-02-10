@@ -24,6 +24,7 @@ using PxWeb.Code.Api2.NewtonsoftConfiguration;
 using PxWeb.Middleware;
 using Px.Search;
 using Px.Search.Lucene;
+using PxWeb.Code.Api2.Cache;
 
 namespace PxWeb
 {

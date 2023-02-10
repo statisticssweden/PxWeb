@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using System.IO;
 using System;
+using PxWeb.Code.Api2.Cache;
 
 namespace PxWeb.Middleware
 {
