@@ -56,6 +56,7 @@ namespace PxWeb
 
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            builder.Services.AddSingleton<IPxCache, PxCache>();
 
             builder.Services.AddPxDataSource(builder);
 
@@ -67,6 +68,7 @@ namespace PxWeb
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+
 
             builder.Services.AddPxSearchEngine(builder);
 
@@ -134,6 +136,8 @@ namespace PxWeb
             {
                 app.UseIpRateLimiting();
             }
+
+            app.UseCacheMiddleware();
 
             app.Run();
         }

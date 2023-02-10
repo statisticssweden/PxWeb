@@ -5,7 +5,7 @@ using Microsoft.Extensions.Caching.Memory;
 using System.IO;
 using System;
 
-namespace PxWeb
+namespace PxWeb.Middleware
 {
     public class CacheMiddleware
     {
@@ -61,7 +61,7 @@ namespace PxWeb
             if (cached is null)
             {
                 response = readResponse(httpContext).Result;
- 
+
                 lock (_cacheLock)
                 {
                     CachedResponse? freshCached = cache.Get<CachedResponse>(key);
