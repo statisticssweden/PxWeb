@@ -64,29 +64,32 @@ namespace PXWeb.Database
             string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
             int splittIndex = fileName.IndexOf('_');
 
-            AliasItem alias = new AliasItem();
+            AliasItem aliasItem;
+            string alias;
+            string language;
 
             if (splittIndex < 0)
             {
                 //No underscore in the file name use the default language
-                alias.Language = _configOptions.DefaultLanguage;
+                language = _configOptions.DefaultLanguage;
             }
             else
             {
-                alias.Language = fileName.Substring(splittIndex + 1);
+                language = fileName.Substring(splittIndex + 1);
             }
             try
-            { 
-                alias.Alias = ReadAll(path);
-            } 
+            {
+                alias = ReadAll(path);
+            }
             catch (System.IO.IOException ex)
             {
                 logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "Could not read file " + path });
                 _logger.LogWarning(ex.ToString());
                 return null;
             }
-            
-            return alias;
+
+            aliasItem = new AliasItem(alias, language);
+            return aliasItem;
         }
 
         /// <summary>

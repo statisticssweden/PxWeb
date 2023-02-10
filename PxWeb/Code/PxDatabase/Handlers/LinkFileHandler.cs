@@ -58,15 +58,19 @@ namespace PXWeb.Database
             string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
             int splittIndex = fileName.IndexOf('_');
 
-            LinkItem link = new LinkItem();
+            LinkItem link;
+            string text;
+            string location;
+            string language;
+
             if (splittIndex < 0)
             {
                 //No underscore in the file name use the default language
-                link.Language = _configOptions.DefaultLanguage;
+                language = _configOptions.DefaultLanguage;
             }
             else
             {
-                link.Language = fileName.Substring(splittIndex + 1);
+                language = fileName.Substring(splittIndex + 1);
             }
 
             string linkData;
@@ -101,9 +105,10 @@ namespace PXWeb.Database
                 return null;
             }
 
-            link.Text = TidyString(linkData.Substring(0, splittIndex)).Trim('"');
-            link.Location = TidyString(linkData.Substring(splittIndex + 1)).Trim('"');
+            text = TidyString(linkData.Substring(0, splittIndex)).Trim('"');
+            location = TidyString(linkData.Substring(splittIndex + 1)).Trim('"');
 
+            link = new LinkItem(text,location,language);
             return link;
         }
 

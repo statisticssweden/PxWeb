@@ -26,7 +26,7 @@ namespace PxWeb.Middleware
             bool match = _adminProtectionConfigurationOptions.AdminKey != null && _adminProtectionConfigurationOptions.AdminKey == adminHeader;
             if (!match)
             {
-                httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
+                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
                 return;
             }
             await _next(httpContext);

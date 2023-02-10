@@ -63,19 +63,22 @@ namespace PXWeb.Database
             string fileName = System.IO.Path.GetFileName(path);
             int splittIndex = fileName.LastIndexOf('.');
 
-            MenuSortItem sort = new MenuSortItem();
+            MenuSortItem sort;
+            string language;
+            string sortString = "";
 
             if (splittIndex == 4)
             {
-                sort.Language = _configOptions.DefaultLanguage;
+                language = _configOptions.DefaultLanguage;
             }
             else
             {
-                sort.Language = fileName.Substring(5, splittIndex - 5);
+                language = fileName.Substring(5, splittIndex - 5);
             }
             try
             {
-                sort.SortString = ReadAll(path);
+                sortString = ReadAll(path);
+                sort = new MenuSortItem(sortString, language);
             }
             catch (System.IO.IOException ex)
             {
