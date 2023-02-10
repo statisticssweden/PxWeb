@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PxWeb.Api2.Server.Models;
 using PxWeb.Attributes.Api2;
 using PxWeb.Config.Api2;
 using PxWeb.Models.Api2;

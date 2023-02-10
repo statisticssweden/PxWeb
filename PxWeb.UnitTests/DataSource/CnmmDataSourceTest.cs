@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PxWeb.Code.Api2.DataSource.Cnmm;
+using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
 
 namespace PxWeb.UnitTests.DataSource
@@ -84,7 +85,7 @@ namespace PxWeb.UnitTests.DataSource
 
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
-            var configServiceMock = new Mock<ICnmmConfigurationService>(); 
+            var configServiceMock = new Mock<ICnmmConfigurationService>();
 
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
@@ -97,8 +98,9 @@ namespace PxWeb.UnitTests.DataSource
             pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
+            var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object);
 
-            var datasource = new CnmmDataSource(configServiceMock.Object,  resolver );
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
 
             bool selectionExists;
 

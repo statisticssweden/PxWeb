@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using PCAxis.Menu;
+using PxWeb.Api2.Server.Models;
 using PxWeb.Models.Api2;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ namespace PxWeb.Mappers
     {
         public Folder GetFolder(PxMenuItem currentItem, HttpContext httpContext)
         {
-            string urlBase = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/v2/";
+            string urlBase = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/api/v2/";
             Folder folder = new Folder
             {
                 Id = Path.GetFileName(currentItem.ID.Selection),
@@ -21,8 +22,8 @@ namespace PxWeb.Mappers
                 Tags = null // TODO: Implement later
             };
 
-            folder.Links = new List<Models.Api2.Link>();
-            Models.Api2.Link link = new Models.Api2.Link();
+            folder.Links = new List<PxWeb.Api2.Server.Models.Link>();
+            PxWeb.Api2.Server.Models.Link link = new PxWeb.Api2.Server.Models.Link();
             link.Rel = "self";
             link.Href = urlBase + Path.Combine("navigation/", folder.Id);
             folder.Links.Add(link);
@@ -40,10 +41,10 @@ namespace PxWeb.Mappers
                         Description = child.Description,
                         Label = child.Text,
                         Tags = null,
-                        Links = new List<Models.Api2.Link>()
+                        Links = new List<PxWeb.Api2.Server.Models.Link>()
                     };
 
-                    Models.Api2.Link childLink = new Models.Api2.Link();
+                    PxWeb.Api2.Server.Models.Link childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "folder";
                     childLink.Href = urlBase + Path.Combine("navigation/", Path.GetFileName(fi.Id));
                     fi.Links.Add(childLink);
@@ -63,19 +64,19 @@ namespace PxWeb.Mappers
                         FirstPeriod = ((TableLink)child).StartTime,
                         LastPeriod = ((TableLink)child).EndTime
                     };
-                    table.Links = new List<Models.Api2.Link>();
+                    table.Links = new List<PxWeb.Api2.Server.Models.Link>();
 
-                    Models.Api2.Link childLink = new Models.Api2.Link();
+                    PxWeb.Api2.Server.Models.Link childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "self";
                     childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}");
                     table.Links.Add(childLink);
 
-                    childLink = new Models.Api2.Link();
+                    childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "metadata";
                     childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/metadata");
                     table.Links.Add(childLink);
 
-                    childLink = new Models.Api2.Link();
+                    childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "data";
                     childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/data");
                     table.Links.Add(childLink);
@@ -111,7 +112,7 @@ namespace PxWeb.Mappers
                 case PresCategory.NotSet: //TODO: how shall we handle NotSet?
                     return Table.CategoryEnum.PrivateEnum;
                 case PresCategory.Official:
-                    return Table.CategoryEnum.OfficialEnum;
+                    return Table.CategoryEnum.PublicEnum;
                 case PresCategory.Internal:
                     return Table.CategoryEnum.InternalEnum;
                 case PresCategory.Private:

@@ -16,64 +16,105 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
-
+using PxWeb.Api2.Server.Models;
+using PCAxis.Paxiom;
+using Px.Abstractions.Interfaces;
+using PxWeb.Helper.Api2;
+using PxWeb.Mappers;
 
 namespace PxWeb.Controllers.Api2
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
-    public class TableApiController : ControllerBase
-    { 
-        /// <summary>
-        /// Endpoint to get table by {id}
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <response code="200">Success</response>
-        [HttpGet]
-        [Route("/v2/tables/{id}")]
-        [ValidateModelState]
-        [SwaggerOperation("GetTableById")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Table), description: "Success")]
-        public virtual IActionResult GetTableById([FromRoute(Name = "id")][Required] string id)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Table));
-            string exampleJson = null;
-            exampleJson = "\"\"";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<Table>(exampleJson)
-                        : default(Table);            //TODO: Change the data returned
-            return new ObjectResult(example);
+    public class TableApiController : PxWeb.Api2.Server.Controllers.TableApiController
+    {
+        private readonly IDataSource _dataSource;
+        private readonly ILanguageHelper _languageHelper;
+        private readonly IResponseMapper _responseMapper;
+
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        {
+            _dataSource = dataSource;
+            _languageHelper = languageHelper;
+            _responseMapper = responseMapper;
+        }
+
+
+        public override IActionResult GetMetadataById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
+        {
+            lang = _languageHelper.HandleLanguage(lang);
+            IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
+
+            if (builder != null)
+            {
+                try
+                {
+                    builder.BuildForSelection();
+                    var model = builder.Model;
+
+                    Table t = new Table();
+                    t.Id = model.Meta.MainTable;
+                    t.Label = model.Meta.Title;
+                    return new ObjectResult(t);
+                }
+                catch (Exception)
+                {
+                    return NotFound();
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Endpoint for listing tables
+        /// List all codelists that are associated with the table
+        /// HttpGet
+        /// Route /api/v2/tables/{id}/codelists
         /// </summary>
-        /// <param name="query">Selects only tables that that matches a criteria which is specified by the search parameter.</param>
-        /// <param name="pastDays">Selects only tables that was updated from the time of execution going back number of days stated by the parameter pastDays. Valid values for past days are integers between 1 and ?</param>
-        /// <param name="includeDiscontinued">Decides if discontinued tables are included in response.</param>
-        /// <param name="pageNumber">Pagination: Decides which page number to return</param>
-        /// <param name="pageSize">Pagination: Decides how many tables per page</param>
+        /// <param name="id">Id</param>
+        /// <param name="lang">The language if the default is not what you want.</param>
         /// <response code="200">Success</response>
-        [HttpGet]
-        [Route("/v2/tables")]
-        [ValidateModelState]
-        [SwaggerOperation("ListAllTables")]
-        [SwaggerResponse(statusCode: 200, type: typeof(TablesResponse), description: "Success")]
-        public virtual IActionResult ListAllTables([FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(TablesResponse));
-            string exampleJson = null;
-            exampleJson = "\"\"";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<TablesResponse>(exampleJson)
-                        : default(TablesResponse);            //TODO: Change the data returned
-            return new ObjectResult(example);
+        /// <response code="400">Error respsone for 400</response>
+        /// <response code="404">Error respsone for 404</response>
+        /// <response code="429">Error respsone for 429</response>
+        public override IActionResult GetTableCodeLists([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Get table data
+        /// HttpGet
+        /// Route /api/v2/tables/{id}/data
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="lang">The language if the default is not what you want.</param>
+        /// <param name="valuecodes"></param>
+        /// <param name="codelist"></param>
+        /// <param name="outputvalues"></param>
+        /// <response code="200">Success</response>
+        /// <response code="400">Error respsone for 400</response>
+        /// <response code="403">Error respsone for 403</response>
+        /// <response code="404">Error respsone for 404</response>
+        /// <response code="429">Error respsone for 429</response>
+        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues)
+        {
+            throw new NotImplementedException();
         }
     }
 }

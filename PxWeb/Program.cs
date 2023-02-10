@@ -18,8 +18,12 @@ using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Helper.Api2;
 using Microsoft.AspNetCore.Mvc;
 using PxWeb.Mappers;
+using Newtonsoft.Json;
 using System;
-using Microsoft.Extensions.Options;
+using PxWeb.Code.Api2.NewtonsoftConfiguration;
+using PxWeb.Middleware;
+using Px.Search;
+using Px.Search.Lucene;
 
 namespace PxWeb
 {
@@ -56,12 +60,15 @@ namespace PxWeb
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
+            builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
 
-            builder.Services.AddSingleton<IPxCache, PxCache>();
-
+            
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
+            builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+
+            builder.Services.AddPxSearchEngine(builder);
 
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
                 .AsEnumerable()
@@ -74,16 +81,22 @@ namespace PxWeb
                 )
                 .AddNewtonsoftJson(opts =>
             {
-                opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                //opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                opts.SerializerSettings.ContractResolver = new BaseFirstContractResolver();
                 opts.SerializerSettings.Converters.Add(new StringEnumConverter
                 {
                     NamingStrategy = new CamelCaseNamingStrategy()
                 });
+                opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                // Sort endpoints
+                c.OrderActionsBy((apiDesc) => $"{apiDesc.ActionDescriptor.RouteValues["controller"]}_{apiDesc.RelativePath}");
+            });
 
 
             // Handle CORS configuration from appsettings.json
@@ -93,13 +106,13 @@ namespace PxWeb
 
             var app = builder.Build();
 
+
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
                 app.UseSwagger();
                 app.UseSwaggerUI();
             //}
-
             app.UseHttpsRedirection();
 
             if (corsEnbled)
@@ -109,14 +122,18 @@ namespace PxWeb
 
             app.UseAuthorization();
 
+            app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/v2/admin"), appBuilder =>
+            {
+                appBuilder.UseAdminProtectionIpWhitelist();
+                appBuilder.UseAdminProtectionKey();
+            });
+
             app.MapControllers();
 
             if (!app.Environment.IsDevelopment())
             {
                 app.UseIpRateLimiting();
             }
-
-            app.UseCacheMiddleware();
 
             app.Run();
         }

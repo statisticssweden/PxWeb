@@ -330,10 +330,11 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/PXWeb/App_Data/Queries
-/PXWeb/logs
-/PXWeb/databases.config
-/PXWeb/setting.config
-/PXWeb/SqlDb.config
-/PXWeb/Web.config
-/PXWeb/appsettings.json
+/PxWeb/App_Data/Queries
+/PxWeb/logs
+/PxWeb/databases.config
+/PxWeb/setting.config
+/PxWeb/SqlDb.config
+/PxWeb/Web.config
+/PxWeb/appsettings.json
+/**/_INDEX/*

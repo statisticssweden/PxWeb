@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace Px.Search
 {
-    public class SearchResult
+    public class SearchResult : TableInformation
     {
-        public string Id { get; set; }
-        public string Label { get; set; }
-        public DateTime Updated { get; set; }
-        public string[] Tags { get; set; }
-        public string Category { get; set; }
-        public string Source { get; set; }
+        public SearchResult(string id, string label, string category, string firstPeriod, string lastPeriod, string[] variableNames) : base(id, label, category, firstPeriod, lastPeriod, variableNames)
+        {
+        }
+
         public float Score { get; set; }
 
-        public SearchResult(string id)
-        {
-            Id = id;
-        }
-    }
+     }
 }
