@@ -29,7 +29,7 @@ namespace PxWeb.Middleware
             bool match = ip != null && _ipWhitelist.Contains(ip.ToString());
             if (!match)
             {
-                httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
+                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
                 return;
             }
             await _next(httpContext);

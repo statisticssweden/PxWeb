@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
@@ -72,7 +72,7 @@ namespace PxWeb.UnitTests.DataSource
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
             var configServiceMock = new Mock<IPxFileConfigurationService>();
-            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+            var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
             
             var config = testFactory.GetPxApiConfiguration();
@@ -83,7 +83,7 @@ namespace PxWeb.UnitTests.DataSource
             var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
 
             hostingEnvironmentMock
-                .Setup(m => m.WebRootPath)
+                .Setup(m => m.RootPath)
                 .Returns(wwwrootPath);
 
             var resolver = new ItemSelectionResolverCnmm( memorymock.Object, pcAxisFactory, configMock.Object);
@@ -109,7 +109,7 @@ namespace PxWeb.UnitTests.DataSource
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
             var configServiceMock = new Mock<IPxFileConfigurationService>();
-            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+            var hostingEnvironmentMock = new Mock<IPxHost>();
 
             var config = testFactory.GetPxApiConfiguration();
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
@@ -119,7 +119,7 @@ namespace PxWeb.UnitTests.DataSource
             var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
 
             hostingEnvironmentMock
-                .Setup(m => m.WebRootPath)
+                .Setup(m => m.RootPath)
                 .Returns(wwwrootPath);
 
             var resolver = new ItemSelectionResolverPxFile(memorymock.Object, pcAxisFactory, configMock.Object);
@@ -170,7 +170,7 @@ namespace PxWeb.UnitTests.DataSource
             memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
 
             var configServiceMock = new Mock<IPxFileConfigurationService>();
-            var hostingEnvironmentMock = new Mock<IWebHostEnvironment>();
+            var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
 
 
@@ -182,7 +182,7 @@ namespace PxWeb.UnitTests.DataSource
             var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
 
             hostingEnvironmentMock
-                .Setup(m => m.WebRootPath)
+                .Setup(m => m.RootPath)
                 .Returns(wwwrootPath);
 
             var resolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);

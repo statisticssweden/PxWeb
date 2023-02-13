@@ -24,6 +24,8 @@ using PxWeb.Code.Api2.NewtonsoftConfiguration;
 using PxWeb.Middleware;
 using Px.Search;
 using Px.Search.Lucene;
+using System.Text;
+using PxWeb.Code;
 
 namespace PxWeb
 {
@@ -34,6 +36,8 @@ namespace PxWeb
         public static void Main(string[] args)
         {
 
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -67,6 +71,7 @@ namespace PxWeb
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+            builder.Services.AddTransient<IPxHost, PxWebHost>();
 
             builder.Services.AddPxSearchEngine(builder);
 

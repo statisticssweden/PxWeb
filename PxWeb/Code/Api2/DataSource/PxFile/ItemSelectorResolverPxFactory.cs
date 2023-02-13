@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
+using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Config.Api2;
 using PxWeb.Controllers.Api2;
@@ -13,10 +13,10 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     public class ItemSelectorResolverPxFactory : IItemSelectionResolverFactory
     {
         private readonly IPxFileConfigurationService _pxFileConfigurationService;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IPxHost _hostingEnvironment;
         private readonly ILogger _logger;
 
-        public ItemSelectorResolverPxFactory(IPxFileConfigurationService pxFileConfigurationService, IWebHostEnvironment hostingEnvironment, ILogger<ItemSelectorResolverPxFactory> logger)
+        public ItemSelectorResolverPxFactory(IPxFileConfigurationService pxFileConfigurationService, IPxHost hostingEnvironment, ILogger<ItemSelectorResolverPxFactory> logger)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
             _hostingEnvironment = hostingEnvironment;
@@ -29,8 +29,8 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
             try
             {
-                string webRootPath = _hostingEnvironment.WebRootPath;
-                string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
+                string webRootPath = _hostingEnvironment.RootPath;
+                string xmlFilePath = Path.Combine(_hostingEnvironment.RootPath, "Database", "Menu.xml");
 
                 XmlDocument xdoc = new XmlDocument();
 
