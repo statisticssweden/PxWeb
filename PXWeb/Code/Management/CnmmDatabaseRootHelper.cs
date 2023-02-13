@@ -15,7 +15,7 @@ namespace PXWeb.Code.Management
         {
             if (IsRooted)
             {
-                if (!string.IsNullOrEmpty(Id) && (Id.StartsWith(DatabaseRoot) || Id.StartsWith("START__" + DatabaseRoot)))
+                if (!string.IsNullOrEmpty(Id) && (Id.StartsWith(DatabaseRoot) || Id.StartsWith("START__" + DatabaseRoot) || Id.StartsWith("START/" + DatabaseRoot)))
                 {
                     return true;
                 }
@@ -31,7 +31,11 @@ namespace PXWeb.Code.Management
         {
             if (IsRooted)
             {
-                if (string.IsNullOrEmpty(Id) || !Id.StartsWith(DatabaseRoot))
+                if (!string.IsNullOrEmpty(Id) && (Id.StartsWith(DatabaseRoot) || Id.StartsWith("START__" + DatabaseRoot) || Id.StartsWith("START/" + DatabaseRoot)))
+                {
+                    return Id;
+                }
+                else
                 {
                     return DatabaseRoot;
                 }

@@ -3,6 +3,7 @@ using PCAxis.Paxiom.Operations;
 using PCAxis.Query;
 using PCAxis.Web.Controls;
 using PCAxis.Web.Core.Management;
+using PXWeb.Code.Management;
 using PXWeb.Management;
 using PXWeb.Views;
 using System;
@@ -136,7 +137,12 @@ namespace PXWeb
 
 				if (src.Type.ToLower() == "cnmm")
 				{
-					db = PXWeb.Settings.Current.General.Databases.CnmmDatabases;
+					if (!CnmmDatabaseRootHelper.Check(src.Source))
+                    {
+                        throw new SystemException("Saved query: not authorized to run rooted saved query");
+                    }
+
+                    db = PXWeb.Settings.Current.General.Databases.CnmmDatabases;
 				}
 				else
 				{
