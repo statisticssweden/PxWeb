@@ -24,6 +24,7 @@ using PxWeb.Code.Api2.NewtonsoftConfiguration;
 using PxWeb.Middleware;
 using Px.Search;
 using Px.Search.Lucene;
+using PxWeb.Code.Api2.Cache;
 using System.Text;
 using PxWeb.Code;
 
@@ -60,6 +61,7 @@ namespace PxWeb
 
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            builder.Services.AddSingleton<IPxCache, PxCache>();
 
             builder.Services.AddPxDataSource(builder);
 
@@ -72,6 +74,7 @@ namespace PxWeb
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
+
 
             builder.Services.AddPxSearchEngine(builder);
 
@@ -139,6 +142,8 @@ namespace PxWeb
             {
                 app.UseIpRateLimiting();
             }
+
+            app.UseCacheMiddleware();
 
             app.Run();
         }
