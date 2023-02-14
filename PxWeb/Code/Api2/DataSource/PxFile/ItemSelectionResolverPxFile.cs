@@ -4,6 +4,7 @@ using System.IO;
 using Microsoft.Extensions.Caching.Memory;
 using PCAxis.Menu;
 using Px.Abstractions.Interfaces;
+using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Config.Api2;
 
@@ -12,32 +13,28 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     public class ItemSelectionResolverPxFile : IItemSelectionResolver
     {
 
-        private readonly IMemoryCache _memoryCache;
+        private readonly IPxCache _pxCache;
         private readonly IItemSelectionResolverFactory _itemSelectionResolverFactory;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public ItemSelectionResolverPxFile(IMemoryCache memoryCache, IItemSelectionResolverFactory itemSelectionResolverFactory, IPxApiConfigurationService pxApiConfigurationService)
+        public ItemSelectionResolverPxFile(IPxCache pxCache, IItemSelectionResolverFactory itemSelectionResolverFactory, IPxApiConfigurationService pxApiConfigurationService)
         {
-            _memoryCache = memoryCache;
+            _pxCache = pxCache;
             _itemSelectionResolverFactory = itemSelectionResolverFactory;
             _pxApiConfigurationService = pxApiConfigurationService;
         }
         public ItemSelection Resolve(string language, string selection, out bool selectionExists)
         {
-            var op = _pxApiConfigurationService.GetConfiguration();
 
             selectionExists = true;
             ItemSelection itemSelection = new ItemSelection();
             
             string lookupTableName = "LookUpTableCache_" + language;
-            if (!_memoryCache.TryGetValue(lookupTableName, out Dictionary<string, string> lookupTable))
+            var lookupTable = _pxCache.Get<Dictionary<string, string>>(lookupTableName);
+            if (lookupTable is null)
             {
                 lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);
-              
-                var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(op.CacheTime));
-
-                _memoryCache.Set(lookupTableName, lookupTable, cacheEntryOptions);
+                _pxCache.Set(lookupTableName, lookupTable);
             }
 
             if (!string.IsNullOrEmpty(selection))

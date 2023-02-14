@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using PCAxis.Menu;
 using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
+using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Config.Api2;
 using System;
@@ -14,16 +15,16 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 {
     public class TablePathResolverPxFile : ITablePathResolver
     {
-        private readonly IMemoryCache _memoryCache;
+        private readonly IPxCache _pxCache;
         private readonly IPxHost _hostingEnvironment;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private readonly ILogger _logger;
 
-        public TablePathResolverPxFile(IMemoryCache memoryCache, IPxHost hostingEnvironment, IPxApiConfigurationService pxApiConfigurationService, ILogger<TablePathResolverPxFile> logger)
+        public TablePathResolverPxFile(IPxCache pxCache, IPxHost hostingEnvironment, IPxApiConfigurationService pxApiConfigurationService, ILogger<TablePathResolverPxFile> logger)
         {
             _hostingEnvironment = hostingEnvironment;
             _logger = logger;
-            _memoryCache = memoryCache;
+            _pxCache = pxCache;
             _pxApiConfigurationService = pxApiConfigurationService;
         }
 
@@ -31,17 +32,13 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
         {
             string tablePath = "";
             selectionExists = true;
-            var op = _pxApiConfigurationService.GetConfiguration();
 
             string lookupTableName = "LookUpTablePathCache_" + language;
-            if (!_memoryCache.TryGetValue(lookupTableName, out Dictionary<string, string> lookupTable))
+            var lookupTable = _pxCache.Get<Dictionary<string, string>>(lookupTableName);
+            if (lookupTable is null)
             {
                 lookupTable = GetPxTableLookup(language);
-
-                var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(op.CacheTime));
-
-                _memoryCache.Set(lookupTableName, lookupTable, cacheEntryOptions);
+                _pxCache.Set(lookupTableName, lookupTable);
             }
 
             if (!string.IsNullOrEmpty(id))
