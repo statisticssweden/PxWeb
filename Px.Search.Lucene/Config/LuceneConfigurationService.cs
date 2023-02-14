@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
+using Px.Abstractions.Interfaces;
 using System.Text;
 
 namespace Px.Search.Lucene.Config
@@ -7,9 +7,9 @@ namespace Px.Search.Lucene.Config
     public class LuceneConfigurationService : ILuceneConfigurationService
     {
         private readonly LuceneConfigurationOptions _configOptions;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IPxHost _hostingEnvironment;
 
-        public LuceneConfigurationService(IOptions<LuceneConfigurationOptions> configOptions, IWebHostEnvironment hostingEnvironment)
+        public LuceneConfigurationService(IOptions<LuceneConfigurationOptions> configOptions, IPxHost hostingEnvironment)
         {
             _configOptions = configOptions.Value;
             _hostingEnvironment = hostingEnvironment;
@@ -32,7 +32,7 @@ namespace Px.Search.Lucene.Config
                 throw new Exception("Index directory not configured for Lucene index");
             }
 
-            string indexDirectory = Path.Combine(_hostingEnvironment.WebRootPath, luceneOptions.IndexDirectory);
+            string indexDirectory = Path.Combine(_hostingEnvironment.RootPath, luceneOptions.IndexDirectory);
 
             if (Directory.Exists(indexDirectory))
             {

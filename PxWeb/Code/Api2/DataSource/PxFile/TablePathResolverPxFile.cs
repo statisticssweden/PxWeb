@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using PCAxis.Menu;
 using PCAxis.Paxiom;
@@ -16,11 +15,11 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
     public class TablePathResolverPxFile : ITablePathResolver
     {
         private readonly IMemoryCache _memoryCache;
-        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IPxHost _hostingEnvironment;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private readonly ILogger _logger;
 
-        public TablePathResolverPxFile(IMemoryCache memoryCache, IWebHostEnvironment hostingEnvironment, IPxApiConfigurationService pxApiConfigurationService, ILogger<TablePathResolverPxFile> logger)
+        public TablePathResolverPxFile(IMemoryCache memoryCache, IPxHost hostingEnvironment, IPxApiConfigurationService pxApiConfigurationService, ILogger<TablePathResolverPxFile> logger)
         {
             _hostingEnvironment = hostingEnvironment;
             _logger = logger;
@@ -49,7 +48,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             {
                 if (lookupTable.ContainsKey(id.ToUpper()))
                 {
-                    tablePath = Path.Combine(_hostingEnvironment.WebRootPath, lookupTable[id.ToUpper()]);
+                    tablePath = Path.Combine(_hostingEnvironment.RootPath, lookupTable[id.ToUpper()]);
                 }
                 else
                 {
@@ -66,8 +65,8 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
             try
             {
-                string webRootPath = _hostingEnvironment.WebRootPath;
-                string xmlFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "Database", "Menu.xml");
+                string webRootPath = _hostingEnvironment.RootPath;
+                string xmlFilePath = Path.Combine(_hostingEnvironment.RootPath, "Database", "Menu.xml");
 
                 XmlDocument xdoc = new XmlDocument();
 
