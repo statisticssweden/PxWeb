@@ -26,7 +26,7 @@ namespace PxWeb.Middleware
                 await _next(httpContext);
 
                 ms.Seek(0, SeekOrigin.Begin);
-                string body = await new StreamReader(ms).ReadToEndAsync();
+                byte[] body = ms.ToArray();
                 ms.Seek(0, SeekOrigin.Begin);
 
                 httpContext.Response.Body = originalStream;
@@ -84,7 +84,7 @@ namespace PxWeb.Middleware
             httpContext.Response.ContentType = response.contentType;
             httpContext.Response.StatusCode = response.responseCode;
 
-            await httpContext.Response.WriteAsync(response.content);
+            await httpContext.Response.Body.WriteAsync(response.content);
         }
     }
 

@@ -2,10 +2,10 @@
 {
     public class CachedResponse
     {
-        public string content { get; set; }
+        public byte[] content { get; set; }
         public string contentType { get; set; }
         public int responseCode { get; set; }
-        public CachedResponse(string content, string responseType, int responseCode)
+        public CachedResponse(byte[] content, string responseType, int responseCode)
         {
             this.content = content;
             contentType = responseType;
