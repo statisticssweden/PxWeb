@@ -61,7 +61,7 @@ namespace PxWeb.Controllers.Api2
                     var model = builder.Model;
 
                     Table t = new Table();
-                    t.Id = model.Meta.MainTable;
+                    t.Id = id;
                     t.Label = model.Meta.Title;
                     return new ObjectResult(t);
                 }
