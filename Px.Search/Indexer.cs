@@ -92,7 +92,8 @@ namespace Px.Search
                     }
                     else if (subitem is TableLink)
                     {
-                        IndexTable(subitem.ID.Selection, (TableLink)subitem, language, index);
+                        //IndexTable(subitem.ID.Selection, (TableLink)subitem, language, index);
+                        IndexTable(((TableLink)subitem).TableId, (TableLink)subitem, language, index);
                     }
                 }
             }

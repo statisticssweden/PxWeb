@@ -52,9 +52,12 @@ namespace PxWeb.Mappers
                 }
                 else if (child is TableLink)
                 {
+                    var tableId = ((TableLink)child).TableId;
+
                     Table table = new Table
                     {
-                        Id = Path.GetFileName(child.ID.Selection),
+                        //Id = Path.GetFileName(child.ID.Selection),
+                        Id = tableId,
                         ObjectType = typeof(Table).Name,
                         Description = child.Description,
                         Label = child.Text,
@@ -68,17 +71,20 @@ namespace PxWeb.Mappers
 
                     PxWeb.Api2.Server.Models.Link childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "self";
-                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}");
+                    //childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}");
+                    childLink.Href = urlBase + Path.Combine($"tables/{tableId}");
                     table.Links.Add(childLink);
 
                     childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "metadata";
-                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/metadata");
+                    //childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/metadata");
+                    childLink.Href = urlBase + Path.Combine($"tables/{tableId}/metadata");
                     table.Links.Add(childLink);
 
                     childLink = new PxWeb.Api2.Server.Models.Link();
                     childLink.Rel = "data";
-                    childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/data");
+                    //childLink.Href = urlBase + Path.Combine($"tables/{Path.GetFileName(table.Id)}/data");
+                    childLink.Href = urlBase + Path.Combine($"tables/{tableId}/data");
                     table.Links.Add(childLink);
 
                     folder.FolderContents.Add(table);

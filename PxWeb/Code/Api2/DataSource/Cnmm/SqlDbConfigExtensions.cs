@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using PCAxis.Menu;
+using PCAxis.Paxiom;
 using PCAxis.Sql;
 using PCAxis.Sql.DbClient;
 using PCAxis.Sql.DbConfig;
@@ -10,9 +12,9 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
     public static class SqlDbConfigExtensions
     {
-        public static Dictionary<string, string> GetMenuLookup(this SqlDbConfig DB, string language)
+        public static Dictionary<string, ItemSelection> GetMenuLookup(this SqlDbConfig DB, string language)
         {
-            var menuLookup = new Dictionary<string, string>();
+            var menuLookup = new Dictionary<string, ItemSelection>();
 
             string sql;
             if (DB is SqlDbConfig_21)
@@ -39,14 +41,19 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             var cmd = GetPxSqlCommand(DB);
 
             var dataSet = cmd.ExecuteSelect(sql);
+            ItemSelection itemSelection;
 
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
                 string key = row[1].ToString().ToUpper();
-                
+                string menu = row[0].ToString();
+                string selection = row[1].ToString();
+
                 if (!menuLookup.ContainsKey(key))
                 {
-                    menuLookup.Add(key, row[0] as string); // Key always uppercase
+                    itemSelection = new ItemSelection(menu,selection);
+                    //menuLookup.Add(key, row[0] as string); // Key always uppercase
+                    menuLookup.Add(key, itemSelection); // Key always uppercase
                 }
                 else
                 {
@@ -57,7 +64,9 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
             if (!menuLookup.ContainsKey("START"))
             {
-                menuLookup.Add("START", "START"); 
+                itemSelection = new ItemSelection("START", "START");
+                //menuLookup.Add("START", "START");
+                menuLookup.Add("START", itemSelection);
             }
 
             return menuLookup;

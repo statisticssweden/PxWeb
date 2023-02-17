@@ -28,7 +28,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             ItemSelection itemSelection = new ItemSelection();
 
             string lookupTableName = "LookUpTableCache_" + language;
-            var lookupTable = _pxCache.Get<Dictionary<string, string>>(lookupTableName);
+            var lookupTable = _pxCache.Get<Dictionary<string, ItemSelection>>(lookupTableName);
             if (lookupTable is null)
             {
                 lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);
@@ -39,8 +39,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             {
                 if (lookupTable.ContainsKey(selection.ToUpper()))
                 {
-                    itemSelection.Menu = lookupTable[selection.ToUpper()];
-                    itemSelection.Selection = selection;
+                    var itmSel = lookupTable[selection.ToUpper()];
+                    //itemSelection.Menu = lookupTable[selection.ToUpper()];
+                    itemSelection.Menu = itmSel.Menu;
+                    //itemSelection.Selection = selection;
+                    itemSelection.Selection = itmSel.Selection;
                 }
                 else
                 {

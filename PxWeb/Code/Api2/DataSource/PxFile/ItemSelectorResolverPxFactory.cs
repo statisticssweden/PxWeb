@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using Microsoft.Extensions.Logging;
+using PCAxis.Menu;
 using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Config.Api2;
@@ -23,9 +24,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             _logger = logger;
         }
         
-        public Dictionary<string, string> GetMenuLookup(string language)
+        public Dictionary<string, ItemSelection> GetMenuLookup(string language)
         {
-            var menuLookup = new Dictionary<string, string>();
+            var menuLookup = new Dictionary<string, ItemSelection>();
 
             try
             {
@@ -41,11 +42,11 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
                 // Add Menu levels to lookup table
                 string xpath = string.Format("//Language [@lang='{0}']//MenuItem", language);
-                AddItemsToMenuLookup(xdoc, menuLookup, xpath);
+                AddMenuItemsToMenuLookup(xdoc, menuLookup, xpath);
 
                 // Add Tables to lookup table
                 xpath = string.Format("//Language [@lang='{0}']//Link", language);
-                AddItemsToMenuLookup(xdoc, menuLookup, xpath);
+                AddTablesToMenuLookup(xdoc, menuLookup, xpath);
             }
 
             catch (Exception e)
@@ -56,19 +57,48 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             return menuLookup;
         }
 
-        private void AddItemsToMenuLookup(XmlDocument xdoc, Dictionary<string, string> menuLookup, string xpath)
+        private void AddMenuItemsToMenuLookup(XmlDocument xdoc, Dictionary<string, ItemSelection> menuLookup, string xpath)
         {
-            foreach (XmlElement childEl in xdoc.SelectNodes(xpath))
+            var nodeList = xdoc.SelectNodes(xpath);
+
+            if (nodeList != null)
             {
-                string selection = childEl.GetAttribute("selection");
-                var menu = Path.GetDirectoryName(selection);
-                var sel = Path.GetFileName(selection).ToUpper();
-                if (!menuLookup.ContainsKey(sel))
+                foreach (XmlElement childEl in nodeList)
                 {
-                    menuLookup.Add(sel, menu);
+                    string selection = childEl.GetAttribute("selection");
+                    var menu = Path.GetDirectoryName(selection);
+                    var sel = Path.GetFileName(selection).ToUpper();
+                    if (!menuLookup.ContainsKey(sel))
+                    {
+                        ItemSelection itemSelection = new ItemSelection(menu, selection);
+                        //menuLookup.Add(sel, menu);
+                        menuLookup.Add(sel, itemSelection);
+                    }
                 }
             }
-
         }
+
+        private void AddTablesToMenuLookup(XmlDocument xdoc, Dictionary<string, ItemSelection> menuLookup, string xpath)
+        {
+            var nodeList = xdoc.SelectNodes(xpath);
+
+            if (nodeList != null)
+            {
+                foreach (XmlElement childEl in nodeList)
+                {
+                    string selection = childEl.GetAttribute("selection");
+                    string tableId = childEl.GetAttribute("tableId");
+                    var menu = Path.GetDirectoryName(selection);
+                    //var sel = Path.GetFileName(selection).ToUpper();
+                    if (!menuLookup.ContainsKey(tableId))
+                    {
+                        ItemSelection itemSelection = new ItemSelection(menu, selection);
+                        //menuLookup.Add(sel, menu);
+                        menuLookup.Add(tableId, itemSelection);
+                    }
+                }
+            }
+        }
+
     }
 }
