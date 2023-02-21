@@ -51,7 +51,7 @@ namespace PxWeb.Controllers.Api2
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             lang = _languageHelper.HandleLanguage(lang);
-            IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
+            IPXModelBuilder? builder = _dataSource.CreateBuilder(id, lang);
 
             if (builder != null)
             {
