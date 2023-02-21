@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.Extensions.Options;
 using PCAxis.Menu;
-using PCAxis.Paxiom;
 using PCAxis.Sql;
 using PCAxis.Sql.DbClient;
 using PCAxis.Sql.DbConfig;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
     public static class SqlDbConfigExtensions
     {
-        public static Dictionary<string, ItemSelection> GetMenuLookup(this SqlDbConfig DB, string language)
+        public static Dictionary<string, ItemSelection> GetMenuLookup(this SqlDbConfig DB, string language, IOptions<PxApiConfigurationOptions> configOptions)
         {
+            // Check language to avoid SQL injection
+            if (!configOptions.Value.Languages.Any(l => l.Id == language))
+            {
+                throw new ArgumentException($"Illegal language {language}");
+            }
+
             var menuLookup = new Dictionary<string, ItemSelection>();
 
             string sql;
@@ -72,38 +80,98 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
         private static string GetMenuLookupQuery2_1(SqlDbConfig_21 DB, string language)
         {
-            // TODO: Check language to avoid SQL injection
-
-
             if (!DB.isSecondaryLanguage(language))
             {
-                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+                return $@"SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()} 
+                        FROM 
+                            {DB.MenuSelection.GetNameAndAlias()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}";
             }
             else
             {
-                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+                return $@"SELECT 
+                            {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}
+                    FROM 
+                            {DB.MenuSelectionLang2.GetNameAndAlias(language)} 
+                        JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MenuSelectionLang2.MenuCol.Id(language)} = {DB.MenuSelection.MenuCol.Id()} AND {DB.MenuSelectionLang2.SelectionCol.Id(language)} = {DB.MenuSelection.SelectionCol.Id()}
+                    WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels')
+                    UNION
+                    SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                    FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MainTable.MainTableCol.Id()} = {DB.MainTableLang2.MainTableCol.Id(language)} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
+                    WHERE 
+                            {DB.MainTableLang2.StatusCol.Id(language)} = '{DB.Codes.Yes}'";
             }
         }
 
         private static string GetMenuLookupQuery2_2(this SqlDbConfig_22 DB, string language)
         {
-            // TODO: Check language to avoid SQL injection
-
-
             if (!DB.isSecondaryLanguage(language))
             {
-                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+                return $@"SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()} 
+                        FROM 
+                            {DB.MenuSelection.GetNameAndAlias()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}";
             }
             else
             {
-                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+                return $@"SELECT 
+                            {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}
+                    FROM 
+                            {DB.MenuSelectionLang2.GetNameAndAlias(language)} 
+                        JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MenuSelectionLang2.MenuCol.Id(language)} = {DB.MenuSelection.MenuCol.Id()} AND {DB.MenuSelectionLang2.SelectionCol.Id(language)} = {DB.MenuSelection.SelectionCol.Id()}
+                    WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels')
+                    UNION
+                    SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                    FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MainTable.MainTableCol.Id()} = {DB.MainTableLang2.MainTableCol.Id(language)} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
+                    WHERE 
+                            {DB.MainTableLang2.StatusCol.Id(language)} = '{DB.Codes.Yes}'";
             }
         }
 
         private static string GetMenuLookupQuery2_3(this SqlDbConfig_23 DB, string language)
         {
-            // TODO: Check language to avoid SQL injection
-            
             if (!DB.isSecondaryLanguage(language))
             {
                 return $@"SELECT 
@@ -145,14 +213,12 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                             JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
                         WHERE 
                             {DB.SecondaryLanguage.LanguageCol.Id()} = '{language}' AND
-                            {DB.SecondaryLanguage.CompletelyTranslatedCol.Id()} = 'Y'";
+                            {DB.SecondaryLanguage.CompletelyTranslatedCol.Id()} = '{DB.Codes.Yes}'";
             }
         }
 
         private static string GetMenuLookupQuery2_4(this SqlDbConfig_24 DB, string language)
         {
-            // TODO: Check language to avoid SQL injection
-
             if (!DB.isSecondaryLanguage(language))
             {
                 return $@"SELECT 
@@ -194,7 +260,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                             JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
                         WHERE 
                             {DB.SecondaryLanguage.LanguageCol.Id()} = '{language}' AND
-                            {DB.SecondaryLanguage.CompletelyTranslatedCol.Id()} = 'Y'";
+                            {DB.SecondaryLanguage.CompletelyTranslatedCol.Id()} = '{DB.Codes.Yes}'";
             }
 
         }
