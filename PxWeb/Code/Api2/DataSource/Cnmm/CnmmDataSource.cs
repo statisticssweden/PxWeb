@@ -25,9 +25,17 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
             var builder = new PCAxis.PlugIn.Sql.PXSQLBuilder();
             var path = _tablePathResolver.Resolve(language, id, out bool selctionExists);
-            builder.SetPath(path);
-            builder.SetPreferredLanguage(language);
-            return builder;
+
+            if (selctionExists)
+            {
+                builder.SetPath(path);
+                builder.SetPreferredLanguage(language);
+                return builder;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Item CreateMenu(string id, string language, out bool selectionExists)

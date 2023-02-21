@@ -72,7 +72,7 @@ namespace PxWeb.Controllers.Api2
             }
             else
             {
-                return NotFound();
+                return new BadRequestObjectResult("No such table id " + id);
             }
         }
 
