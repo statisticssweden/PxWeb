@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
@@ -14,12 +15,8 @@ namespace PxWeb.UnitTests.DataSource
         public void ResolveShouldResolveItemCollection()
         {
             string language = "sv";
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-            
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
             var testFactory = new TestFactory();
@@ -46,12 +43,8 @@ namespace PxWeb.UnitTests.DataSource
         public void ResolveEmtySelectionItemShouldReturnStart()
         {
             string language = "en";
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
             var testFactory = new TestFactory();
@@ -79,12 +72,8 @@ namespace PxWeb.UnitTests.DataSource
         {
             //todo, mock database 
             string language = "en";
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-
             var configServiceMock = new Mock<ICnmmConfigurationService>();
 
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
@@ -98,7 +87,7 @@ namespace PxWeb.UnitTests.DataSource
             pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
-            var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object);
+            var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object, resolver);
 
             var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
 
