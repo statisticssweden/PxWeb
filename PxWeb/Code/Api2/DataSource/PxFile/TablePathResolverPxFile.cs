@@ -81,7 +81,6 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                     {
                         string selection = childEl.GetAttribute("selection");
                         string tableId = childEl.GetAttribute("tableId");
-                        //var pxFile = Path.GetFileName(selection).ToUpper();
                         if (!tableLookup.ContainsKey(tableId))
                         {
                             tableLookup.Add(tableId, selection);

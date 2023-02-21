@@ -41,13 +41,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             {
                 if (lookupTable.ContainsKey(selection.ToUpper()))
                 {
-                    //string menu = lookupTable[selection.ToUpper()];
                     var itmSel = lookupTable[selection.ToUpper()];
-                    //itemSelection.Menu = menu;
-                    //itemSelection.Selection = Path.Combine(menu, selection);
                     itemSelection.Menu = itmSel.Menu;
                     itemSelection.Selection = itmSel.Selection;
-
                 }
                 else
                 {

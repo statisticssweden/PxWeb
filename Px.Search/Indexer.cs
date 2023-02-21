@@ -74,7 +74,7 @@ namespace Px.Search
         {
             bool exists;
 
-            Item item = _source.CreateMenu(id, language, out exists);
+            Item? item = _source.CreateMenu(id, language, out exists);
 
             if (item == null || !exists)
             {
@@ -92,7 +92,6 @@ namespace Px.Search
                     }
                     else if (subitem is TableLink)
                     {
-                        //IndexTable(subitem.ID.Selection, (TableLink)subitem, language, index);
                         IndexTable(((TableLink)subitem).TableId, (TableLink)subitem, language, index);
                     }
                 }
@@ -118,9 +117,9 @@ namespace Px.Search
 
                     foreach (var table in tables)
                     {
-                        Item item = _source.CreateMenu(table, language, out exists);
+                        Item? item = _source.CreateMenu(table, language, out exists);
 
-                        if (exists && item is TableLink)
+                        if (exists && item != null && item is TableLink)
                         {
                             UpdateTable(table, (TableLink)item, language, index);
                         }
@@ -137,7 +136,7 @@ namespace Px.Search
 
         private void IndexTable(string id, TableLink tblLink, string language, IIndex index)
         {
-            IPXModelBuilder builder = _source.CreateBuilder(id, language);
+            IPXModelBuilder? builder = _source.CreateBuilder(id, language);
 
             if (builder != null)
             {
@@ -162,7 +161,7 @@ namespace Px.Search
         }
         private void UpdateTable(string id, TableLink tblLink, string language, IIndex index)
         {
-            IPXModelBuilder builder = _source.CreateBuilder(id, language);
+            IPXModelBuilder? builder = _source.CreateBuilder(id, language);
 
             if (builder != null)
             {

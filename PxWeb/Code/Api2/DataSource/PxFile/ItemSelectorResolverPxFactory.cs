@@ -71,7 +71,6 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                     if (!menuLookup.ContainsKey(sel))
                     {
                         ItemSelection itemSelection = new ItemSelection(menu, selection);
-                        //menuLookup.Add(sel, menu);
                         menuLookup.Add(sel, itemSelection);
                     }
                 }
@@ -89,11 +88,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                     string selection = childEl.GetAttribute("selection");
                     string tableId = childEl.GetAttribute("tableId");
                     var menu = Path.GetDirectoryName(selection);
-                    //var sel = Path.GetFileName(selection).ToUpper();
                     if (!menuLookup.ContainsKey(tableId))
                     {
                         ItemSelection itemSelection = new ItemSelection(menu, selection);
-                        //menuLookup.Add(sel, menu);
                         menuLookup.Add(tableId, itemSelection);
                     }
                 }
