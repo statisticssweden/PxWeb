@@ -51,7 +51,7 @@ namespace PxWeb.Controllers.Api2
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             lang = _languageHelper.HandleLanguage(lang);
-            IPXModelBuilder builder = _dataSource.CreateBuilder(id, lang);
+            IPXModelBuilder? builder = _dataSource.CreateBuilder(id, lang);
 
             if (builder != null)
             {
@@ -61,7 +61,7 @@ namespace PxWeb.Controllers.Api2
                     var model = builder.Model;
 
                     Table t = new Table();
-                    t.Id = model.Meta.MainTable;
+                    t.Id = id;
                     t.Label = model.Meta.Title;
                     return new ObjectResult(t);
                 }
@@ -72,7 +72,7 @@ namespace PxWeb.Controllers.Api2
             }
             else
             {
-                return NotFound();
+                return new BadRequestObjectResult("No such table id " + id);
             }
         }
 

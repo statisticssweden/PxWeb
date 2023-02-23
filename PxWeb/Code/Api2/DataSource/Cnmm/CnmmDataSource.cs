@@ -19,18 +19,26 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             _tablePathResolver = tablePathResolver;
         }
 
-        public IPXModelBuilder CreateBuilder(string id, string language)
+        public IPXModelBuilder? CreateBuilder(string id, string language)
         {
             var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
 
             var builder = new PCAxis.PlugIn.Sql.PXSQLBuilder();
             var path = _tablePathResolver.Resolve(language, id, out bool selctionExists);
-            builder.SetPath(path);
-            builder.SetPreferredLanguage(language);
-            return builder;
+
+            if (selctionExists)
+            {
+                builder.SetPath(path);
+                builder.SetPreferredLanguage(language);
+                return builder;
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public Item CreateMenu(string id, string language, out bool selectionExists)
+        public Item? CreateMenu(string id, string language, out bool selectionExists)
         {
             var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
 

@@ -6,7 +6,7 @@ namespace PxWeb.Helper.Api2
     {
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public LanguageHelper(IPxApiConfigurationService  pxApiConfigurationService)
+        public LanguageHelper(IPxApiConfigurationService pxApiConfigurationService)
         {
             _pxApiConfigurationService = pxApiConfigurationService;
         }

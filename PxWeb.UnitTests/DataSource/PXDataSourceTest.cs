@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Px.Abstractions.Interfaces;
+using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
@@ -33,11 +34,8 @@ namespace PxWeb.UnitTests.DataSource
         public void ResolveEmtySelectionItemShouldReturnStart()
         {
             string language = "en";
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
             var testFactory = new TestFactory();
@@ -66,11 +64,8 @@ namespace PxWeb.UnitTests.DataSource
             //arrange
             var testFactory = new TestFactory();
             string language = "en";
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
@@ -103,11 +98,8 @@ namespace PxWeb.UnitTests.DataSource
         {
             var testFactory = new TestFactory();
             string language = "en";
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IPxHost>();
 
@@ -141,7 +133,7 @@ namespace PxWeb.UnitTests.DataSource
 
             bool selectionExists;
 
-            var result = resolver.Resolve(language, "officialstatistics.px", out selectionExists);
+            var result = resolver.Resolve(language, "BE0101F1", out selectionExists);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(selectionExists);
@@ -164,11 +156,8 @@ namespace PxWeb.UnitTests.DataSource
         private TablePathResolverPxFile GetTablePathResolver()
         {
             var testFactory = new TestFactory();
-            var memorymock = new Mock<IMemoryCache>();
-            var entryMock = new Mock<ICacheEntry>();
+            var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
-            memorymock.Setup(m => m.CreateEntry(It.IsAny<object>())).Returns(entryMock.Object);
-
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();

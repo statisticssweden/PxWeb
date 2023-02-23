@@ -59,7 +59,7 @@ namespace PxWeb.Controllers.Api2
 
             lang = _languageHelper.HandleLanguage(lang);
 
-            Item item = _dataSource.CreateMenu(id, lang, out selectionExists);
+            Item? item = _dataSource.CreateMenu(id, lang, out selectionExists);
 
             if (!selectionExists)
             {
@@ -93,7 +93,7 @@ namespace PxWeb.Controllers.Api2
 
             lang = _languageHelper.HandleLanguage(lang);
 
-            Item item = _dataSource.CreateMenu("", lang, out selectionExists);
+            Item? item = _dataSource.CreateMenu("", lang, out selectionExists);
 
             if (item == null)
             {

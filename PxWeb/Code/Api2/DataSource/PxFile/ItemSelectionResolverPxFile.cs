@@ -28,9 +28,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
             selectionExists = true;
             ItemSelection itemSelection = new ItemSelection();
-            
+
             string lookupTableName = "LookUpTableCache_" + language;
-            var lookupTable = _pxCache.Get<Dictionary<string, string>>(lookupTableName);
+            var lookupTable = _pxCache.Get<Dictionary<string, ItemSelection>>(lookupTableName);
             if (lookupTable is null)
             {
                 lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);
@@ -41,9 +41,9 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             {
                 if (lookupTable.ContainsKey(selection.ToUpper()))
                 {
-                    string menu = lookupTable[selection.ToUpper()];
-                    itemSelection.Menu = menu;
-                    itemSelection.Selection = Path.Combine(menu, selection);
+                    var itmSel = lookupTable[selection.ToUpper()];
+                    itemSelection.Menu = itmSel.Menu;
+                    itemSelection.Selection = itmSel.Selection;
                 }
                 else
                 {

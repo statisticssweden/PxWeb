@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.Extensions.Options;
+using PCAxis.Menu;
 using PCAxis.Sql;
 using PCAxis.Sql.DbClient;
 using PCAxis.Sql.DbConfig;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
     public static class SqlDbConfigExtensions
     {
-        public static Dictionary<string, string> GetMenuLookup(this SqlDbConfig DB, string language)
+        public static Dictionary<string, ItemSelection> GetMenuLookup(this SqlDbConfig DB, string language, IOptions<PxApiConfigurationOptions> configOptions)
         {
-            var menuLookup = new Dictionary<string, string>();
+            // Check language to avoid SQL injection
+            if (!configOptions.Value.Languages.Any(l => l.Id == language))
+            {
+                throw new ArgumentException($"Illegal language {language}");
+            }
+
+            var menuLookup = new Dictionary<string, ItemSelection>();
 
             string sql;
             if (DB is SqlDbConfig_21)
@@ -39,14 +49,18 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             var cmd = GetPxSqlCommand(DB);
 
             var dataSet = cmd.ExecuteSelect(sql);
+            ItemSelection itemSelection;
 
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
-                string key = row[1].ToString().ToUpper();
-                
+                string key = row[2].ToString().ToUpper();
+                string menu = row[0].ToString();
+                string selection = row[1].ToString();
+
                 if (!menuLookup.ContainsKey(key))
                 {
-                    menuLookup.Add(key, row[0] as string); // Key always uppercase
+                    itemSelection = new ItemSelection(menu,selection);
+                    menuLookup.Add(key, itemSelection); // Key always uppercase
                 }
                 else
                 {
@@ -57,7 +71,8 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
             if (!menuLookup.ContainsKey("START"))
             {
-                menuLookup.Add("START", "START"); 
+                itemSelection = new ItemSelection("START", "START");
+                menuLookup.Add("START", itemSelection);
             }
 
             return menuLookup;
@@ -67,11 +82,45 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             if (!DB.isSecondaryLanguage(language))
             {
-                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+                return $@"SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()} 
+                        FROM 
+                            {DB.MenuSelection.GetNameAndAlias()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}";
             }
             else
             {
-                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+                return $@"SELECT 
+                            {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}
+                    FROM 
+                            {DB.MenuSelectionLang2.GetNameAndAlias(language)} 
+                        JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MenuSelectionLang2.MenuCol.Id(language)} = {DB.MenuSelection.MenuCol.Id()} AND {DB.MenuSelectionLang2.SelectionCol.Id(language)} = {DB.MenuSelection.SelectionCol.Id()}
+                    WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels')
+                    UNION
+                    SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                    FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MainTable.MainTableCol.Id()} = {DB.MainTableLang2.MainTableCol.Id(language)} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
+                    WHERE 
+                            {DB.MainTableLang2.StatusCol.Id(language)} = '{DB.Codes.Yes}'";
             }
         }
 
@@ -79,11 +128,45 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             if (!DB.isSecondaryLanguage(language))
             {
-                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+                return $@"SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()} 
+                        FROM 
+                            {DB.MenuSelection.GetNameAndAlias()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}";
             }
             else
             {
-                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+                return $@"SELECT 
+                            {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}
+                    FROM 
+                            {DB.MenuSelectionLang2.GetNameAndAlias(language)} 
+                        JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MenuSelectionLang2.MenuCol.Id(language)} = {DB.MenuSelection.MenuCol.Id()} AND {DB.MenuSelectionLang2.SelectionCol.Id(language)} = {DB.MenuSelection.SelectionCol.Id()}
+                    WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels')
+                    UNION
+                    SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                    FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelectionLang2.GetNameAndAlias(language)} ON {DB.MainTable.MainTableCol.Id()} = {DB.MainTableLang2.MainTableCol.Id(language)} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
+                    WHERE 
+                            {DB.MainTableLang2.StatusCol.Id(language)} = '{DB.Codes.Yes}'";
             }
         }
 
@@ -91,11 +174,46 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             if (!DB.isSecondaryLanguage(language))
             {
-                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+                return $@"SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()} 
+                        FROM 
+                            {DB.MenuSelection.GetNameAndAlias()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}";
             }
             else
             {
-                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+                return $@"SELECT 
+                            {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}
+                        FROM 
+                            {DB.MenuSelectionLang2.GetNameAndAlias(language)} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelectionLang2.MenuCol.Id(language)} = {DB.MenuSelection.MenuCol.Id()} AND {DB.MenuSelectionLang2.SelectionCol.Id(language)} = {DB.MenuSelection.SelectionCol.Id()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol.Id()} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels')
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.SecondaryLanguage.GetNameAndAlias()} ON {DB.MainTable.MainTableCol.Id()} = {DB.SecondaryLanguage.MainTableCol.Id()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
+                        WHERE 
+                            {DB.SecondaryLanguage.LanguageCol.Id()} = '{language}' AND
+                            {DB.SecondaryLanguage.CompletelyTranslatedCol.Id()} = '{DB.Codes.Yes}'";
             }
         }
 
@@ -103,12 +221,48 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             if (!DB.isSecondaryLanguage(language))
             {
-                return $@"SELECT {DB.MenuSelection.MenuCol.ForSelect()}, {DB.MenuSelection.SelectionCol.ForSelect()} FROM {DB.MenuSelection.GetNameAndAlias()}";
+                return $@"SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()}, 
+                            {DB.MenuSelection.SelectionCol.ForSelect()} 
+                        FROM 
+                            {DB.MenuSelection.GetNameAndAlias()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}";
             }
             else
             {
-                return $@"SELECT {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)} FROM {DB.MenuSelectionLang2.GetNameAndAlias(language)}";
+                return $@"SELECT 
+                            {DB.MenuSelectionLang2.MenuCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}, 
+                            {DB.MenuSelectionLang2.SelectionCol.ForSelect(language)}
+                        FROM 
+                            {DB.MenuSelectionLang2.GetNameAndAlias(language)} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelectionLang2.MenuCol.Id(language)} = {DB.MenuSelection.MenuCol.Id()} AND {DB.MenuSelectionLang2.SelectionCol.Id(language)} = {DB.MenuSelection.SelectionCol.Id()}
+                        WHERE 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol.Id()} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels')
+                        UNION
+                        SELECT 
+                            {DB.MenuSelection.MenuCol.ForSelect()}, 
+                            {DB.MainTable.MainTableCol.ForSelect()}, 
+                            {DB.MainTable.TableIdCol.ForSelect()} 
+                        FROM 
+                            {DB.MainTable.GetNameAndAlias()} 
+                            JOIN {DB.SecondaryLanguage.GetNameAndAlias()} ON {DB.MainTable.MainTableCol.Id()} = {DB.SecondaryLanguage.MainTableCol.Id()} 
+                            JOIN {DB.MenuSelection.GetNameAndAlias()} ON {DB.MenuSelection.SelectionCol.Id()} = {DB.MainTable.MainTableCol.Id()}
+                        WHERE 
+                            {DB.SecondaryLanguage.LanguageCol.Id()} = '{language}' AND
+                            {DB.SecondaryLanguage.CompletelyTranslatedCol.Id()} = '{DB.Codes.Yes}'";
             }
+
         }
 
 

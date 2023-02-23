@@ -73,15 +73,20 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                 }
 
                 string xpath = string.Format("//Language [@lang='{0}']//Link", language);
+                var nodeList = xdoc.SelectNodes(xpath); 
 
-                foreach (XmlElement childEl in xdoc.SelectNodes(xpath))
+                if (nodeList != null)
                 {
-                    string selection = childEl.GetAttribute("selection");
-                    var pxFile = Path.GetFileName(selection).ToUpper();
-                    if (!tableLookup.ContainsKey(pxFile))
+                    foreach (XmlElement childEl in nodeList)
                     {
-                        tableLookup.Add(pxFile, selection);
+                        string selection = childEl.GetAttribute("selection");
+                        string tableId = childEl.GetAttribute("tableId");
+                        if (!tableLookup.ContainsKey(tableId))
+                        {
+                            tableLookup.Add(tableId, selection);
+                        }
                     }
+
                 }
             }
 

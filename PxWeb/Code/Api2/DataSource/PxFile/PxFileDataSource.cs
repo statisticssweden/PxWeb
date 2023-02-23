@@ -33,7 +33,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
         /// <param name="id">Table id</param>
         /// <param name="language">Language</param>
         /// <returns>Builder object, null if builder could not be created</returns>
-        public IPXModelBuilder CreateBuilder(string id, string language)
+        public IPXModelBuilder? CreateBuilder(string id, string language)
         {
             var builder = new PCAxis.Paxiom.PXFileBuilder();
 
@@ -51,7 +51,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             }
         }
 
-        public Item CreateMenu(string id, string language, out bool selectionExists)
+        public Item? CreateMenu(string id, string language, out bool selectionExists)
         {
             string xmlFilePath = Path.Combine(_hostingEnvironment.RootPath, "Database", "Menu.xml");
 
