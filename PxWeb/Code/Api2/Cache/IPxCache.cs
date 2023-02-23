@@ -15,6 +15,7 @@ namespace PxWeb.Code.Api2.Cache
         void Enable();
         T? Get<T>(object key);
         void Set(object key, object value);
+        void Set(object key, object value, TimeSpan lifetime);
 
     }
 }

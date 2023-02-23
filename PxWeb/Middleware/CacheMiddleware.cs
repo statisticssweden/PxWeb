@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using System.IO;
 using System;
+using PxWeb.Config.Api2;
 using PxWeb.Code.Api2.Cache;
 
 namespace PxWeb.Middleware
@@ -12,10 +13,14 @@ namespace PxWeb.Middleware
     {
         private readonly RequestDelegate _next;
         private string _cacheLock = "lock";
+        CacheMiddlewareConfigurationOptions _configuration;
+        private TimeSpan _cacheTime;
 
-        public CacheMiddleware(RequestDelegate next)
+        public CacheMiddleware(RequestDelegate next, ICacheMiddlewareConfigurationService cacheMiddlewareConfigurationService)
         {
             _next = next;
+            _configuration = cacheMiddlewareConfigurationService.GetConfiguration();
+            _cacheTime = TimeSpan.FromSeconds(_configuration.CacheTime);
         }
         private async Task<CachedResponse> readResponse(HttpContext httpContext)
         {
@@ -68,7 +73,7 @@ namespace PxWeb.Middleware
                     CachedResponse? freshCached = cache.Get<CachedResponse>(key);
                     if (freshCached is null)
                     {
-                        cache.Set(key, response);
+                        cache.Set(key, response, _cacheTime);
                     }
                     else
                     {

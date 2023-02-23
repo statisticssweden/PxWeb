@@ -80,6 +80,15 @@ namespace PxWeb.Code.Api2.Cache
         /// <param name="data"></param>
         public void Set(object key, object value)
         {
+            Set(key, value, _cacheTime);
+        }
+
+        /// <summary>
+        /// Stores a object in the cache for a specified time
+        /// </summary>
+        /// <param name="data"></param>
+        public void Set(object key, object value, TimeSpan lifetime)
+        {
             if (_cache.Get(key) is null)
             {
                 _logger.LogDebug("Adding key={0} to Cache", key);
@@ -88,7 +97,7 @@ namespace PxWeb.Code.Api2.Cache
                 {
                     if (_cache.Get(key) is null)
                     {
-                        _cache.Set(key, value, _cacheTime);
+                        _cache.Set(key, value, lifetime);
                     }
                 }
             }
