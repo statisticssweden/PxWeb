@@ -7,6 +7,7 @@ using System.Text;
 using PCAxis.Web.Core.Management;
 using PCAxis.Web.Controls;
 using PCAxis.Paxiom.Extensions;
+using PXWeb.Code.Management;
 
 namespace PXWeb
 {
@@ -28,6 +29,11 @@ namespace PXWeb
 
             if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM)
             {
+                if (CnmmDatabaseRootHelper.IsRooted)
+                {
+                    itm.Path = CnmmDatabaseRootHelper.DatabaseRoot + itm.Path;
+                }
+
                 if (!itm.Path.StartsWith("START"))
                 {
                     path.Append("START__");

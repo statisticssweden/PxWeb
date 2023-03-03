@@ -370,9 +370,6 @@ namespace PXWeb.Management
 
         private static PCAxis.Menu.Item GetCnmmMenuItem(string dbid, string nodeId, string lang)
         {
-            
-            nodeId = CnmmDatabaseRootHelper.GetId(nodeId);
-               
             PCAxis.Menu.Item menuItem = null;
             GetCnmmMenuAndItem(dbid, nodeId, lang, out menuItem);
 
@@ -412,7 +409,8 @@ namespace PXWeb.Management
 
         private static PxMenuBase GetCnmmMenuAndItem(string dbid, string nodeId, string lang, out PCAxis.Menu.Item currentItem)
         {
-            
+            nodeId = CnmmDatabaseRootHelper.GetId(nodeId);
+
             //Get selected language in PX-Web
             //string pxLang = PCAxis.Web.Core.Management.LocalizationManager.GetTwoLetterLanguageCode();
             //string dbLang = PxContext.GetCnmmDbLanguage(dbid, pxLang);
