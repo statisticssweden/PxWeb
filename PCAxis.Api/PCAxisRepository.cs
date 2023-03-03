@@ -131,6 +131,14 @@ public static class PCAxisRepository
                 }
                 else if (dbtype == "CNMM")
                 {
+                    if (CnmmDatabaseApiRootHelper.IsRooted)
+                    {
+                        // Check valid path
+                        if (!CnmmDatabaseApiRootHelper.CheckPath(db, nodePath, language))
+                        {
+                            throw new Exception("FEEEEL");
+                        }
+                    }
                     string tid = nodePath.Last();
                     string menu = nodePath.Length > 1 ? nodePath[nodePath.Length-2]:"START";
 
