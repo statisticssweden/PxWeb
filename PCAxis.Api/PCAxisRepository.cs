@@ -136,7 +136,7 @@ public static class PCAxisRepository
                         // Check valid path
                         if (!CnmmDatabaseApiRootHelper.CheckPath(db, nodePath, language))
                         {
-                            throw new Exception("FEEEEL");
+                            throw new Exception("Illegal path for rooted PxApi");
                         }
                     }
                     string tid = nodePath.Last();

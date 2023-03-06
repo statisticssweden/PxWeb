@@ -41,19 +41,20 @@ namespace PCAxis.Api
             }
         }
 
-        public static bool CheckPath(string db, string[] NodePath, string language)
+        public static bool CheckPath(string db, string[] nodePath, string language)
         {
             string lookupTableName = "pxapi_LookUpApiPathCache_" + language;
-            //var lookupTable = ApiCache.Current.Fetch().Get<Dictionary<string, ItemSelection>>(lookupTableName);
-            //if (lookupTable is null)
-            //{
-            //    lookupTable = _itemSelectionResolverFactory.GetMenuLookup(language);
-            //    _pxCache.Set(lookupTableName, lookupTable);
-            //}
-            HashSet<string> lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[db].GetApiPathLookup(language, DatabaseRoot);
+            var lookupTable = ApiCache.Current.Get<HashSet<string>>(lookupTableName);
+            
+            if (lookupTable is null)
+            {
+                lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[db].GetApiPathLookup(language, DatabaseRoot);
+                ApiCache.Current.Set(lookupTableName, lookupTable, new TimeSpan(1, 0, 0)); //Store in cache for 1 hour
+            }
 
-            return true;
+            string path = string.Join("/", nodePath);
 
+            return lookupTable.Contains(path.ToUpper());
         }
 
         private static void ReadConfig()
