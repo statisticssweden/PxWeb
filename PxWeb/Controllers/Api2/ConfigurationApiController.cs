@@ -10,34 +10,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using ConfigResponse = PxWeb.Models.Api2.ConfigResponse;
 using Language = PxWeb.Models.Api2.Language;
 
 namespace PxWeb.Controllers.Api2
 {
     [ApiController]
-    public class ConfigurationApiController : PxWeb.Api2.Server.Controllers.ConfigurationApiController
+    public class AdministrationApiController : PxWeb.Api2.Server.Controllers.AdministrationApiController
     {
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
-        private readonly ILogger<ConfigurationApiController> _logger;
+        private readonly ILogger<AdministrationApiController> _logger;
 
-        public ConfigurationApiController(IPxApiConfigurationService pxApiConfigurationService, ILogger<ConfigurationApiController> logger)
+        public AdministrationApiController(IPxApiConfigurationService pxApiConfigurationService, ILogger<AdministrationApiController> logger)
         {
             _pxApiConfigurationService = pxApiConfigurationService;
             _logger = logger;
         }
 
-        /// <summary>
-        /// Get PxApi configuration settings
-        /// </summary>
+        /// <summary>Get API configuration settings.</summary>
         /// <response code="200">Success</response>
+        /// <response code="400">Error respsone for 400</response>
+        /// <response code="404">Error respsone for 404</response>
         /// <response code="429">Error respsone for 429</response>
         [HttpGet]
-        [Route("/v2/config")]
+        [Route("/api/v2/config")]
         [ValidateModelState]
-        [SwaggerOperation("GetConfiguration")]
-        [SwaggerResponse(statusCode: 200, type: typeof(ConfigResponse), description: "Success")]
-        [SwaggerResponse(statusCode: 429, type: typeof(Problem), description: "Error respsone for 429")]
-        public virtual IActionResult GetConfiguration()
+        [SwaggerOperation("GetApiConfig", null)]
+        [SwaggerResponse(200, "Success", typeof(ConfigResponse))]
+        [SwaggerResponse(400, "Error respsone for 400", typeof(Problem))]
+        [SwaggerResponse(404, "Error respsone for 404", typeof(Problem))]
+        [SwaggerResponse(429, "Error respsone for 429", typeof(Problem))]
+
+        public override IActionResult GetApiConfig()
         {
             ////TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             //// return StatusCode(200, default(Folder));

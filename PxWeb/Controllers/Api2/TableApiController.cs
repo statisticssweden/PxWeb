@@ -82,22 +82,6 @@ namespace PxWeb.Controllers.Api2
         }
 
         /// <summary>
-        /// List all codelists that are associated with the table
-        /// HttpGet
-        /// Route /api/v2/tables/{id}/codelists
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetTableCodeLists([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Get table data
         /// HttpGet
         /// Route /api/v2/tables/{id}/data
@@ -113,6 +97,11 @@ namespace PxWeb.Controllers.Api2
         /// <response code="404">Error respsone for 404</response>
         /// <response code="429">Error respsone for 429</response>
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
             throw new NotImplementedException();
         }
