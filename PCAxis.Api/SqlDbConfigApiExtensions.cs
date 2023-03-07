@@ -17,6 +17,8 @@ namespace PCAxis.Api
         {
             var pathLookup = new HashSet<string>();
 
+            var cmd = GetPxSqlCommand(DB);
+
             string sql = "";
             if (DB is SqlDbConfig_21)
             {
@@ -28,7 +30,7 @@ namespace PCAxis.Api
             }
             else if (DB is SqlDbConfig_23)
             {
-                sql = (DB as SqlDbConfig_23).GetPathLookupQuery2_3(language);
+                sql = (DB as SqlDbConfig_23).GetPathLookupQuery2_3(language, cmd);
             }
             else if (DB is SqlDbConfig_24)
             {
@@ -39,7 +41,6 @@ namespace PCAxis.Api
                 return null;
             }
 
-            var cmd = GetPxSqlCommand(DB);
 
             var dataSet = cmd.ExecuteSelect(sql);
 
@@ -75,25 +76,58 @@ namespace PCAxis.Api
         }
 
 
-        private static string GetPathLookupQuery2_3(this SqlDbConfig_23 DB, string language)
+        private static string GetPathLookupQuery2_3(this SqlDbConfig_23 DB, string language, PxSqlCommand cmd)
         {
-            return $@"WITH p(Menu, Selection, pathkey) AS (
+            //return $@"WITH p(Menu, Selection, pathkey) AS (
+            //        SELECT
+            //        Menu,
+            //        Selection,
+            //        cast(Selection AS VARCHAR(max)) As pathkey
+            //        FROM
+            //        MenuSelection
+            //        UNION ALL
+            //        SELECT
+            //        ms.Menu,
+            //        ms.Selection,
+            //        ms.Selection + '/' + p.pathkey
+            //        FROM
+            //        MenuSelection ms inner join p on ms.Selection = p.Menu
+            //        )
+            //        select '" + CnmmDatabaseApiRootHelper.DatabaseRoot + "'+ '/' + pathkey from p where Menu = '" + CnmmDatabaseApiRootHelper.DatabaseRoot + "'";
+
+            //return $@"WITH p({DB.MenuSelection.MenuCol.PureColumnName()}, {DB.MenuSelection.SelectionCol.PureColumnName()}, pathkey) AS (
+            //        SELECT
+            //            {DB.MenuSelection.MenuCol.PureColumnName()},
+            //            {DB.MenuSelection.SelectionCol.PureColumnName()},
+            //            cast({DB.MenuSelection.SelectionCol.PureColumnName()} AS VARCHAR(max)) As pathkey
+            //        FROM
+            //            {DB.MenuSelection.GetNameAndAlias()}
+            //        UNION ALL
+            //        SELECT
+            //            ms.{DB.MenuSelection.MenuCol.PureColumnName()},
+            //            ms.{DB.MenuSelection.SelectionCol.PureColumnName()},
+            //            ms.{DB.MenuSelection.SelectionCol.PureColumnName()} + '/' + p.pathkey
+            //        FROM
+            //           {DB.MenuSelection.TableName} ms inner join p on ms.{DB.MenuSelection.SelectionCol.PureColumnName()} = p.{DB.MenuSelection.MenuCol.PureColumnName()}
+            //        )
+            //        select '" + CnmmDatabaseApiRootHelper.DatabaseRoot + $@"'+ '/' + pathkey from p where {DB.MenuSelection.MenuCol.PureColumnName()} = '" + CnmmDatabaseApiRootHelper.DatabaseRoot + "'";
+
+            return $@"WITH p({DB.MenuSelection.MenuCol.PureColumnName()}, {DB.MenuSelection.SelectionCol.PureColumnName()}, pathkey) AS (
                     SELECT
-                    Menu,
-                    Selection,
-                    cast(Selection AS VARCHAR(max)) As pathkey
+                        {DB.MenuSelection.MenuCol.PureColumnName()},
+                        {DB.MenuSelection.SelectionCol.PureColumnName()},
+                        cast({DB.MenuSelection.SelectionCol.PureColumnName()} AS VARCHAR(1000)) As pathkey
                     FROM
-                    MenuSelection
+                        {DB.MenuSelection.TableName}
                     UNION ALL
                     SELECT
-                    ms.Menu,
-                    ms.Selection,
-                    ms.Selection + '/' + p.pathkey
+                        ms.{DB.MenuSelection.MenuCol.PureColumnName()},
+                        ms.{DB.MenuSelection.SelectionCol.PureColumnName()},
+                        cast({cmd.getConcatString("ms." + DB.MenuSelection.SelectionCol.PureColumnName() , "'/'" , "p.pathkey")} AS VARCHAR(1000)) 
                     FROM
-                    MenuSelection ms inner join p on ms.Selection = p.Menu
+                       {DB.MenuSelection.TableName} ms inner join p on ms.{DB.MenuSelection.SelectionCol.PureColumnName()} = p.{DB.MenuSelection.MenuCol.PureColumnName()}
                     )
-                    select 'BE'+ '/' + pathkey from p where Menu = 'BE'"; 
-
+                    select {cmd.getConcatString("'" + CnmmDatabaseApiRootHelper.DatabaseRoot + "/'", "pathkey")} from p where {DB.MenuSelection.MenuCol.PureColumnName()} = '{CnmmDatabaseApiRootHelper.DatabaseRoot}'";
         }
 
 
