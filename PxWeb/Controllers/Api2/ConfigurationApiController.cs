@@ -15,7 +15,7 @@ using Language = PxWeb.Models.Api2.Language;
 namespace PxWeb.Controllers.Api2
 {
     [ApiController]
-    public class ConfigurationApiController : ControllerBase
+    public class ConfigurationApiController : PxWeb.Api2.Server.Controllers.ConfigurationApiController
     {
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private readonly ILogger<ConfigurationApiController> _logger;
