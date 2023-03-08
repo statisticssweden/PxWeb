@@ -14,13 +14,13 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using PxWeb.Models.Api2;
 using PxWeb.Attributes.Api2;
 using PxWeb.Api2.Server.Models;
 using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
 using PxWeb.Helper.Api2;
 using PxWeb.Mappers;
+using Px.Search;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -33,12 +33,14 @@ namespace PxWeb.Controllers.Api2
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
         private readonly IResponseMapper _responseMapper;
+        private readonly ISearchBackend _backend;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _responseMapper = responseMapper;
+            _backend = backend;
         }
 
 
@@ -81,21 +83,6 @@ namespace PxWeb.Controllers.Api2
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// List all codelists that are associated with the table
-        /// HttpGet
-        /// Route /api/v2/tables/{id}/codelists
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetTableCodeLists([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
-        {
-            throw new NotImplementedException();
-        }
 
         /// <summary>
         /// Get table data
@@ -115,6 +102,24 @@ namespace PxWeb.Controllers.Api2
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues)
         {
             throw new NotImplementedException();
+        }
+
+        public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
+        {
+            Searcher searcher = new Searcher(_dataSource, _backend);
+
+            lang = _languageHelper.HandleLanguage(lang);
+            //TODO: Hämta default värden för pageSize från config
+            if (pageNumber == null || pageNumber <= 0)
+                pageNumber = 1;
+
+            if (pageSize == null || pageSize <= 0)
+                pageSize = 20;
+
+            if (query != null)
+                return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
+
+            return Ok();
         }
     }
 }

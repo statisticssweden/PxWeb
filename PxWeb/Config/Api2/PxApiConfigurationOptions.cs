@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PxWeb.Models.Api2;
+using PxWeb.Api2.Server.Models;
 
 namespace PxWeb.Config.Api2
 {
@@ -12,7 +12,7 @@ namespace PxWeb.Config.Api2
         public int MaxDataCells { get; set; } = 1;
         public int MaxCalls { get; set; } = 1;
         public int TimeWindow { get; set; } = 1;
-        public List<Feature> Features { get; set; } = new List<Feature>();
+        public List<ApiFeature> Features { get; set; } = new List<ApiFeature>();
         public string License { get; set; }
         public List<SourceReference> SourceReferences { get; set; }
         public Cors Cors { get; set; }
