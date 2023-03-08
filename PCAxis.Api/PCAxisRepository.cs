@@ -133,6 +133,13 @@ public static class PCAxisRepository
                 {
                     if (CnmmDatabaseApiRootHelper.IsRooted)
                     {
+                        // At database level?
+                        if (nodePath.Length == 1 && string.IsNullOrWhiteSpace(nodePath[0]))
+                        {
+                            // Redirect to rooted path
+                            nodePath[0] = CnmmDatabaseApiRootHelper.DatabaseRoot; 
+                        }
+
                         // Check valid path
                         if (!CnmmDatabaseApiRootHelper.CheckPath(db, nodePath, language))
                         {

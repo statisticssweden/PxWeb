@@ -48,8 +48,8 @@ namespace PCAxis.Api
             
             if (lookupTable is null)
             {
-                lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[db].GetApiPathLookup(language, DatabaseRoot);
-                ApiCache.Current.Set(lookupTableName, lookupTable, new TimeSpan(1, 0, 0)); //Store in cache for 1 hour
+                lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[db].GetApiPathLookup(DatabaseRoot);
+                ApiCache.Current.Set(lookupTableName, lookupTable, new TimeSpan(24, 0, 0)); //Store in cache for 24 hours
             }
 
             string path = string.Join("/", nodePath);
