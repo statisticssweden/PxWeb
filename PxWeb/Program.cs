@@ -63,6 +63,10 @@ namespace PxWeb
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             builder.Services.AddSingleton<IPxCache, PxCache>();
 
+            builder.Services.AddSingleton<ILinkCreator, LinkCreator>();
+            builder.Services.AddSingleton<ITableMetadataMapper, TableMetadataMapper>();
+
+
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
