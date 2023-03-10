@@ -46,18 +46,28 @@ namespace PxWeb.Mappers
             if (variable.IsTime)
             {
                 TimeVariable timeVariable = new TimeVariable();
-                timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum;
+                timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; // TODO: should it be TIME?
                 timeVariable.FirstPeriod = "1900"; // TODO: 
                 timeVariable.LastPeriod = "2023"; // TODO:
                 timeVariable.TimeUnit = GetTimeUnit(variable.TimeScale);
+
                 timeVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
+                MapValues(timeVariable.Values, variable);
+                
                 v = timeVariable;
             }
             else if (variable.IsContentVariable)
             {
                 ContentsVariable contentsVariable = new ContentsVariable();
                 contentsVariable.Type = AbstractVariable.TypeEnum.ContentsVariableEnum;
+
                 contentsVariable.Values = new System.Collections.Generic.List<ContentValue>();
+
+                foreach (var value in variable.Values)
+                {
+                    contentsVariable.Values.Add(MapContentValue(value));  
+                }
+
                 v = contentsVariable;
             }
             else if (!string.IsNullOrWhiteSpace(variable.Map))
@@ -70,7 +80,10 @@ namespace PxWeb.Mappers
                 {
                     geographicalVariable.EliminationValueCode = variable.EliminationValue.Code;
                 }
+
                 geographicalVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
+                MapValues(geographicalVariable.Values, variable);
+
                 v = geographicalVariable;   
             }
             else
@@ -82,14 +95,95 @@ namespace PxWeb.Mappers
                 {
                     regularVariable.EliminationValueCode = variable.EliminationValue.Code;
                 }
+                
                 regularVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
+                MapValues(regularVariable.Values, variable);
+
                 v = regularVariable;
             }
 
             v.Id = variable.Code;
             v.Label = variable.Name;
-            
+
+            if (variable.Notes != null)
+            {
+                v.Notes = new System.Collections.Generic.List<Api2.Server.Models.Note>();
+
+                foreach (var note in variable.Notes)
+                {
+                    v.Notes.Add(Map(note)); 
+                }
+            }
+
             return v;
+        }
+
+        private Api2.Server.Models.Value Map(PCAxis.Paxiom.Value value)
+        {
+            Api2.Server.Models.Value v = new Api2.Server.Models.Value();
+            v.Code = value.Code;
+            v.Label = value.Text;
+            
+            if (value.Notes != null)
+            {
+                v.Notes = new System.Collections.Generic.List<Api2.Server.Models.Note>();
+
+                foreach (var note in value.Notes)
+                {
+                    v.Notes.Add(Map(note));
+                }
+            }
+
+            return v;   
+        }
+
+        private ContentValue MapContentValue(PCAxis.Paxiom.Value value)
+        {
+            ContentValue cv = new ContentValue();
+
+            cv.Code = value.Code;
+            cv.Label = value.Text;
+
+            if (value.ContentInfo != null)
+            {
+                //cv.MeasuringType = ContentValue.MeasuringTypeEnum.FlowEnum; // TODO: How map this???
+                //cv.Adjustment = value.ContentInfo.DayAdj;
+                cv.Unit = value.ContentInfo.Units;
+                cv.Baseperiod = value.ContentInfo.Baseperiod;
+                cv.RefrencePeriod = value.ContentInfo.RefPeriod;
+                //cv.PreferedNumberOfDecimals = value.ContentInfo.Value ???;
+                //cv.PriceType = value.ContentInfo.CFPrices;
+            }
+
+            if (value.Notes != null)
+            {
+                cv.Notes = new System.Collections.Generic.List<Api2.Server.Models.Note>();
+
+                foreach (var note in value.Notes)
+                {
+                    cv.Notes.Add(Map(note));
+                }
+            }
+
+            return cv;
+        }
+
+        private Api2.Server.Models.Note Map(PCAxis.Paxiom.Note note)
+        {
+            Api2.Server.Models.Note n = new Api2.Server.Models.Note();
+            n.Text = note.Text;
+            n.Mandatory = note.Mandantory;
+
+            return n;
+        }
+
+        private void MapValues(System.Collections.Generic.List<Api2.Server.Models.Value> values, Variable variable)
+        {
+            foreach (var value in variable.Values)
+            {
+                values.Add(Map(value));
+            }
+
         }
 
         private TimeVariable.TimeUnitEnum GetTimeUnit(TimeScaleType timeScaleType)
