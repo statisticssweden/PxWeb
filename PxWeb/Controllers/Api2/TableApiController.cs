@@ -21,6 +21,9 @@ using Px.Abstractions.Interfaces;
 using PxWeb.Helper.Api2;
 using PxWeb.Mappers;
 using Px.Search;
+using System.Linq;
+using Lucene.Net.Util;
+using PxWeb.Code.Api2.Serialization;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -101,7 +104,56 @@ namespace PxWeb.Controllers.Api2
         /// <response code="429">Error respsone for 429</response>
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues)
         {
-            throw new NotImplementedException();
+            //TODO check that no selection paramaters is given
+            lang = _languageHelper.HandleLanguage(lang);
+            PXModel model;
+            //if no parameters given
+            model = GetDefaultTable(id, lang);
+            //else
+            //TODO create model from selection
+            //serialize output
+            //TODO check if given in url param otherwise take the format from appsettings
+            string outputFormat = "px";
+            var serializer = GetSerializer(outputFormat);
+            serializer.Serialize(model, Response);
+
+            return Ok();
+           
+        }
+
+        private IDataSerializer GetSerializer(string outputFormat)
+        {
+            switch (outputFormat.ToLower())
+            {
+                case "px":
+                default:
+                    return new PxDataSerializer();
+            }
+
+        }
+
+        private PXModel GetDefaultTable(string id, string language)
+        {
+            //TODO implement the correct algorithm
+            var builder = _dataSource.CreateBuilder(id, language);
+            if (builder == null) { 
+                throw new Exception("Missing datasource");
+            }
+
+            builder.BuildForSelection();
+            var selections = new List<Selection>();
+
+            foreach (var variable in builder.Model.Meta.Variables)
+            {
+                var selection = new Selection(variable.Code);
+                //Takes the first 4 values for each variable if variable has less values it takes all of its values.
+                var codes = variable.Values.Take(4).Select(value => value.Code).ToArray();
+                selection.ValueCodes.AddRange(codes);
+                selections.Add(selection);
+            }
+            builder.BuildForPresentation(selections.ToArray());
+
+            return builder.Model;
         }
 
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
