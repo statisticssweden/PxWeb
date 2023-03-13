@@ -45,61 +45,19 @@ namespace PxWeb.Mappers
 
             if (variable.IsTime)
             {
-                TimeVariable timeVariable = new TimeVariable();
-                timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; // TODO: should it be TIME?
-                timeVariable.FirstPeriod = "1900"; // TODO: 
-                timeVariable.LastPeriod = "2023"; // TODO:
-                timeVariable.TimeUnit = GetTimeUnit(variable.TimeScale);
-
-                timeVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
-                MapValues(timeVariable.Values, variable);
-                
-                v = timeVariable;
+                v = MapTimeVariable(variable);
             }
             else if (variable.IsContentVariable)
             {
-                ContentsVariable contentsVariable = new ContentsVariable();
-                contentsVariable.Type = AbstractVariable.TypeEnum.ContentsVariableEnum;
-
-                contentsVariable.Values = new System.Collections.Generic.List<ContentValue>();
-
-                foreach (var value in variable.Values)
-                {
-                    contentsVariable.Values.Add(MapContentValue(value));  
-                }
-
-                v = contentsVariable;
+                v = MapContentsVariable(variable);
             }
-            else if (!string.IsNullOrWhiteSpace(variable.Map))
+            else if (!string.IsNullOrWhiteSpace(variable.Map)) // TODO: Not set in SCB CNMM
             {
-                GeographicalVariable geographicalVariable = new GeographicalVariable();
-                geographicalVariable.Type = AbstractVariable.TypeEnum.GeographicalVariableEnum;
-                geographicalVariable.Map = variable.Map;
-                geographicalVariable.Elimination = variable.Elimination;
-                if (variable.EliminationValue != null)
-                {
-                    geographicalVariable.EliminationValueCode = variable.EliminationValue.Code;
-                }
-
-                geographicalVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
-                MapValues(geographicalVariable.Values, variable);
-
-                v = geographicalVariable;   
+                v = MapGeographicalVariable(variable);   
             }
             else
             {
-                RegularVariable regularVariable = new RegularVariable();
-                regularVariable.Type = AbstractVariable.TypeEnum.RegularVariableEnum;
-                regularVariable.Elimination = variable.Elimination;
-                if (variable.EliminationValue != null)
-                {
-                    regularVariable.EliminationValueCode = variable.EliminationValue.Code;
-                }
-                
-                regularVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
-                MapValues(regularVariable.Values, variable);
-
-                v = regularVariable;
+                v = MapRegularVariable(variable);
             }
 
             v.Id = variable.Code;
@@ -114,8 +72,84 @@ namespace PxWeb.Mappers
                     v.Notes.Add(Map(note)); 
                 }
             }
+            
+            // TODO: Add links
 
             return v;
+        }
+
+        private TimeVariable MapTimeVariable(Variable variable)
+        {
+            TimeVariable timeVariable = new TimeVariable();
+            timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; // TODO: should it be TIME?
+            timeVariable.FirstPeriod = "1900"; // TODO: 
+            timeVariable.LastPeriod = "2023"; // TODO:
+            timeVariable.TimeUnit = GetTimeUnit(variable.TimeScale);
+
+            timeVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
+            MapValues(timeVariable.Values, variable);
+
+            return timeVariable;
+        }
+
+        private ContentsVariable MapContentsVariable(Variable variable)
+        {
+            ContentsVariable contentsVariable = new ContentsVariable();
+            contentsVariable.Type = AbstractVariable.TypeEnum.ContentsVariableEnum;
+
+            contentsVariable.Values = new System.Collections.Generic.List<ContentValue>();
+
+            foreach (var value in variable.Values)
+            {
+                contentsVariable.Values.Add(MapContentValue(value));
+            }
+
+            return contentsVariable;    
+        }
+
+        private GeographicalVariable MapGeographicalVariable(Variable variable)
+        {
+            GeographicalVariable geographicalVariable = new GeographicalVariable();
+            geographicalVariable.Type = AbstractVariable.TypeEnum.GeographicalVariableEnum;
+            geographicalVariable.Map = variable.Map;
+            geographicalVariable.Elimination = variable.Elimination;
+            if (variable.EliminationValue != null)
+            {
+                geographicalVariable.EliminationValueCode = variable.EliminationValue.Code; 
+            }
+
+            geographicalVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
+            MapValues(geographicalVariable.Values, variable);
+
+            if (variable.HasGroupings() || variable.HasValuesets())
+            {
+                geographicalVariable.CodeLists = new System.Collections.Generic.List<CodeListInformation>();
+                MapCodelists(geographicalVariable.CodeLists, variable);
+            }
+
+            return geographicalVariable;    
+        }
+
+        private RegularVariable MapRegularVariable(Variable variable)
+        {
+            RegularVariable regularVariable = new RegularVariable();
+            regularVariable.Type = AbstractVariable.TypeEnum.RegularVariableEnum;
+            regularVariable.Elimination = variable.Elimination;
+            if (variable.EliminationValue != null)
+            {
+                regularVariable.EliminationValueCode = variable.EliminationValue.Code; // TODO: Not set in SCB CNMM
+            }
+
+            regularVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
+            MapValues(regularVariable.Values, variable);
+
+            if (variable.HasGroupings() || variable.HasValuesets())
+            {
+                regularVariable.CodeLists = new System.Collections.Generic.List<CodeListInformation>();
+                MapCodelists(regularVariable.CodeLists, variable);
+            }
+
+            return regularVariable;
         }
 
         private Api2.Server.Models.Value Map(PCAxis.Paxiom.Value value)
@@ -154,6 +188,14 @@ namespace PxWeb.Mappers
                 //cv.PreferedNumberOfDecimals = value.ContentInfo.Value ???;
                 //cv.PriceType = value.ContentInfo.CFPrices;
             }
+            else if (value.Variable.Meta.ContentInfo != null)
+            {
+                // TODO: Get content info from table...
+            }
+            else
+            {
+                // TODO: How handle this?
+            }
 
             if (value.Notes != null)
             {
@@ -177,6 +219,29 @@ namespace PxWeb.Mappers
             return n;
         }
 
+        private Api2.Server.Models.CodeListInformation Map(PCAxis.Paxiom.GroupingInfo grouping)
+        {
+            CodeListInformation codelist = new CodeListInformation();
+
+            codelist.Id = grouping.ID;
+            codelist.Label = grouping.Name;
+            // codelist.Type = "Aggregation" // TODO: Type property is missing...
+            // TODO: Add links...
+
+            return codelist;
+        }
+        private Api2.Server.Models.CodeListInformation Map(PCAxis.Paxiom.ValueSetInfo valueset)
+        {
+            CodeListInformation codelist = new CodeListInformation();
+
+            codelist.Id = valueset.ID;
+            codelist.Label = valueset.Name;
+            // codelist.Type = "Aggregation" // TODO: Type property is missing...
+            // TODO: Add links...
+
+            return codelist;
+        }
+
         private void MapValues(System.Collections.Generic.List<Api2.Server.Models.Value> values, Variable variable)
         {
             foreach (var value in variable.Values)
@@ -184,6 +249,25 @@ namespace PxWeb.Mappers
                 values.Add(Map(value));
             }
 
+        }
+
+        private void MapCodelists(System.Collections.Generic.List<CodeListInformation> codelists, Variable variable)
+        {
+            if (variable.HasGroupings())
+            {
+                foreach (var grouping in variable.Groupings)
+                {
+                    codelists.Add(Map(grouping));
+                }
+            }
+
+            if (variable.HasValuesets())
+            {
+                foreach (var valueset in variable.ValueSets)
+                {
+                    codelists.Add(Map(valueset));
+                }
+            }
         }
 
         private TimeVariable.TimeUnitEnum GetTimeUnit(TimeScaleType timeScaleType)
