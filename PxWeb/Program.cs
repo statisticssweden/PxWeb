@@ -27,6 +27,7 @@ using Px.Search.Lucene;
 using PxWeb.Code.Api2.Cache;
 using System.Text;
 using PxWeb.Code;
+using PxWeb.Code.BackgroundWorker;
 
 namespace PxWeb
 {
@@ -77,7 +78,9 @@ namespace PxWeb
             builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
 
-
+            builder.Services.AddHostedService<LongRunningService>();
+            builder.Services.AddSingleton<BackgroundWorkerQueue>();
+            
             builder.Services.AddPxSearchEngine(builder);
 
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
