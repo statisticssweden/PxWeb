@@ -108,9 +108,20 @@ namespace PxWeb.Controllers.Api2
             lang = _languageHelper.HandleLanguage(lang);
             PXModel model;
             //if no parameters given
-            model = GetDefaultTable(id, lang);
+            var builder = _dataSource.CreateBuilder(id, lang);
+            if (builder == null)
+            {
+                throw new Exception("Missing datasource");
+            }
+
+            builder.BuildForSelection();
+            var selection = GetDefaultTable(builder.Model);
+
+            builder.BuildForPresentation(selection);
+            model = builder.Model;
             //else
             //TODO create model from selection
+            //selection = GetSelectionFromQuery(...)
             //serialize output
             //TODO check if given in url param otherwise take the format from appsettings
             string outputFormat = "px";
@@ -125,6 +136,23 @@ namespace PxWeb.Controllers.Api2
         {
             switch (outputFormat.ToLower())
             {
+                case "xlsx":
+                case "xlsx_doublecolumn":
+                case "csv":
+                case "csv_tab":
+                case "csv_tabhead":
+                case "csv_comma":
+                case "csv_commahead":
+                case "csv_space":
+                case "csv_spacehead":
+                case "csv_semicolon":
+                case "csv_semicolonhead":
+                case "csv2":
+                case "csv3":
+                case "json_stat":
+                case "json_stat2":
+                case "html5_table":
+                case "relational_table":
                 case "px":
                 default:
                     return new PxDataSerializer();
@@ -132,18 +160,13 @@ namespace PxWeb.Controllers.Api2
 
         }
 
-        private PXModel GetDefaultTable(string id, string language)
+        private Selection[] GetDefaultTable(PXModel model)
         {
             //TODO implement the correct algorithm
-            var builder = _dataSource.CreateBuilder(id, language);
-            if (builder == null) { 
-                throw new Exception("Missing datasource");
-            }
 
-            builder.BuildForSelection();
             var selections = new List<Selection>();
 
-            foreach (var variable in builder.Model.Meta.Variables)
+            foreach (var variable in model.Meta.Variables)
             {
                 var selection = new Selection(variable.Code);
                 //Takes the first 4 values for each variable if variable has less values it takes all of its values.
@@ -151,9 +174,8 @@ namespace PxWeb.Controllers.Api2
                 selection.ValueCodes.AddRange(codes);
                 selections.Add(selection);
             }
-            builder.BuildForPresentation(selections.ToArray());
 
-            return builder.Model;
+            return selections.ToArray();
         }
 
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)

@@ -11,6 +11,7 @@ namespace PxWeb.Code.Api2.Serialization
             //Create PXFileSerializer
             //Set Contenttype on the response
             //Serialize the data to the response stream 
+            //See https://github.com/statisticssweden/PxWeb/blob/master/PCAxis.Api/Serializers/PxSerializer.cs
 
         }
     }
