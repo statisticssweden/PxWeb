@@ -120,8 +120,9 @@ namespace PxWeb.Controllers.Api2
             builder.BuildForPresentation(selection);
             model = builder.Model;
             //else
-            //TODO create model from selection
-            //selection = GetSelectionFromQuery(...)
+            //    TODO create model from selection
+            //    selection = GetSelectionFromQuery(...)
+            
             //serialize output
             //TODO check if given in url param otherwise take the format from appsettings
             string outputFormat = "px";

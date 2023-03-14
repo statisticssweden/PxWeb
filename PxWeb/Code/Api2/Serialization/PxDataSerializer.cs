@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using PCAxis.Paxiom;
+using PxWeb.Code.Api2.Cache;
+using System.IO;
 
 namespace PxWeb.Code.Api2.Serialization
 {
@@ -7,12 +9,9 @@ namespace PxWeb.Code.Api2.Serialization
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            //TODO
-            //Create PXFileSerializer
-            //Set Contenttype on the response
-            //Serialize the data to the response stream 
-            //See https://github.com/statisticssweden/PxWeb/blob/master/PCAxis.Api/Serializers/PxSerializer.cs
-
+            response.ContentType = "application/octet-stream; charset=" + System.Text.Encoding.Default.WebName;
+            PCAxis.Paxiom.IPXModelStreamSerializer serializer = new PCAxis.Paxiom.PXFileSerializer();
+            serializer.Serialize(model, response.Body);
         }
     }
 }
