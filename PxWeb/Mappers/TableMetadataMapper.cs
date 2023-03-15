@@ -1,20 +1,28 @@
-﻿using PCAxis.Paxiom;
+﻿using J2N.Collections.Generic;
+using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
+using System.Linq;
 
 namespace PxWeb.Mappers
 {
     public class TableMetadataMapper : ITableMetadataMapper
     {
         ILinkCreator _linkCreator;
+        string _tableId = "";
+        List<string> _contacts = new List<string>();
+
         public TableMetadataMapper(ILinkCreator linkCreator)
         {
-            _linkCreator = linkCreator; 
+            _linkCreator = linkCreator;
         }
+
         public TableMetadata Map(PXModel model, string id, string language)
         {
+            _tableId = id.ToUpper();
+
             TableMetadata tm = new TableMetadata();
 
-            tm.Id = id.ToUpper();
+            tm.Id = _tableId;
             tm.Language = language;
             tm.Label = model.Meta.Title;
             tm.Description = model.Meta.Description;
@@ -32,6 +40,8 @@ namespace PxWeb.Mappers
             {
                 tm.Variables.Add(Map(variable));
             }
+
+            MapContacts(tm);
 
             tm.Links = new System.Collections.Generic.List<Link>();
             tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper()));
@@ -51,7 +61,7 @@ namespace PxWeb.Mappers
             {
                 v = MapContentsVariable(variable);
             }
-            else if (!string.IsNullOrWhiteSpace(variable.Map)) // TODO: Not set in SCB CNMM
+            else if (!string.IsNullOrWhiteSpace(variable.Map)) // TODO: Not set in SCB CNMM. Check variable.VariableType instead?
             {
                 v = MapGeographicalVariable(variable);   
             }
@@ -82,8 +92,8 @@ namespace PxWeb.Mappers
         {
             TimeVariable timeVariable = new TimeVariable();
             timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; // TODO: should it be TIME?
-            timeVariable.FirstPeriod = "1900"; // TODO: 
-            timeVariable.LastPeriod = "2023"; // TODO:
+            timeVariable.FirstPeriod = GetFirstTimePeriod(variable);    
+            timeVariable.LastPeriod = GetLastTimePeriod(variable);
             timeVariable.TimeUnit = GetTimeUnit(variable.TimeScale);
 
             timeVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
@@ -137,7 +147,7 @@ namespace PxWeb.Mappers
             regularVariable.Elimination = variable.Elimination;
             if (variable.EliminationValue != null)
             {
-                regularVariable.EliminationValueCode = variable.EliminationValue.Code; // TODO: Not set in SCB CNMM
+                regularVariable.EliminationValueCode = variable.EliminationValue.Code; 
             }
 
             regularVariable.Values = new System.Collections.Generic.List<Api2.Server.Models.Value>();
@@ -177,24 +187,15 @@ namespace PxWeb.Mappers
 
             cv.Code = value.Code;
             cv.Label = value.Text;
+            cv.PreferedNumberOfDecimals = value.Precision;
 
             if (value.ContentInfo != null)
             {
-                //cv.MeasuringType = ContentValue.MeasuringTypeEnum.FlowEnum; // TODO: How map this???
-                //cv.Adjustment = value.ContentInfo.DayAdj;
-                cv.Unit = value.ContentInfo.Units;
-                cv.Baseperiod = value.ContentInfo.Baseperiod;
-                cv.RefrencePeriod = value.ContentInfo.RefPeriod;
-                //cv.PreferedNumberOfDecimals = value.ContentInfo.Value ???;
-                //cv.PriceType = value.ContentInfo.CFPrices;
+                GetContentInfo(cv, value.ContentInfo);
             }
             else if (value.Variable.Meta.ContentInfo != null)
             {
-                // TODO: Get content info from table...
-            }
-            else
-            {
-                // TODO: How handle this?
+                GetContentInfo(cv, value.Variable.Meta.ContentInfo);
             }
 
             if (value.Notes != null)
@@ -210,6 +211,17 @@ namespace PxWeb.Mappers
             return cv;
         }
 
+        private void GetContentInfo(ContentValue cv, ContInfo contInfo)
+        {
+            cv.MeasuringType = GetMeasuringType(contInfo.StockFa);
+            cv.Adjustment = GetAdjustment(contInfo.DayAdj, contInfo.SeasAdj);
+            cv.Unit = contInfo.Units;
+            cv.Baseperiod = contInfo.Baseperiod;
+            cv.RefrencePeriod = contInfo.RefPeriod;
+            cv.PriceType = GetPriceType(contInfo.CFPrices);
+            _contacts.Add(contInfo.Contact);
+        }
+
         private Api2.Server.Models.Note Map(PCAxis.Paxiom.Note note)
         {
             Api2.Server.Models.Note n = new Api2.Server.Models.Note();
@@ -223,10 +235,11 @@ namespace PxWeb.Mappers
         {
             CodeListInformation codelist = new CodeListInformation();
 
-            codelist.Id = grouping.ID;
+            codelist.Id = "agg_" + grouping.ID;
             codelist.Label = grouping.Name;
             // codelist.Type = "Aggregation" // TODO: Type property is missing...
-            // TODO: Add links...
+            codelist.Links = new System.Collections.Generic.List<Link>();
+            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
 
             return codelist;
         }
@@ -234,10 +247,11 @@ namespace PxWeb.Mappers
         {
             CodeListInformation codelist = new CodeListInformation();
 
-            codelist.Id = valueset.ID;
+            codelist.Id = "vs_" + valueset.ID;
             codelist.Label = valueset.Name;
             // codelist.Type = "Aggregation" // TODO: Type property is missing...
-            // TODO: Add links...
+            codelist.Links = new System.Collections.Generic.List<Link>();
+            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
 
             return codelist;
         }
@@ -248,7 +262,6 @@ namespace PxWeb.Mappers
             {
                 values.Add(Map(value));
             }
-
         }
 
         private void MapCodelists(System.Collections.Generic.List<CodeListInformation> codelists, Variable variable)
@@ -265,9 +278,34 @@ namespace PxWeb.Mappers
             {
                 foreach (var valueset in variable.ValueSets)
                 {
-                    codelists.Add(Map(valueset));
+                    if (!valueset.ID.Equals("_ALL_")) 
+                    {
+                        codelists.Add(Map(valueset));
+                    }
                 }
             }
+        }
+
+        private void MapContacts(TableMetadata tm)
+        {
+            if (_contacts.Count > 0)
+            {
+                tm.Contacts = new System.Collections.Generic.List<Api2.Server.Models.Contact>();
+
+                foreach (var contact in _contacts)
+                {
+                    tm.Contacts.Add(MapContact(contact));
+                }
+            }
+        }
+
+        private Api2.Server.Models.Contact MapContact(string contact)
+        {
+            Api2.Server.Models.Contact c = new Api2.Server.Models.Contact();
+
+            c.Raw = contact;    
+
+            return c;
         }
 
         private TimeVariable.TimeUnitEnum GetTimeUnit(TimeScaleType timeScaleType)
@@ -288,6 +326,92 @@ namespace PxWeb.Mappers
                     return TimeVariable.TimeUnitEnum.WeeklyEnum;
                 default:
                     return TimeVariable.TimeUnitEnum.OtherEnum;
+            }
+        }
+
+        private string GetFirstTimePeriod(Variable variable)
+        {
+            string first = "";
+
+            if (variable.Values.Count > 0)
+            {
+                first = variable.Values.First().Text;
+                string val2 = variable.Values.Last().Text;
+
+                if (string.CompareOrdinal(first, val2) > 0)
+                {
+                    first = val2;
+                }
+            }
+
+            return first;
+        }
+        private string GetLastTimePeriod(Variable variable)
+        {
+            string last = "";
+
+            if (variable.Values.Count > 0)
+            {
+                last = variable.Values.Last().Text;
+                string val2 = variable.Values.First().Text;
+
+                if (string.CompareOrdinal(last, val2) < 0)
+                {
+                    last = val2;
+                }
+            }
+
+            return last;
+        }
+
+        private ContentValue.MeasuringTypeEnum GetMeasuringType(string stockfa)
+        {
+            switch (stockfa.ToUpper())
+            {
+                case "S":
+                    return ContentValue.MeasuringTypeEnum.StockEnum;
+                case "F":
+                    return ContentValue.MeasuringTypeEnum.FlowEnum;
+                case "A":
+                    return ContentValue.MeasuringTypeEnum.AverageEnum;
+                default:
+                    return ContentValue.MeasuringTypeEnum.OtherEnum;
+            }
+        }
+
+        private ContentValue.AdjustmentEnum GetAdjustment(string dayAdj, string seasAdj)
+        {
+            string dadj = dayAdj.ToUpper();
+            string sadj = seasAdj.ToUpper();
+
+            if (dadj.Equals("YES") && sadj.Equals("YES"))
+            {
+                return ContentValue.AdjustmentEnum.WorkAndSesEnum;
+            }
+            else if (sadj.Equals("YES"))
+            {
+                return ContentValue.AdjustmentEnum.SesOnlyEnum;
+            }
+            else if (dadj.Equals("YES"))
+            {
+                return ContentValue.AdjustmentEnum.WorkOnlyEnum;
+            }
+            else
+            {
+                return ContentValue.AdjustmentEnum.NoneEnum;
+            }
+        }
+
+        private ContentValue.PriceTypeEnum GetPriceType(string CFPrices)
+        {
+            switch (CFPrices.ToUpper())
+            {
+                case "C":
+                    return ContentValue.PriceTypeEnum.CurrentEnum;
+                case "F":
+                    return ContentValue.PriceTypeEnum.FixedEnum;
+                default:
+                    return ContentValue.PriceTypeEnum.CurrentEnum; // TODO: Is this right? Not set in SCB CNMM
             }
         }
     }

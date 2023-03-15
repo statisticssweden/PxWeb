@@ -10,7 +10,8 @@ namespace PxWeb.Mappers
         {
             self,
             data,
-            describedby
+            describedby,
+            metadata
         }
 
         private string _urlBase;
@@ -27,14 +28,18 @@ namespace PxWeb.Mappers
             var link = new Link();
             link.Rel = relation.ToString();
             link.Href = _urlBase + $"tables/{id}/metadata";
+
+            // TODO: Handle all languages to self links...
             return link;
         }
 
-        //public static Link GetLink(LinkRelationEnum relation, string href, string id, HttpContext httpContext)
-        //{
-        //    Link link = new Link();
+        public Link GetCodelistLink(LinkRelationEnum relation, string tableId, string id)
+        {
+            var link = new Link();
+            link.Rel = relation.ToString();
+            link.Href = _urlBase + $"tables/{tableId}/codeLists/{id}"; // TODO: Shall tableid be here?
 
-        //    return link;
-        //}
+            return link;
+        }
     }
 }
