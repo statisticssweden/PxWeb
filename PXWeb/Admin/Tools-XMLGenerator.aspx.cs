@@ -130,11 +130,11 @@ namespace PXWeb.Admin
         }
 
         protected void MasterSave_Click(object sender, EventArgs e) {
-            if (PXWeb.Settings.BeginUpdate())
+            if (Settings.BeginUpdate())
             {
                 try
                 {
-                    PXWeb.DcatSettings dcats  = (PXWeb.DcatSettings)PXWeb.Settings.NewSettings.Dcat;
+                    DcatSettings dcats  = (DcatSettings) Settings.NewSettings.Dcat;
                     dcats.BaseURI = textBoxSelectBaseURI.Text;
                     dcats.BaseApiUrl = textBoxSelectApiURL.Text;
                     dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
@@ -145,11 +145,11 @@ namespace PXWeb.Admin
                     dcats.DatabaseType = cboSelectDbType.Text;
                     dcats.License = textBoxSelectLicense.Text;
 
-                    PXWeb.Settings.Save();
+                    Settings.Save();
                 }
                 finally
                 {
-                    PXWeb.Settings.EndUpdate();
+                    Settings.EndUpdate();
                 }
             }
         }

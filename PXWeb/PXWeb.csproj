@@ -687,6 +687,7 @@
     <Compile Include="Code\Management\AdminTool.cs" />
     <Compile Include="Code\Management\AuthorizationUtil.cs" />
     <Compile Include="Code\Management\CacheController.cs" />
+    <Compile Include="Code\Management\CnmmDatabaseRootHelper.cs" />
     <Compile Include="Code\Management\ExposedDatabasesManager.cs" />
     <Compile Include="Code\Management\GotoRouteHandler.cs" />
     <Compile Include="Code\Management\IPxUrl.cs" />

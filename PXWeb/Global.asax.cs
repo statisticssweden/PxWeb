@@ -21,6 +21,7 @@ using System.Web.Http;
 using PXWeb.API;
 using Ninject;
 using Ninject.Web.Common;
+using PXWeb.Code.Management;
 
 namespace PXWeb
 {
@@ -197,6 +198,16 @@ namespace PXWeb
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase("");
 
             PCAxis.Web.Controls.ChartManager.SettingsInitializer = InitializeChartSettings;
+
+            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["CnmmDatabaseRoot"]))
+            {
+                CnmmDatabaseRootHelper.IsRooted = true;
+                CnmmDatabaseRootHelper.DatabaseRoot = ConfigurationManager.AppSettings["CnmmDatabaseRoot"];
+            }
+            else
+            {
+                CnmmDatabaseRootHelper.IsRooted = false;
+            }
 
             //Set if strict check of groupings shall be performed or not
             PCAxis.Paxiom.GroupRegistry.GetRegistry().Strict = PXWeb.Settings.Current.General.Global.StrictAggregationCheck;

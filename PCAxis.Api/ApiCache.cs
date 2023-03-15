@@ -78,7 +78,7 @@ namespace PCAxis.Api
         }
 
         /// <summary>
-        /// Fetches a cached object from the cache
+        /// Fetches a cached ResponseBucket object from the cache
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
@@ -103,9 +103,9 @@ namespace PCAxis.Api
           
             return System.Web.HttpRuntime.Cache[key] as ResponseBucket;
         }
-        
+
         /// <summary>
-        /// Stores a object in the cache
+        /// Stores a ResponseBucket object in the cache
         /// </summary>
         /// <param name="data"></param>
         public void Store(ResponseBucket data, TimeSpan ?time = null)
@@ -130,6 +130,54 @@ namespace PCAxis.Api
                     if (System.Web.HttpRuntime.Cache[data.Key] == null)
                     {
                         System.Web.HttpRuntime.Cache.Add(data.Key, data, null, System.Web.Caching.Cache.NoAbsoluteExpiration, time.Value, System.Web.Caching.CacheItemPriority.Normal, null);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fetches a cached object from the cache
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public T Get<T>(string key)
+        {
+            if (!IsEnabled())
+            {
+                return default;
+            }
+
+            //Check if the cache controller has set a coherence checker
+            if (_coherenceChecker != null)
+            {
+                //Check that the cache is coherent
+                if (!_coherenceChecker())
+                {
+                    //Clear the cache if it is not coherent
+                    Clear();
+                }
+            }
+
+            return (T)System.Web.HttpRuntime.Cache[key];
+        }
+
+        /// <summary>
+        /// Stores a object in the cache for a specified time
+        /// </summary>
+        /// <param name="data"></param>
+        public void Set(string key, object value, TimeSpan lifetime)
+        {
+            if (System.Web.HttpRuntime.Cache[key] is null)
+            {
+                if (_apiCacheLogger.IsDebugEnabled)
+                {
+                    _apiCacheLogger.DebugFormat("Adding key={0} to Cache", key);
+                }
+                lock (CacheLock)
+                {
+                    if (System.Web.HttpRuntime.Cache[key] is null)
+                    {
+                        System.Web.HttpRuntime.Cache.Add(key, value, null, System.Web.Caching.Cache.NoAbsoluteExpiration, lifetime, System.Web.Caching.CacheItemPriority.Normal, null);
                     }
                 }
             }

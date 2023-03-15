@@ -280,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiCache.cs" />
+    <Compile Include="CnmmDatabaseApiRootHelper.cs" />
     <Compile Include="HttpContextExtensions.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="PCAxisRepository.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="Serializers\WebSerializerSwitch.cs" />
     <Compile Include="Serializers\XlsxSerializer.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SqlDbConfigApiExtensions.cs" />
     <Compile Include="SSDHandler.cs" />
     <Compile Include="SSDRouteHandler.cs" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 === Release of PxWeb 2023 v1 ===
 - Upgraded versions of nuget-packages
+- Now possible to set CNMM database rootnode
 - Updated template web.config with new assembly reference and new version number
 - JSON format, added text for the variable values
 === Release of PxWeb 2022 v1 ===
