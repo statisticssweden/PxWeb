@@ -24,25 +24,31 @@ namespace PxWeb.Mappers
 
             tm.Id = _tableId;
             tm.Language = language;
-            tm.Label = model.Meta.Title;
+            tm.Label = model.Meta.Title; // TODO: Localize title
             tm.Description = model.Meta.Description;
             tm.Source = model.Meta.Source;
             //tm.Tags = new System.Collections.Generic.List<string>(); // TODO: Implement later
             tm.OfficalStatistics = model.Meta.OfficialStatistics;
+            tm.SubjectLabel = model.Meta.SubjectArea; // Not in docs
             tm.SubjectCode = model.Meta.SubjectCode;
             tm.Licence = "???"; // TODO: Get from appsettings?
             tm.AggregationAllowed = model.Meta.AggregAllowed;
             //tm.Discontinued = ???; // TODO: Implement later
+            tm.Updated = System.DateTime.Now; // TODO:
 
-            tm.Variables = new System.Collections.Generic.List<AbstractVariable>();
+            tm.VariablesDisplayOrder = new System.Collections.Generic.List<string>(); // TODO: What is this?
+            tm.Variables = new System.Collections.Generic.List<AbstractVariable>(); 
 
             foreach (Variable variable in model.Meta.Variables)
             {
                 tm.Variables.Add(Map(variable));
+                tm.VariablesDisplayOrder.Add(variable.Code); // TODO: Is this right?
             }
 
             MapContacts(tm);
+            MapTableNotes(tm, model);
 
+            // TODO: Add self-links in all languages
             tm.Links = new System.Collections.Generic.List<Link>();
             tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper()));
 
@@ -83,7 +89,15 @@ namespace PxWeb.Mappers
                 }
             }
             
-            // TODO: Add links
+            if (variable.Notes != null)
+            {
+                v.Notes = new System.Collections.Generic.List<Api2.Server.Models.Note>();
+
+                foreach (var note in variable.Notes)
+                {
+                    v.Notes.Add(Map(note));
+                }
+            }
 
             return v;
         }
@@ -231,6 +245,56 @@ namespace PxWeb.Mappers
             return n;
         }
 
+        private void MapTableNotes(TableMetadata tm, PCAxis.Paxiom.PXModel model)
+        {
+            if (model.Meta.Notes.Count > 0 || model.Meta.CellNotes.Count > 0)
+            {
+                tm.Notes = new System.Collections.Generic.List<Api2.Server.Models.CellNote>();
+
+                foreach (var note in model.Meta.Notes)
+                {
+                    tm.Notes.Add(MapCellNote(note));
+                }
+                foreach (var note in model.Meta.CellNotes)
+                {
+                    tm.Notes.Add(MapCellNote(note));
+                }
+            }
+        }
+
+        private Api2.Server.Models.CellNote MapCellNote(PCAxis.Paxiom.Note note)
+        {
+            Api2.Server.Models.CellNote n = new Api2.Server.Models.CellNote();
+
+            n.Text = note.Text;
+            n.Mandatory = note.Mandantory;
+
+            return n;
+        }
+        private Api2.Server.Models.CellNote MapCellNote(PCAxis.Paxiom.CellNote note)
+        {
+            Api2.Server.Models.CellNote n = new Api2.Server.Models.CellNote();
+
+            n.Text = note.Text;
+            n.Mandatory = note.Mandatory;
+
+            if (note.Conditions.Count > 0)
+            {
+                n.Conditions = new System.Collections.Generic.List<Condition>();
+
+                foreach (var cond in note.Conditions)
+                {
+                    Api2.Server.Models.Condition condition = new Api2.Server.Models.Condition();
+
+                    condition.Variable = cond.VariableCode;
+                    condition.Value = cond.ValueCode;
+
+                    n.Conditions.Add(condition);
+                }
+            }
+
+            return n;
+        }
         private Api2.Server.Models.CodeListInformation Map(PCAxis.Paxiom.GroupingInfo grouping)
         {
             CodeListInformation codelist = new CodeListInformation();
@@ -303,6 +367,8 @@ namespace PxWeb.Mappers
         {
             Api2.Server.Models.Contact c = new Api2.Server.Models.Contact();
 
+            // TODO: Handle contact properties
+            // TODO: Only display unique contact once
             c.Raw = contact;    
 
             return c;
