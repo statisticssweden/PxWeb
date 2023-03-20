@@ -5,9 +5,6 @@ using System.Linq;
 
 namespace PxWeb.Mappers
 {
-    // TODO: Merge from pxapi2/master
-    // TODO: Upgrade nuget
-
     public class TableMetadataMapper : ITableMetadataMapper
     {
         ILinkCreator _linkCreator;
@@ -306,7 +303,7 @@ namespace PxWeb.Mappers
 
             codelist.Id = "agg_" + grouping.ID;
             codelist.Label = grouping.Name;
-            //codelist.Type = "Aggregation" // TODO: Type property is missing...
+            codelist.Type = CodeListType.AggregationEnum;
             codelist.Links = new System.Collections.Generic.List<Link>();
             codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
 
@@ -318,7 +315,7 @@ namespace PxWeb.Mappers
 
             codelist.Id = "vs_" + valueset.ID;
             codelist.Label = valueset.Name;
-            // codelist.Type = "Aggregation" // TODO: Type property is missing...
+            codelist.Type = CodeListType.ValuesetEnum;
             codelist.Links = new System.Collections.Generic.List<Link>();
             codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
 
@@ -483,7 +480,7 @@ namespace PxWeb.Mappers
                 case "F":
                     return ContentValue.PriceTypeEnum.FixedEnum;
                 default:
-                    return ContentValue.PriceTypeEnum.CurrentEnum; // TODO: Is this right? Not set in SCB CNMM
+                    return ContentValue.PriceTypeEnum.UndefinedEnum; 
             }
         }
     }

@@ -71,7 +71,7 @@ namespace PxWeb.Controllers.Api2
                     p.Type = "Parameter error";
                     p.Detail = "Non-existent table " + id;
                     p.Status = 404;
-                    p.Title = "Table does not exist";
+                    p.Title = "Non-existent table";
                     return NotFound(p);
                 }
             }
@@ -81,7 +81,7 @@ namespace PxWeb.Controllers.Api2
                 p.Type = "Parameter error";
                 p.Detail = "Non-existent table " + id;
                 p.Status = 404;
-                p.Title = "Table does not exist";
+                p.Title = "Non-existent table";
                 return NotFound(p);
             }
         }
@@ -98,51 +98,6 @@ namespace PxWeb.Controllers.Api2
         }
 
 
-        /// <summary>
-        /// Get table data
-        /// HttpGet
-        /// Route /api/v2/tables/{id}/data
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <param name="valuecodes"></param>
-        /// <param name="codelist"></param>
-        /// <param name="outputvalues"></param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="403">Error respsone for 403</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues)
-        {
-            //TODO check that no selection paramaters is given
-            lang = _languageHelper.HandleLanguage(lang);
-            PXModel model;
-            //if no parameters given
-            var builder = _dataSource.CreateBuilder(id, lang);
-            if (builder == null)
-            {
-                throw new Exception("Missing datasource");
-            }
-
-            builder.BuildForSelection();
-            var selection = GetDefaultTable(builder.Model);
-
-            builder.BuildForPresentation(selection);
-            model = builder.Model;
-            //else
-            //    TODO create model from selection
-            //    selection = GetSelectionFromQuery(...)
-            
-            //serialize output
-            //TODO check if given in url param otherwise take the format from appsettings
-            string outputFormat = "px";
-            var serializer = GetSerializer(outputFormat);
-            serializer.Serialize(model, Response);
-
-            return Ok();
-           
-        }
 
         private IDataSerializer GetSerializer(string outputFormat)
         {
@@ -206,6 +161,41 @@ namespace PxWeb.Controllers.Api2
                 return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
 
             return Ok();
+        }
+
+        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
+        {
+            //TODO check that no selection paramaters is given
+            lang = _languageHelper.HandleLanguage(lang);
+            PXModel model;
+            //if no parameters given
+            var builder = _dataSource.CreateBuilder(id, lang);
+            if (builder == null)
+            {
+                throw new Exception("Missing datasource");
+            }
+
+            builder.BuildForSelection();
+            var selection = GetDefaultTable(builder.Model);
+
+            builder.BuildForPresentation(selection);
+            model = builder.Model;
+            //else
+            //    TODO create model from selection
+            //    selection = GetSelectionFromQuery(...)
+
+            //serialize output
+            //TODO check if given in url param otherwise take the format from appsettings
+            outputFormat = "px";
+            var serializer = GetSerializer(outputFormat);
+            serializer.Serialize(model, Response);
+
+            return Ok();
+        }
+
+        public override IActionResult GetTableDataByPost([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromBody] VariablesSelection? variablesSelection)
+        {
+            throw new NotImplementedException();
         }
     }
 }
