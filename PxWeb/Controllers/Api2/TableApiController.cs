@@ -64,12 +64,22 @@ namespace PxWeb.Controllers.Api2
                 }
                 catch (Exception)
                 {
-                    return NotFound();
+                    Problem p = new Problem();
+                    p.Type = "Parameter error";
+                    p.Detail = "Non-existent table " + id;
+                    p.Status = 404;
+                    p.Title = "Table does not exist";
+                    return NotFound(p);
                 }
             }
             else
             {
-                return new BadRequestObjectResult("No such table id " + id);
+                Problem p = new Problem();
+                p.Type = "Parameter error";
+                p.Detail = "Non-existent table " + id;
+                p.Status = 404;
+                p.Title = "Table does not exist";
+                return NotFound(p);
             }
         }
 

@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace PxWeb.Mappers
 {
+    // TODO: Merge from pxapi2/master
+    // TODO: Upgrade nuget
+
     public class TableMetadataMapper : ITableMetadataMapper
     {
         ILinkCreator _linkCreator;
@@ -22,9 +25,10 @@ namespace PxWeb.Mappers
 
             TableMetadata tm = new TableMetadata();
 
+            // TODO: Order of properties
             tm.Id = _tableId;
             tm.Language = language;
-            tm.Label = model.Meta.Title; // TODO: Localize title
+            tm.Label = model.Meta.Title; // TODO: Localize title. Add language files - wwwroot/languages. Configure in app.config 
             tm.Description = model.Meta.Description;
             tm.Source = model.Meta.Source;
             //tm.Tags = new System.Collections.Generic.List<string>(); // TODO: Implement later
@@ -34,7 +38,7 @@ namespace PxWeb.Mappers
             tm.Licence = "???"; // TODO: Get from appsettings?
             tm.AggregationAllowed = model.Meta.AggregAllowed;
             //tm.Discontinued = ???; // TODO: Implement later
-            tm.Updated = System.DateTime.Now; // TODO:
+            tm.Updated = System.DateTime.Now; // TODO: Same as in search index. UTC time
 
             tm.VariablesDisplayOrder = new System.Collections.Generic.List<string>(); // TODO: What is this?
             tm.Variables = new System.Collections.Generic.List<AbstractVariable>(); 
@@ -105,7 +109,7 @@ namespace PxWeb.Mappers
         private TimeVariable MapTimeVariable(Variable variable)
         {
             TimeVariable timeVariable = new TimeVariable();
-            timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; // TODO: should it be TIME?
+            timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; 
             timeVariable.FirstPeriod = GetFirstTimePeriod(variable);    
             timeVariable.LastPeriod = GetLastTimePeriod(variable);
             timeVariable.TimeUnit = GetTimeUnit(variable.TimeScale);
@@ -233,6 +237,7 @@ namespace PxWeb.Mappers
             cv.Baseperiod = contInfo.Baseperiod;
             cv.RefrencePeriod = contInfo.RefPeriod;
             cv.PriceType = GetPriceType(contInfo.CFPrices);
+            // TODO: Set updated - contInfo.LastUpdated
             _contacts.Add(contInfo.Contact);
         }
 
@@ -301,7 +306,7 @@ namespace PxWeb.Mappers
 
             codelist.Id = "agg_" + grouping.ID;
             codelist.Label = grouping.Name;
-            // codelist.Type = "Aggregation" // TODO: Type property is missing...
+            //codelist.Type = "Aggregation" // TODO: Type property is missing...
             codelist.Links = new System.Collections.Generic.List<Link>();
             codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
 
@@ -369,6 +374,7 @@ namespace PxWeb.Mappers
 
             // TODO: Handle contact properties
             // TODO: Only display unique contact once
+            // TODO: Get contacts from model.Meta.ContentInfo.ContactInfo[0] instead. If not set use raw.
             c.Raw = contact;    
 
             return c;
