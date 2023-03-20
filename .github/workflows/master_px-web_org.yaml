@@ -4,9 +4,9 @@
 name: Build and deploy ASP app to Azure Web App - master-pxweb
 
 on:
-  push:
-    branches:
-      - master
+#  push:
+#    branches:
+#      - master
   workflow_dispatch:
 
 jobs:
