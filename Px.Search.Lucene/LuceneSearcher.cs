@@ -46,7 +46,7 @@ namespace Px.Search.Lucene
         /// <param name="pageSize"></param>
         /// <param name="pageNumber"></param>
         /// <returns></returns>
-        public IEnumerable<SearchResult> Find(string searchExpression, int pageSize, int pageNumber)
+        public IEnumerable<SearchResult> Find(string? query, int pageSize, int pageNumber, int pastdays, bool includediscontinued = false)
         {
             // See https://github.com/statisticssweden/Px.Search.Lucene/blob/main/Px.Search.Lucene/LuceneSearcher.cs
 
@@ -59,7 +59,9 @@ namespace Px.Search.Lucene
                                                        fields,
                                                        new StandardAnalyzer(luceneVersion));
             qp.DefaultOperator = _defaultOperator;
-            Query q = qp.Parse(searchExpression);
+            //Query query = queryParser.parse("*:*"); om query är null eller tom
+            Query q = qp.Parse(query);
+           //Efterforska om det går att lägga till discontinued på q
             TopDocs topDocs = _indexSearcher.Search(q,skipRecords+pageSize);
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
             DateTime updated;

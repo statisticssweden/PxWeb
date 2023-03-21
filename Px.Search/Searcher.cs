@@ -19,11 +19,11 @@ namespace Px.Search
             _source = dataSource;
             _backend = backend;
         }
-        public IEnumerable<SearchResult> Find(string searchExpression, string language, int pageSize = 20, int pageNumber = 1)
+        public IEnumerable<SearchResult> Find(string query, string language, int? pastdays, bool includediscontinued, int pageSize = 20, int pageNumber = 1 )
         {
             var searcher = _backend.GetSearcher(language);
 
-            return searcher.Find(searchExpression, pageSize, pageNumber);
+            return searcher.Find(query, pageSize, pageNumber, pastdays, includediscontinued);
         }
     }
 }
