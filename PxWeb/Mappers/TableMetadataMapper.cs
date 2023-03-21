@@ -2,6 +2,7 @@
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
 using System.Linq;
+using System.Text;
 
 namespace PxWeb.Mappers
 {
@@ -9,7 +10,7 @@ namespace PxWeb.Mappers
     {
         ILinkCreator _linkCreator;
         string _tableId = "";
-        List<string> _contacts = new List<string>();
+        //List<string> _contacts = new List<string>();
 
         public TableMetadataMapper(ILinkCreator linkCreator)
         {
@@ -42,11 +43,11 @@ namespace PxWeb.Mappers
 
             foreach (Variable variable in model.Meta.Variables)
             {
-                tm.Variables.Add(Map(variable));
+                tm.Variables.Add(Map(tm, variable));
                 tm.VariablesDisplayOrder.Add(variable.Code); // TODO: Is this right?
             }
 
-            MapContacts(tm);
+            //MapContacts(tm, model);
             MapTableNotes(tm, model);
 
             // TODO: Add self-links in all languages
@@ -56,7 +57,7 @@ namespace PxWeb.Mappers
             return tm;
         }
 
-        private AbstractVariable Map(Variable variable)
+        private AbstractVariable Map(TableMetadata tm, Variable variable)
         {
             AbstractVariable v;
 
@@ -66,7 +67,7 @@ namespace PxWeb.Mappers
             }
             else if (variable.IsContentVariable)
             {
-                v = MapContentsVariable(variable);
+                v = MapContentsVariable(tm, variable);
             }
             else if (!string.IsNullOrWhiteSpace(variable.Map)) // TODO: Not set in SCB CNMM. Check variable.VariableType instead?
             {
@@ -117,7 +118,7 @@ namespace PxWeb.Mappers
             return timeVariable;
         }
 
-        private ContentsVariable MapContentsVariable(Variable variable)
+        private ContentsVariable MapContentsVariable(TableMetadata tm, Variable variable)
         {
             ContentsVariable contentsVariable = new ContentsVariable();
             contentsVariable.Type = AbstractVariable.TypeEnum.ContentsVariableEnum;
@@ -126,7 +127,7 @@ namespace PxWeb.Mappers
 
             foreach (var value in variable.Values)
             {
-                contentsVariable.Values.Add(MapContentValue(value));
+                contentsVariable.Values.Add(MapContentValue(tm, value));
             }
 
             return contentsVariable;    
@@ -196,7 +197,7 @@ namespace PxWeb.Mappers
             return v;   
         }
 
-        private ContentValue MapContentValue(PCAxis.Paxiom.Value value)
+        private ContentValue MapContentValue(TableMetadata tm, PCAxis.Paxiom.Value value)
         {
             ContentValue cv = new ContentValue();
 
@@ -206,11 +207,11 @@ namespace PxWeb.Mappers
 
             if (value.ContentInfo != null)
             {
-                GetContentInfo(cv, value.ContentInfo);
+                GetContentInfo(tm, cv, value.ContentInfo);
             }
             else if (value.Variable.Meta.ContentInfo != null)
             {
-                GetContentInfo(cv, value.Variable.Meta.ContentInfo);
+                GetContentInfo(tm, cv, value.Variable.Meta.ContentInfo);
             }
 
             if (value.Notes != null)
@@ -226,7 +227,7 @@ namespace PxWeb.Mappers
             return cv;
         }
 
-        private void GetContentInfo(ContentValue cv, ContInfo contInfo)
+        private void GetContentInfo(TableMetadata tm, ContentValue cv, ContInfo contInfo)
         {
             cv.MeasuringType = GetMeasuringType(contInfo.StockFa);
             cv.Adjustment = GetAdjustment(contInfo.DayAdj, contInfo.SeasAdj);
@@ -235,7 +236,62 @@ namespace PxWeb.Mappers
             cv.RefrencePeriod = contInfo.RefPeriod;
             cv.PriceType = GetPriceType(contInfo.CFPrices);
             // TODO: Set updated - contInfo.LastUpdated
-            _contacts.Add(contInfo.Contact);
+            if (contInfo.ContactInfo != null && contInfo.ContactInfo.Count > 0)
+            {
+                foreach (var contact in contInfo.ContactInfo)
+                {
+                    MapContact(tm, contact);
+                }
+            }
+            else
+            {
+                MapContact(tm, contInfo.Contact);
+            }
+        }
+
+        private void MapContact(TableMetadata tm, PCAxis.Paxiom.Contact contact)
+        {
+            if (tm.Contacts == null)
+            {
+                tm.Contacts = new System.Collections.Generic.List<Api2.Server.Models.Contact>();
+            }
+            
+            Api2.Server.Models.Contact c = new Api2.Server.Models.Contact();
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(contact.Forname);
+            sb.Append(" ");
+            sb.Append(contact.Surname);
+
+            c.Name = sb.ToString();
+            c.Mail = contact.Email;
+            c.Phone = contact.PhoneNo;
+
+            // Only display unique contact once
+            if(!tm.Contacts.Exists(x => x.Mail.Equals(c.Mail)))
+            {
+                tm.Contacts.Add(c);
+            }
+        }
+
+        private void MapContact(TableMetadata tm, string contact)
+        {
+            if (contact != null)
+            {
+                if (tm.Contacts == null)
+                {
+                    tm.Contacts = new System.Collections.Generic.List<Api2.Server.Models.Contact>();
+                }
+
+                Api2.Server.Models.Contact c = new Api2.Server.Models.Contact();
+                c.Raw = contact;
+
+                // Only display unique contact once
+                if (!tm.Contacts.Exists(x => x.Raw.Equals(c.Raw)))
+                {
+                    tm.Contacts.Add(c);
+                }
+            }
         }
 
         private Api2.Server.Models.Note Map(PCAxis.Paxiom.Note note)
@@ -352,30 +408,6 @@ namespace PxWeb.Mappers
             }
         }
 
-        private void MapContacts(TableMetadata tm)
-        {
-            if (_contacts.Count > 0)
-            {
-                tm.Contacts = new System.Collections.Generic.List<Api2.Server.Models.Contact>();
-
-                foreach (var contact in _contacts)
-                {
-                    tm.Contacts.Add(MapContact(contact));
-                }
-            }
-        }
-
-        private Api2.Server.Models.Contact MapContact(string contact)
-        {
-            Api2.Server.Models.Contact c = new Api2.Server.Models.Contact();
-
-            // TODO: Handle contact properties
-            // TODO: Only display unique contact once
-            // TODO: Get contacts from model.Meta.ContentInfo.ContactInfo[0] instead. If not set use raw.
-            c.Raw = contact;    
-
-            return c;
-        }
 
         private TimeVariable.TimeUnitEnum GetTimeUnit(TimeScaleType timeScaleType)
         {
@@ -450,8 +482,8 @@ namespace PxWeb.Mappers
 
         private ContentValue.AdjustmentEnum GetAdjustment(string dayAdj, string seasAdj)
         {
-            string dadj = dayAdj.ToUpper();
-            string sadj = seasAdj.ToUpper();
+            string dadj = dayAdj != null ? dayAdj.ToUpper() : "";
+            string sadj = seasAdj != null ? seasAdj.ToUpper() : "";
 
             if (dadj.Equals("YES") && sadj.Equals("YES"))
             {
@@ -473,7 +505,9 @@ namespace PxWeb.Mappers
 
         private ContentValue.PriceTypeEnum GetPriceType(string CFPrices)
         {
-            switch (CFPrices.ToUpper())
+            string cfp = CFPrices != null ? CFPrices.ToUpper() : "";
+
+            switch (cfp)
             {
                 case "C":
                     return ContentValue.PriceTypeEnum.CurrentEnum;
