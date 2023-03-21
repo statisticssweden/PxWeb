@@ -1,16 +1,16 @@
 ﻿using J2N.Collections.Generic;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
+using System;
 using System.Linq;
 using System.Text;
+using PCAxis.Paxiom.Extensions;
 
 namespace PxWeb.Mappers
 {
     public class TableMetadataMapper : ITableMetadataMapper
     {
         ILinkCreator _linkCreator;
-        string _tableId = "";
-        //List<string> _contacts = new List<string>();
 
         public TableMetadataMapper(ILinkCreator linkCreator)
         {
@@ -19,12 +19,9 @@ namespace PxWeb.Mappers
 
         public TableMetadata Map(PXModel model, string id, string language)
         {
-            _tableId = id.ToUpper();
-
             TableMetadata tm = new TableMetadata();
 
-            // TODO: Order of properties
-            tm.Id = _tableId;
+            tm.Id = id.ToUpper();
             tm.Language = language;
             tm.Label = model.Meta.Title; // TODO: Localize title. Add language files - wwwroot/languages. Configure in app.config 
             tm.Description = model.Meta.Description;
@@ -36,18 +33,14 @@ namespace PxWeb.Mappers
             tm.Licence = "???"; // TODO: Get from appsettings?
             tm.AggregationAllowed = model.Meta.AggregAllowed;
             //tm.Discontinued = ???; // TODO: Implement later
-            tm.Updated = System.DateTime.Now; // TODO: Same as in search index. UTC time
 
-            tm.VariablesDisplayOrder = new System.Collections.Generic.List<string>(); // TODO: What is this?
             tm.Variables = new System.Collections.Generic.List<AbstractVariable>(); 
 
             foreach (Variable variable in model.Meta.Variables)
             {
                 tm.Variables.Add(Map(tm, variable));
-                tm.VariablesDisplayOrder.Add(variable.Code); // TODO: Is this right?
             }
 
-            //MapContacts(tm, model);
             MapTableNotes(tm, model);
 
             // TODO: Add self-links in all languages
@@ -235,7 +228,9 @@ namespace PxWeb.Mappers
             cv.Baseperiod = contInfo.Baseperiod;
             cv.RefrencePeriod = contInfo.RefPeriod;
             cv.PriceType = GetPriceType(contInfo.CFPrices);
-            // TODO: Set updated - contInfo.LastUpdated
+
+            MapLastUpdated(tm, contInfo);
+
             if (contInfo.ContactInfo != null && contInfo.ContactInfo.Count > 0)
             {
                 foreach (var contact in contInfo.ContactInfo)
@@ -268,7 +263,7 @@ namespace PxWeb.Mappers
             c.Phone = contact.PhoneNo;
 
             // Only display unique contact once
-            if(!tm.Contacts.Exists(x => x.Mail.Equals(c.Mail)))
+            if(!tm.Contacts.Exists(x => x.Mail.Equals(c.Mail) && x.Name.Equals(c.Name) && x.Phone.Equals(c.Phone)))
             {
                 tm.Contacts.Add(c);
             }
@@ -290,6 +285,18 @@ namespace PxWeb.Mappers
                 if (!tm.Contacts.Exists(x => x.Raw.Equals(c.Raw)))
                 {
                     tm.Contacts.Add(c);
+                }
+            }
+        }
+
+        private void MapLastUpdated(TableMetadata tm, ContInfo contInfo)
+        {
+            if (contInfo.LastUpdated.IsPxDate())
+            {
+                DateTime tryDate = contInfo.LastUpdated.PxDateStringToDateTime();
+                if (tm.Updated == null || tryDate > tm.Updated)
+                {
+                    tm.Updated = tryDate;
                 }
             }
         }
@@ -361,7 +368,7 @@ namespace PxWeb.Mappers
             codelist.Label = grouping.Name;
             codelist.Type = CodeListType.AggregationEnum;
             codelist.Links = new System.Collections.Generic.List<Link>();
-            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
+            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, codelist.Id));
 
             return codelist;
         }
@@ -373,7 +380,7 @@ namespace PxWeb.Mappers
             codelist.Label = valueset.Name;
             codelist.Type = CodeListType.ValuesetEnum;
             codelist.Links = new System.Collections.Generic.List<Link>();
-            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, _tableId, codelist.Id));
+            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, codelist.Id));
 
             return codelist;
         }

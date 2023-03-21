@@ -6,7 +6,7 @@ namespace PxWeb.Mappers
     public interface ILinkCreator
     {
         Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id);
-        Link GetCodelistLink(LinkRelationEnum relation, string tableId, string id);
+        Link GetCodelistLink(LinkRelationEnum relation, string id);
 
     }
 }

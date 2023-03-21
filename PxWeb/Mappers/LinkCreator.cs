@@ -33,11 +33,11 @@ namespace PxWeb.Mappers
             return link;
         }
 
-        public Link GetCodelistLink(LinkRelationEnum relation, string tableId, string id)
+        public Link GetCodelistLink(LinkRelationEnum relation, string id)
         {
             var link = new Link();
             link.Rel = relation.ToString();
-            link.Href = _urlBase + $"tables/{tableId}/codeLists/{id}"; // TODO: Shall tableid be here?
+            link.Href = _urlBase + $"codeLists/{id}"; 
 
             return link;
         }
