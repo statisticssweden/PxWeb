@@ -69,7 +69,7 @@ namespace PxWeb.Mappers
             {
                 v = MapContentsVariable(tm, variable);
             }
-            else if (!string.IsNullOrWhiteSpace(variable.Map) || variable.VariableType.Equals("G")) 
+            else if (!string.IsNullOrWhiteSpace(variable.Map) || (variable.VariableType != null && variable.VariableType.Equals("G"))) 
             {
                 v = MapGeographicalVariable(variable);   
             }

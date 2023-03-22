@@ -1,6 +1,8 @@
 ﻿using J2N.Text;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 using PxWeb.Api2.Server.Models;
+using PxWeb.Config.Api2;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,11 +21,9 @@ namespace PxWeb.Mappers
 
         private string _urlBase;
 
-        public LinkCreator()
+        public LinkCreator(IOptions<PxApiConfigurationOptions> configOptions)
         {
-            //string baseUrl = $"{Request.Scheme}://{Request.Host}/api/v2/"; // TODO Get from appsetting
-            // TODO: LinkCretor options med baseUrl...
-            _urlBase = "https://www.api2.com/api/v2/";
+            _urlBase = configOptions.Value.BaseURL;
         }
 
         public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language = "")
