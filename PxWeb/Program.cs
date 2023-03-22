@@ -102,8 +102,7 @@ namespace PxWeb
                     NamingStrategy = new CamelCaseNamingStrategy()
                 });
                 opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                opts.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
-                opts.SerializerSettings.DateFormatString = "yyyy-MM-ddTHH:mm:ss.fffZ";
+                opts.SerializerSettings.DateFormatString = "yyyy-MM-ddTHH:mm:ssZ"; // UTC
             });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

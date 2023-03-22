@@ -79,7 +79,7 @@ namespace PxWeb.Mappers
         {
             AbstractVariable v;
 
-            if (variable.IsTime)
+            if (variable.IsTime || (variable.VariableType != null && variable.VariableType.Equals("T")))
             {
                 v = MapTimeVariable(variable);
             }
