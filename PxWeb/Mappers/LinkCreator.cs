@@ -26,32 +26,42 @@ namespace PxWeb.Mappers
             _urlBase = configOptions.Value.BaseURL;
         }
 
-        public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language = "")
+        public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
-            link.Href = CreateLink($"tables/{id}/metadata", language); 
+            link.Hreflang = language;
+            link.Href = CreateLink($"tables/{id}/metadata", language, currentLanguage); 
+
+            return link;
+        }
+        public Link GetTableDataLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        {
+            var link = new Link();
+            link.Rel = relation.ToString();
+            link.Hreflang = language;
+            link.Href = CreateLink($"tables/{id}/data", language, currentLanguage);
+
+            return link;
+        }
+        public Link GetCodelistLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        {
+            var link = new Link();
+            link.Rel = relation.ToString();
+            link.Hreflang = language;
+            link.Href = CreateLink($"codeLists/{id}", language, currentLanguage);
 
             return link;
         }
 
-        public Link GetCodelistLink(LinkRelationEnum relation, string id, string language = "")
-        {
-            var link = new Link();
-            link.Rel = relation.ToString();
-            link.Href = CreateLink($"codeLists/{id}", language);
-
-            return link;
-        }
-
-        private string CreateLink(string endpointUrl, string language)
+        private string CreateLink(string endpointUrl, string language, bool currentLanguage)
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(_urlBase);
             sb.Append(endpointUrl);
 
-            if (!string.IsNullOrEmpty(language))
+            if (!currentLanguage)
             {
                 sb.Append("?lang=");
                 sb.Append(language);

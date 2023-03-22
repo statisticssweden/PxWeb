@@ -5,8 +5,9 @@ namespace PxWeb.Mappers
 {
     public interface ILinkCreator
     {
-        Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language = "");
-        Link GetCodelistLink(LinkRelationEnum relation, string id, string language = "");
+        Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true);
+        Link GetTableDataLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true);
+        Link GetCodelistLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true);
 
     }
 }

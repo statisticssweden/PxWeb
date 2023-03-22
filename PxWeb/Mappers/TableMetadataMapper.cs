@@ -14,15 +14,19 @@ namespace PxWeb.Mappers
     {
         private ILinkCreator _linkCreator;
         private PxApiConfigurationOptions _configOptions;
+        private string _language;
 
         public TableMetadataMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
         {
             _linkCreator = linkCreator;
-            _configOptions = configOptions.Value; 
+            _configOptions = configOptions.Value;
+            _language = _configOptions.DefaultLanguage;
         }
 
         public TableMetadata Map(PXModel model, string id, string language)
         {
+            _language = language;   
+
             TableMetadata tm = new TableMetadata();
 
             tm.Id = id.ToUpper();
@@ -49,10 +53,24 @@ namespace PxWeb.Mappers
 
             tm.Links = new System.Collections.Generic.List<Link>();
 
+            // Links to metadata
             foreach (var lang in _configOptions.Languages)
             {
-                tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper(), lang.Id));
+                bool current = lang.Id.Equals(_language);
+                tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper(), lang.Id, current));
             }
+
+            // Links to data
+            foreach (var lang in _configOptions.Languages)
+            {
+                bool current = lang.Id.Equals(_language);
+                tm.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, id.ToUpper(), lang.Id, current));
+            }
+
+            // TODO: Links to documentation
+            //if (!string.IsNullOrEmpty(model.Meta.MetaId))
+            //{
+            //}
 
             return tm;
         }
@@ -91,16 +109,6 @@ namespace PxWeb.Mappers
                 }
             }
             
-            if (variable.Notes != null)
-            {
-                v.Notes = new System.Collections.Generic.List<Api2.Server.Models.Note>();
-
-                foreach (var note in variable.Notes)
-                {
-                    v.Notes.Add(Map(note));
-                }
-            }
-
             return v;
         }
 
@@ -207,11 +215,11 @@ namespace PxWeb.Mappers
 
             if (value.ContentInfo != null)
             {
-                GetContentInfo(tm, cv, value.ContentInfo);
+                MapContentInfo(tm, cv, value.ContentInfo);
             }
             else if (value.Variable.Meta.ContentInfo != null)
             {
-                GetContentInfo(tm, cv, value.Variable.Meta.ContentInfo);
+                MapContentInfo(tm, cv, value.Variable.Meta.ContentInfo);
             }
 
             if (value.Notes != null)
@@ -227,7 +235,7 @@ namespace PxWeb.Mappers
             return cv;
         }
 
-        private void GetContentInfo(TableMetadata tm, ContentValue cv, ContInfo contInfo)
+        private void MapContentInfo(TableMetadata tm, ContentValue cv, ContInfo contInfo)
         {
             cv.MeasuringType = GetMeasuringType(contInfo.StockFa);
             cv.Adjustment = GetAdjustment(contInfo.DayAdj, contInfo.SeasAdj);
@@ -375,7 +383,7 @@ namespace PxWeb.Mappers
             codelist.Label = grouping.Name;
             codelist.Type = CodeListType.AggregationEnum;
             codelist.Links = new System.Collections.Generic.List<Link>();
-            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, codelist.Id));
+            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, codelist.Id, _language));
 
             return codelist;
         }
@@ -387,7 +395,7 @@ namespace PxWeb.Mappers
             codelist.Label = valueset.Name;
             codelist.Type = CodeListType.ValuesetEnum;
             codelist.Links = new System.Collections.Generic.List<Link>();
-            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, codelist.Id));
+            codelist.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.metadata, codelist.Id, _language));
 
             return codelist;
         }

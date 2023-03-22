@@ -64,7 +64,7 @@ namespace PxWeb
             builder.Services.AddSingleton<IPxCache, PxCache>();
 
             builder.Services.AddSingleton<ILinkCreator, LinkCreator>();
-            builder.Services.AddSingleton<ITableMetadataMapper, TableMetadataMapper>();
+            builder.Services.AddTransient<ITableMetadataMapper, TableMetadataMapper>();
 
 
             builder.Services.AddPxDataSource(builder);
@@ -102,6 +102,8 @@ namespace PxWeb
                     NamingStrategy = new CamelCaseNamingStrategy()
                 });
                 opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                opts.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
+                opts.SerializerSettings.DateFormatString = "yyyy-MM-ddTHH:mm:ss.fffZ";
             });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
