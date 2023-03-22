@@ -5,16 +5,20 @@ using System;
 using System.Linq;
 using System.Text;
 using PCAxis.Paxiom.Extensions;
+using Microsoft.Extensions.Options;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Mappers
 {
     public class TableMetadataMapper : ITableMetadataMapper
     {
-        ILinkCreator _linkCreator;
+        private ILinkCreator _linkCreator;
+        private PxApiConfigurationOptions _configOptions;
 
-        public TableMetadataMapper(ILinkCreator linkCreator)
+        public TableMetadataMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
         {
             _linkCreator = linkCreator;
+            _configOptions = configOptions.Value; 
         }
 
         public TableMetadata Map(PXModel model, string id, string language)
@@ -23,16 +27,16 @@ namespace PxWeb.Mappers
 
             tm.Id = id.ToUpper();
             tm.Language = language;
-            tm.Label = model.Meta.Title; // TODO: Localize title. Add language files - wwwroot/languages. Configure in app.config 
+            tm.Label = model.Meta.Title;  
             tm.Description = model.Meta.Description;
             tm.Source = model.Meta.Source;
             //tm.Tags = new System.Collections.Generic.List<string>(); // TODO: Implement later
             tm.OfficalStatistics = model.Meta.OfficialStatistics;
-            tm.SubjectLabel = model.Meta.SubjectArea; // Not in docs
+            tm.SubjectLabel = model.Meta.SubjectArea; 
             tm.SubjectCode = model.Meta.SubjectCode;
-            tm.Licence = "???"; // TODO: Get from appsettings?
+            tm.Licence = _configOptions.License;
             tm.AggregationAllowed = model.Meta.AggregAllowed;
-            //tm.Discontinued = ???; // TODO: Implement later
+            //tm.Discontinued = false; // TODO: Implement later. Not in spec!
 
             tm.Variables = new System.Collections.Generic.List<AbstractVariable>(); 
 
@@ -43,9 +47,12 @@ namespace PxWeb.Mappers
 
             MapTableNotes(tm, model);
 
-            // TODO: Add self-links in all languages
             tm.Links = new System.Collections.Generic.List<Link>();
-            tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper()));
+
+            foreach (var lang in _configOptions.Languages)
+            {
+                tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper(), lang.Id));
+            }
 
             return tm;
         }
@@ -62,7 +69,7 @@ namespace PxWeb.Mappers
             {
                 v = MapContentsVariable(tm, variable);
             }
-            else if (!string.IsNullOrWhiteSpace(variable.Map)) // TODO: Not set in SCB CNMM. Check variable.VariableType instead?
+            else if (!string.IsNullOrWhiteSpace(variable.Map) || variable.VariableType.Equals("G")) 
             {
                 v = MapGeographicalVariable(variable);   
             }

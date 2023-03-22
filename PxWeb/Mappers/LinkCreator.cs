@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using J2N.Text;
+using Microsoft.AspNetCore.Http;
 using PxWeb.Api2.Server.Models;
 using System.Net.Http;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace PxWeb.Mappers
 {
@@ -23,23 +26,38 @@ namespace PxWeb.Mappers
             _urlBase = "https://www.api2.com/api/v2/";
         }
 
-        public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id)
+        public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language = "")
         {
             var link = new Link();
             link.Rel = relation.ToString();
-            link.Href = _urlBase + $"tables/{id}/metadata";
+            link.Href = CreateLink($"tables/{id}/metadata", language); 
 
-            // TODO: Handle all languages to self links...
             return link;
         }
 
-        public Link GetCodelistLink(LinkRelationEnum relation, string id)
+        public Link GetCodelistLink(LinkRelationEnum relation, string id, string language = "")
         {
             var link = new Link();
             link.Rel = relation.ToString();
-            link.Href = _urlBase + $"codeLists/{id}"; 
+            link.Href = CreateLink($"codeLists/{id}", language);
 
             return link;
+        }
+
+        private string CreateLink(string endpointUrl, string language)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(_urlBase);
+            sb.Append(endpointUrl);
+
+            if (!string.IsNullOrEmpty(language))
+            {
+                sb.Append("?lang=");
+                sb.Append(language);
+            }
+
+            return sb.ToString();
         }
     }
 }
