@@ -51,82 +51,106 @@ namespace PxWeb.Mappers
 
             foreach (Item child in currentItem.SubItems)
             {
-                if (child is PxMenuItem)
-                {
-                    FolderInformation fi = new FolderInformation
-                    {
-                        Id = Path.GetFileName(child.ID.Selection),
-                        ObjectType = typeof(FolderInformation).Name, // TODO: Create enum in spec
-                        Description = child.Description,
-                        Label = child.Text,
-                        Tags = null,
-                        Links = new List<PxWeb.Api2.Server.Models.Link>()
-                    };
-
-                    foreach (var lang in _configOptions.Languages)
-                    {
-                        bool current = lang.Id.Equals(_language);
-                        fi.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, Path.GetFileName(fi.Id), lang.Id, current));
-                    }
-
-                    folder.FolderContents.Add(fi);
-                }
-                else if (child is TableLink)
-                {
-                    var tableId = ((TableLink)child).TableId;
-
-                    Table table = new Table
-                    {
-                        Id = tableId,
-                        ObjectType = typeof(Table).Name,
-                        Description = child.Description,
-                        Label = child.Text,
-                        Updated = ((TableLink)child).Published,
-                        Tags = null, // TODO: Implement later
-                        Category = GetCategory(((TableLink)child).Category),
-                        FirstPeriod = ((TableLink)child).StartTime,
-                        LastPeriod = ((TableLink)child).EndTime
-                    };
-                    table.Links = new List<PxWeb.Api2.Server.Models.Link>();
-
-                    // Links to table
-                    foreach (var lang in _configOptions.Languages)
-                    {
-                        bool current = lang.Id.Equals(_language);
-                        table.Links.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, tableId, lang.Id, current));
-                    }
-
-                    // Links to metadata
-                    foreach (var lang in _configOptions.Languages)
-                    {
-                        bool current = lang.Id.Equals(_language);
-                        table.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, tableId, lang.Id, current));
-                    }
-
-                    // Links to data
-                    foreach (var lang in _configOptions.Languages)
-                    {
-                        bool current = lang.Id.Equals(_language);
-                        table.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, tableId, lang.Id, current));
-                    }
-
-                    folder.FolderContents.Add(table);
-                }
-                else if (child is Headline)
-                {
-                    Heading heading = new Heading
-                    {
-                        Id = Path.GetFileName(child.ID.Selection),
-                        ObjectType = typeof(Heading).Name,
-                        Label = child.Text,
-                        Description = child.Description
-                    };
-                    folder.FolderContents.Add(heading);
-                }
+                folder.FolderContents.Add(Map(child));
             }
 
             return folder;
+        }
 
+        private FolderContentItem Map(Item child)
+        {
+            FolderContentItem itm;
+
+            if (child is PxMenuItem)
+            {
+                itm = MapFolderInformation((PxMenuItem)child);
+            }
+            else if (child is TableLink)
+            {
+                itm = MapTable((TableLink)child);
+            }
+            else
+            {
+                itm = MapHeading((Headline)child); 
+            }
+            
+            return itm;
+        }
+
+        private FolderContentItem MapFolderInformation(PxMenuItem child)
+        {
+            FolderInformation fi = new FolderInformation
+            {
+                Id = Path.GetFileName(child.ID.Selection),
+                ObjectType = typeof(FolderInformation).Name, // TODO: Create enum in spec
+                Description = child.Description,
+                Label = child.Text,
+                Tags = null,
+                Links = new List<PxWeb.Api2.Server.Models.Link>()
+            };
+
+            foreach (var lang in _configOptions.Languages)
+            {
+                bool current = lang.Id.Equals(_language);
+                fi.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, Path.GetFileName(fi.Id), lang.Id, current));
+            }
+
+            return fi;
+        }
+
+        private Table MapTable(TableLink child)
+        {
+            var tableId = child.TableId;
+
+            Table table = new Table
+            {
+                Id = tableId,
+                ObjectType = typeof(Table).Name, // TODO: Create enum in spec
+                Description = child.Description,
+                Label = child.Text,
+                Updated = ((TableLink)child).Published,
+                Tags = null, // TODO: Implement later
+                Category = GetCategory(((TableLink)child).Category),
+                FirstPeriod = ((TableLink)child).StartTime,
+                LastPeriod = ((TableLink)child).EndTime
+            };
+            table.Links = new List<PxWeb.Api2.Server.Models.Link>();
+
+            // Links to table
+            foreach (var lang in _configOptions.Languages)
+            {
+                bool current = lang.Id.Equals(_language);
+                table.Links.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, tableId, lang.Id, current));
+            }
+
+            // Links to metadata
+            foreach (var lang in _configOptions.Languages)
+            {
+                bool current = lang.Id.Equals(_language);
+                table.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, tableId, lang.Id, current));
+            }
+
+            // Links to data
+            foreach (var lang in _configOptions.Languages)
+            {
+                bool current = lang.Id.Equals(_language);
+                table.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, tableId, lang.Id, current));
+            }
+
+            return table;   
+        }
+
+        private Heading MapHeading(Headline child)
+        {
+            Heading heading = new Heading
+            {
+                Id = Path.GetFileName(child.ID.Selection),
+                ObjectType = typeof(Heading).Name, // TODO: Create enum in spec
+                Label = child.Text,
+                Description = child.Description
+            };
+
+            return heading;
         }
 
         /// <summary>
