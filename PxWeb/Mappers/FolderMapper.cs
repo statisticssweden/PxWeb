@@ -1,31 +1,51 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 using PCAxis.Menu;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
+using PxWeb.Config.Api2;
 using System.Collections.Generic;
 using System.IO;
 
 namespace PxWeb.Mappers
 {
-    public class ResponseMapper : IResponseMapper   
+    public class FolderMapper : IFolderMapper   
     {
-        public Folder GetFolder(PxMenuItem currentItem, HttpContext httpContext)
+        private ILinkCreator _linkCreator;
+        private PxApiConfigurationOptions _configOptions;
+        private string _language;
+
+        public FolderMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
         {
-            string urlBase = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/api/v2/";
+            _linkCreator = linkCreator;
+            _configOptions = configOptions.Value;
+            _language = _configOptions.DefaultLanguage;
+        }
+
+        public Folder GetFolder(PxMenuItem currentItem, string language, bool root = false)
+        {
+            // Id shall not be displayed for the root folder
+            string id = root == false ? Path.GetFileName(currentItem.ID.Selection) : "";
+
+            _language = language;
+
             Folder folder = new Folder
             {
-                Id = Path.GetFileName(currentItem.ID.Selection),
-                ObjectType = typeof(Folder).Name,
+                Language = _language,
+                Id = id, 
+                ObjectType = typeof(Folder).Name, // TODO: Create enum in spec
                 Label = currentItem.Text,
                 Description = currentItem.Description,
                 Tags = null // TODO: Implement later
             };
 
             folder.Links = new List<PxWeb.Api2.Server.Models.Link>();
-            PxWeb.Api2.Server.Models.Link link = new PxWeb.Api2.Server.Models.Link();
-            link.Rel = "self";
-            link.Href = urlBase + Path.Combine("navigation/", folder.Id);
-            folder.Links.Add(link);
+
+            foreach (var lang in _configOptions.Languages)
+            {
+                bool current = lang.Id.Equals(_language);
+                folder.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, folder.Id.ToUpper(), lang.Id, current));
+            }
 
             folder.FolderContents = new List<FolderContentItem> { };
 
@@ -36,17 +56,19 @@ namespace PxWeb.Mappers
                     FolderInformation fi = new FolderInformation
                     {
                         Id = Path.GetFileName(child.ID.Selection),
-                        ObjectType = typeof(FolderInformation).Name,
+                        ObjectType = typeof(FolderInformation).Name, // TODO: Create enum in spec
                         Description = child.Description,
                         Label = child.Text,
                         Tags = null,
                         Links = new List<PxWeb.Api2.Server.Models.Link>()
                     };
 
-                    PxWeb.Api2.Server.Models.Link childLink = new PxWeb.Api2.Server.Models.Link();
-                    childLink.Rel = "folder";
-                    childLink.Href = urlBase + Path.Combine("navigation/", Path.GetFileName(fi.Id));
-                    fi.Links.Add(childLink);
+                    foreach (var lang in _configOptions.Languages)
+                    {
+                        bool current = lang.Id.Equals(_language);
+                        fi.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, Path.GetFileName(fi.Id), lang.Id, current));
+                    }
+
                     folder.FolderContents.Add(fi);
                 }
                 else if (child is TableLink)
@@ -67,20 +89,26 @@ namespace PxWeb.Mappers
                     };
                     table.Links = new List<PxWeb.Api2.Server.Models.Link>();
 
-                    PxWeb.Api2.Server.Models.Link childLink = new PxWeb.Api2.Server.Models.Link();
-                    childLink.Rel = "self";
-                    childLink.Href = urlBase + Path.Combine($"tables/{tableId}");
-                    table.Links.Add(childLink);
+                    // Links to table
+                    foreach (var lang in _configOptions.Languages)
+                    {
+                        bool current = lang.Id.Equals(_language);
+                        table.Links.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, tableId, lang.Id, current));
+                    }
 
-                    childLink = new PxWeb.Api2.Server.Models.Link();
-                    childLink.Rel = "metadata";
-                    childLink.Href = urlBase + Path.Combine($"tables/{tableId}/metadata");
-                    table.Links.Add(childLink);
+                    // Links to metadata
+                    foreach (var lang in _configOptions.Languages)
+                    {
+                        bool current = lang.Id.Equals(_language);
+                        table.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, tableId, lang.Id, current));
+                    }
 
-                    childLink = new PxWeb.Api2.Server.Models.Link();
-                    childLink.Rel = "data";
-                    childLink.Href = urlBase + Path.Combine($"tables/{tableId}/data");
-                    table.Links.Add(childLink);
+                    // Links to data
+                    foreach (var lang in _configOptions.Languages)
+                    {
+                        bool current = lang.Id.Equals(_language);
+                        table.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, tableId, lang.Id, current));
+                    }
 
                     folder.FolderContents.Add(table);
                 }

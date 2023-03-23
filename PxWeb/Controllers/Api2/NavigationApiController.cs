@@ -31,14 +31,14 @@ namespace PxWeb.Controllers.Api2
         private readonly IDataSource _dataSource;
         private readonly ISearchBackend _backend;
         private readonly ILanguageHelper _languageHelper;
-        private readonly IResponseMapper _responseMapper;
+        private readonly IFolderMapper _folderMapper;
 
-        public NavigationApiController(IDataSource dataSource, ISearchBackend backend, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        public NavigationApiController(IDataSource dataSource, ISearchBackend backend, ILanguageHelper languageHelper, IFolderMapper folderMapper)
         {
             _dataSource = dataSource;
             _backend = backend;
             _languageHelper = languageHelper;
-            _responseMapper = responseMapper;
+            _folderMapper = folderMapper;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)item, HttpContext);
+            Folder folder = _folderMapper.GetFolder((PxMenuItem)item, lang);
 
             return new ObjectResult(folder);
         }
@@ -99,7 +99,7 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)item, HttpContext);
+            Folder folder = _folderMapper.GetFolder((PxMenuItem)item, lang, true);
 
             return new ObjectResult(folder);
         }

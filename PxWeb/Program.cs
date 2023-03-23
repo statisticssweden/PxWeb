@@ -63,10 +63,7 @@ namespace PxWeb
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             builder.Services.AddSingleton<IPxCache, PxCache>();
-
             builder.Services.AddSingleton<ILinkCreator, LinkCreator>();
-            builder.Services.AddTransient<ITableMetadataMapper, TableMetadataMapper>();
-
 
             builder.Services.AddPxDataSource(builder);
 
@@ -74,12 +71,12 @@ namespace PxWeb
             builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
             builder.Services.Configure<CacheMiddlewareConfigurationOptions>(builder.Configuration.GetSection("CacheMiddleware"));
 
-
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ICacheMiddlewareConfigurationService, CacheMiddlewareConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
-            builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+            builder.Services.AddTransient<IFolderMapper, FolderMapper>();
+            builder.Services.AddTransient<ITableMetadataMapper, TableMetadataMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
 
             builder.Services.AddHostedService<LongRunningService>();

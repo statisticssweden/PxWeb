@@ -26,35 +26,56 @@ namespace PxWeb.Mappers
             _urlBase = configOptions.Value.BaseURL;
         }
 
+        public Link GetTableLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        {
+            var link = new Link();
+            link.Rel = relation.ToString();
+            link.Hreflang = language;
+            link.Href = CreateURL($"tables/{id}", language, currentLanguage);
+
+            return link;
+        }
+
         public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateLink($"tables/{id}/metadata", language, currentLanguage); 
+            link.Href = CreateURL($"tables/{id}/metadata", language, currentLanguage);
 
             return link;
         }
+
         public Link GetTableDataLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateLink($"tables/{id}/data", language, currentLanguage);
+            link.Href = CreateURL($"tables/{id}/data", language, currentLanguage);
 
             return link;
         }
+
         public Link GetCodelistLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateLink($"codeLists/{id}", language, currentLanguage);
+            link.Href = CreateURL($"codeLists/{id}", language, currentLanguage);
 
             return link;
         }
 
-        private string CreateLink(string endpointUrl, string language, bool currentLanguage)
+        public Link GetFolderLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        {
+            var link = new Link();
+            link.Rel = relation.ToString();
+            link.Hreflang = language;
+            link.Href = CreateURL($"navigation/{id}", language, currentLanguage);
+
+            return link;
+        }
+        private string CreateURL(string endpointUrl, string language, bool currentLanguage)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -69,5 +90,6 @@ namespace PxWeb.Mappers
 
             return sb.ToString();
         }
+
     }
 }

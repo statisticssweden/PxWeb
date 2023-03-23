@@ -6,8 +6,8 @@ using PxWeb.Api2.Server.Models;
 
 namespace PxWeb.Mappers
 {
-    public interface IResponseMapper
+    public interface IFolderMapper
     {
-        public Folder GetFolder(PxMenuItem currentItem, HttpContext httpContext);
+        public Folder GetFolder(PxMenuItem currentItem, string language, bool root = false);
     }
 }
