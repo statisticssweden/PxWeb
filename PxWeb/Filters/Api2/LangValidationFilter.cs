@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using PxWeb.Api2.Server.Models;
 
 namespace PxWeb.Filters.Api2
 {
@@ -21,7 +22,12 @@ namespace PxWeb.Filters.Api2
 
             if (!string.IsNullOrEmpty(lanValues) && !_languages.Exists(x => x.ToString() == lanValues))
             {
-                context.Result = new BadRequestObjectResult($"language {lanValues} is not a valid language");
+                Problem p = new Problem();
+                p.Type = "Parameter error";
+                p.Title = "Unsupported language";
+                p.Status = 400;
+                p.Detail = $"Language {lanValues} is not supported";
+                context.Result = new BadRequestObjectResult(p);
             }
         }
 

@@ -24,6 +24,7 @@ using Px.Search;
 using System.Linq;
 using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
+using Microsoft.AspNetCore.Http;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -35,28 +36,23 @@ namespace PxWeb.Controllers.Api2
     {
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
-        private readonly IResponseMapper _responseMapper;
+        private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ISearchBackend _backend;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
-            _responseMapper = responseMapper;
+            _tableMetadataResponseMapper = responseMapper;
             _backend = backend;
         }
 
 
         public override IActionResult GetMetadataById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
-            throw new NotImplementedException();
-        }
-
-
-        public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
-        {
             lang = _languageHelper.HandleLanguage(lang);
             IPXModelBuilder? builder = _dataSource.CreateBuilder(id, lang);
+
 
             if (builder != null)
             {
@@ -65,20 +61,34 @@ namespace PxWeb.Controllers.Api2
                     builder.BuildForSelection();
                     var model = builder.Model;
 
-                    Table t = new Table();
-                    t.Id = id;
-                    t.Label = model.Meta.Title;
-                    return new ObjectResult(t);
+                    TableMetadataResponse tm = _tableMetadataResponseMapper.Map(model, id, lang);
+
+                    return new ObjectResult(tm);
                 }
                 catch (Exception)
                 {
-                    return NotFound();
+                    return NotFound(NonExistentTable(id));
                 }
             }
             else
             {
-                return new BadRequestObjectResult("No such table id " + id);
+                return NotFound(NonExistentTable(id));
             }
+        }
+
+        private Problem NonExistentTable(string id)
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent table " + id;
+            p.Status = 404;
+            p.Title = "Non-existent table";
+            return p;
+        }
+
+        public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
+        {
+            throw new NotImplementedException();
         }
 
         public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
@@ -87,51 +97,6 @@ namespace PxWeb.Controllers.Api2
         }
 
 
-        /// <summary>
-        /// Get table data
-        /// HttpGet
-        /// Route /api/v2/tables/{id}/data
-        /// </summary>
-        /// <param name="id">Id</param>
-        /// <param name="lang">The language if the default is not what you want.</param>
-        /// <param name="valuecodes"></param>
-        /// <param name="codelist"></param>
-        /// <param name="outputvalues"></param>
-        /// <response code="200">Success</response>
-        /// <response code="400">Error respsone for 400</response>
-        /// <response code="403">Error respsone for 403</response>
-        /// <response code="404">Error respsone for 404</response>
-        /// <response code="429">Error respsone for 429</response>
-        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues)
-        {
-            //TODO check that no selection paramaters is given
-            lang = _languageHelper.HandleLanguage(lang);
-            PXModel model;
-            //if no parameters given
-            var builder = _dataSource.CreateBuilder(id, lang);
-            if (builder == null)
-            {
-                throw new Exception("Missing datasource");
-            }
-
-            builder.BuildForSelection();
-            var selection = GetDefaultTable(builder.Model);
-
-            builder.BuildForPresentation(selection);
-            model = builder.Model;
-            //else
-            //    TODO create model from selection
-            //    selection = GetSelectionFromQuery(...)
-            
-            //serialize output
-            //TODO check if given in url param otherwise take the format from appsettings
-            string outputFormat = "px";
-            var serializer = GetSerializer(outputFormat);
-            serializer.Serialize(model, Response);
-
-            return Ok();
-           
-        }
 
         private IDataSerializer GetSerializer(string outputFormat)
         {
@@ -195,6 +160,41 @@ namespace PxWeb.Controllers.Api2
                 return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
 
             return Ok();
+        }
+
+        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
+        {
+            //TODO check that no selection paramaters is given
+            lang = _languageHelper.HandleLanguage(lang);
+            PXModel model;
+            //if no parameters given
+            var builder = _dataSource.CreateBuilder(id, lang);
+            if (builder == null)
+            {
+                throw new Exception("Missing datasource");
+            }
+
+            builder.BuildForSelection();
+            var selection = GetDefaultTable(builder.Model);
+
+            builder.BuildForPresentation(selection);
+            model = builder.Model;
+            //else
+            //    TODO create model from selection
+            //    selection = GetSelectionFromQuery(...)
+
+            //serialize output
+            //TODO check if given in url param otherwise take the format from appsettings
+            outputFormat = "px";
+            var serializer = GetSerializer(outputFormat);
+            serializer.Serialize(model, Response);
+
+            return Ok();
+        }
+
+        public override IActionResult GetTableDataByPost([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromBody] VariablesSelection? variablesSelection)
+        {
+            throw new NotImplementedException();
         }
     }
 }

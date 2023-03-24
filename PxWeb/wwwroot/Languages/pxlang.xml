@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language xmlns="http://www.pc-axis.scb.se/" name="Default">
+	<sentence name="PxcYear" value="year" />
+	<sentence name="PxcHalfyear" value="halfyear" />
+	<sentence name="PxcQuarter" value="quarter" />
+	<sentence name="PxcMonth" value="month" />
+	<sentence name="PxcWeek" value="week" />
+	<sentence name="PxcMetaTitleBy" value="by" />
+	<sentence name="PxcMetaTitleAnd" value="and" />
+	<sentence name="PxcOpSplitTimeVarYear" value="year" />
+	<sentence name="PxcOpSplitTimeVarQuarter" value="quarter" />
+	<sentence name="PxcOpSplitTimeVarMonth" value="month" />
+	<sentence name="PxcOpSplitTimeVarJanuary" value="January" />
+	<sentence name="PxcOpSplitTimeVarFebruary" value="February" />
+	<sentence name="PxcOpSplitTimeVarMarch" value="March" />
+	<sentence name="PxcOpSplitTimeVarApril" value="April" />
+	<sentence name="PxcOpSplitTimeVarMay" value="May" />
+	<sentence name="PxcOpSplitTimeVarJune" value="June" />
+	<sentence name="PxcOpSplitTimeVarJuly" value="July" />
+	<sentence name="PxcOpSplitTimeVarAugust" value="August" />
+	<sentence name="PxcOpSplitTimeVarSeptember" value="September" />
+	<sentence name="PxcOpSplitTimeVarOctober" value="October" />
+	<sentence name="PxcOpSplitTimeVarNovember" value="November" />
+	<sentence name="PxcOpSplitTimeVarDecember" value="December" />
+	<sentence name="PxcOpSplitTimeVarQuarter1" value="Quarter 1" />
+	<sentence name="PxcOpSplitTimeVarQuarter2" value="Quarter 2" />
+	<sentence name="PxcOpSplitTimeVarQuarter3" value="Quarter 3" />
+	<sentence name="PxcOpSplitTimeVarQuarter4" value="Quarter 4" />
+	<sentence name="ERROR_MISSING_TIMEVALUE" value="The TIMEVALUE is missing" />
+	<sentence name="PxcErrCellNoteValueMissing" value="The value={0} is not valid"/>
+	<sentence name="PxcErrToManyCodes" value="{0} has to many codes specified"/>
+	<sentence name="PxcGroupedValuesMissing" value="{0} grouped values are missing"/>
+	<sentence name="PxcGroupingVariableWithNoValues" value="The grouping variable {0} contains no values"/>
+	<sentence name="PxcSortVariable" value="unit variable"/>
+	<sentence name="SqlErr" value=""/>
+	<sentence name="SqlWarn" value=""/>
+	<sentence name="PxcContactPhone" value="Phone"/>
+	<sentence name="PxcContactFax" value="Fax"/>
+	<sentence name="PxcContactEMail" value="e-mail"/>
+	<sentence name="PxcPercent" value="per cent"/>
+	<sentence name="PxcPermil" value="per millage"/>
+	<sentence name="PxcPercentUnitVarExists" value="Cannot calculate per cent when unit variable already exists"/>
+	<sentence name="PxcPermilUnitVarExists" value="Cannot calculate per millage when unit variable already exists"/>
+	<sentence name="PxcErr103" value="UNITS error"/>
+	<sentence name="PxcErr106" value="STUB error"/>
+	<sentence name="PxcErr107" value="HEADING error"/>
+	<sentence name="PxcErr108" value="VALUES error"/>
+	<sentence name="PxcErr109" value="CODES error"/>
+	<sentence name="PxcErr111" value="NOTE or NOTEX for Variable error"/>
+	<sentence name="PxcErr112" value="VALUENOTE or VALUENOTEX error"/>
+	<sentence name="PxcErr113" value="CELLNOTE or CELLNOTEX error"/>
+	<sentence name="PxcErr115" value="ELIMINATION yes/no error"/>
+	<sentence name="PxcErr117" value="PARTITION error"/>
+	<sentence name="PxcErr121" value="KEYS error"/>
+	<sentence name="PxcErr123" value="PRECISION error"/>
+	<sentence name="PxcErr124" value="DOMAIN error"/>
+	<sentence name="PxcErr130" value="TITLE or DESCRIPTION missing"/>
+	<sentence name="PxcErr131" value="MATRIX missing"/>
+	<sentence name="PxcErr132" value="SUBJECT AREA missing"/>
+	<sentence name="PxcErr133" value="SUBJECT CODE missing"/>
+	<sentence name="PxcErr134" value="STUB and HEADING missing"/>
+	<sentence name="PxcErr135" value="UNITS missing"/>
+	<sentence name="PxcErr136" value="CONTENTS missing"/>
+	<sentence name="PxcErr137" value="DECIMALS missing"/>
+	<sentence name="PxcErr138" value="SHOWDECIMALS error"/>
+	<sentence name="PxcErr142" value="COPYRIGHT is wrong"/>
+	<sentence name="PxcErr143" value="DAYADJ is wrong"/>
+	<sentence name="PxcErr144" value="SEASADJ is wrong"/>
+	<sentence name="PxcErr146" value="CONTACT is wrong"/>
+	<sentence name="PxcErr147" value="REFPERIOD is wrong"/>
+	<sentence name="PxcErr149" value="LAST-UPDATED is wrong"/>
+	<sentence name="PxcErr151" value="STOCKFA is wrong"/>
+	<sentence name="PxcErr152" value="CFPRICES is wrong"/>
+	<sentence name="PxcErr153" value="TIMEVAL is wrong"/>
+	<sentence name="PxcErr154" value="BASEPERIOD is wrong"/>
+	<sentence name="PxcErr160" value="Keyword dependent on CONTVARIABLE found but no contents variable"/>
+	<sentence name="PxcErr161" value="CONTVARIABLE or dependent keyword error"/>
+	<sentence name="PxcErr162" value="PRESTEXT error"/>
+	<sentence name="PxcErr164" value="MAP error"/>
+	<sentence name="PxcErr166" value="AGGREGALLOWED error"/>
+	<sentence name="PxcErr167" value="AUTOPEN error"/>
+	<sentence name="PxcErr168" value="DOUBLECOLUMN error"/>
+	<sentence name="PxcErr169" value="DESCRIPTIONDEFAULT error"/>
+	<sentence name="PxcErr176" value="DATANOTE error"/>
+	<sentence name="PxcErr180" value="DATA missing"/>
+	<sentence name="PxcErr201" value="HIERARCHYLEVELSOPEN error "/>
+	<sentence name="PxcErr202" value="HIERARCHYLEVELS error "/>
+	<sentence name="PxcErr203" value="HIERARCHYNAMES error"/>
+	<sentence name="PxcErr204" value="HIERARCHIES error"/>
+	<sentence name="PxcErr205" value="OFFICIAL-STATISTICS error"/>
+	<sentence name="PxcErr206" value="ATTRIBUTE-ID error"/>
+	<sentence name="PxcErr207" value="ATTRIBUTE-TEXT error"/>
+	<sentence name="PxcErr208" value="ATTRIBUTES error"/>
+	<sentence name="PxcErr300" value="VALUE-TEXT-OPTION error"/>
+	<sentence name="PxcKeywordError" value="{0} error"/>
+	<sentence name="PxcKeywordLastUpdated" value="Latest update"/>
+	<sentence name="PxcKeywordSource" value="Source"/>
+	<sentence name="PxcKeywordContact" value="Contact"/>
+	<sentence name="PxcKeywordCopyright" value="Copyright"/>
+	<sentence name="PxcKeywordOfficialStatistics" value="Official statistics" />
+	<sentence name="PxcKeywordUnits" value="Units"/>
+	<sentence name="PxcKeywordStockfa" value="Data type"/>
+	<sentence name="PxcKeywordStockfaValueStock" value="Stock"/>
+	<sentence name="PxcKeywordStockfaValueFlow" value="Flow"/>
+	<sentence name="PxcKeywordStockfaValueAverage" value="Average"/>
+	<sentence name="PxcKeywordRefPeriod" value="Reference period"/>
+	<sentence name="PxcKeywordBasePeriod" value="Base period"/>
+	<sentence name="PxcKeywordCFPricesValueCurrent" value="Current prices"/>
+	<sentence name="PxcKeywordCFPricesValueFixed" value="Fixed prices"/>
+	<sentence name="PxcKeywordDayAdj" value="Day adjusted"/>
+	<sentence name="PxcKeywordSeasAdj" value="Seasonal adjusted"/>
+	<sentence name="PxcKeywordDatabase" value="Database"/>
+	<sentence name="PxcKeywordMatrix" value="Internal reference code"/>
+</language>

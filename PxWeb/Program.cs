@@ -63,6 +63,7 @@ namespace PxWeb
             // configuration (resolvers, counter key builders)
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             builder.Services.AddSingleton<IPxCache, PxCache>();
+            builder.Services.AddSingleton<ILinkCreator, LinkCreator>();
 
             builder.Services.AddPxDataSource(builder);
 
@@ -70,12 +71,12 @@ namespace PxWeb
             builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
             builder.Services.Configure<CacheMiddlewareConfigurationOptions>(builder.Configuration.GetSection("CacheMiddleware"));
 
-
             builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ICacheMiddlewareConfigurationService, CacheMiddlewareConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
-            builder.Services.AddTransient<IResponseMapper, ResponseMapper>();
+            builder.Services.AddTransient<IFolderResponseMapper, FolderResponseMapper>();
+            builder.Services.AddTransient<ITableMetadataResponseMapper, TableMetadataResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
 
             builder.Services.AddHostedService<LongRunningService>();
@@ -101,6 +102,7 @@ namespace PxWeb
                     NamingStrategy = new CamelCaseNamingStrategy()
                 });
                 opts.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                opts.SerializerSettings.DateFormatString = "yyyy-MM-ddTHH:mm:ssZ"; // UTC
             });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
