@@ -9,13 +9,13 @@ using System.IO;
 
 namespace PxWeb.Mappers
 {
-    public class FolderMapper : IFolderMapper   
+    public class FolderResponseMapper : IFolderResponseMapper   
     {
         private ILinkCreator _linkCreator;
         private PxApiConfigurationOptions _configOptions;
         private string _language;
 
-        public FolderMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
+        public FolderResponseMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
         {
             _linkCreator = linkCreator;
             _configOptions = configOptions.Value;
@@ -108,11 +108,11 @@ namespace PxWeb.Mappers
                 ObjectType = typeof(Table).Name, // TODO: Create enum in spec
                 Description = child.Description,
                 Label = child.Text,
-                Updated = ((TableLink)child).Published,
+                Updated = child.Published,
                 Tags = null, // TODO: Implement later
-                Category = GetCategory(((TableLink)child).Category),
-                FirstPeriod = ((TableLink)child).StartTime,
-                LastPeriod = ((TableLink)child).EndTime
+                Category = GetCategory(child.Category),
+                FirstPeriod = child.StartTime,
+                LastPeriod = child.EndTime
             };
             table.Links = new List<PxWeb.Api2.Server.Models.Link>();
 

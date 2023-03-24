@@ -75,8 +75,8 @@ namespace PxWeb
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ICacheMiddlewareConfigurationService, CacheMiddlewareConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
-            builder.Services.AddTransient<IFolderMapper, FolderMapper>();
-            builder.Services.AddTransient<ITableMetadataMapper, TableMetadataMapper>();
+            builder.Services.AddTransient<IFolderResponseMapper, FolderResponseMapper>();
+            builder.Services.AddTransient<ITableMetadataResponseMapper, TableMetadataResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
 
             builder.Services.AddHostedService<LongRunningService>();

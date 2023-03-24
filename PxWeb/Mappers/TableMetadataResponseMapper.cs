@@ -10,13 +10,13 @@ using PxWeb.Config.Api2;
 
 namespace PxWeb.Mappers
 {
-    public class TableMetadataMapper : ITableMetadataMapper
+    public class TableMetadataResponseMapper : ITableMetadataResponseMapper
     {
         private ILinkCreator _linkCreator;
         private PxApiConfigurationOptions _configOptions;
         private string _language;
 
-        public TableMetadataMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
+        public TableMetadataResponseMapper(ILinkCreator linkCreator, IOptions<PxApiConfigurationOptions> configOptions)
         {
             _linkCreator = linkCreator;
             _configOptions = configOptions.Value;

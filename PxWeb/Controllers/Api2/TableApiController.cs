@@ -36,14 +36,14 @@ namespace PxWeb.Controllers.Api2
     {
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
-        private readonly ITableMetadataMapper _responseMapper;
+        private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ISearchBackend _backend;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataMapper responseMapper, ISearchBackend backend)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
-            _responseMapper = responseMapper;
+            _tableMetadataResponseMapper = responseMapper;
             _backend = backend;
         }
 
@@ -61,7 +61,7 @@ namespace PxWeb.Controllers.Api2
                     builder.BuildForSelection();
                     var model = builder.Model;
 
-                    TableMetadata tm = _responseMapper.Map(model, id, lang);
+                    TableMetadata tm = _tableMetadataResponseMapper.Map(model, id, lang);
 
                     return new ObjectResult(tm);
                 }
