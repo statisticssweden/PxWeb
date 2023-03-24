@@ -62,12 +62,12 @@ namespace PxWeb.Controllers.Api2
 
             if (!selectionExists)
             {
-                return new BadRequestObjectResult("No such node id " + id);
+                return NotFound(NonExistentNode(id));
             }
 
             if (item == null)
             {
-                return new BadRequestObjectResult("Error reading node data");
+                return new BadRequestObjectResult(ErrorReadingNodeData());
             }
 
             FolderResponse folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang);
@@ -96,13 +96,32 @@ namespace PxWeb.Controllers.Api2
 
             if (item == null)
             {
-                return new BadRequestObjectResult("Error reading node data");
+                return new BadRequestObjectResult(ErrorReadingNodeData());
             }
 
             FolderResponse folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang, true);
 
             return new ObjectResult(folder);
         }
-      
+
+        private Problem NonExistentNode(string id)
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent node " + id;
+            p.Status = 404;
+            p.Title = "Non-existent node";
+            return p;
+        }
+
+        private Problem ErrorReadingNodeData()
+        {
+            Problem p = new Problem();
+            p.Type = "Data error";
+            p.Detail = "Error reading node data";
+            p.Status = 400;
+            p.Title = "Error reading node";
+            return p;
+        }
     }
 }

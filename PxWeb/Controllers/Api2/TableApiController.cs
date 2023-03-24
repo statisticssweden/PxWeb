@@ -67,25 +67,24 @@ namespace PxWeb.Controllers.Api2
                 }
                 catch (Exception)
                 {
-                    Problem p = new Problem();
-                    p.Type = "Parameter error";
-                    p.Detail = "Non-existent table " + id;
-                    p.Status = 404;
-                    p.Title = "Non-existent table";
-                    return NotFound(p);
+                    return NotFound(NonExistentTable(id));
                 }
             }
             else
             {
-                Problem p = new Problem();
-                p.Type = "Parameter error";
-                p.Detail = "Non-existent table " + id;
-                p.Status = 404;
-                p.Title = "Non-existent table";
-                return NotFound(p);
+                return NotFound(NonExistentTable(id));
             }
         }
 
+        private Problem NonExistentTable(string id)
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent table " + id;
+            p.Status = 404;
+            p.Title = "Non-existent table";
+            return p;
+        }
 
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {

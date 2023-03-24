@@ -25,7 +25,7 @@ namespace PxWeb.Mappers
         public FolderResponse GetFolder(PxMenuItem currentItem, string language, bool root = false)
         {
             // Id shall not be displayed for the root folder
-            string id = root == false ? Path.GetFileName(currentItem.ID.Selection) : "";
+            string id = root == false ? Path.GetFileName(currentItem.ID.Selection) : ""; 
 
             _language = language;
 
