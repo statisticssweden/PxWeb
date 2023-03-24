@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using PCAxis.Paxiom;
+using PCAxis.Serializers;
 
 namespace PxWeb.Code.Api2.Serialization
 {
-    public class PxDataSerializer : IDataSerializer
+    public class CsvDataSerializer : IDataSerializer
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            response.ContentType = "application/octet-stream; charset=" + System.Text.Encoding.Default.WebName;
-            IPXModelStreamSerializer serializer = new PXFileSerializer();
+            response.ContentType = "text/csv; charset=" + System.Text.Encoding.Default.WebName;
+            IPXModelStreamSerializer serializer = new CsvFileSerializer();
             serializer.Serialize(model, response.Body);
         }
     }

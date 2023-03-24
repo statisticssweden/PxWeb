@@ -138,6 +138,7 @@ namespace PxWeb.Controllers.Api2
             switch (outputFormat.ToLower())
             {
                 case "xlsx":
+                    return new XlsxDataSerializer();
                 case "xlsx_doublecolumn":
                 case "csv":
                 case "csv_tab":
