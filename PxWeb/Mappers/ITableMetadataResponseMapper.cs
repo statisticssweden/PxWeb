@@ -5,6 +5,6 @@ namespace PxWeb.Mappers
 {
     public interface ITableMetadataResponseMapper
     {
-        TableMetadata Map(PXModel model, string id, string language);
+        TableMetadataResponse Map(PXModel model, string id, string language);
     }
 }

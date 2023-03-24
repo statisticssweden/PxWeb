@@ -23,11 +23,11 @@ namespace PxWeb.Mappers
             _language = _configOptions.DefaultLanguage;
         }
 
-        public TableMetadata Map(PXModel model, string id, string language)
+        public TableMetadataResponse Map(PXModel model, string id, string language)
         {
-            _language = language;   
+            _language = language;
 
-            TableMetadata tm = new TableMetadata();
+            TableMetadataResponse tm = new TableMetadataResponse();
 
             tm.Id = id.ToUpper();
             tm.Language = language;
@@ -75,7 +75,7 @@ namespace PxWeb.Mappers
             return tm;
         }
 
-        private AbstractVariable Map(TableMetadata tm, Variable variable)
+        private AbstractVariable Map(TableMetadataResponse tm, Variable variable)
         {
             AbstractVariable v;
 
@@ -115,7 +115,7 @@ namespace PxWeb.Mappers
         private TimeVariable MapTimeVariable(Variable variable)
         {
             TimeVariable timeVariable = new TimeVariable();
-            timeVariable.Type = AbstractVariable.TypeEnum.TimeVariableEnum; 
+            timeVariable.Type = VariableTypeEnum.TimeVariableEnum; 
             timeVariable.FirstPeriod = GetFirstTimePeriod(variable);    
             timeVariable.LastPeriod = GetLastTimePeriod(variable);
             timeVariable.TimeUnit = GetTimeUnit(variable.TimeScale);
@@ -126,10 +126,10 @@ namespace PxWeb.Mappers
             return timeVariable;
         }
 
-        private ContentsVariable MapContentsVariable(TableMetadata tm, Variable variable)
+        private ContentsVariable MapContentsVariable(TableMetadataResponse tm, Variable variable)
         {
             ContentsVariable contentsVariable = new ContentsVariable();
-            contentsVariable.Type = AbstractVariable.TypeEnum.ContentsVariableEnum;
+            contentsVariable.Type = VariableTypeEnum.ContentsVariableEnum;
 
             contentsVariable.Values = new System.Collections.Generic.List<ContentValue>();
 
@@ -144,7 +144,7 @@ namespace PxWeb.Mappers
         private GeographicalVariable MapGeographicalVariable(Variable variable)
         {
             GeographicalVariable geographicalVariable = new GeographicalVariable();
-            geographicalVariable.Type = AbstractVariable.TypeEnum.GeographicalVariableEnum;
+            geographicalVariable.Type = VariableTypeEnum.GeographicalVariableEnum;
             geographicalVariable.Map = variable.Map;
             geographicalVariable.Elimination = variable.Elimination;
             if (variable.EliminationValue != null)
@@ -167,7 +167,7 @@ namespace PxWeb.Mappers
         private RegularVariable MapRegularVariable(Variable variable)
         {
             RegularVariable regularVariable = new RegularVariable();
-            regularVariable.Type = AbstractVariable.TypeEnum.RegularVariableEnum;
+            regularVariable.Type = VariableTypeEnum.RegularVariableEnum;
             regularVariable.Elimination = variable.Elimination;
             if (variable.EliminationValue != null)
             {
@@ -205,7 +205,7 @@ namespace PxWeb.Mappers
             return v;   
         }
 
-        private ContentValue MapContentValue(TableMetadata tm, PCAxis.Paxiom.Value value)
+        private ContentValue MapContentValue(TableMetadataResponse tm, PCAxis.Paxiom.Value value)
         {
             ContentValue cv = new ContentValue();
 
@@ -235,7 +235,7 @@ namespace PxWeb.Mappers
             return cv;
         }
 
-        private void MapContentInfo(TableMetadata tm, ContentValue cv, ContInfo contInfo)
+        private void MapContentInfo(TableMetadataResponse tm, ContentValue cv, ContInfo contInfo)
         {
             cv.MeasuringType = GetMeasuringType(contInfo.StockFa);
             cv.Adjustment = GetAdjustment(contInfo.DayAdj, contInfo.SeasAdj);
@@ -259,7 +259,7 @@ namespace PxWeb.Mappers
             }
         }
 
-        private void MapContact(TableMetadata tm, PCAxis.Paxiom.Contact contact)
+        private void MapContact(TableMetadataResponse tm, PCAxis.Paxiom.Contact contact)
         {
             if (tm.Contacts == null)
             {
@@ -284,7 +284,7 @@ namespace PxWeb.Mappers
             }
         }
 
-        private void MapContact(TableMetadata tm, string contact)
+        private void MapContact(TableMetadataResponse tm, string contact)
         {
             if (contact != null)
             {
@@ -304,7 +304,7 @@ namespace PxWeb.Mappers
             }
         }
 
-        private void MapLastUpdated(TableMetadata tm, ContInfo contInfo)
+        private void MapLastUpdated(TableMetadataResponse tm, ContInfo contInfo)
         {
             if (contInfo.LastUpdated.IsPxDate())
             {
@@ -325,7 +325,7 @@ namespace PxWeb.Mappers
             return n;
         }
 
-        private void MapTableNotes(TableMetadata tm, PCAxis.Paxiom.PXModel model)
+        private void MapTableNotes(TableMetadataResponse tm, PCAxis.Paxiom.PXModel model)
         {
             if (model.Meta.Notes.Count > 0 || model.Meta.CellNotes.Count > 0)
             {

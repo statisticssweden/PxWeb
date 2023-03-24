@@ -61,7 +61,7 @@ namespace PxWeb.Controllers.Api2
                     builder.BuildForSelection();
                     var model = builder.Model;
 
-                    TableMetadata tm = _tableMetadataResponseMapper.Map(model, id, lang);
+                    TableMetadataResponse tm = _tableMetadataResponseMapper.Map(model, id, lang);
 
                     return new ObjectResult(tm);
                 }

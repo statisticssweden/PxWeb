@@ -70,7 +70,7 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang);
+            FolderResponse folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang);
 
             return new ObjectResult(folder);
         }
@@ -99,7 +99,7 @@ namespace PxWeb.Controllers.Api2
                 return new BadRequestObjectResult("Error reading node data");
             }
 
-            Folder folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang, true);
+            FolderResponse folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang, true);
 
             return new ObjectResult(folder);
         }

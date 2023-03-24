@@ -22,21 +22,20 @@ namespace PxWeb.Mappers
             _language = _configOptions.DefaultLanguage;
         }
 
-        public Folder GetFolder(PxMenuItem currentItem, string language, bool root = false)
+        public FolderResponse GetFolder(PxMenuItem currentItem, string language, bool root = false)
         {
             // Id shall not be displayed for the root folder
             string id = root == false ? Path.GetFileName(currentItem.ID.Selection) : "";
 
             _language = language;
 
-            Folder folder = new Folder
+            FolderResponse folder = new FolderResponse
             {
                 Language = _language,
                 Id = id, 
-                ObjectType = typeof(Folder).Name, // TODO: Create enum in spec
                 Label = currentItem.Text,
                 Description = currentItem.Description,
-                Tags = null // TODO: Implement later
+                //Tags = null // TODO: Implement later
             };
 
             folder.Links = new List<PxWeb.Api2.Server.Models.Link>();
@@ -82,10 +81,10 @@ namespace PxWeb.Mappers
             FolderInformation fi = new FolderInformation
             {
                 Id = Path.GetFileName(child.ID.Selection),
-                ObjectType = typeof(FolderInformation).Name, // TODO: Create enum in spec
+                Type = FolderContentItemTypeEnum.FolderInformationEnum,
                 Description = child.Description,
                 Label = child.Text,
-                Tags = null,
+                //Tags = null, //TODO: Implement later
                 Links = new List<PxWeb.Api2.Server.Models.Link>()
             };
 
@@ -105,11 +104,11 @@ namespace PxWeb.Mappers
             Table table = new Table
             {
                 Id = tableId,
-                ObjectType = typeof(Table).Name, // TODO: Create enum in spec
+                Type = FolderContentItemTypeEnum.TableEnum,
                 Description = child.Description,
                 Label = child.Text,
                 Updated = child.Published,
-                Tags = null, // TODO: Implement later
+                //Tags = null, // TODO: Implement later
                 Category = GetCategory(child.Category),
                 FirstPeriod = child.StartTime,
                 LastPeriod = child.EndTime
@@ -145,7 +144,7 @@ namespace PxWeb.Mappers
             Heading heading = new Heading
             {
                 Id = Path.GetFileName(child.ID.Selection),
-                ObjectType = typeof(Heading).Name, // TODO: Create enum in spec
+                Type = FolderContentItemTypeEnum.HeadingEnum,
                 Label = child.Text,
                 Description = child.Description
             };

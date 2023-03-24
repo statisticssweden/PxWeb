@@ -8,6 +8,6 @@ namespace PxWeb.Mappers
 {
     public interface IFolderResponseMapper
     {
-        public Folder GetFolder(PxMenuItem currentItem, string language, bool root = false);
+        public FolderResponse GetFolder(PxMenuItem currentItem, string language, bool root = false);
     }
 }
