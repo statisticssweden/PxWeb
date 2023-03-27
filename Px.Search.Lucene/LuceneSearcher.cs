@@ -51,21 +51,49 @@ namespace Px.Search.Lucene
             // See https://github.com/statisticssweden/Px.Search.Lucene/blob/main/Px.Search.Lucene/LuceneSearcher.cs
 
             var skipRecords = pageSize * (pageNumber - 1);
+
             List<SearchResult> searchResultList = new List<SearchResult>();
             string[] fields = GetSearchFields();
             LuceneVersion luceneVersion = LuceneVersion.LUCENE_48;
-
-            QueryParser qp = new MultiFieldQueryParser(luceneVersion,
+            Query luceneQuery;
+            QueryParser queryParser = new MultiFieldQueryParser(luceneVersion,
                                                        fields,
                                                        new StandardAnalyzer(luceneVersion));
-            qp.DefaultOperator = _defaultOperator;
-            //Query query = queryParser.parse("*:*"); om query är null eller tom
-            Query q = qp.Parse(query);
-           //Efterforska om det går att lägga till discontinued på q
-            TopDocs topDocs = _indexSearcher.Search(q,skipRecords+pageSize);
+            StringBuilder sbQuery = new StringBuilder();
+
+            queryParser.DefaultOperator = _defaultOperator;
+
+            if (string.IsNullOrEmpty(query)) 
+            {
+               sbQuery.Append("*:*");
+            }
+            else
+            {
+                sbQuery.Append(query);
+            }
+            if (!string.IsNullOrEmpty(pastdays.ToString()))
+            {
+                var toDay = DateTime.Now.ToString("yyyyMMdd");
+                var pastDay = DateTime.Now.AddDays(- Convert.ToDouble(pastdays)).ToString("yyyyMMdd");
+                toDay = "20230212";
+                pastDay = "20220210";
+                sbQuery.Append(" AND " + SearchConstants.SEARCH_FIELD_UPDATED + ":["+ pastDay + " TO "+ toDay+"]");
+                //sbQuery.Append(" AND " + SearchConstants.SEARCH_FIELD_UPDATED + ":[20040210 TO 20230212]");
+                
+            }
+           
+            luceneQuery = queryParser.Parse(sbQuery.ToString());
+
+            TopDocs topDocs = _indexSearcher.Search(luceneQuery, skipRecords+pageSize);
+
+            //if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
+            //{
+            //    searchResult.Updated = updated;
+            //}
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
             DateTime updated;
             bool discontinued;
+
 
             for (int i = skipRecords; i < topDocs.TotalHits; i++)
             {
@@ -80,6 +108,7 @@ namespace Px.Search.Lucene
                     doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
                     doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
                     doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
+                    doc.Get(SearchConstants.SEARCH_FIELD_UPDATED),
                     doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
                 );
                 searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);
@@ -100,6 +129,7 @@ namespace Px.Search.Lucene
                 searchResultList.Add(searchResult);
             }
 
+            
             return searchResultList;
         }
 

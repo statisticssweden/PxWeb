@@ -24,6 +24,7 @@ using Px.Search;
 using System.Linq;
 using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -37,13 +38,15 @@ namespace PxWeb.Controllers.Api2
         private readonly ILanguageHelper _languageHelper;
         private readonly IResponseMapper _responseMapper;
         private readonly ISearchBackend _backend;
+        private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _responseMapper = responseMapper;
             _backend = backend;
+            _pxApiConfigurationService = pxApiConfigurationService;
         }
 
 
@@ -182,20 +185,21 @@ namespace PxWeb.Controllers.Api2
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
             Searcher searcher = new Searcher(_dataSource, _backend);
+            var op = _pxApiConfigurationService.GetConfiguration();
+
             //TablesResponse tablesResponse = null;
             //tablesResponse.Page.
             lang = _languageHelper.HandleLanguage(lang);
             
             if (pageNumber == null || pageNumber <= 0)
                 pageNumber = 1;
-            //TODO: Hämta default värden för pageSize från config
+
             if (pageSize == null || pageSize <= 0)
-                pageSize = 20; 
+                pageSize = op.PageSize; 
 
-            if (query != null)
-                return Ok(searcher.Find(query, lang, pastDays, includeDiscontinued ?? false , pageSize.Value, pageNumber.Value));
+            
+            return Ok(searcher.Find(query, lang, pastDays, includeDiscontinued ?? false , pageSize.Value, pageNumber.Value));
 
-            return Ok();
         }
     }
 }
