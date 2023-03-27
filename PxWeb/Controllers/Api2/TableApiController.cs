@@ -24,6 +24,7 @@ using Px.Search;
 using System.Linq;
 using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
+using PCAxis.Serializers;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -37,13 +38,15 @@ namespace PxWeb.Controllers.Api2
         private readonly ILanguageHelper _languageHelper;
         private readonly IResponseMapper _responseMapper;
         private readonly ISearchBackend _backend;
+        private readonly ISerializeManager _serializeManager;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend, ISerializeManager serializeManager)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _responseMapper = responseMapper;
             _backend = backend;
+            _serializeManager = serializeManager;
         }
 
 
@@ -126,42 +129,13 @@ namespace PxWeb.Controllers.Api2
             //serialize output
             //TODO check if given in url param otherwise take the format from appsettings
             string outputFormat = "px";
-            var serializer = GetSerializer(outputFormat);
+            var serializer = _serializeManager.GetSerializer(outputFormat);
             serializer.Serialize(model, Response);
 
             return Ok();
            
         }
-
-        private IDataSerializer GetSerializer(string outputFormat)
-        {
-            switch (outputFormat.ToLower())
-            {
-                case "xlsx":
-                    return new XlsxDataSerializer();
-                case "xlsx_doublecolumn":
-                case "csv":
-                case "csv_tab":
-                case "csv_tabhead":
-                case "csv_comma":
-                case "csv_commahead":
-                case "csv_space":
-                case "csv_spacehead":
-                case "csv_semicolon":
-                case "csv_semicolonhead":
-                case "csv2":
-                case "csv3":
-                case "json_stat":
-                case "json_stat2":
-                case "html5_table":
-                case "relational_table":
-                case "px":
-                default:
-                    return new PxDataSerializer();
-            }
-
-        }
-
+        
         private Selection[] GetDefaultTable(PXModel model)
         {
             //TODO implement the correct algorithm
@@ -198,4 +172,5 @@ namespace PxWeb.Controllers.Api2
             return Ok();
         }
     }
+
 }

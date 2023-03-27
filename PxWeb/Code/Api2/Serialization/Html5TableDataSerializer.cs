@@ -4,12 +4,12 @@ using PCAxis.Serializers;
 
 namespace PxWeb.Code.Api2.Serialization
 {
-    public class JsonStatDataSerializer : IDataSerializer
+    public class Html5TableDataSerializer : IDataSerializer
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            response.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-            IPXModelStreamSerializer serializer = new JsonStatSerializer();
+            response.ContentType = "text/html; charset=" + System.Text.Encoding.Default.WebName;
+            IPXModelStreamSerializer serializer = new Html5TableSerializer();
             serializer.Serialize(model, response.Body);
         }
     }
