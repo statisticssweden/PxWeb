@@ -14,6 +14,8 @@ using static System.Net.Mime.MediaTypeNames;
 using Lucene.Net.Documents;
 using static Lucene.Net.Util.Fst.Util;
 using static Lucene.Net.Util.Packed.PackedInt32s;
+using System.Globalization;
+using Lucene.Net.Queries;
 
 namespace Px.Search.Lucene
 {
@@ -59,41 +61,37 @@ namespace Px.Search.Lucene
             QueryParser queryParser = new MultiFieldQueryParser(luceneVersion,
                                                        fields,
                                                        new StandardAnalyzer(luceneVersion));
-            StringBuilder sbQuery = new StringBuilder();
-
+            BooleanFilter filter = new BooleanFilter();
             queryParser.DefaultOperator = _defaultOperator;
 
             if (string.IsNullOrEmpty(query)) 
             {
-               sbQuery.Append("*:*");
+                luceneQuery = queryParser.Parse("*:*");
             }
             else
             {
-                sbQuery.Append(query);
+                luceneQuery = queryParser.Parse(query);
             }
             if (!string.IsNullOrEmpty(pastdays.ToString()))
             {
-                var toDay = DateTime.Now.ToString("yyyyMMdd");
-                var pastDay = DateTime.Now.AddDays(- Convert.ToDouble(pastdays)).ToString("yyyyMMdd");
-                toDay = "20230212";
-                pastDay = "20220210";
-                sbQuery.Append(" AND " + SearchConstants.SEARCH_FIELD_UPDATED + ":["+ pastDay + " TO "+ toDay+"]");
-                //sbQuery.Append(" AND " + SearchConstants.SEARCH_FIELD_UPDATED + ":[20040210 TO 20230212]");
-                
+                var pastDay = DateTools.DateToString(DateTime.Now.AddDays(- Convert.ToDouble(pastdays)), DateResolution.HOUR);
+
+                filter.Add(new FilterClause(FieldCacheRangeFilter.NewStringRange(SearchConstants.SEARCH_FIELD_UPDATED, lowerVal: pastDay, includeLower: true, upperVal: null, includeUpper: false), Occur.MUST));
             }
-           
-            luceneQuery = queryParser.Parse(sbQuery.ToString());
+            if (!includediscontinued)
+            {
+                var areaFilter = new TermsFilter(new Term(SearchConstants.SEARCH_FIELD_DISCONTINUED, "false"));
+                filter.Add(new FilterClause(areaFilter, Occur.MUST));
+            }
+            TopDocs topDocs; 
+            if ( filter != null && filter.Count() > 0)
+                topDocs = _indexSearcher.Search(luceneQuery, filter, skipRecords +pageSize);
+            else
+                topDocs = _indexSearcher.Search(luceneQuery, skipRecords + pageSize);
 
-            TopDocs topDocs = _indexSearcher.Search(luceneQuery, skipRecords+pageSize);
-
-            //if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
-            //{
-            //    searchResult.Updated = updated;
-            //}
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
             DateTime updated;
             bool discontinued;
-
 
             for (int i = skipRecords; i < topDocs.TotalHits; i++)
             {
@@ -120,11 +118,13 @@ namespace Px.Search.Lucene
                 if (bool.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_DISCONTINUED), out discontinued))
                 {
                     searchResult.Discontinued = discontinued;
-                }                
+                }
                 searchResult.Category = doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY);
                 searchResult.FirstPeriod = doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD);
                 searchResult.LastPeriod = doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD);
                 searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
+                //searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTime.ParseExact(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED),"yyyyMMddT00:00", null);
+                searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_UPDATED);
                 searchResult.Score= scoreDocs[i].Score; 
                 searchResultList.Add(searchResult);
             }

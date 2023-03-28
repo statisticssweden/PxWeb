@@ -168,7 +168,9 @@ namespace Px.Search.Lucene
                 if (tbl.Updated != null)
                 {
                     updated2 = tbl.Updated.Value;
-                    strUpdated = updated2.DateTimeToPxDateString();
+                    strUpdated = DateTools.DateToString(updated2, DateResolution.SECOND);
+                    //DateTime d1 = Convert.ToDateTime(updated2);
+                    //doc.Add(new Field("Registered_Date", DateTools.DateToString(d1, DateTools.Resolution.SECOND), Field.Store.YES, Field.Index.ANALYZED));
                 }
 
                 doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DOCID, tbl.Id, Field.Store.YES)); // Used as id when updating a document - NOT searchable!!!
