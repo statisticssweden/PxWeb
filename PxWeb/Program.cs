@@ -39,7 +39,7 @@ namespace PxWeb
         {
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -81,7 +81,7 @@ namespace PxWeb
 
             builder.Services.AddHostedService<LongRunningService>();
             builder.Services.AddSingleton<BackgroundWorkerQueue>();
-            
+
             builder.Services.AddPxSearchEngine(builder);
 
             var langList = builder.Configuration.GetSection("PxApiConfiguration:Languages")
@@ -125,8 +125,8 @@ namespace PxWeb
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
-                app.UseSwagger();
-                app.UseSwaggerUI();
+            app.UseSwagger();
+            app.UseSwaggerUI();
             //}
             app.UseHttpsRedirection();
 
@@ -135,14 +135,16 @@ namespace PxWeb
                 app.UseCors();
             }
 
-            app.UseAuthorization();
-
-            app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/v2/admin"), appBuilder =>
+            if (!app.Environment.IsDevelopment())
             {
-                appBuilder.UseAdminProtectionIpWhitelist();
-                appBuilder.UseAdminProtectionKey();
-            });
+                    app.UseAuthorization();
 
+                app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/v2/admin"), appBuilder =>
+                {
+                    appBuilder.UseAdminProtectionIpWhitelist();
+                    appBuilder.UseAdminProtectionKey();
+                });
+            }
             app.MapControllers();
 
             if (!app.Environment.IsDevelopment())

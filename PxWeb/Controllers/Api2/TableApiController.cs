@@ -25,6 +25,7 @@ using System.Linq;
 using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
 using Microsoft.AspNetCore.Http;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -40,8 +41,7 @@ namespace PxWeb.Controllers.Api2
         private readonly ISearchBackend _backend;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend)
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, IResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
@@ -152,19 +152,36 @@ namespace PxWeb.Controllers.Api2
             Searcher searcher = new Searcher(_dataSource, _backend);
             var op = _pxApiConfigurationService.GetConfiguration();
 
-            //TablesResponse tablesResponse = null;
+            TablesResponse tablesResponse = new TablesResponse();
             //tablesResponse.Page.
             lang = _languageHelper.HandleLanguage(lang);
-            
+
             if (pageNumber == null || pageNumber <= 0)
                 pageNumber = 1;
 
             if (pageSize == null || pageSize <= 0)
-                pageSize = op.PageSize; 
+                pageSize = op.PageSize;
 
-            
-            return Ok(searcher.Find(query, lang, pastDays, includeDiscontinued ?? false , pageSize.Value, pageNumber.Value));
+            var searchResult = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
 
+            tablesResponse.Language = lang;
+
+            foreach (var item in searchResult)
+            {
+                var tb = new Table()
+                {
+                    Id = item.Id,
+                    Label = item.Label,
+                    Description = item.Description,
+                    Tags = item.Tags.ToList(),
+                    Updated = item.Updated,
+                    FirstPeriod = item.FirstPeriod,
+                    LastPeriod = item.LastPeriod,
+                    Category = (Table.CategoryEnum)Enum.Parse(typeof(Table.CategoryEnum), item.Category),
+                };
+                tablesResponse.Tables.Add(tb);
+
+            }
             return Ok();
         }
 

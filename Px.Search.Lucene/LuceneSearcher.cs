@@ -125,7 +125,7 @@ namespace Px.Search.Lucene
                 searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
                 //searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTime.ParseExact(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED),"yyyyMMddT00:00", null);
                 searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_UPDATED);
-                searchResult.Score= scoreDocs[i].Score; 
+                searchResult.Score= scoreDocs[i].Score;
                 searchResultList.Add(searchResult);
             }
 
