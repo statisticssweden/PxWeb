@@ -31,14 +31,14 @@ namespace PxWeb.Controllers.Api2
         private readonly IDataSource _dataSource;
         private readonly ISearchBackend _backend;
         private readonly ILanguageHelper _languageHelper;
-        private readonly IResponseMapper _responseMapper;
+        private readonly IFolderResponseMapper _folderResponseMapper;
 
-        public NavigationApiController(IDataSource dataSource, ISearchBackend backend, ILanguageHelper languageHelper, IResponseMapper responseMapper)
+        public NavigationApiController(IDataSource dataSource, ISearchBackend backend, ILanguageHelper languageHelper, IFolderResponseMapper folderMapper)
         {
             _dataSource = dataSource;
             _backend = backend;
             _languageHelper = languageHelper;
-            _responseMapper = responseMapper;
+            _folderResponseMapper = folderMapper;
         }
 
         /// <summary>
@@ -62,15 +62,15 @@ namespace PxWeb.Controllers.Api2
 
             if (!selectionExists)
             {
-                return new BadRequestObjectResult("No such node id " + id);
+                return NotFound(NonExistentNode(id));
             }
 
             if (item == null)
             {
-                return new BadRequestObjectResult("Error reading node data");
+                return new BadRequestObjectResult(ErrorReadingNodeData());
             }
 
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)item, HttpContext);
+            FolderResponse folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang);
 
             return new ObjectResult(folder);
         }
@@ -96,13 +96,32 @@ namespace PxWeb.Controllers.Api2
 
             if (item == null)
             {
-                return new BadRequestObjectResult("Error reading node data");
+                return new BadRequestObjectResult(ErrorReadingNodeData());
             }
 
-            Folder folder = _responseMapper.GetFolder((PxMenuItem)item, HttpContext);
+            FolderResponse folder = _folderResponseMapper.GetFolder((PxMenuItem)item, lang, true);
 
             return new ObjectResult(folder);
         }
-      
+
+        private Problem NonExistentNode(string id)
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent node " + id;
+            p.Status = 404;
+            p.Title = "Non-existent node";
+            return p;
+        }
+
+        private Problem ErrorReadingNodeData()
+        {
+            Problem p = new Problem();
+            p.Type = "Data error";
+            p.Detail = "Error reading node data";
+            p.Status = 400;
+            p.Title = "Error reading node";
+            return p;
+        }
     }
 }

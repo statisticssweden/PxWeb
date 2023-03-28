@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.pc-axis.scb.se/" name="no">
+	<sentence name="PxcYear" value="år" />
+	<sentence name="PxcHalfyear" value="halvår" />
+	<sentence name="PxcQuarter" value="kvartal" />
+	<sentence name="PxcMonth" value="måned" />
+	<sentence name="PxcWeek" value="uke" />
+	<sentence name="PxcMetaTitleBy" value="etter" />
+	<sentence name="PxcMetaTitleAnd" value="og" />
+	<sentence name="PxcOpSplitTimeVarYear" value="år" />
+	<sentence name="PxcOpSplitTimeVarQuarter" value="kvartal" />
+	<sentence name="PxcOpSplitTimeVarMonth" value="måned" />
+	<sentence name="PxcOpSplitTimeVarJanuary" value="januar" />
+	<sentence name="PxcOpSplitTimeVarFebruary" value="februar" />
+	<sentence name="PxcOpSplitTimeVarMarch" value="mars" />
+	<sentence name="PxcOpSplitTimeVarApril" value="april" />
+	<sentence name="PxcOpSplitTimeVarMay" value="mai" />
+	<sentence name="PxcOpSplitTimeVarJune" value="juni" />
+	<sentence name="PxcOpSplitTimeVarJuly" value="juli" />
+	<sentence name="PxcOpSplitTimeVarAugust" value="august" />
+	<sentence name="PxcOpSplitTimeVarSeptember" value="september" />
+	<sentence name="PxcOpSplitTimeVarOctober" value="oktober" />
+	<sentence name="PxcOpSplitTimeVarNovember" value="november" />
+	<sentence name="PxcOpSplitTimeVarDecember" value="desember" />
+	<sentence name="PxcOpSplitTimeVarQuarter1" value="1. kvartal" />
+	<sentence name="PxcOpSplitTimeVarQuarter2" value="2. kvartal" />
+	<sentence name="PxcOpSplitTimeVarQuarter3" value="3. kvartal" />
+	<sentence name="PxcOpSplitTimeVarQuarter4" value="4. kvartal" />
+	<sentence name="ERROR_MISSING_TIMEVALUE" value="TIMEVALUE mangler" />
+	<sentence name="PxcErrCellNoteValueMissing" value="Verdien={0}er ikke gyldig" />
+	<sentence name="PxcErrToManyCodes" value="{0} har for mange koder spesifisert" />
+	<sentence name="PxcGroupedValuesMissing" value="{0} gruppert verdi mangler" />
+	<sentence name="PxcGroupingVariableWithNoValues" value="Grupperingsvariabelen {0} inneholder ingen verdier" />
+	<sentence name="PxcSortVariable" value="måleenhetvariabel" />
+	<sentence name="PxcContactPhone" value="Telefon" />
+	<sentence name="PxcContactEMail" value="e-post" />
+	<sentence name="PxcPercent" value="prosent" />
+	<sentence name="PxcPermil" value="per 1 000" />
+	<sentence name="PxcPercentUnitVarExists" value="Kan ikke beregne prosent når måleenheten allerede eksisterer" />
+	<sentence name="PxcPermilUnitVarExists" value="Kan ikke beregne rate per 1 000 når måleenheten allerede eksisterer" />
+	<sentence name="PxcKeywordLastUpdated" value="Sist endret" />
+	<sentence name="PxcKeywordSource" value="Kilde" />
+	<sentence name="PxcKeywordContact" value="Kontakt" />
+	<sentence name="PxcKeywordOfficialStatistics" value="Offisiell statistikk" />
+	<sentence name="PxcKeywordUnits" value="Måleenhet" />
+	<sentence name="PxcKeywordStockfa" value="Målemetode" />
+	<sentence name="PxcKeywordStockfaValueStock" value="Situasjon (tidspunkt)" />
+	<sentence name="PxcKeywordStockfaValueFlow" value="Forløp (periodesum)" />
+	<sentence name="PxcKeywordStockfaValueAverage" value="Gjennomsnitt" />
+	<sentence name="PxcKeywordRefPeriod" value="Referansetid" />
+	<sentence name="PxcKeywordBasePeriod" value="Basisperiode" />
+	<sentence name="PxcKeywordCFPricesValueCurrent" value="Løpende priser" />
+	<sentence name="PxcKeywordCFPricesValueFixed" value="Faste priser" />
+	<sentence name="PxcKeywordDayAdj" value="Kalenderjustert" />
+	<sentence name="PxcKeywordSeasAdj" value="Sesongjustert" />
+	<sentence name="PxcKeywordDatabase" value="Database" />
+	<sentence name="PxcKeywordMatrix" value="Intern referansekode" />
+</language>
