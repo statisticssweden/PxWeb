@@ -123,8 +123,8 @@ namespace Px.Search.Lucene
                 searchResult.FirstPeriod = doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD);
                 searchResult.LastPeriod = doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD);
                 searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
-                //searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTime.ParseExact(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED),"yyyyMMddT00:00", null);
-                searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_UPDATED);
+                searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
+                searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
                 searchResult.Score= scoreDocs[i].Score;
                 searchResultList.Add(searchResult);
             }

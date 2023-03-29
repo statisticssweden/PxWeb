@@ -26,6 +26,7 @@ using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
 using Microsoft.AspNetCore.Http;
 using PxWeb.Config.Api2;
+using System.Runtime.Serialization;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -38,16 +39,18 @@ namespace PxWeb.Controllers.Api2
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
+        private readonly ITablesResponseMapper _tablesResponseMapper;
         private readonly ISearchBackend _backend;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ITablesResponseMapper tablesResponseMapper)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _tableMetadataResponseMapper = responseMapper;
             _backend = backend;
             _pxApiConfigurationService = pxApiConfigurationService;
+            _tablesResponseMapper = tablesResponseMapper;
         }
 
 
@@ -151,9 +154,7 @@ namespace PxWeb.Controllers.Api2
         {
             Searcher searcher = new Searcher(_dataSource, _backend);
             var op = _pxApiConfigurationService.GetConfiguration();
-
-            TablesResponse tablesResponse = new TablesResponse();
-            //tablesResponse.Page.
+            
             lang = _languageHelper.HandleLanguage(lang);
 
             if (pageNumber == null || pageNumber <= 0)
@@ -164,25 +165,8 @@ namespace PxWeb.Controllers.Api2
 
             var searchResult = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
 
-            tablesResponse.Language = lang;
+            return Ok(_tablesResponseMapper.Map(searchResult, lang));
 
-            foreach (var item in searchResult)
-            {
-                var tb = new Table()
-                {
-                    Id = item.Id,
-                    Label = item.Label,
-                    Description = item.Description,
-                    Tags = item.Tags.ToList(),
-                    Updated = item.Updated,
-                    FirstPeriod = item.FirstPeriod,
-                    LastPeriod = item.LastPeriod,
-                    Category = (Table.CategoryEnum)Enum.Parse(typeof(Table.CategoryEnum), item.Category),
-                };
-                tablesResponse.Tables.Add(tb);
-
-            }
-            return Ok();
         }
 
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)

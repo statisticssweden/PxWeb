@@ -77,6 +77,7 @@ namespace PxWeb
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
             builder.Services.AddTransient<IFolderResponseMapper, FolderResponseMapper>();
             builder.Services.AddTransient<ITableMetadataResponseMapper, TableMetadataResponseMapper>();
+            builder.Services.AddTransient<ITablesResponseMapper, TablesResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
 
             builder.Services.AddHostedService<LongRunningService>();
