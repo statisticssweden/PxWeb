@@ -16,7 +16,10 @@ namespace PxWeb.Mappers
             self,
             data,
             describedby,
-            metadata
+            metadata,
+            next,
+            previous,
+            last
         }
 
         private string _urlBase;
@@ -25,7 +28,15 @@ namespace PxWeb.Mappers
         {
             _urlBase = configOptions.Value.BaseURL;
         }
+        public Link GetTableLinkPage(LinkRelationEnum relation,string language, string query, int pagesize, int pageNumber, bool currentLanguage = true)
+        {
+            var link = new Link();
+            link.Rel = relation.ToString();
+            link.Hreflang = language;
+            link.Href = CreatePageURL($"tables/", language, currentLanguage, query, pagesize, pageNumber);
 
+            return link;
+        }
         public Link GetTableLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
         {
             var link = new Link();
@@ -87,6 +98,42 @@ namespace PxWeb.Mappers
                 sb.Append("?lang=");
                 sb.Append(language);
             }
+
+            return sb.ToString();
+        }
+        private string CreatePageURL(string endpointUrl, string language, bool currentLanguage, string query, int pagesize, int pageNumber)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(_urlBase);
+            sb.Append(endpointUrl);
+            
+            if (!string.IsNullOrEmpty(query) && !currentLanguage)
+            {
+                sb.Append("?lang=");
+                sb.Append(language);
+                sb.Append("&query=" + query);
+                sb.Append("&pagesize=" + pagesize);
+            }
+            if (!string.IsNullOrEmpty(query) && currentLanguage)
+            {
+                sb.Append("?");
+                sb.Append("query=" + query);
+                sb.Append("&pagesize=" + pagesize);
+            }
+            if (string.IsNullOrEmpty(query) && currentLanguage)
+            {
+                sb.Append("?");
+                sb.Append("pagesize=" + pagesize);
+            }
+            if (string.IsNullOrEmpty(query) && !currentLanguage)
+            {
+                sb.Append("?lang=");
+                sb.Append(language);
+                sb.Append("&pagesize=" + pagesize);
+            }
+
+            sb.Append("&pageNumber=" + pageNumber);
 
             return sb.ToString();
         }

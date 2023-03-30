@@ -166,7 +166,7 @@ namespace PxWeb.Controllers.Api2
             var searchResult = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
             if (searchResult.Count() != 0)
             {
-                return Ok(_tablesResponseMapper.Map(searchResult, lang));
+                return Ok(_tablesResponseMapper.Map(searchResult, lang, query));
             }
             return Ok();
 

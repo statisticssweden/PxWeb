@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PxWeb.Config.Api2;
 using Microsoft.Extensions.Options;
-using PCAxis.Paxiom.Localization;
+//using PCAxis.Menu;
 
 namespace PxWeb.Mappers
 {
@@ -20,7 +20,7 @@ namespace PxWeb.Mappers
             _configOptions = configOptions.Value;
         }
 
-        public TablesResponse Map(IEnumerable<SearchResult> searchResult, string lang)
+        public TablesResponse Map(IEnumerable<SearchResult> searchResult, string lang, string query)
         {
             TablesResponse tablesResponse = new TablesResponse();
             PageInfo page = new PageInfo
@@ -46,7 +46,7 @@ namespace PxWeb.Mappers
                     linkList.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, item.Id.ToUpper(), language.Id, current));
                 }
 
-                // Links to metadata
+                // Links to metadataT
                 foreach (var language in _configOptions.Languages)
                 {
                     bool current = language.Id.Equals(lang);
@@ -79,6 +79,16 @@ namespace PxWeb.Mappers
             }
 
             tablesResponse.Tables = tableList;
+
+            var linkListTableResponse = new List<Link>();
+
+            // Links to tablesResponse
+            foreach (var language in _configOptions.Languages)
+            {
+                bool current = language.Id.Equals(lang);
+                linkListTableResponse.Add(_linkCreator.GetTablesLinkPage(LinkCreator.LinkRelationEnum.self, language.Id, query, page.PageSize, page.PageNumber, current));
+            }
+            tablesResponse.Links = linkListTableResponse;
 
             return tablesResponse;
         }
