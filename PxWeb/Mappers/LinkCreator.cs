@@ -28,7 +28,7 @@ namespace PxWeb.Mappers
         {
             _urlBase = configOptions.Value.BaseURL;
         }
-        public Link GetTableLinkPage(LinkRelationEnum relation,string language, string query, int pagesize, int pageNumber, bool currentLanguage = true)
+        public Link GetTablesLinkPage(LinkRelationEnum relation,string language, string query, int pagesize, int pageNumber, bool currentLanguage = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
