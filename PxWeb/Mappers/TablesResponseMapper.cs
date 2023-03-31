@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PxWeb.Config.Api2;
 using Microsoft.Extensions.Options;
+using System.Drawing.Printing;
 //using PCAxis.Menu;
 
 namespace PxWeb.Mappers
@@ -23,13 +24,51 @@ namespace PxWeb.Mappers
         public TablesResponse Map(IEnumerable<SearchResult> searchResult, string lang, string query)
         {
             TablesResponse tablesResponse = new TablesResponse();
-            PageInfo page = new PageInfo
+            var linkPageList = new List<Link>();
+
+            var pageNumber = searchResult.Select(x => x.pageNumber).First();
+            var pageSize = searchResult.Select(x => x.pageSize).First();
+            var totalElements = searchResult.Select(x => x.totalElements).First();
+            var totalPages = searchResult.Select(x => x.totalPages).First();
+
+            if (pageNumber < totalPages)
+            {
+                // Links to next page 
+                foreach (var language in _configOptions.Languages)
                 {
-                    PageNumber = searchResult.Select(x => x.pageNumber).First(),
-                    PageSize = searchResult.Select(x => x.pageSize).First(),
-                    TotalElements = searchResult.Select(x => x.totalElements).First(),
-                    TotalPages = searchResult.Select(x => x.totalPages).First()
-                };
+                    bool current = language.Id.Equals(lang);
+                    linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.next, language.Id, query, 
+                        pageSize, pageNumber + 1, current));
+                }
+            }
+
+            if (pageNumber <= totalPages && pageNumber != 1)
+            {
+                // Links to previous page 
+                foreach (var language in _configOptions.Languages)
+                {
+                    bool current = language.Id.Equals(lang);
+                    linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.previous, language.Id, query,
+                        pageSize, pageNumber - 1, current));
+                }
+            }
+            // Links to last page 
+            foreach (var language in _configOptions.Languages)
+            {
+                bool current = language.Id.Equals(lang);
+                linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.last, language.Id, query,
+                    pageSize, totalPages, current));
+            }
+
+            PageInfo page = new PageInfo
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalElements = totalElements,
+                TotalPages = totalPages,
+                Links = linkPageList                    
+            };
+
             var tableList = new List<Table>();
 
             tablesResponse.Page = page;
@@ -86,11 +125,23 @@ namespace PxWeb.Mappers
             foreach (var language in _configOptions.Languages)
             {
                 bool current = language.Id.Equals(lang);
-                linkListTableResponse.Add(_linkCreator.GetTablesLinkPage(LinkCreator.LinkRelationEnum.self, language.Id, query, page.PageSize, page.PageNumber, current));
+                linkListTableResponse.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.self, language.Id, query, page.PageSize, page.PageNumber, current));
             }
             tablesResponse.Links = linkListTableResponse;
 
             return tablesResponse;
+        }
+        private static int previousPage(int pagenumber)
+        {
+
+            return pagenumber - 1;
+        
+        }
+        private static int nextPage(int pagenumber)
+        {
+
+            return pagenumber - 1;
+
         }
 
         public static Table.CategoryEnum ToCategoryEnum(string category)

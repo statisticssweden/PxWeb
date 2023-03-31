@@ -103,7 +103,6 @@ namespace Px.Search.Lucene
                     doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
                     doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
                     doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
-                    doc.Get(SearchConstants.SEARCH_FIELD_UPDATED),
                     doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
                 );
                 searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);

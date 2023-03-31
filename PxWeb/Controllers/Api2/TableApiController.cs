@@ -92,6 +92,16 @@ namespace PxWeb.Controllers.Api2
             return p;
         }
 
+        private Problem OutOfRange()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent page";
+            p.Status = 404;
+            p.Title = "Non-existent page";
+            return p;
+        }
+
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             throw new NotImplementedException();
