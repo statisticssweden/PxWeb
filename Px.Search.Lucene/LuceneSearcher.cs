@@ -4,17 +4,7 @@ using Lucene.Net.Search;
 using Lucene.Net.Store;
 using Lucene.Net.Util;
 using Lucene.Net.QueryParsers.Classic;
-using Lucene.Net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using Lucene.Net.Documents;
-using static Lucene.Net.Util.Fst.Util;
-using static Lucene.Net.Util.Packed.PackedInt32s;
-using System.Globalization;
 using Lucene.Net.Queries;
 
 namespace Px.Search.Lucene
@@ -48,12 +38,12 @@ namespace Px.Search.Lucene
         /// <param name="pageSize"></param>
         /// <param name="pageNumber"></param>
         /// <returns></returns>
-        public IEnumerable<SearchResult> Find(string? query, int pageSize, int pageNumber, int? pastdays, bool includediscontinued = false)
+        public SearchResultContainer Find(string? query, int pageSize, int pageNumber, int? pastdays, bool includediscontinued = false)
         {
 
             var skipRecords = pageSize * (pageNumber - 1);
-
-            List<SearchResult> searchResultList = new List<SearchResult>();
+            var searchResultContainer = new SearchResultContainer();
+            var searchResultList = new List<SearchResult>();
             string[] fields = GetSearchFields();
             LuceneVersion luceneVersion = LuceneVersion.LUCENE_48;
             Query luceneQuery;
@@ -80,7 +70,6 @@ namespace Px.Search.Lucene
             TopDocs topDocs;
             topDocs = filter.Count() > 0 ? _indexSearcher.Search(luceneQuery, filter, skipRecords + pageSize) 
                 : _indexSearcher.Search(luceneQuery, skipRecords + pageSize);
-            
 
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
             DateTime updated;
@@ -89,6 +78,12 @@ namespace Px.Search.Lucene
             int totalpages;
 
             totalpages = IsInteger(pages) ? (int)pages : (int)pages + 1;
+
+            if (totalpages < pageNumber && totalpages != 0)
+            {
+                searchResultContainer.outOfRange = true;
+                return searchResultContainer;
+            }
             
             for (int i = skipRecords; i < topDocs.TotalHits; i++)
             {
@@ -122,14 +117,16 @@ namespace Px.Search.Lucene
                 searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
                 searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
                 searchResult.Score= scoreDocs[i].Score;
-                searchResult.pageNumber = pageNumber;
-                searchResult.pageSize= pageSize;
-                searchResult.totalPages = totalpages;
-                searchResult.totalElements = topDocs.TotalHits;
                 searchResultList.Add(searchResult);
             }
-            
-            return searchResultList;
+
+            searchResultContainer.pageNumber = pageNumber;
+            searchResultContainer.pageSize = pageSize;
+            searchResultContainer.totalPages = totalpages;
+            searchResultContainer.totalElements = topDocs.TotalHits;
+            searchResultContainer.searchResults = searchResultList;
+
+            return searchResultContainer;
 
         }
         public bool IsInteger(double number)

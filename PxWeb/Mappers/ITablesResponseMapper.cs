@@ -7,6 +7,6 @@ namespace PxWeb.Mappers
 {
     public interface ITablesResponseMapper
     {
-        TablesResponse Map(IEnumerable<SearchResult> searchResult, string lang, string query);
+        TablesResponse Map(SearchResultContainer searchResultContainer, string lang, string query);
     }
 }

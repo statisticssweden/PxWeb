@@ -173,12 +173,18 @@ namespace PxWeb.Controllers.Api2
             if (pageSize == null || pageSize <= 0)
                 pageSize = op.PageSize;
 
-            var searchResult = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
-            if (searchResult.Count() != 0)
+            var searchResultContainer = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
+
+            if (searchResultContainer.outOfRange == true)
             {
-                return Ok(_tablesResponseMapper.Map(searchResult, lang, query));
+                return NotFound(OutOfRange());
             }
-            return Ok();
+            if (searchResultContainer.searchResults.Any())
+            {
+                return Ok(_tablesResponseMapper.Map(searchResultContainer, lang, query));
+            }
+            TablesResponse tablesResponse = new TablesResponse();
+            return Ok(tablesResponse);
 
         }
 

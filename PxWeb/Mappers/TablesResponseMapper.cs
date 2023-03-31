@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using PxWeb.Config.Api2;
 using Microsoft.Extensions.Options;
-using System.Drawing.Printing;
-//using PCAxis.Menu;
 
 namespace PxWeb.Mappers
 {
@@ -21,15 +19,14 @@ namespace PxWeb.Mappers
             _configOptions = configOptions.Value;
         }
 
-        public TablesResponse Map(IEnumerable<SearchResult> searchResult, string lang, string query)
+        public TablesResponse Map(SearchResultContainer searchResultContainer, string lang, string query)
         {
-            TablesResponse tablesResponse = new TablesResponse();
+            var tablesResponse = new TablesResponse();
             var linkPageList = new List<Link>();
-
-            var pageNumber = searchResult.Select(x => x.pageNumber).First();
-            var pageSize = searchResult.Select(x => x.pageSize).First();
-            var totalElements = searchResult.Select(x => x.totalElements).First();
-            var totalPages = searchResult.Select(x => x.totalPages).First();
+            var pageNumber = searchResultContainer.pageNumber;
+            var pageSize = searchResultContainer.pageSize;
+            var totalElements = searchResultContainer.totalElements;
+            var totalPages = searchResultContainer.totalPages;
 
             if (pageNumber < totalPages)
             {
@@ -74,7 +71,7 @@ namespace PxWeb.Mappers
             tablesResponse.Page = page;
             tablesResponse.Language = lang;           
 
-            foreach (var item in searchResult)
+            foreach (var item in searchResultContainer.searchResults)
             {
                 var linkList = new List<Link>();
 
@@ -85,7 +82,7 @@ namespace PxWeb.Mappers
                     linkList.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, item.Id.ToUpper(), language.Id, current));
                 }
 
-                // Links to metadataT
+                // Links to metadata
                 foreach (var language in _configOptions.Languages)
                 {
                     bool current = language.Id.Equals(lang);
@@ -112,7 +109,6 @@ namespace PxWeb.Mappers
                     Discontinued = item.Discontinued,
                     VariableNames = item.VariableNames.ToList(),
                     Links = linkList                 
-                    
                 };
                 tableList.Add(tb);
             }
@@ -130,18 +126,6 @@ namespace PxWeb.Mappers
             tablesResponse.Links = linkListTableResponse;
 
             return tablesResponse;
-        }
-        private static int previousPage(int pagenumber)
-        {
-
-            return pagenumber - 1;
-        
-        }
-        private static int nextPage(int pagenumber)
-        {
-
-            return pagenumber - 1;
-
         }
 
         public static Table.CategoryEnum ToCategoryEnum(string category)

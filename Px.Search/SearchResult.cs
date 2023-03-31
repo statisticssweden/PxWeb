@@ -13,12 +13,6 @@ namespace Px.Search
         }
 
         public float Score { get; set; }
-        //TODO: Move to a class SearchResultContainer. contains the properties below and also a list with searchresult items (+ score)
-        public int pageNumber { get; set; }
-        public int pageSize { get; set; }
-        public int totalElements { get; set; }
-        public int totalPages { get; set; }
-        public bool outOfRange { get; set; }
-
+        
     }
 }
