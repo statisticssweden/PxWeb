@@ -41,7 +41,7 @@ namespace PxWeb.Code.Api2.Serialization
                 case "html5_table":
                     return new Html5TableDataSerializer();
                 case "relational_table":
-                    
+                    return new RelationalTableDataSerializer();
                 case "px":
                     return new PxDataSerializer();
                 default:

@@ -128,6 +128,9 @@ namespace PxWeb.Controllers.Api2
             
             //serialize output
             //TODO check if given in url param otherwise take the format from appsettings
+
+
+
             string outputFormat = "px";
             var serializer = _serializeManager.GetSerializer(outputFormat);
             serializer.Serialize(model, Response);
@@ -150,7 +153,9 @@ namespace PxWeb.Controllers.Api2
                 selection.ValueCodes.AddRange(codes);
                 selections.Add(selection);
             }
-
+            
+            _pxApiConfigurationService.GetConfiguration();
+            
             return selections.ToArray();
         }
 
