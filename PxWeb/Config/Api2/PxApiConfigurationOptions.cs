@@ -18,6 +18,6 @@ namespace PxWeb.Config.Api2
         public Cors Cors { get; set; }
         public int CacheTime { get; set; } = 5;
         public int PageSize { get; set; }
-       // public  List<string> DataFormat 
+        public string BaseURL { get; set; } = String.Empty;
     }
 }
