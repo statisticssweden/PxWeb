@@ -40,6 +40,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Web.Xdt" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,4 +55,10 @@
     <ProjectReference Include="..\Px.Search\Px.Search.csproj" />
   </ItemGroup>
 
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="ApplyConfigurationConfigFile" AfterTargets="PrepareForBuild" Condition="Exists('SqlDb.$(Configuration).config')">
+
+    <TransformXml Source="SqlDb.config" Destination="$(OutputPath)SqlDb.config" Transform="SqlDb.$(Configuration).config" />
+    <!-- https://stackoverflow.com/questions/47312487/transformxml-with-new-csproj-format -->
+  </Target>
 </Project>
