@@ -129,11 +129,7 @@ namespace Px.Search.Lucene
             return searchResultContainer;
 
         }
-        public bool IsInteger(double number)
-        {
-            return (number % 1 == 0);
-        }
-
+       
         /// <summary>
         /// Get fields in index to search in
         /// </summary>
