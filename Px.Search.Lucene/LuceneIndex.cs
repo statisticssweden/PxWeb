@@ -169,8 +169,6 @@ namespace Px.Search.Lucene
                 {
                     updated2 = tbl.Updated.Value;
                     strUpdated = DateTools.DateToString(updated2, DateResolution.SECOND);
-                    //DateTime d1 = Convert.ToDateTime(updated2);
-                    //doc.Add(new Field("Registered_Date", DateTools.DateToString(d1, DateTools.Resolution.SECOND), Field.Store.YES, Field.Index.ANALYZED));
                 }
 
                 doc.Add(new StringField(SearchConstants.SEARCH_FIELD_DOCID, tbl.Id, Field.Store.YES)); // Used as id when updating a document - NOT searchable!!!
@@ -191,7 +189,7 @@ namespace Px.Search.Lucene
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_GROUPINGCODES, meta.GetAllGroupingCodes(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETS, meta.GetAllValuesets(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUESETCODES, meta.GetAllValuesetCodes(), Field.Store.NO));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DISCONTINUED, tbl.Discontinued == null ? "false" : tbl.Discontinued.ToString(), Field.Store.YES));
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_DISCONTINUED, tbl.Discontinued == null ? "Unknown" : tbl.Discontinued.ToString(), Field.Store.YES));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_TAGS, GetAllTags(tbl.Tags), Field.Store.YES));
                 if (!string.IsNullOrEmpty(meta.Synonyms))
                 {

@@ -63,8 +63,8 @@ namespace Px.Search.Lucene
             
             if (!includediscontinued)
             {
-                var areaFilter = new TermsFilter(new Term(SearchConstants.SEARCH_FIELD_DISCONTINUED, "false"));
-                filter.Add(new FilterClause(areaFilter, Occur.MUST));
+                var areaFilter = new TermsFilter(new Term(SearchConstants.SEARCH_FIELD_DISCONTINUED, "true"));
+                filter.Add(new FilterClause(areaFilter, Occur.MUST_NOT));
             }
 
             TopDocs topDocs;
@@ -77,7 +77,7 @@ namespace Px.Search.Lucene
             var pages = (double)topDocs.TotalHits / (double)pageSize;
             int totalpages;
 
-            totalpages = IsInteger(pages) ? (int)pages : (int)pages + 1;
+            totalpages = Convert.ToInt32(Math.Ceiling(pages));
 
             if (totalpages < pageNumber && totalpages != 0)
             {

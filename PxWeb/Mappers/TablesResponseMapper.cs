@@ -49,12 +49,15 @@ namespace PxWeb.Mappers
                         pageSize, pageNumber - 1, current));
                 }
             }
-            // Links to last page 
-            foreach (var language in _configOptions.Languages)
-            {
-                bool current = language.Id.Equals(lang);
-                linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.last, language.Id, query,
-                    pageSize, totalPages, current));
+            if (totalPages != 0)
+            {         
+                // Links to last page 
+                foreach (var language in _configOptions.Languages)
+                {
+                    bool current = language.Id.Equals(lang);
+                    linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.last, language.Id, query,
+                        pageSize, totalPages, current));
+                }
             }
 
             PageInfo page = new PageInfo
@@ -62,7 +65,7 @@ namespace PxWeb.Mappers
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalElements = totalElements,
-                TotalPages = totalPages,
+                TotalPages = totalPages == 0 ?  totalPages + 1 :totalPages,
                 Links = linkPageList                    
             };
 

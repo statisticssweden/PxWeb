@@ -179,12 +179,8 @@ namespace PxWeb.Controllers.Api2
             {
                 return NotFound(OutOfRange());
             }
-            if (searchResultContainer.searchResults.Any())
-            {
-                return Ok(_tablesResponseMapper.Map(searchResultContainer, lang, query));
-            }
-            TablesResponse tablesResponse = new TablesResponse();
-            return Ok(tablesResponse);
+
+            return Ok(_tablesResponseMapper.Map(searchResultContainer, lang, query));
 
         }
 
