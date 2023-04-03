@@ -67,20 +67,19 @@ namespace PxWeb.Controllers.Api2
                 }
                 catch (Exception)
                 {
-                    return NotFound(NonExistentTable(id));
+                    return NotFound(NonExistentTable());
                 }
             }
             else
             {
-                return NotFound(NonExistentTable(id));
+                return NotFound(NonExistentTable());
             }
         }
 
-        private Problem NonExistentTable(string id)
+        private Problem NonExistentTable()
         {
             Problem p = new Problem();
             p.Type = "Parameter error";
-            p.Detail = "Non-existent table " + id;
             p.Status = 404;
             p.Title = "Non-existent table";
             return p;

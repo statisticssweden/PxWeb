@@ -62,7 +62,7 @@ namespace PxWeb.Controllers.Api2
 
             if (!selectionExists)
             {
-                return NotFound(NonExistentNode(id));
+                return NotFound(NonExistentNode());
             }
 
             if (item == null)
@@ -104,11 +104,10 @@ namespace PxWeb.Controllers.Api2
             return new ObjectResult(folder);
         }
 
-        private Problem NonExistentNode(string id)
+        private Problem NonExistentNode()
         {
             Problem p = new Problem();
             p.Type = "Parameter error";
-            p.Detail = "Non-existent node " + id;
             p.Status = 404;
             p.Title = "Non-existent node";
             return p;
@@ -118,7 +117,6 @@ namespace PxWeb.Controllers.Api2
         {
             Problem p = new Problem();
             p.Type = "Data error";
-            p.Detail = "Error reading node data";
             p.Status = 400;
             p.Title = "Error reading node";
             return p;
