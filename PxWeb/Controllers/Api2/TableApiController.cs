@@ -26,6 +26,7 @@ using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
 using Microsoft.AspNetCore.Http;
 using PCAxis.Serializers;
+using PxWeb.Config.Api2;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -40,14 +41,16 @@ namespace PxWeb.Controllers.Api2
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ISearchBackend _backend;
         private readonly ISerializeManager _serializeManager;
+        private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, ISerializeManager serializeManager)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, ISerializeManager serializeManager, IPxApiConfigurationService pxApiConfigurationService)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _tableMetadataResponseMapper = responseMapper;
             _backend = backend;
             _serializeManager = serializeManager;
+            _pxApiConfigurationService = pxApiConfigurationService;
         }
 
 
@@ -96,8 +99,10 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
-            throw new NotImplementedException();
-        }
+            lang = _languageHelper.HandleLanguage(lang);
+            IPXModelBuilder? builder = _dataSource.CreateBuilder(id, lang);
+
+            PXModel model;
 
             builder.BuildForSelection();
             var selection = GetDefaultTable(builder.Model);
@@ -107,20 +112,26 @@ namespace PxWeb.Controllers.Api2
             //else
             //    TODO create model from selection
             //    selection = GetSelectionFromQuery(...)
+
+            // todo: get outputformat from query string pram
+
+            //if (outputFormat == null)
+            //{
+            //    var op = _pxApiConfigurationService.GetConfiguration();
+            //    outputFormat = op.DefaultOutputFormat;
+
+            //}
+
+
+            var op = _pxApiConfigurationService.GetConfiguration();
+            string outputFormat = op.DefaultOutputFormat;
             
-            //serialize output
-            //TODO check if given in url param otherwise take the format from appsettings
-
-
-
-            string outputFormat = "px";
             var serializer = _serializeManager.GetSerializer(outputFormat);
             serializer.Serialize(model, Response);
-
             return Ok();
-           
         }
         
+
         private Selection[] GetDefaultTable(PXModel model)
         {
             //TODO implement the correct algorithm
@@ -180,10 +191,15 @@ namespace PxWeb.Controllers.Api2
             //    TODO create model from selection
             //    selection = GetSelectionFromQuery(...)
 
-            //serialize output
-            //TODO check if given in url param otherwise take the format from appsettings
-            outputFormat = "px";
-            var serializer = GetSerializer(outputFormat);
+            
+            if (outputFormat == null)
+            {
+                var op = _pxApiConfigurationService.GetConfiguration();
+                outputFormat = op.DefaultOutputFormat;
+
+            }
+
+            var serializer = _serializeManager.GetSerializer(outputFormat);
             serializer.Serialize(model, Response);
 
             return Ok();

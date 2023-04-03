@@ -34,6 +34,8 @@ namespace PxWeb.Code.Api2.Serialization
                     return new Csv2DataSerializer();
                 case "csv3":
                     return new Csv3DataSerializer();
+                case "json":
+                    return new JsonDataSerializer();
                 case "json_stat":
                     return new JsonStatDataSerializer();
                 case "json_stat2":
