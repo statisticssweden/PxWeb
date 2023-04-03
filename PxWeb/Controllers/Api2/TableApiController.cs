@@ -190,7 +190,6 @@ namespace PxWeb.Controllers.Api2
             //else
             //    TODO create model from selection
             //    selection = GetSelectionFromQuery(...)
-
             
             if (outputFormat == null)
             {
