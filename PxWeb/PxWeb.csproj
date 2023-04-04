@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web;Microsoft.NET.Sdk.Publish">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -40,7 +40,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Web.Xdt" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,16 +53,5 @@
     <ProjectReference Include="..\Px.Search.Lucene\Px.Search.Lucene.csproj" />
     <ProjectReference Include="..\Px.Search\Px.Search.csproj" />
   </ItemGroup>
-
-<UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
-<Target Name="ApplyConfigurationConfigFile" AfterTargets="PrepareForBuild" Condition="Exists('App.$(Configuration).config')">
-  <ItemGroup>
-    <AppConfigWithTargetPath Remove="App.config" />
-    <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
-      <TargetPath>$(TargetFileName).config</TargetPath>
-    </AppConfigWithTargetPath>
-  </ItemGroup>
-  <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
-</Target>
 
 </Project>
