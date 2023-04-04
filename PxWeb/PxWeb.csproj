@@ -20,9 +20,14 @@
   <ItemGroup>
     <Content Remove="databases.config" />
     <Content Remove="setting.config" />
+    <Content Remove="SqlDb.Release.config" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="SqlDb.Release.config">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>SqlDb.config</DependentUpon>
+    </None>
     <None Include="wwwroot\README.md" />
     <None Include="wwwroot\web.config" />
   </ItemGroup>
@@ -30,6 +35,10 @@
   <ItemGroup>
     <PackageReference Include="AspNetCoreRateLimit" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.SlowCheetah" Version="4.0.30">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PCAxis.Menu.ConfigDatamodelMenu" Version="1.0.6" />
     <PackageReference Include="PcAxis.Sql" Version="1.2.0" />
@@ -40,6 +49,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Web.Xdt" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +62,16 @@
     <ProjectReference Include="..\Px.Abstractions\Px.Abstractions.csproj" />
     <ProjectReference Include="..\Px.Search.Lucene\Px.Search.Lucene.csproj" />
     <ProjectReference Include="..\Px.Search\Px.Search.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="app.config">
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Include="app.Release.config">
+      <DependentUpon>app.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
   </ItemGroup>
 
 </Project>
