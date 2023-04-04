@@ -65,12 +65,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="SqlDb.config">
+    <None Include="app.config">
       <TransformOnBuild>true</TransformOnBuild>
-    </Content>
-    <Content Update="app.config">
-      <TransformOnBuild>true</TransformOnBuild>
-    </Content>
+    </None>
+    <None Include="app.Release.config">
+      <DependentUpon>app.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
   </ItemGroup>
 
 </Project>
