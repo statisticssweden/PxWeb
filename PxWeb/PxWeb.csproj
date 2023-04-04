@@ -68,6 +68,9 @@
     <Content Update="SqlDb.config">
       <TransformOnBuild>true</TransformOnBuild>
     </Content>
+    <Content Update="app.config">
+      <TransformOnBuild>true</TransformOnBuild>
+    </Content>
   </ItemGroup>
 
 </Project>
