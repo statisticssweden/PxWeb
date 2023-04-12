@@ -101,10 +101,11 @@ namespace PxWeb.Mappers
 
                 var tb = new Table()
                 {
+                    Type = FolderContentItemTypeEnum.TableEnum,
                     Id = item.Id,
                     Label = item.Label,
                     Description = item.Description,
-                    Tags = item.Tags.ToList(),
+                    //Tags = item.Tags.ToList(), // TODO: Implement later
                     Updated = item.Updated,
                     FirstPeriod = item.FirstPeriod,
                     LastPeriod = item.LastPeriod,
