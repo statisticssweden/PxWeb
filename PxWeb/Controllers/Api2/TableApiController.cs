@@ -27,6 +27,8 @@ using PxWeb.Code.Api2.Serialization;
 using Microsoft.AspNetCore.Http;
 using PxWeb.Config.Api2;
 using System.Runtime.Serialization;
+using PxWeb.Code.Api2.DataSelection;
+using Microsoft.Extensions.Options;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -41,16 +43,18 @@ namespace PxWeb.Controllers.Api2
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ITablesResponseMapper _tablesResponseMapper;
         private readonly ISearchBackend _backend;
-        private readonly IPxApiConfigurationService _pxApiConfigurationService;
+        private PxApiConfigurationOptions _configOptions;
+        private readonly ISelectionHandler _selectionHandler;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ITablesResponseMapper tablesResponseMapper)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ISelectionHandler selectionHandler)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _tableMetadataResponseMapper = responseMapper;
             _backend = backend;
-            _pxApiConfigurationService = pxApiConfigurationService;
+            _configOptions = configOptions.Value;
             _tablesResponseMapper = tablesResponseMapper;
+            _selectionHandler = selectionHandler;   
         }
 
 
@@ -141,28 +145,9 @@ namespace PxWeb.Controllers.Api2
 
         }
 
-        private Selection[] GetDefaultTable(PXModel model)
-        {
-            //TODO implement the correct algorithm
-
-            var selections = new List<Selection>();
-
-            foreach (var variable in model.Meta.Variables)
-            {
-                var selection = new Selection(variable.Code);
-                //Takes the first 4 values for each variable if variable has less values it takes all of its values.
-                var codes = variable.Values.Take(4).Select(value => value.Code).ToArray();
-                selection.ValueCodes.AddRange(codes);
-                selections.Add(selection);
-            }
-
-            return selections.ToArray();
-        }
-
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
             Searcher searcher = new Searcher(_dataSource, _backend);
-            var op = _pxApiConfigurationService.GetConfiguration();
             
             lang = _languageHelper.HandleLanguage(lang);
 
@@ -170,7 +155,7 @@ namespace PxWeb.Controllers.Api2
                 pageNumber = 1;
 
             if (pageSize == null || pageSize <= 0)
-                pageSize = op.PageSize;
+                pageSize = _configOptions.PageSize;
 
             var searchResultContainer = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
 
@@ -185,37 +170,55 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
         {
-            //TODO check that no selection paramaters is given
-            lang = _languageHelper.HandleLanguage(lang);
+            VariablesSelection variablesSelection = new VariablesSelection(); // TODO: Map from querystring parameters
+
+            return GetData(id, lang, variablesSelection, outputFormat);
+        }
+
+        public override IActionResult GetTableDataByPost([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "outputFormat")] string? outputFormat, [FromBody] VariablesSelection? variablesSelection)
+        {
+            return GetData(id, lang, variablesSelection, outputFormat);
+        }
+
+        private IActionResult GetData(string id, string? lang, VariablesSelection? variablesSelection, string? outputFormat)
+        {
             PXModel model;
-            //if no parameters given
+
+            lang = _languageHelper.HandleLanguage(lang);
+
             var builder = _dataSource.CreateBuilder(id, lang);
             if (builder == null)
             {
-                throw new Exception("Missing datasource");
+                return NotFound(NonExistentTable());
             }
 
             builder.BuildForSelection();
-            var selection = GetDefaultTable(builder.Model);
 
-            builder.BuildForPresentation(selection);
-            model = builder.Model;
-            //else
-            //    TODO create model from selection
-            //    selection = GetSelectionFromQuery(...)
 
-            //serialize output
-            //TODO check if given in url param otherwise take the format from appsettings
-            outputFormat = "px";
-            var serializer = GetSerializer(outputFormat);
-            serializer.Serialize(model, Response);
+            if (_selectionHandler.Verify(builder.Model, variablesSelection))
+            {
+                var selection = _selectionHandler.GetSelection(builder.Model, variablesSelection);
 
-            return Ok();
+                builder.BuildForPresentation(selection);
+                model = builder.Model;
+                //else
+                //    TODO create model from selection
+                //    selection = GetSelectionFromQuery(...)
+
+                //serialize output
+                //TODO check if given in url param otherwise take the format from appsettings
+                outputFormat = "px";
+                var serializer = GetSerializer(outputFormat);
+                serializer.Serialize(model, Response);
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound(); // TODO: Get whats wrong
+            }
+
         }
 
-        public override IActionResult GetTableDataByPost([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromBody] VariablesSelection? variablesSelection)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
