@@ -8,7 +8,7 @@ namespace PxWeb.Code.Api2.Serialization
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            response.ContentType = "text/csv; charset=" + System.Text.Encoding.Default.WebName;
+            response.ContentType = "text/csv; charset=" + EncodingUtil.GetEncoding(model.Meta.CodePage);
             IPXModelStreamSerializer serializer = new CsvFileSerializer();
             ((CsvFileSerializer)serializer).Title = false;
             ((CsvFileSerializer)serializer).Delimiter = ';';

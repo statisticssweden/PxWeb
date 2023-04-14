@@ -7,7 +7,7 @@ namespace PxWeb.Code.Api2.Serialization
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            response.ContentType = "application/octet-stream; charset=" + System.Text.Encoding.Default.WebName;
+            response.ContentType = "application/octet-stream; charset=" + EncodingUtil.GetEncoding(model.Meta.CodePage);
             IPXModelStreamSerializer serializer = new PXFileSerializer();
             serializer.Serialize(model, response.Body);
         }
