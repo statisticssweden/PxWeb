@@ -8,11 +8,14 @@ namespace PxWeb.Code.Api2.DataSelection
 {
     public class SelectionHandler : ISelectionHandler
     {
-        public Selection[] GetSelection(PXModel model, VariablesSelection wantedSelection)
+        public Selection[] GetSelection(PXModel model, VariablesSelection? variablesSelection)
         {
-            if (HasSelection(wantedSelection))
+            if  (variablesSelection is not null && HasSelection(variablesSelection))
             {
                 var selections = new List<Selection>();
+
+                // TODO: Parse values for each variable in variablesSelection and add to selections
+
                 return selections.ToArray();
             }
             else
@@ -22,22 +25,16 @@ namespace PxWeb.Code.Api2.DataSelection
 
         }
 
-        public bool Verify(PXModel model, VariablesSelection wantedSelection)
+        public bool Verify(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
-            // TODO: Verify that all variable and value codes defined in wantedSelection are found in model. If not return false. 
-            return true;
-        }
+            problem = null;
 
-        private bool HasSelection(VariablesSelection selection)
-        {
-            if (selection.Selection == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            // TODO: Verify that all variable and value codes defined in variablesSelection are found in model. If not return false and Problem. 
+            // TODO: Verify that mandatory variables have at least one value selected
+            //problem = NonExistentVariable();
+            //return false;
+
+            return true;
         }
 
         private Selection[] GetDefaultTable(PXModel model)
@@ -57,5 +54,45 @@ namespace PxWeb.Code.Api2.DataSelection
 
             return selections.ToArray();
         }
+
+        private bool HasSelection(VariablesSelection selection)
+        {
+            if (selection.Selection.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private Problem NonExistentVariable()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 400;
+            p.Title = "Non-existent variable";
+            return p;
+        }
+
+        private Problem NonExistentValue()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 400;
+            p.Title = "Non-existent value";
+            return p;
+        }
+
+        private Problem MissingSelection()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 400;
+            p.Title = "Missing selection for mandantory variable";
+            return p;
+        }
+
     }
 }

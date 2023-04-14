@@ -168,11 +168,31 @@ namespace PxWeb.Controllers.Api2
 
         }
 
-        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
+        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesType>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
         {
-            VariablesSelection variablesSelection = new VariablesSelection(); // TODO: Map from querystring parameters
+            // Map querystring parameters to VariablesSelection object
+            VariablesSelection selections = new VariablesSelection();
+            if (valuecodes != null)
+            {
+                selections.Selection = new List<VariableSelection>();
+                foreach (var variableCode in valuecodes.Keys)
+                {
+                    VariableSelection variableSelection = new VariableSelection();
+                    variableSelection.VariableCode = variableCode;
+                    variableSelection.ValueCodes = valuecodes[variableCode];
+                    if (codelist != null && codelist.ContainsKey(variableCode))
+                    {
+                        variableSelection.CodeList = codelist[variableCode];
+                    }
+                    if (outputvalues != null && outputvalues.ContainsKey(variableCode))
+                    {
+                        variableSelection.OutputValues = outputvalues[variableCode];
+                    }
+                    selections.Selection.Add(variableSelection);
+                }
+            }
 
-            return GetData(id, lang, variablesSelection, outputFormat);
+            return GetData(id, lang, selections, outputFormat);
         }
 
         public override IActionResult GetTableDataByPost([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "outputFormat")] string? outputFormat, [FromBody] VariablesSelection? variablesSelection)
@@ -182,7 +202,7 @@ namespace PxWeb.Controllers.Api2
 
         private IActionResult GetData(string id, string? lang, VariablesSelection? variablesSelection, string? outputFormat)
         {
-            PXModel model;
+            Problem? problem;
 
             lang = _languageHelper.HandleLanguage(lang);
 
@@ -194,31 +214,20 @@ namespace PxWeb.Controllers.Api2
 
             builder.BuildForSelection();
 
-
-            if (_selectionHandler.Verify(builder.Model, variablesSelection))
+            if (!_selectionHandler.Verify(builder.Model, variablesSelection, out problem))
             {
-                var selection = _selectionHandler.GetSelection(builder.Model, variablesSelection);
-
-                builder.BuildForPresentation(selection);
-                model = builder.Model;
-                //else
-                //    TODO create model from selection
-                //    selection = GetSelectionFromQuery(...)
-
-                //serialize output
-                //TODO check if given in url param otherwise take the format from appsettings
-                outputFormat = "px";
-                var serializer = GetSerializer(outputFormat);
-                serializer.Serialize(model, Response);
-
-                return Ok();
-            }
-            else
-            {
-                return NotFound(); // TODO: Get whats wrong
+                return BadRequest(problem);
             }
 
+            var selection = _selectionHandler.GetSelection(builder.Model, variablesSelection);
+
+            builder.BuildForPresentation(selection);
+            var serializer = GetSerializer(outputFormat);
+            serializer.Serialize(builder.Model, Response);
+
+            return Ok();
         }
 
+ 
     }
 }
