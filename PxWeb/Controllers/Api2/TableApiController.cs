@@ -86,25 +86,6 @@ namespace PxWeb.Controllers.Api2
             }
         }
 
-        private Problem NonExistentTable()
-        {
-            Problem p = new Problem();
-            p.Type = "Parameter error";
-            p.Status = 404;
-            p.Title = "Non-existent table";
-            return p;
-        }
-
-        private Problem OutOfRange()
-        {
-            Problem p = new Problem();
-            p.Type = "Parameter error";
-            p.Detail = "Non-existent page";
-            p.Status = 404;
-            p.Title = "Non-existent page";
-            return p;
-        }
-
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
             throw new NotImplementedException();
@@ -170,28 +151,7 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesType>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
         {
-            // Map querystring parameters to VariablesSelection object
-            VariablesSelection selections = new VariablesSelection();
-            if (valuecodes != null)
-            {
-                selections.Selection = new List<VariableSelection>();
-                foreach (var variableCode in valuecodes.Keys)
-                {
-                    VariableSelection variableSelection = new VariableSelection();
-                    variableSelection.VariableCode = variableCode;
-                    variableSelection.ValueCodes = valuecodes[variableCode];
-                    if (codelist != null && codelist.ContainsKey(variableCode))
-                    {
-                        variableSelection.CodeList = codelist[variableCode];
-                    }
-                    if (outputvalues != null && outputvalues.ContainsKey(variableCode))
-                    {
-                        variableSelection.OutputValues = outputvalues[variableCode];
-                    }
-                    selections.Selection.Add(variableSelection);
-                }
-            }
-
+            VariablesSelection selections = MapDataParameters(valuecodes, codelist, outputvalues);
             return GetData(id, lang, selections, outputFormat);
         }
 
@@ -228,6 +188,58 @@ namespace PxWeb.Controllers.Api2
             return Ok();
         }
 
- 
+        /// <summary>
+        /// Map querystring parameters to VariablesSelection object
+        /// </summary>
+        /// <param name="valuecodes"></param>
+        /// <param name="codelist"></param>
+        /// <param name="outputvalues"></param>
+        /// <returns></returns>
+        private VariablesSelection MapDataParameters(Dictionary<string, List<string>>? valuecodes, Dictionary<string, string>? codelist, Dictionary<string, CodeListOutputValuesType>? outputvalues)
+        {
+            VariablesSelection selections = new VariablesSelection();
+            if (valuecodes != null)
+            {
+                selections.Selection = new List<VariableSelection>();
+                foreach (var variableCode in valuecodes.Keys)
+                {
+                    VariableSelection variableSelection = new VariableSelection();
+                    variableSelection.VariableCode = variableCode;
+                    variableSelection.ValueCodes = valuecodes[variableCode];
+                    if (codelist != null && codelist.ContainsKey(variableCode))
+                    {
+                        variableSelection.CodeList = codelist[variableCode];
+                    }
+                    if (outputvalues != null && outputvalues.ContainsKey(variableCode))
+                    {
+                        variableSelection.OutputValues = outputvalues[variableCode];
+                    }
+                    selections.Selection.Add(variableSelection);
+                }
+            }
+
+            return selections;  
+        }
+
+        private Problem NonExistentTable()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 404;
+            p.Title = "Non-existent table";
+            return p;
+        }
+
+        private Problem OutOfRange()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent page";
+            p.Status = 404;
+            p.Title = "Non-existent page";
+            return p;
+        }
+
+
     }
 }
