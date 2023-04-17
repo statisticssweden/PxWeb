@@ -13,6 +13,6 @@ namespace Px.Search
         }
 
         public float Score { get; set; }
-
-     }
+        
+    }
 }

@@ -25,6 +25,8 @@ using System.Linq;
 using Lucene.Net.Util;
 using PxWeb.Code.Api2.Serialization;
 using Microsoft.AspNetCore.Http;
+using PxWeb.Config.Api2;
+using System.Runtime.Serialization;
 using PCAxis.Serializers;
 using PxWeb.Config.Api2;
 
@@ -39,18 +41,20 @@ namespace PxWeb.Controllers.Api2
         private readonly IDataSource _dataSource;
         private readonly ILanguageHelper _languageHelper;
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
+        private readonly ITablesResponseMapper _tablesResponseMapper;
         private readonly ISearchBackend _backend;
         private readonly ISerializeManager _serializeManager;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, ISerializeManager serializeManager, IPxApiConfigurationService pxApiConfigurationService)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ITablesResponseMapper tablesResponseMapper)
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
             _tableMetadataResponseMapper = responseMapper;
             _backend = backend;
-            _serializeManager = serializeManager;
             _pxApiConfigurationService = pxApiConfigurationService;
+            _tablesResponseMapper = tablesResponseMapper;
+            _serializeManager = serializeManager;
         }
 
 
@@ -73,22 +77,31 @@ namespace PxWeb.Controllers.Api2
                 }
                 catch (Exception)
                 {
-                    return NotFound(NonExistentTable(id));
+                    return NotFound(NonExistentTable());
                 }
             }
             else
             {
-                return NotFound(NonExistentTable(id));
+                return NotFound(NonExistentTable());
             }
         }
 
-        private Problem NonExistentTable(string id)
+        private Problem NonExistentTable()
         {
             Problem p = new Problem();
             p.Type = "Parameter error";
-            p.Detail = "Non-existent table " + id;
             p.Status = 404;
             p.Title = "Non-existent table";
+            return p;
+        }
+
+        private Problem OutOfRange()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Non-existent page";
+            p.Status = 404;
+            p.Title = "Non-existent page";
             return p;
         }
 
@@ -155,19 +168,25 @@ namespace PxWeb.Controllers.Api2
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
         {
             Searcher searcher = new Searcher(_dataSource, _backend);
-
+            var op = _pxApiConfigurationService.GetConfiguration();
+            
             lang = _languageHelper.HandleLanguage(lang);
-            //TODO: Hämta default värden för pageSize från config
+
             if (pageNumber == null || pageNumber <= 0)
                 pageNumber = 1;
 
             if (pageSize == null || pageSize <= 0)
-                pageSize = 20;
+                pageSize = op.PageSize;
 
-            if (query != null)
-                return Ok(searcher.Find(query, lang, pageSize.Value, pageNumber.Value));
+            var searchResultContainer = searcher.Find(query, lang, pastDays, includeDiscontinued ?? false, pageSize.Value, pageNumber.Value);
 
-            return Ok();
+            if (searchResultContainer.outOfRange == true)
+            {
+                return NotFound(OutOfRange());
+            }
+
+            return Ok(_tablesResponseMapper.Map(searchResultContainer, lang, query));
+
         }
 
         public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesStyle>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
