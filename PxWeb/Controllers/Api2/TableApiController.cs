@@ -46,7 +46,7 @@ namespace PxWeb.Controllers.Api2
         private readonly ISerializeManager _serializeManager;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ITablesResponseMapper tablesResponseMapper)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ITablesResponseMapper tablesResponseMapper, ISerializeManager serializeManager )
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
