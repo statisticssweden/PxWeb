@@ -72,19 +72,45 @@ namespace PxWeb.Code.Api2.DataSelection
             // 2 variables - Time and Content
             if (variablesWithSelection.Count == 2 && timeVar != null && contentVar != null)
             {
-                // Content - Takes all values
-                var selection = new Selection(contentVar.Code);
-                var codes = contentVar.Values.Take(contentVar.Values.Count).Select(value => value.Code).ToArray();
-                selection.ValueCodes.AddRange(codes);
-                selections.Add(selection);
+                foreach (var variable in model.Meta.Variables)
+                {
+                    var selection = new Selection(variable.Code);
 
-                // Time - Take the 12 last values
-                selection = new Selection(timeVar.Code);
-                var lstCodes = timeVar.Values.TakeLast(12).Select(value => value.Code).ToList();
-                lstCodes.Sort((a,b) => b.CompareTo(a)); // Descending sort
-                codes = lstCodes.ToArray();
-                selection.ValueCodes.AddRange(codes);
-                selections.Add(selection);
+                    if (variable.IsContentVariable)
+                    {
+                        // Content - Takes all values
+                        var codes = contentVar.Values.Take(contentVar.Values.Count).Select(value => value.Code).ToArray();
+                        selection.ValueCodes.AddRange(codes);
+                    }
+                    else if (variable.IsTime)
+                    {
+                        // Time - Take the 12 last values
+                        var lstCodes = timeVar.Values.TakeLast(12).Select(value => value.Code).ToList();
+                        lstCodes.Sort((a, b) => b.CompareTo(a)); // Descending sort
+                        var codes = lstCodes.ToArray();
+                        selection.ValueCodes.AddRange(codes);
+                    }
+                    else
+                    {
+                        // Select nothing for the other variables
+                    }
+
+                    selections.Add(selection);
+                }
+
+                //// Content - Takes all values
+                //var selection = new Selection(contentVar.Code);
+                //var codes = contentVar.Values.Take(contentVar.Values.Count).Select(value => value.Code).ToArray();
+                //selection.ValueCodes.AddRange(codes);
+                //selections.Add(selection);
+
+                //// Time - Take the 12 last values
+                //selection = new Selection(timeVar.Code);
+                //var lstCodes = timeVar.Values.TakeLast(12).Select(value => value.Code).ToList();
+                //lstCodes.Sort((a,b) => b.CompareTo(a)); // Descending sort
+                //codes = lstCodes.ToArray();
+                //selection.ValueCodes.AddRange(codes);
+                //selections.Add(selection);
             }
             // 3 variables - Time, Content (with only 1 value) and one more
             else if (variablesWithSelection.Count == 3 && timeVar != null && contentVar != null && contentVar.Values.Count == 1)
