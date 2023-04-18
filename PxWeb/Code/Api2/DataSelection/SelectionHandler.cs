@@ -1,4 +1,5 @@
-﻿using PCAxis.Paxiom;
+﻿using Lucene.Net.Util;
+using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,19 +38,68 @@ namespace PxWeb.Code.Api2.DataSelection
             return true;
         }
 
+        //private Selection[] GetDefaultTable(PXModel model)
+        //{
+        //    //TODO implement the correct algorithm
+
+        //    var selections = new List<Selection>();
+
+        //    foreach (var variable in model.Meta.Variables)
+        //    {
+        //        var selection = new Selection(variable.Code);
+        //        //Takes the first 4 values for each variable if variable has less values it takes all of its values.
+        //        var codes = variable.Values.Take(4).Select(value => value.Code).ToArray();
+        //        selection.ValueCodes.AddRange(codes);
+        //        selections.Add(selection);
+        //    }
+
+        //    return selections.ToArray();
+        //}
+
         private Selection[] GetDefaultTable(PXModel model)
         {
-            //TODO implement the correct algorithm
-
             var selections = new List<Selection>();
 
-            foreach (var variable in model.Meta.Variables)
+            // Only select from variables that cannot be eliminated
+            var variablesWithSelection = model.Meta.Variables.FindAll(v => v.Elimination == false);
+
+            // Find the time variable
+            var timeVar = variablesWithSelection.Find(v => v.IsTime == true);
+
+            // Find the contents variable
+            var contentVar = variablesWithSelection.Find(v => v.IsContentVariable == true);
+
+            // 2 variables - Time and Content
+            if (variablesWithSelection.Count == 2 && timeVar != null && contentVar != null)
             {
-                var selection = new Selection(variable.Code);
-                //Takes the first 4 values for each variable if variable has less values it takes all of its values.
-                var codes = variable.Values.Take(4).Select(value => value.Code).ToArray();
+                // Content - Takes all values
+                var selection = new Selection(contentVar.Code);
+                var codes = contentVar.Values.Take(contentVar.Values.Count).Select(value => value.Code).ToArray();
                 selection.ValueCodes.AddRange(codes);
                 selections.Add(selection);
+
+                // Time - Take the 12 last values
+                selection = new Selection(timeVar.Code);
+                var lstCodes = timeVar.Values.TakeLast(12).Select(value => value.Code).ToList();
+                lstCodes.Sort((a,b) => b.CompareTo(a)); // Descending sort
+                codes = lstCodes.ToArray();
+                selection.ValueCodes.AddRange(codes);
+                selections.Add(selection);
+            }
+            // 3 variables - Time, Content (with only 1 value) and one more
+            else if (variablesWithSelection.Count == 3 && timeVar != null && contentVar != null && contentVar.Values.Count == 1)
+            {
+
+            }
+            // 3 variables - Time, Content (with more than 1 value) and one more
+            else if (variablesWithSelection.Count == 3 && timeVar != null && contentVar != null && contentVar.Values.Count > 1)
+            {
+
+            }
+            // All other cases
+            else
+            {
+
             }
 
             return selections.ToArray();
