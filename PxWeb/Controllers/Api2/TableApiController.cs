@@ -27,6 +27,8 @@ using PxWeb.Code.Api2.Serialization;
 using Microsoft.AspNetCore.Http;
 using PxWeb.Config.Api2;
 using System.Runtime.Serialization;
+using PCAxis.Serializers;
+using PxWeb.Config.Api2;
 using PxWeb.Code.Api2.DataSelection;
 using Microsoft.Extensions.Options;
 
@@ -43,10 +45,12 @@ namespace PxWeb.Controllers.Api2
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ITablesResponseMapper _tablesResponseMapper;
         private readonly ISearchBackend _backend;
+        private readonly ISerializeManager _serializeManager;
+        private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private PxApiConfigurationOptions _configOptions;
         private readonly ISelectionHandler _selectionHandler;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ISelectionHandler selectionHandler)
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ISerializeManager serializeManager )
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
@@ -54,6 +58,7 @@ namespace PxWeb.Controllers.Api2
             _backend = backend;
             _configOptions = configOptions.Value;
             _tablesResponseMapper = tablesResponseMapper;
+            _serializeManager = serializeManager;
             _selectionHandler = selectionHandler;   
         }
 
@@ -93,37 +98,55 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
-            throw new NotImplementedException();
+            lang = _languageHelper.HandleLanguage(lang);
+            IPXModelBuilder? builder = _dataSource.CreateBuilder(id, lang);
+
+            PXModel model;
+
+            builder.BuildForSelection();
+            var selection = GetDefaultTable(builder.Model);
+
+            builder.BuildForPresentation(selection);
+            model = builder.Model;
+            //else
+            //    TODO create model from selection
+            //    selection = GetSelectionFromQuery(...)
+
+            // todo: get outputformat from query string pram
+
+            //if (outputFormat == null)
+            //{
+            //    var op = _pxApiConfigurationService.GetConfiguration();
+            //    outputFormat = op.DefaultOutputFormat;
+
+            //}
+
+
+            var op = _pxApiConfigurationService.GetConfiguration();
+            string outputFormat = op.DefaultOutputFormat;
+            
+            var serializer = _serializeManager.GetSerializer(outputFormat);
+            serializer.Serialize(model, Response);
+            return Ok();
         }
+        
 
-
-
-        private IDataSerializer GetSerializer(string outputFormat)
+        private Selection[] GetDefaultTable(PXModel model)
         {
-            switch (outputFormat.ToLower())
+            //TODO implement the correct algorithm
+
+            var selections = new List<Selection>();
+
+            foreach (var variable in model.Meta.Variables)
             {
-                case "xlsx":
-                case "xlsx_doublecolumn":
-                case "csv":
-                case "csv_tab":
-                case "csv_tabhead":
-                case "csv_comma":
-                case "csv_commahead":
-                case "csv_space":
-                case "csv_spacehead":
-                case "csv_semicolon":
-                case "csv_semicolonhead":
-                case "csv2":
-                case "csv3":
-                case "json_stat":
-                case "json_stat2":
-                case "html5_table":
-                case "relational_table":
-                case "px":
-                default:
-                    return new PxDataSerializer();
+                var selection = new Selection(variable.Code);
+                //Takes the first 4 values for each variable if variable has less values it takes all of its values.
+                var codes = variable.Values.Take(4).Select(value => value.Code).ToArray();
+                selection.ValueCodes.AddRange(codes);
+                selections.Add(selection);
             }
 
+            return selections.ToArray();
         }
 
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
@@ -182,8 +205,20 @@ namespace PxWeb.Controllers.Api2
             var selection = _selectionHandler.GetSelection(builder.Model, variablesSelection);
 
             builder.BuildForPresentation(selection);
-            var serializer = GetSerializer(outputFormat);
-            serializer.Serialize(builder.Model, Response);
+            model = builder.Model;
+            //else
+            //    TODO create model from selection
+            //    selection = GetSelectionFromQuery(...)
+            
+            if (outputFormat == null)
+            {
+                var op = _pxApiConfigurationService.GetConfiguration();
+                outputFormat = op.DefaultOutputFormat;
+
+            }
+
+            var serializer = _serializeManager.GetSerializer(outputFormat);
+            serializer.Serialize(model, Response);
 
             return Ok();
         }
@@ -242,4 +277,5 @@ namespace PxWeb.Controllers.Api2
 
 
     }
+
 }
