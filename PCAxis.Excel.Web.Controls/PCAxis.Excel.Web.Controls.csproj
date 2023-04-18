@@ -78,10 +78,10 @@
       <HintPath>..\packages\PCAxis.Metadata.1.0.1\lib\netstandard2.0\PCAxis.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="PCAxis.Query, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PcAxis.Query.1.0.5\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
+      <HintPath>..\packages\PcAxis.Query.1.0.6\lib\netstandard2.0\PCAxis.Query.dll</HintPath>
     </Reference>
     <Reference Include="Serializers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCAxis.Serializers.1.1.0\lib\netstandard2.0\Serializers.dll</HintPath>
+      <HintPath>..\packages\PCAxis.Serializers.1.1.1\lib\netstandard2.0\Serializers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
