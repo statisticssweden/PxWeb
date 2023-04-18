@@ -3,12 +3,12 @@ using PCAxis.Paxiom;
 
 namespace PxWeb.Code.Api2.Serialization
 {
-    public class PxDataSerializer : IDataSerializer
+    public class Csv2DataSerializer : IDataSerializer
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            response.ContentType = "application/octet-stream; charset=" + EncodingUtil.GetEncoding(model.Meta.CodePage);
-            IPXModelStreamSerializer serializer = new PXFileSerializer();
+            response.ContentType = "text/csv; charset=" + EncodingUtil.GetEncoding(model.Meta.CodePage);
+            IPXModelStreamSerializer serializer = new Csv2FileSerializer();
             serializer.Serialize(model, response.Body);
         }
     }

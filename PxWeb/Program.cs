@@ -27,6 +27,7 @@ using Px.Search.Lucene;
 using PxWeb.Code.Api2.Cache;
 using System.Text;
 using PxWeb.Code;
+using PxWeb.Code.Api2.Serialization;
 using PxWeb.Code.BackgroundWorker;
 
 namespace PxWeb
@@ -79,6 +80,7 @@ namespace PxWeb
             builder.Services.AddTransient<ITableMetadataResponseMapper, TableMetadataResponseMapper>();
             builder.Services.AddTransient<ITablesResponseMapper, TablesResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
+            builder.Services.AddTransient<ISerializeManager, SerializeManager>();
 
             builder.Services.AddHostedService<LongRunningService>();
             builder.Services.AddSingleton<BackgroundWorkerQueue>();
