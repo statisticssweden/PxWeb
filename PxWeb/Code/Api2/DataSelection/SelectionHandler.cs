@@ -246,7 +246,7 @@ namespace PxWeb.Code.Api2.DataSelection
 
         private string[] GetAllCodes(Variable variable)
         {
-            var codes = variable.Values.Take(variable.Values.Count).Select(value => value.Code).ToArray();
+            var codes = variable.Values.Select(value => value.Code).ToArray();
 
             return codes;
         }
