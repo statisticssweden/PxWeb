@@ -29,6 +29,7 @@ using System.Text;
 using PxWeb.Code;
 using PxWeb.Code.Api2.Serialization;
 using PxWeb.Code.BackgroundWorker;
+using PxWeb.Code.Api2.DataSelection;
 
 namespace PxWeb
 {
@@ -65,6 +66,7 @@ namespace PxWeb
             builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             builder.Services.AddSingleton<IPxCache, PxCache>();
             builder.Services.AddSingleton<ILinkCreator, LinkCreator>();
+            builder.Services.AddSingleton<ISelectionHandler, SelectionHandler>();
 
             builder.Services.AddPxDataSource(builder);
 
