@@ -20,13 +20,12 @@ namespace PxWeb.Filters.Api2
         {
             var lanValues = context.HttpContext.Request.Query["lang"].ToString();
 
-            if (!string.IsNullOrEmpty(lanValues) && !_languages.Exists(x => x.ToString() == lanValues))
+            if (!string.IsNullOrEmpty(lanValues) && !_languages.Exists(x => string.Compare(x, lanValues,true) == 0))
             {
                 Problem p = new Problem();
                 p.Type = "Parameter error";
                 p.Title = "Unsupported language";
                 p.Status = 400;
-                p.Detail = $"Language {lanValues} is not supported";
                 context.Result = new BadRequestObjectResult(p);
             }
         }
