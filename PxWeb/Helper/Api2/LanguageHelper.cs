@@ -17,7 +17,7 @@ namespace PxWeb.Helper.Api2
                 var op = _pxApiConfigurationService.GetConfiguration();
                 lang = op.DefaultLanguage;
             }
-            return lang;
+            return lang.ToLower();
         }
     }
 }
