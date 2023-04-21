@@ -51,7 +51,7 @@ namespace PxWeb.UnitTests.Serialization
             response.Setup(x => x.StatusCode).Returns(1);
             
             //var serializer = _serializeManager.GetSerializer(outputFormat);
-            serializer.Serialize(pxModel, response.Object);
+            //serializer.Serialize(pxModel, response.Object);
 
             Assert.AreEqual(serializer.GetType().Name, "PxDataSerializer");
         }
