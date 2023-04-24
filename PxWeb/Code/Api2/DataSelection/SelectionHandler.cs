@@ -30,12 +30,16 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             problem = null;
 
-            // TODO: Verify that all variable and value codes defined in variablesSelection are found in model. If not return false and Problem. 
-            // TODO: Verify that mandatory variables have at least one value selected
-            //problem = NonExistentVariable();
-            //return false;
+            foreach (var variable in model.Meta.Variables)
+            {
 
-            return true;
+            }
+                // TODO: Verify that all variable and value codes defined in variablesSelection are found in model. If not return false and Problem. 
+                // TODO: Verify that mandatory variables have at least one value selected
+                //problem = NonExistentVariable();
+                //return false;
+
+                return true;
         }
 
         /// <summary>
