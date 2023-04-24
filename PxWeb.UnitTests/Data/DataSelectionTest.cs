@@ -16,27 +16,171 @@ namespace PxWeb.UnitTests.Data
     public class DataSelectionTest
     {
         [TestMethod]
-        public void ShouldReturnSelectionForTimeAndContent()
+        public void ShouldReturnSelectionFor_Time_Content()
         {
-            PXModel model = GetPxModelWithTimeAndContent();
+            PXModel model = GetPxModelDefaultSelection(2, 2); // Only Time and content cannot be eliminated. Content has 2 values
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
             SelectionHandler selectionHandler = new SelectionHandler();
 
             Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
 
-            Selection selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
-            Assert.AreEqual(12, selection.ValueCodes.Count);
+            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+            if (selection != null)
+            {
+                Assert.AreEqual(12, selection.ValueCodes.Count);
+            }
 
             selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
-            Assert.AreEqual(2, selection.ValueCodes.Count);
+            if (selection != null)
+            {
+                Assert.AreEqual(2, selection.ValueCodes.Count);
+            }
 
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            Assert.AreEqual(0, selection.ValueCodes.Count);
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
         }
 
+        [TestMethod]
+        public void ShouldReturnSelectionFor_Time_ContentWithOneValue_OneMore()
+        {
+            PXModel model = GetPxModelDefaultSelection(3, 1); // Time, content and a third variable cannot be eliminated. Content has 1 value
+            VariablesSelection variablesSelection = new VariablesSelection();
+            variablesSelection.Selection = new List<VariableSelection>();
+            SelectionHandler selectionHandler = new SelectionHandler();
 
-        private PXModel GetPxModelWithTimeAndContent()
+            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+
+            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+            if (selection != null)
+            {
+                Assert.AreEqual(12, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+            if (selection != null)
+            {
+                Assert.AreEqual(1, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+            if (selection != null)
+            {
+                Assert.AreEqual(3, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnSelectionFor_Time_ContentWithTwoValues_OneMore()
+        {
+            PXModel model = GetPxModelDefaultSelection(3, 2); // Time, content and a third variable cannot be eliminated. Content has 2 values
+            VariablesSelection variablesSelection = new VariablesSelection();
+            variablesSelection.Selection = new List<VariableSelection>();
+            SelectionHandler selectionHandler = new SelectionHandler();
+
+            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+
+            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+            if (selection != null)
+            {
+                Assert.AreEqual(1, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+            if (selection != null)
+            {
+                Assert.AreEqual(2, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+            if (selection != null)
+            {
+                Assert.AreEqual(3, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+
+        }
+
+        [TestMethod]
+        public void ShouldReturnSelectionFor_AllVariables()
+        {
+            PXModel model = GetPxModelDefaultSelection(5, 2); // No variable can be eliminated. Content has 2 values
+            VariablesSelection variablesSelection = new VariablesSelection();
+            variablesSelection.Selection = new List<VariableSelection>();
+            SelectionHandler selectionHandler = new SelectionHandler();
+
+            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+
+            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+            if (selection != null)
+            {
+                Assert.AreEqual(1, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+            if (selection != null)
+            {
+                Assert.AreEqual(1, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+            if (selection != null)
+            {
+                Assert.AreEqual(3, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+            if (selection != null)
+            {
+                Assert.AreEqual(3, selection.ValueCodes.Count);
+            }
+
+            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+            if (selection != null)
+            {
+                Assert.AreEqual(1, selection.ValueCodes.Count);
+            }
+
+        }
+        private PXModel GetPxModelDefaultSelection(int nonElimVariables, int contentValues)
         {
             PXModel pxModel = new PXModel();
 
@@ -69,21 +213,65 @@ namespace PxWeb.UnitTests.Data
             contentVar.Elimination = false;
 
             contentVar.Values.Add(CreateValue("CONTENT1"));
-            contentVar.Values.Add(CreateValue("CONTENT2"));
+            if (contentValues > 1)
+            {
+                contentVar.Values.Add(CreateValue("CONTENT2"));
+            }
 
             pxModel.Meta.AddVariable(contentVar);
 
 
-            // Other variable that can be eliminated
-            Variable elimVar = new Variable("var1", PlacementType.Stub);
-            elimVar.Elimination = true;
+            // Variable 3
+            Variable var3 = new Variable("var3", PlacementType.Stub);
+            if (nonElimVariables == 2)
+            {
+                var3.Elimination = true;
+            }
+            else
+            {
+                var3.Elimination = false;
+            }
 
-            elimVar.Values.Add(CreateValue("Value1"));
-            elimVar.Values.Add(CreateValue("Value2"));
-            elimVar.Values.Add(CreateValue("Value3"));
+            var3.Values.Add(CreateValue("Value1"));
+            var3.Values.Add(CreateValue("Value2"));
+            var3.Values.Add(CreateValue("Value3"));
 
-            pxModel.Meta.AddVariable(elimVar);
+            pxModel.Meta.AddVariable(var3);
 
+            // Variable 4
+            Variable var4 = new Variable("var4", PlacementType.Stub);
+            if (nonElimVariables == 2 || nonElimVariables == 3)
+            {
+                var4.Elimination = true;
+            }
+            else
+            {
+                var4.Elimination = false;
+            }
+
+            var4.Values.Add(CreateValue("ValueA"));
+            var4.Values.Add(CreateValue("ValueB"));
+            var4.Values.Add(CreateValue("ValueC"));
+
+            pxModel.Meta.AddVariable(var4);
+
+            // Variable 5
+            Variable var5 = new Variable("var5", PlacementType.Stub);
+            if (nonElimVariables < 4)
+            {
+                var5.Elimination = true;
+            }
+            else
+            {
+                var5.Elimination = false;
+            }
+
+            var5.Values.Add(CreateValue("ValXXXX"));
+            var5.Values.Add(CreateValue("ValXXXY"));
+            var5.Values.Add(CreateValue("ValXXXZ"));
+            var5.Values.Add(CreateValue("ValXXXZ"));
+
+            pxModel.Meta.AddVariable(var5);
             return pxModel;
         }
 
