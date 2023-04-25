@@ -59,7 +59,12 @@ namespace PxWeb.Middleware
         {
             HttpRequest request = httpContext.Request;
 
+            request.EnableBuffering(_configuration.BufferThreshold);
+
             string body = await new StreamReader(request.Body).ReadToEndAsync();
+
+            request.Body.Seek(0, SeekOrigin.Begin);
+
             string key = generateKey(request, body);
 
             CachedResponse response;
