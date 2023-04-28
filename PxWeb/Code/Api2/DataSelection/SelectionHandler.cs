@@ -1,4 +1,6 @@
-﻿using Lucene.Net.Util;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.EMMA;
+using Lucene.Net.Util;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
 using System.Collections.Generic;
@@ -13,11 +15,11 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             if  (variablesSelection is not null && HasSelection(variablesSelection))
             {
-                var selections = new List<Selection>();
+                //Add variables that the user did not post
+                variablesSelection = AddVariables(variablesSelection, model);
 
-                // TODO: Parse values for each variable in variablesSelection and add to selections
-
-                return selections.ToArray();
+                //Map VariablesSelection to PCaxis.Paxiom.Selection[] 
+                return MapCustomizedSelection(variablesSelection).ToArray();
             }
             else
             {
@@ -29,17 +31,109 @@ namespace PxWeb.Code.Api2.DataSelection
         public bool Verify(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
             problem = null;
+            if (variablesSelection is not null && HasSelection(variablesSelection))
+            {
+                //Verify that variable exists
+                foreach (var variable in variablesSelection.Selection)
+                {
+                    if (!model.Meta.Variables.Any(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper())))
+                    {
+                        problem = NonExistentVariable();
+                        return false;
+                    }
+                }
 
+                //Verify that all the mandatory variables exists
+                foreach (var mandatoryVariable in GetAllMandatoryVariables(model))
+                {
+                    if (!variablesSelection.Selection.Any(x => x.VariableCode.ToUpper().Equals(mandatoryVariable.Code.ToUpper())))
+                    {
+                        problem = MissingSelection();
+                        return false;
+                    }
+                }
+
+                //Verify variable values
+                foreach (var variable in variablesSelection.Selection)
+                {
+                    //Verify that variables have at least one value selected for mandatory varibles
+                    var mandatory = Mandatory(model, variable);
+                    if (variable.ValueCodes.Count().Equals(0) && mandatory) 
+                    {
+                        problem = NonExistentValue();
+                        return false;
+                    }
+
+                    //Check variable values if they exists in model.Metadata
+                    if (!variable.ValueCodes.Count().Equals(0)) 
+                    {
+                        var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
+                        var modelVariableValues = model.Meta.Variables.Where(x => x.Code.Equals(variable.VariableCode)).Select(x => x.Values).ToList();
+                        foreach (var value in valueList)
+                        {
+                            if (!modelVariableValues.Any(x => x.Any(y => y.Code.Equals(value))))
+                            {
+                                problem = NonExistentValue();
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Add all varibles for a table
+        /// </summary>
+        /// <param name="variablesSelection"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        private VariablesSelection AddVariables(VariablesSelection variablesSelection, PXModel model)
+        {
             foreach (var variable in model.Meta.Variables)
             {
+                if (!variablesSelection.Selection.Any(x => x.VariableCode.ToUpper().Equals(variable.Code.ToUpper())))
+                {
+                    //Add variable
+                    var variableSelectionObject = new VariableSelection
+                    { 
+                        VariableCode = variable.Code,
+                        ValueCodes = new List<string>()
+                    };
 
+                    variablesSelection.Selection.Add(variableSelectionObject);
+                }
             }
-                // TODO: Verify that all variable and value codes defined in variablesSelection are found in model. If not return false and Problem. 
-                // TODO: Verify that mandatory variables have at least one value selected
-                //problem = NonExistentVariable();
-                //return false;
+            
+            return variablesSelection;
+        }
 
-                return true;
+        /// <summary>
+        /// Map VariablesSelection to PCaxis.Paxiom.Selection[]
+        /// </summary>
+        /// <param name="variablesSelection"></param>
+        /// <returns></returns>
+        private Selection[] MapCustomizedSelection(VariablesSelection variablesSelection)
+        {
+            var selections = new List<Selection>();
+
+            foreach (var variable in variablesSelection.Selection)
+            {
+                var selection = new Selection(variable.VariableCode);
+
+                //Add values if they exist
+                if (!variable.ValueCodes.Count().Equals(0)) 
+                {
+                    var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
+                    selection.ValueCodes.AddRange(valueList.ToArray());
+                }
+              
+                selections.Add(selection);
+            }
+
+            return selections.ToArray();
         }
 
         /// <summary>
@@ -240,6 +334,26 @@ namespace PxWeb.Code.Api2.DataSelection
 
             return selections.ToArray();
         }
+
+        private List<Variable> GetAllMandatoryVariables(PXModel model)
+        {
+            var mandatoryVariables = model.Meta.Variables.Where(x => x.Elimination.Equals(false)).ToList();
+            return mandatoryVariables;
+        }
+
+        private bool Mandatory(PXModel model, VariableSelection variable)
+        {
+            bool mandatory = false;
+            var mandatoryVariable = model.Meta.Variables.Where(x => x.Code.Equals(variable.VariableCode) && x.Elimination.Equals(false));
+            
+            if (mandatoryVariable.Count() != 0)
+            {
+                mandatory = true;
+            }
+            return mandatory;
+        }
+
+
 
         private string[] GetCodes(Variable variable, int count)
         {
