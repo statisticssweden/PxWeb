@@ -723,6 +723,7 @@
     <Compile Include="Code\Settings\DatabaseInfo.cs" />
     <Compile Include="Code\Settings\DatabaseSettings.cs" />
     <Compile Include="Code\Settings\DatabasesSettings.cs" />
+    <Compile Include="Code\Settings\Enums\DcatStatusType.cs" />
     <Compile Include="Code\Settings\Enums\MainHeaderForTablesType.cs" />
     <Compile Include="Code\Settings\Enums\SearchIndexStatusType.cs" />
     <Compile Include="Code\Settings\Enums\MenuModeType.cs" />

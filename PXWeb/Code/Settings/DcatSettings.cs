@@ -98,6 +98,12 @@ namespace PXWeb
 
             xpath = "./License";
             SettingsHelper.SetSettingValue(xpath, chartsNode, License);
+
+            xpath = "./DcatFileStatus";
+            SettingsHelper.SetSettingValue(xpath, chartsNode, FileStatus.ToString());
+
+            xpath = "./FileUpdated";
+            SettingsHelper.SetSettingValue(xpath, chartsNode, FileUpdated);
         }
 
         public string BaseURI { get; set; }
@@ -109,6 +115,8 @@ namespace PXWeb
         public string Database { get; set; }
         public string DatabaseType { get; set; }
         public string License { get; set; }
+        public DcatStatusType FileStatus { get; set; }
+        public string FileUpdated { get; set; }
         #endregion
     }
 }

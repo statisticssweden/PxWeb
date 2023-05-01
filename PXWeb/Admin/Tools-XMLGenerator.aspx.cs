@@ -57,7 +57,7 @@ namespace PXWeb.Admin
             if (!IsPostBack)
             {
                 fillPxDatabases(cboSelectDb);
-                ReadSettings();
+                ReadSettings(cboSelectDb.Text);
             }
 
         }
@@ -109,15 +109,12 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectPublisher", "PxWebAdminToolsXMLGeneratorSelectPublisherInfo");
         }
 
-        private string firstTwo(string s) {
-            return s.Substring(0,2);
-        }
-
         /// <summary>
         /// Read and display Charts settings  
         /// </summary>
         private void ReadSettings()
         {
+
             textBoxSelectBaseURI.Text = Settings.Current.Dcat.BaseURI;
             textBoxSelectApiURL.Text = Settings.Current.Dcat.BaseApiUrl;
             textBoxSelectLandingPageURL.Text = Settings.Current.Dcat.LandingPageUrl;
@@ -129,94 +126,81 @@ namespace PXWeb.Admin
             textBoxSelectLicense.Text = Settings.Current.Dcat.License;
         }
 
-        protected void MasterSave_Click(object sender, EventArgs e) {
-            if (Settings.BeginUpdate())
-            {
-                try
-                {
-                    DcatSettings dcats  = (DcatSettings) Settings.NewSettings.Dcat;
-                    dcats.BaseURI = textBoxSelectBaseURI.Text;
-                    dcats.BaseApiUrl = textBoxSelectApiURL.Text;
-                    dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
-                    dcats.Publisher = textBoxSelectPublisher.Text;
-                    dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
-                    dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
-                    dcats.Database = cboSelectDb.Text;
-                    dcats.DatabaseType = cboSelectDbType.Text;
-                    dcats.License = textBoxSelectLicense.Text;
+        private void ReadSettings(string database)
+        {
+            PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(database);
+            PXWeb.DcatSettings dcatSettings = (PXWeb.DcatSettings)db.Dcat;
 
-                    Settings.Save();
-                }
-                finally
-                {
-                    Settings.EndUpdate();
-                }
-            }
+            textBoxSelectBaseURI.Text = dcatSettings.BaseURI;
+            textBoxSelectApiURL.Text = dcatSettings.BaseApiUrl;
+            textBoxSelectLandingPageURL.Text = dcatSettings.LandingPageUrl;
+            textBoxSelectPublisher.Text = dcatSettings.Publisher;
+            textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
+            textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
+            textBoxSelectLicense.Text = dcatSettings.License;
+        }
+
+        private void saveCurrentSettings()
+        {
+            PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(cboSelectDb.Text);
+            PXWeb.DcatSettings dcats = (PXWeb.DcatSettings)db.Dcat;
+
+            dcats.BaseURI = textBoxSelectBaseURI.Text;
+            dcats.BaseApiUrl = textBoxSelectApiURL.Text;
+            dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
+            dcats.Publisher = textBoxSelectPublisher.Text;
+            dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
+            dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
+            dcats.License = textBoxSelectLicense.Text;
+            dcats.Database = cboSelectDb.Text;
+            dcats.DatabaseType = cboSelectDbType.Text;
+
+            db.Save();
+        }
+
+        protected void MasterSave_Click(object sender, EventArgs e) {
+            //if (Settings.BeginUpdate())
+            //{
+            //    try
+            //    {
+            //        DcatSettings dcats = getCurrentSettings();
+            //        Settings.Save();
+            //    }
+            //    finally
+            //    {
+            //        Settings.EndUpdate();
+            //    }
+            //}
+            saveCurrentSettings();
         }
         protected void btnGenerateXML_Click(object sender, EventArgs e)
         {
-            string baseURI = textBoxSelectBaseURI.Text;
-            string catalogTitle = textBoxSelectCatalogTitle.Text;
-            string catalogDescription = textBoxSelectCatalogDesc.Text;
-            string license = textBoxSelectLicense.Text;
-            string baseApiUrl = textBoxSelectApiURL.Text;
-            string landingPageUrl = textBoxSelectLandingPageURL.Text;
-            string publisher = textBoxSelectPublisher.Text;
+            string dbid = cboSelectDb.Text;
 
-            List<string> languages = new List<string>();
-            string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
-            foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages) {
-                languages.Add(firstTwo(ls.Name));
-            }
-            string themeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json");
-            string dbType = cboSelectDbType.SelectedItem.Value;
-            string dbid;
-            IFetcher fetcher;
+            PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(dbid);
+            PXWeb.DcatSettings dcatSettings = (PXWeb.DcatSettings)db.Dcat;
 
-            string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + cboSelectDb.SelectedItem.Value + "/dcat-ap.xml");
-            switch (dbType) {
-                case "PX":
-                    dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/Menu.xml";
-                    string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + cboSelectDb.SelectedItem.Value + "/TMapping.json";
-                    if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
-                    fetcher = new PXFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
-                    break;
-                case "CNMM":
-                    dbid = cboSelectDb.SelectedItem.Value;
-                    fetcher = new CNMMFetcher();
-                    break;
-                default:
-                    Master.ShowInfoDialog("Error", "Please select a database");
-                    return;
-            }
-
-            RdfSettings settings = new RdfSettings {
-                        BaseUri = baseURI, // Base uri, can be anything
-        
-                        BaseApiUrl = baseApiUrl,// Base url for api request
-
-                        PreferredLanguage = preferredLanguage, // language code 2 letters
-
-                        Languages =  languages,// Read from settings
-
-                        CatalogTitle = catalogTitle,
-                        CatalogDescription = catalogDescription,
-
-                        PublisherName = publisher,
-                        DBid = dbid,
-                        Fetcher =  fetcher,// Create depending on chosen database
-                        LandingPageUrl = landingPageUrl,
-                        License = license,
-                        ThemeMapping = themeMapping
-            };
-            try
+            // Check that the status has not been changed by another system before updating it
+            if (dcatSettings.FileStatus != DcatStatusType.Creating)
             {
-                XML.WriteToFile(savePath, settings);
+                dcatSettings.FileStatus = DcatStatusType.WaitingCreate;
+                db.Save();
+
+                if (PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled)
+                {
+                    // Wake up the background worker if it is asleep
+                    BackgroundWorker.PxWebBackgroundWorker.WakeUp();
+                }
             }
-            catch(PCAxis.Menu.Exceptions.InvalidMenuFromXMLException)
-            {
-                Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorLanguageError", "PxWebAdminToolsXMLGeneratorLanguageErrorInfo");
-            }
+
+            //try
+            //{
+            //    XML.WriteToFile(savePath, settings);
+            //}
+            //catch(PCAxis.Menu.Exceptions.InvalidMenuFromXMLException)
+            //{
+            //    Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorLanguageError", "PxWebAdminToolsXMLGeneratorLanguageErrorInfo");
+            //}
             //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
     }

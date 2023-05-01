@@ -19,6 +19,11 @@ namespace PXWeb
         ISearchIndexSettings SearchIndex { get; }
 
         /// <summary>
+        /// Dcat settings
+        /// </summary>
+        IDcatSettings Dcat { get; }
+
+        /// <summary>
         /// The database protection
         /// </summary>
         IProtection Protection { get; }
