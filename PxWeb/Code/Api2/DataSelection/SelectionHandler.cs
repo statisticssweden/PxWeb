@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.EMMA;
 using Lucene.Net.Util;
 using PCAxis.Paxiom;
@@ -6,6 +7,7 @@ using PxWeb.Api2.Server.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace PxWeb.Code.Api2.DataSelection
 {
@@ -19,7 +21,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 variablesSelection = AddVariables(variablesSelection, model);
 
                 //Map VariablesSelection to PCaxis.Paxiom.Selection[] 
-                return MapCustomizedSelection(variablesSelection).ToArray();
+                return MapCustomizedSelection(model, variablesSelection).ToArray();
             }
             else
             {
@@ -67,14 +69,20 @@ namespace PxWeb.Code.Api2.DataSelection
                     //Check variable values if they exists in model.Metadata
                     if (!variable.ValueCodes.Count().Equals(0)) 
                     {
-                        var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
-                        var modelVariableValues = model.Meta.Variables.Where(x => x.Code.Equals(variable.VariableCode)).Select(x => x.Values).ToList();
-                        foreach (var value in valueList)
+                        //var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
+                        var modelVariable = model.Meta.Variables.GetByCode(variable.VariableCode);
+                        //var modelVariableValues = model.Meta.Variables.Where(x => x.Code.Equals(variable.VariableCode)).Select(x => x.Values).ToList();
+                        //foreach (var value in valueList)
+                        foreach (var value in variable.ValueCodes)
                         {
-                            if (!modelVariableValues.Any(x => x.Any(y => y.Code.Equals(value))))
+                            if (!value.Contains("*"))
                             {
-                                problem = NonExistentValue();
-                                return false;
+                                //if (!modelVariableValues.Any(x => x.Any(y => y.Code.Equals(value))))
+                                if (modelVariable.Values.GetByCode(value) == null)
+                                {
+                                    problem = NonExistentValue();
+                                    return false;
+                                }
                             }
                         }
                     }
@@ -115,25 +123,92 @@ namespace PxWeb.Code.Api2.DataSelection
         /// </summary>
         /// <param name="variablesSelection"></param>
         /// <returns></returns>
-        private Selection[] MapCustomizedSelection(VariablesSelection variablesSelection)
+        private Selection[] MapCustomizedSelection(PXModel model, VariablesSelection variablesSelection)
         {
             var selections = new List<Selection>();
 
-            foreach (var variable in variablesSelection.Selection)
+            foreach (var varSelection in variablesSelection.Selection)
             {
-                var selection = new Selection(variable.VariableCode);
+                //var selection = new Selection(variable.VariableCode);
 
-                //Add values if they exist
-                if (!variable.ValueCodes.Count().Equals(0)) 
-                {
-                    var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
-                    selection.ValueCodes.AddRange(valueList.ToArray());
-                }
-              
-                selections.Add(selection);
+                ////Add values if they exist
+                //if (!variable.ValueCodes.Count().Equals(0)) 
+                //{
+                //    //var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
+                //    //selection.ValueCodes.AddRange(valueList.ToArray());
+                //    selection.ValueCodes.AddRange(variable.ValueCodes.ToArray());
+                //}
+                var variable = model.Meta.Variables.GetByCode(varSelection.VariableCode);
+                selections.Add(GetSelection(variable, varSelection));
             }
 
             return selections.ToArray();
+        }
+
+        private Selection GetSelection(Variable variable, VariableSelection varSelection)
+        {
+            var selection = new Selection(varSelection.VariableCode);
+            var values = new List<string>();
+
+            //Add values if they exist
+            //if (!varSelection.ValueCodes.Count().Equals(0))
+            //{
+                
+            //    selection.ValueCodes.AddRange(varSelection.ValueCodes.ToArray());
+            //}
+
+            foreach(var value in varSelection.ValueCodes)
+            {
+                if (value.Contains("*"))
+                {
+                    AddWildcardValues(variable, values, value);
+                }
+                else if (!values.Contains(value))
+                {
+                    values.Add(value);
+                }
+            }
+
+            selection.ValueCodes.AddRange(values.ToArray());
+            return selection;
+        }
+
+        private void AddWildcardValues(Variable variable, List<string> values, string wildcard)
+        {
+            if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
+            {
+                //var codeContains = wildcard.Substring(1, wildcard.Length - 2);
+                var variableValues = variable.Values.Where(v => v.Code.Contains(wildcard.Substring(1, wildcard.Length - 2))).Select(v => v.Code);
+                foreach (var variableValue in variableValues)
+                {
+                    if (!values.Contains(variableValue))
+                    {
+                        values.Add(variableValue);
+                    }
+                }
+            }
+            else if (wildcard.StartsWith("*"))
+            {
+                var variableValues = variable.Values.Where(v => v.Code.EndsWith(wildcard.Substring(1))).Select(v => v.Code);
+                foreach (var variableValue in variableValues)
+                {
+                    if (!values.Contains(variableValue))
+                    {
+                        values.Add(variableValue);
+                    }
+                }
+            }
+            else if (wildcard.EndsWith("*"))
+            {
+                var variableValues = variable.Values.Where(v => v.Code.StartsWith(wildcard.Substring(0, wildcard.Length - 1))).Select(v => v.Code);
+                foreach (var variableValue in variableValues)
+                {
+                    if (!values.Contains(variableValue))
+                    {
+                        values.Add(variableValue);
+                    }
+                }
+            }
         }
 
         /// <summary>
