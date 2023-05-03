@@ -27,7 +27,7 @@ namespace PxWeb.UnitTests.Data
             variablesSelection = CreateVariableSelection(variablesSelection);
             Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
            
-            Assert.AreEqual(variablesSelection.Selection.Select(x => x.VariableCode).Count(), selections.Select(x => x.ValueCodes).Count());
+            Assert.AreEqual(variablesSelection.Selection.Select(x => x.VariableCode).Count(), selections.Count());
         }
         [TestMethod]
         public void GetSelectionShouldReturnZeroValues()
