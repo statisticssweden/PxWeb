@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
@@ -15,6 +16,36 @@ namespace PxWeb.UnitTests.Data
     [TestClass]
     public class DataSelectionTest
     {
+        [TestMethod]
+        public void GetSelectionShouldReturnEqualVariables()
+        {
+            PXModel model = GetPxModelDefaultSelection(2, 2); 
+            VariablesSelection variablesSelection = new VariablesSelection();
+            variablesSelection.Selection = new List<VariableSelection>();
+            SelectionHandler selectionHandler = new SelectionHandler();
+
+            variablesSelection = CreateVariableSelection(variablesSelection);
+            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+           
+            Assert.AreEqual(variablesSelection.Selection.Select(x => x.VariableCode).Count(), selections.Select(x => x.ValueCodes).Count());
+        }
+        [TestMethod]
+        public void GetSelectionShouldReturnZeroValues()
+        {
+            PXModel model = GetPxModelDefaultSelection(2, 2); 
+            VariablesSelection variablesSelection = new VariablesSelection();
+            variablesSelection.Selection = new List<VariableSelection>();
+            SelectionHandler selectionHandler = new SelectionHandler();
+
+            variablesSelection = CreateVariableSelection(variablesSelection);
+            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+            if (selection != null)
+            {
+                Assert.AreEqual(0, selection.ValueCodes.Count);
+            }
+        }
         [TestMethod]
         public void ShouldReturnSelectionFor_Time_Content()
         {
@@ -280,6 +311,21 @@ namespace PxWeb.UnitTests.Data
             PCAxis.Paxiom.Value value = new PCAxis.Paxiom.Value(code);
             PaxiomUtil.SetCode(value, code);    
             return value;
+        }
+
+        private VariablesSelection CreateVariableSelection(VariablesSelection variablesSelection)
+        {
+            //Add variable
+            var variableSelectionObject = new VariableSelection
+            {
+                VariableCode = "var3",
+                ValueCodes = new List<string>()
+            };
+
+            variablesSelection.Selection.Add(variableSelectionObject);
+
+            return variablesSelection;
+
         }
 
 
