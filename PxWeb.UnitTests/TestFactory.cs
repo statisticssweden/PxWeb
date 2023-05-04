@@ -17,9 +17,11 @@ namespace PxWeb.UnitTests
             dict.Add("AA0003", new ItemSelection("AA", "AA0003"));
             dict.Add("AA0005", new ItemSelection("AA", "AA0005"));
             dict.Add("AA0003B", new ItemSelection("AA0003", "AA0003B"));
+            dict.Add("BE0101F1", new ItemSelection("BE", "BE0101F1"));
 
             return dict;
         }
+
 
         //public Dictionary<string, string> GetMenuLookup()
         //{

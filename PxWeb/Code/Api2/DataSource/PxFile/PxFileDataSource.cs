@@ -9,6 +9,7 @@ using PCAxis.Paxiom;
 using PCAxis.Sql.DbConfig;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace PxWeb.Code.Api2.DataSource.PxFile
 {
@@ -81,6 +82,13 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             }
 
             return menu.CurrentItem;
+        }
+
+        public bool TableExists(string tableId, string language, out bool selectionExists)
+        {
+            _itemSelectionResolver.Resolve(language, tableId, out selectionExists);
+            return selectionExists;
+
         }
 
         private string GetIdentifierWithoutPath(string id)

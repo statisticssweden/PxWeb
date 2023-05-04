@@ -89,5 +89,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             }
             return null;
         }
+
+        public bool TableExists(string tableId, string language, out bool selectionExists)
+        {
+            _itemSelectionResolver.Resolve(language, tableId, out selectionExists);
+            return selectionExists;
+        }
     }
 }
