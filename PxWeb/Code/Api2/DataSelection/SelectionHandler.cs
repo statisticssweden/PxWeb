@@ -13,6 +13,12 @@ namespace PxWeb.Code.Api2.DataSelection
 {
     public class SelectionHandler : ISelectionHandler
     {
+        /// <summary>
+        /// Get Selection-array for the wanted variables and values
+        /// </summary>
+        /// <param name="model">Paxiom model</param>
+        /// <param name="variablesSelection">VariablesSelection object describing wanted variables and values</param>
+        /// <returns></returns>
         public Selection[] GetSelection(PXModel model, VariablesSelection? variablesSelection)
         {
             if  (variablesSelection is not null && HasSelection(variablesSelection))
@@ -30,9 +36,17 @@ namespace PxWeb.Code.Api2.DataSelection
 
         }
 
+        /// <summary>
+        /// Verify that VariablesSelection object has valid variables and values
+        /// </summary>
+        /// <param name="model">Paxiom model</param>
+        /// <param name="variablesSelection">The VariablesSelection object to verify</param>
+        /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
+        /// <returns></returns>
         public bool Verify(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
             problem = null;
+
             if (variablesSelection is not null && HasSelection(variablesSelection))
             {
                 //Verify that variable exists
@@ -56,40 +70,66 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
 
                 //Verify variable values
-                foreach (var variable in variablesSelection.Selection)
+                if (!VerifyVariableValues(model, variablesSelection, out problem))
                 {
-                    //Verify that variables have at least one value selected for mandatory varibles
-                    var mandatory = Mandatory(model, variable);
-                    if (variable.ValueCodes.Count().Equals(0) && mandatory) 
-                    {
-                        problem = NonExistentValue();
-                        return false;
-                    }
+                    return false;                
+                }
+            }
 
-                    //Check variable values if they exists in model.Metadata
-                    if (!variable.ValueCodes.Count().Equals(0)) 
+            return true;
+        }
+
+        /// <summary>
+        /// Verify that the wanted variable values has valid codes
+        /// </summary>
+        /// <param name="model">Paxiom model</param>
+        /// <param name="variablesSelection">VariablesSelection with the wanted variables and values</param>
+        /// <param name="problem">Will be null if everything is ok, oterwise it will describe the problem</param>
+        /// <returns></returns>
+        private bool VerifyVariableValues(PXModel model, VariablesSelection variablesSelection, out Problem? problem)
+        {
+            problem = null;
+
+            foreach (var variable in variablesSelection.Selection)
+            {
+                //Verify that variables have at least one value selected for mandatory varibles
+                var mandatory = Mandatory(model, variable);
+                if (variable.ValueCodes.Count().Equals(0) && mandatory)
+                {
+                    problem = NonExistentValue();
+                    return false;
+                }
+
+                //Check variable values if they exists in model.Metadata
+                if (!variable.ValueCodes.Count().Equals(0))
+                {
+                    var modelVariable = model.Meta.Variables.GetByCode(variable.VariableCode);
+                    foreach (var value in variable.ValueCodes)
                     {
-                        //var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
-                        var modelVariable = model.Meta.Variables.GetByCode(variable.VariableCode);
-                        //var modelVariableValues = model.Meta.Variables.Where(x => x.Code.Equals(variable.VariableCode)).Select(x => x.Values).ToList();
-                        //foreach (var value in valueList)
-                        foreach (var value in variable.ValueCodes)
+                        if (!IsSelectionExpression(value))
                         {
-                            if (!value.Contains("*"))
+                            if (modelVariable.Values.GetByCode(value) == null)
                             {
-                                //if (!modelVariableValues.Any(x => x.Any(y => y.Code.Equals(value))))
-                                if (modelVariable.Values.GetByCode(value) == null)
-                                {
-                                    problem = NonExistentValue();
-                                    return false;
-                                }
+                                problem = NonExistentValue();
+                                return false;
                             }
                         }
+                        // TODO: Verify selection expression?
                     }
                 }
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Returns true if the value string is a selection expression, else false.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private bool IsSelectionExpression(string value)
+        {
+            return value.Contains('*');
         }
 
         /// <summary>
@@ -129,15 +169,6 @@ namespace PxWeb.Code.Api2.DataSelection
 
             foreach (var varSelection in variablesSelection.Selection)
             {
-                //var selection = new Selection(variable.VariableCode);
-
-                ////Add values if they exist
-                //if (!variable.ValueCodes.Count().Equals(0)) 
-                //{
-                //    //var valueList = variable.ValueCodes[0].ToString().Split(',').ToList();
-                //    //selection.ValueCodes.AddRange(valueList.ToArray());
-                //    selection.ValueCodes.AddRange(variable.ValueCodes.ToArray());
-                //}
                 var variable = model.Meta.Variables.GetByCode(varSelection.VariableCode);
                 selections.Add(GetSelection(variable, varSelection));
             }
@@ -145,17 +176,16 @@ namespace PxWeb.Code.Api2.DataSelection
             return selections.ToArray();
         }
 
+        /// <summary>
+        /// Add all values for variable
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="varSelection">VariableSelection object with wanted values from user</param>
+        /// <returns></returns>
         private Selection GetSelection(Variable variable, VariableSelection varSelection)
         {
             var selection = new Selection(varSelection.VariableCode);
             var values = new List<string>();
-
-            //Add values if they exist
-            //if (!varSelection.ValueCodes.Count().Equals(0))
-            //{
-                
-            //    selection.ValueCodes.AddRange(varSelection.ValueCodes.ToArray());
-            //}
 
             foreach(var value in varSelection.ValueCodes)
             {
@@ -173,11 +203,16 @@ namespace PxWeb.Code.Api2.DataSelection
             return selection;
         }
 
+        /// <summary>
+        /// Add values for variable based on wildcard * selection
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="wildcard">The wildcard string</param>
         private void AddWildcardValues(Variable variable, List<string> values, string wildcard)
         {
             if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
             {
-                //var codeContains = wildcard.Substring(1, wildcard.Length - 2);
                 var variableValues = variable.Values.Where(v => v.Code.Contains(wildcard.Substring(1, wildcard.Length - 2))).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
