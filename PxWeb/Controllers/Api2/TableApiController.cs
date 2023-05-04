@@ -31,6 +31,7 @@ using PCAxis.Serializers;
 using PxWeb.Config.Api2;
 using PxWeb.Code.Api2.DataSelection;
 using Microsoft.Extensions.Options;
+using PxWeb.Code.Api2.ModelBinder;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -123,7 +124,7 @@ namespace PxWeb.Controllers.Api2
 
         }
 
-        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes")] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesType>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
+        public override IActionResult GetTableData([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "valuecodes"), ModelBinder(typeof(QueryStringToDictionaryOfStrings))] Dictionary<string, List<string>>? valuecodes, [FromQuery(Name = "codelist")] Dictionary<string, string>? codelist, [FromQuery(Name = "outputvalues")] Dictionary<string, CodeListOutputValuesType>? outputvalues, [FromQuery(Name = "outputFormat")] string? outputFormat)
         {
             VariablesSelection variablesSelection = MapDataParameters(valuecodes, codelist, outputvalues);
             return GetData(id, lang, variablesSelection, outputFormat);
