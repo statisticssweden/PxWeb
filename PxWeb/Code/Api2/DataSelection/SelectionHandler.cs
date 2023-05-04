@@ -114,9 +114,61 @@ namespace PxWeb.Code.Api2.DataSelection
                                 return false;
                             }
                         }
-                        // TODO: Verify selection expression?
+                        else
+                        {
+                            if (!VerifySelectionExpression(value))
+                            {
+                                problem = IllegalSelectionExpression();
+                                return false;
+                            }
+                        }
                     }
                 }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Verifies that a selection expression is valid
+        /// </summary>
+        /// <param name="expression">The selection expression to verify</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifySelectionExpression(string expression)
+        {
+            if (expression.Contains('*'))
+            { 
+                return VerifyWildcardExpression(expression);
+            }                
+
+            return false;
+        }
+
+        /// <summary>
+        /// Verifies that the wildcard selection expression is valid
+        /// </summary>
+        /// <param name="expression">The wildcard selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyWildcardExpression(string expression)
+        {
+            int count = expression.Count(c => c == '*');
+
+            if (count > 2)
+            {
+                // More than 2 * is not allowed
+                return false;
+            }
+
+            if ((count == 1) && !(expression.StartsWith('*') || expression.EndsWith('*')))
+            {
+                // * must be in the beginning or end of the value
+                return false;
+            }
+
+            if ((count == 2) && !(expression.StartsWith('*') && expression.EndsWith('*')))
+            {
+                // The * must be in the beginning and the end of the value
+                return false;
             }
 
             return true;
@@ -524,6 +576,15 @@ namespace PxWeb.Code.Api2.DataSelection
             p.Type = "Parameter error";
             p.Status = 400;
             p.Title = "Missing selection for mandantory variable";
+            return p;
+        }
+
+        private Problem IllegalSelectionExpression()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 400;
+            p.Title = "Illegal selection expression";
             return p;
         }
 
