@@ -159,7 +159,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var result = datasource.TableExists("select * from Befolkning", language, out selectionExists);
 
-            Assert.IsTrue(result);
+            Assert.IsFalse(result);
         }
 
     }
