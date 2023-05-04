@@ -138,18 +138,22 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             if (expression.Contains('*'))
             { 
-                return VerifyWildcardExpression(expression);
-            }                
+                return VerifyWildcardStarExpression(expression);
+            }
+            else if (expression.Contains('?'))
+            {
+                return VerifyWildcardQuestionmarkExpression(expression);
+            }
 
             return false;
         }
 
         /// <summary>
-        /// Verifies that the wildcard selection expression is valid
+        /// Verifies that the wildcard * selection expression is valid
         /// </summary>
         /// <param name="expression">The wildcard selection expression to validate</param>
         /// <returns>True if the expression is valid, else false</returns>
-        private bool VerifyWildcardExpression(string expression)
+        private bool VerifyWildcardStarExpression(string expression)
         {
             int count = expression.Count(c => c == '*');
 
@@ -175,13 +179,23 @@ namespace PxWeb.Code.Api2.DataSelection
         }
 
         /// <summary>
+        /// Verifies that the wildcard ? selection expression is valid
+        /// </summary>
+        /// <param name="expression">The wildcard selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyWildcardQuestionmarkExpression(string expression)
+        {
+            return true;
+        }
+
+        /// <summary>
         /// Returns true if the value string is a selection expression, else false.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         private bool IsSelectionExpression(string value)
         {
-            return value.Contains('*');
+            return value.Contains('*') || value.Contains('?');
         }
 
         /// <summary>
@@ -241,9 +255,13 @@ namespace PxWeb.Code.Api2.DataSelection
 
             foreach(var value in varSelection.ValueCodes)
             {
-                if (value.Contains("*"))
+                if (value.Contains('*'))
                 {
-                    AddWildcardValues(variable, values, value);
+                    AddWildcardStarValues(variable, values, value);
+                }
+                else if (value.Contains('?'))
+                {
+                    AddWildcardQuestionmarkValues(variable, values, value);
                 }
                 else if (!values.Contains(value))
                 {
@@ -261,7 +279,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <param name="variable">Paxiom variable</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="wildcard">The wildcard string</param>
-        private void AddWildcardValues(Variable variable, List<string> values, string wildcard)
+        private void AddWildcardStarValues(Variable variable, List<string> values, string wildcard)
         {
             if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
             {
@@ -294,6 +312,25 @@ namespace PxWeb.Code.Api2.DataSelection
                     {
                         values.Add(variableValue);
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Add values for variable based on wildcard ? selection
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="wildcard">The wildcard string</param>
+        private void AddWildcardQuestionmarkValues(Variable variable, List<string> values, string wildcard)
+        {
+            // Value codes must have the same length as wildcard
+            var variableValues = variable.Values.Where(v => v.Code.Length.Equals(wildcard.Length)).Select(v => v.Code);
+            foreach (var variableValue in variableValues)
+            {
+                if (!values.Contains(variableValue))
+                {
+                    values.Add(variableValue);
                 }
             }
         }
