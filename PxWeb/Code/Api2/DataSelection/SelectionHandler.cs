@@ -14,6 +14,10 @@ namespace PxWeb.Code.Api2.DataSelection
 {
     public class SelectionHandler : ISelectionHandler
     {
+        // Regular expressions for selection expression validation
+        // TOP(xxx) and TOP(xxx,yyy)
+        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\))$";
+
         /// <summary>
         /// Get Selection-array for the wanted variables and values
         /// </summary>
@@ -201,13 +205,15 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns>True if the expression is valid, else false</returns>
         private bool VerifyTopExpression(string expression)
         {
-            // TOP(10)
-            string regexPatternAlt1 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(")"));
-            // TOP(10,3)
-            string regexPatternAlt2 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(","), "[1-9]\\d*", Regex.Escape(")")); 
-            string regexPattern = string.Concat("^(", regexPatternAlt1, "|", regexPatternAlt2, ")$");
+            // TODO: Create a static string instead of creating every time?
 
-            return Regex.IsMatch(expression, regexPattern);
+            // TOP(10)
+            //string regexPatternAlt1 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(")"));
+            //// TOP(10,3)
+            //string regexPatternAlt2 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(","), "[1-9]\\d*", Regex.Escape(")")); 
+            //string regexPattern = string.Concat("^(", regexPatternAlt1, "|", regexPatternAlt2, ")$");
+
+            return Regex.IsMatch(expression, REGEX_TOP);
         }
 
         /// <summary>
@@ -285,6 +291,10 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     AddWildcardQuestionmarkValues(variable, values, value);
                 }
+                else if (value.Contains("TOP("))
+                {
+                    AddTopValues(variable, values, value);
+                }
                 else if (!values.Contains(value))
                 {
                     values.Add(value);
@@ -356,6 +366,84 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
             }
         }
+
+        /// <summary>
+        /// Add values for variable based on TOP(xxx) and TOP(xxx,yyy) selection expression. 
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="expression">The TOP selection expression string</param>
+        private void AddTopValues(Variable variable, List<string> values, string expression)
+        {
+            int count;
+            int offset;
+
+            if (!GetCountAndOffset(expression, out count, out offset))
+            {
+                return; // Something went wrong
+            }
+
+            var codes = variable.Values.Select(value => value.Code).ToArray();
+
+            if (variable.IsTime)
+            {
+                codes.Sort((a, b) => b.CompareTo(a)); // Descending sort
+            }
+
+            for (int i = (0 + offset); i < (count + offset); i++)
+            {
+                if (i < codes.Length && !values.Contains(codes[i]))
+                {
+                    values.Add(codes[i]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Extracts the count and offset from selection expressions like TOP(count), TOP(count,offset), BOTTOM(count), BOTTOM(count,offset)
+        /// </summary>
+        /// <param name="expression">The selection expression to extract count and offset from</param>
+        /// <param name="count">Set to the count value if it could be extracted, else 0</param>
+        /// <param name="offset">Set to the offset value if it could be extracted, else 0</param>
+        /// <returns>True if values could be extracted, false if something went wrong</returns>
+        private bool GetCountAndOffset(string expression, out int count, out int offset)
+        {
+            count = 0;
+            offset = 0;
+
+            try
+            {
+                int firstParanteses = expression.IndexOf('(');
+
+                if (firstParanteses == -1)
+                {
+                    return false;
+                }
+
+                string strNumbers = expression.Substring(firstParanteses + 1, expression.Length - (firstParanteses + 2)); // extract the numbers part of TOP(xxx) or TOP(xxx,yyy)
+                string[] numbers = strNumbers.Split(',', System.StringSplitOptions.RemoveEmptyEntries);
+
+                if (!int.TryParse(numbers[0], out count))
+                {
+                    return false; // Something went wrong
+                }
+
+                if (numbers.Length == 2)
+                {
+                    if (!int.TryParse(numbers[1], out offset))
+                    {
+                        return false; // Something went wrong
+                    }
+                }
+
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+        }
+
 
         /// <summary>
         /// Get the default selection based on an algorithm
