@@ -169,7 +169,7 @@ namespace PxWeb.UnitTests.DataSource
             bool selectionExists;
 
             //act
-            var result = datasource.TableExists("bE0101F1", language, out selectionExists);
+            var result = datasource.TableExists("bE0101F1", language);
 
             //assert
             Assert.IsTrue(result);
@@ -204,7 +204,7 @@ namespace PxWeb.UnitTests.DataSource
             bool selectionExists;
 
             //act
-            var result = datasource.TableExists("select * from BE0101F1", language, out selectionExists);
+            var result = datasource.TableExists("select * from BE0101F1", language);
 
             //assert
             Assert.IsFalse(result);

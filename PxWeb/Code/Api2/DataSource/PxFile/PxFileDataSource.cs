@@ -83,8 +83,10 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             return menu.CurrentItem;
         }
 
-        public bool TableExists(string tableId, string language, out bool selectionExists)
+        public bool TableExists(string tableId, string language)
         {
+            bool selectionExists;
+
             _itemSelectionResolver.Resolve(language, tableId, out selectionExists);
             return selectionExists;
 

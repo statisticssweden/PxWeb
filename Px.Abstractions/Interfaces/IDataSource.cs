@@ -27,7 +27,7 @@ namespace Px.Abstractions.Interfaces
         /// </summary>
         /// <param name="tableId"></param>
         /// <returns></returns>
-        bool TableExists(string tableId, string language, out bool selectionExists);
+        bool TableExists(string tableId, string language);
 
         //string GetSource(IDatabaseInfo dbi, PCAxis.Paxiom.PXModel model, string language);
     }

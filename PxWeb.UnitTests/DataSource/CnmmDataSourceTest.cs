@@ -125,7 +125,7 @@ namespace PxWeb.UnitTests.DataSource
 
             bool selectionExists;
 
-            var result = datasource.TableExists("Befolkning", language, out selectionExists);
+            var result = datasource.TableExists("Befolkning", language);
 
             Assert.IsTrue(result);
         }
@@ -157,7 +157,7 @@ namespace PxWeb.UnitTests.DataSource
 
             bool selectionExists;
 
-            var result = datasource.TableExists("select * from Befolkning", language, out selectionExists);
+            var result = datasource.TableExists("select * from Befolkning", language);
 
             Assert.IsFalse(result);
         }
