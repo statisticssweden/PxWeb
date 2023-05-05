@@ -274,7 +274,7 @@ namespace PxWeb.Code.Api2.DataSelection
         }
 
         /// <summary>
-        /// Add values for variable based on wildcard * selection
+        /// Add values for variable based on wildcard * selection. * represents 0 to many characters.
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
         /// <param name="values">List that the values shall be added to</param>
@@ -317,15 +317,15 @@ namespace PxWeb.Code.Api2.DataSelection
         }
 
         /// <summary>
-        /// Add values for variable based on wildcard ? selection
+        /// Add values for variable based on wildcard ? selection. ? reperesent any 1 character.
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="wildcard">The wildcard string</param>
         private void AddWildcardQuestionmarkValues(Variable variable, List<string> values, string wildcard)
         {
-            // Value codes must have the same length as wildcard
-            var variableValues = variable.Values.Where(v => v.Code.Length.Equals(wildcard.Length)).Select(v => v.Code);
+            string regexPattern = string.Concat("^", Regex.Escape(wildcard).Replace("\\?", "."), "$");
+            var variableValues = variable.Values.Where(v => Regex.IsMatch(v.Code, regexPattern)).Select(v => v.Code);
             foreach (var variableValue in variableValues)
             {
                 if (!values.Contains(variableValue))
