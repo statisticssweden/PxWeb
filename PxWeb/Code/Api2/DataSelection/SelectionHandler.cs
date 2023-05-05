@@ -1,6 +1,7 @@
-﻿using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.Drawing.Diagrams;
-using DocumentFormat.OpenXml.EMMA;
+﻿//using DocumentFormat.OpenXml.Bibliography;
+//using DocumentFormat.OpenXml.Drawing.Charts;
+//using DocumentFormat.OpenXml.Drawing.Diagrams;
+//using DocumentFormat.OpenXml.EMMA;
 using Lucene.Net.Util;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
@@ -137,12 +138,16 @@ namespace PxWeb.Code.Api2.DataSelection
         private bool VerifySelectionExpression(string expression)
         {
             if (expression.Contains('*'))
-            { 
+            {
                 return VerifyWildcardStarExpression(expression);
             }
             else if (expression.Contains('?'))
             {
                 return VerifyWildcardQuestionmarkExpression(expression);
+            }
+            else if (expression.Contains("TOP("))
+            {
+                return VerifyTopExpression(expression);
             }
 
             return false;
@@ -185,7 +190,24 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns>True if the expression is valid, else false</returns>
         private bool VerifyWildcardQuestionmarkExpression(string expression)
         {
+            // What could be wrong?
             return true;
+        }
+
+        /// <summary>
+        /// Verifies that the TOP(xxx) or TOP(xxx,yyy) selection expression is valid
+        /// </summary>
+        /// <param name="expression">The TOP selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyTopExpression(string expression)
+        {
+            // TOP(10)
+            string regexPatternAlt1 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(")"));
+            // TOP(10,3)
+            string regexPatternAlt2 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(","), "[1-9]\\d*", Regex.Escape(")")); 
+            string regexPattern = string.Concat("^(", regexPatternAlt1, "|", regexPatternAlt2, ")$");
+
+            return Regex.IsMatch(expression, regexPattern);
         }
 
         /// <summary>
@@ -195,7 +217,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns></returns>
         private bool IsSelectionExpression(string value)
         {
-            return value.Contains('*') || value.Contains('?');
+            return value.Contains('*') || value.Contains('?') || value.Contains("TOP(");
         }
 
         /// <summary>
