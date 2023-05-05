@@ -22,6 +22,13 @@ namespace Px.Abstractions.Interfaces
         /// <returns></returns>
         IPXModelBuilder? CreateBuilder(string id, string language);
 
+        /// <summary>
+        /// Check if table exists
+        /// </summary>
+        /// <param name="tableId"></param>
+        /// <returns></returns>
+        bool TableExists(string tableId, string language);
+
         //string GetSource(IDatabaseInfo dbi, PCAxis.Paxiom.PXModel model, string language);
     }
 }

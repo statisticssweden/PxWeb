@@ -98,5 +98,69 @@ namespace PxWeb.UnitTests.DataSource
             Assert.IsNotNull(result);
         }
 
+        [Ignore]
+        [TestMethod]
+        public void TableExistsCNMMShouldReturnTrue()
+        {
+            //todo, mock database 
+            string language = "en";
+            var memorymock = new Mock<IPxCache>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+            var configServiceMock = new Mock<ICnmmConfigurationService>();
+
+            var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
+
+            var testFactory = new TestFactory();
+            var dict = testFactory.GetMenuLookup();
+
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+
+            pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
+
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
+            var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object, resolver);
+
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
+
+            bool selectionExists;
+
+            var result = datasource.TableExists("Befolkning", language);
+
+            Assert.IsTrue(result);
+        }
+
+        [Ignore]
+        [TestMethod]
+        public void TableExistsCNMMShouldReturnFalse()
+        {
+            //todo, mock database 
+            string language = "en";
+            var memorymock = new Mock<IPxCache>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+            var configServiceMock = new Mock<ICnmmConfigurationService>();
+
+            var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
+
+            var testFactory = new TestFactory();
+            var dict = testFactory.GetMenuLookup();
+
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+
+            pcAxisFactory.Setup(x => x.GetMenuLookup(language)).Returns(dict);
+
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
+            var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object, resolver);
+
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
+
+            bool selectionExists;
+
+            var result = datasource.TableExists("select * from Befolkning", language);
+
+            Assert.IsFalse(result);
+        }
+
     }
 }
