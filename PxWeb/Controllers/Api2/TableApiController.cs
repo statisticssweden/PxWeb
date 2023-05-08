@@ -32,6 +32,7 @@ using PxWeb.Config.Api2;
 using PxWeb.Code.Api2.DataSelection;
 using Microsoft.Extensions.Options;
 using PxWeb.Code.Api2.ModelBinder;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -93,7 +94,19 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
-            throw new NotImplementedException();
+            Searcher searcher = new Searcher(_dataSource, _backend);
+            lang = _languageHelper.HandleLanguage(lang);
+
+            if (_dataSource.TableExists(id, lang))
+            {
+                var searchResultContainer = searcher.FindTable(id, lang);
+
+                return Ok(_tablesResponseMapper.Map(searchResultContainer, lang, id)); 
+            }
+            else { 
+                return NotFound(NonExistentTable());
+            }
+            
         }
 
         public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)

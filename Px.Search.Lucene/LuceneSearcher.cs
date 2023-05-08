@@ -6,6 +6,7 @@ using Lucene.Net.Util;
 using Lucene.Net.QueryParsers.Classic;
 using Lucene.Net.Documents;
 using Lucene.Net.Queries;
+using System.Drawing.Printing;
 
 namespace Px.Search.Lucene
 {
@@ -24,19 +25,22 @@ namespace Px.Search.Lucene
             {
                 throw new ArgumentNullException("Index directory not defined for Lucene");
             }
-          
+
             FSDirectory fsDir = FSDirectory.Open(Path.Combine(indexDirectory, language));
 
             IndexReader reader = DirectoryReader.Open(fsDir);
             _indexSearcher = new IndexSearcher(reader);
         }
+
+
         /// <summary>
         /// Search the right index depending on the language and give back a search result
         /// </summary>
-        /// <param name="searchExpression"></param>
-        /// <param name="language"></param>
+        /// <param name="query"></param>
         /// <param name="pageSize"></param>
         /// <param name="pageNumber"></param>
+        /// <param name="pastdays"></param>
+        /// <param name="includediscontinued"></param>
         /// <returns></returns>
         public SearchResultContainer Find(string? query, int pageSize, int pageNumber, int? pastdays, bool includediscontinued = false)
         {
@@ -53,14 +57,14 @@ namespace Px.Search.Lucene
             BooleanFilter filter = new BooleanFilter();
             queryParser.DefaultOperator = _defaultOperator;
 
-            luceneQuery = string.IsNullOrEmpty(query) ? queryParser.Parse("*:*"): queryParser.Parse(query);
-            
+            luceneQuery = string.IsNullOrEmpty(query) ? queryParser.Parse("*:*") : queryParser.Parse(query);
+
             if (!string.IsNullOrEmpty(pastdays.ToString()))
             {
-                var pastDay = DateTools.DateToString(DateTime.Now.AddDays(- Convert.ToDouble(pastdays)), DateResolution.HOUR);
+                var pastDay = DateTools.DateToString(DateTime.Now.AddDays(-Convert.ToDouble(pastdays)), DateResolution.HOUR);
                 filter.Add(new FilterClause(FieldCacheRangeFilter.NewStringRange(SearchConstants.SEARCH_FIELD_UPDATED, lowerVal: pastDay, includeLower: true, upperVal: null, includeUpper: false), Occur.MUST));
             }
-            
+
             if (!includediscontinued)
             {
                 var areaFilter = new TermsFilter(new Term(SearchConstants.SEARCH_FIELD_DISCONTINUED, "true"));
@@ -68,7 +72,7 @@ namespace Px.Search.Lucene
             }
 
             TopDocs topDocs;
-            topDocs = filter.Count() > 0 ? _indexSearcher.Search(luceneQuery, filter, skipRecords + pageSize) 
+            topDocs = filter.Count() > 0 ? _indexSearcher.Search(luceneQuery, filter, skipRecords + pageSize)
                 : _indexSearcher.Search(luceneQuery, skipRecords + pageSize);
 
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
@@ -84,7 +88,7 @@ namespace Px.Search.Lucene
                 searchResultContainer.outOfRange = true;
                 return searchResultContainer;
             }
-            
+
             for (int i = skipRecords; i < topDocs.TotalHits; i++)
             {
                 if (i > (skipRecords + pageSize) - 1)
@@ -101,7 +105,7 @@ namespace Px.Search.Lucene
                     doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
                 );
                 searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);
-                searchResult.SortCode = doc.Get(SearchConstants.SEARCH_FIELD_SORTCODE);          
+                searchResult.SortCode = doc.Get(SearchConstants.SEARCH_FIELD_SORTCODE);
                 if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
                 {
                     searchResult.Updated = updated;
@@ -116,7 +120,7 @@ namespace Px.Search.Lucene
                 searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
                 searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
                 searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
-                searchResult.Score= scoreDocs[i].Score;
+                searchResult.Score = scoreDocs[i].Score;
                 searchResultList.Add(searchResult);
             }
 
@@ -129,7 +133,60 @@ namespace Px.Search.Lucene
             return searchResultContainer;
 
         }
-       
+
+        public SearchResultContainer FindTable(string tableId)
+        {
+            DateTime updated;
+            bool discontinued;
+            var searchResultContainer = new SearchResultContainer();
+            var searchResultList = new List<SearchResult>();
+            //string[] field = new[] { SearchConstants.SEARCH_FIELD_DOCID };
+            string[] field = new[] { SearchConstants.SEARCH_FIELD_SEARCHID };
+            LuceneVersion luceneVersion = LuceneVersion.LUCENE_48;
+            Query luceneQuery;
+            QueryParser queryParser = new MultiFieldQueryParser(luceneVersion,
+                                                       field,
+                                                       new StandardAnalyzer(luceneVersion));
+            queryParser.DefaultOperator = _defaultOperator;
+            luceneQuery = queryParser.Parse(tableId);
+
+            TopDocs topDocs;
+            topDocs = _indexSearcher.Search(luceneQuery, 1);
+
+            Document doc = _indexSearcher.Doc(topDocs.ScoreDocs[0].Doc);
+            var searchResult = new SearchResult(
+                doc.Get(SearchConstants.SEARCH_FIELD_DOCID),
+                doc.Get(SearchConstants.SEARCH_FIELD_TITLE),
+                doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
+                doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
+                doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
+                doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
+            );
+            searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);
+            searchResult.SortCode = doc.Get(SearchConstants.SEARCH_FIELD_SORTCODE);
+            if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
+            {
+                searchResult.Updated = updated;
+            }
+            if (bool.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_DISCONTINUED), out discontinued))
+            {
+                searchResult.Discontinued = discontinued;
+            }
+            searchResult.Category = doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY);
+            searchResult.FirstPeriod = doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD);
+            searchResult.LastPeriod = doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD);
+            searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
+            searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
+            searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
+            searchResultList.Add(searchResult);
+            searchResultContainer.totalPages = 1;
+            searchResultContainer.totalElements = 1;
+            searchResultContainer.pageNumber = 1;
+            searchResultContainer.pageSize = 1;
+            searchResultContainer.searchResults = searchResultList;
+
+            return searchResultContainer;
+        }
         /// <summary>
         /// Get fields in index to search in
         /// </summary>
@@ -164,6 +221,6 @@ namespace Px.Search.Lucene
 
             return fields;
         }
-       
+
     }
 }
