@@ -266,7 +266,7 @@ namespace PXWeb.BackgroundWorker
         }
 
         /// <summary>
-        /// Check if dcat file shall be created for database (Dcat.FileStatus = Waiting). If so create the search index
+        /// Check if dcat file shall be created for database (Dcat.FileStatus = WaitingCreate). If so create the dcat file
         /// </summary>
         /// <param name="database">Database id</param>
         public static void HandleDcat(string database)
@@ -279,7 +279,7 @@ namespace PXWeb.BackgroundWorker
             PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(database);
             PXWeb.DcatSettings dcat = (PXWeb.DcatSettings)db.Dcat;
 
-            _logger.InfoFormat("HandleSearchIndex called for database:{0}", database);
+            _logger.InfoFormat("HandleDcat called for database:{0}", database);
             if (dcat.FileStatus == DcatStatusType.WaitingCreate)
             {
                 CreateDcatFile(dcat.Database);
@@ -306,9 +306,6 @@ namespace PXWeb.BackgroundWorker
             PXWeb.DcatSettings dcat = (PXWeb.DcatSettings)db.Dcat;
 
             DcatStatusType startStatus = dcat.FileStatus;
-            dcat.FileStatus = DcatStatusType.Creating;
-
-            db.Save();
 
             List<string> languages = new List<string>();
             string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
@@ -359,26 +356,23 @@ namespace PXWeb.BackgroundWorker
                 ThemeMapping = themeMapping
             };
 
-            bool success = true;
             try
             {
+                dcat.FileStatus = DcatStatusType.Creating;
+                db.Save();
+
                 XML.WriteToFile(savePath, settings);
+
+                _logger.Info("Dcat-file for the '" + database + "' database was created successfully");
+                dcat.FileStatus = DcatStatusType.Created;
+                dcat.FileUpdated = DateTime.Now.ToString(PXConstant.PXDATEFORMAT);
+                db.Save();
             }
             catch (Exception ex)
             {
                 _logger.Error("Error when creating dcat-file for the '" + database + "' database : " + ex.Message);
-                success = false;
-            }
-
-            if (success)
-            {
-                _logger.Info("Dcat-file for the '" + database + "' database was created successfully");
-                dcat.FileStatus = DcatStatusType.Created;
-                dcat.FileUpdated = DateTime.Now.ToString(PXConstant.PXDATEFORMAT);
-            }
-            else
-            {
-                dcat.FileStatus = startStatus; // revert
+                dcat.FileStatus = startStatus;
+                db.Save();
             }
 
             // Force reload of database settings

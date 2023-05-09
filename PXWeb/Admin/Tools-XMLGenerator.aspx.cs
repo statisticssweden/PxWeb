@@ -177,6 +177,8 @@ namespace PXWeb.Admin
         {
             string dbid = cboSelectDb.Text;
 
+            saveCurrentSettings();
+
             PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(dbid);
             PXWeb.DcatSettings dcatSettings = (PXWeb.DcatSettings)db.Dcat;
 
