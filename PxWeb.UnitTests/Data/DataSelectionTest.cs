@@ -19,25 +19,25 @@ namespace PxWeb.UnitTests.Data
         [TestMethod]
         public void GetSelectionShouldReturnEqualVariables()
         {
-            PXModel model = GetPxModelDefaultSelection(2, 2); 
+            PXModel model = GetPxModelDefaultSelection(2, 2);
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
             SelectionHandler selectionHandler = new SelectionHandler();
 
-            variablesSelection = CreateVariableSelection(variablesSelection);
+            variablesSelection = CreateVariablesSelection(variablesSelection);
             Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
-           
+
             Assert.AreEqual(variablesSelection.Selection.Select(x => x.VariableCode).Count(), selections.Count());
         }
         [TestMethod]
         public void GetSelectionShouldReturnZeroValues()
         {
-            PXModel model = GetPxModelDefaultSelection(2, 2); 
+            PXModel model = GetPxModelDefaultSelection(2, 2);
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
             SelectionHandler selectionHandler = new SelectionHandler();
 
-            variablesSelection = CreateVariableSelection(variablesSelection);
+            variablesSelection = CreateVariablesSelection(variablesSelection);
             Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
 
             var selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
@@ -211,6 +211,77 @@ namespace PxWeb.UnitTests.Data
             }
 
         }
+
+        [TestMethod]
+        public void ShouldReturnWildcardStarSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("000*"); // 9 values
+            valueCodes.Add("*100"); // 1 value
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(10, selection.ValueCodes.Count);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnWildcardQuestionmarkSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("00??"); // 98 values
+            valueCodes.Add("0?00"); // 10 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(108, selection.ValueCodes.Count);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnTopSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("TOP(10)"); // 10 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(10, selection.ValueCodes.Count);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnTopOffsetSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("TOP(10,995)"); // 5 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(5, selection.ValueCodes.Count);
+            }
+        }
+
+        
+        // Helper methods
+
+
         private PXModel GetPxModelDefaultSelection(int nonElimVariables, int contentValues)
         {
             PXModel pxModel = new PXModel();
@@ -235,7 +306,7 @@ namespace PxWeb.UnitTests.Data
             timeVar.Values.Add(CreateValue("2018M10"));
             timeVar.Values.Add(CreateValue("2018M11"));
             timeVar.Values.Add(CreateValue("2018M12"));
-            
+
             pxModel.Meta.AddVariable(timeVar);
 
             // Content
@@ -309,11 +380,11 @@ namespace PxWeb.UnitTests.Data
         private PCAxis.Paxiom.Value CreateValue(string code)
         {
             PCAxis.Paxiom.Value value = new PCAxis.Paxiom.Value(code);
-            PaxiomUtil.SetCode(value, code);    
+            PaxiomUtil.SetCode(value, code);
             return value;
         }
 
-        private VariablesSelection CreateVariableSelection(VariablesSelection variablesSelection)
+        private VariablesSelection CreateVariablesSelection(VariablesSelection variablesSelection)
         {
             //Add variable
             var variableSelectionObject = new VariableSelection
@@ -328,6 +399,53 @@ namespace PxWeb.UnitTests.Data
 
         }
 
+        private VariableSelection CreateVariableSelection(string variableCode, List<string> valueCodes)
+        {
+            var variableSelectionObject = new VariableSelection
+            {
+                VariableCode = variableCode,
+                ValueCodes = new List<string>()
+            };
 
+            variableSelectionObject.ValueCodes.AddRange(valueCodes);
+
+            return variableSelectionObject;
+        }
+
+
+        private Selection[] GetSelection(List<string> wantedValues)
+        {
+            PXModel model = GetPxModelForTest();
+            SelectionHandler selectionHandler = new SelectionHandler();
+            VariablesSelection variablesSelection = new VariablesSelection();
+            variablesSelection.Selection = new List<VariableSelection>();
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.AddRange(wantedValues);
+
+            var varSelection = CreateVariableSelection("var1", valueCodes);
+            variablesSelection.Selection.Add(varSelection);
+
+            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+            return selections;
+        }
+
+        private PXModel GetPxModelForTest()
+        {
+            PXModel pxModel = new PXModel();
+
+            Variable var1 = new Variable("var1", PlacementType.Heading);
+            var1.Elimination = false;
+
+            for (int i = 1; i <= 1000; i++)
+            {
+                var1.Values.Add(CreateValue(i.ToString("0000")));
+            }
+
+            pxModel.Meta.AddVariable(var1);
+
+            return pxModel;
+
+        }
     }
 }
