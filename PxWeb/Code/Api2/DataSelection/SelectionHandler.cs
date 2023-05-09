@@ -205,14 +205,6 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns>True if the expression is valid, else false</returns>
         private bool VerifyTopExpression(string expression)
         {
-            // TODO: Create a static string instead of creating every time?
-
-            // TOP(10)
-            //string regexPatternAlt1 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(")"));
-            //// TOP(10,3)
-            //string regexPatternAlt2 = string.Concat(Regex.Escape("TOP("), "[1-9]\\d*", Regex.Escape(","), "[1-9]\\d*", Regex.Escape(")")); 
-            //string regexPattern = string.Concat("^(", regexPatternAlt1, "|", regexPatternAlt2, ")$");
-
             return Regex.IsMatch(expression, REGEX_TOP);
         }
 
@@ -281,7 +273,7 @@ namespace PxWeb.Code.Api2.DataSelection
             var selection = new Selection(varSelection.VariableCode);
             var values = new List<string>();
 
-            foreach(var value in varSelection.ValueCodes)
+            foreach (var value in varSelection.ValueCodes)
             {
                 if (value.Contains('*'))
                 {
@@ -301,8 +293,31 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
             }
 
-            selection.ValueCodes.AddRange(values.ToArray());
+            var sortedValues = SortValues(variable, values);
+
+            selection.ValueCodes.AddRange(sortedValues.ToArray());
             return selection;
+        }
+
+        /// <summary>
+        /// Sort selected values so that they appear in the same order as in the Paxiom variable
+        /// </summary>
+        /// <param name="variable">The Paxiom variable</param>
+        /// <param name="values">Unsorted list of selected values</param>
+        /// <returns>Sorted list of selected values</returns>
+        private List<string> SortValues(Variable variable, List<string> values)
+        {
+            var sortedValues = new List<string>();
+
+            foreach (var value in variable.Values)
+            {
+                if (values.Contains(value.Code))
+                {
+                    sortedValues.Add(value.Code);
+                }
+            }
+
+            return sortedValues;    
         }
 
         /// <summary>
