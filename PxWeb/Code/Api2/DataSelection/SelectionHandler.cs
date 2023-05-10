@@ -1,8 +1,4 @@
-﻿//using DocumentFormat.OpenXml.Bibliography;
-//using DocumentFormat.OpenXml.Drawing.Charts;
-//using DocumentFormat.OpenXml.Drawing.Diagrams;
-//using DocumentFormat.OpenXml.EMMA;
-using Lucene.Net.Util;
+﻿using Lucene.Net.Util;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
 using System.Collections.Generic;
