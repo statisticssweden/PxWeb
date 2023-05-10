@@ -6,7 +6,6 @@ using Lucene.Net.Util;
 using Lucene.Net.QueryParsers.Classic;
 using Lucene.Net.Documents;
 using Lucene.Net.Queries;
-using System.Drawing.Printing;
 
 namespace Px.Search.Lucene
 {

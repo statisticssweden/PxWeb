@@ -32,7 +32,6 @@ using PxWeb.Config.Api2;
 using PxWeb.Code.Api2.DataSelection;
 using Microsoft.Extensions.Options;
 using PxWeb.Code.Api2.ModelBinder;
-using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace PxWeb.Controllers.Api2
 {
