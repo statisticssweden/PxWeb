@@ -9,6 +9,6 @@ namespace Px.Search
     public interface ISearcher
     {
         SearchResultContainer Find(string? query, int pageSize, int pageNumber, int? pastdays, bool includediscontinued = false);
-        SearchResultContainer FindTable(string tableId);
+        SearchResult FindTable(string tableId);
     }
 }

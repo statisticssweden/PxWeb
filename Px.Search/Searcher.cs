@@ -25,7 +25,7 @@ namespace Px.Search
 
             return searcher.Find(query, pageSize, pageNumber, pastdays, includediscontinued);
         }
-        public SearchResultContainer FindTable(string tableId, string language)
+        public SearchResult FindTable(string tableId, string language)
         {
             var searcher = _backend.GetSearcher(language);
 

@@ -76,8 +76,6 @@ namespace Px.Search.Lucene
                 : _indexSearcher.Search(luceneQuery, skipRecords + pageSize);
 
             ScoreDoc[] scoreDocs = topDocs.ScoreDocs;
-            DateTime updated;
-            bool discontinued;
             var pages = (double)topDocs.TotalHits / (double)pageSize;
             int totalpages;
 
@@ -96,32 +94,7 @@ namespace Px.Search.Lucene
                     break;
                 }
                 Document doc = _indexSearcher.Doc(scoreDocs[i].Doc);
-                var searchResult = new SearchResult(
-                    doc.Get(SearchConstants.SEARCH_FIELD_DOCID),
-                    doc.Get(SearchConstants.SEARCH_FIELD_TITLE),
-                    doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
-                    doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
-                    doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
-                    doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
-                );
-                searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);
-                searchResult.SortCode = doc.Get(SearchConstants.SEARCH_FIELD_SORTCODE);
-                if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
-                {
-                    searchResult.Updated = updated;
-                }
-                if (bool.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_DISCONTINUED), out discontinued))
-                {
-                    searchResult.Discontinued = discontinued;
-                }
-                searchResult.Category = doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY);
-                searchResult.FirstPeriod = doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD);
-                searchResult.LastPeriod = doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD);
-                searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
-                searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
-                searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
-                searchResult.Score = scoreDocs[i].Score;
-                searchResultList.Add(searchResult);
+                searchResultList.Add(GetSearchResult(doc));
             }
 
             searchResultContainer.pageNumber = pageNumber;
@@ -133,14 +106,14 @@ namespace Px.Search.Lucene
             return searchResultContainer;
 
         }
-
-        public SearchResultContainer FindTable(string tableId)
+        /// <summary>
+        /// Search in index on table id
+        /// </summary>
+        /// <param name="tableId"></param>
+        /// <returns></returns>
+        public SearchResult FindTable(string tableId)
         {
-            DateTime updated;
-            bool discontinued;
-            var searchResultContainer = new SearchResultContainer();
-            var searchResultList = new List<SearchResult>();
-            //string[] field = new[] { SearchConstants.SEARCH_FIELD_DOCID };
+            
             string[] field = new[] { SearchConstants.SEARCH_FIELD_SEARCHID };
             LuceneVersion luceneVersion = LuceneVersion.LUCENE_48;
             Query luceneQuery;
@@ -154,14 +127,29 @@ namespace Px.Search.Lucene
             topDocs = _indexSearcher.Search(luceneQuery, 1);
 
             Document doc = _indexSearcher.Doc(topDocs.ScoreDocs[0].Doc);
+            return GetSearchResult(doc);
+                      
+        }
+
+        /// <summary>
+        /// Get SearchResultList
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns></returns>
+        private SearchResult GetSearchResult(Document doc)
+        {
+            DateTime updated;
+            bool discontinued;
+            var searchResultList = new List<SearchResult>();
+
             var searchResult = new SearchResult(
-                doc.Get(SearchConstants.SEARCH_FIELD_DOCID),
-                doc.Get(SearchConstants.SEARCH_FIELD_TITLE),
-                doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
-                doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
-                doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
-                doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
-            );
+                    doc.Get(SearchConstants.SEARCH_FIELD_DOCID),
+                    doc.Get(SearchConstants.SEARCH_FIELD_TITLE),
+                    doc.Get(SearchConstants.SEARCH_FIELD_CATEGORY),
+                    doc.Get(SearchConstants.SEARCH_FIELD_FIRSTPERIOD),
+                    doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD),
+                    doc.Get(SearchConstants.SEARCH_FIELD_VARIABLES).Split(" ")
+                );
             searchResult.Description = doc.Get(SearchConstants.SEARCH_FIELD_DESCRIPTION);
             searchResult.SortCode = doc.Get(SearchConstants.SEARCH_FIELD_SORTCODE);
             if (DateTime.TryParse(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED), out updated))
@@ -178,14 +166,11 @@ namespace Px.Search.Lucene
             searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
             searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
             searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
-            searchResultList.Add(searchResult);
-            searchResultContainer.totalPages = 1;
-            searchResultContainer.totalElements = 1;
-            searchResultContainer.pageNumber = 1;
-            searchResultContainer.pageSize = 1;
-            searchResultContainer.searchResults = searchResultList;
+            
 
-            return searchResultContainer;
+            return searchResult;
+
+
         }
         /// <summary>
         /// Get fields in index to search in

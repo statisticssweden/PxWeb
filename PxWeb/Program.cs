@@ -81,6 +81,7 @@ namespace PxWeb
             builder.Services.AddTransient<IFolderResponseMapper, FolderResponseMapper>();
             builder.Services.AddTransient<ITableMetadataResponseMapper, TableMetadataResponseMapper>();
             builder.Services.AddTransient<ITablesResponseMapper, TablesResponseMapper>();
+            builder.Services.AddTransient<ITableResponseMapper, TableResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
             builder.Services.AddTransient<ISerializeManager, SerializeManager>();
 
