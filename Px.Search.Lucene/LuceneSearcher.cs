@@ -44,7 +44,6 @@ namespace Px.Search.Lucene
         /// <returns></returns>
         public SearchResultContainer Find(string? query, int pageSize, int pageNumber, int? pastdays, bool includediscontinued = false)
         {
-
             var skipRecords = pageSize * (pageNumber - 1);
             var searchResultContainer = new SearchResultContainer();
             var searchResultList = new List<SearchResult>();
@@ -120,11 +119,9 @@ namespace Px.Search.Lucene
             QueryParser queryParser = new MultiFieldQueryParser(luceneVersion,
                                                        field,
                                                        new StandardAnalyzer(luceneVersion));
-            queryParser.DefaultOperator = _defaultOperator;
             luceneQuery = queryParser.Parse(tableId);
 
-            TopDocs topDocs;
-            topDocs = _indexSearcher.Search(luceneQuery, 1);
+            TopDocs topDocs = _indexSearcher.Search(luceneQuery, 1);
 
             Document doc = _indexSearcher.Doc(topDocs.ScoreDocs[0].Doc);
             return GetSearchResult(doc);
@@ -134,13 +131,12 @@ namespace Px.Search.Lucene
         /// <summary>
         /// Get SearchResultList
         /// </summary>
-        /// <param name="document"></param>
+        /// <param name="doc"></param>
         /// <returns></returns>
         private SearchResult GetSearchResult(Document doc)
         {
             DateTime updated;
             bool discontinued;
-            var searchResultList = new List<SearchResult>();
 
             var searchResult = new SearchResult(
                     doc.Get(SearchConstants.SEARCH_FIELD_DOCID),
@@ -165,17 +161,14 @@ namespace Px.Search.Lucene
             searchResult.LastPeriod = doc.Get(SearchConstants.SEARCH_FIELD_LASTPERIOD);
             searchResult.Tags = doc.Get(SearchConstants.SEARCH_FIELD_TAGS).Split(" ");
             searchResult.Updated = String.IsNullOrEmpty(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED)) ? null : DateTools.StringToDate(doc.Get(SearchConstants.SEARCH_FIELD_UPDATED));
-            searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);
-            
+            searchResult.Label = doc.Get(SearchConstants.SEARCH_FIELD_TITLE);            
 
             return searchResult;
-
-
         }
+
         /// <summary>
         /// Get fields in index to search in
         /// </summary>
-        /// <param name="filter"></param>
         /// <returns></returns>
         private string[] GetSearchFields()
         {
