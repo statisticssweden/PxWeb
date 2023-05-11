@@ -12,7 +12,7 @@ namespace PxWeb.Code.Api2.DataSelection
     {
         // Regular expressions for selection expression validation
         // TOP(xxx), TOP(xxx,yyy), top(xxx) and top(xxx,yyy)
-        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\)|top\\([1-9]\\d*\\)|top\\([1-9]\\d*,[1-9]\\d*\\))$";
+        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\))$";
 
         /// <summary>
         /// Get Selection-array for the wanted variables and values
@@ -145,7 +145,7 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyWildcardQuestionmarkExpression(expression);
             }
-            else if (expression.ToUpper().StartsWith("TOP("))
+            else if (expression.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase))
             {
                 return VerifyTopExpression(expression);
             }
@@ -206,7 +206,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns>True if the expression is valid, else false</returns>
         private bool VerifyTopExpression(string expression)
         {
-            return Regex.IsMatch(expression, REGEX_TOP);
+            return Regex.IsMatch(expression, REGEX_TOP, RegexOptions.IgnoreCase);
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns></returns>
         private bool IsSelectionExpression(string value)
         {
-            return value.Contains('*') || value.Contains('?') || value.ToUpper().StartsWith("TOP(");
+            return value.Contains('*') || value.Contains('?') || value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     AddWildcardQuestionmarkValues(variable, values, value);
                 }
-                else if (value.ToUpper().StartsWith("TOP("))
+                else if (value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
                     AddTopValues(variable, values, value);
                 }
