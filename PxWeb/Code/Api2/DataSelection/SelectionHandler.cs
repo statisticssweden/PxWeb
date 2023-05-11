@@ -145,7 +145,7 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyWildcardQuestionmarkExpression(expression);
             }
-            else if (expression.ToUpper().Contains("TOP("))
+            else if (expression.ToUpper().StartsWith("TOP("))
             {
                 return VerifyTopExpression(expression);
             }
@@ -216,7 +216,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns></returns>
         private bool IsSelectionExpression(string value)
         {
-            return value.Contains('*') || value.Contains('?') || value.ToUpper().Contains("TOP(");
+            return value.Contains('*') || value.Contains('?') || value.ToUpper().StartsWith("TOP(");
         }
 
         /// <summary>
@@ -284,7 +284,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     AddWildcardQuestionmarkValues(variable, values, value);
                 }
-                else if (value.ToUpper().Contains("TOP("))
+                else if (value.ToUpper().StartsWith("TOP("))
                 {
                     AddTopValues(variable, values, value);
                 }
