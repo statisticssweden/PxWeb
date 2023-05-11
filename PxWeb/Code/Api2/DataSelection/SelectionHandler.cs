@@ -11,8 +11,8 @@ namespace PxWeb.Code.Api2.DataSelection
     public class SelectionHandler : ISelectionHandler
     {
         // Regular expressions for selection expression validation
-        // TOP(xxx) and TOP(xxx,yyy)
-        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\))$";
+        // TOP(xxx), TOP(xxx,yyy), top(xxx) and top(xxx,yyy)
+        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\)|top\\([1-9]\\d*\\)|top\\([1-9]\\d*,[1-9]\\d*\\))$";
 
         /// <summary>
         /// Get Selection-array for the wanted variables and values
@@ -145,7 +145,7 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyWildcardQuestionmarkExpression(expression);
             }
-            else if (expression.Contains("TOP("))
+            else if (expression.ToUpper().Contains("TOP("))
             {
                 return VerifyTopExpression(expression);
             }
@@ -160,6 +160,11 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns>True if the expression is valid, else false</returns>
         private bool VerifyWildcardStarExpression(string expression)
         {
+            if (expression.Equals("*"))
+            {
+                return true; 
+            }
+
             int count = expression.Count(c => c == '*');
 
             if (count > 2)
@@ -211,7 +216,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <returns></returns>
         private bool IsSelectionExpression(string value)
         {
-            return value.Contains('*') || value.Contains('?') || value.Contains("TOP(");
+            return value.Contains('*') || value.Contains('?') || value.ToUpper().Contains("TOP(");
         }
 
         /// <summary>
@@ -279,7 +284,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     AddWildcardQuestionmarkValues(variable, values, value);
                 }
-                else if (value.Contains("TOP("))
+                else if (value.ToUpper().Contains("TOP("))
                 {
                     AddTopValues(variable, values, value);
                 }
@@ -324,7 +329,19 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <param name="wildcard">The wildcard string</param>
         private void AddWildcardStarValues(Variable variable, List<string> values, string wildcard)
         {
-            if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
+            if (wildcard.Equals("*"))
+            {
+                // Select all values
+                var variableValues = variable.Values.Select(v => v.Code);
+                foreach (var variableValue in variableValues)
+                {
+                    if (!values.Contains(variableValue))
+                    {
+                        values.Add(variableValue);
+                    }
+                }
+            }
+            else if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
             {
                 var variableValues = variable.Values.Where(v => v.Code.Contains(wildcard.Substring(1, wildcard.Length - 2))).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
