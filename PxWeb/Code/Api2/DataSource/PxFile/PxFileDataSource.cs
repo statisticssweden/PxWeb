@@ -83,6 +83,15 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             return menu.CurrentItem;
         }
 
+        public bool TableExists(string tableId, string language)
+        {
+            bool selectionExists;
+
+            _itemSelectionResolver.Resolve(language, tableId, out selectionExists);
+            return selectionExists;
+
+        }
+
         private string GetIdentifierWithoutPath(string id)
         {
             if (id.Contains('\\'))

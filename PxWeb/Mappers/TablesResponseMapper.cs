@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PxWeb.Config.Api2;
 using Microsoft.Extensions.Options;
+using PxWeb.Converters;
 
 namespace PxWeb.Mappers
 {
@@ -49,7 +50,7 @@ namespace PxWeb.Mappers
                         pageSize, pageNumber - 1, current));
                 }
             }
-            if (totalPages != 0)
+            if (totalPages > 1)
             {         
                 // Links to last page 
                 foreach (var language in _configOptions.Languages)
@@ -109,7 +110,7 @@ namespace PxWeb.Mappers
                     Updated = item.Updated,
                     FirstPeriod = item.FirstPeriod,
                     LastPeriod = item.LastPeriod,
-                    Category = ToCategoryEnum(item.Category),
+                    Category = EnumConverter.ToCategoryEnum(item.Category),
                     Discontinued = item.Discontinued,
                     VariableNames = item.VariableNames.ToList(),
                     Links = linkList                 
@@ -132,22 +133,6 @@ namespace PxWeb.Mappers
             return tablesResponse;
         }
 
-        public static Table.CategoryEnum ToCategoryEnum(string category)
-        {
-            Table.CategoryEnum enumCategory = new Table.CategoryEnum();
-            var enumType = typeof(Table.CategoryEnum);
-
-                foreach (var name in Enum.GetNames(enumType))
-                {
-                    var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
-                    if (enumMemberAttribute.Value == category)
-                    {
-                        Table.CategoryEnum categoryEnum = (Table.CategoryEnum)Enum.Parse(enumType, name);
-                        return enumCategory = categoryEnum;
-                    }
-                }
-           
-            return enumCategory;
-        }
+        
     }
 }

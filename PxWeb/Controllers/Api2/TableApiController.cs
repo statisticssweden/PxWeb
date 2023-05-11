@@ -45,12 +45,13 @@ namespace PxWeb.Controllers.Api2
         private readonly ILanguageHelper _languageHelper;
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ITablesResponseMapper _tablesResponseMapper;
+        private readonly ITableResponseMapper _tableResponseMapper;
         private readonly ISearchBackend _backend;
         private readonly ISerializeManager _serializeManager;
         private PxApiConfigurationOptions _configOptions;
         private readonly ISelectionHandler _selectionHandler;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ISerializeManager serializeManager, ISelectionHandler selectionHandler )
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ITableResponseMapper tableResponseMapper, ISerializeManager serializeManager, ISelectionHandler selectionHandler )
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
@@ -58,6 +59,7 @@ namespace PxWeb.Controllers.Api2
             _backend = backend;
             _configOptions = configOptions.Value;
             _tablesResponseMapper = tablesResponseMapper;
+            _tableResponseMapper = tableResponseMapper;
             _serializeManager = serializeManager;
             _selectionHandler = selectionHandler;   
         }
@@ -93,7 +95,19 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
-            throw new NotImplementedException();
+            Searcher searcher = new Searcher(_dataSource, _backend);
+            lang = _languageHelper.HandleLanguage(lang);
+
+            if (_dataSource.TableExists(id, lang))
+            {
+                var searchResult = searcher.FindTable(id, lang);
+
+                return Ok(_tableResponseMapper.Map(searchResult, lang)); 
+            }
+            else { 
+                return NotFound(NonExistentTable());
+            }
+            
         }
 
         public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)

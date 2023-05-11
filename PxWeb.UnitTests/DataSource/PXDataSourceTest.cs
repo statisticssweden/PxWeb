@@ -140,6 +140,78 @@ namespace PxWeb.UnitTests.DataSource
         }
 
         [TestMethod]
+        public void TableExistPxFileShouldReturnTrue()
+        {
+
+            //arrange
+            var testFactory = new TestFactory();
+            string language = "en";
+            var memorymock = new Mock<IPxCache>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+            var configServiceMock = new Mock<IPxFileConfigurationService>();
+            var hostingEnvironmentMock = new Mock<IPxHost>();
+            var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
+
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+
+            var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
+
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+
+            hostingEnvironmentMock
+                .Setup(m => m.RootPath)
+                .Returns(wwwrootPath);
+
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
+            var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object);
+            bool selectionExists;
+
+            //act
+            var result = datasource.TableExists("bE0101F1", language);
+
+            //assert
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void TableExistPXFileShouldNotReturnTrue()
+        {
+
+            //arrange
+            var testFactory = new TestFactory();
+            string language = "en";
+            var memorymock = new Mock<IPxCache>();
+            var configMock = new Mock<IPxApiConfigurationService>();
+            var configServiceMock = new Mock<IPxFileConfigurationService>();
+            var hostingEnvironmentMock = new Mock<IPxHost>();
+            var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
+
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+
+            var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
+
+            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+
+            hostingEnvironmentMock
+                .Setup(m => m.RootPath)
+                .Returns(wwwrootPath);
+
+            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
+            var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object);
+            bool selectionExists;
+
+            //act
+            var result = datasource.TableExists("select * from BE0101F1", language);
+
+            //assert
+            Assert.IsFalse(result);
+        }
+
+
+        [TestMethod]
         public void ShouldNotResolveTablePath()
         {
             string language = "en";
