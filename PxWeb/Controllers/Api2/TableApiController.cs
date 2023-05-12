@@ -169,7 +169,13 @@ namespace PxWeb.Controllers.Api2
             }
 
             var selection = _selectionHandler.GetSelection(builder.Model, variablesSelection);
-
+            int cells = CalculateCells(selection);
+            
+            if (cells > _configOptions.MaxDataCells)
+            {
+                return BadRequest(TooManyCellsSelected());
+            }
+            
             builder.BuildForPresentation(selection);
             
             if (outputFormat == null)
@@ -181,6 +187,21 @@ namespace PxWeb.Controllers.Api2
             serializer.Serialize(builder.Model, Response);
 
             return Ok();
+        }
+
+        private int CalculateCells(Selection[] selection)
+        {
+            int cells = 1;
+
+            foreach (var s in selection)
+            {
+                if (s.ValueCodes.Count > 0)
+                {
+                    cells *= s.ValueCodes.Count;
+                }
+            }
+
+            return cells;   
         }
 
         /// <summary>
@@ -232,6 +253,15 @@ namespace PxWeb.Controllers.Api2
             p.Detail = "Non-existent page";
             p.Status = 404;
             p.Title = "Non-existent page";
+            return p;
+        }
+        private Problem TooManyCellsSelected()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Too many cells selected";
+            p.Status = 400;
+            p.Title = "Too many cells selected";
             return p;
         }
 
