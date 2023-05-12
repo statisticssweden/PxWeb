@@ -56,6 +56,8 @@ namespace PxWeb.Controllers.Api2
                     MaxCallsPerTimeWindow = op.MaxCalls,
                     MaxDataCells = op.MaxDataCells,
                     TimeWindow = op.TimeWindow,
+                    DefaultDataFormat = op.DefaultOutputFormat,
+                    DataFormats = op.OutputFormats
                 };
 
                 ApiFeature cors = new ApiFeature() { Id = "CORS", Params = new List<PxWeb.Api2.Server.Models.KeyValuePair>() };
