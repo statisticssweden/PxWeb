@@ -49,6 +49,13 @@ namespace PXWeb.Admin
         {
             if (cboSelectDbType.SelectedItem.Value == "PX") fillPxDatabases(cboSelectDb);
             else fillCNMMDatabases(cboSelectDb);
+
+            ReadSettings(cboSelectDb.Text);
+        }
+
+        protected void cboSelectDb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReadSettings(cboSelectDb.Text);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -109,21 +116,9 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectPublisher", "PxWebAdminToolsXMLGeneratorSelectPublisherInfo");
         }
 
-        /// <summary>
-        /// Read and display Charts settings  
-        /// </summary>
-        private void ReadSettings()
+        protected void imgStatus_Click(object sender, ImageClickEventArgs e)
         {
-
-            textBoxSelectBaseURI.Text = Settings.Current.Dcat.BaseURI;
-            textBoxSelectApiURL.Text = Settings.Current.Dcat.BaseApiUrl;
-            textBoxSelectLandingPageURL.Text = Settings.Current.Dcat.LandingPageUrl;
-            textBoxSelectPublisher.Text = Settings.Current.Dcat.Publisher;
-            textBoxSelectCatalogTitle.Text = Settings.Current.Dcat.CatalogTitle;
-            textBoxSelectCatalogDesc.Text = Settings.Current.Dcat.CatalogDescription;
-            cboSelectDb.Text = Settings.Current.Dcat.Database;
-            cboSelectDbType.Text = Settings.Current.Dcat.DatabaseType;
-            textBoxSelectLicense.Text = Settings.Current.Dcat.License;
+            Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorStatus", "PxWebAdminToolsXMLGeneratorStatusInfo");
         }
 
         private void ReadSettings(string database)
@@ -138,6 +133,16 @@ namespace PXWeb.Admin
             textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
             textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
             textBoxSelectLicense.Text = dcatSettings.License;
+            updateStatusLabel(dcatSettings);
+        }
+
+        private void updateStatusLabel(DcatSettings dcatSettings)
+        {
+            lblStatusValue.Text = dcatSettings.FileStatus.ToString();
+            if (dcatSettings.FileStatus == DcatStatusType.Created)
+            {
+                lblStatusValue.Text += " " + dcatSettings.FileUpdated.ToString();
+            }
         }
 
         private void saveCurrentSettings()
@@ -159,18 +164,6 @@ namespace PXWeb.Admin
         }
 
         protected void MasterSave_Click(object sender, EventArgs e) {
-            //if (Settings.BeginUpdate())
-            //{
-            //    try
-            //    {
-            //        DcatSettings dcats = getCurrentSettings();
-            //        Settings.Save();
-            //    }
-            //    finally
-            //    {
-            //        Settings.EndUpdate();
-            //    }
-            //}
             saveCurrentSettings();
         }
         protected void btnGenerateXML_Click(object sender, EventArgs e)
@@ -187,6 +180,7 @@ namespace PXWeb.Admin
             {
                 dcatSettings.FileStatus = DcatStatusType.WaitingCreate;
                 db.Save();
+                updateStatusLabel(dcatSettings);
 
                 if (PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled)
                 {
@@ -194,16 +188,6 @@ namespace PXWeb.Admin
                     BackgroundWorker.PxWebBackgroundWorker.WakeUp();
                 }
             }
-
-            //try
-            //{
-            //    XML.WriteToFile(savePath, settings);
-            //}
-            //catch(PCAxis.Menu.Exceptions.InvalidMenuFromXMLException)
-            //{
-            //    Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorLanguageError", "PxWebAdminToolsXMLGeneratorLanguageErrorInfo");
-            //}
-            //Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectLicense", preferredLanguage);
         }
     }
 }

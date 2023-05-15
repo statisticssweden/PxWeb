@@ -682,7 +682,7 @@
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Språkhanteraren" />
   <sentence name="PxWebAdminMenuToolsReset" value="Nollställ" />
   <sentence name="PxWebAdminMenuToolsChangePassword" value="Byt lösenord" />
-  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generera XML"/>
+  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Dcat"/>
   <sentence name="PxWebAdminMenuFeatures" value="Funktioner" />
   <sentence name="PxWebAdminMenuFeaturesGeneral" value="Generellt" />
   <sentence name="PxWebAdminMenuFeaturesCharts" value="Diagram" />
@@ -986,6 +986,8 @@
  <sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Ingångssida till webbsida som ger tillgång till datamängden eller dess distributioner och/eller ytterligare information"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisher" value="Utgivare"/>
  <sentence name="PxWebAdminToolsXMLGeneratorSelectPublisherInfo" value="Utgivare av datan"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorStatus" value="Status"/>
+ <sentence name="PxWebAdminToolsXMLGeneratorStatusInfo" value="Status för generering av Dcat-XML-fil för vald databas"/>
  <sentence name="PxWebAdminToolsXMLGeneratorLanguageError" value="Fel"/>
  <sentence name="PxWebAdminToolsXMLGeneratorLanguageErrorInfo" value="Det valda språket finns inte tillgängligt för den valda databasen"/>
  <sentence name="PxWebAdminFeaturesGeneralFeature" value="Funktion" />

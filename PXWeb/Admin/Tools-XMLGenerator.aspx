@@ -12,7 +12,7 @@
     </div>
     <div class="setting-field">
         <asp:Label ID="lblSelectDb" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectDb %>">"></asp:Label>
-        <asp:DropDownList ID="cboSelectDb" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="cboSelectDb" onselectedindexchanged="cboSelectDb_SelectedIndexChanged" AutoPostBack="true" runat="server"></asp:DropDownList>
         <asp:ImageButton ID="imgSelectDbInfo" runat="server" onclick="imgSelectDb_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
     <div class="setting-field">
@@ -49,6 +49,11 @@
         <asp:Label ID="lblSelectPublisher" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectPublisher %>">"></asp:Label>
         <asp:TextBox ID="textBoxSelectPublisher" runat="server"></asp:TextBox>
         <asp:ImageButton ID="imgSelectPublisher" runat="server" onclick="imgSelectPublisher_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    </div>
+        <div class="setting-field">
+        <asp:Label ID="lblStatus" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorStatus %>">"></asp:Label>
+        <asp:Label ID="lblStatusValue" runat="server" Text="NotCreated"></asp:Label>
+        <asp:ImageButton ID="imgStatus" runat="server" onclick="imgStatus_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
 
      <div class="setting-field">
