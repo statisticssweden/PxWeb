@@ -313,19 +313,20 @@ namespace PXWeb.BackgroundWorker
             {
                 languages.Add(firstTwo(ls.Name));
             }
-            string themeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json");
+            string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/TMapping.json");
             string dbType = dcat.DatabaseType;
             string dbid;
             IFetcher fetcher;
+            string databasepath = GetDatabasePath();
 
-            string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + dcat.Database + "/dcat-ap.xml");
+            string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
             switch (dbType)
             {
                 case "PX":
-                    dbid = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + dcat.Database + "/Menu.xml";
-                    string localThemeMapping = HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/") + dcat.Database + "/TMapping.json";
+                    dbid = databasepath + dcat.Database + "/Menu.xml";
+                    string localThemeMapping = databasepath + dcat.Database + "/TMapping.json";
                     if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
-                    fetcher = new PXFetcher(HttpContext.Current.Server.MapPath("~/Resources/PX/Databases/"));
+                    fetcher = new PXFetcher(databasepath);
                     break;
                 case "CNMM":
                     dbid = dcat.Database;
