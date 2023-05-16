@@ -211,7 +211,7 @@ namespace PXWeb.BackgroundWorker
         {
             try
             {
-                _activity = "Checking search indexes";
+                _activity = "Checking databases";
 
                 string path = GetDatabasePath();
 
@@ -302,6 +302,7 @@ namespace PXWeb.BackgroundWorker
         /// <param name="database"></param>
         private static void CreateDcatFile(string database)
         {
+            _activity = "Creating dcat file for the " + database + " database";
             PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(database);
             PXWeb.DcatSettings dcat = (PXWeb.DcatSettings)db.Dcat;
 
