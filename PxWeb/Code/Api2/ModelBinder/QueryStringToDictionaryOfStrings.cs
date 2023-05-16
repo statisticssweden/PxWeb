@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace PxWeb.Code.Api2.ModelBinder
 {
@@ -29,9 +30,22 @@ namespace PxWeb.Code.Api2.ModelBinder
                 if (key != null) { 
                     string variableName = key.Substring(modelName.Length + 1, key.Length - (modelName.Length + 2));
                     string? q = bindingContext.HttpContext.Request.Query[key];
-                    if (q != null) { 
-                        string[] values = q.Split(new[] { '\u002C' }, StringSplitOptions.RemoveEmptyEntries);
-                        result.Add(variableName, values.ToList());
+                    if (q != null) {
+                        var items = Regex.Split(q, ",(?=[^\\]]*(?:\\[|$))");
+                        var itemsList = new List<string>(); 
+                        foreach (var item in items)
+                        {
+                            var item2 = item.Trim();
+                            if (item.StartsWith("[") && item.EndsWith("]"))
+                            {
+                                itemsList.Add(item.Substring(1, item.Length - 2));
+                            }
+                            else
+                            {
+                                itemsList.Add(item2);
+                            }
+                        }
+                        result.Add(variableName, itemsList);
                     }
                 }
             }
