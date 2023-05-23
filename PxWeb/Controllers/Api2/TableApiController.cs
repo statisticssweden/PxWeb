@@ -182,11 +182,11 @@ namespace PxWeb.Controllers.Api2
             {
                 outputFormat = _configOptions.DefaultOutputFormat;
             }
-            else if (!_configOptions.OutputFormats.Contains(outputFormat))
+            else if (!_configOptions.OutputFormats.Contains(outputFormat, StringComparer.OrdinalIgnoreCase))
             {
                 return BadRequest(UnsupportedOutputFormat());
             }
-
+           
             var serializer = _serializeManager.GetSerializer(outputFormat);
             serializer.Serialize(builder.Model, Response);
 
