@@ -134,6 +134,14 @@ namespace PXWeb.Admin
             textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
             textBoxSelectLicense.Text = dcatSettings.License;
             updateStatusLabel(dcatSettings);
+
+            if (dcatSettings.FileStatus == DcatStatusType.Creating || dcatSettings.FileStatus == DcatStatusType.WaitingCreate) {
+                btnGenerateXML.Enabled = false;
+            }
+            else
+            {
+                btnGenerateXML.Enabled = true;
+            }
         }
 
         private void updateStatusLabel(DcatSettings dcatSettings)
@@ -181,6 +189,7 @@ namespace PXWeb.Admin
                 dcatSettings.FileStatus = DcatStatusType.WaitingCreate;
                 db.Save();
                 updateStatusLabel(dcatSettings);
+                btnGenerateXML.Enabled = false;
 
                 if (PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled)
                 {
