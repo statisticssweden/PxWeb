@@ -11,8 +11,12 @@ namespace PxWeb.Code.Api2.DataSelection
     public class SelectionHandler : ISelectionHandler
     {
         // Regular expressions for selection expression validation
+
         // TOP(xxx), TOP(xxx,yyy), top(xxx) and top(xxx,yyy)
         private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\))$";
+
+        // BOTTOM(xxx), BOTTOM(xxx,yyy), bottom(xxx) and bottom(xxx,yyy)
+        private static string REGEX_BOTTOM = "^(BOTTOM\\([1-9]\\d*\\)|BOTTOM\\([1-9]\\d*,[1-9]\\d*\\))$";
 
         /// <summary>
         /// Get Selection-array for the wanted variables and values
@@ -149,6 +153,10 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyTopExpression(expression);
             }
+            else if (expression.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                return VerifyBottomExpression(expression);
+            }
 
             return false;
         }
@@ -210,13 +218,26 @@ namespace PxWeb.Code.Api2.DataSelection
         }
 
         /// <summary>
+        /// Verifies that the BOTTOM(xxx) or BOTTOM(xxx,yyy) selection expression is valid
+        /// </summary>
+        /// <param name="expression">The BOTTOM selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyBottomExpression(string expression)
+        {
+            return Regex.IsMatch(expression, REGEX_BOTTOM, RegexOptions.IgnoreCase);
+        }
+
+        /// <summary>
         /// Returns true if the value string is a selection expression, else false.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         private bool IsSelectionExpression(string value)
         {
-            return value.Contains('*') || value.Contains('?') || value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase);
+            return value.Contains('*') || 
+                   value.Contains('?') || 
+                   value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase) ||
+                   value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -287,6 +308,10 @@ namespace PxWeb.Code.Api2.DataSelection
                 else if (value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
                     AddTopValues(variable, values, value);
+                }
+                else if (value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase))
+                {
+                    AddBottomValues(variable, values, value);
                 }
                 else if (!values.Contains(value))
                 {
@@ -426,6 +451,45 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
             }
         }
+
+        /// <summary>
+        /// Add values for variable based on BOTTOM(xxx) and BOTTOM(xxx,yyy) selection expression. 
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="expression">The BOTTOM selection expression string</param>
+        private void AddBottomValues(Variable variable, List<string> values, string expression)
+        {
+            int count;
+            int offset;
+
+            if (!GetCountAndOffset(expression, out count, out offset))
+            {
+                return; // Something went wrong
+            }
+
+            var codes = variable.Values.Select(value => value.Code).ToArray();
+
+            if (variable.IsTime)
+            {
+                codes.Sort((a, b) => b.CompareTo(a)); // Descending sort
+            }
+
+            if (codes.Length - offset > 0)
+            {
+                int startIndex = codes.Length - offset - 1;
+                int endIndex = codes.Length - offset - count;
+
+                for (int i = startIndex; i >= endIndex; i--)
+                {
+                    if (i >= 0 && !values.Contains(codes[i]))
+                    {
+                        values.Add(codes[i]);
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Extracts the count and offset from selection expressions like TOP(count), TOP(count,offset), BOTTOM(count), BOTTOM(count,offset)
