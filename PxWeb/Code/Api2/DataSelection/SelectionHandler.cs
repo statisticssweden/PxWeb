@@ -1,6 +1,7 @@
 ﻿using Lucene.Net.Util;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -17,6 +18,9 @@ namespace PxWeb.Code.Api2.DataSelection
 
         // BOTTOM(xxx), BOTTOM(xxx,yyy), bottom(xxx) and bottom(xxx,yyy)
         private static string REGEX_BOTTOM = "^(BOTTOM\\([1-9]\\d*\\)|BOTTOM\\([1-9]\\d*,[1-9]\\d*\\))$";
+
+        // RANGE(xxx,yyy) and range(xxx,yyy)
+        private static string REGEX_RANGE = "^(RANGE\\(([^,]+)\\d*,([^,)]+)\\d*\\))$";
 
         /// <summary>
         /// Get Selection-array for the wanted variables and values
@@ -157,6 +161,10 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyBottomExpression(expression);
             }
+            else if (expression.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                return VerifyRangeExpression(expression);
+            }
 
             return false;
         }
@@ -228,6 +236,16 @@ namespace PxWeb.Code.Api2.DataSelection
         }
 
         /// <summary>
+        /// Verifies that the RANGE(xxx,yyy) selection expression is valid
+        /// </summary>
+        /// <param name="expression">The RANGE selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyRangeExpression(string expression)
+        {
+            return Regex.IsMatch(expression, REGEX_RANGE, RegexOptions.IgnoreCase);
+        }
+
+        /// <summary>
         /// Returns true if the value string is a selection expression, else false.
         /// </summary>
         /// <param name="value"></param>
@@ -237,7 +255,8 @@ namespace PxWeb.Code.Api2.DataSelection
             return value.Contains('*') || 
                    value.Contains('?') || 
                    value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase) ||
-                   value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase);
+                   value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase) ||
+                   value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -312,6 +331,10 @@ namespace PxWeb.Code.Api2.DataSelection
                 else if (value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
                     AddBottomValues(variable, values, value);
+                }
+                else if (value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase))
+                {
+                    AddRangeValues(variable, values, value);
                 }
                 else if (!values.Contains(value))
                 {
@@ -490,6 +513,43 @@ namespace PxWeb.Code.Api2.DataSelection
             }
         }
 
+        /// <summary>
+        /// Add values for variable based on RANGE(xxx,yyy) selection expression. 
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="expression">The RANGE selection expression string</param>
+        private void AddRangeValues(Variable variable, List<string> values, string expression)
+        {
+            string code1 = "";
+            string code2 = "";
+
+            if (!GetRangeCodes(expression, out code1, out code2))
+            {
+                return; // Something went wrong
+            }
+
+            var codes = variable.Values.Select(value => value.Code).ToArray();
+
+            if (variable.IsTime)
+            {
+                codes.Sort((a, b) => b.CompareTo(a)); // Descending sort
+            }
+
+            int index1 = Array.IndexOf(codes, code1);
+            int index2 = Array.IndexOf(codes, code2);
+
+            if (index1 > -1 && index2 > -1 && index2 > index1)
+            {
+                for (int i = index1; i <= index2; i++)
+                {
+                    if (!values.Contains(codes[i]))
+                    {
+                        values.Add(codes[i]);
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Extracts the count and offset from selection expressions like TOP(count), TOP(count,offset), BOTTOM(count), BOTTOM(count,offset)
@@ -536,6 +596,45 @@ namespace PxWeb.Code.Api2.DataSelection
             }
         }
 
+        /// <summary>
+        /// Extracts code1 and code2 from RANGE selection expressions like RANGE(xxx,yyy)
+        /// </summary>
+        /// <param name="expression">The Range selection expression to extract codes from</param>
+        /// <param name="code1">The firts code</param>
+        /// <param name="code2">The second code</param>
+        /// <returns>True if values could be extracted, false if something went wrong</returns>
+        private bool GetRangeCodes(string expression, out string code1, out string code2)
+        {
+            code1 = "";
+            code2 = "";
+
+            try
+            {
+                int firstParanteses = expression.IndexOf('(');
+
+                if (firstParanteses == -1)
+                {
+                    return false;
+                }
+
+                string strCodes = expression.Substring(firstParanteses + 1, expression.Length - (firstParanteses + 2)); // extract the codes
+                string[] codes = strCodes.Split(',', System.StringSplitOptions.RemoveEmptyEntries);
+
+                if (codes.Length != 2)
+                {
+                    return false;   
+                }
+
+                code1 = codes[0];
+                code2 = codes[1];
+
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Get the default selection based on an algorithm
