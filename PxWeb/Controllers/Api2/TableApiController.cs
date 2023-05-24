@@ -177,12 +177,16 @@ namespace PxWeb.Controllers.Api2
             }
             
             builder.BuildForPresentation(selection);
-            
+
             if (outputFormat == null)
             {
                 outputFormat = _configOptions.DefaultOutputFormat;
             }
-
+            else if (!_configOptions.OutputFormats.Contains(outputFormat, StringComparer.OrdinalIgnoreCase))
+            {
+                return BadRequest(UnsupportedOutputFormat());
+            }
+           
             var serializer = _serializeManager.GetSerializer(outputFormat);
             serializer.Serialize(builder.Model, Response);
 
@@ -262,6 +266,16 @@ namespace PxWeb.Controllers.Api2
             p.Detail = "Too many cells selected";
             p.Status = 400;
             p.Title = "Too many cells selected";
+            return p;
+        }
+
+        private Problem UnsupportedOutputFormat() 
+        {
+            Problem p = new Problem();
+            p.Type =  "Parameter error";
+            p.Detail = "Unsupported output format";
+            p.Status = 400;
+            p.Title = "Unsupported output format";
             return p;
         }
 
