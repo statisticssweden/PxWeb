@@ -319,6 +319,23 @@ namespace PxWeb.UnitTests.Data
             }
         }
 
+        [TestMethod]
+        public void ShouldReturnRangeSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("RANGE(0120,0139)"); // 20 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(20, selection.ValueCodes.Count);
+                Assert.AreEqual("0120", selection.ValueCodes[0]);
+                Assert.AreEqual("0139", selection.ValueCodes[19]);
+            }
+        }
 
         // Helper methods
 
