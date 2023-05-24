@@ -337,6 +337,24 @@ namespace PxWeb.UnitTests.Data
             }
         }
 
+        [TestMethod]
+        public void ShouldReturnFromSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("from(0981)"); // 20 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(20, selection.ValueCodes.Count);
+                Assert.AreEqual("0981", selection.ValueCodes[0]);
+                Assert.AreEqual("1000", selection.ValueCodes[19]);
+            }
+        }
+
         // Helper methods
 
 

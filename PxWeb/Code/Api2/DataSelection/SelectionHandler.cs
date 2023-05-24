@@ -22,6 +22,9 @@ namespace PxWeb.Code.Api2.DataSelection
         // RANGE(xxx,yyy) and range(xxx,yyy)
         private static string REGEX_RANGE = "^(RANGE\\(([^,]+)\\d*,([^,)]+)\\d*\\))$";
 
+        // FROM(xxx) and from(xxx)
+        private static string REGEX_FROM = "^(FROM\\(([^,]+)\\d*\\))$";
+
         /// <summary>
         /// Get Selection-array for the wanted variables and values
         /// </summary>
@@ -165,6 +168,10 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyRangeExpression(expression);
             }
+            else if (expression.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                return VerifyFromExpression(expression);
+            }
 
             return false;
         }
@@ -244,6 +251,16 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             return Regex.IsMatch(expression, REGEX_RANGE, RegexOptions.IgnoreCase);
         }
+        
+        /// <summary>
+        /// Verifies that the FROM(xxx) selection expression is valid
+        /// </summary>
+        /// <param name="expression">The FROM selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyFromExpression(string expression)
+        {
+            return Regex.IsMatch(expression, REGEX_FROM, RegexOptions.IgnoreCase);
+        }
 
         /// <summary>
         /// Returns true if the value string is a selection expression, else false.
@@ -256,7 +273,8 @@ namespace PxWeb.Code.Api2.DataSelection
                    value.Contains('?') || 
                    value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase) ||
                    value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase) ||
-                   value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase);
+                   value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase) ||
+                   value.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -335,6 +353,10 @@ namespace PxWeb.Code.Api2.DataSelection
                 else if (value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
                     AddRangeValues(variable, values, value);
+                }
+                else if (value.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase))
+                {
+                    AddFromValues(variable, values, value);
                 }
                 else if (!values.Contains(value))
                 {
@@ -550,6 +572,41 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
             }
         }
+        /// <summary>
+        /// Add values for variable based on FROM(xxx) selection expression. 
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="expression">The FROM selection expression string</param>
+        private void AddFromValues(Variable variable, List<string> values, string expression)
+        {
+            string code = "";
+
+            if (!GetSingleCode(expression, out code))
+            {
+                return; // Something went wrong
+            }
+
+            var codes = variable.Values.Select(value => value.Code).ToArray();
+
+            if (variable.IsTime)
+            {
+                codes.Sort((a, b) => a.CompareTo(b)); // Ascending sort
+            }
+
+            int index1 = Array.IndexOf(codes, code);
+
+            if (index1 > -1)
+            {
+                for (int i = index1; i < codes.Length; i++)
+                {
+                    if (!values.Contains(codes[i]))
+                    {
+                        values.Add(codes[i]);
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Extracts the count and offset from selection expressions like TOP(count), TOP(count,offset), BOTTOM(count), BOTTOM(count,offset)
@@ -602,7 +659,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <param name="expression">The Range selection expression to extract codes from</param>
         /// <param name="code1">The firts code</param>
         /// <param name="code2">The second code</param>
-        /// <returns>True if values could be extracted, false if something went wrong</returns>
+        /// <returns>True if the codes could be extracted, false if something went wrong</returns>
         private bool GetRangeCodes(string expression, out string code1, out string code2)
         {
             code1 = "";
@@ -622,11 +679,40 @@ namespace PxWeb.Code.Api2.DataSelection
 
                 if (codes.Length != 2)
                 {
-                    return false;   
+                    return false;
                 }
 
                 code1 = codes[0];
                 code2 = codes[1];
+
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Extracts the code from selection expressions like FROM(xxx) or TO(xxx)
+        /// </summary>
+        /// <param name="expression">The Range selection expression to extract the code from</param>
+        /// <param name="code">The code</param>
+        /// <returns>True if teh code could be extracted, false if something went wrong</returns>
+        private bool GetSingleCode(string expression, out string code)
+        {
+            code = "";
+
+            try
+            {
+                int firstParanteses = expression.IndexOf('(');
+
+                if (firstParanteses == -1)
+                {
+                    return false;
+                }
+
+                code = expression.Substring(firstParanteses + 1, expression.Length - (firstParanteses + 2)); // extract the code
 
                 return true;
             }
