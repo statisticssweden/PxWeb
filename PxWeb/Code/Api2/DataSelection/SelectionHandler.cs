@@ -25,6 +25,9 @@ namespace PxWeb.Code.Api2.DataSelection
         // FROM(xxx) and from(xxx)
         private static string REGEX_FROM = "^(FROM\\(([^,]+)\\d*\\))$";
 
+        // TO(xxx) and to(xxx)
+        private static string REGEX_TO = "^(TO\\(([^,]+)\\d*\\))$";
+
         /// <summary>
         /// Get Selection-array for the wanted variables and values
         /// </summary>
@@ -172,6 +175,10 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return VerifyFromExpression(expression);
             }
+            else if (expression.StartsWith("TO(", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                return VerifyToExpression(expression);
+            }
 
             return false;
         }
@@ -251,7 +258,7 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             return Regex.IsMatch(expression, REGEX_RANGE, RegexOptions.IgnoreCase);
         }
-        
+
         /// <summary>
         /// Verifies that the FROM(xxx) selection expression is valid
         /// </summary>
@@ -260,6 +267,16 @@ namespace PxWeb.Code.Api2.DataSelection
         private bool VerifyFromExpression(string expression)
         {
             return Regex.IsMatch(expression, REGEX_FROM, RegexOptions.IgnoreCase);
+        }
+
+        /// <summary>
+        /// Verifies that the TO(xxx) selection expression is valid
+        /// </summary>
+        /// <param name="expression">The TO selection expression to validate</param>
+        /// <returns>True if the expression is valid, else false</returns>
+        private bool VerifyToExpression(string expression)
+        {
+            return Regex.IsMatch(expression, REGEX_TO, RegexOptions.IgnoreCase);
         }
 
         /// <summary>
@@ -274,7 +291,8 @@ namespace PxWeb.Code.Api2.DataSelection
                    value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase) ||
                    value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase) ||
                    value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase) ||
-                   value.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase);
+                   value.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase) ||
+                   value.StartsWith("TO(", System.StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -357,6 +375,10 @@ namespace PxWeb.Code.Api2.DataSelection
                 else if (value.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
                     AddFromValues(variable, values, value);
+                }
+                else if (value.StartsWith("TO(", System.StringComparison.InvariantCultureIgnoreCase))
+                {
+                    AddToValues(variable, values, value);
                 }
                 else if (!values.Contains(value))
                 {
@@ -572,6 +594,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
             }
         }
+
         /// <summary>
         /// Add values for variable based on FROM(xxx) selection expression. 
         /// </summary>
@@ -599,6 +622,42 @@ namespace PxWeb.Code.Api2.DataSelection
             if (index1 > -1)
             {
                 for (int i = index1; i < codes.Length; i++)
+                {
+                    if (!values.Contains(codes[i]))
+                    {
+                        values.Add(codes[i]);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Add values for variable based on TO(xxx) selection expression. 
+        /// </summary>
+        /// <param name="variable">Paxiom variable</param>
+        /// <param name="values">List that the values shall be added to</param>
+        /// <param name="expression">The TO selection expression string</param>
+        private void AddToValues(Variable variable, List<string> values, string expression)
+        {
+            string code = "";
+
+            if (!GetSingleCode(expression, out code))
+            {
+                return; // Something went wrong
+            }
+
+            var codes = variable.Values.Select(value => value.Code).ToArray();
+
+            if (variable.IsTime)
+            {
+                codes.Sort((a, b) => a.CompareTo(b)); // Ascending sort
+            }
+
+            int index = Array.IndexOf(codes, code);
+
+            if (index > -1)
+            {
+                for (int i = 0; i <= index; i++)
                 {
                     if (!values.Contains(codes[i]))
                     {

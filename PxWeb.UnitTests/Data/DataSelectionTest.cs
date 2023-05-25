@@ -355,6 +355,25 @@ namespace PxWeb.UnitTests.Data
             }
         }
 
+        [TestMethod]
+        public void ShouldReturnToSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("TO(0025)"); // 25 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(25, selection.ValueCodes.Count);
+                Assert.AreEqual("0001", selection.ValueCodes[0]);
+                Assert.AreEqual("0025", selection.ValueCodes[24]);
+            }
+        }
+
+
         // Helper methods
 
 
