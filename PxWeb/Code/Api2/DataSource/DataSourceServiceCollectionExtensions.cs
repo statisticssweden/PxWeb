@@ -5,6 +5,7 @@ using Px.Abstractions.Interfaces;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
+using System;
 
 namespace PxWeb.Code.Api2.DataSource
 {
@@ -27,7 +28,14 @@ namespace PxWeb.Code.Api2.DataSource
                 builder.Services.AddTransient<IPxFileConfigurationService, PxFileConfigurationService>();
 
                 //Set if strict check of groupings shall be performed or not
-                PCAxis.Paxiom.GroupRegistry.GetRegistry().Strict = true;
+                var strictAggregations = builder.Configuration.GetSection("DataSource:PX:StrictAggregations");
+                bool strict = true;
+                if (strictAggregations != null && strictAggregations.Value != null)
+                {
+                    Boolean.TryParse(strictAggregations.Value, out strict);
+                }
+                PCAxis.Paxiom.GroupRegistry.GetRegistry().Strict = strict;
+
                 //Load aggregations
                 PCAxis.Paxiom.GroupRegistry.GetRegistry().LoadGroupingsAsync();
             }
