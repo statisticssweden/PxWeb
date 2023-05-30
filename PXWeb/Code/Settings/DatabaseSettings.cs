@@ -43,6 +43,11 @@ namespace PXWeb
         private SearchIndexSettings _searchIndexSettings;
 
         /// <summary>
+        /// Dcat settings
+        /// </summary>
+        private DcatSettings _dcatSettings;
+
+        /// <summary>
         /// The protection settings
         /// </summary>
         private ProtectionSettings _protection;
@@ -129,6 +134,10 @@ namespace PXWeb
                 node = SettingsHelper.GetNode(settingsNode, xpath);
                 _searchIndexSettings = new SearchIndexSettings(node);
 
+                xpath = "/settings/dcat";
+                node = SettingsHelper.GetNode(settingsNode, xpath);
+                _dcatSettings = new DcatSettings(node);
+
                 xpath = "/settings/protection";
                 node = SettingsHelper.GetNode(settingsNode, xpath);
                 _protection = new ProtectionSettings(node);
@@ -183,6 +192,10 @@ namespace PXWeb
             xpath = "/settings/searchIndex";
             node = SettingsHelper.GetNode(settingsNode, xpath);
             _searchIndexSettings.Save(node);
+
+            xpath = "/settings/dcat";
+            node = SettingsHelper.GetNode(settingsNode, xpath);
+            _dcatSettings.Save(node);
 
             xpath = "/settings/protection";
             node = SettingsHelper.GetNode(settingsNode, xpath);
@@ -247,6 +260,11 @@ namespace PXWeb
         public ISearchIndexSettings SearchIndex
         {
             get { return _searchIndexSettings; }
+        }
+
+        public IDcatSettings Dcat
+        {
+            get { return _dcatSettings; }
         }
 
         public IProtection Protection

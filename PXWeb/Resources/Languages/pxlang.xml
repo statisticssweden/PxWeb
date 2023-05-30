@@ -857,7 +857,7 @@
 
 
   <sentence name="PxWebAdminMenuToolsLanguageManager" value="Language Manager"/>
-  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Generate XML"/>
+  <sentence name="PxWebAdminMenuToolsXMLGenerator" value="Dcat"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorLanguages" value="Select wanted languages"/>
 	 <sentence name="PxWebAdminMenuToolsReset" value="Reset"/>
 	 <sentence name="PxWebAdminMenuToolsChangePassword" value="Change password"/>
@@ -1167,6 +1167,8 @@
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectLandingPageURLInfo" value="Base URL for the datasets"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectPublisher" value="Publisher"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorSelectPublisherInfo" value="Publisher of the data"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorStatus" value="Status"/>
+	<sentence name="PxWebAdminToolsXMLGeneratorStatusInfo" value="Status for generation of Dcat-XML file for the chosen database"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorLanguageError" value="Error"/>
 	<sentence name="PxWebAdminToolsXMLGeneratorLanguageErrorInfo" value="Chosen preferred language not available for chosen database"/>
 	<sentence name="PxWebAdminToolsGenerateDbSelectDb" value="Generate PX database"/>

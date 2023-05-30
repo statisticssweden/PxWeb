@@ -1,4 +1,6 @@
 === Release of PxWeb 2023 v1 ===
+- Dcat admin tool settings are now saved separately for each database, in the corresponding database.config file
+- Dcat admin tool now uses the BackgroundWorker to run tasks as background processes
 - Upgraded versions of nuget-packages
 - Now possible to set CNMM database rootnode
 - Updated template web.config with new assembly reference and new version number

@@ -29,75 +29,85 @@ namespace PXWeb
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="chartsNode">XML-node for the Dcat settings</param>
-        public DcatSettings(XmlNode chartsNode)
+        /// <param name="node">XML-node for the Dcat settings</param>
+        public DcatSettings(XmlNode node)
         {
             string xpath;
-            XmlNode node;
 
             xpath = "./BaseURI";
-            BaseURI = SettingsHelper.GetSettingValue(xpath, chartsNode, "https://baseURI.com/");
+            BaseURI = SettingsHelper.GetSettingValue(xpath, node, "https://baseURI.com/");
 
             xpath = "./BaseApiUrl";
-            BaseApiUrl = SettingsHelper.GetSettingValue(xpath, chartsNode, "https://baseAPI.com/");
+            BaseApiUrl = SettingsHelper.GetSettingValue(xpath, node, "https://baseAPI.com/");
             
             xpath = "./LandingPageUrl";
-            LandingPageUrl = SettingsHelper.GetSettingValue(xpath, chartsNode, "https://baseLandingPage.com/");
+            LandingPageUrl = SettingsHelper.GetSettingValue(xpath, node, "https://baseLandingPage.com/");
             
             xpath = "./CatalogTitle";
-            CatalogTitle = SettingsHelper.GetSettingValue(xpath, chartsNode, "Catalog title");
+            CatalogTitle = SettingsHelper.GetSettingValue(xpath, node, "Catalog title");
             
             xpath = "./CatalogDescription";
-            CatalogDescription = SettingsHelper.GetSettingValue(xpath, chartsNode, "Catalog description");
+            CatalogDescription = SettingsHelper.GetSettingValue(xpath, node, "Catalog description");
             
             xpath = "./Publisher";
-            Publisher = SettingsHelper.GetSettingValue(xpath, chartsNode, "SCB");
+            Publisher = SettingsHelper.GetSettingValue(xpath, node, "SCB");
             
             xpath = "./Database";
-            Database = SettingsHelper.GetSettingValue(xpath, chartsNode, "Example");
+            Database = SettingsHelper.GetSettingValue(xpath, node, "Example");
             
             xpath = "./DatabaseType";
-            DatabaseType = SettingsHelper.GetSettingValue(xpath, chartsNode, "PX");
+            DatabaseType = SettingsHelper.GetSettingValue(xpath, node, "PX");
             
             xpath = "./License";
-            License = SettingsHelper.GetSettingValue(xpath, chartsNode, "http://creativecommons.org/publicdomain/zero/1.0/");
+            License = SettingsHelper.GetSettingValue(xpath, node, "http://creativecommons.org/publicdomain/zero/1.0/");
+
+            xpath = "./DcatFileStatus";
+            FileStatus = SettingsHelper.GetSettingValue(xpath, node, DcatStatusType.NotCreated);
+
+            xpath = "./FileUpdated";
+            FileUpdated = SettingsHelper.GetSettingValue(xpath, node, "");
         }
 
         /// <summary>
         /// Save Dcat settings to the settings file
         /// </summary>
         /// <param name="generalNode">XML-node for the Dcat settings</param>
-        public void Save(XmlNode chartsNode)
+        public void Save(XmlNode node)
         {
             string xpath;
-            XmlNode node;
 
             xpath = "./BaseURI";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, BaseURI);
+            SettingsHelper.SetSettingValue(xpath, node, BaseURI);
 
             xpath = "./BaseApiUrl";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, BaseApiUrl);
+            SettingsHelper.SetSettingValue(xpath, node, BaseApiUrl);
 
             xpath = "./LandingPageUrl";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, LandingPageUrl);
+            SettingsHelper.SetSettingValue(xpath, node, LandingPageUrl);
 
             xpath = "./CatalogTitle";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, CatalogTitle);
+            SettingsHelper.SetSettingValue(xpath, node, CatalogTitle);
 
             xpath = "./CatalogDescription";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, CatalogDescription);
+            SettingsHelper.SetSettingValue(xpath, node, CatalogDescription);
 
             xpath = "./Publisher";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, Publisher);
+            SettingsHelper.SetSettingValue(xpath, node, Publisher);
 
             xpath = "./Database";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, Database);
+            SettingsHelper.SetSettingValue(xpath, node, Database);
 
             xpath = "./DatabaseType";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, DatabaseType);
+            SettingsHelper.SetSettingValue(xpath, node, DatabaseType);
 
             xpath = "./License";
-            SettingsHelper.SetSettingValue(xpath, chartsNode, License);
+            SettingsHelper.SetSettingValue(xpath, node, License);
+
+            xpath = "./DcatFileStatus";
+            SettingsHelper.SetSettingValue(xpath, node, FileStatus.ToString());
+
+            xpath = "./FileUpdated";
+            SettingsHelper.SetSettingValue(xpath, node, FileUpdated);
         }
 
         public string BaseURI { get; set; }
@@ -109,6 +119,8 @@ namespace PXWeb
         public string Database { get; set; }
         public string DatabaseType { get; set; }
         public string License { get; set; }
+        public DcatStatusType FileStatus { get; set; }
+        public string FileUpdated { get; set; }
         #endregion
     }
 }

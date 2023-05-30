@@ -766,6 +766,44 @@ namespace PXWeb
         }
 
         /// <summary>
+        /// Selects single node from passed XmlNode and returns corresponding DcatStatusType, if the node is not found the given defaultvalue is returned
+        /// </summary>
+        /// <param name="xpath">Expression to select node containing setting value</param>
+        /// <param name="selectionNode">Node to apply xpath expression on</param>
+        /// <param name="defaultValue">Value to return if node is not found or not possible to parse as a DcatStatusType</param>
+        public static DcatStatusType GetSettingValue(string xpath, XmlNode selectionNode, DcatStatusType defaultValue)
+        {
+            DcatStatusType returnValue = defaultValue;
+            XmlNode node = null;
+            if (selectionNode != null)
+            {
+                node = selectionNode.SelectSingleNode(xpath);
+            }
+            if (node != null)
+            {
+                switch (node.InnerText)
+                {
+                    case "Created":
+                        returnValue = DcatStatusType.Created;
+                        break;
+                    case "Creating":
+                        returnValue = DcatStatusType.Creating;
+                        break;
+                    case "NotCreated":
+                        returnValue = DcatStatusType.NotCreated;
+                        break;
+                    case "WaitingCreate":
+                        returnValue = DcatStatusType.WaitingCreate;
+                        break;
+                    default:
+                        returnValue = DcatStatusType.NotCreated;
+                        break;
+                }
+            }
+            return returnValue;
+        }
+
+        /// <summary>
         /// Selects single node from passed XmlNode and returns corresponding SavedQueryStorageType, if the node is not found the given defaultvalue is returned
         /// </summary>
         /// <param name="xpath">Expression to select node containing setting value</param>

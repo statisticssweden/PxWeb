@@ -57,5 +57,9 @@ namespace PXWeb
         /// License for referencing in each dataset
         /// </summary>
         string License { get; }
+
+        string FileUpdated { get; }
+
+        DcatStatusType FileStatus { get; }
     }
 }
