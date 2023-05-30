@@ -25,6 +25,11 @@ namespace PxWeb.Code.Api2.DataSource
                 // Add configuration
                 builder.Services.Configure<PxFileConfigurationOptions>(builder.Configuration.GetSection("DataSource:PX"));
                 builder.Services.AddTransient<IPxFileConfigurationService, PxFileConfigurationService>();
+
+                //Set if strict check of groupings shall be performed or not
+                PCAxis.Paxiom.GroupRegistry.GetRegistry().Strict = true;
+                //Load aggregations
+                PCAxis.Paxiom.GroupRegistry.GetRegistry().LoadGroupingsAsync();
             }
             else
             {
