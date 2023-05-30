@@ -259,6 +259,8 @@ namespace PxWeb.UnitTests.Data
             if (selection != null)
             {
                 Assert.AreEqual(10, selection.ValueCodes.Count);
+                Assert.AreEqual("0001", selection.ValueCodes[0]);
+                Assert.AreEqual("0010", selection.ValueCodes[9]);
             }
         }
 
@@ -275,10 +277,103 @@ namespace PxWeb.UnitTests.Data
             if (selection != null)
             {
                 Assert.AreEqual(5, selection.ValueCodes.Count);
+                Assert.AreEqual("0996", selection.ValueCodes[0]);
+                Assert.AreEqual("1000", selection.ValueCodes[4]);
             }
         }
 
-        
+
+        [TestMethod]
+        public void ShouldReturnBottomSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("bottom(10)"); // 10 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(10, selection.ValueCodes.Count);
+                Assert.AreEqual("0991", selection.ValueCodes[0]);
+                Assert.AreEqual("1000", selection.ValueCodes[9]);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnBottomOffsetSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("bottom(10,995)"); // 5 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(5, selection.ValueCodes.Count);
+                Assert.AreEqual("0001", selection.ValueCodes[0]);
+                Assert.AreEqual("0005", selection.ValueCodes[4]);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnRangeSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("RANGE(0120,0139)"); // 20 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(20, selection.ValueCodes.Count);
+                Assert.AreEqual("0120", selection.ValueCodes[0]);
+                Assert.AreEqual("0139", selection.ValueCodes[19]);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnFromSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("from(0981)"); // 20 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(20, selection.ValueCodes.Count);
+                Assert.AreEqual("0981", selection.ValueCodes[0]);
+                Assert.AreEqual("1000", selection.ValueCodes[19]);
+            }
+        }
+
+        [TestMethod]
+        public void ShouldReturnToSelection()
+        {
+            List<string> valueCodes = new List<string>();
+
+            valueCodes.Add("TO(0025)"); // 25 values
+
+            var selections = GetSelection(valueCodes);
+
+            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+            if (selection != null)
+            {
+                Assert.AreEqual(25, selection.ValueCodes.Count);
+                Assert.AreEqual("0001", selection.ValueCodes[0]);
+                Assert.AreEqual("0025", selection.ValueCodes[24]);
+            }
+        }
+
+
         // Helper methods
 
 
