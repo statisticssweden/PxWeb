@@ -5,11 +5,10 @@ using System.Xml.Linq;
 using System.Text;
 using PCAxis.Menu;
 using PCAxis.Paxiom.Extensions;
-using System.IO;
 using PxWeb.Config.Api2;
-using PCAxis.Paxiom;
 using Px.Abstractions.Interfaces;
 using Microsoft.Extensions.Logging;
+using Px.Search;
 
 namespace PXWeb.Database
 {
@@ -293,7 +292,9 @@ namespace PXWeb.Database
         {
             ItemSelection cid = new ItemSelection(System.IO.Path.GetDirectoryName(path.Substring(_hostingEnvironment.RootPath.Length + 1)), path.Substring(_hostingEnvironment.RootPath.Length + 1));
 
-            TableLink tbl = new TableLink( !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.Matrix ?? "", PresCategory.Official);
+            TableLink tbl = new TableLink(!string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title,
+                meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX,
+                TableStatus.AccessibleToAll, null, meta.GetFirstTimeValue() , meta.GetLastTimeValue(), meta.Matrix ?? "", PresCategory.Official);
             
             int cellCount = 1;
                     for (int i = 0; i < meta.Variables.Count; i++)
