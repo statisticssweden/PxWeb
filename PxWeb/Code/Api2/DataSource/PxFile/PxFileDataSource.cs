@@ -94,14 +94,10 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
         private string GetIdentifierWithoutPath(string id)
         {
-            if (id.Contains('\\'))
-            {
-                return Path.GetFileName(id);
-            }
-            else
-            {
-                return id;
-            }
+            //TODO Removed an if here. Ok ?
+            string myOut = null;
+            myOut = Path.GetFileName(id);
+            return myOut;
         }
 
     }
