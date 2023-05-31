@@ -163,6 +163,7 @@ namespace PxWeb
                 appBuilder.UseCacheMiddleware();
             });
 
+            app.Logger.LogInformation("*********** app.Run() :");
             app.Run();
         }
     }
