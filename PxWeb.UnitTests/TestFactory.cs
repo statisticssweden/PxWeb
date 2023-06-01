@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PCAxis.Menu;
 using PCAxis.Paxiom;
@@ -81,8 +82,11 @@ namespace PxWeb.UnitTests
         {
             PxApiConfigurationOptions pxApiConfigurationOptions = new PxApiConfigurationOptions();
 
+            pxApiConfigurationOptions.MaxDataCells = 100000;
+
             return pxApiConfigurationOptions;   
         }
+
 
         public static PXModel GetPxModel()
         {

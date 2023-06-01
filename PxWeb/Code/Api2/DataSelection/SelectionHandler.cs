@@ -1,6 +1,8 @@
 ﻿using Lucene.Net.Util;
+using Microsoft.Extensions.Options;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
+using PxWeb.Config.Api2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,8 @@ namespace PxWeb.Code.Api2.DataSelection
 {
     public class SelectionHandler : ISelectionHandler
     {
+        private PxApiConfigurationOptions _configOptions;
+
         // Regular expressions for selection expression validation
 
         // TOP(xxx), TOP(xxx,yyy), top(xxx) and top(xxx,yyy)
@@ -28,26 +32,48 @@ namespace PxWeb.Code.Api2.DataSelection
         // TO(xxx) and to(xxx)
         private static string REGEX_TO = "^(TO\\(([^,]+)\\d*\\))$";
 
+        public SelectionHandler(IPxApiConfigurationService configOptionsService)
+        {
+            _configOptions = configOptionsService.GetConfiguration();
+        }
+
         /// <summary>
         /// Get Selection-array for the wanted variables and values
         /// </summary>
         /// <param name="model">Paxiom model</param>
         /// <param name="variablesSelection">VariablesSelection object describing wanted variables and values</param>
-        /// <returns></returns>
-        public Selection[] GetSelection(PXModel model, VariablesSelection? variablesSelection)
+        /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
+        /// <returns>If everything was ok, an array of selection objects, else null</returns>
+        public Selection[]? GetSelection(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
+
+            if (!Verify(model, variablesSelection, out problem))
+            {
+                return null;
+            }
+
+            Selection[]? selections;
+
             if  (variablesSelection is not null && HasSelection(variablesSelection))
             {
                 //Add variables that the user did not post
                 variablesSelection = AddVariables(variablesSelection, model);
 
                 //Map VariablesSelection to PCaxis.Paxiom.Selection[] 
-                return MapCustomizedSelection(model, variablesSelection).ToArray();
+                selections = MapCustomizedSelection(model, variablesSelection).ToArray();
             }
             else
             {
-                return GetDefaultSelection(model);
+                selections = GetDefaultSelection(model);
             }
+
+            if (!CheckNumberOfCells(selections))
+            {
+                selections = null;
+                problem = TooManyCellsSelected();
+            }
+
+            return selections;
 
         }
 
@@ -57,8 +83,8 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <param name="model">Paxiom model</param>
         /// <param name="variablesSelection">The VariablesSelection object to verify</param>
         /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
-        /// <returns></returns>
-        public bool Verify(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
+        /// <returns>True if everything was ok, else false</returns>
+        private bool Verify(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
             problem = null;
 
@@ -1035,6 +1061,35 @@ namespace PxWeb.Code.Api2.DataSelection
             }
         }
 
+
+        private bool CheckNumberOfCells(Selection[] selections)
+        {
+            int cells = CalculateCells(selections);
+
+            if (cells > _configOptions.MaxDataCells)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        private int CalculateCells(Selection[] selection)
+        {
+            int cells = 1;
+
+            foreach (var s in selection)
+            {
+                if (s.ValueCodes.Count > 0)
+                {
+                    cells *= s.ValueCodes.Count;
+                }
+            }
+
+            return cells;
+        }
+
         private Problem NonExistentVariable()
         {
             Problem p = new Problem();
@@ -1068,6 +1123,16 @@ namespace PxWeb.Code.Api2.DataSelection
             p.Type = "Parameter error";
             p.Status = 400;
             p.Title = "Illegal selection expression";
+            return p;
+        }
+
+        private Problem TooManyCellsSelected()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Detail = "Too many cells selected";
+            p.Status = 400;
+            p.Title = "Too many cells selected";
             return p;
         }
 
