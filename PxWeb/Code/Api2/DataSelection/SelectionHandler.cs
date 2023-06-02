@@ -96,7 +96,6 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     Variable? pxVariable = model.Meta.Variables.FirstOrDefault(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper()));
 
-                    //if (!model.Meta.Variables.Any(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper())))
                     if (pxVariable is null)
                     {
                         problem = NonExistentVariable();
@@ -145,7 +144,10 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
                 else if (variable.CodeList.StartsWith("vs_"))
                 {
-
+                    if (!ApplyValueset(builder, pxVariable, variable, out problem))
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
@@ -185,6 +187,37 @@ namespace PxWeb.Code.Api2.DataSelection
             try
             {
                 builder.ApplyGrouping(variable.VariableCode, grpInfo, include);
+            }
+            catch (Exception)
+            {
+                problem = NonExistentCodelist();
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ApplyValueset(IPXModelBuilder builder, Variable pxVariable, VariableSelection variable, out Problem? problem)
+        {
+            problem = null;
+
+            if (string.IsNullOrWhiteSpace(variable.CodeList))
+            {
+                problem = NonExistentCodelist();
+                return false;
+            }
+
+            ValueSetInfo vsInfo = pxVariable.GetValuesetById(variable.CodeList.Replace("vs_", ""));
+
+            if (vsInfo is null)
+            {
+                problem = NonExistentCodelist();
+                return false;
+            }
+
+            try
+            {
+                builder.ApplyValueSet(variable.VariableCode, vsInfo);
             }
             catch (Exception)
             {
