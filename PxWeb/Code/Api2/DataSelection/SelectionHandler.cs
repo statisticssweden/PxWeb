@@ -121,7 +121,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 //Verify variable values
                 if (!VerifyVariableValues(model, variablesSelection, out problem))
                 {
-                    return false;                
+                    return false;
                 }
             }
 
@@ -177,12 +177,12 @@ namespace PxWeb.Code.Api2.DataSelection
                 return false;
             }
 
-            GroupingIncludesType include = GroupingIncludesType.AggregatedValues;
-            
-            if (variable.OutputValues == CodeListOutputValuesType.SingleEnum)
-            {
-                include = GroupingIncludesType.SingleValues;
-            }
+            GroupingIncludesType include = GroupingIncludesType.AggregatedValues; // Always build for aggregated values
+
+            //if (variable.OutputValues == CodeListOutputValuesType.SingleEnum)
+            //{
+            //    include = GroupingIncludesType.SingleValues;
+            //}
 
             try
             {
@@ -484,6 +484,13 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             var selection = new Selection(varSelection.VariableCode);
             var values = new List<string>();
+            bool aggregatedSingle = false;
+            
+            if (variable.CurrentGrouping is not null && varSelection.OutputValues == CodeListOutputValuesType.SingleEnum)
+            {
+                // Single values from aggregation groups shall be added
+                aggregatedSingle = true;
+            }
 
             foreach (var value in varSelection.ValueCodes)
             {
@@ -515,16 +522,57 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     AddToValues(variable, values, value);
                 }
-                else if (!values.Contains(value))
+                else
+                {
+                    AddValue(variable, aggregatedSingle, values, value);
+                }
+                //else if (!values.Contains(value))
+                //{
+                //    values.Add(value);
+                //}
+            }
+
+            if (!aggregatedSingle)
+            {
+                var sortedValues = SortValues(variable, values);
+                selection.ValueCodes.AddRange(sortedValues.ToArray());
+            }
+            else
+            {
+                selection.ValueCodes.AddRange(values.ToArray());
+            }
+
+            return selection;
+        }
+
+        private void AddValue(Variable variable, bool aggregatedSingle, List<string> values, string value)
+        {
+            if (!aggregatedSingle)
+            {
+                if (!values.Contains(value))
                 {
                     values.Add(value);
                 }
             }
+            else
+            {
+                if (variable.CurrentGrouping is not null)
+                {
+                    PCAxis.Paxiom.Group? group = variable.CurrentGrouping.Groups.FirstOrDefault(x => x.GroupCode == value);
 
-            var sortedValues = SortValues(variable, values);
+                    if (group is not null)
+                    {
+                        foreach (var child in group.ChildCodes)
+                        {
+                            if (!values.Contains(child.Code))
+                            {
+                                values.Add(child.Code);
+                            }
+                        }
+                    }
+                }
 
-            selection.ValueCodes.AddRange(sortedValues.ToArray());
-            return selection;
+            }
         }
 
         /// <summary>
