@@ -7,4 +7,4 @@ We are currently working on a version 2 of the API. Read more about it at [https
 ## Installation
 The compiled version is available free of charge for governmental agencies and municipalities, international NSI:s an international organisations of statistics. Please read the terms of use at this page [https://www.scb.se/pxweb](https://www.scb.se/pxweb). 
 
-If you like to get access to the compiled version of the source, ready to install in your environment, please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
+If you like to get access to the compiled version of the source, ready to install in your environment, please send a mail to [px@scb.se](mailto:px@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
