@@ -6,4 +6,6 @@ We are currently porting the core part of PxWeb, which we call Px framework to .
 Please head over to the netstandard branch to see the activities.
 
 ## Installation
-If you are looking for a compiled version of the source, ready to install in your environment. Then please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
+The compiled version is available free of charge for governmental agencies and municipalities, international NSI:s an international organisations of statistics. Please read the terms of use at this page [https://www.scb.se/pxweb](https://www.scb.se/pxweb). 
+
+If you like to get access to the compiled version of the source, ready to install in your environment, please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
