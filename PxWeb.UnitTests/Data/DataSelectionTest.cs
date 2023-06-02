@@ -27,7 +27,8 @@ namespace PxWeb.UnitTests.Data
             SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
             Problem? problem;
-            Selection[]? selections = selectionHandler.GetSelection(model, variablesSelection, out problem);
+            var builderMock = new Mock<IPXModelBuilder>();
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -76,7 +77,8 @@ namespace PxWeb.UnitTests.Data
             SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
             Problem? problem;
-            Selection[]? selections = selectionHandler.GetSelection(model, variablesSelection, out problem);
+            var builderMock = new Mock<IPXModelBuilder>();
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -126,7 +128,8 @@ namespace PxWeb.UnitTests.Data
             SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
             Problem? problem;
-            Selection[]? selections = selectionHandler.GetSelection(model, variablesSelection, out problem);
+            var builderMock = new Mock<IPXModelBuilder>();
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -176,7 +179,8 @@ namespace PxWeb.UnitTests.Data
             SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
             Problem? problem;
-            Selection[]? selections = selectionHandler.GetSelection(model, variablesSelection, out problem);
+            var builderMock = new Mock<IPXModelBuilder>();
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -575,7 +579,8 @@ namespace PxWeb.UnitTests.Data
             variablesSelection.Selection.Add(varSelection);
 
             Problem? problem;
-            Selection[]? selections = selectionHandler.GetSelection(model, variablesSelection, out problem);
+            var builderMock = new Mock<IPXModelBuilder>();
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
             return selections;
         }
 

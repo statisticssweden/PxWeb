@@ -40,14 +40,14 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <summary>
         /// Get Selection-array for the wanted variables and values
         /// </summary>
+        /// <param name="builder">Paxiom model builder</param>
         /// <param name="model">Paxiom model</param>
         /// <param name="variablesSelection">VariablesSelection object describing wanted variables and values</param>
         /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
         /// <returns>If everything was ok, an array of selection objects, else null</returns>
-        public Selection[]? GetSelection(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
+        public Selection[]? GetSelection(IPXModelBuilder builder, PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
-
-            if (!Verify(model, variablesSelection, out problem))
+            if (!VerifyAndApplyCodelists(builder, model, variablesSelection, out problem))
             {
                 return null;
             }
@@ -78,25 +78,34 @@ namespace PxWeb.Code.Api2.DataSelection
         }
 
         /// <summary>
-        /// Verify that VariablesSelection object has valid variables and values
+        /// Verify that VariablesSelection object has valid variables and values. Also applies codelists.
         /// </summary>
+        /// <param name="builder">Paxiom model builder</param>
         /// <param name="model">Paxiom model</param>
-        /// <param name="variablesSelection">The VariablesSelection object to verify</param>
+        /// <param name="variablesSelection">The VariablesSelection object to verify and apply codelists for</param>
         /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
         /// <returns>True if everything was ok, else false</returns>
-        private bool Verify(PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
+        private bool VerifyAndApplyCodelists(IPXModelBuilder builder, PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
         {
             problem = null;
-
+            
             if (variablesSelection is not null && HasSelection(variablesSelection))
             {
                 //Verify that variable exists
                 foreach (var variable in variablesSelection.Selection)
                 {
-                    if (!model.Meta.Variables.Any(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper())))
+                    Variable? pxVariable = model.Meta.Variables.FirstOrDefault(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper()));
+
+                    //if (!model.Meta.Variables.Any(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper())))
+                    if (pxVariable is null)
                     {
                         problem = NonExistentVariable();
                         return false;
+                    }
+
+                    if (!ApplyCodelist(builder, pxVariable, variable, out problem))
+                    {  
+                        return false; 
                     }
                 }
 
@@ -119,6 +128,73 @@ namespace PxWeb.Code.Api2.DataSelection
 
             return true;
         }
+
+
+        private bool ApplyCodelist(IPXModelBuilder builder, Variable pxVariable, VariableSelection variable, out Problem? problem)
+        {
+            problem = null;
+
+            if (!string.IsNullOrWhiteSpace(variable.CodeList))
+            {
+                if (variable.CodeList.StartsWith("agg_"))
+                {
+                    if (!ApplyGrouping(builder, pxVariable, variable, out problem))
+                    {
+                        return false;
+                    }
+                }
+                else if (variable.CodeList.StartsWith("vs_"))
+                {
+
+                }
+                else
+                {
+                    problem = NonExistentCodelist();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool ApplyGrouping(IPXModelBuilder builder, Variable pxVariable, VariableSelection variable, out Problem? problem)
+        {
+            problem = null;
+
+            if (string.IsNullOrWhiteSpace(variable.CodeList))
+            {
+                problem = NonExistentCodelist();
+                return false; 
+            }
+
+            GroupingInfo grpInfo = pxVariable.GetGroupingInfoById(variable.CodeList.Replace("agg_", ""));
+
+            if (grpInfo is null)
+            {
+                problem = NonExistentCodelist();
+                return false;
+            }
+
+            GroupingIncludesType include = GroupingIncludesType.AggregatedValues;
+            
+            if (variable.OutputValues == CodeListOutputValuesType.SingleEnum)
+            {
+                include = GroupingIncludesType.SingleValues;
+            }
+
+            try
+            {
+                builder.ApplyGrouping(variable.VariableCode, grpInfo, include);
+            }
+            catch (Exception)
+            {
+                problem = NonExistentCodelist();
+                return false;
+            }
+
+            return true;
+        }
+
 
         /// <summary>
         /// Verify that the wanted variable values has valid codes
@@ -1096,6 +1172,15 @@ namespace PxWeb.Code.Api2.DataSelection
             p.Type = "Parameter error";
             p.Status = 400;
             p.Title = "Non-existent variable";
+            return p;
+        }
+
+        private Problem NonExistentCodelist()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 400;
+            p.Title = "Non-existent codelist";
             return p;
         }
 

@@ -162,7 +162,7 @@ namespace PxWeb.Controllers.Api2
 
             builder.BuildForSelection();
 
-            var selection = _selectionHandler.GetSelection(builder.Model, variablesSelection, out problem);
+            var selection = _selectionHandler.GetSelection(builder, builder.Model, variablesSelection, out problem);
 
             if (problem is not null)
             {
