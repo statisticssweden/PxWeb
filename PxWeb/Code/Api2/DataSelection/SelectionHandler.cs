@@ -1,4 +1,5 @@
-﻿using Lucene.Net.Util;
+﻿//using DocumentFormat.OpenXml.Spreadsheet;
+using Lucene.Net.Util;
 using Microsoft.Extensions.Options;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
@@ -18,10 +19,10 @@ namespace PxWeb.Code.Api2.DataSelection
         // Regular expressions for selection expression validation
 
         // TOP(xxx), TOP(xxx,yyy), top(xxx) and top(xxx,yyy)
-        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[1-9]\\d*\\))$";
+        private static string REGEX_TOP = "^(TOP\\([1-9]\\d*\\)|TOP\\([1-9]\\d*,[0-9]\\d*\\))$";
 
         // BOTTOM(xxx), BOTTOM(xxx,yyy), bottom(xxx) and bottom(xxx,yyy)
-        private static string REGEX_BOTTOM = "^(BOTTOM\\([1-9]\\d*\\)|BOTTOM\\([1-9]\\d*,[1-9]\\d*\\))$";
+        private static string REGEX_BOTTOM = "^(BOTTOM\\([1-9]\\d*\\)|BOTTOM\\([1-9]\\d*,[0-9]\\d*\\))$";
 
         // RANGE(xxx,yyy) and range(xxx,yyy)
         private static string REGEX_RANGE = "^(RANGE\\(([^,]+)\\d*,([^,)]+)\\d*\\))$";
@@ -496,19 +497,19 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 if (value.Contains('*'))
                 {
-                    AddWildcardStarValues(variable, values, value);
+                    AddWildcardStarValues(variable, aggregatedSingle, values, value);
                 }
                 else if (value.Contains('?'))
                 {
-                    AddWildcardQuestionmarkValues(variable, values, value);
+                    AddWildcardQuestionmarkValues(variable, aggregatedSingle, values, value);
                 }
                 else if (value.StartsWith("TOP(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    AddTopValues(variable, values, value);
+                    AddTopValues(variable, aggregatedSingle, values, value);
                 }
                 else if (value.StartsWith("BOTTOM(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    AddBottomValues(variable, values, value);
+                    AddBottomValues(variable, aggregatedSingle, values, value);
                 }
                 else if (value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -526,10 +527,6 @@ namespace PxWeb.Code.Api2.DataSelection
                 {
                     AddValue(variable, aggregatedSingle, values, value);
                 }
-                //else if (!values.Contains(value))
-                //{
-                //    values.Add(value);
-                //}
             }
 
             if (!aggregatedSingle)
@@ -600,7 +597,6 @@ namespace PxWeb.Code.Api2.DataSelection
                     sortedValues.Add(value.Code);
                 }
             }
-
             return sortedValues;    
         }
 
@@ -608,9 +604,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on wildcard * selection. * represents 0 to many characters.
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="wildcard">The wildcard string</param>
-        private void AddWildcardStarValues(Variable variable, List<string> values, string wildcard)
+        private void AddWildcardStarValues(Variable variable, bool aggregatedSingle, List<string> values, string wildcard)
         {
             if (wildcard.Equals("*"))
             {
@@ -618,10 +615,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 var variableValues = variable.Values.Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
-                    if (!values.Contains(variableValue))
-                    {
-                        values.Add(variableValue);
-                    }
+                    AddValue(variable, aggregatedSingle, values, variableValue);
                 }
             }
             else if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
@@ -629,10 +623,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 var variableValues = variable.Values.Where(v => v.Code.Contains(wildcard.Substring(1, wildcard.Length - 2))).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
-                    if (!values.Contains(variableValue))
-                    {
-                        values.Add(variableValue);
-                    }
+                    AddValue(variable, aggregatedSingle, values, variableValue);
                 }
             }
             else if (wildcard.StartsWith("*"))
@@ -640,10 +631,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 var variableValues = variable.Values.Where(v => v.Code.EndsWith(wildcard.Substring(1))).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
-                    if (!values.Contains(variableValue))
-                    {
-                        values.Add(variableValue);
-                    }
+                    AddValue(variable, aggregatedSingle, values, variableValue);
                 }
             }
             else if (wildcard.EndsWith("*"))
@@ -651,10 +639,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 var variableValues = variable.Values.Where(v => v.Code.StartsWith(wildcard.Substring(0, wildcard.Length - 1))).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
-                    if (!values.Contains(variableValue))
-                    {
-                        values.Add(variableValue);
-                    }
+                    AddValue(variable, aggregatedSingle, values, variableValue);
                 }
             }
         }
@@ -663,18 +648,16 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on wildcard ? selection. ? reperesent any 1 character.
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="wildcard">The wildcard string</param>
-        private void AddWildcardQuestionmarkValues(Variable variable, List<string> values, string wildcard)
+        private void AddWildcardQuestionmarkValues(Variable variable, bool aggregatedSingle, List<string> values, string wildcard)
         {
             string regexPattern = string.Concat("^", Regex.Escape(wildcard).Replace("\\?", "."), "$");
             var variableValues = variable.Values.Where(v => Regex.IsMatch(v.Code, regexPattern)).Select(v => v.Code);
             foreach (var variableValue in variableValues)
             {
-                if (!values.Contains(variableValue))
-                {
-                    values.Add(variableValue);
-                }
+                AddValue(variable, aggregatedSingle, values, variableValue);
             }
         }
 
@@ -682,9 +665,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on TOP(xxx) and TOP(xxx,yyy) selection expression. 
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="expression">The TOP selection expression string</param>
-        private void AddTopValues(Variable variable, List<string> values, string expression)
+        private void AddTopValues(Variable variable, bool aggregatedSingle, List<string> values, string expression)
         {
             int count;
             int offset;
@@ -703,9 +687,9 @@ namespace PxWeb.Code.Api2.DataSelection
 
             for (int i = (0 + offset); i < (count + offset); i++)
             {
-                if (i < codes.Length && !values.Contains(codes[i]))
+                if (i < codes.Length)
                 {
-                    values.Add(codes[i]);
+                    AddValue(variable, aggregatedSingle, values, codes[i]);
                 }
             }
         }
@@ -714,9 +698,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on BOTTOM(xxx) and BOTTOM(xxx,yyy) selection expression. 
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="expression">The BOTTOM selection expression string</param>
-        private void AddBottomValues(Variable variable, List<string> values, string expression)
+        private void AddBottomValues(Variable variable, bool aggregatedSingle, List<string> values, string expression)
         {
             int count;
             int offset;
@@ -740,9 +725,13 @@ namespace PxWeb.Code.Api2.DataSelection
 
                 for (int i = startIndex; i >= endIndex; i--)
                 {
-                    if (i >= 0 && !values.Contains(codes[i]))
+                    //if (i >= 0 && !values.Contains(codes[i]))
+                    //{
+                    //    values.Add(codes[i]);
+                    //}
+                    if (i >= 0)
                     {
-                        values.Add(codes[i]);
+                        AddValue(variable, aggregatedSingle, values, codes[i]);
                     }
                 }
             }
