@@ -60,7 +60,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 variablesSelection = AddVariables(variablesSelection, model);
 
                 //Map VariablesSelection to PCaxis.Paxiom.Selection[] 
-                selections = MapCustomizedSelection(model, variablesSelection).ToArray();
+                selections = MapCustomizedSelection(builder, model, variablesSelection).ToArray();
             }
             else
             {
@@ -461,14 +461,14 @@ namespace PxWeb.Code.Api2.DataSelection
         /// </summary>
         /// <param name="variablesSelection"></param>
         /// <returns></returns>
-        private Selection[] MapCustomizedSelection(PXModel model, VariablesSelection variablesSelection)
+        private Selection[] MapCustomizedSelection(IPXModelBuilder builder, PXModel model, VariablesSelection variablesSelection)
         {
             var selections = new List<Selection>();
 
             foreach (var varSelection in variablesSelection.Selection)
             {
                 var variable = model.Meta.Variables.GetByCode(varSelection.VariableCode);
-                selections.Add(GetSelection(variable, varSelection));
+                selections.Add(GetSelection(builder, variable, varSelection));
             }
 
             return selections.ToArray();
@@ -480,7 +480,7 @@ namespace PxWeb.Code.Api2.DataSelection
         /// <param name="variable">Paxiom variable</param>
         /// <param name="varSelection">VariableSelection object with wanted values from user</param>
         /// <returns></returns>
-        private Selection GetSelection(Variable variable, VariableSelection varSelection)
+        private Selection GetSelection(IPXModelBuilder builder, Variable variable, VariableSelection varSelection)
         {
             var selection = new Selection(varSelection.VariableCode);
             var values = new List<string>();
@@ -540,6 +540,14 @@ namespace PxWeb.Code.Api2.DataSelection
             else
             {
                 selection.ValueCodes.AddRange(values.ToArray());
+            }
+
+            if (aggregatedSingle)
+            {
+                // Need to restore original values before trying to get data
+                ValueSetInfo vsInfo = new ValueSetInfo();
+                vsInfo.ID = "_ALL_";
+                builder.ApplyValueSet(selection.VariableCode, vsInfo);
             }
 
             return selection;
