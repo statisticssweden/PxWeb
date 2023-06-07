@@ -513,15 +513,15 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
                 else if (value.StartsWith("RANGE(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    AddRangeValues(variable, values, value);
+                    AddRangeValues(variable, aggregatedSingle, values, value);
                 }
                 else if (value.StartsWith("FROM(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    AddFromValues(variable, values, value);
+                    AddFromValues(variable, aggregatedSingle, values, value);
                 }
                 else if (value.StartsWith("TO(", System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    AddToValues(variable, values, value);
+                    AddToValues(variable, aggregatedSingle, values, value);
                 }
                 else
                 {
@@ -725,10 +725,6 @@ namespace PxWeb.Code.Api2.DataSelection
 
                 for (int i = startIndex; i >= endIndex; i--)
                 {
-                    //if (i >= 0 && !values.Contains(codes[i]))
-                    //{
-                    //    values.Add(codes[i]);
-                    //}
                     if (i >= 0)
                     {
                         AddValue(variable, aggregatedSingle, values, codes[i]);
@@ -741,9 +737,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on RANGE(xxx,yyy) selection expression. 
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="expression">The RANGE selection expression string</param>
-        private void AddRangeValues(Variable variable, List<string> values, string expression)
+        private void AddRangeValues(Variable variable, bool aggregatedSingle, List<string> values, string expression)
         {
             string code1 = "";
             string code2 = "";
@@ -757,7 +754,7 @@ namespace PxWeb.Code.Api2.DataSelection
 
             if (variable.IsTime)
             {
-                codes.Sort((a, b) => b.CompareTo(a)); // Descending sort
+                codes.Sort((a, b) => a.CompareTo(b)); // Ascending sort
             }
 
             int index1 = Array.IndexOf(codes, code1);
@@ -767,10 +764,7 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 for (int i = index1; i <= index2; i++)
                 {
-                    if (!values.Contains(codes[i]))
-                    {
-                        values.Add(codes[i]);
-                    }
+                    AddValue(variable, aggregatedSingle, values, codes[i]);
                 }
             }
         }
@@ -779,9 +773,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on FROM(xxx) selection expression. 
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="expression">The FROM selection expression string</param>
-        private void AddFromValues(Variable variable, List<string> values, string expression)
+        private void AddFromValues(Variable variable, bool aggregatedSingle, List<string> values, string expression)
         {
             string code = "";
 
@@ -803,10 +798,7 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 for (int i = index1; i < codes.Length; i++)
                 {
-                    if (!values.Contains(codes[i]))
-                    {
-                        values.Add(codes[i]);
-                    }
+                    AddValue(variable, aggregatedSingle, values, codes[i]);
                 }
             }
         }
@@ -815,9 +807,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Add values for variable based on TO(xxx) selection expression. 
         /// </summary>
         /// <param name="variable">Paxiom variable</param>
+        /// <param name="aggregatedSingle">Indicates if single values from aggregation groups shall be added</param>
         /// <param name="values">List that the values shall be added to</param>
         /// <param name="expression">The TO selection expression string</param>
-        private void AddToValues(Variable variable, List<string> values, string expression)
+        private void AddToValues(Variable variable, bool aggregatedSingle, List<string> values, string expression)
         {
             string code = "";
 
@@ -839,10 +832,7 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 for (int i = 0; i <= index; i++)
                 {
-                    if (!values.Contains(codes[i]))
-                    {
-                        values.Add(codes[i]);
-                    }
+                    AddValue(variable, aggregatedSingle, values, codes[i]);
                 }
             }
         }
