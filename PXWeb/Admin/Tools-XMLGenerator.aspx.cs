@@ -45,6 +45,11 @@ namespace PXWeb.Admin
                 ddl.Items.Add(new ListItem(db.Id, db.Id));
             }
         }
+
+        protected void createLanguageSettings()
+        {
+            List<string> languages = PXWeb.Settings.Current.General.Language.SiteLanguages.Select(x => x.Name).ToList();
+        }
         protected void cboSelectDbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboSelectDbType.SelectedItem.Value == "PX") fillPxDatabases(cboSelectDb);
@@ -130,8 +135,8 @@ namespace PXWeb.Admin
             textBoxSelectApiURL.Text = dcatSettings.BaseApiUrl;
             textBoxSelectLandingPageURL.Text = dcatSettings.LandingPageUrl;
             textBoxSelectPublisher.Text = dcatSettings.Publisher;
-            textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
-            textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
+            // textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
+            // textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
             textBoxSelectLicense.Text = dcatSettings.License;
             updateStatusLabel(dcatSettings);
 
@@ -142,6 +147,18 @@ namespace PXWeb.Admin
             {
                 btnGenerateXML.Enabled = true;
             }
+
+            var langSettings = from l in Settings.Current.General.Language.SiteLanguages
+                       select new
+                       {
+                           Id = l.Name,
+                           Name = new CultureInfo(l.Name).EnglishName,
+                           Title = "Catalog title",
+                           Description = "Catalog description"
+                       };
+
+            dcatLanguageSpecificSettings.DataSource = langSettings;
+            dcatLanguageSpecificSettings.DataBind();
         }
 
         private void updateStatusLabel(DcatSettings dcatSettings)
@@ -162,8 +179,8 @@ namespace PXWeb.Admin
             dcats.BaseApiUrl = textBoxSelectApiURL.Text;
             dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
             dcats.Publisher = textBoxSelectPublisher.Text;
-            dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
-            dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
+            // dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
+            // dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
             dcats.License = textBoxSelectLicense.Text;
             dcats.Database = cboSelectDb.Text;
             dcats.DatabaseType = cboSelectDbType.Text;
