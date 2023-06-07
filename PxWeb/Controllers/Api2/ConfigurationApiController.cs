@@ -21,7 +21,6 @@ namespace PxWeb.Controllers.Api2
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private readonly IIpRateLimitingConfigurationService _rateLimitConfigurationService;
         private readonly ILogger<ConfigurationApiController> _logger;
-        private const int TimeWindow = 10;
         public ConfigurationApiController(IPxApiConfigurationService pxApiConfigurationService, IIpRateLimitingConfigurationService rateLimitConfigurationService, ILogger<ConfigurationApiController> logger)
         {
             _pxApiConfigurationService = pxApiConfigurationService;
@@ -38,19 +37,34 @@ namespace PxWeb.Controllers.Api2
             //// return StatusCode(429, default(Problem));
             try
             {
-                int timeWindow = TimeWindow;
+                int timeWindow = 10; 
                 int maxCallsPerTimeWindow = 30;
                 var op = _pxApiConfigurationService.GetConfiguration();
                 var rateLimitOp = _rateLimitConfigurationService.GetConfiguration();
                 try
                 {
+                    //Set the default values for time window and max calls per time window
+                    var generalRulesDefault = new GeneralRules();
+                    maxCallsPerTimeWindow = generalRulesDefault.Limit;                   
+                    int timeWindowDef = GetTimeWindowInSek(generalRulesDefault.Period);
+                    timeWindowDef = timeWindowDef < 0 ? timeWindow : timeWindowDef;
+
+                    //Set the values for time window and max calls per time window if they exist in appsetting
                     var generalRules = rateLimitOp.GeneralRules.Where(x => x.Endpoint == "*").First();
                     timeWindow = GetTimeWindowInSek(generalRules.Period);
-                    maxCallsPerTimeWindow = generalRules.Limit;
+
+                    if (timeWindow < 0)
+                    {
+                        timeWindow = timeWindowDef;
+                    }
+                    else 
+                    {
+                        maxCallsPerTimeWindow = generalRules.Limit;
+                    }                    
                 }
                 catch (Exception ex)
                 {
-
+                    //Use default values for timewindow and maxCalls if an exeption occurs
                 }
 
                 var configResponse = new ConfigResponse
@@ -92,27 +106,28 @@ namespace PxWeb.Controllers.Api2
             return StatusCode(500, new Problem() { Status = 500, Title = "Something went wrong fetching the API configuration", Type = "https://TODO/ConfigError", });
         }
 
-        private int GetTimeWindowInSek(string timeWindowRuel)
+        private int GetTimeWindowInSek(string timeWindowRuel )
         {
             string periodFormText = timeWindowRuel.ToLower()[timeWindowRuel.Length-1].ToString();
             string periodFormTime = timeWindowRuel.Remove(timeWindowRuel.Length - 1, 1);
             int time;
-            if(int.TryParse(periodFormTime, out time))
-
-            switch (periodFormText)
+            if (int.TryParse(periodFormTime, out time))
             {
-                case "s":                         
+                switch (periodFormText)
+                {
+                    case "s":
                         return time;
-                case "m": 
+                    case "m":
                         return time * 60;
-                case "h": 
+                    case "h":
                         return time * 3600;
-                case "d": 
-                    return time * 86400;
-                default:
-                    return TimeWindow;
-            }
-            return TimeWindow;            
+                    case "d":
+                        return time * 86400;
+                    default:
+                        return -1;
+                }
+            }            
+            return -1;            
         }
 
     }
