@@ -46,7 +46,6 @@ namespace PxWeb.Controllers.Api2
                 int timeWindow = DefaultTimeWindow; 
                 int maxCallsPerTimeWindow = DefaultMaxCallsPerTimeWindow;
                 var op = _pxApiConfigurationService.GetConfiguration();
-                // var rateLimitOp = _rateLimitConfigurationService.GetConfiguration();
 
                 try
                 {
