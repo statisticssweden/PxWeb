@@ -204,6 +204,15 @@ namespace PXWeb.Admin
         protected global::System.Web.UI.WebControls.ImageButton imgSelectPublisher;
 
         /// <summary>
+        /// dcatLanguageSpecificSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater dcatLanguageSpecificSettings;
+
+        /// <summary>
         /// lblStatus control.
         /// </summary>
         /// <remarks>
@@ -229,15 +238,6 @@ namespace PXWeb.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgStatus;
-
-        /// <summary>
-        /// dcatLanguageSpecificSettings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater dcatLanguageSpecificSettings;
 
         /// <summary>
         /// btnGenerateXML control.

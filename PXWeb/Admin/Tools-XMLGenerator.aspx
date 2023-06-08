@@ -40,16 +40,12 @@
         <asp:TextBox ID="textBoxSelectPublisher" runat="server"></asp:TextBox>
         <asp:ImageButton ID="imgSelectPublisher" runat="server" onclick="imgSelectPublisher_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
-        <div class="setting-field">
-        <asp:Label ID="lblStatus" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorStatus %>">"></asp:Label>
-        <asp:Label ID="lblStatusValue" runat="server" Text="NotCreated"></asp:Label>
-        <asp:ImageButton ID="imgStatus" runat="server" onclick="imgStatus_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
-    </div>
 
     <div class="setting-field">
         <asp:Repeater ID="dcatLanguageSpecificSettings" runat="server">
             <ItemTemplate>
                 <div class="dcatLanguageSpecific">
+                    <asp:HiddenField ID="hidSetting" runat="server" value='<%# Bind("Id") %>' />
                     <asp:Label ID="lblSiteLanguages" runat="server" Text="<%$ PxString: PxWebAdminSettingsLanguageSiteLanguages %>"></asp:Label>
                     <asp:Label ID="lblLanguage" runat="server" CssClass="dcatTextLanguage" Text=<%# Eval("Name") %>></asp:Label>
                 </div>
@@ -75,6 +71,13 @@
         </asp:Repeater>
 
     </div>
+
+    <div class="setting-field">
+        <asp:Label ID="lblStatus" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorStatus %>">"></asp:Label>
+        <asp:Label ID="lblStatusValue" runat="server" Text="NotCreated"></asp:Label>
+        <asp:ImageButton ID="imgStatus" runat="server" onclick="imgStatus_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+    </div>
+
      <div class="setting-field">
          <asp:Button ID="btnGenerateXML" CssClass="dcatGenerateBtn" OnClick="btnGenerateXML_Click" runat="server" Text="<%$ PxString: PxWebAdminGenerateButton %>" />
     </div>

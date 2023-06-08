@@ -347,8 +347,8 @@ namespace PXWeb.BackgroundWorker
 
                 Languages = languages,
 
-                CatalogTitle = dcat.CatalogTitle,
-                CatalogDescription = dcat.CatalogDescription,
+                //CatalogTitle = dcat.CatalogTitle,
+                //CatalogDescription = dcat.CatalogDescription,
 
                 PublisherName = dcat.Publisher,
                 DBid = dbid,

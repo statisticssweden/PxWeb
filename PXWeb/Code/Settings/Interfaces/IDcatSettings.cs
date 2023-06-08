@@ -27,14 +27,9 @@ namespace PXWeb
         string LandingPageUrl { get; }
 
         /// <summary>
-        /// Title of the catalog
+        /// Settings that are different for each language
         /// </summary>
-        string CatalogTitle { get; }
-
-        /// <summary>
-        /// Description of the catalog
-        /// </summary>
-        string CatalogDescription { get; }
+        IEnumerable<IDcatLanguageSpecificSettings> LanguageSpecificSettings { get; }
 
         /// <summary>
         /// Publisher of the catalog
