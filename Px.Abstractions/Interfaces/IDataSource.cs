@@ -29,6 +29,13 @@ namespace Px.Abstractions.Interfaces
         /// <returns></returns>
         bool TableExists(string tableId, string language);
 
-        //string GetSource(IDatabaseInfo dbi, PCAxis.Paxiom.PXModel model, string language);
+
+        ///// <summary>
+        ///// Get a codelist by id and language
+        ///// </summary>
+        ///// <param name="id">id for the code list</param>
+        ///// <param name="language">codelist with texts for a specific language</param>
+        ///// <returns></returns>
+        //Codelist GetCodelist(string id, string language);
     }
 }
