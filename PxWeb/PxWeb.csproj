@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Config\Api2\GeneralRules.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="databases.config" />
     <Content Remove="setting.config" />
   </ItemGroup>

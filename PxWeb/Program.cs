@@ -28,8 +28,7 @@ using PxWeb.Code.Api2.Cache;
 using System.Text;
 using PxWeb.Code;
 using PxWeb.Code.Api2.Serialization;
-using PxWeb.Code.BackgroundWorker;
-using PxWeb.Code.Api2.DataSelection;
+using PxWeb.Code.BackgroundWorker;;
 
 namespace PxWeb
 {
@@ -71,12 +70,11 @@ namespace PxWeb
             builder.Services.AddPxDataSource(builder);
 
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
-            builder.Services.Configure<IpRateLimitingConfigurationOptions>(builder.Configuration.GetSection("IpRateLimiting"));
             builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
             builder.Services.Configure<CacheMiddlewareConfigurationOptions>(builder.Configuration.GetSection("CacheMiddleware"));
-
-            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
-            builder.Services.AddTransient<IIpRateLimitingConfigurationService, IpRateLimitingConfigurationService>();
+            builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+            
+            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();            
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ICacheMiddlewareConfigurationService, CacheMiddlewareConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
@@ -86,6 +84,7 @@ namespace PxWeb
             builder.Services.AddTransient<ITableResponseMapper, TableResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
             builder.Services.AddTransient<ISerializeManager, SerializeManager>();
+            
 
             builder.Services.AddHostedService<LongRunningService>();
             builder.Services.AddSingleton<BackgroundWorkerQueue>();

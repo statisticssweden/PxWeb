@@ -10,8 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using AspNetCoreRateLimit;
 using System.Security.Cryptography.X509Certificates;
 using Language = PxWeb.Api2.Server.Models.Language;
+using System.Reflection.Metadata;
+using Microsoft.Extensions.Options;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -19,12 +22,15 @@ namespace PxWeb.Controllers.Api2
     public class ConfigurationApiController : PxWeb.Api2.Server.Controllers.ConfigurationApiController
     {
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
-        private readonly IIpRateLimitingConfigurationService _rateLimitConfigurationService;
+        private readonly IpRateLimitOptions _rateLimitOptions;
         private readonly ILogger<ConfigurationApiController> _logger;
-        public ConfigurationApiController(IPxApiConfigurationService pxApiConfigurationService, IIpRateLimitingConfigurationService rateLimitConfigurationService, ILogger<ConfigurationApiController> logger)
+        private const int DefaultTimeWindow = 0;
+        private const int DefaultMaxCallsPerTimeWindow = 0;
+        public ConfigurationApiController(IPxApiConfigurationService pxApiConfigurationService, IOptions<IpRateLimitOptions> rateLimitOptions, 
+                ILogger<ConfigurationApiController> logger)
         {
             _pxApiConfigurationService = pxApiConfigurationService;
-            _rateLimitConfigurationService = rateLimitConfigurationService;
+            _rateLimitOptions = rateLimitOptions.Value;
             _logger = logger;
         }
 
@@ -37,34 +43,33 @@ namespace PxWeb.Controllers.Api2
             //// return StatusCode(429, default(Problem));
             try
             {
-                int timeWindow = 10; 
-                int maxCallsPerTimeWindow = 30;
+                int timeWindow = DefaultTimeWindow; 
+                int maxCallsPerTimeWindow = DefaultMaxCallsPerTimeWindow;
                 var op = _pxApiConfigurationService.GetConfiguration();
-                var rateLimitOp = _rateLimitConfigurationService.GetConfiguration();
+                // var rateLimitOp = _rateLimitConfigurationService.GetConfiguration();
+
                 try
                 {
-                    //Set the default values for time window and max calls per time window
-                    var generalRulesDefault = new GeneralRules();
-                    maxCallsPerTimeWindow = generalRulesDefault.Limit;                   
-                    int timeWindowDef = GetTimeWindowInSek(generalRulesDefault.Period);
-                    timeWindowDef = timeWindowDef < 0 ? timeWindow : timeWindowDef;
-
-                    //Set the values for time window and max calls per time window if they exist in appsetting
-                    var generalRules = rateLimitOp.GeneralRules.Where(x => x.Endpoint == "*").First();
-                    timeWindow = GetTimeWindowInSek(generalRules.Period);
-
-                    if (timeWindow < 0)
-                    {
-                        timeWindow = timeWindowDef;
+                    //Set the values for time window and max calls per time window if they exist in appsetting                    
+                    if(_rateLimitOptions.GeneralRules != null)
+                    { 
+                        var generalRules = _rateLimitOptions.GeneralRules.Where(x => x.Endpoint == "*").First();
+                        timeWindow = GetTimeWindowInSek(generalRules.Period);
+                        if (timeWindow < 0)
+                        {
+                            timeWindow = DefaultTimeWindow;
+                        }
+                        else
+                        {
+                            maxCallsPerTimeWindow = Convert.ToInt32(generalRules.Limit);
+                        }
                     }
-                    else 
-                    {
-                        maxCallsPerTimeWindow = generalRules.Limit;
-                    }                    
                 }
                 catch (Exception ex)
                 {
                     //Use default values for timewindow and maxCalls if an exeption occurs
+                    timeWindow = DefaultTimeWindow;
+                    maxCallsPerTimeWindow = DefaultMaxCallsPerTimeWindow;
                 }
 
                 var configResponse = new ConfigResponse
