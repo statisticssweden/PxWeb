@@ -95,7 +95,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 //Verify that variable exists
                 foreach (var variable in variablesSelection.Selection)
                 {
-                    Variable? pxVariable = model.Meta.Variables.FirstOrDefault(x => x.Code.ToUpper().Equals(variable.VariableCode.ToUpper()));
+                    Variable? pxVariable = model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
 
                     if (pxVariable is null)
                     {
@@ -112,7 +112,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 //Verify that all the mandatory variables exists
                 foreach (var mandatoryVariable in GetAllMandatoryVariables(model))
                 {
-                    if (!variablesSelection.Selection.Any(x => x.VariableCode.ToUpper().Equals(mandatoryVariable.Code.ToUpper())))
+                    if (!variablesSelection.Selection.Any(x => x.VariableCode.Equals(mandatoryVariable.Code, System.StringComparison.InvariantCultureIgnoreCase)))
                     {
                         problem = MissingSelection();
                         return false;
@@ -441,7 +441,7 @@ namespace PxWeb.Code.Api2.DataSelection
         {
             foreach (var variable in model.Meta.Variables)
             {
-                if (!variablesSelection.Selection.Any(x => x.VariableCode.ToUpper().Equals(variable.Code.ToUpper())))
+                if (!variablesSelection.Selection.Any(x => x.VariableCode.Equals(variable.Code, System.StringComparison.InvariantCultureIgnoreCase)))
                 {
                     //Add variable
                     var variableSelectionObject = new VariableSelection
