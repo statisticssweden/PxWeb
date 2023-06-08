@@ -309,7 +309,6 @@ namespace PXWeb.BackgroundWorker
             DcatStatusType startStatus = dcat.FileStatus;
 
             List<string> languages = new List<string>();
-            string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
             foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages)
             {
                 languages.Add(firstTwo(ls.Name));
@@ -321,6 +320,7 @@ namespace PXWeb.BackgroundWorker
             string databasepath = GetDatabasePath();
 
             string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
+
             switch (dbType)
             {
                 case "PX":
@@ -337,18 +337,28 @@ namespace PXWeb.BackgroundWorker
                     return;
             }
 
+            List<KeyValuePair<string, string>> titles = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<string, string>> descriptions = new List<KeyValuePair<string, string>>();
+
+            foreach (IDcatLanguageSpecificSettings s in dcat.LanguageSpecificSettings)
+            {
+                string lang = s.Language;
+                string title = s.CatalogTitle;
+                string desc = s.CatalogDescription;
+                titles.Add(new KeyValuePair<string, string>(lang, title));
+                descriptions.Add(new KeyValuePair<string, string>(lang, desc));
+            }
+
             RdfSettings settings = new RdfSettings
             {
                 BaseUri = dcat.BaseURI,
 
                 BaseApiUrl = dcat.BaseApiUrl,
 
-                PreferredLanguage = preferredLanguage,
-
                 Languages = languages,
 
-                //CatalogTitle = dcat.CatalogTitle,
-                //CatalogDescription = dcat.CatalogDescription,
+                CatalogTitles = titles,
+                CatalogDescriptions = descriptions,
 
                 PublisherName = dcat.Publisher,
                 DBid = dbid,
