@@ -73,8 +73,9 @@ namespace PxWeb
             builder.Services.Configure<PxApiConfigurationOptions>(builder.Configuration.GetSection("PxApiConfiguration"));
             builder.Services.Configure<AdminProtectionConfigurationOptions>(builder.Configuration.GetSection("AdminProtection"));
             builder.Services.Configure<CacheMiddlewareConfigurationOptions>(builder.Configuration.GetSection("CacheMiddleware"));
-
-            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();
+            builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+            
+            builder.Services.AddTransient<IPxApiConfigurationService, PxApiConfigurationService>();            
             builder.Services.AddTransient<IAdminProtectionConfigurationService, AdminProtectionConfigurationService>();
             builder.Services.AddTransient<ICacheMiddlewareConfigurationService, CacheMiddlewareConfigurationService>();
             builder.Services.AddTransient<ILanguageHelper, LanguageHelper>();
@@ -84,6 +85,7 @@ namespace PxWeb
             builder.Services.AddTransient<ITableResponseMapper, TableResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
             builder.Services.AddTransient<ISerializeManager, SerializeManager>();
+            
 
             builder.Services.AddHostedService<LongRunningService>();
             builder.Services.AddSingleton<BackgroundWorkerQueue>();
@@ -95,6 +97,7 @@ namespace PxWeb
                 .Where(p => p.Value != null && p.Key.ToLower().Contains("id"))
                 .Select(p => p.Value)
                 .ToList();
+
 
             builder.Services.AddControllers(x =>
                 x.Filters.Add(new LangValidationFilter(langList))

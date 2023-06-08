@@ -10,8 +10,6 @@ namespace PxWeb.Config.Api2
         public List<Language> Languages { get; set; } = new List<Language>();
         public string DefaultLanguage { get; set; } = String.Empty;
         public int MaxDataCells { get; set; } = 1;
-        public int MaxCalls { get; set; } = 1;
-        public int TimeWindow { get; set; } = 1;
         public List<ApiFeature> Features { get; set; } = new List<ApiFeature>();
         public string License { get; set; }
         public List<SourceReference> SourceReferences { get; set; }
