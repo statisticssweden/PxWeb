@@ -28,7 +28,8 @@ using PxWeb.Code.Api2.Cache;
 using System.Text;
 using PxWeb.Code;
 using PxWeb.Code.Api2.Serialization;
-using PxWeb.Code.BackgroundWorker;;
+using PxWeb.Code.BackgroundWorker;
+using PxWeb.Code.Api2.DataSelection;
 
 namespace PxWeb
 {
