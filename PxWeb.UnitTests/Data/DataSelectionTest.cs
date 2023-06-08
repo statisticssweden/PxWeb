@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PCAxis.Paxiom;
+using PCAxis.Query;
 using PxWeb.Api2.Server.Models;
 using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSelection;
@@ -28,7 +29,8 @@ namespace PxWeb.UnitTests.Data
 
             Problem? problem;
             var builderMock = new Mock<IPXModelBuilder>();
-            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -78,7 +80,8 @@ namespace PxWeb.UnitTests.Data
 
             Problem? problem;
             var builderMock = new Mock<IPXModelBuilder>();
-            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -129,7 +132,8 @@ namespace PxWeb.UnitTests.Data
 
             Problem? problem;
             var builderMock = new Mock<IPXModelBuilder>();
-            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -180,7 +184,8 @@ namespace PxWeb.UnitTests.Data
 
             Problem? problem;
             var builderMock = new Mock<IPXModelBuilder>();
-            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
             if (selections != null)
             {
@@ -580,7 +585,8 @@ namespace PxWeb.UnitTests.Data
 
             Problem? problem;
             var builderMock = new Mock<IPXModelBuilder>();
-            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, model, variablesSelection, out problem);
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
             return selections;
         }
 

@@ -42,13 +42,12 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Get Selection-array for the wanted variables and values
         /// </summary>
         /// <param name="builder">Paxiom model builder</param>
-        /// <param name="model">Paxiom model</param>
         /// <param name="variablesSelection">VariablesSelection object describing wanted variables and values</param>
         /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
         /// <returns>If everything was ok, an array of selection objects, else null</returns>
-        public Selection[]? GetSelection(IPXModelBuilder builder, PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
+        public Selection[]? GetSelection(IPXModelBuilder builder, VariablesSelection? variablesSelection, out Problem? problem)
         {
-            if (!VerifyAndApplyCodelists(builder, model, variablesSelection, out problem))
+            if (!VerifyAndApplyCodelists(builder, variablesSelection, out problem))
             {
                 return null;
             }
@@ -58,14 +57,14 @@ namespace PxWeb.Code.Api2.DataSelection
             if  (variablesSelection is not null && HasSelection(variablesSelection))
             {
                 //Add variables that the user did not post
-                variablesSelection = AddVariables(variablesSelection, model);
+                variablesSelection = AddVariables(variablesSelection, builder.Model);
 
                 //Map VariablesSelection to PCaxis.Paxiom.Selection[] 
-                selections = MapCustomizedSelection(builder, model, variablesSelection).ToArray();
+                selections = MapCustomizedSelection(builder, builder.Model, variablesSelection).ToArray();
             }
             else
             {
-                selections = GetDefaultSelection(model);
+                selections = GetDefaultSelection(builder.Model);
             }
 
             if (!CheckNumberOfCells(selections))
@@ -82,11 +81,10 @@ namespace PxWeb.Code.Api2.DataSelection
         /// Verify that VariablesSelection object has valid variables and values. Also applies codelists.
         /// </summary>
         /// <param name="builder">Paxiom model builder</param>
-        /// <param name="model">Paxiom model</param>
         /// <param name="variablesSelection">The VariablesSelection object to verify and apply codelists for</param>
         /// <param name="problem">Null if everything is ok, otherwise it describes whats wrong</param>
         /// <returns>True if everything was ok, else false</returns>
-        private bool VerifyAndApplyCodelists(IPXModelBuilder builder, PXModel model, VariablesSelection? variablesSelection, out Problem? problem)
+        private bool VerifyAndApplyCodelists(IPXModelBuilder builder, VariablesSelection? variablesSelection, out Problem? problem)
         {
             problem = null;
             
@@ -95,7 +93,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 //Verify that variable exists
                 foreach (var variable in variablesSelection.Selection)
                 {
-                    Variable? pxVariable = model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
+                    Variable? pxVariable = builder.Model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
 
                     if (pxVariable is null)
                     {
@@ -110,7 +108,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
 
                 //Verify that all the mandatory variables exists
-                foreach (var mandatoryVariable in GetAllMandatoryVariables(model))
+                foreach (var mandatoryVariable in GetAllMandatoryVariables(builder.Model))
                 {
                     if (!variablesSelection.Selection.Any(x => x.VariableCode.Equals(mandatoryVariable.Code, System.StringComparison.InvariantCultureIgnoreCase)))
                     {
@@ -120,7 +118,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 }
 
                 //Verify variable values
-                if (!VerifyVariableValues(model, variablesSelection, out problem))
+                if (!VerifyVariableValues(builder.Model, variablesSelection, out problem))
                 {
                     return false;
                 }
