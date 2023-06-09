@@ -2,6 +2,6 @@
 {
     public class PxFileConfigurationOptions
     {
-        public string Dummy { get; set; }
+        public bool StrictAggregations { get; set; }
     }
 }

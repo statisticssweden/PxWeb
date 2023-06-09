@@ -25,8 +25,8 @@
           <Attribute name="modified">20060611 14:31</Attribute>
           <Published>2023-02-03 14:42:31</Published>
           <LastUpdated>2006-06-11 14:31:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006M01</StartTime>
+          <EndTime>2006M05</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\aggregations" sortCode="aggregations">
@@ -55,8 +55,8 @@
           <Attribute name="modified">20040212 16:33</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:33:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\alias" sortCode="Population ">
@@ -88,8 +88,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -116,8 +116,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -144,8 +144,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\alias\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -172,8 +172,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
           <Description></Description>
@@ -210,8 +210,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Autopen" sortCode="Autopen">
@@ -237,8 +237,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
         <Link selection="Database\Autopen\BE0101N1autopen.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
           <Description></Description>
@@ -260,8 +260,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\datanotecell" sortCode="datanotecell">
@@ -293,8 +293,8 @@
           <Attribute name="modified">20180713 08:00</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2018-07-13 08:00:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2015K1</StartTime>
+          <EndTime>2018K2</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Descriptiondefault" sortCode="Descriptiondefault">
@@ -320,8 +320,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
         <Link selection="Database\Descriptiondefault\BE0101N1descnotdefault.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
           <Description>Population by counties in Sweden 2007-2008</Description>
@@ -342,8 +342,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Doublecolumn" sortCode="Doublecolumn">
@@ -369,8 +369,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
         <Link selection="Database\Doublecolumn\HA0201E8doublecol.px" sortCode="HA0201E8" type="PX" category="O" tableId="HA0201E8" status="A">
           <Description></Description>
@@ -388,8 +388,8 @@
           <Attribute name="modified">20090604 09:58</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-04 09:58:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006K1</StartTime>
+          <EndTime>2009K1</EndTime>
         </Link>
         <Link selection="Database\Doublecolumn\HA0201V6doublecol.px" sortCode="HA0201V6" type="PX" category="O" tableId="HA0201V6" status="A">
           <Description></Description>
@@ -410,8 +410,8 @@
           <Attribute name="modified">20090623 16:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-23 16:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2008M01</StartTime>
+          <EndTime>2009M04</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\error" sortCode="error">
@@ -447,8 +447,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\continue\template av BE0101F1error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description>Description Migration by region, age, period, type and sex</Description>
@@ -475,8 +475,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
         <MenuItem selection="Database\error\fatal" sortCode="fatal">
@@ -508,12 +508,12 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\fatal\BE0101F1missingTitle.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description></Description>
-            <Text>Migration PxcMetaTitleBy region, age, period, type PxcMetaTitleAnd sex</Text>
+            <Text>Migration by region, age, period, type and sex</Text>
             <TextShort>BE0101F1</TextShort>
             <Attribute name="Var1Name">region</Attribute>
             <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
@@ -536,8 +536,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\fatal\template av BE0101F1error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description>Description Migration by region, age, period, type and sex</Description>
@@ -564,8 +564,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
         <MenuItem selection="Database\error\multilang" sortCode="multilang">
@@ -598,8 +598,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\multilang\BE0101F1ensvdescdefaulterror.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description>Migration for Sweden, Stockholm county and some municipalities</Description>
@@ -627,8 +627,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description></Description>
@@ -655,8 +655,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
       </MenuItem>
@@ -689,8 +689,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hier.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -714,8 +714,8 @@
           <Attribute name="modified">20050208 17:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2005-02-08 17:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2001</StartTime>
+          <EndTime>2004</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hierpiv.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -739,8 +739,8 @@
           <Attribute name="modified">20050208 17:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2005-02-08 17:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2001</StartTime>
+          <EndTime>2004</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hierreg.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -767,8 +767,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hierreg2.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -795,8 +795,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\GeneveEUhierarch.px" sortCode="CanBeAny" type="PX" category="O" tableId="CanBeAny" status="A">
           <Description></Description>
@@ -836,8 +836,8 @@
           <Attribute name="modified">20060707 08:37</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2005M08</StartTime>
+          <EndTime>2006M06</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\PR0101B3hier2lang.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
           <Description></Description>
@@ -855,8 +855,8 @@
           <Attribute name="modified">20060707 08:37</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2005M08</StartTime>
+          <EndTime>2006M06</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\keys" sortCode="keys">
@@ -888,8 +888,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\keys\BE101ACEkeys.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -913,8 +913,8 @@
           <Attribute name="modified">20000225 16:48</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2000-02-25 16:48:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>1968</StartTime>
+          <EndTime>1999</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Misc" sortCode="Misc">
@@ -950,8 +950,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
       </MenuItem>
@@ -978,8 +978,8 @@
           <Attribute name="modified">20090623 16:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-23 16:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2008M01</StartTime>
+          <EndTime>2009M04</EndTime>
         </Link>
         <Link selection="Database\Month\PR0101B3.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
           <Description></Description>
@@ -997,8 +997,8 @@
           <Attribute name="modified">20090708 12:44</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-07-08 12:44:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006M10</StartTime>
+          <EndTime>2008M12</EndTime>
         </Link>
         <Link selection="Database\Month\PR0101D8.px" sortCode="PR0101D8" type="PX" category="O" tableId="PR0101D8" status="A">
           <Description></Description>
@@ -1013,8 +1013,8 @@
           <Attribute name="modified">20090708 12:44</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-07-08 12:44:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004M09</StartTime>
+          <EndTime>2009M06</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\multilanguage" sortCode="multilanguage">
@@ -1046,8 +1046,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1074,8 +1074,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1102,8 +1102,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\multilanguage\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1130,8 +1130,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\NPM" sortCode="NPM">
@@ -1164,8 +1164,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1allKeywordsNoContentsvar.px" sortCode="matrix" type="PX" category="O" tableId="matrix" status="A">
           <Description>My own title for the table (no contentsvariable)four testvariables, two in stuband two in heading</Description>
@@ -1190,8 +1190,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1datasymbols.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description>Inmigrated some regions by age and sex, 2003</Description>
@@ -1215,8 +1215,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nildotnosymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1243,8 +1243,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nildotsymbols.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1271,8 +1271,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nilnopres.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1300,8 +1300,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nilSymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1329,8 +1329,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nolang.px" sortCode="matrix" type="PX" category="O" tableId="matrix" status="A">
           <Description>My own title for the table with no lang</Description>
@@ -1357,8 +1357,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1symbnot.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1385,8 +1385,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1symbnot2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1413,8 +1413,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\EXEMPEL1.PX" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1441,8 +1441,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\EXEMPEL2.PX" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description>Description Migration by region, age, period, type and sex</Description>
@@ -1470,8 +1470,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\percent" sortCode="percent">
@@ -1491,7 +1491,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -1503,8 +1503,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1proc2.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1519,7 +1519,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -1531,8 +1531,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procnorounding.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1547,7 +1547,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -1559,8 +1559,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procrounding0.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1575,7 +1575,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -1587,8 +1587,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procrounding1.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1603,7 +1603,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -1615,8 +1615,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procspar.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1631,7 +1631,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -1643,8 +1643,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Population" sortCode="Population">
@@ -1676,8 +1676,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101A1elimtot.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1698,8 +1698,8 @@
           <Attribute name="modified">20070215 09:51</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2007-02-15 09:51:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2001</StartTime>
+          <EndTime>2006</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101A1proc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1708,7 +1708,7 @@
           <Attribute name="Var1Name">region</Attribute>
           <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 10 Blekinge county</Attribute>
           <Attribute name="Var1NumberOfValues">9</Attribute>
-          <Attribute name="Var2Name">PxcSortVariable</Attribute>
+          <Attribute name="Var2Name">unit variable</Attribute>
           <Attribute name="Var2Values">Number, Per cent, </Attribute>
           <Attribute name="Var2NumberOfValues">2</Attribute>
           <Attribute name="Var3Name">marital status</Attribute>
@@ -1726,8 +1726,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101A1procproc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1745,7 +1745,7 @@
           <Attribute name="Var4Name">period</Attribute>
           <Attribute name="Var4Values">2004, 2005, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">PxcSortVariable</Attribute>
+          <Attribute name="Var5Name">unit variable</Attribute>
           <Attribute name="Var5Values">Number, Per cent, Per cent time, </Attribute>
           <Attribute name="Var5NumberOfValues">3</Attribute>
           <Attribute name="size">5232</Attribute>
@@ -1754,8 +1754,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101F1allakw.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description>Description Migration by region, age, period, type and sex</Description>
@@ -1783,8 +1783,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101F1pnosymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1809,8 +1809,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101F1symbnot.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1837,8 +1837,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\Population\BE101ACE.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -1862,8 +1862,8 @@
           <Attribute name="modified">20000225 16:48</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2000-02-25 16:48:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>1968</StartTime>
+          <EndTime>1999</EndTime>
         </Link>
         <Link selection="Database\Population\Fotnoter.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1890,8 +1890,8 @@
           <Attribute name="modified">20060209 11:31</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 11:31:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>1997</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\Nya Fotnoter.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -1918,8 +1918,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Quarter" sortCode="Quarter">
@@ -1942,8 +1942,8 @@
           <Attribute name="modified">20090604 09:58</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-04 09:58:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006K1</StartTime>
+          <EndTime>2009K1</EndTime>
         </Link>
       </MenuItem>
     </MenuItem>
@@ -1973,8 +1973,8 @@
           <Attribute name="modified">20060611 14:31</Attribute>
           <Published>2023-02-03 14:42:31</Published>
           <LastUpdated>2006-06-11 14:31:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006M01</StartTime>
+          <EndTime>2006M05</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\aggregations" sortCode="aggregations">
@@ -2003,8 +2003,8 @@
           <Attribute name="modified">20040212 16:33</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:33:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\alias" sortCode="Befolkning">
@@ -2036,8 +2036,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -2064,8 +2064,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -2092,8 +2092,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\alias\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -2120,8 +2120,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
           <Description></Description>
@@ -2158,8 +2158,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Autopen" sortCode="Autopen">
@@ -2185,8 +2185,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
         <Link selection="Database\Autopen\BE0101N1autopen.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
           <Description></Description>
@@ -2208,8 +2208,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\datanotecell" sortCode="datanotecell">
@@ -2241,8 +2241,8 @@
           <Attribute name="modified">20180713 08:00</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2018-07-13 08:00:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2015K1</StartTime>
+          <EndTime>2018K2</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Descriptiondefault" sortCode="Descriptiondefault">
@@ -2268,8 +2268,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
         <Link selection="Database\Descriptiondefault\BE0101N1descnotdefault.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
           <Description>Population by counties in Sweden 2007-2008</Description>
@@ -2290,8 +2290,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Doublecolumn" sortCode="Doublecolumn">
@@ -2317,8 +2317,8 @@
           <Attribute name="modified">20090213 07:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2007</StartTime>
+          <EndTime>2008</EndTime>
         </Link>
         <Link selection="Database\Doublecolumn\HA0201E8doublecol.px" sortCode="HA0201E8" type="PX" category="O" tableId="HA0201E8" status="A">
           <Description></Description>
@@ -2336,8 +2336,8 @@
           <Attribute name="modified">20090604 09:58</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-04 09:58:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006K1</StartTime>
+          <EndTime>2009K1</EndTime>
         </Link>
         <Link selection="Database\Doublecolumn\HA0201V6doublecol.px" sortCode="HA0201V6" type="PX" category="O" tableId="HA0201V6" status="A">
           <Description></Description>
@@ -2358,8 +2358,8 @@
           <Attribute name="modified">20090623 16:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-23 16:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2008M01</StartTime>
+          <EndTime>2009M04</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\error" sortCode="error">
@@ -2395,8 +2395,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\continue\template av BE0101F1error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description>Description Migration by region, age, period, type and sex</Description>
@@ -2423,8 +2423,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
         <MenuItem selection="Database\error\fatal" sortCode="fatal">
@@ -2456,12 +2456,12 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\fatal\BE0101F1missingTitle.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description></Description>
-            <Text>Migration PxcMetaTitleBy region, age, period, type PxcMetaTitleAnd sex</Text>
+            <Text>Migration by region, age, period, type and sex</Text>
             <TextShort>BE0101F1</TextShort>
             <Attribute name="Var1Name">region</Attribute>
             <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
@@ -2484,8 +2484,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\fatal\template av BE0101F1error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description>Description Migration by region, age, period, type and sex</Description>
@@ -2512,8 +2512,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
         <MenuItem selection="Database\error\multilang" sortCode="multilang">
@@ -2546,8 +2546,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\multilang\BE0101F1ensvdescdefaulterror.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
@@ -2575,8 +2575,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
           <Link selection="Database\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
             <Description></Description>
@@ -2603,8 +2603,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
       </MenuItem>
@@ -2637,8 +2637,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hier.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -2662,8 +2662,8 @@
           <Attribute name="modified">20050208 17:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2005-02-08 17:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2001</StartTime>
+          <EndTime>2004</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hierpiv.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -2687,8 +2687,8 @@
           <Attribute name="modified">20050208 17:19</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2005-02-08 17:19:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2001</StartTime>
+          <EndTime>2004</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hierreg.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -2715,8 +2715,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\BE0101A1hierreg2.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -2743,8 +2743,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2002</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\GeneveEUhierarch.px" sortCode="CanBeAny" type="PX" category="O" tableId="CanBeAny" status="A">
           <Description></Description>
@@ -2784,8 +2784,8 @@
           <Attribute name="modified">20060707 08:37</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2005M08</StartTime>
+          <EndTime>2006M06</EndTime>
         </Link>
         <Link selection="Database\Hierarchies\PR0101B3hier2lang.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
           <Description></Description>
@@ -2803,8 +2803,8 @@
           <Attribute name="modified">20060707 08:37</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2005M08</StartTime>
+          <EndTime>2006M06</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\keys" sortCode="keys">
@@ -2836,8 +2836,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\keys\BE101ACEkeys.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -2861,8 +2861,8 @@
           <Attribute name="modified">20000225 16:48</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2000-02-25 16:48:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>1968</StartTime>
+          <EndTime>1999</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Misc" sortCode="Misc">
@@ -2898,8 +2898,8 @@
             <Attribute name="modified">20040212 16:28</Attribute>
             <Published>2022-06-30 15:19:31</Published>
             <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime></StartTime>
-            <EndTime></EndTime>
+            <StartTime>2003</StartTime>
+            <EndTime>2003</EndTime>
           </Link>
         </MenuItem>
       </MenuItem>
@@ -2926,8 +2926,8 @@
           <Attribute name="modified">20090623 16:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-23 16:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2008M01</StartTime>
+          <EndTime>2009M04</EndTime>
         </Link>
         <Link selection="Database\Month\PR0101B3.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
           <Description></Description>
@@ -2945,8 +2945,8 @@
           <Attribute name="modified">20090708 12:44</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-07-08 12:44:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006M10</StartTime>
+          <EndTime>2008M12</EndTime>
         </Link>
         <Link selection="Database\Month\PR0101D8.px" sortCode="PR0101D8" type="PX" category="O" tableId="PR0101D8" status="A">
           <Description></Description>
@@ -2961,8 +2961,8 @@
           <Attribute name="modified">20090708 12:44</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-07-08 12:44:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004M09</StartTime>
+          <EndTime>2009M06</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\multilanguage" sortCode="multilanguage">
@@ -2994,8 +2994,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3022,8 +3022,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3050,8 +3050,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\multilanguage\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3078,8 +3078,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\NPM" sortCode="NPM">
@@ -3112,8 +3112,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1allKeywordsNoContentsvar.px" sortCode="matrix" type="PX" category="O" tableId="matrix" status="A">
           <Description>My own title for the table (no contentsvariable)four testvariables, two in stuband two in heading</Description>
@@ -3138,8 +3138,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1datasymbols.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description>Inmigrated some regions by age and sex, 2003</Description>
@@ -3163,8 +3163,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nildotnosymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3191,8 +3191,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nildotsymbols.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3219,8 +3219,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nilnopres.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3248,8 +3248,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nilSymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3277,8 +3277,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1nolang.px" sortCode="matrix" type="PX" category="O" tableId="matrix" status="A">
           <Description>My own title for the table with no lang</Description>
@@ -3305,8 +3305,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1symbnot.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3333,8 +3333,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\BE0101F1symbnot2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3361,8 +3361,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\EXEMPEL1.PX" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3389,8 +3389,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\NPM\EXEMPEL2.PX" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description>Description Migration by region, age, period, type and sex</Description>
@@ -3418,8 +3418,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\percent" sortCode="percent">
@@ -3439,7 +3439,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -3451,8 +3451,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1proc2.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3467,7 +3467,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -3479,8 +3479,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procnorounding.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3495,7 +3495,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -3507,8 +3507,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procrounding0.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3523,7 +3523,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -3535,8 +3535,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procrounding1.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3551,7 +3551,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -3563,8 +3563,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\percent\BE0101A1procspar.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3579,7 +3579,7 @@
           <Attribute name="Var3Name">period</Attribute>
           <Attribute name="Var3Values">2004, 2005, </Attribute>
           <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">PxcSortVariable</Attribute>
+          <Attribute name="Var4Name">unit variable</Attribute>
           <Attribute name="Var4Values">number, Per cent, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
           <Attribute name="Var5Name">sex</Attribute>
@@ -3591,8 +3591,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:32</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Population" sortCode="Population">
@@ -3624,8 +3624,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101A1elimtot.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3646,8 +3646,8 @@
           <Attribute name="modified">20070215 09:51</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2007-02-15 09:51:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2001</StartTime>
+          <EndTime>2006</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101A1proc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3656,7 +3656,7 @@
           <Attribute name="Var1Name">region</Attribute>
           <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 10 Blekinge county</Attribute>
           <Attribute name="Var1NumberOfValues">9</Attribute>
-          <Attribute name="Var2Name">PxcSortVariable</Attribute>
+          <Attribute name="Var2Name">unit variable</Attribute>
           <Attribute name="Var2Values">Number, Per cent, </Attribute>
           <Attribute name="Var2NumberOfValues">2</Attribute>
           <Attribute name="Var3Name">marital status</Attribute>
@@ -3674,8 +3674,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101A1procproc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3693,7 +3693,7 @@
           <Attribute name="Var4Name">period</Attribute>
           <Attribute name="Var4Values">2004, 2005, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">PxcSortVariable</Attribute>
+          <Attribute name="Var5Name">unit variable</Attribute>
           <Attribute name="Var5Values">Number, Per cent, Per cent time, </Attribute>
           <Attribute name="Var5NumberOfValues">3</Attribute>
           <Attribute name="size">5232</Attribute>
@@ -3702,8 +3702,8 @@
           <Attribute name="modified">20060209 15:20</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2004</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101F1allakw.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description>Description Migration by region, age, period, type and sex</Description>
@@ -3731,8 +3731,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101F1pnosymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3757,8 +3757,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\Population\BE0101F1symbnot.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3785,8 +3785,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
         <Link selection="Database\Population\BE101ACE.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
           <Description></Description>
@@ -3810,8 +3810,8 @@
           <Attribute name="modified">20000225 16:48</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2000-02-25 16:48:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>1968</StartTime>
+          <EndTime>1999</EndTime>
         </Link>
         <Link selection="Database\Population\Fotnoter.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3838,8 +3838,8 @@
           <Attribute name="modified">20060209 11:31</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2006-02-09 11:31:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>1997</StartTime>
+          <EndTime>2005</EndTime>
         </Link>
         <Link selection="Database\Population\Nya Fotnoter.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
           <Description></Description>
@@ -3866,8 +3866,8 @@
           <Attribute name="modified">20040212 16:28</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2003</StartTime>
+          <EndTime>2003</EndTime>
         </Link>
       </MenuItem>
       <MenuItem selection="Database\Quarter" sortCode="Quarter">
@@ -3890,8 +3890,8 @@
           <Attribute name="modified">20090604 09:58</Attribute>
           <Published>2022-06-30 15:19:31</Published>
           <LastUpdated>2009-06-04 09:58:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
+          <StartTime>2006K1</StartTime>
+          <EndTime>2009K1</EndTime>
         </Link>
       </MenuItem>
     </MenuItem>

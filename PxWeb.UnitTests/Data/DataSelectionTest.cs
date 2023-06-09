@@ -1,10 +1,13 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using PCAxis.Paxiom;
+using PCAxis.Query;
 using PxWeb.Api2.Server.Models;
 using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSelection;
+using PxWeb.Config.Api2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,73 +20,53 @@ namespace PxWeb.UnitTests.Data
     public class DataSelectionTest
     {
         [TestMethod]
-        public void GetSelectionShouldReturnEqualVariables()
-        {
-            PXModel model = GetPxModelDefaultSelection(2, 2);
-            VariablesSelection variablesSelection = new VariablesSelection();
-            variablesSelection.Selection = new List<VariableSelection>();
-            SelectionHandler selectionHandler = new SelectionHandler();
-
-            variablesSelection = CreateVariablesSelection(variablesSelection);
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
-
-            Assert.AreEqual(variablesSelection.Selection.Select(x => x.VariableCode).Count(), selections.Count());
-        }
-        [TestMethod]
-        public void GetSelectionShouldReturnZeroValues()
-        {
-            PXModel model = GetPxModelDefaultSelection(2, 2);
-            VariablesSelection variablesSelection = new VariablesSelection();
-            variablesSelection.Selection = new List<VariableSelection>();
-            SelectionHandler selectionHandler = new SelectionHandler();
-
-            variablesSelection = CreateVariablesSelection(variablesSelection);
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
-
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
-            }
-        }
-        [TestMethod]
         public void ShouldReturnSelectionFor_Time_Content()
         {
             PXModel model = GetPxModelDefaultSelection(2, 2); // Only Time and content cannot be eliminated. Content has 2 values
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
-            SelectionHandler selectionHandler = new SelectionHandler();
+            SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+            Problem? problem;
+            var builderMock = new Mock<IPXModelBuilder>();
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
-            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(12, selection.ValueCodes.Count);
+                Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+                if (selection != null)
+                {
+                    Assert.AreEqual(12, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+                if (selection != null)
+                {
+                    Assert.AreEqual(2, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
             }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
-            if (selection != null)
+            else
             {
-                Assert.AreEqual(2, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
+                Assert.Fail();   
             }
         }
 
@@ -93,39 +76,50 @@ namespace PxWeb.UnitTests.Data
             PXModel model = GetPxModelDefaultSelection(3, 1); // Time, content and a third variable cannot be eliminated. Content has 1 value
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
-            SelectionHandler selectionHandler = new SelectionHandler();
+            SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+            Problem? problem;
+            var builderMock = new Mock<IPXModelBuilder>();
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
-            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(12, selection.ValueCodes.Count);
+                Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+                if (selection != null)
+                {
+                    Assert.AreEqual(12, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+                if (selection != null)
+                {
+                    Assert.AreEqual(1, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+                if (selection != null)
+                {
+                    Assert.AreEqual(3, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
+            }
+            else
+            {
+                Assert.Fail();  
             }
 
-            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
-            if (selection != null)
-            {
-                Assert.AreEqual(1, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
-            if (selection != null)
-            {
-                Assert.AreEqual(3, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
-            }
         }
 
         [TestMethod]
@@ -134,38 +128,48 @@ namespace PxWeb.UnitTests.Data
             PXModel model = GetPxModelDefaultSelection(3, 2); // Time, content and a third variable cannot be eliminated. Content has 2 values
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
-            SelectionHandler selectionHandler = new SelectionHandler();
+            SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+            Problem? problem;
+            var builderMock = new Mock<IPXModelBuilder>();
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
-            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(1, selection.ValueCodes.Count);
+                Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+                if (selection != null)
+                {
+                    Assert.AreEqual(1, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+                if (selection != null)
+                {
+                    Assert.AreEqual(2, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+                if (selection != null)
+                {
+                    Assert.AreEqual(3, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+                if (selection != null)
+                {
+                    Assert.AreEqual(0, selection.ValueCodes.Count);
+                }
             }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
-            if (selection != null)
+            else
             {
-                Assert.AreEqual(2, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
-            if (selection != null)
-            {
-                Assert.AreEqual(3, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
-            if (selection != null)
-            {
-                Assert.AreEqual(0, selection.ValueCodes.Count);
+                Assert.Fail();
             }
 
         }
@@ -176,38 +180,48 @@ namespace PxWeb.UnitTests.Data
             PXModel model = GetPxModelDefaultSelection(5, 2); // No variable can be eliminated. Content has 2 values
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
-            SelectionHandler selectionHandler = new SelectionHandler();
+            SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
 
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+            Problem? problem;
+            var builderMock = new Mock<IPXModelBuilder>();
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
 
-            Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(1, selection.ValueCodes.Count);
+                Selection? selection = selections.FirstOrDefault(s => s.VariableCode == "Period");
+                if (selection != null)
+                {
+                    Assert.AreEqual(1, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
+                if (selection != null)
+                {
+                    Assert.AreEqual(1, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
+                if (selection != null)
+                {
+                    Assert.AreEqual(3, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
+                if (selection != null)
+                {
+                    Assert.AreEqual(3, selection.ValueCodes.Count);
+                }
+
+                selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
+                if (selection != null)
+                {
+                    Assert.AreEqual(1, selection.ValueCodes.Count);
+                }
             }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "Content");
-            if (selection != null)
+            else
             {
-                Assert.AreEqual(1, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var3");
-            if (selection != null)
-            {
-                Assert.AreEqual(3, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var4");
-            if (selection != null)
-            {
-                Assert.AreEqual(3, selection.ValueCodes.Count);
-            }
-
-            selection = selections.FirstOrDefault(s => s.VariableCode == "var5");
-            if (selection != null)
-            {
-                Assert.AreEqual(1, selection.ValueCodes.Count);
+                Assert.Fail();
             }
 
         }
@@ -222,11 +236,15 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(10, selection.ValueCodes.Count);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(10, selection.ValueCodes.Count);
+                }
             }
+            else { Assert.Fail(); }
         }
 
         [TestMethod]
@@ -239,10 +257,17 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(108, selection.ValueCodes.Count);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(108, selection.ValueCodes.Count);
+                }
+            }
+            else
+            {
+                Assert.Fail();
             }
         }
 
@@ -255,13 +280,18 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(10, selection.ValueCodes.Count);
-                Assert.AreEqual("0001", selection.ValueCodes[0]);
-                Assert.AreEqual("0010", selection.ValueCodes[9]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+
+                if (selection != null)
+                {
+                    Assert.AreEqual(10, selection.ValueCodes.Count);
+                    Assert.AreEqual("0001", selection.ValueCodes[0]);
+                    Assert.AreEqual("0010", selection.ValueCodes[9]);
+                }
             }
+            else { Assert.Fail(); }
         }
 
         [TestMethod]
@@ -273,13 +303,18 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(5, selection.ValueCodes.Count);
-                Assert.AreEqual("0996", selection.ValueCodes[0]);
-                Assert.AreEqual("1000", selection.ValueCodes[4]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(5, selection.ValueCodes.Count);
+                    Assert.AreEqual("0996", selection.ValueCodes[0]);
+                    Assert.AreEqual("1000", selection.ValueCodes[4]);
+                }
             }
+            else
+            {  Assert.Fail(); }
         }
 
 
@@ -292,13 +327,17 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(10, selection.ValueCodes.Count);
-                Assert.AreEqual("0991", selection.ValueCodes[0]);
-                Assert.AreEqual("1000", selection.ValueCodes[9]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(10, selection.ValueCodes.Count);
+                    Assert.AreEqual("0991", selection.ValueCodes[0]);
+                    Assert.AreEqual("1000", selection.ValueCodes[9]);
+                }
             }
+            else { Assert.Fail(); }
         }
 
         [TestMethod]
@@ -310,12 +349,19 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(5, selection.ValueCodes.Count);
-                Assert.AreEqual("0001", selection.ValueCodes[0]);
-                Assert.AreEqual("0005", selection.ValueCodes[4]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(5, selection.ValueCodes.Count);
+                    Assert.AreEqual("0001", selection.ValueCodes[0]);
+                    Assert.AreEqual("0005", selection.ValueCodes[4]);
+                }
+            }
+            else
+            {
+                Assert.Fail();  
             }
         }
 
@@ -328,13 +374,17 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(20, selection.ValueCodes.Count);
-                Assert.AreEqual("0120", selection.ValueCodes[0]);
-                Assert.AreEqual("0139", selection.ValueCodes[19]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(20, selection.ValueCodes.Count);
+                    Assert.AreEqual("0120", selection.ValueCodes[0]);
+                    Assert.AreEqual("0139", selection.ValueCodes[19]);
+                }
             }
+            else { Assert.Fail(); }
         }
 
         [TestMethod]
@@ -346,12 +396,19 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(20, selection.ValueCodes.Count);
-                Assert.AreEqual("0981", selection.ValueCodes[0]);
-                Assert.AreEqual("1000", selection.ValueCodes[19]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(20, selection.ValueCodes.Count);
+                    Assert.AreEqual("0981", selection.ValueCodes[0]);
+                    Assert.AreEqual("1000", selection.ValueCodes[19]);
+                }
+            }
+            else
+            {
+                Assert.Fail();
             }
         }
 
@@ -364,13 +421,17 @@ namespace PxWeb.UnitTests.Data
 
             var selections = GetSelection(valueCodes);
 
-            var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
-            if (selection != null)
+            if (selections != null)
             {
-                Assert.AreEqual(25, selection.ValueCodes.Count);
-                Assert.AreEqual("0001", selection.ValueCodes[0]);
-                Assert.AreEqual("0025", selection.ValueCodes[24]);
+                var selection = selections.FirstOrDefault(s => s.VariableCode == "var1");
+                if (selection != null)
+                {
+                    Assert.AreEqual(25, selection.ValueCodes.Count);
+                    Assert.AreEqual("0001", selection.ValueCodes[0]);
+                    Assert.AreEqual("0025", selection.ValueCodes[24]);
+                }
             }
+            else { Assert.Fail(); } 
         }
 
 
@@ -508,10 +569,11 @@ namespace PxWeb.UnitTests.Data
         }
 
 
-        private Selection[] GetSelection(List<string> wantedValues)
+        private Selection[]? GetSelection(List<string> wantedValues)
         {
             PXModel model = GetPxModelForTest();
-            SelectionHandler selectionHandler = new SelectionHandler();
+
+            SelectionHandler selectionHandler = new SelectionHandler(GetConfigMock().Object);
             VariablesSelection variablesSelection = new VariablesSelection();
             variablesSelection.Selection = new List<VariableSelection>();
             List<string> valueCodes = new List<string>();
@@ -521,8 +583,21 @@ namespace PxWeb.UnitTests.Data
             var varSelection = CreateVariableSelection("var1", valueCodes);
             variablesSelection.Selection.Add(varSelection);
 
-            Selection[] selections = selectionHandler.GetSelection(model, variablesSelection);
+            Problem? problem;
+            var builderMock = new Mock<IPXModelBuilder>();
+            builderMock.Setup(x => x.Model).Returns(model);
+            Selection[]? selections = selectionHandler.GetSelection(builderMock.Object, variablesSelection, out problem);
             return selections;
+        }
+
+        private Mock<IPxApiConfigurationService> GetConfigMock()
+        {
+            var configMock = new Mock<IPxApiConfigurationService>();
+            var testFactory = new TestFactory();
+            var config = testFactory.GetPxApiConfiguration();
+            configMock.Setup(x => x.GetConfiguration()).Returns(config);
+
+            return configMock;
         }
 
         private PXModel GetPxModelForTest()
