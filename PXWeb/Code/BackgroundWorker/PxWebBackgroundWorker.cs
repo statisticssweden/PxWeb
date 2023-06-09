@@ -349,6 +349,7 @@ namespace PXWeb.BackgroundWorker
                 descriptions.Add(new KeyValuePair<string, string>(lang, desc));
             }
 
+            string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
             RdfSettings settings = new RdfSettings
             {
                 BaseUri = dcat.BaseURI,
@@ -365,7 +366,9 @@ namespace PXWeb.BackgroundWorker
                 Fetcher = fetcher,
                 LandingPageUrl = dcat.LandingPageUrl,
                 License = dcat.License,
-                ThemeMapping = themeMapping
+                ThemeMapping = themeMapping,
+
+                MainLanguage = mainLanguage
             };
 
             try

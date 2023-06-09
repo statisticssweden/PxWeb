@@ -75,6 +75,9 @@ namespace PXWeb.API
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, $"Missing following parameters in json body: {string.Join(", ", missingFields)}");
             }
+
+            string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
+
             RdfSettings settings = new RdfSettings()
             {
                 BaseUri = input.BaseUri,
@@ -85,7 +88,8 @@ namespace PXWeb.API
                 LandingPageUrl = input.LandingPageUrl,
                 PublisherName = input.Publisher,
                 Languages = input.Languages,
-                ThemeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json")
+                ThemeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json"),
+                MainLanguage = mainLanguage
             };
             if (databaseTypeLower == "cnmm") {
                 settings.Fetcher = new CNMMFetcher();
