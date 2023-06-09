@@ -78,6 +78,15 @@ namespace PXWeb.API
 
             string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
 
+            string databasePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath);
+            string themeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json");
+            string organizationMapping = HttpContext.Current.Server.MapPath("~/Organizations.json");
+            string localThemeMapping = databasePath + input.Database + "/TMapping.json";
+            string localOrganizationMapping = databasePath + input.Database + "/Organizations.json";
+
+            if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
+            if (File.Exists(localOrganizationMapping)) organizationMapping = localOrganizationMapping;
+
             RdfSettings settings = new RdfSettings()
             {
                 BaseUri = input.BaseUri,
@@ -88,7 +97,8 @@ namespace PXWeb.API
                 LandingPageUrl = input.LandingPageUrl,
                 PublisherName = input.Publisher,
                 Languages = input.Languages,
-                ThemeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json"),
+                ThemeMapping = themeMapping,
+                OrganizationMapping = organizationMapping,
                 MainLanguage = mainLanguage
             };
             if (databaseTypeLower == "cnmm") {
@@ -98,10 +108,7 @@ namespace PXWeb.API
             else if(databaseTypeLower == "px")
             {
                 settings.DBid = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + input.Database + "/Menu.xml";
-                if (!File.Exists(settings.DBid)) return Request.CreateResponse(HttpStatusCode.BadRequest, $"Database does not exist: {input.Database}");
-                string localThemeMapping = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + input.Database + "/TMapping.json";
-                if (File.Exists(localThemeMapping)) settings.ThemeMapping = localThemeMapping;
-                settings.Fetcher = new PXFetcher(HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath));
+                settings.Fetcher = new PXFetcher(databasePath);
             }
             else
             {

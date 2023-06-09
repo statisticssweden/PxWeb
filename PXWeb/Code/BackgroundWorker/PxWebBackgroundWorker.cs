@@ -314,19 +314,26 @@ namespace PXWeb.BackgroundWorker
                 languages.Add(firstTwo(ls.Name));
             }
             string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/TMapping.json");
+            string organizationMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Organizations.json");
+
             string dbType = dcat.DatabaseType;
             string dbid;
             IFetcher fetcher;
             string databasepath = GetDatabasePath();
 
             string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
+            
+            string localThemeMapping = databasepath + dcat.Database + "/TMapping.json";
+            string localOrganizationMapping = databasepath + dcat.Database + "/Organizations.json";
+
+            if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
+            if (File.Exists(localOrganizationMapping)) organizationMapping = localOrganizationMapping;
 
             switch (dbType)
             {
+
                 case "PX":
                     dbid = databasepath + dcat.Database + "/Menu.xml";
-                    string localThemeMapping = databasepath + dcat.Database + "/TMapping.json";
-                    if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
                     fetcher = new PXFetcher(databasepath);
                     break;
                 case "CNMM":
@@ -367,7 +374,7 @@ namespace PXWeb.BackgroundWorker
                 LandingPageUrl = dcat.LandingPageUrl,
                 License = dcat.License,
                 ThemeMapping = themeMapping,
-
+                OrganizationMapping = organizationMapping,
                 MainLanguage = mainLanguage
             };
 
