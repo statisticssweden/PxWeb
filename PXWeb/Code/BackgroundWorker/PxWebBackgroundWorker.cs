@@ -313,7 +313,7 @@ namespace PXWeb.BackgroundWorker
             {
                 languages.Add(firstTwo(ls.Name));
             }
-            string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/TMapping.json");
+            string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Themes.json");
             string organizationMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Organizations.json");
 
             string dbType = dcat.DatabaseType;
@@ -323,7 +323,7 @@ namespace PXWeb.BackgroundWorker
 
             string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
             
-            string localThemeMapping = databasepath + dcat.Database + "/TMapping.json";
+            string localThemeMapping = databasepath + dcat.Database + "/Themes.json";
             string localOrganizationMapping = databasepath + dcat.Database + "/Organizations.json";
 
             if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;

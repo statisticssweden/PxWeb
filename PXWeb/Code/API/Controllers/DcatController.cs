@@ -79,9 +79,9 @@ namespace PXWeb.API
             string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
 
             string databasePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath);
-            string themeMapping = HttpContext.Current.Server.MapPath("~/TMapping.json");
+            string themeMapping = HttpContext.Current.Server.MapPath("~/Themes.json");
             string organizationMapping = HttpContext.Current.Server.MapPath("~/Organizations.json");
-            string localThemeMapping = databasePath + input.Database + "/TMapping.json";
+            string localThemeMapping = databasePath + input.Database + "/Themes.json";
             string localOrganizationMapping = databasePath + input.Database + "/Organizations.json";
 
             if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
