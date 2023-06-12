@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Px.Rdf;
+using Px.Dcat;
 using System.Web;
 using System.IO;
 
@@ -87,7 +87,7 @@ namespace PXWeb.API
             if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
             if (File.Exists(localOrganizationMapping)) organizationMapping = localOrganizationMapping;
 
-            RdfSettings settings = new RdfSettings()
+            Px.Dcat.DcatSettings settings = new Px.Dcat.DcatSettings()
             {
                 BaseUri = input.BaseUri,
                 CatalogTitles = input.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.CatalogTitle)).ToList(),
@@ -102,20 +102,20 @@ namespace PXWeb.API
                 MainLanguage = mainLanguage
             };
             if (databaseTypeLower == "cnmm") {
-                settings.Fetcher = new CNMMFetcher();
-                settings.DBid = input.Database;
+                settings.DatabaseType = Px.Dcat.Helpers.DatabaseType.CNMM;
+                settings.DatabaseId = input.Database;
             }
             else if(databaseTypeLower == "px")
             {
-                settings.DBid = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + input.Database + "/Menu.xml";
-                settings.Fetcher = new PXFetcher(databasePath);
+                settings.DatabaseType = Px.Dcat.Helpers.DatabaseType.PX;
+                settings.DatabaseId = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + input.Database + "/Menu.xml";
             }
             else
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid database type: {input.DatabaseType}");
             }
             string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + input.Database + "/dcat-ap.xml");
-            XML.WriteToFile(savePath, settings);
+            DcatWriter.WriteToFile(savePath, settings);
             return Request.CreateResponse(HttpStatusCode.OK, "Xml-file created successfully");
         }
     }

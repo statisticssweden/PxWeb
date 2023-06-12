@@ -8,7 +8,9 @@ using System.IO;
 using PCAxis.Paxiom;
 using PCAxis.Search;
 using PCAxis.Paxiom.Extensions;
-using Px.Rdf;
+using Px.Dcat.Interfaces;
+using Px.Dcat;
+using Px.Dcat.Helpers;
 
 namespace PXWeb.BackgroundWorker
 {
@@ -316,9 +318,9 @@ namespace PXWeb.BackgroundWorker
             string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Themes.json");
             string organizationMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Organizations.json");
 
-            string dbType = dcat.DatabaseType;
+            Px.Dcat.Helpers.DatabaseType dbType = dcat.DatabaseType == "PX" ? Px.Dcat.Helpers.DatabaseType.PX : Px.Dcat.Helpers.DatabaseType.CNMM;
+            
             string dbid;
-            IFetcher fetcher;
             string databasepath = GetDatabasePath();
 
             string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
@@ -331,14 +333,11 @@ namespace PXWeb.BackgroundWorker
 
             switch (dbType)
             {
-
-                case "PX":
+                case DatabaseType.PX:
                     dbid = databasepath + dcat.Database + "/Menu.xml";
-                    fetcher = new PXFetcher(databasepath);
                     break;
-                case "CNMM":
+                case DatabaseType.CNMM:
                     dbid = dcat.Database;
-                    fetcher = new CNMMFetcher();
                     break;
                 default:
                     return;
@@ -357,7 +356,7 @@ namespace PXWeb.BackgroundWorker
             }
 
             string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
-            RdfSettings settings = new RdfSettings
+            var settings = new Px.Dcat.DcatSettings
             {
                 BaseUri = dcat.BaseURI,
 
@@ -369,8 +368,8 @@ namespace PXWeb.BackgroundWorker
                 CatalogDescriptions = descriptions,
 
                 PublisherName = dcat.Publisher,
-                DBid = dbid,
-                Fetcher = fetcher,
+                DatabaseId = dbid,
+                DatabaseType = dbType,
                 LandingPageUrl = dcat.LandingPageUrl,
                 License = dcat.License,
                 ThemeMapping = themeMapping,
@@ -383,7 +382,7 @@ namespace PXWeb.BackgroundWorker
                 dcat.FileStatus = DcatStatusType.Creating;
                 db.Save();
 
-                XML.WriteToFile(savePath, settings);
+                DcatWriter.WriteToFile(savePath, settings);
 
                 _logger.Info("Dcat-file for the '" + database + "' database was created successfully");
                 dcat.FileStatus = DcatStatusType.Created;
