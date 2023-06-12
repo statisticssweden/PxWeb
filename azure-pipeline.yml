@@ -15,7 +15,7 @@ resources:
       endpoint: github-Statistikkbanken
 
 steps:
-- template: dokcker/docker-build-image-and-push-to-gcr.yml@templates
+- template: docker/docker-build-image-and-push-to-gcr.yml@templates
   parameters:
     imageName: 'eu.gcr.io/prod-bip/ssb/statbank/pxapi2'
     repoName: 'prod-bip/ssb/statbank/pxapi2'
