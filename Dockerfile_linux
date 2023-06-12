@@ -22,6 +22,6 @@ FROM base AS final
 WORKDIR /app
 
 COPY --from=publish /app/publish .
-
+ENV COMPlus_EnableDiagnostics=0
 ENTRYPOINT ["dotnet", "PxWeb.dll"]
 
