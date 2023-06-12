@@ -1,0 +1,23 @@
+trigger:
+  branches:
+    include:
+      - 'pxapi2/feature/docker_testing_ssb'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      ref: refs/tags/1.1.43
+      name: statisticsnorway/azure-pipelines-templates
+      endpoint: github-Statistikkbanken
+
+steps:
+- template: dokcker/docker-build-image-and-push-to-gcr.yml@templates
+  parameters:
+    imageName: 'eu.gcr.io/prod-bip/ssb/statbank/pxapi2'
+    repoName: 'prod-bip/ssb/statbank/pxapi2'
+    Dockerfile: 'Dockerfile_linux'
+    gcrServiceConnection: gcrServiceConnection-Statistikkbanken
