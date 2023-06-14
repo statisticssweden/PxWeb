@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PcAxis.Core" Version="1.2.2" />
-    <PackageReference Include="PCAxis.Menu" Version="1.0.1" />
+    <PackageReference Include="PcAxis.Core" Version="1.2.3" />
+    <PackageReference Include="PCAxis.Menu" Version="1.0.2" />
   </ItemGroup>
 
 </Project>
