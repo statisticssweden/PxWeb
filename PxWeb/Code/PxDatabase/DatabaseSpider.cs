@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using PxWeb.Code.BackgroundWorker;
 
 namespace PXWeb.Database
 {
@@ -44,9 +45,33 @@ namespace PXWeb.Database
         public List<DatabaseMessage> Messages { get { return _messages; } }
 
         private DatabaseLogger logger;
+        private bool _stateLogging = false;
+        private ResponseState _responseState;
         private void LogMessage(DatabaseMessage msg)
         {
             Messages.Add(msg);
+            if (_stateLogging)
+            {
+                _responseState.AddEvent(new Event(msg.MessageType.ToString(), msg.Message));
+            }
+        }
+
+        /// <summary>
+        /// Activate logging to a ResponseState in order to track progress of async tasks
+        /// </summary>
+        /// <param name="responseState">The state to be logged to</param>
+        public void ActivateStateLogging(ResponseState responseState)
+        {
+            _responseState = responseState;
+            _stateLogging = true;
+        }
+
+        /// <summary>
+        /// Deactivate logging to a ResponseState
+        /// </summary>
+        public void DeactivateStateLogging()
+        {
+            _stateLogging = false;
         }
 
         /// <summary>

@@ -57,6 +57,9 @@ namespace PxWeb.Controllers.Api2.Admin
                 {
                     PXWeb.Database.DatabaseSpider spider;
                     spider = new PXWeb.Database.DatabaseSpider();
+
+                    spider.ActivateStateLogging(_responseState);
+
                     spider.Handles.Add(new AliasFileHandler(_configOptions, _logger));
                     spider.Handles.Add(new LinkFileHandler(_configOptions, _logger));
                     spider.Handles.Add(new PxFileHandler());
