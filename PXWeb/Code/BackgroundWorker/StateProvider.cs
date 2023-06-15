@@ -54,7 +54,7 @@ namespace PxWeb.Code.BackgroundWorker
 
         private string getFileName(string id)
         {  
-            return Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", $"{id}.json");
+            return Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ControllerStates" ,$"{id}.json");
         }
     }
 }
