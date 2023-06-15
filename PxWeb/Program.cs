@@ -67,6 +67,7 @@ namespace PxWeb
             builder.Services.AddSingleton<IPxCache, PxCache>();
             builder.Services.AddSingleton<ILinkCreator, LinkCreator>();
             builder.Services.AddSingleton<ISelectionHandler, SelectionHandler>();
+            builder.Services.AddSingleton<IStateProvider, StateProvider>();
 
             builder.Services.AddPxDataSource(builder);
 
