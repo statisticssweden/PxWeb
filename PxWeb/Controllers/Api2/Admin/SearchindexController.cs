@@ -21,8 +21,8 @@ namespace PxWeb.Controllers.Api2.Admin
         private readonly ISearchBackend _backend;
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private readonly ILogger<SearchindexController> _logger;
-        private readonly IStateProvider _stateProvider;
         private readonly BackgroundWorkerQueue _backgroundWorkerQueue;
+        private readonly ResponseState _responseState;
 
         public SearchindexController(BackgroundWorkerQueue backgroundWorkerQueue, IStateProvider stateProvider, IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ILogger<SearchindexController> logger)
         {
@@ -30,8 +30,9 @@ namespace PxWeb.Controllers.Api2.Admin
             _backend = backend; 
             _pxApiConfigurationService = pxApiConfigurationService; 
             _logger = logger;
-            _stateProvider = stateProvider;
             _backgroundWorkerQueue = backgroundWorkerQueue;
+            string id = GetType().FullName;
+            _responseState = stateProvider.Load(id);
         }
 
         /// <summary>
@@ -95,7 +96,9 @@ namespace PxWeb.Controllers.Api2.Admin
 
                     if (tableList.Count == 0)
                     {
-                        _logger.LogError("No tables specified for index update");
+                        string message = "No languages configured for PxApi"; 
+                        _logger.LogError(message);
+                        _responseState.AddEvent(new Event("Error", message));
                         return;
                     }
 
@@ -103,7 +106,9 @@ namespace PxWeb.Controllers.Api2.Admin
 
                     if (config.Languages.Count == 0)
                     {
-                        _logger.LogError("No languages configured for PxApi");
+                        string message = "No languages configured for PxApi";
+                        _logger.LogError(message);
+                        _responseState.AddEvent(new Event("Error", message));
                         return;
                     }
 
@@ -117,6 +122,7 @@ namespace PxWeb.Controllers.Api2.Admin
                 }
                 catch (System.Exception ex)
                 {
+                    _responseState.AddEvent(new Event("Error", ex.Message));
                     _logger.LogError(ex.Message);
                 }
             });
@@ -130,9 +136,7 @@ namespace PxWeb.Controllers.Api2.Admin
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         public IActionResult GetState()
         {
-            string id = GetType().FullName;
-            ResponseState state = _stateProvider.Load(id);
-            return new JsonResult(state);
+            return new JsonResult(_responseState);
         }
     }
 }

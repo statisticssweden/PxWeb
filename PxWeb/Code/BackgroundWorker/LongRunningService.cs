@@ -20,8 +20,8 @@ namespace PxWeb.Code.BackgroundWorker
             while (!stoppingToken.IsCancellationRequested)
             {
                 var workItem = await queue.DequeueAsync(stoppingToken);
+                string id = getControllerIdFromTask(workItem);
 
-                string id = workItem.Method.DeclaringType.FullName;
                 ResponseState state = _stateProvider.Load(id);
 
                 state.Begin();
@@ -29,6 +29,13 @@ namespace PxWeb.Code.BackgroundWorker
                 state.End();
                 _stateProvider.Save(id, state);
             }
+        }
+
+        private string getControllerIdFromTask(System.Func<CancellationToken, Task> workItem)
+        {
+            var type = workItem.Method.DeclaringType;
+            while (type.DeclaringType != null) { type = type.DeclaringType; } // Avoid compiler generated classes
+            return type.FullName;
         }
     }
 }
