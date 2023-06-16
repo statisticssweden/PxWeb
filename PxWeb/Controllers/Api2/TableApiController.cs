@@ -31,6 +31,7 @@ using PCAxis.Serializers;
 using PxWeb.Code.Api2.DataSelection;
 using Microsoft.Extensions.Options;
 using PxWeb.Code.Api2.ModelBinder;
+using Px.Abstractions;
 
 namespace PxWeb.Controllers.Api2
 {
@@ -45,12 +46,13 @@ namespace PxWeb.Controllers.Api2
         private readonly ITableMetadataResponseMapper _tableMetadataResponseMapper;
         private readonly ITablesResponseMapper _tablesResponseMapper;
         private readonly ITableResponseMapper _tableResponseMapper;
+        private readonly ICodelistResponseMapper _codelistResponseMapper;
         private readonly ISearchBackend _backend;
         private readonly ISerializeManager _serializeManager;
         private PxApiConfigurationOptions _configOptions;
         private readonly ISelectionHandler _selectionHandler;
 
-        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ITableResponseMapper tableResponseMapper, ISerializeManager serializeManager, ISelectionHandler selectionHandler )
+        public TableApiController(IDataSource dataSource, ILanguageHelper languageHelper, ITableMetadataResponseMapper responseMapper, ISearchBackend backend, IOptions<PxApiConfigurationOptions> configOptions, ITablesResponseMapper tablesResponseMapper, ITableResponseMapper tableResponseMapper, ICodelistResponseMapper codelistResponseMapper, ISerializeManager serializeManager, ISelectionHandler selectionHandler )
         {
             _dataSource = dataSource;
             _languageHelper = languageHelper;
@@ -59,6 +61,7 @@ namespace PxWeb.Controllers.Api2
             _configOptions = configOptions.Value;
             _tablesResponseMapper = tablesResponseMapper;
             _tableResponseMapper = tableResponseMapper;
+            _codelistResponseMapper = codelistResponseMapper;
             _serializeManager = serializeManager;
             _selectionHandler = selectionHandler;   
         }
@@ -103,7 +106,8 @@ namespace PxWeb.Controllers.Api2
 
                 return Ok(_tableResponseMapper.Map(searchResult, lang)); 
             }
-            else { 
+            else 
+            { 
                 return NotFound(NonExistentTable());
             }
             
@@ -111,7 +115,17 @@ namespace PxWeb.Controllers.Api2
 
         public override IActionResult GetTableCodeListById([FromRoute(Name = "id"), Required] string id, [FromQuery(Name = "lang")] string? lang)
         {
-            throw new NotImplementedException();
+            lang = _languageHelper.HandleLanguage(lang);
+            Codelist? codelist = _dataSource.GetCodelist(id, lang);
+
+            if (codelist != null)
+            {
+                return Ok(_codelistResponseMapper.Map(codelist, lang));
+            }
+            else
+            {
+                return NotFound(NonExistentCodelist());
+            }
         }
         
         public override IActionResult ListAllTables([FromQuery(Name = "lang")] string? lang, [FromQuery(Name = "query")] string? query, [FromQuery(Name = "pastDays")] int? pastDays, [FromQuery(Name = "includeDiscontinued")] bool? includeDiscontinued, [FromQuery(Name = "pageNumber")] int? pageNumber, [FromQuery(Name = "pageSize")] int? pageSize)
@@ -225,6 +239,14 @@ namespace PxWeb.Controllers.Api2
             p.Type = "Parameter error";
             p.Status = 404;
             p.Title = "Non-existent table";
+            return p;
+        }
+        private Problem NonExistentCodelist()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 404;
+            p.Title = "Non-existent codelist";
             return p;
         }
 

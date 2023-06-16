@@ -1,6 +1,7 @@
 ﻿using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
 using PCAxis.Paxiom;
+using Px.Abstractions;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
 
@@ -88,6 +89,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                 return tblFix != null ? tblFix : retMenu.CurrentItem;
             }
             return null;
+        }
+
+        public Codelist? GetCodelist(string id, string language)
+        {
+            throw new System.NotImplementedException();
         }
 
         public bool TableExists(string tableId, string language)

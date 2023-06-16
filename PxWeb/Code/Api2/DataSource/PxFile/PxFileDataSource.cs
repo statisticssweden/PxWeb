@@ -9,6 +9,8 @@ using PCAxis.Paxiom;
 using PCAxis.Sql.DbConfig;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
+using Px.Abstractions;
+using PxWeb.Mappers;
 
 namespace PxWeb.Code.Api2.DataSource.PxFile
 {
@@ -18,13 +20,15 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
         private readonly IItemSelectionResolver _itemSelectionResolver;
         private readonly ITablePathResolver _tablePathResolver;
         private readonly IPxHost _hostingEnvironment;
+        private readonly ICodelistMapper _codelistMapper;
 
-        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver, IPxHost hostingEnvironment)
+        public PxFileDataSource(IPxFileConfigurationService pxFileConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver, IPxHost hostingEnvironment, ICodelistMapper codelistMapper)
         {
             _pxFileConfigurationService = pxFileConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
             _tablePathResolver = tablePathResolver;
             _hostingEnvironment = hostingEnvironment;
+            _codelistMapper = codelistMapper;
         }
 
         /// <summary>
@@ -81,6 +85,27 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
             }
 
             return menu.CurrentItem;
+        }
+
+        public Codelist? GetCodelist(string id, string language)
+        {
+            Codelist? codelist = null;
+            
+            if (string.IsNullOrEmpty(id))
+            {
+                return codelist;
+            }
+
+            id = id.Replace("agg_", "");
+
+            Grouping grouping = PCAxis.Paxiom.GroupRegistry.GetRegistry().GetGrouping(id);
+
+            if (grouping != null)
+            {
+                codelist = _codelistMapper.Map(grouping);
+            }
+
+            return codelist;
         }
 
         public bool TableExists(string tableId, string language)
