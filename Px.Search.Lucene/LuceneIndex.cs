@@ -181,7 +181,7 @@ namespace Px.Search.Lucene
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_CATEGORY, tbl.Category, Field.Store.YES));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_FIRSTPERIOD, tbl.FirstPeriod, Field.Store.YES));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_LASTPERIOD, tbl.LastPeriod, Field.Store.YES));
-                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VARIABLES, string.Join(" ", tbl.VariableNames), Field.Store.YES)); 
+                doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VARIABLES, string.Join("|", tbl.VariableNames), Field.Store.YES)); 
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_PERIOD, meta.GetTimeValues(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_VALUES, meta.GetAllValues(), Field.Store.NO));
                 doc.Add(new TextField(SearchConstants.SEARCH_FIELD_CODES, meta.GetAllCodes(), Field.Store.NO));
