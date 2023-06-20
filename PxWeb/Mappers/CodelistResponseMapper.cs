@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Px.Abstractions;
 using PxWeb.Api2.Server.Models;
 using PxWeb.Config.Api2;
@@ -48,11 +47,7 @@ namespace PxWeb.Mappers
             codeListResponse.Links = new System.Collections.Generic.List<Link>();
 
             // Links 
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                codeListResponse.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.self, id, lang.Id, current));
-            }
+            codeListResponse.Links.Add(_linkCreator.GetCodelistLink(LinkCreator.LinkRelationEnum.self, id, language, true));
 
             return codeListResponse;
         }

@@ -93,7 +93,14 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
         public Codelist? GetCodelist(string id, string language)
         {
-            throw new System.NotImplementedException();
+            Codelist? codelist = null;
+
+            if (string.IsNullOrEmpty(id))
+            {
+                return codelist;
+            }
+
+            return codelist;
         }
 
         public bool TableExists(string tableId, string language)
