@@ -115,6 +115,19 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                 }
 
             }
+            else if (id.StartsWith("vs_", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                id = id.Replace("vs_", "", System.StringComparison.InvariantCultureIgnoreCase);
+
+                PCAxis.Sql.Repositories.ValueSetRepository repo = new PCAxis.Sql.Repositories.ValueSetRepository(cnmmOptions.DatabaseID);
+                PCAxis.Sql.Models.ValueSet valueset = repo.GetValueSet(id, language);
+
+                if (valueset != null)
+                {
+                    codelist = _codelistMapper.Map(valueset);
+                }
+
+            }
 
             return codelist;
         }

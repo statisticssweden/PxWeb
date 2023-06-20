@@ -33,7 +33,15 @@ namespace PxWeb.Mappers
 
         public Codelist Map(PCAxis.Sql.Models.ValueSet valueset)
         {
-            throw new System.NotImplementedException();
+            Codelist codelist = new Codelist(valueset.Id, valueset.Name);
+            codelist.CodelistType = Codelist.CodelistTypeEnum.ValueSet;
+
+            foreach (var value in valueset.Values)
+            {
+                codelist.Values.Add(MapValuesetValue(value));
+            }
+
+            return codelist;
         }
 
         private CodelistValue Map(PCAxis.Paxiom.Group group)
@@ -66,6 +74,19 @@ namespace PxWeb.Mappers
             {
                 codelistValue.ValueMap.Add(code);
             }
+
+            return codelistValue;
+        }
+
+        private CodelistValue MapValuesetValue(PCAxis.Sql.Models.Value value)
+        {
+            CodelistValue codelistValue = new CodelistValue();
+
+            codelistValue.Code = value.Code;
+            codelistValue.Label = value.Text;
+
+            codelistValue.ValueMap = new System.Collections.Generic.List<string>();
+            codelistValue.ValueMap.Add(value.Code);
 
             return codelistValue;
         }
