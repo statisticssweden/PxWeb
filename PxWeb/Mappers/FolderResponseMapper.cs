@@ -6,6 +6,7 @@ using PxWeb.Api2.Server.Models;
 using PxWeb.Config.Api2;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace PxWeb.Mappers
 {
@@ -106,7 +107,7 @@ namespace PxWeb.Mappers
                 Id = tableId,
                 Type = FolderContentItemTypeEnum.TableEnum,
                 Description = child.Description,
-                Label = child.Text,
+                Label = CreateLabel(child),
                 Updated = child.Published,
                 //Tags = null, // TODO: Implement later
                 Category = GetCategory(child.Category),
@@ -150,6 +151,37 @@ namespace PxWeb.Mappers
             };
 
             return heading;
+        }
+
+
+        private string CreateLabel(TableLink child)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(child.Text);
+
+            if (string.IsNullOrEmpty(child.StartTime) || string.IsNullOrEmpty(child.EndTime))
+            {
+                return sb.ToString();
+            }
+
+            if (child.StartTime.Contains("-"))
+            {
+                sb.Append(" (");
+                sb.Append(child.StartTime);
+                sb.Append(") - (");
+                sb.Append(child.EndTime);
+                sb.Append(")");
+            }
+            else
+            {
+                sb.Append(" ");
+                sb.Append(child.StartTime);
+                sb.Append(" - ");
+                sb.Append(child.EndTime);
+            }
+
+            return sb.ToString();           
         }
 
         /// <summary>
