@@ -4,6 +4,7 @@ using PCAxis.Paxiom;
 using Px.Abstractions;
 using Px.Abstractions.Interfaces;
 using PxWeb.Config.Api2;
+using PxWeb.Mappers;
 
 namespace PxWeb.Code.Api2.DataSource.Cnmm
 {
@@ -12,18 +13,18 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         private readonly ICnmmConfigurationService _cnmmConfigurationService;
         private readonly IItemSelectionResolver _itemSelectionResolver;
         private readonly ITablePathResolver _tablePathResolver;
+        private readonly ICodelistMapper _codelistMapper;
 
-        public CnmmDataSource(ICnmmConfigurationService cnmmConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver)
+        public CnmmDataSource(ICnmmConfigurationService cnmmConfigurationService, IItemSelectionResolver itemSelectionResolver, ITablePathResolver tablePathResolver, ICodelistMapper codelistMapper)
         {
             _cnmmConfigurationService = cnmmConfigurationService;
             _itemSelectionResolver = itemSelectionResolver;
             _tablePathResolver = tablePathResolver;
+            _codelistMapper = codelistMapper;
         }
 
         public IPXModelBuilder? CreateBuilder(string id, string language)
         {
-            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
-
             var builder = new PCAxis.PlugIn.Sql.PXSQLBuilder();
             var path = _tablePathResolver.Resolve(language, id, out bool selctionExists);
 
@@ -94,10 +95,25 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         public Codelist? GetCodelist(string id, string language)
         {
             Codelist? codelist = null;
+            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
 
             if (string.IsNullOrEmpty(id))
             {
                 return codelist;
+            }
+
+            if (id.StartsWith("agg_", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                id = id.Replace("agg_", "", System.StringComparison.InvariantCultureIgnoreCase);
+
+                PCAxis.Sql.Repositories.GroupingRepository repo = new PCAxis.Sql.Repositories.GroupingRepository(cnmmOptions.DatabaseID);
+                PCAxis.Sql.Models.Grouping grouping = repo.GetGrouping(id, language);
+
+                if (grouping != null)
+                {
+                    codelist = _codelistMapper.Map(grouping);
+                }
+
             }
 
             return codelist;

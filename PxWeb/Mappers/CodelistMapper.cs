@@ -5,7 +5,7 @@ namespace PxWeb.Mappers
 {
     public class CodelistMapper : ICodelistMapper
     {
-        public Codelist Map(Grouping grouping)
+        public Codelist Map(PCAxis.Paxiom.Grouping grouping)
         {
             Codelist codelist = new Codelist(grouping.ID, grouping.Name);
             codelist.CodelistType = Codelist.CodelistTypeEnum.Aggregation;
@@ -18,12 +18,25 @@ namespace PxWeb.Mappers
             return codelist;
         }
 
-        public Codelist Map(Valueset valueset)
+        public Codelist Map(PCAxis.Sql.Models.Grouping grouping)
+        {
+            Codelist codelist = new Codelist(grouping.Id, grouping.Name);
+            codelist.CodelistType = Codelist.CodelistTypeEnum.Aggregation;
+
+            foreach (PCAxis.Sql.Models.GroupedValue group in grouping.Values)
+            {
+                codelist.Values.Add(Map(group));
+            }
+
+            return codelist;
+        }
+
+        public Codelist Map(PCAxis.Sql.Models.ValueSet valueset)
         {
             throw new System.NotImplementedException();
         }
 
-        private CodelistValue Map(Group group)
+        private CodelistValue Map(PCAxis.Paxiom.Group group)
         {
             CodelistValue codelistValue = new CodelistValue();
 
@@ -35,6 +48,23 @@ namespace PxWeb.Mappers
             foreach (GroupChildValue child in group.ChildCodes)
             {
                 codelistValue.ValueMap.Add(child.Code);
+            }
+
+            return codelistValue;
+        }
+
+        private CodelistValue Map(PCAxis.Sql.Models.GroupedValue group)
+        {
+            CodelistValue codelistValue = new CodelistValue();
+
+            codelistValue.Code = group.Code;
+            codelistValue.Label = group.Text;
+
+            codelistValue.ValueMap = new System.Collections.Generic.List<string>();
+
+            foreach (string code in group.Codes)
+            {
+                codelistValue.ValueMap.Add(code);
             }
 
             return codelistValue;
