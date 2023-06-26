@@ -757,8 +757,17 @@ namespace PxWeb.Code.Api2.DataSelection
 
             int index1 = Array.IndexOf(codes, code1);
             int index2 = Array.IndexOf(codes, code2);
+            int indexTemp;
 
-            if (index1 > -1 && index2 > -1 && index2 > index1)
+            if (index1 > index2)
+            {
+                // Handle indexes in wrong order
+                indexTemp = index1;
+                index1 = index2;
+                index2 = indexTemp;
+            }
+
+            if (index1 > -1 && index2 > -1 && index2 >= index1)
             {
                 for (int i = index1; i <= index2; i++)
                 {
