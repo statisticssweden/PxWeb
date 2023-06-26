@@ -98,7 +98,7 @@ namespace PxWeb.Mappers
                 Id = tableId,
                 Type = FolderContentItemTypeEnum.TableEnum,
                 Description = child.Description,
-                Label = CreateLabel(child),
+                Label = child.Text,
                 Updated = child.Published,
                 //Tags = null, // TODO: Implement later
                 Category = GetCategory(child.Category),
@@ -130,37 +130,6 @@ namespace PxWeb.Mappers
             };
 
             return heading;
-        }
-
-
-        private string CreateLabel(TableLink child)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append(child.Text);
-
-            if (string.IsNullOrEmpty(child.StartTime) || string.IsNullOrEmpty(child.EndTime))
-            {
-                return sb.ToString();
-            }
-
-            if (child.StartTime.Contains("-"))
-            {
-                sb.Append(" (");
-                sb.Append(child.StartTime);
-                sb.Append(") - (");
-                sb.Append(child.EndTime);
-                sb.Append(")");
-            }
-            else
-            {
-                sb.Append(" ");
-                sb.Append(child.StartTime);
-                sb.Append(" - ");
-                sb.Append(child.EndTime);
-            }
-
-            return sb.ToString();           
         }
 
         /// <summary>
