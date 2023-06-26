@@ -28,73 +28,73 @@ namespace PxWeb.Mappers
         {
             _urlBase = configOptions.Value.BaseURL;
         }
-        public Link GetTablesLink(LinkRelationEnum relation, string language, string query, int pagesize, int pageNumber, bool currentLanguage = true)
+        public Link GetTablesLink(LinkRelationEnum relation, string language, string query, int pagesize, int pageNumber, bool showLangParam = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreatePageURL($"tables/", language, currentLanguage, query, pagesize, pageNumber);
+            link.Href = CreatePageURL($"tables/", language, showLangParam, query, pagesize, pageNumber);
 
             return link;
         }
        
-        public Link GetTableLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        public Link GetTableLink(LinkRelationEnum relation, string id, string language, bool showLangParam = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateURL($"tables/{id}", language, currentLanguage);
+            link.Href = CreateURL($"tables/{id}", language, showLangParam);
 
             return link;
         }
 
-        public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        public Link GetTableMetadataJsonLink(LinkRelationEnum relation, string id, string language, bool showLangParam = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateURL($"tables/{id}/metadata", language, currentLanguage);
+            link.Href = CreateURL($"tables/{id}/metadata", language, showLangParam);
 
             return link;
         }
 
-        public Link GetTableDataLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        public Link GetTableDataLink(LinkRelationEnum relation, string id, string language, bool showLangParam = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateURL($"tables/{id}/data", language, currentLanguage);
+            link.Href = CreateURL($"tables/{id}/data", language, showLangParam);
 
             return link;
         }
 
-        public Link GetCodelistLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        public Link GetCodelistLink(LinkRelationEnum relation, string id, string language, bool showLangParam = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateURL($"codeLists/{id}", language, currentLanguage);
+            link.Href = CreateURL($"codeLists/{id}", language, showLangParam);
 
             return link;
         }
 
-        public Link GetFolderLink(LinkRelationEnum relation, string id, string language, bool currentLanguage = true)
+        public Link GetFolderLink(LinkRelationEnum relation, string id, string language, bool showLangParam = true)
         {
             var link = new Link();
             link.Rel = relation.ToString();
             link.Hreflang = language;
-            link.Href = CreateURL($"navigation/{id}", language, currentLanguage);
+            link.Href = CreateURL($"navigation/{id}", language, showLangParam);
 
             return link;
         }
-        private string CreateURL(string endpointUrl, string language, bool currentLanguage)
+        private string CreateURL(string endpointUrl, string language, bool showLangParam)
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(_urlBase);
             sb.Append(endpointUrl);
 
-            if (!currentLanguage)
+            if (showLangParam)
             {
                 sb.Append("?lang=");
                 sb.Append(language);
@@ -102,32 +102,32 @@ namespace PxWeb.Mappers
 
             return sb.ToString();
         }
-        private string CreatePageURL(string endpointUrl, string language, bool currentLanguage, string query, int pagesize, int pageNumber)
+        private string CreatePageURL(string endpointUrl, string language, bool showLangParam, string query, int pagesize, int pageNumber)
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(_urlBase);
             sb.Append(endpointUrl);
             
-            if (!string.IsNullOrEmpty(query) && !currentLanguage)
+            if (!string.IsNullOrEmpty(query) && showLangParam)
             {
                 sb.Append("?lang=");
                 sb.Append(language);
                 sb.Append("&query=" + query);
                 sb.Append("&pagesize=" + pagesize);
             }
-            if (!string.IsNullOrEmpty(query) && currentLanguage)
+            if (!string.IsNullOrEmpty(query) && !showLangParam)
             {
                 sb.Append("?");
                 sb.Append("query=" + query);
                 sb.Append("&pagesize=" + pagesize);
             }
-            if (string.IsNullOrEmpty(query) && currentLanguage)
+            if (string.IsNullOrEmpty(query) && !showLangParam)
             {
                 sb.Append("?");
                 sb.Append("pagesize=" + pagesize);
             }
-            if (string.IsNullOrEmpty(query) && !currentLanguage)
+            if (string.IsNullOrEmpty(query) && showLangParam)
             {
                 sb.Append("?lang=");
                 sb.Append(language);

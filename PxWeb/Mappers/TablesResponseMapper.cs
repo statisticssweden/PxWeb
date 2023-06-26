@@ -7,6 +7,7 @@ using System.Linq;
 using PxWeb.Config.Api2;
 using Microsoft.Extensions.Options;
 using PxWeb.Converters;
+using PCAxis.Paxiom.Localization;
 
 namespace PxWeb.Mappers
 {
@@ -32,33 +33,19 @@ namespace PxWeb.Mappers
             if (pageNumber < totalPages)
             {
                 // Links to next page 
-                foreach (var language in _configOptions.Languages)
-                {
-                    bool current = language.Id.Equals(lang);
-                    linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.next, language.Id, query, 
-                        pageSize, pageNumber + 1, current));
-                }
+                linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.next, lang, query, pageSize, pageNumber + 1, true));
             }
 
             if (pageNumber <= totalPages && pageNumber != 1)
             {
                 // Links to previous page 
-                foreach (var language in _configOptions.Languages)
-                {
-                    bool current = language.Id.Equals(lang);
-                    linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.previous, language.Id, query,
-                        pageSize, pageNumber - 1, current));
-                }
+                linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.previous, lang, query, pageSize, pageNumber - 1, true));
             }
+
             if (totalPages > 1)
-            {         
+            {
                 // Links to last page 
-                foreach (var language in _configOptions.Languages)
-                {
-                    bool current = language.Id.Equals(lang);
-                    linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.last, language.Id, query,
-                        pageSize, totalPages, current));
-                }
+                linkPageList.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.last, lang, query, pageSize, totalPages, true));
             }
 
             PageInfo page = new PageInfo
@@ -80,25 +67,13 @@ namespace PxWeb.Mappers
                 var linkList = new List<Link>();
 
                 // Links to table
-                foreach (var language in _configOptions.Languages)
-                {
-                    bool current = language.Id.Equals(lang);
-                    linkList.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, item.Id.ToUpper(), language.Id, current));
-                }
+                linkList.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, item.Id.ToUpper(), lang, true));
 
                 // Links to metadata
-                foreach (var language in _configOptions.Languages)
-                {
-                    bool current = language.Id.Equals(lang);
-                    linkList.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, item.Id.ToUpper(), language.Id, current));
-                }
+                linkList.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, item.Id.ToUpper(), lang, true));
 
                 // Links to data
-                foreach (var language in _configOptions.Languages)
-                {
-                    bool current = language.Id.Equals(lang);
-                    linkList.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, item.Id.ToUpper(), language.Id, current));
-                }
+                linkList.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, item.Id.ToUpper(), lang, true));
 
                 var tb = new Table()
                 {
@@ -123,11 +98,8 @@ namespace PxWeb.Mappers
             var linkListTableResponse = new List<Link>();
 
             // Links to tablesResponse
-            foreach (var language in _configOptions.Languages)
-            {
-                bool current = language.Id.Equals(lang);
-                linkListTableResponse.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.self, language.Id, query, page.PageSize, page.PageNumber, current));
-            }
+            linkListTableResponse.Add(_linkCreator.GetTablesLink(LinkCreator.LinkRelationEnum.self, lang, query, page.PageSize, page.PageNumber, true));
+
             tablesResponse.Links = linkListTableResponse;
 
             return tablesResponse;

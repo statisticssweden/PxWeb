@@ -54,18 +54,10 @@ namespace PxWeb.Mappers
             tm.Links = new System.Collections.Generic.List<Link>();
 
             // Links to metadata
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper(), lang.Id, current));
-            }
+            tm.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.self, id.ToUpper(), language, true));
 
             // Links to data
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                tm.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, id.ToUpper(), lang.Id, current));
-            }
+            tm.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, id.ToUpper(), language, true));
 
             // TODO: Links to documentation
             //if (!string.IsNullOrEmpty(model.Meta.MetaId))
