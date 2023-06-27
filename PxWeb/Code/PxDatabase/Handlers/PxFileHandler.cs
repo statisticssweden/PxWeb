@@ -70,6 +70,10 @@ namespace PXWeb.Database
             {
                 logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = ex.ToString() });
             }
+            catch (Exception ex)
+            {
+                logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "PX file is corrupted " + path + " " + ex.ToString() });
+            }
 
             return null;
         }
