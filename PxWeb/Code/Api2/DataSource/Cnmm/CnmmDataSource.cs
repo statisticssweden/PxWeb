@@ -99,7 +99,6 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         public Codelist? GetCodelist(string id, string language)
         {
             Codelist? codelist = null;
-            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
 
             if (string.IsNullOrEmpty(id))
             {
@@ -108,29 +107,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
             if (id.StartsWith("agg_", System.StringComparison.InvariantCultureIgnoreCase))
             {
-                id = id.Replace("agg_", "", System.StringComparison.InvariantCultureIgnoreCase);
-
-                PCAxis.Sql.Repositories.GroupingRepository repo = new PCAxis.Sql.Repositories.GroupingRepository(cnmmOptions.DatabaseID);
-                PCAxis.Sql.Models.Grouping grouping = repo.GetGrouping(id, language);
-
-                if (grouping != null)
-                {
-                    codelist = _codelistMapper.Map(grouping);
-                }
-
+                codelist = GetGrouping(id, language);
             }
             else if (id.StartsWith("vs_", System.StringComparison.InvariantCultureIgnoreCase))
             {
-                id = id.Replace("vs_", "", System.StringComparison.InvariantCultureIgnoreCase);
-
-                PCAxis.Sql.Repositories.ValueSetRepository repo = new PCAxis.Sql.Repositories.ValueSetRepository(cnmmOptions.DatabaseID);
-                PCAxis.Sql.Models.ValueSet valueset = repo.GetValueSet(id, language);
-
-                if (valueset != null)
-                {
-                    codelist = _codelistMapper.Map(valueset);
-                }
-
+                codelist = GetValueset(id, language);   
             }
 
             return codelist;
@@ -174,5 +155,48 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             return sb.ToString();
         }
 
+        private Codelist? GetGrouping(string id, string language)
+        {
+            Codelist? codelist = null;
+            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
+
+            if (id.StartsWith("agg_", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Remove leading "agg_" from id
+                id = id.Substring(4);
+            }
+
+            PCAxis.Sql.Repositories.GroupingRepository repo = new PCAxis.Sql.Repositories.GroupingRepository(cnmmOptions.DatabaseID);
+            PCAxis.Sql.Models.Grouping grouping = repo.GetGrouping(id, language);
+
+            if (grouping != null)
+            {
+                codelist = _codelistMapper.Map(grouping);
+            }
+
+            return codelist;
+        }
+
+        private Codelist? GetValueset(string id, string language)
+        {
+            Codelist? codelist = null;
+            var cnmmOptions = _cnmmConfigurationService.GetConfiguration();
+
+            if (id.StartsWith("vs_", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Remove leading "vs_" from id
+               id = id.Substring(3);
+            }
+
+            PCAxis.Sql.Repositories.ValueSetRepository repo = new PCAxis.Sql.Repositories.ValueSetRepository(cnmmOptions.DatabaseID);
+            PCAxis.Sql.Models.ValueSet valueset = repo.GetValueSet(id, language);
+
+            if (valueset != null)
+            {
+                codelist = _codelistMapper.Map(valueset);
+            }
+
+            return codelist;
+        }
     }
 }
