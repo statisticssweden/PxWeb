@@ -96,7 +96,11 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                 return codelist;
             }
 
-            id = id.Replace("agg_", "");
+            if (id.StartsWith("agg_", System.StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Remove leading "agg_" from id
+                id = id.Substring(4);
+            }
 
             Grouping grouping = PCAxis.Paxiom.GroupRegistry.GetRegistry().GetGrouping(id);
 
