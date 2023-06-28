@@ -67,6 +67,13 @@ namespace PxWeb.Code.Api2.DataSelection
                 selections = GetDefaultSelection(builder.Model);
             }
 
+            //Verify that valid selections could be made for mandatory variables
+            if (!VerifyMadeSelection(builder, selections))
+            {
+                problem = IllegalSelection();
+                return null;
+            }
+
             if (!CheckNumberOfCells(selections))
             {
                 selections = null;
@@ -757,8 +764,17 @@ namespace PxWeb.Code.Api2.DataSelection
 
             int index1 = Array.IndexOf(codes, code1);
             int index2 = Array.IndexOf(codes, code2);
+            int indexTemp;
 
-            if (index1 > -1 && index2 > -1 && index2 > index1)
+            if (index1 > index2)
+            {
+                // Handle indexes in wrong order
+                indexTemp = index1;
+                index1 = index2;
+                index2 = indexTemp;
+            }
+
+            if (index1 > -1 && index2 > -1 && index2 >= index1)
             {
                 for (int i = index1; i <= index2; i++)
                 {
@@ -1203,6 +1219,31 @@ namespace PxWeb.Code.Api2.DataSelection
             }
         }
 
+        /// <summary>
+        /// Verifies that at least one valid value has been selected for mandatory variables
+        /// </summary>
+        /// <param name="builder">Paxiom model builder</param>
+        /// <param name="selections">Selections made by the SelectionHandler</param>
+        /// <returns>True if all mandatory variables have at least one selected value, else false</returns>
+        private bool VerifyMadeSelection(IPXModelBuilder builder, Selection[]? selections)
+        {
+            if (selections is null)
+            {
+                return false;
+            }
+
+            //Verify that all the mandatory variables have at least one value
+            foreach (var mandatoryVariable in GetAllMandatoryVariables(builder.Model))
+            {
+                if (!selections.Any(x => x.VariableCode.Equals(mandatoryVariable.Code, System.StringComparison.InvariantCultureIgnoreCase) && x.ValueCodes.Count > 0))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
 
         private bool CheckNumberOfCells(Selection[] selections)
         {
@@ -1265,6 +1306,14 @@ namespace PxWeb.Code.Api2.DataSelection
             p.Type = "Parameter error";
             p.Status = 400;
             p.Title = "Missing selection for mandantory variable";
+            return p;
+        }
+        private Problem IllegalSelection()
+        {
+            Problem p = new Problem();
+            p.Type = "Parameter error";
+            p.Status = 400;
+            p.Title = "Illegal selection for mandantory variable";
             return p;
         }
 

@@ -30,12 +30,12 @@ namespace Px.Abstractions.Interfaces
         bool TableExists(string tableId, string language);
 
 
-        ///// <summary>
-        ///// Get a codelist by id and language
-        ///// </summary>
-        ///// <param name="id">id for the code list</param>
-        ///// <param name="language">codelist with texts for a specific language</param>
-        ///// <returns></returns>
-        //Codelist GetCodelist(string id, string language);
+        /// <summary>
+        /// Get a codelist by id and language
+        /// </summary>
+        /// <param name="id">id for the code list</param>
+        /// <param name="language">codelist with texts for a specific language</param>
+        /// <returns></returns>
+        Codelist? GetCodelist(string id, string language);
     }
 }

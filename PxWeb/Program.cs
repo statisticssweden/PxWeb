@@ -86,7 +86,8 @@ namespace PxWeb
             builder.Services.AddTransient<ITableResponseMapper, TableResponseMapper>();
             builder.Services.AddTransient<IPxHost, PxWebHost>();
             builder.Services.AddTransient<ISerializeManager, SerializeManager>();
-            
+            builder.Services.AddTransient<ICodelistMapper, CodelistMapper>();
+            builder.Services.AddTransient<ICodelistResponseMapper, CodelistResponseMapper>();
 
             builder.Services.AddHostedService<LongRunningService>();
             builder.Services.AddSingleton<BackgroundWorkerQueue>();

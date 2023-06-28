@@ -7,6 +7,7 @@ using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
+using PxWeb.Mappers;
 
 namespace PxWeb.UnitTests.DataSource
 {
@@ -69,7 +70,8 @@ namespace PxWeb.UnitTests.DataSource
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
-            
+            var codelistMapperMock = new Mock<ICodelistMapper>();
+
             var config = testFactory.GetPxApiConfiguration();
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
 
@@ -83,7 +85,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var resolver = new ItemSelectionResolverCnmm( memorymock.Object, pcAxisFactory, configMock.Object);
             var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
-            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object, codelistMapperMock.Object);
             bool selectionExists;
 
             //act
@@ -151,6 +153,7 @@ namespace PxWeb.UnitTests.DataSource
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
+            var codelistMapperMock = new Mock<ICodelistMapper>();
 
             var config = testFactory.GetPxApiConfiguration();
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
@@ -165,7 +168,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
             var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
-            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object, codelistMapperMock.Object);
             bool selectionExists;
 
             //act
@@ -186,6 +189,7 @@ namespace PxWeb.UnitTests.DataSource
             var configServiceMock = new Mock<IPxFileConfigurationService>();
             var hostingEnvironmentMock = new Mock<IPxHost>();
             var loggerMock = new Mock<ILogger<TablePathResolverPxFile>>();
+            var codelistMapperMock = new Mock<ICodelistMapper>();
 
             var config = testFactory.GetPxApiConfiguration();
             configMock.Setup(x => x.GetConfiguration()).Returns(config);
@@ -200,7 +204,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
             var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
-            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object);
+            var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object, codelistMapperMock.Object);
             bool selectionExists;
 
             //act

@@ -5,6 +5,7 @@ using PxWeb.Code.Api2.Cache;
 using PxWeb.Code.Api2.DataSource.Cnmm;
 using PxWeb.Code.Api2.DataSource.PxFile;
 using PxWeb.Config.Api2;
+using PxWeb.Mappers;
 
 namespace PxWeb.UnitTests.DataSource
 {
@@ -75,6 +76,7 @@ namespace PxWeb.UnitTests.DataSource
             var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
             var configServiceMock = new Mock<ICnmmConfigurationService>();
+            var codelistMapperMock = new Mock<ICodelistMapper>();
 
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
@@ -89,7 +91,7 @@ namespace PxWeb.UnitTests.DataSource
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
             var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object, resolver);
 
-            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver, codelistMapperMock.Object);
 
             bool selectionExists;
 
@@ -107,6 +109,7 @@ namespace PxWeb.UnitTests.DataSource
             var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
             var configServiceMock = new Mock<ICnmmConfigurationService>();
+            var codelistMapperMock = new Mock<ICodelistMapper>();
 
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
@@ -121,7 +124,7 @@ namespace PxWeb.UnitTests.DataSource
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
             var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object, resolver);
 
-            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver, codelistMapperMock.Object);
 
             bool selectionExists;
 
@@ -139,6 +142,7 @@ namespace PxWeb.UnitTests.DataSource
             var memorymock = new Mock<IPxCache>();
             var configMock = new Mock<IPxApiConfigurationService>();
             var configServiceMock = new Mock<ICnmmConfigurationService>();
+            var codelistMapperMock = new Mock<ICodelistMapper>();
 
             var pcAxisFactory = new Mock<IItemSelectionResolverFactory>();
 
@@ -153,7 +157,7 @@ namespace PxWeb.UnitTests.DataSource
             var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory.Object, configMock.Object);
             var tablePathResolver = new TablePathResolverCnmm(configServiceMock.Object, resolver);
 
-            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver);
+            var datasource = new CnmmDataSource(configServiceMock.Object, resolver, tablePathResolver, codelistMapperMock.Object);
 
             bool selectionExists;
 

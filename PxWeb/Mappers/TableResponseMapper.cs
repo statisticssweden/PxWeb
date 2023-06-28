@@ -5,6 +5,7 @@ using System.Linq;
 using PxWeb.Config.Api2;
 using Microsoft.Extensions.Options;
 using PxWeb.Converters;
+using PCAxis.Paxiom.Localization;
 
 namespace PxWeb.Mappers
 {
@@ -24,25 +25,14 @@ namespace PxWeb.Mappers
             var linkList = new List<Link>();
 
             // Links to table
-            foreach (var language in _configOptions.Languages)
-            {
-                bool current = language.Id.Equals(lang);
-                linkList.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, searchResult.Id.ToUpper(), language.Id, current));
-            }
+            linkList.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, searchResult.Id.ToUpper(), lang, true));
 
             // Links to metadata
-            foreach (var language in _configOptions.Languages)
-            {
-                bool current = language.Id.Equals(lang);
-                linkList.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, searchResult.Id.ToUpper(), language.Id, current));
-            }
+            linkList.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, searchResult.Id.ToUpper(), lang, true));
 
             // Links to data
-            foreach (var language in _configOptions.Languages)
-            {
-                bool current = language.Id.Equals(lang);
-                linkList.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, searchResult.Id.ToUpper(), language.Id, current));
-            }
+            linkList.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, searchResult.Id.ToUpper(), lang, true));
+
             TableResponse tableResponse = new TableResponse()
             { 
             

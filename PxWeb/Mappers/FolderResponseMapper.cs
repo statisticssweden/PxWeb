@@ -40,12 +40,7 @@ namespace PxWeb.Mappers
             };
 
             folder.Links = new List<PxWeb.Api2.Server.Models.Link>();
-
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                folder.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, folder.Id.ToUpper(), lang.Id, current));
-            }
+            folder.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, folder.Id.ToUpper(), _language, true));
 
             folder.FolderContents = new List<FolderContentItem> { };
 
@@ -89,11 +84,7 @@ namespace PxWeb.Mappers
                 Links = new List<PxWeb.Api2.Server.Models.Link>()
             };
 
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                fi.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, Path.GetFileName(fi.Id), lang.Id, current));
-            }
+            fi.Links.Add(_linkCreator.GetFolderLink(LinkCreator.LinkRelationEnum.self, Path.GetFileName(fi.Id), _language, true));
 
             return fi;
         }
@@ -107,7 +98,7 @@ namespace PxWeb.Mappers
                 Id = tableId,
                 Type = FolderContentItemTypeEnum.TableEnum,
                 Description = child.Description,
-                Label = CreateLabel(child),
+                Label = child.Text,
                 Updated = child.Published,
                 //Tags = null, // TODO: Implement later
                 Category = GetCategory(child.Category),
@@ -117,25 +108,13 @@ namespace PxWeb.Mappers
             table.Links = new List<PxWeb.Api2.Server.Models.Link>();
 
             // Links to table
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                table.Links.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, tableId, lang.Id, current));
-            }
+            table.Links.Add(_linkCreator.GetTableLink(LinkCreator.LinkRelationEnum.self, tableId, _language, true));
 
             // Links to metadata
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                table.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, tableId, lang.Id, current));
-            }
+            table.Links.Add(_linkCreator.GetTableMetadataJsonLink(LinkCreator.LinkRelationEnum.metadata, tableId, _language, true));
 
             // Links to data
-            foreach (var lang in _configOptions.Languages)
-            {
-                bool current = lang.Id.Equals(_language);
-                table.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, tableId, lang.Id, current));
-            }
+            table.Links.Add(_linkCreator.GetTableDataLink(LinkCreator.LinkRelationEnum.data, tableId, _language, true));
 
             return table;   
         }
@@ -151,37 +130,6 @@ namespace PxWeb.Mappers
             };
 
             return heading;
-        }
-
-
-        private string CreateLabel(TableLink child)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append(child.Text);
-
-            if (string.IsNullOrEmpty(child.StartTime) || string.IsNullOrEmpty(child.EndTime))
-            {
-                return sb.ToString();
-            }
-
-            if (child.StartTime.Contains("-"))
-            {
-                sb.Append(" (");
-                sb.Append(child.StartTime);
-                sb.Append(") - (");
-                sb.Append(child.EndTime);
-                sb.Append(")");
-            }
-            else
-            {
-                sb.Append(" ");
-                sb.Append(child.StartTime);
-                sb.Append(" - ");
-                sb.Append(child.EndTime);
-            }
-
-            return sb.ToString();           
         }
 
         /// <summary>
