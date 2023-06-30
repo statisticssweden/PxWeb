@@ -2,8 +2,9 @@
 This is the official source code repository for PxWeb. PxWeb is a nice web application for dissemination of statistical tables please read more abou it at the official web page on Statistics Sweden web site at [www.scb.se/px-web](https://www.scb.se/px-web).
 
 ## Current activities
-We are currently porting the core part of PxWeb, which we call Px framework to .NET Standard. At the same time, we split up this core parts to individual nuget packages. Thereby making them more reusable for other applications. This is the first step of what we call PxWeb NextGen where we will rewrite the UI using new technologies and leaving the old ASP.NET Web Forms behind.
-Please head over to the netstandard branch to see the activities.
+We are currently working on a version 2 of the API. Read more about it at [https://www.scb.se/en/services/open-data-api/pxapi-2.0/](https://www.scb.se/en/services/open-data-api/pxapi-2.0/). The development is done in the pxapi2/master branch of this repository.
 
 ## Installation
-If you are looking for a compiled version of the source, ready to install in your environment. Then please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
+The compiled version is available free of charge for governmental agencies and municipalities, international NSI:s an international organisations of statistics. Please read the terms of use at this page [https://www.scb.se/pxweb](https://www.scb.se/pxweb). 
+
+If you like to get access to the compiled version of the source, ready to install in your environment, please send a mail to [px@scb.se](mailto:px@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
