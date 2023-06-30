@@ -18,12 +18,12 @@ namespace PxWeb.Code.BackgroundWorker
             if (_states.ContainsKey(id)) return _states[id]; // Get from memory
 
             // Get from file
-            string fileName = getFileName(id);
+            string fileName = GetFileName(id);
 
             ControllerState state;
             if (!File.Exists(fileName))
             {
-                state = new ControllerState(id, fileName, _states);
+                state = new ControllerState(id, fileName);
             }
             else
             {
@@ -31,11 +31,11 @@ namespace PxWeb.Code.BackgroundWorker
                 {
                     string text = File.ReadAllText(fileName);
                     state = JsonSerializer.Deserialize<ControllerState>(text);
-                    if (state is null) state = new ControllerState(id, fileName, _states);
+                    if (state is null) state = new ControllerState(id, fileName);
                 }
                 catch (Exception)
                 {
-                    state = new ControllerState(id, fileName, _states);
+                    state = new ControllerState(id, fileName);
                 }
 
             }
@@ -44,7 +44,7 @@ namespace PxWeb.Code.BackgroundWorker
             return state;
         }
 
-        private string getFileName(string id)
+        private string GetFileName(string id)
         {
             string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ControllerStates");
             if (!Directory.Exists(directoryPath)) { Directory.CreateDirectory(directoryPath); }

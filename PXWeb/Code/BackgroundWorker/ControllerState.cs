@@ -8,23 +8,21 @@ namespace PxWeb.Code.BackgroundWorker
     public class ControllerState : IControllerState
     {
         private string _id;
-        private Dictionary<string, IControllerState> _memorySaveLocation;
         private string _fileSaveLocation;
         public ControllerStateType State { get; set; } = ControllerStateType.NotRun;
         public DateTime? LastRunTime { get; set; }
         public List<Event> EventsFromLastRun { get; set; } = new List<Event>();
 
-        public ControllerState(string id, string fileSaveLocation, Dictionary<string, IControllerState> memorySaveLocation)
+        public ControllerState(string id, string fileSaveLocation)
         {
             _id = id;
             _fileSaveLocation = fileSaveLocation;
-            _memorySaveLocation = memorySaveLocation;
         }
 
         public void AddEvent(Event e)
         {
             EventsFromLastRun.Add(e);
-            save();
+            Save();
         }
         public void Begin()
         {
@@ -38,9 +36,8 @@ namespace PxWeb.Code.BackgroundWorker
             State = ControllerStateType.Finished;
             AddEvent(new Event("Information", $"Finished at {LastRunTime}"));
         }
-        private void save()
+        private void Save()
         {
-            _memorySaveLocation[_id] = this;
             string json = JsonSerializer.Serialize(this);
             File.WriteAllText(_fileSaveLocation, json);
         }
