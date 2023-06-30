@@ -155,8 +155,8 @@
     <Reference Include="PCAxis.Sql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PcAxis.Sql.1.2.0\lib\netstandard2.0\PCAxis.Sql.dll</HintPath>
     </Reference>
-    <Reference Include="Px.Dcat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Px.Dcat.1.0.10-beta\lib\netstandard2.0\Px.Dcat.dll</HintPath>
+    <Reference Include="Px.Dcat, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Px.Dcat.2.0.0\lib\netstandard2.0\Px.Dcat.dll</HintPath>
     </Reference>
     <Reference Include="PXWeb.SavedQuery.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PXWeb.SavedQuery.MsSql.1.0.3\lib\netstandard2.0\PXWeb.SavedQuery.MsSql.dll</HintPath>

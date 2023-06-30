@@ -1,4 +1,6 @@
 === Release of PxWeb 2023 v1 ===
+- Dcat file uses the organizations.json file to map between organization names and existing organization uris
+- Dcat admin tool and api-endpoint is now updated to allow for catalog titles and descriptions in multiple languages
 - Dcat admin tool settings are now saved separately for each database, in the corresponding database.config file
 - Dcat admin tool now uses the BackgroundWorker to run tasks as background processes
 - Upgraded versions of nuget-packages
