@@ -1,15 +1,16 @@
 ﻿using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
 using System.Threading;
+using System;
 
 namespace PxWeb.Code.BackgroundWorker
 {
     public class LongRunningService : BackgroundService
     {
         private readonly BackgroundWorkerQueue queue;
-        private IStateProvider _stateProvider;
+        private IControllerStateProvider _stateProvider;
 
-        public LongRunningService(IStateProvider stateProvider, BackgroundWorkerQueue queue)
+        public LongRunningService(IControllerStateProvider stateProvider, BackgroundWorkerQueue queue)
         {
             this.queue = queue;
             _stateProvider = stateProvider;
@@ -22,12 +23,20 @@ namespace PxWeb.Code.BackgroundWorker
                 var workItem = await queue.DequeueAsync(stoppingToken);
                 string id = getControllerIdFromTask(workItem);
 
-                ResponseState state = _stateProvider.Load(id);
+                IControllerState state = _stateProvider.Load(id);
 
                 state.Begin();
-                await workItem(stoppingToken);
+
+                try
+                {
+                    await workItem(stoppingToken);
+                }
+                catch (Exception e)
+                {
+                    state.AddEvent(new Event("Error", e.Message));
+                }
+
                 state.End();
-                _stateProvider.Save(id, state);
             }
         }
 

@@ -46,7 +46,7 @@ namespace PXWeb.Database
 
         private DatabaseLogger logger;
         private bool _stateLogging = false;
-        private ResponseState _responseState;
+        private IControllerState _responseState;
         private void LogMessage(DatabaseMessage msg)
         {
             Messages.Add(msg);
@@ -60,7 +60,7 @@ namespace PXWeb.Database
         /// Activate logging to a ResponseState in order to track progress of async tasks
         /// </summary>
         /// <param name="responseState">The state to be logged to</param>
-        public void ActivateStateLogging(ResponseState responseState)
+        public void ActivateStateLogging(IControllerState responseState)
         {
             _responseState = responseState;
             _stateLogging = true;

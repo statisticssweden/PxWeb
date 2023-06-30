@@ -22,9 +22,9 @@ namespace PxWeb.Controllers.Api2.Admin
         private readonly IPxApiConfigurationService _pxApiConfigurationService;
         private readonly ILogger<SearchindexController> _logger;
         private readonly BackgroundWorkerQueue _backgroundWorkerQueue;
-        private readonly ResponseState _responseState;
+        private readonly IControllerState _responseState;
 
-        public SearchindexController(BackgroundWorkerQueue backgroundWorkerQueue, IStateProvider stateProvider, IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ILogger<SearchindexController> logger)
+        public SearchindexController(BackgroundWorkerQueue backgroundWorkerQueue, IControllerStateProvider stateProvider, IDataSource dataSource, ISearchBackend backend, IPxApiConfigurationService pxApiConfigurationService, ILogger<SearchindexController> logger)
         {
             _dataSource = dataSource;
             _backend = backend; 

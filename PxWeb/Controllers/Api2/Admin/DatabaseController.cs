@@ -25,9 +25,9 @@ namespace PxWeb.Controllers.Api2.Admin
         private readonly ILogger<DatabaseController> _logger;
         private readonly IPxHost _hostingEnvironment;
         private readonly BackgroundWorkerQueue _backgroundWorkerQueue;
-        private readonly ResponseState _responseState;
+        private readonly IControllerState _responseState;
 
-        public DatabaseController(IStateProvider stateProvider, BackgroundWorkerQueue backgroundWorkerQueue, IDataSource dataSource, IOptions<PxApiConfigurationOptions> configOptions, ILogger<DatabaseController> logger, IPxHost hostingEnvironment)
+        public DatabaseController(IControllerStateProvider stateProvider, BackgroundWorkerQueue backgroundWorkerQueue, IDataSource dataSource, IOptions<PxApiConfigurationOptions> configOptions, ILogger<DatabaseController> logger, IPxHost hostingEnvironment)
         {
             _dataSource = dataSource;
             _configOptions = configOptions.Value;
