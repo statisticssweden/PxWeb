@@ -80,7 +80,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
                     foreach (XmlElement childEl in nodeList)
                     {
                         string selection = childEl.GetAttribute("selection");
-                        string tableId = childEl.GetAttribute("tableId");
+                        string tableId = childEl.GetAttribute("tableId").ToUpper();
                         if (!tableLookup.ContainsKey(tableId))
                         {
                             tableLookup.Add(tableId, selection);
