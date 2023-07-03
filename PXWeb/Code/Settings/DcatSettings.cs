@@ -43,12 +43,6 @@ namespace PXWeb
             xpath = "./LandingPageUrl";
             LandingPageUrl = SettingsHelper.GetSettingValue(xpath, node, "https://baseLandingPage.com/");
             
-            xpath = "./CatalogTitle";
-            CatalogTitle = SettingsHelper.GetSettingValue(xpath, node, "Catalog title");
-            
-            xpath = "./CatalogDescription";
-            CatalogDescription = SettingsHelper.GetSettingValue(xpath, node, "Catalog description");
-            
             xpath = "./Publisher";
             Publisher = SettingsHelper.GetSettingValue(xpath, node, "SCB");
             
@@ -66,6 +60,15 @@ namespace PXWeb
 
             xpath = "./FileUpdated";
             FileUpdated = SettingsHelper.GetSettingValue(xpath, node, "");
+
+            xpath = "./LanguageSpecific";
+            var languageSpecificSettings = new List<IDcatLanguageSpecificSettings>();
+            foreach (XmlNode languageNode in node.SelectNodes(xpath))
+            {
+                DcatLanguageSpecificSettings nodeSettings = new DcatLanguageSpecificSettings(languageNode);
+                languageSpecificSettings.Add(nodeSettings);
+            }
+            LanguageSpecificSettings = languageSpecificSettings;
         }
 
         /// <summary>
@@ -85,12 +88,6 @@ namespace PXWeb
             xpath = "./LandingPageUrl";
             SettingsHelper.SetSettingValue(xpath, node, LandingPageUrl);
 
-            xpath = "./CatalogTitle";
-            SettingsHelper.SetSettingValue(xpath, node, CatalogTitle);
-
-            xpath = "./CatalogDescription";
-            SettingsHelper.SetSettingValue(xpath, node, CatalogDescription);
-
             xpath = "./Publisher";
             SettingsHelper.SetSettingValue(xpath, node, Publisher);
 
@@ -108,19 +105,31 @@ namespace PXWeb
 
             xpath = "./FileUpdated";
             SettingsHelper.SetSettingValue(xpath, node, FileUpdated);
+
+            xpath = "./LanguageSpecific";
+            var nodes = node.SelectNodes(xpath);
+
+            // Remove all current nodes
+            foreach (XmlNode n in nodes) n.ParentNode.RemoveChild(n);
+            
+            foreach (DcatLanguageSpecificSettings s in LanguageSpecificSettings)
+            {
+                var newNode = node.OwnerDocument.CreateNode(XmlNodeType.Element, "LanguageSpecific", "");
+                s.Save(newNode);
+                node.AppendChild(newNode);
+            }
         }
 
         public string BaseURI { get; set; }
         public string BaseApiUrl { get; set; }
         public string LandingPageUrl { get; set; }
         public string Publisher { get; set; }
-        public string CatalogTitle { get; set; }
-        public string CatalogDescription { get; set; }
         public string Database { get; set; }
         public string DatabaseType { get; set; }
         public string License { get; set; }
         public DcatStatusType FileStatus { get; set; }
         public string FileUpdated { get; set; }
+        public IEnumerable<IDcatLanguageSpecificSettings> LanguageSpecificSettings { get; set; }
         #endregion
     }
 }

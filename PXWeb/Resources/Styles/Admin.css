@@ -456,3 +456,28 @@ input.colorTextField {
   word-break: break-all;
   word-break: break-word;
 }
+
+.dcatLanguageSpecific {
+    width: 100%;
+    display: inline-block;
+    font-weight: bold;
+    padding: 2px 0;
+}
+
+.dcatCatalogTitle {
+    width: 100%;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.dcatCatalogDesc {
+    width: 100%;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.dcatGenerateBtn {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 200px;
+}

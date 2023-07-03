@@ -8,7 +8,9 @@ using System.IO;
 using PCAxis.Paxiom;
 using PCAxis.Search;
 using PCAxis.Paxiom.Extensions;
-using Px.Rdf;
+using Px.Dcat.Interfaces;
+using Px.Dcat;
+using Px.Dcat.Helpers;
 
 namespace PXWeb.BackgroundWorker
 {
@@ -309,53 +311,70 @@ namespace PXWeb.BackgroundWorker
             DcatStatusType startStatus = dcat.FileStatus;
 
             List<string> languages = new List<string>();
-            string preferredLanguage = firstTwo(Settings.Current.General.Language.DefaultLanguage);
             foreach (LanguageSettings ls in Settings.Current.General.Language.SiteLanguages)
             {
                 languages.Add(firstTwo(ls.Name));
             }
-            string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/TMapping.json");
-            string dbType = dcat.DatabaseType;
+            string themeMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Themes.json");
+            string organizationMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Organizations.json");
+
+            Px.Dcat.Helpers.DatabaseType dbType = dcat.DatabaseType == "PX" ? Px.Dcat.Helpers.DatabaseType.PX : Px.Dcat.Helpers.DatabaseType.CNMM;
+            
             string dbid;
-            IFetcher fetcher;
             string databasepath = GetDatabasePath();
 
             string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
+            
+            string localThemeMapping = databasepath + dcat.Database + "/Themes.json";
+            string localOrganizationMapping = databasepath + dcat.Database + "/Organizations.json";
+
+            if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
+            if (File.Exists(localOrganizationMapping)) organizationMapping = localOrganizationMapping;
+
             switch (dbType)
             {
-                case "PX":
+                case DatabaseType.PX:
                     dbid = databasepath + dcat.Database + "/Menu.xml";
-                    string localThemeMapping = databasepath + dcat.Database + "/TMapping.json";
-                    if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
-                    fetcher = new PXFetcher(databasepath);
                     break;
-                case "CNMM":
+                case DatabaseType.CNMM:
                     dbid = dcat.Database;
-                    fetcher = new CNMMFetcher();
                     break;
                 default:
                     return;
             }
 
-            RdfSettings settings = new RdfSettings
+            List<KeyValuePair<string, string>> titles = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<string, string>> descriptions = new List<KeyValuePair<string, string>>();
+
+            foreach (IDcatLanguageSpecificSettings s in dcat.LanguageSpecificSettings)
+            {
+                string lang = s.Language;
+                string title = s.CatalogTitle;
+                string desc = s.CatalogDescription;
+                titles.Add(new KeyValuePair<string, string>(lang, title));
+                descriptions.Add(new KeyValuePair<string, string>(lang, desc));
+            }
+
+            string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
+            var settings = new Px.Dcat.DcatSettings
             {
                 BaseUri = dcat.BaseURI,
 
                 BaseApiUrl = dcat.BaseApiUrl,
 
-                PreferredLanguage = preferredLanguage,
-
                 Languages = languages,
 
-                CatalogTitle = dcat.CatalogTitle,
-                CatalogDescription = dcat.CatalogDescription,
+                CatalogTitles = titles,
+                CatalogDescriptions = descriptions,
 
                 PublisherName = dcat.Publisher,
-                DBid = dbid,
-                Fetcher = fetcher,
+                DatabaseId = dbid,
+                DatabaseType = dbType,
                 LandingPageUrl = dcat.LandingPageUrl,
                 License = dcat.License,
-                ThemeMapping = themeMapping
+                ThemeMapping = themeMapping,
+                OrganizationMapping = organizationMapping,
+                MainLanguage = mainLanguage
             };
 
             try
@@ -363,7 +382,7 @@ namespace PXWeb.BackgroundWorker
                 dcat.FileStatus = DcatStatusType.Creating;
                 db.Save();
 
-                XML.WriteToFile(savePath, settings);
+                DcatWriter.WriteToFile(savePath, settings);
 
                 _logger.Info("Dcat-file for the '" + database + "' database was created successfully");
                 dcat.FileStatus = DcatStatusType.Created;

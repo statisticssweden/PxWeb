@@ -15,7 +15,7 @@ using System.Xml;
 using System.Globalization;
 using System.Collections.Generic;
 using System.IO;
-using Px.Rdf;
+using Px.Dcat;
 
 namespace PXWeb.Admin
 {
@@ -45,6 +45,7 @@ namespace PXWeb.Admin
                 ddl.Items.Add(new ListItem(db.Id, db.Id));
             }
         }
+
         protected void cboSelectDbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboSelectDbType.SelectedItem.Value == "PX") fillPxDatabases(cboSelectDb);
@@ -130,8 +131,8 @@ namespace PXWeb.Admin
             textBoxSelectApiURL.Text = dcatSettings.BaseApiUrl;
             textBoxSelectLandingPageURL.Text = dcatSettings.LandingPageUrl;
             textBoxSelectPublisher.Text = dcatSettings.Publisher;
-            textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
-            textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
+            // textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
+            // textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
             textBoxSelectLicense.Text = dcatSettings.License;
             updateStatusLabel(dcatSettings);
 
@@ -142,7 +143,47 @@ namespace PXWeb.Admin
             {
                 btnGenerateXML.Enabled = true;
             }
+
+            var settingsLookup = new Dictionary<string, IDcatLanguageSpecificSettings>();
+            IEnumerable<IDcatLanguageSpecificSettings> languageSpecificSettings = dcatSettings.LanguageSpecificSettings;
+            if (languageSpecificSettings != null) {
+                foreach (IDcatLanguageSpecificSettings l in dcatSettings.LanguageSpecificSettings)
+                {
+                    settingsLookup.Add(l.Language, l);
+                }
+            }
+
+            var langSettings = new List<object>();
+            foreach (ILanguageSettings l in Settings.Current.General.Language.SiteLanguages) {
+                string id = l.Name;
+                IDcatLanguageSpecificSettings settings;
+                string title;
+                string desc;
+                if (settingsLookup.TryGetValue(id, out settings))
+                {
+                    title = settings.CatalogTitle;
+                    desc = settings.CatalogDescription;
+                }
+                else
+                {
+                    title = "Catalog title";
+                    desc = "Catalog desc";
+                }
+                langSettings.Add(
+                    new
+                    {
+                        Id = id,
+                        Name = new CultureInfo(id).EnglishName,
+                        Title = title,
+                        Description = desc,
+                    }
+                );
+            }
+
+            dcatLanguageSpecificSettings.DataSource = langSettings;
+            dcatLanguageSpecificSettings.DataBind();
         }
+
 
         private void updateStatusLabel(DcatSettings dcatSettings)
         {
@@ -162,13 +203,36 @@ namespace PXWeb.Admin
             dcats.BaseApiUrl = textBoxSelectApiURL.Text;
             dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
             dcats.Publisher = textBoxSelectPublisher.Text;
-            dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
-            dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
+            // dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
+            // dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
             dcats.License = textBoxSelectLicense.Text;
             dcats.Database = cboSelectDb.Text;
             dcats.DatabaseType = cboSelectDbType.Text;
 
+            var languageSpecificSettingsList = new List<IDcatLanguageSpecificSettings>();
+
+            foreach (RepeaterItem itm in dcatLanguageSpecificSettings.Items)
+            {
+                IDcatLanguageSpecificSettings langSpecificSettings = GetLangSpecificSettings(itm);
+                languageSpecificSettingsList.Add(langSpecificSettings);
+            }
+            dcats.LanguageSpecificSettings = languageSpecificSettingsList;
+
             db.Save();
+        }
+
+        private IDcatLanguageSpecificSettings GetLangSpecificSettings(RepeaterItem itm)
+        {
+            var hf = (HiddenField)itm.FindControl("hidSetting");
+            string lang = hf.Value;
+
+            var titleTextBox = (TextBox)itm.FindControl("textBoxSelectCatalogTitle");
+            string title = titleTextBox.Text;
+
+            var descTextBox = (TextBox)itm.FindControl("textBoxSelectCatalogDescription");
+            var desc = descTextBox.Text;
+
+            return new DcatLanguageSpecificSettings(lang, title, desc);
         }
 
         protected void MasterSave_Click(object sender, EventArgs e) {

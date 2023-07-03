@@ -21,16 +21,6 @@
         <asp:ImageButton ID="imgSelectBaseURI" runat="server" onclick="imgSelectBaseURI_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
     <div class="setting-field">
-        <asp:Label ID="lblSelectCatalogTitle" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectCatalogTitle %>">"></asp:Label>
-        <asp:TextBox ID="textBoxSelectCatalogTitle" runat="server"></asp:TextBox>
-        <asp:ImageButton ID="imgSelectCatalogTitle" runat="server" onclick="imgSelectCatalogTitle_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
-    </div>
-    <div class="setting-field">
-        <asp:Label ID="lblSelectCatalogDesc" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectCatalogDesc %>">"></asp:Label>
-        <asp:TextBox ID="textBoxSelectCatalogDesc" runat="server"></asp:TextBox>
-        <asp:ImageButton ID="imgSelectCatalogDesc" runat="server" onclick="imgSelectCatalogDesc_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
-    </div>
-    <div class="setting-field">
         <asp:Label ID="lblSelectLicense" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectLicense %>">"></asp:Label>
         <asp:TextBox ID="textBoxSelectLicense" runat="server"></asp:TextBox>
         <asp:ImageButton ID="imgSelectLicense" runat="server" onclick="imgSelectLicense_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
@@ -50,14 +40,46 @@
         <asp:TextBox ID="textBoxSelectPublisher" runat="server"></asp:TextBox>
         <asp:ImageButton ID="imgSelectPublisher" runat="server" onclick="imgSelectPublisher_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
-        <div class="setting-field">
+
+    <div class="setting-field">
+        <asp:Repeater ID="dcatLanguageSpecificSettings" runat="server">
+            <ItemTemplate>
+                <div class="dcatLanguageSpecific">
+                    <asp:HiddenField ID="hidSetting" runat="server" value='<%# Bind("Id") %>' />
+                    <asp:Label ID="lblSiteLanguages" runat="server" Text="<%$ PxString: PxWebAdminSettingsLanguageSiteLanguages %>"></asp:Label>
+                    <asp:Label ID="lblLanguage" runat="server" CssClass="dcatTextLanguage" Text=<%# Eval("Name") %>></asp:Label>
+                </div>
+                <div class="dcatCatalogTitle">
+                    <asp:Label ID="lblSelectCatalogTitle" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectCatalogTitle %>"></asp:Label>
+                    <asp:TextBox ID="textBoxSelectCatalogTitle" CssClass="dcatCatalogTitleTextbox" runat="server" Text=<%# Eval("Title") %>></asp:TextBox>
+                    <asp:ImageButton ID="imgSelectCatalogTitle" runat="server" onclick="imgSelectCatalogTitle_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+                </div>
+                <div class="dcatCatalogDesc">
+                    <asp:Label ID="lblSelectCatalogDesc" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectCatalogDesc %>"></asp:Label>
+                    <asp:TextBox ID="textBoxSelectCatalogDescription" CssClass="dcatCatalogDescTextbox" runat="server" Text=<%# Eval("Description") %>></asp:TextBox>
+                    <asp:ImageButton ID="imgSelectCatalogDesc" runat="server" onclick="imgSelectCatalogDesc_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+                </div>
+            </ItemTemplate>
+<%--            <AlternatingItemTemplate>
+                <p class="evenRow">
+                    <asp:HiddenField ID="hidSetting" runat="server" value='<%# Bind("Id") %>' />
+                    <asp:Label id="lblLanguage" runat="server" Text=<%# Eval("Name") %>></asp:Label>
+                    <asp:TextBox id="textBoxSelectCatalogTitle" runat="server" Text=<%# Eval("Title") %>></asp:TextBox>
+                    <asp:TextBox id="textBoxSelectCatalogDescription" runat="server" Text=<%# Eval("Description") %>></asp:TextBox>
+                </p>
+            </AlternatingItemTemplate>--%>
+        </asp:Repeater>
+
+    </div>
+
+    <div class="setting-field">
         <asp:Label ID="lblStatus" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorStatus %>">"></asp:Label>
         <asp:Label ID="lblStatusValue" runat="server" Text="NotCreated"></asp:Label>
         <asp:ImageButton ID="imgStatus" runat="server" onclick="imgStatus_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
 
      <div class="setting-field">
-         <asp:Button ID="btnGenerateXML" onclick="btnGenerateXML_Click" runat="server" Text="<%$ PxString: PxWebAdminGenerateButton %>" />
+         <asp:Button ID="btnGenerateXML" CssClass="dcatGenerateBtn" OnClick="btnGenerateXML_Click" runat="server" Text="<%$ PxString: PxWebAdminGenerateButton %>" />
     </div>
 
 
