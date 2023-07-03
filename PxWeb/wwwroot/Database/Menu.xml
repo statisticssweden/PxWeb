@@ -9,10 +9,65 @@
         <Description></Description>
         <Text>Environment</Text>
         <TextShort></TextShort>
+        <MenuItem selection="Database\EN\EN01" sortCode="Waste">
+          <Description></Description>
+          <Text>Waste</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\EN\EN01\TAB003.px" sortCode="TAB003" type="PX" category="O" tableId="TAB003" status="A">
+            <Description></Description>
+            <Text>Disposal facilities by treatment category, waste category, contents and year</Text>
+            <TextShort>TAB003</TextShort>
+            <Attribute name="Var1Name">treatment category</Attribute>
+            <Attribute name="Var1Values">RECYCLING, COMPOSTING AND ANAEROBIC DIGESTION, BACKFILLING, OTHER RECOVERY INCL. RECULTIVATION OF LANDFILLS AND CONSTRUCTION, ..., PRE-TREATMENT AND SORTING</Attribute>
+            <Attribute name="Var1NumberOfValues">9</Attribute>
+            <Attribute name="Var2Name">waste category</Attribute>
+            <Attribute name="Var2Values">spent solvents, acid, alkaline or saline wastes, used oils, chemical wastes, ..., Total</Attribute>
+            <Attribute name="Var2NumberOfValues">34</Attribute>
+            <Attribute name="Var3Name">contents</Attribute>
+            <Attribute name="Var3Values">Treated waste, hazardous (tonnes), Treated waste, non hazardous (tonnes), </Attribute>
+            <Attribute name="Var3NumberOfValues">2</Attribute>
+            <Attribute name="Var4Name">year</Attribute>
+            <Attribute name="Var4Values">2010, 2012, 2014, 2016, </Attribute>
+            <Attribute name="Var4NumberOfValues">4</Attribute>
+            <Attribute name="size">15161</Attribute>
+            <Attribute name="cells">2448</Attribute>
+            <Attribute name="updated">20230703 16:07</Attribute>
+            <Attribute name="modified">20230525 16:13</Attribute>
+            <Published>2023-07-03 16:07:20</Published>
+            <LastUpdated>2023-05-25 16:13:00</LastUpdated>
+            <StartTime>2010</StartTime>
+            <EndTime>2016</EndTime>
+          </Link>
+        </MenuItem>
         <MenuItem selection="Database\EN\EN02" sortCode="Miscellaneous">
           <Description></Description>
           <Text>Miscellaneous</Text>
           <TextShort></TextShort>
+          <Link selection="Database\EN\EN02\TAB004.px" sortCode="TAB004" type="PX" category="O" tableId="TAB004" status="A">
+            <Description></Description>
+            <Text>Total air emissions by sector, greenhouse gas, contents and year</Text>
+            <TextShort>TAB004</TextShort>
+            <Attribute name="Var1Name">sector</Attribute>
+            <Attribute name="Var1Values">NATIONAL TOTAL (excluding LULUCF, excluding international transports), NATIONAL TOTAL (excluding LULUCF, including international transports), NATIONAL TOTAL (including LULUCF, excluding international transports), NATIONAL TOTAL (including LULUCF, including international transports), ..., HEATING OF HOUSES AND PREMISES, TOTAL</Attribute>
+            <Attribute name="Var1NumberOfValues">14</Attribute>
+            <Attribute name="Var2Name">greenhouse gas</Attribute>
+            <Attribute name="Var2Values">Methane (CH4) (t), Methane (CH4) (kt CO2-eqv.), Carbon Dioxide (CO2) (kt), Biogenic carbon dioxide (CO2) from fuels (kt), ..., Sulphur Hexafluoride (SF6) (kt CO2-eqv.)</Attribute>
+            <Attribute name="Var2NumberOfValues">11</Attribute>
+            <Attribute name="Var3Name">contents</Attribute>
+            <Attribute name="Var3Values">Substance, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">year</Attribute>
+            <Attribute name="Var4Values">1990, 1991, 1992, 1993, ..., 2017</Attribute>
+            <Attribute name="Var4NumberOfValues">28</Attribute>
+            <Attribute name="size">27422</Attribute>
+            <Attribute name="cells">4312</Attribute>
+            <Attribute name="updated">20230703 16:09</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-07-03 16:09:39</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1990</StartTime>
+            <EndTime>2017</EndTime>
+          </Link>
           <Link selection="Database\EN\EN02\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
             <Description></Description>
             <Text>Land use in Sweden, hectares by region, land use, contents and year</Text>
@@ -40,6 +95,75 @@
           </Link>
         </MenuItem>
       </MenuItem>
+      <MenuItem selection="Database\PO" sortCode="Population">
+        <Description></Description>
+        <Text>Population</Text>
+        <TextShort></TextShort>
+        <MenuItem selection="Database\PO\PO01" sortCode="Population census">
+          <Description></Description>
+          <Text>Population census</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\PO\PO01\TAB001.px" sortCode="TAB001" type="PX" category="O" tableId="TAB001" status="A">
+            <Description></Description>
+            <Text>Population by region, sex, age, contents and year</Text>
+            <TextShort>TAB001</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Austria, Belgium, Bulgaria, Switzerland, ..., United Kingdom</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">sex</Attribute>
+            <Attribute name="Var2Values">Female, Male, Total, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">age</Attribute>
+            <Attribute name="Var3Values">Total, Less than 5 years, From 5 to 9 years, From 10 to 14 years, ..., Unknown</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">contents</Attribute>
+            <Attribute name="Var4Values">Population, </Attribute>
+            <Attribute name="Var4NumberOfValues">1</Attribute>
+            <Attribute name="Var5Name">year</Attribute>
+            <Attribute name="Var5Values">1981, 1991, 2001, </Attribute>
+            <Attribute name="Var5NumberOfValues">3</Attribute>
+            <Attribute name="size">46541</Attribute>
+            <Attribute name="cells">5940</Attribute>
+            <Attribute name="updated">20230703 15:55</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-07-03 15:55:33</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1981</StartTime>
+            <EndTime>2001</EndTime>
+          </Link>
+          <Link selection="Database\PO\PO01\TAB002.px" sortCode="TAB002" type="PX" category="O" tableId="TAB002" status="A">
+            <Description></Description>
+            <Text>Population by region, sex, age, citizenship, contents and year</Text>
+            <TextShort>TAB002</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Austria, Belgium, Bulgaria, Switzerland, ..., United Kingdom</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">sex</Attribute>
+            <Attribute name="Var2Values">Female, Male, Total, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">age</Attribute>
+            <Attribute name="Var3Values">Total, Less than 5 years, From 5 to 9 years, From 10 to 14 years, ..., Unknown</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">citizenship</Attribute>
+            <Attribute name="Var4Values">Foreign country, Reporting country, Stateless, Total, Unknown</Attribute>
+            <Attribute name="Var4NumberOfValues">5</Attribute>
+            <Attribute name="Var5Name">contents</Attribute>
+            <Attribute name="Var5Values">Population, </Attribute>
+            <Attribute name="Var5NumberOfValues">1</Attribute>
+            <Attribute name="Var6Name">year</Attribute>
+            <Attribute name="Var6Values">1991, 2001, </Attribute>
+            <Attribute name="Var6NumberOfValues">2</Attribute>
+            <Attribute name="size">131999</Attribute>
+            <Attribute name="cells">19800</Attribute>
+            <Attribute name="updated">20230703 16:05</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-07-03 16:05:20</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1991</StartTime>
+            <EndTime>2001</EndTime>
+          </Link>
+        </MenuItem>
+      </MenuItem>
     </MenuItem>
   </Language>
   <Language lang="sv" default="false">
@@ -51,10 +175,65 @@
         <Description></Description>
         <Text>Miljö</Text>
         <TextShort></TextShort>
+        <MenuItem selection="Database\EN\EN01" sortCode="Avfall">
+          <Description></Description>
+          <Text>Avfall</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\EN\EN01\TAB003.px" sortCode="TAB003" type="PX" category="O" tableId="TAB003" status="A">
+            <Description></Description>
+            <Text>Disposal facilities efter behandlingstyp, avfallskategori, tabellinnehåll och år</Text>
+            <TextShort>TAB003</TextShort>
+            <Attribute name="Var1Name">behandlingstyp</Attribute>
+            <Attribute name="Var1Values">MATERIALÅTERVINNING, RÖTNING OCH KOMPOSTERING, ÅTERFYLLNING, ANNAN ÅTERVINNING INKL. DEPONITÄCKNING  OCH KONSTRUKTION, ..., FÖRBEHANDLING OCH SORTERING</Attribute>
+            <Attribute name="Var1NumberOfValues">9</Attribute>
+            <Attribute name="Var2Name">avfallskategori</Attribute>
+            <Attribute name="Var2Values">lösningsmedelavfall, surt, alkaliskt eller salthaltigt avfall, oljeavfall, kemiska rester, ..., Totalt</Attribute>
+            <Attribute name="Var2NumberOfValues">34</Attribute>
+            <Attribute name="Var3Name">tabellinnehåll</Attribute>
+            <Attribute name="Var3Values">Hanterat avfall (farligt), Hanterat avfall (ofarligt), </Attribute>
+            <Attribute name="Var3NumberOfValues">2</Attribute>
+            <Attribute name="Var4Name">år</Attribute>
+            <Attribute name="Var4Values">2010, 2012, 2014, 2016, </Attribute>
+            <Attribute name="Var4NumberOfValues">4</Attribute>
+            <Attribute name="size">15161</Attribute>
+            <Attribute name="cells">2448</Attribute>
+            <Attribute name="updated">20230703 16:07</Attribute>
+            <Attribute name="modified">20230525 16:13</Attribute>
+            <Published>2023-07-03 16:07:20</Published>
+            <LastUpdated>2023-05-25 16:13:00</LastUpdated>
+            <StartTime>2010</StartTime>
+            <EndTime>2016</EndTime>
+          </Link>
+        </MenuItem>
         <MenuItem selection="Database\EN\EN02" sortCode="Diverse">
           <Description></Description>
           <Text>Diverse</Text>
           <TextShort></TextShort>
+          <Link selection="Database\EN\EN02\TAB004.px" sortCode="TAB004" type="PX" category="O" tableId="TAB004" status="A">
+            <Description></Description>
+            <Text>Totala utsläpp av växthusgaser efter sektor, växthusgas, tabellinnehåll och år</Text>
+            <TextShort>TAB004</TextShort>
+            <Attribute name="Var1Name">sektor</Attribute>
+            <Attribute name="Var1Values">NATIONELL TOTAL (exklusive LULUCF, exklusive internationella transporter), NATIONELL TOTAL (exklusive LULUCF, inklusive internationella transporter), NATIONELL TOTAL (inklusive LULUCF, exklusive internationella transporter), NATIONELL TOTAL (inklusive LULUCF, inklusive internationella transporter), ..., UPPVÄRMNING AV BOSTÄDER OCH LOKALER, TOTALT</Attribute>
+            <Attribute name="Var1NumberOfValues">14</Attribute>
+            <Attribute name="Var2Name">växthusgas</Attribute>
+            <Attribute name="Var2Values">Metan (CH4) (t), Metan (CH4) (kt CO2-ekv.), Koldioxid (CO2) (kt), Biogen koldioxid (CO2) från bränslen (kt), ..., Svavelhexafluorid (SF6) (kt CO2-ekv.)</Attribute>
+            <Attribute name="Var2NumberOfValues">11</Attribute>
+            <Attribute name="Var3Name">tabellinnehåll</Attribute>
+            <Attribute name="Var3Values">Ämne, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">år</Attribute>
+            <Attribute name="Var4Values">1990, 1991, 1992, 1993, ..., 2017</Attribute>
+            <Attribute name="Var4NumberOfValues">28</Attribute>
+            <Attribute name="size">27422</Attribute>
+            <Attribute name="cells">4312</Attribute>
+            <Attribute name="updated">20230703 16:09</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-07-03 16:09:39</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1990</StartTime>
+            <EndTime>2017</EndTime>
+          </Link>
           <Link selection="Database\EN\EN02\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
             <Description></Description>
             <Text>Markanvändningen i Sverige, hektar efter region, markanvändning, tabellinnehåll och år</Text>
@@ -79,6 +258,75 @@
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>2010</StartTime>
             <EndTime>2015</EndTime>
+          </Link>
+        </MenuItem>
+      </MenuItem>
+      <MenuItem selection="Database\PO" sortCode="Befolkning">
+        <Description></Description>
+        <Text>Befolkning</Text>
+        <TextShort></TextShort>
+        <MenuItem selection="Database\PO\PO01" sortCode="Befolkning census">
+          <Description></Description>
+          <Text>Befolkning census</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\PO\PO01\TAB001.px" sortCode="TAB001" type="PX" category="O" tableId="TAB001" status="A">
+            <Description></Description>
+            <Text>Befolkning efter region, kön, ålder, tabellinnehåll och år</Text>
+            <TextShort>TAB001</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Österrike, Belgien, Bulgarien, Schweiz, ..., Storbritannien</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">kön</Attribute>
+            <Attribute name="Var2Values">Kvinnor, Män, Totalt, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">ålder</Attribute>
+            <Attribute name="Var3Values">Totalt, Yngre än 5 år, Från 5 till 9 år, Från 10 till 14 år, ..., Okänd</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">tabellinnehåll</Attribute>
+            <Attribute name="Var4Values">Befolkning, </Attribute>
+            <Attribute name="Var4NumberOfValues">1</Attribute>
+            <Attribute name="Var5Name">år</Attribute>
+            <Attribute name="Var5Values">1981, 1991, 2001, </Attribute>
+            <Attribute name="Var5NumberOfValues">3</Attribute>
+            <Attribute name="size">46541</Attribute>
+            <Attribute name="cells">5940</Attribute>
+            <Attribute name="updated">20230703 15:55</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-07-03 15:55:33</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1981</StartTime>
+            <EndTime>2001</EndTime>
+          </Link>
+          <Link selection="Database\PO\PO01\TAB002.px" sortCode="TAB002" type="PX" category="O" tableId="TAB002" status="A">
+            <Description></Description>
+            <Text>Befolkning efter region, kön, ålder, medborgarskap, tabellinnehåll och år</Text>
+            <TextShort>TAB002</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Österrike, Belgien, Bulgarien, Schweiz, ..., Storbritannien</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">kön</Attribute>
+            <Attribute name="Var2Values">Kvinnor, Män, Totalt, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">ålder</Attribute>
+            <Attribute name="Var3Values">Totalt, Yngre än 5 år, Från 5 till 9 år, Från 10 till 14 år, ..., Okänd</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">medborgarskap</Attribute>
+            <Attribute name="Var4Values">Fr?mmande land, Rapporterande land, Statsl?s, Totalt, Ok?nd</Attribute>
+            <Attribute name="Var4NumberOfValues">5</Attribute>
+            <Attribute name="Var5Name">tabellinnehåll</Attribute>
+            <Attribute name="Var5Values">Befolkning, </Attribute>
+            <Attribute name="Var5NumberOfValues">1</Attribute>
+            <Attribute name="Var6Name">år</Attribute>
+            <Attribute name="Var6Values">1991, 2001, </Attribute>
+            <Attribute name="Var6NumberOfValues">2</Attribute>
+            <Attribute name="size">131999</Attribute>
+            <Attribute name="cells">19800</Attribute>
+            <Attribute name="updated">20230703 16:05</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-07-03 16:05:20</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1991</StartTime>
+            <EndTime>2001</EndTime>
           </Link>
         </MenuItem>
       </MenuItem>
