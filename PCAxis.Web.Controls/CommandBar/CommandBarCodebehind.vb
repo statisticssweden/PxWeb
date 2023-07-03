@@ -616,12 +616,17 @@ Namespace CommandBar
         ''' <param name="pluginId">Id of the plugin to remove</param>
         ''' <remarks></remarks>
         Private Sub HidePluginDropDown(ByVal dropdown As DropDownList, ByVal pluginId As String)
-            For Each li As ListItem In dropdown.Items
-                If li.Value.Equals(pluginId) Then
-                    dropdown.Items.Remove(li)
-                    Exit Sub
-                End If
-            Next
+            If dropdown Is Nothing Then
+                Return
+            Else
+                For Each li As ListItem In dropdown.Items
+                    If li.Value.Equals(pluginId) Then
+                        dropdown.Items.Remove(li)
+                        Exit Sub
+                    End If
+
+                Next
+            End If
         End Sub
 
         ''' <summary>
