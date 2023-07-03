@@ -5,13 +5,13 @@
       <Description></Description>
       <Text>Database</Text>
       <TextShort></TextShort>
-      <MenuItem selection="Database\EN" sortCode="EN">
+      <MenuItem selection="Database\EN" sortCode="Environment">
         <Description></Description>
-        <Text>EN</Text>
+        <Text>Environment</Text>
         <TextShort></TextShort>
-        <MenuItem selection="Database\EN\EN02" sortCode="EN02">
+        <MenuItem selection="Database\EN\EN02" sortCode="Miscellaneous">
           <Description></Description>
-          <Text>EN02</Text>
+          <Text>Miscellaneous</Text>
           <TextShort></TextShort>
           <Link selection="Database\EN\EN02\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
             <Description></Description>
@@ -47,13 +47,13 @@
       <Description></Description>
       <Text>Database</Text>
       <TextShort></TextShort>
-      <MenuItem selection="Database\EN" sortCode="EN">
+      <MenuItem selection="Database\EN" sortCode="Miljö">
         <Description></Description>
-        <Text>EN</Text>
+        <Text>Miljö</Text>
         <TextShort></TextShort>
-        <MenuItem selection="Database\EN\EN02" sortCode="EN02">
+        <MenuItem selection="Database\EN\EN02" sortCode="Diverse">
           <Description></Description>
-          <Text>EN02</Text>
+          <Text>Diverse</Text>
           <TextShort></TextShort>
           <Link selection="Database\EN\EN02\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
             <Description></Description>
