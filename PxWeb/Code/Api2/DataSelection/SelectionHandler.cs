@@ -2,6 +2,7 @@
 using Lucene.Net.Util;
 using Microsoft.Extensions.Options;
 using PCAxis.Paxiom;
+using PCAxis.Sql.Pxs;
 using PxWeb.Api2.Server.Models;
 using PxWeb.Config.Api2;
 using System;
@@ -100,7 +101,20 @@ namespace PxWeb.Code.Api2.DataSelection
                 //Verify that variable exists
                 foreach (var variable in variablesSelection.Selection)
                 {
-                    Variable? pxVariable = builder.Model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
+                    // Try to get variable using the code specified by the API user
+                    Variable? pxVariable = builder.Model.Meta.Variables.GetByCode(variable.VariableCode);
+                    
+                    if (pxVariable is null)
+                    {
+                        // Is it a case sensitivity problem?
+                        pxVariable = builder.Model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
+
+                        if (pxVariable is not null)
+                        {
+                            // Use the correct variable code for making the selection
+                            variable.VariableCode = pxVariable.Code;
+                        }
+                    }
 
                     if (pxVariable is null)
                     {
@@ -133,7 +147,6 @@ namespace PxWeb.Code.Api2.DataSelection
 
             return true;
         }
-
 
         private bool ApplyCodelist(IPXModelBuilder builder, Variable pxVariable, VariableSelection variable, out Problem? problem)
         {
@@ -260,19 +273,34 @@ namespace PxWeb.Code.Api2.DataSelection
                 if (!variable.ValueCodes.Count().Equals(0))
                 {
                     var modelVariable = model.Meta.Variables.GetByCode(variable.VariableCode);
-                    foreach (var value in variable.ValueCodes)
+
+                    for (int i = 0; i < variable.ValueCodes.Count; i++)
                     {
-                        if (!IsSelectionExpression(value))
+                        if (!IsSelectionExpression(variable.ValueCodes[i]))
                         {
-                            if (modelVariable.Values.GetByCode(value) == null)
+                            // Try to get the value using the code specified by the API user
+                            PCAxis.Paxiom.Value? pxValue = modelVariable.Values.GetByCode(variable.ValueCodes[i]);
+
+                            if (pxValue is null)
                             {
-                                problem = NonExistentValue();
-                                return false;
+                                // Is it a problem with case sensitivity?
+                                pxValue = modelVariable.Values.FirstOrDefault(x => x.Code.Equals(variable.ValueCodes[i], System.StringComparison.InvariantCultureIgnoreCase));
+                                
+                                if (pxValue is not null)
+                                {
+                                    // Use the correct value code for making the selection
+                                    variable.ValueCodes[i] = pxValue.Code;
+                                }
+                                else
+                                {
+                                    problem = NonExistentValue();
+                                    return false;
+                                }
                             }
                         }
                         else
                         {
-                            if (!VerifySelectionExpression(value))
+                            if (!VerifySelectionExpression(variable.ValueCodes[i]))
                             {
                                 problem = IllegalSelectionExpression();
                                 return false;
