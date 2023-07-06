@@ -1952,10 +1952,10 @@
           <StartTime>1990</StartTime>
           <EndTime>2017</EndTime>
         </Link>
-        <Link selection="Database\PxApi2\TAB005.px" sortCode="Landuse" type="PX" category="O" tableId="Landuse" status="A">
+        <Link selection="Database\PxApi2\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
           <Description></Description>
           <Text>Land use in Sweden, hectares by region, land use, contents and year</Text>
-          <TextShort>Landuse</TextShort>
+          <TextShort>TAB005</TextShort>
           <Attribute name="Var1Name">region</Attribute>
           <Attribute name="Var1Values">Sweden, Upplands Väsby, Vallentuna, Österåker, ..., Kiruna</Attribute>
           <Attribute name="Var1NumberOfValues">291</Attribute>
@@ -1968,11 +1968,11 @@
           <Attribute name="Var4Name">year</Attribute>
           <Attribute name="Var4Values">2010, 2015, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="size">52376</Attribute>
+          <Attribute name="size">52375</Attribute>
           <Attribute name="cells">6402</Attribute>
-          <Attribute name="updated">20230630 13:52</Attribute>
+          <Attribute name="updated">20230705 15:23</Attribute>
           <Attribute name="modified">20230525 15:42</Attribute>
-          <Published>2023-06-30 13:52:40</Published>
+          <Published>2023-07-05 15:23:28</Published>
           <LastUpdated>2023-05-25 15:42:00</LastUpdated>
           <StartTime>2010</StartTime>
           <EndTime>2015</EndTime>
@@ -2552,10 +2552,10 @@
           <StartTime>1990</StartTime>
           <EndTime>2017</EndTime>
         </Link>
-        <Link selection="Database\PxApi2\TAB005.px" sortCode="Landuse" type="PX" category="O" tableId="Landuse" status="A">
+        <Link selection="Database\PxApi2\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
           <Description></Description>
           <Text>Markanvändningen i Sverige, hektar efter region, markanvändning, tabellinnehåll och år</Text>
-          <TextShort>Landuse</TextShort>
+          <TextShort>TAB005</TextShort>
           <Attribute name="Var1Name">region</Attribute>
           <Attribute name="Var1Values">Riket, Upplands Väsby, Vallentuna, Österåker, ..., Kiruna</Attribute>
           <Attribute name="Var1NumberOfValues">291</Attribute>
@@ -2568,11 +2568,11 @@
           <Attribute name="Var4Name">år</Attribute>
           <Attribute name="Var4Values">2010, 2015, </Attribute>
           <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="size">52376</Attribute>
+          <Attribute name="size">52375</Attribute>
           <Attribute name="cells">6402</Attribute>
-          <Attribute name="updated">20230630 13:52</Attribute>
+          <Attribute name="updated">20230705 15:23</Attribute>
           <Attribute name="modified">20230525 15:42</Attribute>
-          <Published>2023-06-30 13:52:40</Published>
+          <Published>2023-07-05 15:23:28</Published>
           <LastUpdated>2023-05-25 15:42:00</LastUpdated>
           <StartTime>2010</StartTime>
           <EndTime>2015</EndTime>
