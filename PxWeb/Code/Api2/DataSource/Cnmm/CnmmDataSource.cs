@@ -131,8 +131,23 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
 
             sb.Append(child.Text);
 
-            if (string.IsNullOrEmpty(child.StartTime) || string.IsNullOrEmpty(child.EndTime))
+            if (IsInteger(child.Text[child.Text.Length - 1].ToString())) //Title ends with a number, add nothing
             {
+                return sb.ToString();
+            }
+            if (string.IsNullOrEmpty(child.StartTime) || string.IsNullOrEmpty(child.EndTime)) //No starttime or endtime, add nothing
+            {
+                return sb.ToString();
+            }
+            if (child.Text.EndsWith("-"))//Title ends with a dash, only endtime should be added
+            {
+                sb.Append(child.EndTime);
+                return sb.ToString();
+            }
+            if (child.StartTime == child.EndTime) //Starttime and Endtime are the same, only starttime should be added
+            {
+                sb.Append(" ");
+                sb.Append(child.StartTime);
                 return sb.ToString();
             }
 
@@ -140,7 +155,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             {
                 sb.Append(" (");
                 sb.Append(child.StartTime);
-                sb.Append(") - (");
+                sb.Append(")-(");
                 sb.Append(child.EndTime);
                 sb.Append(")");
             }
@@ -148,13 +163,19 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
             {
                 sb.Append(" ");
                 sb.Append(child.StartTime);
-                sb.Append(" - ");
+                sb.Append("-");
                 sb.Append(child.EndTime);
             }
 
             return sb.ToString();
         }
+       
+        private static bool IsInteger(string value)
+        {
+            int outValue;
 
+            return int.TryParse(value, out outValue);
+        }
         private Codelist? GetGrouping(string id, string language)
         {
             Codelist? codelist = null;
