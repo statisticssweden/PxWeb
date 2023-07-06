@@ -8,7 +8,7 @@ namespace PxWeb.Code.Api2.Serialization
     {
         public void Serialize(PXModel model, HttpResponse response)
         {
-            response.ContentType = "text/html; charset=" + System.Text.Encoding.GetEncoding(model.Meta.CodePage);
+            response.ContentType = "text/html; charset=" + System.Text.Encoding.GetEncoding(model.Meta.CodePage).WebName;
             IPXModelStreamSerializer serializer = new Html5TableSerializer();
             serializer.Serialize(model, response.Body);
         }
