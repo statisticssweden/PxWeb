@@ -26,6 +26,12 @@ namespace PXWeb
             xpath = "./urlRoot";
             UrlRoot = SettingsHelper.GetSettingValue(xpath, apiNode, "");
 
+            xpath = "./urlRootV2";
+            UrlRootV2 = SettingsHelper.GetSettingValue(xpath, apiNode, "");
+
+            xpath = "./enableApiV2QueryLink";
+            EnableApiV2QueryLink = SettingsHelper.GetSettingValue(xpath, apiNode, false);
+
             xpath = "./routePrefix";
             RoutePrefix = SettingsHelper.GetSettingValue(xpath, apiNode, "api/v1/");
 
@@ -75,6 +81,12 @@ namespace PXWeb
             xpath = "./urlRoot";
             SettingsHelper.SetSettingValue(xpath, apiNode, UrlRoot);
 
+            xpath = "./urlRootV2";
+            SettingsHelper.SetSettingValue(xpath, apiNode, UrlRootV2);
+
+            xpath = "./enableApiV2QueryLink";
+            SettingsHelper.SetSettingValue(xpath, apiNode, EnableApiV2QueryLink.ToString());
+
             xpath = "./routePrefix";
             SettingsHelper.SetSettingValue(xpath, apiNode, RoutePrefix);
 
@@ -118,6 +130,8 @@ namespace PXWeb
 
         public int MaxValuesReturned { get; set; }
         public string UrlRoot { get; set; }
+        public string UrlRootV2 { get; set; }
+        public bool EnableApiV2QueryLink { get; set; }
         public string RoutePrefix { get; set; }
         public int LimiterRequests { get; set; }
         public int LimiterTimespan { get; set; }
