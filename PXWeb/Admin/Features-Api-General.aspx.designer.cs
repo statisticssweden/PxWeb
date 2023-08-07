@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb.Admin {
-    
-    
-    public partial class Features_Api_General {
-        
+namespace PXWeb.Admin
+{
+
+
+    public partial class Features_Api_General
+    {
+
         /// <summary>
         /// lblApiSetting control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApiSetting;
-        
+
         /// <summary>
         /// lblPxDatabases control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPxDatabases;
-        
+
         /// <summary>
         /// imgPxDatabases control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgPxDatabases;
-        
+
         /// <summary>
         /// tblPxDatabases control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblPxDatabases;
-        
+
         /// <summary>
         /// lblCnmmDatabases control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCnmmDatabases;
-        
+
         /// <summary>
         /// imgCnmmDatabases control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgCnmmDatabases;
-        
+
         /// <summary>
         /// tblCnmmDatabases control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblCnmmDatabases;
-        
+
         /// <summary>
         /// lblRoutePrefix control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRoutePrefix;
-        
+
         /// <summary>
         /// txtRoutePrefix control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRoutePrefix;
-        
+
         /// <summary>
         /// imgRoutePrefix control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgRoutePrefix;
-        
+
         /// <summary>
         /// validatorRoutePrefix control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorRoutePrefix;
-        
+
         /// <summary>
         /// lblUrlRoot control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUrlRoot;
-        
+
         /// <summary>
         /// txtUrlRoot control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUrlRoot;
-        
+
         /// <summary>
         /// imgUrlRoot control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgUrlRoot;
-        
+
         /// <summary>
         /// validatorUrlRoot control.
         /// </summary>
@@ -146,7 +148,70 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorUrlRoot;
-        
+
+        /// <summary>
+        /// lblEnableApiV2QueryLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEnableApiV2QueryLink;
+
+        /// <summary>
+        /// cboEnableApiV2QueryLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboEnableApiV2QueryLink;
+
+        /// <summary>
+        /// imgEnableApiV2QueryLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgEnableApiV2QueryLink;
+
+        /// <summary>
+        /// lblUrlRootV2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUrlRootV2;
+
+        /// <summary>
+        /// txtUrlRootV2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUrlRootV2;
+
+        /// <summary>
+        /// imgUrlRootV2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgUrlRootV2;
+
+        /// <summary>
+        /// validatorUrlRootV2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator validatorUrlRootV2;
+
         /// <summary>
         /// lblMaxValuesReturned control.
         /// </summary>
@@ -155,7 +220,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMaxValuesReturned;
-        
+
         /// <summary>
         /// txtMaxValuesReturned control.
         /// </summary>
@@ -164,7 +229,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMaxValuesReturned;
-        
+
         /// <summary>
         /// imgMaxValuesReturned control.
         /// </summary>
@@ -173,7 +238,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgMaxValuesReturned;
-        
+
         /// <summary>
         /// validatorMaxValuesReturned control.
         /// </summary>
@@ -182,7 +247,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorMaxValuesReturned;
-        
+
         /// <summary>
         /// lblFetchCellLimit control.
         /// </summary>
@@ -191,7 +256,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFetchCellLimit;
-        
+
         /// <summary>
         /// txtFetchCellLimit control.
         /// </summary>
@@ -200,7 +265,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFetchCellLimit;
-        
+
         /// <summary>
         /// imgFetchCellLimit control.
         /// </summary>
@@ -209,7 +274,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgFetchCellLimit;
-        
+
         /// <summary>
         /// validatorFetchCellLimit control.
         /// </summary>
@@ -218,7 +283,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorFetchCellLimit;
-        
+
         /// <summary>
         /// lblLimiterRequests control.
         /// </summary>
@@ -227,7 +292,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLimiterRequests;
-        
+
         /// <summary>
         /// txtLimiterRequests control.
         /// </summary>
@@ -236,7 +301,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLimiterRequests;
-        
+
         /// <summary>
         /// imgLimiterRequests control.
         /// </summary>
@@ -245,7 +310,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgLimiterRequests;
-        
+
         /// <summary>
         /// validatorLimiterRequests control.
         /// </summary>
@@ -254,7 +319,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorLimiterRequests;
-        
+
         /// <summary>
         /// lblLimiterTimespan control.
         /// </summary>
@@ -263,7 +328,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLimiterTimespan;
-        
+
         /// <summary>
         /// txtLimiterTimespan control.
         /// </summary>
@@ -272,7 +337,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLimiterTimespan;
-        
+
         /// <summary>
         /// imgLimiterTimespan control.
         /// </summary>
@@ -281,7 +346,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgLimiterTimespan;
-        
+
         /// <summary>
         /// validatorLimiterTimespan control.
         /// </summary>
@@ -290,7 +355,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorLimiterTimespan;
-        
+
         /// <summary>
         /// lblEnableCORS control.
         /// </summary>
@@ -299,7 +364,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEnableCORS;
-        
+
         /// <summary>
         /// cboEnableCORS control.
         /// </summary>
@@ -308,7 +373,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboEnableCORS;
-        
+
         /// <summary>
         /// imgEnableCORS control.
         /// </summary>
@@ -317,7 +382,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgEnableCORS;
-        
+
         /// <summary>
         /// lblEnableCache control.
         /// </summary>
@@ -326,7 +391,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEnableCache;
-        
+
         /// <summary>
         /// cboEnableCache control.
         /// </summary>
@@ -335,7 +400,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboEnableCache;
-        
+
         /// <summary>
         /// imgEnableCache control.
         /// </summary>
@@ -344,7 +409,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgEnableCache;
-        
+
         /// <summary>
         /// lblShowQueryInformation control.
         /// </summary>
@@ -353,7 +418,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowQueryInformation;
-        
+
         /// <summary>
         /// cboShowQueryInformation control.
         /// </summary>
@@ -362,7 +427,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowQueryInformation;
-        
+
         /// <summary>
         /// imgShowQueryInformation control.
         /// </summary>
@@ -371,7 +436,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowQueryInformation;
-        
+
         /// <summary>
         /// lblDefaultExampleResponseFormat control.
         /// </summary>
@@ -380,7 +445,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDefaultExampleResponseFormat;
-        
+
         /// <summary>
         /// cboDefaultExampleResponseFormat control.
         /// </summary>
@@ -389,7 +454,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboDefaultExampleResponseFormat;
-        
+
         /// <summary>
         /// imgDefaultExampleResponseFormat control.
         /// </summary>
@@ -398,7 +463,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgDefaultExampleResponseFormat;
-        
+
         /// <summary>
         /// lblShowSaveApiQueryButton control.
         /// </summary>
@@ -407,7 +472,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShowSaveApiQueryButton;
-        
+
         /// <summary>
         /// cboShowSaveApiQueryButton control.
         /// </summary>
@@ -416,7 +481,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboShowSaveApiQueryButton;
-        
+
         /// <summary>
         /// imgShowSaveApiQueryButton control.
         /// </summary>
@@ -425,7 +490,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgShowSaveApiQueryButton;
-        
+
         /// <summary>
         /// pnlSaveApiQueryText control.
         /// </summary>
@@ -434,7 +499,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlSaveApiQueryText;
-        
+
         /// <summary>
         /// lblSaveApiQueryText control.
         /// </summary>
@@ -443,7 +508,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSaveApiQueryText;
-        
+
         /// <summary>
         /// txtSaveApiQueryText control.
         /// </summary>
@@ -452,7 +517,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSaveApiQueryText;
-        
+
         /// <summary>
         /// imgSaveApiQueryText control.
         /// </summary>
@@ -461,7 +526,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgSaveApiQueryText;
-        
+
         /// <summary>
         /// CustomValidator1 control.
         /// </summary>
@@ -470,15 +535,17 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.Admin.Admin Master {
-            get {
+        public new PXWeb.Admin.Admin Master
+        {
+            get
+            {
                 return ((PXWeb.Admin.Admin)(base.Master));
             }
         }

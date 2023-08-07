@@ -17,12 +17,17 @@
   font-weight: bold;
   margin-top: 5px;
 }
+#pxwebcontent .tablequery_V2caption {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+}
 
 #pxwebcontent .tablequery_url {
-  display: block;
-  width: 95%;
-  @include SourceCodeProTablequery_url;
-  font-size: 14px;
+    display: block;
+    width: 95%;
+    @include SourceCodeProTablequery_url;
+    font-size: 14px;
 }
 
 #pxwebcontent .tablequery_querycaption {
@@ -53,4 +58,10 @@
   float: left;
   background: $pxweb-green-4;
   color: $pxweb-white;
+}
+
+#pxwebcontent #urlV2container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }

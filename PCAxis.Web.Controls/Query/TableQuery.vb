@@ -23,13 +23,35 @@ Partial Public Class TableQuery
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)> _
+    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
     Public Property URLRoot() As String
         Get
             Return _urlRoot
         End Get
         Set(ByVal value As String)
             _urlRoot = value
+        End Set
+    End Property
+
+    Private _urlRootV2 As String
+    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
+    Public Property URLRootV2() As String
+        Get
+            Return _urlRootV2
+        End Get
+        Set(ByVal value As String)
+            _urlRootV2 = value
+        End Set
+    End Property
+
+    Private _enableApiV2QueryLink As Boolean
+    <PropertyPersistState(Core.Enums.PersistStateType.PerControlAndPage)>
+    Public Property EnableApiV2QueryLink() As Boolean
+        Get
+            Return _enableApiV2QueryLink
+        End Get
+        Set(ByVal value As Boolean)
+            _enableApiV2QueryLink = value
         End Set
     End Property
 
