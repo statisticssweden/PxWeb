@@ -49,7 +49,9 @@
 
   <ItemGroup>
     <Folder Include="Code\PxDatabase\" />
-    <Folder Include="wwwroot\Database\" />
+    <Folder Include="wwwroot\Aggregations\" />
+    <Folder Include="wwwroot\Database\EN\EN01\" />
+    <Folder Include="wwwroot\Database\PO\PO01\" />
     <Folder Include="wwwroot\Languages\" />
   </ItemGroup>
 
