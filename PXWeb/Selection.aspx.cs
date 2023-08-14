@@ -680,7 +680,14 @@ namespace PXWeb
             HttpCookie myLayoutCookie = Request.Cookies[layoutCookie];
 
             if (myLayoutCookie == null)
+            {
                 _selectionLayout = LayoutFormat.compact;
+
+                myLayoutCookie = new HttpCookie(layoutCookie);
+                myLayoutCookie.Value = LayoutFormat.compact.ToString();
+                myLayoutCookie.Expires = DateTime.Now.AddDays(370);
+                Response.Cookies.Add(myLayoutCookie);
+            }
             else
             {
                 _selectionLayout = Request.Cookies[layoutCookie].Value.ToString() != "compact" ? LayoutFormat.simple : LayoutFormat.compact;
