@@ -5,1863 +5,164 @@
       <Description></Description>
       <Text>Database</Text>
       <TextShort></TextShort>
-      <MenuItem selection="Database\AggregallowedNo" sortCode="AggregallowedNo">
+      <MenuItem selection="Database\EN" sortCode="Environment">
         <Description></Description>
-        <Text>AggregallowedNo</Text>
+        <Text>Environment</Text>
         <TextShort></TextShort>
-        <Link selection="Database\AggregallowedNo\PR0101B3.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
+        <MenuItem selection="Database\EN\EN01" sortCode="Waste">
           <Description></Description>
-          <Text>Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</Text>
-          <TextShort>PR0101B3</TextShort>
-          <Attribute name="Var1Name">Product group</Attribute>
-          <Attribute name="Var1Values">01 Food and non-alcoholic beverages, 01.1 Food, 01.1.1 Bread and cereals, 01.1.2 Meat, ..., 01.1.6 Fruit</Attribute>
-          <Attribute name="Var1NumberOfValues">8</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2006M01, 2006M02, 2006M03, 2006M04, 2006M05</Attribute>
-          <Attribute name="Var2NumberOfValues">5</Attribute>
-          <Attribute name="size">1933</Attribute>
-          <Attribute name="cells">40</Attribute>
-          <Attribute name="updated">20230203 14:42</Attribute>
-          <Attribute name="modified">20060611 14:31</Attribute>
-          <Published>2023-02-03 14:42:31</Published>
-          <LastUpdated>2006-06-11 14:31:00</LastUpdated>
-          <StartTime>2006M01</StartTime>
-          <EndTime>2006M05</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\aggregations" sortCode="aggregations">
-        <Description></Description>
-        <Text>aggregations</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\aggregations\BE0101D1.px" sortCode="BE0101D1" type="PX" category="O" tableId="BE0101D1" status="A">
-          <Description></Description>
-          <Text>Live births by region, maternal age, year and gender</Text>
-          <TextShort>BE0101D1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Whole Sweden, 01 Stockholms county, 0114 Upplands Väsby, 0115 Vallentuna, ..., 2584 Kiruna</Attribute>
-          <Attribute name="Var1NumberOfValues">312</Attribute>
-          <Attribute name="Var2Name">maternal age</Attribute>
-          <Attribute name="Var2Values">-14, 15, 16, 17, ..., total</Attribute>
-          <Attribute name="Var2NumberOfValues">37</Attribute>
-          <Attribute name="Var3Name">year</Attribute>
-          <Attribute name="Var3Values">2002, 2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">gender</Attribute>
-          <Attribute name="Var4Values">men, women, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="size">133855</Attribute>
-          <Attribute name="cells">46176</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:33</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:33:00</LastUpdated>
-          <StartTime>2002</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\aggregations\BEXST1.PX" sortCode="BEXST1" type="PX" category="O" tableId="BEXST1" status="A">
-          <Description>Population January 1st 1977-2019 &lt;em&gt;[BEEST1]&lt;/em&gt;</Description>
-          <Text>Population January 1st 1977-2019 &lt;em&gt;[BEEST1]&lt;/em&gt;</Text>
-          <TextShort>BEXST1</TextShort>
-          <Attribute name="Var1Name">age</Attribute>
-          <Attribute name="Var1Values">0, 1, 2, 3, ..., 99</Attribute>
-          <Attribute name="Var1NumberOfValues">100</Attribute>
-          <Attribute name="Var2Name">residence</Attribute>
-          <Attribute name="Var2Values">Total, Town, Settlement, Station, ..., Unknown</Attribute>
-          <Attribute name="Var2NumberOfValues">6</Attribute>
-          <Attribute name="Var3Name">place of birth</Attribute>
-          <Attribute name="Var3Values">Total, Greenland, Outside Greenland, </Attribute>
-          <Attribute name="Var3NumberOfValues">3</Attribute>
-          <Attribute name="Var4Name">gender</Attribute>
-          <Attribute name="Var4Values">Total, Men, Women, </Attribute>
-          <Attribute name="Var4NumberOfValues">3</Attribute>
-          <Attribute name="Var5Name">time</Attribute>
-          <Attribute name="Var5Values">1977, 1978, 1979, 1980, ..., 2019</Attribute>
-          <Attribute name="Var5NumberOfValues">43</Attribute>
-          <Attribute name="size">633496</Attribute>
-          <Attribute name="cells">232200</Attribute>
-          <Attribute name="updated">20191210 10:37</Attribute>
-          <Attribute name="modified">20190208 09:00</Attribute>
-          <Published>2019-12-10 10:37:35</Published>
-          <LastUpdated>2019-02-08 09:00:00</LastUpdated>
-          <StartTime>1977</StartTime>
-          <EndTime>2019</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\alias" sortCode="Population ">
-        <Description></Description>
-        <Text>Population </Text>
-        <TextShort></TextShort>
-        <Link selection="Database\alias\BE0101F1ensvdescdefault.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Migration for Sweden, Stockholm county and some municipalities</Description>
-          <Text>Migration for Sweden, Stockholm county and some municipalities</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5091</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8371</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\alias\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5714</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
-          <Description></Description>
-          <Text>SCB, Statistiska databaser</Text>
-          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=1</Url>
-        </Url>
-      </MenuItem>
-      <MenuItem selection="Database\AttributesCellnotes" sortCode="AttributesCellnotes">
-        <Description></Description>
-        <Text>AttributesCellnotes</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Autopen" sortCode="Autopen">
-        <Description></Description>
-        <Text>Autopen</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Autopen\BE0101N1.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
-          <Description></Description>
-          <Text>Population by region, period and sex</Text>
-          <TextShort>BE0101N1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 25 Norrbotten county</Attribute>
-          <Attribute name="Var1NumberOfValues">21</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2007, 2008, </Attribute>
-          <Attribute name="Var2NumberOfValues">2</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="size">2675</Attribute>
-          <Attribute name="cells">84</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090213 07:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime>2007</StartTime>
-          <EndTime>2008</EndTime>
-        </Link>
-        <Link selection="Database\Autopen\BE0101N1autopen.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
-          <Description></Description>
-          <Text>Population by region, period and sex</Text>
-          <TextShort>BE0101N1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 25 Norrbotten county</Attribute>
-          <Attribute name="Var1NumberOfValues">21</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2007, 2008, </Attribute>
-          <Attribute name="Var2NumberOfValues">2</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="size">2689</Attribute>
-          <Attribute name="cells">84</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090213 07:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime>2007</StartTime>
-          <EndTime>2008</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Descriptiondefault" sortCode="Descriptiondefault">
-        <Description></Description>
-        <Text>Descriptiondefault</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Descriptiondefault\BE0101N1descdefault.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
-          <Description>Population by counties in Sweden 2007-2008</Description>
-          <Text>Population by counties in Sweden 2007-2008</Text>
-          <TextShort>BE0101N1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 25 Norrbotten county</Attribute>
-          <Attribute name="Var1NumberOfValues">21</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2007, 2008, </Attribute>
-          <Attribute name="Var2NumberOfValues">2</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="size">2759</Attribute>
-          <Attribute name="cells">84</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090213 07:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime>2007</StartTime>
-          <EndTime>2008</EndTime>
-        </Link>
-        <Link selection="Database\Descriptiondefault\BE0101N1descnotdefault.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
-          <Description>Population by counties in Sweden 2007-2008</Description>
-          <Text>Population by counties in Sweden 2007-2008</Text>
-          <TextShort>BE0101N1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 25 Norrbotten county</Attribute>
-          <Attribute name="Var1NumberOfValues">21</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2007, 2008, </Attribute>
-          <Attribute name="Var2NumberOfValues">2</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="size">2734</Attribute>
-          <Attribute name="cells">84</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090213 07:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime>2007</StartTime>
-          <EndTime>2008</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Doublecolumn" sortCode="Doublecolumn">
-        <Description></Description>
-        <Text>Doublecolumn</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Doublecolumn\BE0101N1doublecol.px" sortCode="BE0101N1" type="PX" category="O" tableId="BE0101N1" status="A">
-          <Description></Description>
-          <Text>Population by region, period and sex</Text>
-          <TextShort>BE0101N1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 25 Norrbotten county</Attribute>
-          <Attribute name="Var1NumberOfValues">21</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2007, 2008, </Attribute>
-          <Attribute name="Var2NumberOfValues">2</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="size">2704</Attribute>
-          <Attribute name="cells">84</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090213 07:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-02-13 07:19:00</LastUpdated>
-          <StartTime>2007</StartTime>
-          <EndTime>2008</EndTime>
-        </Link>
-        <Link selection="Database\Doublecolumn\HA0201E8doublecol.px" sortCode="HA0201E8" type="PX" category="O" tableId="HA0201E8" status="A">
-          <Description></Description>
-          <Text>Volume of imports of goods, base year 2000=100, index by Commoditygroup SITC and period</Text>
-          <TextShort>HA0201E8</TextShort>
-          <Attribute name="Var1Name">Commodity group SITC</Attribute>
-          <Attribute name="Var1Values">0+1 Food, beverages and tobacco, 0-9 Total, 2+4 Crude materials, except fuels, 3 Mineral fuels, lubric. and related materials, ..., 8+9 Other manufactured articles</Attribute>
-          <Attribute name="Var1NumberOfValues">9</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2006K1, 2006K2, 2006K3, 2006K4, ..., 2009K1</Attribute>
-          <Attribute name="Var2NumberOfValues">13</Attribute>
-          <Attribute name="size">3036</Attribute>
-          <Attribute name="cells">117</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090604 09:58</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-06-04 09:58:00</LastUpdated>
-          <StartTime>2006K1</StartTime>
-          <EndTime>2009K1</EndTime>
-        </Link>
-        <Link selection="Database\Doublecolumn\HA0201V6doublecol.px" sortCode="HA0201V6" type="PX" category="O" tableId="HA0201V6" status="A">
-          <Description></Description>
-          <Text>Imports of goods from country of consignement. Not adjusted for nonresponse, SEK thousand by trading partner, Commodity group SITC andperiod</Text>
-          <TextShort>HA0201V6</TextShort>
-          <Attribute name="Var1Name">trading partner</Attribute>
-          <Attribute name="Var1Values">total, Afghanistan, Albania, Algeria, ..., Zimbabwe</Attribute>
-          <Attribute name="Var1NumberOfValues">256</Attribute>
-          <Attribute name="Var2Name">Commodity group SITC</Attribute>
-          <Attribute name="Var2Values">0 Food and live animals, 0-9 Total, 00 Live animals, 001 Live animals, ..., 972 972</Attribute>
-          <Attribute name="Var2NumberOfValues">339</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2008M01, 2008M02, 2008M03, 2008M04, ..., 2009M04</Attribute>
-          <Attribute name="Var3NumberOfValues">16</Attribute>
-          <Attribute name="size">8992583</Attribute>
-          <Attribute name="cells">1388544</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090623 16:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-06-23 16:20:00</LastUpdated>
-          <StartTime>2008M01</StartTime>
-          <EndTime>2009M04</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\error" sortCode="error">
-        <Description></Description>
-        <Text>error</Text>
-        <TextShort></TextShort>
-        <MenuItem selection="Database\error\continue" sortCode="continue">
-          <Description></Description>
-          <Text>continue</Text>
+          <Text>Waste</Text>
           <TextShort></TextShort>
-          <Link selection="Database\error\continue\BE0101F1errorTimeval.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Description Migration by region, age, period, type and sex</Description>
-            <Text>Description Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">4248</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\continue\template av BE0101F1error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Description Migration by region, age, period, type and sex</Description>
-            <Text>Description Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">4241</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-        </MenuItem>
-        <MenuItem selection="Database\error\fatal" sortCode="fatal">
-          <Description></Description>
-          <Text>fatal</Text>
-          <TextShort></TextShort>
-          <Link selection="Database\error\fatal\BE0101F1errormissingValues.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Description Migration by region, age, period, type and sex</Description>
-            <Text>Description Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">4210</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\fatal\BE0101F1missingTitle.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
+          <Link selection="Database\EN\EN01\TAB003.px" sortCode="TAB003" type="PX" category="O" tableId="TAB003" status="A">
             <Description></Description>
-            <Text>Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">4084</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\fatal\template av BE0101F1error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Description Migration by region, age, period, type and sex</Description>
-            <Text>Description Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">4241</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
+            <Text>Disposal facilities by treatment category, waste category, contents and year</Text>
+            <TextShort>TAB003</TextShort>
+            <Attribute name="Var1Name">treatment category</Attribute>
+            <Attribute name="Var1Values">RECYCLING, COMPOSTING AND ANAEROBIC DIGESTION, BACKFILLING, OTHER RECOVERY INCL. RECULTIVATION OF LANDFILLS AND CONSTRUCTION, ..., PRE-TREATMENT AND SORTING</Attribute>
+            <Attribute name="Var1NumberOfValues">9</Attribute>
+            <Attribute name="Var2Name">waste category</Attribute>
+            <Attribute name="Var2Values">spent solvents, acid, alkaline or saline wastes, used oils, chemical wastes, ..., Total</Attribute>
+            <Attribute name="Var2NumberOfValues">34</Attribute>
+            <Attribute name="Var3Name">contents</Attribute>
+            <Attribute name="Var3Values">Treated waste, hazardous (tonnes), Treated waste, non hazardous (tonnes), </Attribute>
+            <Attribute name="Var3NumberOfValues">2</Attribute>
+            <Attribute name="Var4Name">year</Attribute>
+            <Attribute name="Var4Values">2010, 2012, 2014, 2016, </Attribute>
+            <Attribute name="Var4NumberOfValues">4</Attribute>
+            <Attribute name="size">15161</Attribute>
+            <Attribute name="cells">2448</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 16:13</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 16:13:00</LastUpdated>
+            <StartTime>2010</StartTime>
+            <EndTime>2016</EndTime>
           </Link>
         </MenuItem>
-        <MenuItem selection="Database\error\multilang" sortCode="multilang">
+        <MenuItem selection="Database\EN\EN02" sortCode="Miscellaneous">
           <Description></Description>
-          <Text>multilang</Text>
+          <Text>Miscellaneous</Text>
           <TextShort></TextShort>
-          <Link selection="Database\error\multilang\BE0101F1ensvcontvarerror.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>The file contains Migration for Sweden, Stockholm county and some municipalities</Description>
-            <Text>The file contains Migration for Sweden, Stockholm county and some municipalities</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5090</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="autoOpen">true</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\multilang\BE0101F1ensvdescdefaulterror.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Migration for Sweden, Stockholm county and some municipalities</Description>
-            <Text>Migration for Sweden, Stockholm county and some municipalities</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5105</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="autoOpen">true</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
+          <Link selection="Database\EN\EN02\TAB004.px" sortCode="TAB004" type="PX" category="O" tableId="TAB004" status="A">
             <Description></Description>
-            <Text>Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
+            <Text>Total air emissions by sector, greenhouse gas, contents and year</Text>
+            <TextShort>TAB004</TextShort>
+            <Attribute name="Var1Name">sector</Attribute>
+            <Attribute name="Var1Values">NATIONAL TOTAL (excluding LULUCF, excluding international transports), NATIONAL TOTAL (excluding LULUCF, including international transports), NATIONAL TOTAL (including LULUCF, excluding international transports), NATIONAL TOTAL (including LULUCF, including international transports), ..., HEATING OF HOUSES AND PREMISES, TOTAL</Attribute>
+            <Attribute name="Var1NumberOfValues">14</Attribute>
+            <Attribute name="Var2Name">greenhouse gas</Attribute>
+            <Attribute name="Var2Values">Methane (CH4) (t), Methane (CH4) (kt CO2-eqv.), Carbon Dioxide (CO2) (kt), Biogenic carbon dioxide (CO2) from fuels (kt), ..., Sulphur Hexafluoride (SF6) (kt CO2-eqv.)</Attribute>
+            <Attribute name="Var2NumberOfValues">11</Attribute>
+            <Attribute name="Var3Name">contents</Attribute>
+            <Attribute name="Var3Values">Substance, </Attribute>
             <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
+            <Attribute name="Var4Name">year</Attribute>
+            <Attribute name="Var4Values">1990, 1991, 1992, 1993, ..., 2017</Attribute>
+            <Attribute name="Var4NumberOfValues">28</Attribute>
+            <Attribute name="size">27422</Attribute>
+            <Attribute name="cells">4312</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1990</StartTime>
+            <EndTime>2017</EndTime>
+          </Link>
+          <Link selection="Database\EN\EN02\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
+            <Description></Description>
+            <Text>Land use in Sweden, hectares by region, land use, contents and year</Text>
+            <TextShort>TAB005</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Sweden, Upplands Väsby, Vallentuna, Österåker, ..., Kiruna</Attribute>
+            <Attribute name="Var1NumberOfValues">291</Attribute>
+            <Attribute name="Var2Name">land use</Attribute>
+            <Attribute name="Var2Values">arable land, grazing land, productive forest, non-productive forest, ..., total land area</Attribute>
+            <Attribute name="Var2NumberOfValues">11</Attribute>
+            <Attribute name="Var3Name">contents</Attribute>
+            <Attribute name="Var3Values">Land use, hectares, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">year</Attribute>
+            <Attribute name="Var4Values">2010, 2015, </Attribute>
             <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">8369</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
+            <Attribute name="size">52375</Attribute>
+            <Attribute name="cells">6402</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>2010</StartTime>
+            <EndTime>2015</EndTime>
           </Link>
         </MenuItem>
       </MenuItem>
-      <MenuItem selection="Database\Hierarchies" sortCode="Hierarchies">
-        <Description></Description>
-        <Text>Hierarchies</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Hierarchies\BE0101A1det.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by age, region, marital status, period and sex</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">age</Attribute>
-          <Attribute name="Var1Values">38, </Attribute>
-          <Attribute name="Var1NumberOfValues">1</Attribute>
-          <Attribute name="Var2Name">region</Attribute>
-          <Attribute name="Var2Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, ..., 2584 Kiruna</Attribute>
-          <Attribute name="Var2NumberOfValues">312</Attribute>
-          <Attribute name="Var3Name">marital status</Attribute>
-          <Attribute name="Var3Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var3NumberOfValues">4</Attribute>
-          <Attribute name="Var4Name">period</Attribute>
-          <Attribute name="Var4Values">2002, 2003, 2004, 2005, </Attribute>
-          <Attribute name="Var4NumberOfValues">4</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">41113</Attribute>
-          <Attribute name="cells">9984</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2002</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\BE0101A1hier.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, sex and period</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, ..., 2584 Kiruna</Attribute>
-          <Attribute name="Var1NumberOfValues">312</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">period</Attribute>
-          <Attribute name="Var4Values">2001, 2002, 2003, 2004, </Attribute>
-          <Attribute name="Var4NumberOfValues">4</Attribute>
-          <Attribute name="size">62817</Attribute>
-          <Attribute name="cells">9984</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20050208 17:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2005-02-08 17:19:00</LastUpdated>
-          <StartTime>2001</StartTime>
-          <EndTime>2004</EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\BE0101A1hierpiv.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by sex, region, period and marital status</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">sex</Attribute>
-          <Attribute name="Var1Values">men, women, </Attribute>
-          <Attribute name="Var1NumberOfValues">2</Attribute>
-          <Attribute name="Var2Name">region</Attribute>
-          <Attribute name="Var2Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, ..., 2584 Kiruna</Attribute>
-          <Attribute name="Var2NumberOfValues">312</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2001, 2002, 2003, 2004, </Attribute>
-          <Attribute name="Var3NumberOfValues">4</Attribute>
-          <Attribute name="Var4Name">marital status</Attribute>
-          <Attribute name="Var4Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var4NumberOfValues">4</Attribute>
-          <Attribute name="size">61541</Attribute>
-          <Attribute name="cells">9984</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20050208 17:19</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2005-02-08 17:19:00</LastUpdated>
-          <StartTime>2001</StartTime>
-          <EndTime>2004</EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\BE0101A1hierreg.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by age, region, marital status, period and sex</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">age</Attribute>
-          <Attribute name="Var1Values">38, </Attribute>
-          <Attribute name="Var1NumberOfValues">1</Attribute>
-          <Attribute name="Var2Name">region</Attribute>
-          <Attribute name="Var2Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, ..., 2584 Kiruna</Attribute>
-          <Attribute name="Var2NumberOfValues">312</Attribute>
-          <Attribute name="Var3Name">marital status</Attribute>
-          <Attribute name="Var3Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var3NumberOfValues">4</Attribute>
-          <Attribute name="Var4Name">period</Attribute>
-          <Attribute name="Var4Values">2002, 2003, 2004, 2005, </Attribute>
-          <Attribute name="Var4NumberOfValues">4</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">41193</Attribute>
-          <Attribute name="cells">9984</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2002</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\BE0101A1hierreg2.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period, sex and age</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, ..., 2584 Kiruna</Attribute>
-          <Attribute name="Var1NumberOfValues">312</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2002, 2003, 2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">4</Attribute>
-          <Attribute name="Var4Name">sex</Attribute>
-          <Attribute name="Var4Values">men, women, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">age</Attribute>
-          <Attribute name="Var5Values">38, </Attribute>
-          <Attribute name="Var5NumberOfValues">1</Attribute>
-          <Attribute name="size">43673</Attribute>
-          <Attribute name="cells">9984</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2002</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\GeneveEUhierarch.px" sortCode="CanBeAny" type="PX" category="O" tableId="CanBeAny" status="A">
-          <Description></Description>
-          <Text>Macroeconomic overview by Indicator, Country and Year</Text>
-          <TextShort>CanBeAny</TextShort>
-          <Attribute name="Var1Name">Indicator</Attribute>
-          <Attribute name="Var1Values">GDP at prices and PPPs(US) of 2000, growth rate, </Attribute>
-          <Attribute name="Var1NumberOfValues">1</Attribute>
-          <Attribute name="Var2Name">Country</Attribute>
-          <Attribute name="Var2Values">European Union-25, European Union-15, Denmark, Sweden, ..., Slovenia</Attribute>
-          <Attribute name="Var2NumberOfValues">29</Attribute>
-          <Attribute name="Var3Name">Year</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="size">2372</Attribute>
-          <Attribute name="cells">58</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060302 02:01</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-03-02 02:01:00</LastUpdated>
-          <StartTime></StartTime>
-          <EndTime></EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\PR0101B3hier.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
-          <Description></Description>
-          <Text>Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</Text>
-          <TextShort>PR0101B3</TextShort>
-          <Attribute name="Var1Name">Product group</Attribute>
-          <Attribute name="Var1Values">All products, 01 Food and non-alcoholic beverages, 01.1 Food, 01.1.1 Bread and cereals, ..., 12.7 Other services n.e.c.</Attribute>
-          <Attribute name="Var1NumberOfValues">66</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2005M08, 2005M09, 2005M10, 2005M11, ..., 2006M06</Attribute>
-          <Attribute name="Var2NumberOfValues">11</Attribute>
-          <Attribute name="size">9977</Attribute>
-          <Attribute name="cells">726</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060707 08:37</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime>2005M08</StartTime>
-          <EndTime>2006M06</EndTime>
-        </Link>
-        <Link selection="Database\Hierarchies\PR0101B3hier2lang.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
-          <Description></Description>
-          <Text>Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</Text>
-          <TextShort>PR0101B3</TextShort>
-          <Attribute name="Var1Name">Product group</Attribute>
-          <Attribute name="Var1Values">All products, 01 livsmedel och alkoholfria drycker, 01.1 Food, 01.1.1 Bread and cereals, ..., 12.7 Other services n.e.c.</Attribute>
-          <Attribute name="Var1NumberOfValues">66</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2005M08, 2005M09, 2005M10, 2005M11, ..., 2006M06</Attribute>
-          <Attribute name="Var2NumberOfValues">11</Attribute>
-          <Attribute name="size">14755</Attribute>
-          <Attribute name="cells">726</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060707 08:37</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime>2005M08</StartTime>
-          <EndTime>2006M06</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\keys" sortCode="keys">
-        <Description></Description>
-        <Text>keys</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\keys\BE0101F1symbnotkeys.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3620</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Misc" sortCode="Misc">
-        <Description></Description>
-        <Text>Misc</Text>
-        <TextShort></TextShort>
-        <MenuItem selection="Database\Misc\OfficialStatistics" sortCode="OfficialStatistics">
-          <Description></Description>
-          <Text>OfficialStatistics</Text>
-          <TextShort></TextShort>
-          <Link selection="Database\Misc\OfficialStatistics\officialstatistics.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description></Description>
-            <Text>Migration by region, age, period, type and sex</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">age</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">period</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">type</Attribute>
-            <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">sex</Attribute>
-            <Attribute name="Var5Values">men, women, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5742</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-        </MenuItem>
-      </MenuItem>
-      <MenuItem selection="Database\Month" sortCode="Month">
-        <Description></Description>
-        <Text>Month</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Month\HA0201V6.px" sortCode="HA0201V6" type="PX" category="O" tableId="HA0201V6" status="A">
-          <Description></Description>
-          <Text>Imports of goods from country of consignement. Not adjusted for nonresponse, SEK thousand by trading partner, Commodity group SITC andperiod</Text>
-          <TextShort>HA0201V6</TextShort>
-          <Attribute name="Var1Name">trading partner</Attribute>
-          <Attribute name="Var1Values">total, Afghanistan, Albania, Algeria, ..., Zimbabwe</Attribute>
-          <Attribute name="Var1NumberOfValues">256</Attribute>
-          <Attribute name="Var2Name">Commodity group SITC</Attribute>
-          <Attribute name="Var2Values">0 Food and live animals, 0-9 Total, 00 Live animals, 001 Live animals, ..., 972 972</Attribute>
-          <Attribute name="Var2NumberOfValues">339</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2008M01, 2008M02, 2008M03, 2008M04, ..., 2009M04</Attribute>
-          <Attribute name="Var3NumberOfValues">16</Attribute>
-          <Attribute name="size">8992545</Attribute>
-          <Attribute name="cells">1388544</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090623 16:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-06-23 16:20:00</LastUpdated>
-          <StartTime>2008M01</StartTime>
-          <EndTime>2009M04</EndTime>
-        </Link>
-        <Link selection="Database\Month\PR0101B3.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
-          <Description></Description>
-          <Text>Consumer Price Index (CPI) (by COICOP), 1980=100 by Product group andperiod</Text>
-          <TextShort>PR0101B3</TextShort>
-          <Attribute name="Var1Name">Product group</Attribute>
-          <Attribute name="Var1Values">01 Food and non-alcoholic beverages, 01.1 Food, 01.1.1 Bread and cereals, 01.1.2 Meat, ..., 01.2 Non alcoholic beverages</Attribute>
-          <Attribute name="Var1NumberOfValues">12</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2006M10, 2006M11, 2006M12, 2007M01, ..., 2008M12</Attribute>
-          <Attribute name="Var2NumberOfValues">27</Attribute>
-          <Attribute name="size">4650</Attribute>
-          <Attribute name="cells">324</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090708 12:44</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-07-08 12:44:00</LastUpdated>
-          <StartTime>2006M10</StartTime>
-          <EndTime>2008M12</EndTime>
-        </Link>
-        <Link selection="Database\Month\PR0101D8.px" sortCode="PR0101D8" type="PX" category="O" tableId="PR0101D8" status="A">
-          <Description></Description>
-          <Text>Harmonized Index of Consumer Prices, 2005=100, Index by period</Text>
-          <TextShort>PR0101D8</TextShort>
-          <Attribute name="Var1Name">period</Attribute>
-          <Attribute name="Var1Values">2004M09, 2004M10, 2004M11, 2004M12, ..., 2009M06</Attribute>
-          <Attribute name="Var1NumberOfValues">58</Attribute>
-          <Attribute name="size">3476</Attribute>
-          <Attribute name="cells">58</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090708 12:44</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-07-08 12:44:00</LastUpdated>
-          <StartTime>2004M09</StartTime>
-          <EndTime>2009M06</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\multilanguage" sortCode="multilanguage">
-        <Description></Description>
-        <Text>multilanguage</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\multilanguage\BE0101F1ensvdescdefault.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Migration for Sweden, Stockholm county and some municipalities</Description>
-          <Text>Migration for Sweden, Stockholm county and some municipalities</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5091</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\multilanguage\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5714</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\NPM" sortCode="NPM">
-        <Description></Description>
-        <Text>NPM</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\NPM\BE0101F1allKeywords.px" sortCode="matrix" type="PX" category="O" tableId="matrix" status="A">
-          <Description>My own title for the table</Description>
-          <Text>My own title for the table</Text>
-          <TextShort>matrix</TextShort>
-          <Attribute name="Var1Name">var1stub</Attribute>
-          <Attribute name="Var1Values">var1val1, var1val2, var1val3, var1val4, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">var2stub</Attribute>
-          <Attribute name="Var2Values">var2val1, var2val2, var2val3, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">var3head</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">var4head</Attribute>
-          <Attribute name="Var4Values">var4val1, var4val2, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">var5head</Attribute>
-          <Attribute name="Var5Values">var5val1, var5val2, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">4036</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1allKeywordsNoContentsvar.px" sortCode="matrix" type="PX" category="O" tableId="matrix" status="A">
-          <Description>My own title for the table (no contentsvariable)four testvariables, two in stuband two in heading</Description>
-          <Text>My own title for the table (no contentsvariable)four testvariables, two in stuband two in heading</Text>
-          <TextShort>matrix</TextShort>
-          <Attribute name="Var1Name">var1stub</Attribute>
-          <Attribute name="Var1Values">var1val1, var1val2, var1val3, var1val4, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">var2stub</Attribute>
-          <Attribute name="Var2Values">var2val1, var2val2, var2val3, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">var3head</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">var5head</Attribute>
-          <Attribute name="Var4Values">var5val1, var5val2, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="size">2720</Attribute>
-          <Attribute name="cells">24</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1datasymbols.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Inmigrated some regions by age and sex, 2003</Description>
-          <Text>Inmigrated some regions by age and sex, 2003</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">sex</Attribute>
-          <Attribute name="Var4Values">men, women, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="size">1933</Attribute>
-          <Attribute name="cells">24</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1nildotnosymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2989</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1nildotsymbols.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3158</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1nilnopres.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2990</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1nilSymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3087</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1symbnot.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3294</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\BE0101F1symbnot2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3292</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\EXEMPEL1.PX" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3820</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\NPM\EXEMPEL2.PX" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Description Migration by region, age, period, type and sex</Description>
-          <Text>Description Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">4225</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\percent" sortCode="percent">
-        <Description></Description>
-        <Text>percent</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\percent\BE0101A1proc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period and sex.Distribution by number and Per cent.</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, </Attribute>
-          <Attribute name="Var1NumberOfValues">3</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">unit variable</Attribute>
-          <Attribute name="Var4Values">number, Per cent, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2085</Attribute>
-          <Attribute name="cells">96</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\percent\BE0101A1proc2.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period and sex.Distribution by number and Per cent.</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, </Attribute>
-          <Attribute name="Var1NumberOfValues">3</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">unit variable</Attribute>
-          <Attribute name="Var4Values">number, Per cent, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2086</Attribute>
-          <Attribute name="cells">96</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\percent\BE0101A1procnorounding.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period and sex.Distribution by number and Per cent.</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, </Attribute>
-          <Attribute name="Var1NumberOfValues">3</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">unit variable</Attribute>
-          <Attribute name="Var4Values">number, Per cent, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2098</Attribute>
-          <Attribute name="cells">96</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\percent\BE0101A1procrounding0.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period and sex.Distribution by number and Per cent.</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, </Attribute>
-          <Attribute name="Var1NumberOfValues">3</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">unit variable</Attribute>
-          <Attribute name="Var4Values">number, Per cent, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2098</Attribute>
-          <Attribute name="cells">96</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\percent\BE0101A1procrounding1.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period and sex.Distribution by number and Per cent.</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, </Attribute>
-          <Attribute name="Var1NumberOfValues">3</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">unit variable</Attribute>
-          <Attribute name="Var4Values">number, Per cent, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2098</Attribute>
-          <Attribute name="cells">96</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\percent\BE0101A1procspar.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, period and sex.Distribution by number and Per cent.</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, </Attribute>
-          <Attribute name="Var1NumberOfValues">3</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2004, 2005, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">unit variable</Attribute>
-          <Attribute name="Var4Values">number, Per cent, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2201</Attribute>
-          <Attribute name="cells">96</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Population" sortCode="Population">
+      <MenuItem selection="Database\PO" sortCode="Population">
         <Description></Description>
         <Text>Population</Text>
         <TextShort></TextShort>
-        <Link selection="Database\Population\BE0101A1.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
+        <MenuItem selection="Database\PO\PO01" sortCode="Population census">
           <Description></Description>
-          <Text>Population by region, marital status, age, sex and period</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 25 Norrbotten county</Attribute>
-          <Attribute name="Var1NumberOfValues">21</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">age</Attribute>
-          <Attribute name="Var3Values">0, 1, 2, 3, ..., 100+</Attribute>
-          <Attribute name="Var3NumberOfValues">101</Attribute>
-          <Attribute name="Var4Name">sex</Attribute>
-          <Attribute name="Var4Values">men, women, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">period</Attribute>
-          <Attribute name="Var5Values">2004, 2005, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">151034</Attribute>
-          <Attribute name="cells">33936</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Population\BE0101A1elimtot.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by marital status, sex and period</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">marital status</Attribute>
-          <Attribute name="Var1Values">single, married, widowers/widows, divorced, total</Attribute>
-          <Attribute name="Var1NumberOfValues">5</Attribute>
-          <Attribute name="Var2Name">sex</Attribute>
-          <Attribute name="Var2Values">men, women, total, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2001, 2002, 2003, 2004, ..., 2006</Attribute>
-          <Attribute name="Var3NumberOfValues">6</Attribute>
-          <Attribute name="size">1922</Attribute>
-          <Attribute name="cells">90</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20070215 09:51</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2007-02-15 09:51:00</LastUpdated>
-          <StartTime>2001</StartTime>
-          <EndTime>2006</EndTime>
-        </Link>
-        <Link selection="Database\Population\BE0101A1proc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, sortvariable, marital status, sex and period</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 10 Blekinge county</Attribute>
-          <Attribute name="Var1NumberOfValues">9</Attribute>
-          <Attribute name="Var2Name">unit variable</Attribute>
-          <Attribute name="Var2Values">Number, Per cent, </Attribute>
-          <Attribute name="Var2NumberOfValues">2</Attribute>
-          <Attribute name="Var3Name">marital status</Attribute>
-          <Attribute name="Var3Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var3NumberOfValues">4</Attribute>
-          <Attribute name="Var4Name">sex</Attribute>
-          <Attribute name="Var4Values">men, women, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">period</Attribute>
-          <Attribute name="Var5Values">2004, 2005, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">4201</Attribute>
-          <Attribute name="cells">288</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Population\BE0101A1procproc.px" sortCode="BE0101A1" type="PX" category="O" tableId="BE0101A1" status="A">
-          <Description></Description>
-          <Text>Population by region, marital status, sex, period and sortvariable</Text>
-          <TextShort>BE0101A1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">01 Stockholm county, 03 Uppsala county, 04 Södermanland county, 05 Östergötland county, ..., 10 Blekinge county</Attribute>
-          <Attribute name="Var1NumberOfValues">9</Attribute>
-          <Attribute name="Var2Name">marital status</Attribute>
-          <Attribute name="Var2Values">single, married, widowers/widows, divorced, </Attribute>
-          <Attribute name="Var2NumberOfValues">4</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">period</Attribute>
-          <Attribute name="Var4Values">2004, 2005, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">unit variable</Attribute>
-          <Attribute name="Var5Values">Number, Per cent, Per cent time, </Attribute>
-          <Attribute name="Var5NumberOfValues">3</Attribute>
-          <Attribute name="size">5232</Attribute>
-          <Attribute name="cells">432</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 15:20</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 15:20:00</LastUpdated>
-          <StartTime>2004</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Population\BE0101F1allakw.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Description Migration by region, age, period, type and sex</Description>
-          <Text>Description Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">4293</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\Population\BE0101F1pnosymbol.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Inmigrated by region, age, period and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">sex</Attribute>
-          <Attribute name="Var4Values">men, women, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="size">1715</Attribute>
-          <Attribute name="cells">24</Attribute>
-          <Attribute name="autoOpen">true</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\Population\BE0101F1symbnot.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">3294</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\Population\Fotnoter.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, sex, period and type</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">0, 1, 2, 3, 4</Attribute>
-          <Attribute name="Var2NumberOfValues">5</Attribute>
-          <Attribute name="Var3Name">sex</Attribute>
-          <Attribute name="Var3Values">men, women, </Attribute>
-          <Attribute name="Var3NumberOfValues">2</Attribute>
-          <Attribute name="Var4Name">period</Attribute>
-          <Attribute name="Var4Values">1997, 1998, 1999, 2000, ..., 2005</Attribute>
-          <Attribute name="Var4NumberOfValues">9</Attribute>
-          <Attribute name="Var5Name">type</Attribute>
-          <Attribute name="Var5Values">Inmigrated, Outmigrated, Immigrants, Emigrants, ..., Internal excess of migration</Attribute>
-          <Attribute name="Var5NumberOfValues">9</Attribute>
-          <Attribute name="size">16124</Attribute>
-          <Attribute name="cells">3240</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060209 11:31</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-02-09 11:31:00</LastUpdated>
-          <StartTime>1997</StartTime>
-          <EndTime>2005</EndTime>
-        </Link>
-        <Link selection="Database\Population\Nya Fotnoter.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Migration by region, age, period, type and sex</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Sweden, 01 Stockholm county, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">age</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">period</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">type</Attribute>
-          <Attribute name="Var4Values">Inmigrated, Outmigrated, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">sex</Attribute>
-          <Attribute name="Var5Values">men, women, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">2895</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Quarter" sortCode="Quarter">
-        <Description></Description>
-        <Text>Quarter</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Quarter\HA0201E8.px" sortCode="HA0201E8" type="PX" category="O" tableId="HA0201E8" status="A">
-          <Description></Description>
-          <Text>Volume of imports of goods, base year 2000=100, index by Commoditygroup SITC and period</Text>
-          <TextShort>HA0201E8</TextShort>
-          <Attribute name="Var1Name">Commodity group SITC</Attribute>
-          <Attribute name="Var1Values">0+1 Food, beverages and tobacco, 0-9 Total, 2+4 Crude materials, except fuels, 3 Mineral fuels, lubric. and related materials, ..., 8+9 Other manufactured articles</Attribute>
-          <Attribute name="Var1NumberOfValues">9</Attribute>
-          <Attribute name="Var2Name">period</Attribute>
-          <Attribute name="Var2Values">2006K1, 2006K2, 2006K3, 2006K4, ..., 2009K1</Attribute>
-          <Attribute name="Var2NumberOfValues">13</Attribute>
-          <Attribute name="size">2993</Attribute>
-          <Attribute name="cells">117</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20090604 09:58</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2009-06-04 09:58:00</LastUpdated>
-          <StartTime>2006K1</StartTime>
-          <EndTime>2009K1</EndTime>
-        </Link>
+          <Text>Population census</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\PO\PO01\TAB001.px" sortCode="TAB001" type="PX" category="O" tableId="TAB001" status="A">
+            <Description></Description>
+            <Text>Population by region, sex, age, contents and year</Text>
+            <TextShort>TAB001</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Austria, Belgium, Bulgaria, Switzerland, ..., United Kingdom</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">sex</Attribute>
+            <Attribute name="Var2Values">Female, Male, Total, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">age</Attribute>
+            <Attribute name="Var3Values">Total, Less than 5 years, From 5 to 9 years, From 10 to 14 years, ..., Unknown</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">contents</Attribute>
+            <Attribute name="Var4Values">Population, </Attribute>
+            <Attribute name="Var4NumberOfValues">1</Attribute>
+            <Attribute name="Var5Name">year</Attribute>
+            <Attribute name="Var5Values">1981, 1991, 2001, </Attribute>
+            <Attribute name="Var5NumberOfValues">3</Attribute>
+            <Attribute name="size">46541</Attribute>
+            <Attribute name="cells">5940</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1981</StartTime>
+            <EndTime>2001</EndTime>
+          </Link>
+          <Link selection="Database\PO\PO01\TAB002.px" sortCode="TAB002" type="PX" category="O" tableId="TAB002" status="A">
+            <Description></Description>
+            <Text>Population by region, sex, age, citizenship, contents and year</Text>
+            <TextShort>TAB002</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Austria, Belgium, Bulgaria, Switzerland, ..., United Kingdom</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">sex</Attribute>
+            <Attribute name="Var2Values">Female, Male, Total, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">age</Attribute>
+            <Attribute name="Var3Values">Total, Less than 5 years, From 5 to 9 years, From 10 to 14 years, ..., Unknown</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">citizenship</Attribute>
+            <Attribute name="Var4Values">Foreign country, Reporting country, Stateless, Total, Unknown</Attribute>
+            <Attribute name="Var4NumberOfValues">5</Attribute>
+            <Attribute name="Var5Name">contents</Attribute>
+            <Attribute name="Var5Values">Population, </Attribute>
+            <Attribute name="Var5NumberOfValues">1</Attribute>
+            <Attribute name="Var6Name">year</Attribute>
+            <Attribute name="Var6Values">1991, 2001, </Attribute>
+            <Attribute name="Var6NumberOfValues">2</Attribute>
+            <Attribute name="size">131999</Attribute>
+            <Attribute name="cells">19800</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1991</StartTime>
+            <EndTime>2001</EndTime>
+          </Link>
+        </MenuItem>
       </MenuItem>
     </MenuItem>
   </Language>
@@ -1870,475 +171,164 @@
       <Description></Description>
       <Text>Database</Text>
       <TextShort></TextShort>
-      <MenuItem selection="Database\alias" sortCode="Befolkning">
+      <MenuItem selection="Database\EN" sortCode="Miljö">
+        <Description></Description>
+        <Text>Miljö</Text>
+        <TextShort></TextShort>
+        <MenuItem selection="Database\EN\EN01" sortCode="Avfall">
+          <Description></Description>
+          <Text>Avfall</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\EN\EN01\TAB003.px" sortCode="TAB003" type="PX" category="O" tableId="TAB003" status="A">
+            <Description></Description>
+            <Text>Disposal facilities efter behandlingstyp, avfallskategori, tabellinnehåll och år</Text>
+            <TextShort>TAB003</TextShort>
+            <Attribute name="Var1Name">behandlingstyp</Attribute>
+            <Attribute name="Var1Values">MATERIALÅTERVINNING, RÖTNING OCH KOMPOSTERING, ÅTERFYLLNING, ANNAN ÅTERVINNING INKL. DEPONITÄCKNING  OCH KONSTRUKTION, ..., FÖRBEHANDLING OCH SORTERING</Attribute>
+            <Attribute name="Var1NumberOfValues">9</Attribute>
+            <Attribute name="Var2Name">avfallskategori</Attribute>
+            <Attribute name="Var2Values">lösningsmedelavfall, surt, alkaliskt eller salthaltigt avfall, oljeavfall, kemiska rester, ..., Totalt</Attribute>
+            <Attribute name="Var2NumberOfValues">34</Attribute>
+            <Attribute name="Var3Name">tabellinnehåll</Attribute>
+            <Attribute name="Var3Values">Hanterat avfall (farligt), Hanterat avfall (ofarligt), </Attribute>
+            <Attribute name="Var3NumberOfValues">2</Attribute>
+            <Attribute name="Var4Name">år</Attribute>
+            <Attribute name="Var4Values">2010, 2012, 2014, 2016, </Attribute>
+            <Attribute name="Var4NumberOfValues">4</Attribute>
+            <Attribute name="size">15161</Attribute>
+            <Attribute name="cells">2448</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 16:13</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 16:13:00</LastUpdated>
+            <StartTime>2010</StartTime>
+            <EndTime>2016</EndTime>
+          </Link>
+        </MenuItem>
+        <MenuItem selection="Database\EN\EN02" sortCode="Diverse">
+          <Description></Description>
+          <Text>Diverse</Text>
+          <TextShort></TextShort>
+          <Link selection="Database\EN\EN02\TAB004.px" sortCode="TAB004" type="PX" category="O" tableId="TAB004" status="A">
+            <Description></Description>
+            <Text>Totala utsläpp av växthusgaser efter sektor, växthusgas, tabellinnehåll och år</Text>
+            <TextShort>TAB004</TextShort>
+            <Attribute name="Var1Name">sektor</Attribute>
+            <Attribute name="Var1Values">NATIONELL TOTAL (exklusive LULUCF, exklusive internationella transporter), NATIONELL TOTAL (exklusive LULUCF, inklusive internationella transporter), NATIONELL TOTAL (inklusive LULUCF, exklusive internationella transporter), NATIONELL TOTAL (inklusive LULUCF, inklusive internationella transporter), ..., UPPVÄRMNING AV BOSTÄDER OCH LOKALER, TOTALT</Attribute>
+            <Attribute name="Var1NumberOfValues">14</Attribute>
+            <Attribute name="Var2Name">växthusgas</Attribute>
+            <Attribute name="Var2Values">Metan (CH4) (t), Metan (CH4) (kt CO2-ekv.), Koldioxid (CO2) (kt), Biogen koldioxid (CO2) från bränslen (kt), ..., Svavelhexafluorid (SF6) (kt CO2-ekv.)</Attribute>
+            <Attribute name="Var2NumberOfValues">11</Attribute>
+            <Attribute name="Var3Name">tabellinnehåll</Attribute>
+            <Attribute name="Var3Values">Ämne, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">år</Attribute>
+            <Attribute name="Var4Values">1990, 1991, 1992, 1993, ..., 2017</Attribute>
+            <Attribute name="Var4NumberOfValues">28</Attribute>
+            <Attribute name="size">27422</Attribute>
+            <Attribute name="cells">4312</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1990</StartTime>
+            <EndTime>2017</EndTime>
+          </Link>
+          <Link selection="Database\EN\EN02\TAB005.px" sortCode="TAB005" type="PX" category="O" tableId="TAB005" status="A">
+            <Description></Description>
+            <Text>Markanvändningen i Sverige, hektar efter region, markanvändning, tabellinnehåll och år</Text>
+            <TextShort>TAB005</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Riket, Upplands Väsby, Vallentuna, Österåker, ..., Kiruna</Attribute>
+            <Attribute name="Var1NumberOfValues">291</Attribute>
+            <Attribute name="Var2Name">markanvändning</Attribute>
+            <Attribute name="Var2Values">åkermark, betesmark, skogsmark, produktiv, skogsmark, improduktiv, ..., total landareal</Attribute>
+            <Attribute name="Var2NumberOfValues">11</Attribute>
+            <Attribute name="Var3Name">tabellinnehåll</Attribute>
+            <Attribute name="Var3Values">Land use, hectares, </Attribute>
+            <Attribute name="Var3NumberOfValues">1</Attribute>
+            <Attribute name="Var4Name">år</Attribute>
+            <Attribute name="Var4Values">2010, 2015, </Attribute>
+            <Attribute name="Var4NumberOfValues">2</Attribute>
+            <Attribute name="size">52375</Attribute>
+            <Attribute name="cells">6402</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>2010</StartTime>
+            <EndTime>2015</EndTime>
+          </Link>
+        </MenuItem>
+      </MenuItem>
+      <MenuItem selection="Database\PO" sortCode="Befolkning">
         <Description></Description>
         <Text>Befolkning</Text>
         <TextShort></TextShort>
-        <Link selection="Database\alias\BE0101F1ensvdescdefault.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-          <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5091</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\alias\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
+        <MenuItem selection="Database\PO\PO01" sortCode="Befolkning census">
           <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8371</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\alias\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\alias\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5714</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Url selection="http://www.ssd.scb.se/databaser/makro/start.asp?lang=1" sortCode="" type="URL" category="" linkPres="">
-          <Description></Description>
-          <Text>SCB, Statistiska databaser</Text>
-          <Url>http://www.ssd.scb.se/databaser/makro/start.asp?lang=1</Url>
-        </Url>
-      </MenuItem>
-      <MenuItem selection="Database\AttributesCellnotes" sortCode="AttributesCellnotes">
-        <Description></Description>
-        <Text>AttributesCellnotes</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\AttributesCellnotes\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\error" sortCode="error">
-        <Description></Description>
-        <Text>error</Text>
-        <TextShort></TextShort>
-        <MenuItem selection="Database\error\multilang" sortCode="multilang">
-          <Description></Description>
-          <Text>multilang</Text>
+          <Text>Befolkning census</Text>
           <TextShort></TextShort>
-          <Link selection="Database\error\multilang\BE0101F1ensvcontvarerror.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Filen innehåller Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-            <Text>Filen innehåller Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5090</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="autoOpen">true</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\multilang\BE0101F1ensvdescdefaulterror.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-            <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5105</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="autoOpen">true</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-          <Link selection="Database\error\multilang\BE0101F1langensvfiolikacelln2error.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
+          <Link selection="Database\PO\PO01\TAB001.px" sortCode="TAB001" type="PX" category="O" tableId="TAB001" status="A">
             <Description></Description>
-            <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-            <TextShort>BE0101F1</TextShort>
+            <Text>Befolkning efter region, kön, ålder, tabellinnehåll och år</Text>
+            <TextShort>TAB001</TextShort>
             <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
+            <Attribute name="Var1Values">Österrike, Belgien, Bulgarien, Schweiz, ..., Storbritannien</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">kön</Attribute>
+            <Attribute name="Var2Values">Kvinnor, Män, Totalt, </Attribute>
             <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">8369</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
+            <Attribute name="Var3Name">ålder</Attribute>
+            <Attribute name="Var3Values">Totalt, Yngre än 5 år, Från 5 till 9 år, Från 10 till 14 år, ..., Okänd</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">tabellinnehåll</Attribute>
+            <Attribute name="Var4Values">Befolkning, </Attribute>
+            <Attribute name="Var4NumberOfValues">1</Attribute>
+            <Attribute name="Var5Name">år</Attribute>
+            <Attribute name="Var5Values">1981, 1991, 2001, </Attribute>
+            <Attribute name="Var5NumberOfValues">3</Attribute>
+            <Attribute name="size">46541</Attribute>
+            <Attribute name="cells">5940</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1981</StartTime>
+            <EndTime>2001</EndTime>
+          </Link>
+          <Link selection="Database\PO\PO01\TAB002.px" sortCode="TAB002" type="PX" category="O" tableId="TAB002" status="A">
+            <Description></Description>
+            <Text>Befolkning efter region, kön, ålder, medborgarskap, tabellinnehåll och år</Text>
+            <TextShort>TAB002</TextShort>
+            <Attribute name="Var1Name">region</Attribute>
+            <Attribute name="Var1Values">Österrike, Belgien, Bulgarien, Schweiz, ..., Storbritannien</Attribute>
+            <Attribute name="Var1NumberOfValues">30</Attribute>
+            <Attribute name="Var2Name">kön</Attribute>
+            <Attribute name="Var2Values">Kvinnor, Män, Totalt, </Attribute>
+            <Attribute name="Var2NumberOfValues">3</Attribute>
+            <Attribute name="Var3Name">ålder</Attribute>
+            <Attribute name="Var3Values">Totalt, Yngre än 5 år, Från 5 till 9 år, Från 10 till 14 år, ..., Okänd</Attribute>
+            <Attribute name="Var3NumberOfValues">22</Attribute>
+            <Attribute name="Var4Name">medborgarskap</Attribute>
+            <Attribute name="Var4Values">Fr?mmande land, Rapporterande land, Statsl?s, Totalt, Ok?nd</Attribute>
+            <Attribute name="Var4NumberOfValues">5</Attribute>
+            <Attribute name="Var5Name">tabellinnehåll</Attribute>
+            <Attribute name="Var5Values">Befolkning, </Attribute>
+            <Attribute name="Var5NumberOfValues">1</Attribute>
+            <Attribute name="Var6Name">år</Attribute>
+            <Attribute name="Var6Values">1991, 2001, </Attribute>
+            <Attribute name="Var6NumberOfValues">2</Attribute>
+            <Attribute name="size">131999</Attribute>
+            <Attribute name="cells">19800</Attribute>
+            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="modified">20230525 15:42</Attribute>
+            <Published>2023-08-14 15:32:24</Published>
+            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <StartTime>1991</StartTime>
+            <EndTime>2001</EndTime>
           </Link>
         </MenuItem>
-      </MenuItem>
-      <MenuItem selection="Database\Hierarchies" sortCode="Hierarchies">
-        <Description></Description>
-        <Text>Hierarchies</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\Hierarchies\PR0101B3hier2lang.px" sortCode="PR0101B3" type="PX" category="O" tableId="PR0101B3" status="A">
-          <Description></Description>
-          <Text>Konsumentprisindex (KPI) (enligt COICOP), 1980=100 eftervaru-/tjänstegrupp och tid.</Text>
-          <TextShort>PR0101B3</TextShort>
-          <Attribute name="Var1Name">varu-/tjänstegrupp</Attribute>
-          <Attribute name="Var1Values">Alla, 01 Livsmedel och alkoholfria drycker, 01.1 Livsmedel, 01.1.1 Bröd och övriga spannmålsprodukter, ..., 12.7 Övriga tjänster</Attribute>
-          <Attribute name="Var1NumberOfValues">66</Attribute>
-          <Attribute name="Var2Name">tid</Attribute>
-          <Attribute name="Var2Values">2005M08, 2005M09, 2005M10, 2005M11, ..., 2006M06</Attribute>
-          <Attribute name="Var2NumberOfValues">11</Attribute>
-          <Attribute name="size">14755</Attribute>
-          <Attribute name="cells">726</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20060707 08:37</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2006-07-07 08:37:00</LastUpdated>
-          <StartTime>2005M08</StartTime>
-          <EndTime>2006M06</EndTime>
-        </Link>
-      </MenuItem>
-      <MenuItem selection="Database\Misc" sortCode="Misc">
-        <Description></Description>
-        <Text>Misc</Text>
-        <TextShort></TextShort>
-        <MenuItem selection="Database\Misc\OfficialStatistics" sortCode="OfficialStatistics">
-          <Description></Description>
-          <Text>OfficialStatistics</Text>
-          <TextShort></TextShort>
-          <Link selection="Database\Misc\OfficialStatistics\officialstatistics.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-            <Description></Description>
-            <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-            <TextShort>BE0101F1</TextShort>
-            <Attribute name="Var1Name">region</Attribute>
-            <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-            <Attribute name="Var1NumberOfValues">4</Attribute>
-            <Attribute name="Var2Name">ålder</Attribute>
-            <Attribute name="Var2Values">20, 21, 22, </Attribute>
-            <Attribute name="Var2NumberOfValues">3</Attribute>
-            <Attribute name="Var3Name">tid</Attribute>
-            <Attribute name="Var3Values">2003, </Attribute>
-            <Attribute name="Var3NumberOfValues">1</Attribute>
-            <Attribute name="Var4Name">typ</Attribute>
-            <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-            <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="Var5Name">kön</Attribute>
-            <Attribute name="Var5Values">män, kvinnor, </Attribute>
-            <Attribute name="Var5NumberOfValues">2</Attribute>
-            <Attribute name="size">5742</Attribute>
-            <Attribute name="cells">48</Attribute>
-            <Attribute name="updated">20220630 15:19</Attribute>
-            <Attribute name="modified">20040212 16:28</Attribute>
-            <Published>2022-06-30 15:19:31</Published>
-            <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-            <StartTime>2003</StartTime>
-            <EndTime>2003</EndTime>
-          </Link>
-        </MenuItem>
-      </MenuItem>
-      <MenuItem selection="Database\multilanguage" sortCode="multilanguage">
-        <Description></Description>
-        <Text>multilanguage</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\multilanguage\BE0101F1ensvdescdefault.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description>Flyttningar för Sverige, Stockholms län och några kommuner</Description>
-          <Text>Flyttningar för Sverige, Stockholms län och några kommuner</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5091</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:31</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8697</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\multilanguage\BE0101F1langensvfiolikacelln2.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">8368</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-        <Link selection="Database\multilanguage\BE0101F1langensvolikacelln.px" sortCode="BE0101F1" type="PX" category="O" tableId="BE0101F1" status="A">
-          <Description></Description>
-          <Text>Flyttningar efter region, ålder, tid, typ och kön</Text>
-          <TextShort>BE0101F1</TextShort>
-          <Attribute name="Var1Name">region</Attribute>
-          <Attribute name="Var1Values">00 Riket, 01 Stockholms län, 0114 Upplands Väsby, 0115 Vallentuna, </Attribute>
-          <Attribute name="Var1NumberOfValues">4</Attribute>
-          <Attribute name="Var2Name">ålder</Attribute>
-          <Attribute name="Var2Values">20, 21, 22, </Attribute>
-          <Attribute name="Var2NumberOfValues">3</Attribute>
-          <Attribute name="Var3Name">tid</Attribute>
-          <Attribute name="Var3Values">2003, </Attribute>
-          <Attribute name="Var3NumberOfValues">1</Attribute>
-          <Attribute name="Var4Name">typ</Attribute>
-          <Attribute name="Var4Values">Inflyttade, Utflyttade, </Attribute>
-          <Attribute name="Var4NumberOfValues">2</Attribute>
-          <Attribute name="Var5Name">kön</Attribute>
-          <Attribute name="Var5Values">män, kvinnor, </Attribute>
-          <Attribute name="Var5NumberOfValues">2</Attribute>
-          <Attribute name="size">5714</Attribute>
-          <Attribute name="cells">48</Attribute>
-          <Attribute name="updated">20220630 15:19</Attribute>
-          <Attribute name="modified">20040212 16:28</Attribute>
-          <Published>2022-06-30 15:19:32</Published>
-          <LastUpdated>2004-02-12 16:28:00</LastUpdated>
-          <StartTime>2003</StartTime>
-          <EndTime>2003</EndTime>
-        </Link>
-      </MenuItem>
-    </MenuItem>
-  </Language>
-  <Language lang="da" default="false">
-    <MenuItem selection="Database" sortCode="Database">
-      <Description></Description>
-      <Text>Database</Text>
-      <TextShort></TextShort>
-      <MenuItem selection="Database\aggregations" sortCode="aggregations">
-        <Description></Description>
-        <Text>aggregations</Text>
-        <TextShort></TextShort>
-        <Link selection="Database\aggregations\BEXST1.PX" sortCode="BEXST1" type="PX" category="O" tableId="BEXST1" status="A">
-          <Description>Befolkningen pr 1. januar 1977-2019 &lt;em&gt;[BEDST1]&lt;/em&gt;</Description>
-          <Text>Befolkningen pr 1. januar 1977-2019 &lt;em&gt;[BEDST1]&lt;/em&gt;</Text>
-          <TextShort>BEXST1</TextShort>
-          <Attribute name="Var1Name">alder</Attribute>
-          <Attribute name="Var1Values">0, 1, 2, 3, ..., 99</Attribute>
-          <Attribute name="Var1NumberOfValues">100</Attribute>
-          <Attribute name="Var2Name">bosted</Attribute>
-          <Attribute name="Var2Values">I alt, By, Bygd, Station, ..., Uoplyst</Attribute>
-          <Attribute name="Var2NumberOfValues">6</Attribute>
-          <Attribute name="Var3Name">fødested</Attribute>
-          <Attribute name="Var3Values">I alt, Grønland, Udenfor Grønland, </Attribute>
-          <Attribute name="Var3NumberOfValues">3</Attribute>
-          <Attribute name="Var4Name">køn</Attribute>
-          <Attribute name="Var4Values">I alt, Mænd, Kvinder, </Attribute>
-          <Attribute name="Var4NumberOfValues">3</Attribute>
-          <Attribute name="Var5Name">tid</Attribute>
-          <Attribute name="Var5Values">1977, 1978, 1979, 1980, ..., 2019</Attribute>
-          <Attribute name="Var5NumberOfValues">43</Attribute>
-          <Attribute name="size">633496</Attribute>
-          <Attribute name="cells">232200</Attribute>
-          <Attribute name="updated">20191210 10:37</Attribute>
-          <Attribute name="modified">20190208 09:00</Attribute>
-          <Published>2019-12-10 10:37:35</Published>
-          <LastUpdated>2019-02-08 09:00:00</LastUpdated>
-          <StartTime>1977</StartTime>
-          <EndTime>2019</EndTime>
-        </Link>
       </MenuItem>
     </MenuItem>
   </Language>

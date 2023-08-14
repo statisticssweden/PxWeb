@@ -2,6 +2,7 @@
 using Lucene.Net.Util;
 using Microsoft.Extensions.Options;
 using PCAxis.Paxiom;
+using PCAxis.Sql.Pxs;
 using PxWeb.Api2.Server.Models;
 using PxWeb.Config.Api2;
 using System;
@@ -100,7 +101,20 @@ namespace PxWeb.Code.Api2.DataSelection
                 //Verify that variable exists
                 foreach (var variable in variablesSelection.Selection)
                 {
-                    Variable? pxVariable = builder.Model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
+                    // Try to get variable using the code specified by the API user
+                    Variable? pxVariable = builder.Model.Meta.Variables.GetByCode(variable.VariableCode);
+                    
+                    if (pxVariable is null)
+                    {
+                        // Is it a case sensitivity problem?
+                        pxVariable = builder.Model.Meta.Variables.FirstOrDefault(x => x.Code.Equals(variable.VariableCode, System.StringComparison.InvariantCultureIgnoreCase));
+
+                        if (pxVariable is not null)
+                        {
+                            // Use the correct variable code for making the selection
+                            variable.VariableCode = pxVariable.Code;
+                        }
+                    }
 
                     if (pxVariable is null)
                     {
@@ -133,7 +147,6 @@ namespace PxWeb.Code.Api2.DataSelection
 
             return true;
         }
-
 
         private bool ApplyCodelist(IPXModelBuilder builder, Variable pxVariable, VariableSelection variable, out Problem? problem)
         {
@@ -260,19 +273,34 @@ namespace PxWeb.Code.Api2.DataSelection
                 if (!variable.ValueCodes.Count().Equals(0))
                 {
                     var modelVariable = model.Meta.Variables.GetByCode(variable.VariableCode);
-                    foreach (var value in variable.ValueCodes)
+
+                    for (int i = 0; i < variable.ValueCodes.Count; i++)
                     {
-                        if (!IsSelectionExpression(value))
+                        if (!IsSelectionExpression(variable.ValueCodes[i]))
                         {
-                            if (modelVariable.Values.GetByCode(value) == null)
+                            // Try to get the value using the code specified by the API user
+                            PCAxis.Paxiom.Value? pxValue = modelVariable.Values.GetByCode(variable.ValueCodes[i]);
+
+                            if (pxValue is null)
                             {
-                                problem = NonExistentValue();
-                                return false;
+                                // Is it a problem with case sensitivity?
+                                pxValue = modelVariable.Values.FirstOrDefault(x => x.Code.Equals(variable.ValueCodes[i], System.StringComparison.InvariantCultureIgnoreCase));
+                                
+                                if (pxValue is not null)
+                                {
+                                    // Use the correct value code for making the selection
+                                    variable.ValueCodes[i] = pxValue.Code;
+                                }
+                                else
+                                {
+                                    problem = NonExistentValue();
+                                    return false;
+                                }
                             }
                         }
                         else
                         {
-                            if (!VerifySelectionExpression(value))
+                            if (!VerifySelectionExpression(variable.ValueCodes[i]))
                             {
                                 problem = IllegalSelectionExpression();
                                 return false;
@@ -625,7 +653,7 @@ namespace PxWeb.Code.Api2.DataSelection
             }
             else if (wildcard.StartsWith("*") && wildcard.EndsWith("*"))
             {
-                var variableValues = variable.Values.Where(v => v.Code.Contains(wildcard.Substring(1, wildcard.Length - 2))).Select(v => v.Code);
+                var variableValues = variable.Values.Where(v => v.Code.Contains(wildcard.Substring(1, wildcard.Length - 2), StringComparison.InvariantCultureIgnoreCase)).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
                     AddValue(variable, aggregatedSingle, values, variableValue);
@@ -633,7 +661,7 @@ namespace PxWeb.Code.Api2.DataSelection
             }
             else if (wildcard.StartsWith("*"))
             {
-                var variableValues = variable.Values.Where(v => v.Code.EndsWith(wildcard.Substring(1))).Select(v => v.Code);
+                var variableValues = variable.Values.Where(v => v.Code.EndsWith(wildcard.Substring(1), StringComparison.InvariantCultureIgnoreCase)).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
                     AddValue(variable, aggregatedSingle, values, variableValue);
@@ -641,7 +669,7 @@ namespace PxWeb.Code.Api2.DataSelection
             }
             else if (wildcard.EndsWith("*"))
             {
-                var variableValues = variable.Values.Where(v => v.Code.StartsWith(wildcard.Substring(0, wildcard.Length - 1))).Select(v => v.Code);
+                var variableValues = variable.Values.Where(v => v.Code.StartsWith(wildcard.Substring(0, wildcard.Length - 1), StringComparison.InvariantCultureIgnoreCase)).Select(v => v.Code);
                 foreach (var variableValue in variableValues)
                 {
                     AddValue(variable, aggregatedSingle, values, variableValue);
@@ -659,7 +687,7 @@ namespace PxWeb.Code.Api2.DataSelection
         private void AddWildcardQuestionmarkValues(Variable variable, bool aggregatedSingle, List<string> values, string wildcard)
         {
             string regexPattern = string.Concat("^", Regex.Escape(wildcard).Replace("\\?", "."), "$");
-            var variableValues = variable.Values.Where(v => Regex.IsMatch(v.Code, regexPattern)).Select(v => v.Code);
+            var variableValues = variable.Values.Where(v => Regex.IsMatch(v.Code, regexPattern, RegexOptions.IgnoreCase)).Select(v => v.Code);
             foreach (var variableValue in variableValues)
             {
                 AddValue(variable, aggregatedSingle, values, variableValue);
@@ -762,8 +790,8 @@ namespace PxWeb.Code.Api2.DataSelection
                 codes.Sort((a, b) => a.CompareTo(b)); // Ascending sort
             }
 
-            int index1 = Array.IndexOf(codes, code1);
-            int index2 = Array.IndexOf(codes, code2);
+            int index1 = GetCodeIndex(codes, code1);
+            int index2 = GetCodeIndex(codes, code2);
             int indexTemp;
 
             if (index1 > index2)
@@ -806,7 +834,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 codes.Sort((a, b) => a.CompareTo(b)); // Ascending sort
             }
 
-            int index1 = Array.IndexOf(codes, code);
+            int index1 = GetCodeIndex(codes, code);
 
             if (index1 > -1)
             {
@@ -840,7 +868,7 @@ namespace PxWeb.Code.Api2.DataSelection
                 codes.Sort((a, b) => a.CompareTo(b)); // Ascending sort
             }
 
-            int index = Array.IndexOf(codes, code);
+            int index = GetCodeIndex(codes, code);
 
             if (index > -1)
             {
@@ -934,6 +962,33 @@ namespace PxWeb.Code.Api2.DataSelection
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Find index of code in code array.
+        /// First tries to find code as specified. If it is not found the method tries to find the code in a case insensitive way. 
+        /// </summary>
+        /// <param name="codes">Array of codes</param>
+        /// <param name="code">Code to find index for</param>
+        /// <returns>Index of the specified code within the codes array. If not found -1 is returned.</returns>
+        private int GetCodeIndex(string[] codes, string code)
+        {
+            // Try to get the value using the code specified by the API user
+            int index = Array.IndexOf(codes, code);
+
+            if (index == -1)
+            {
+                // Is it a problem with case sensitivity?
+                string? nonCaseCode = codes.FirstOrDefault(x => x.Equals(code, System.StringComparison.InvariantCultureIgnoreCase));
+
+                if (nonCaseCode is not null)
+                {
+                    // Use non case sensitivy index
+                    index = Array.IndexOf(codes, nonCaseCode);
+                }
+            }
+
+            return index;
         }
 
         /// <summary>
