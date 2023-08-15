@@ -120,7 +120,7 @@ namespace PxWeb.UnitTests.DataSource
 
             bool selectionExists;
 
-            var result = resolver.Resolve(language, "ALIAS", out selectionExists);
+            var result = resolver.Resolve(language, "EN", out selectionExists);
 
             Assert.IsNotNull(result);
             Assert.AreEqual("Database", result.Menu);
@@ -135,7 +135,7 @@ namespace PxWeb.UnitTests.DataSource
 
             bool selectionExists;
 
-            var result = resolver.Resolve(language, "BE0101F1", out selectionExists);
+            var result = resolver.Resolve(language, "TAB003", out selectionExists);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(selectionExists);
@@ -166,13 +166,13 @@ namespace PxWeb.UnitTests.DataSource
                 .Setup(m => m.RootPath)
                 .Returns(wwwrootPath);
 
-            var resolver = new ItemSelectionResolverCnmm(memorymock.Object, pcAxisFactory, configMock.Object);
+            var resolver = new ItemSelectionResolverPxFile(memorymock.Object, pcAxisFactory, configMock.Object);
             var tablePathResolver = new TablePathResolverPxFile(memorymock.Object, hostingEnvironmentMock.Object, configMock.Object, loggerMock.Object);
             var datasource = new PxFileDataSource(configServiceMock.Object, resolver, tablePathResolver, hostingEnvironmentMock.Object, codelistMapperMock.Object);
             bool selectionExists;
 
             //act
-            var result = datasource.TableExists("bE0101F1", language);
+            var result = datasource.TableExists("tAB003", language);
 
             //assert
             Assert.IsTrue(result);
