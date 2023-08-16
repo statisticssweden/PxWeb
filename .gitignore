@@ -338,3 +338,5 @@ ASALocalRun/
 /PxWeb/Web.config
 /PxWeb/appsettings.json
 /**/_INDEX/*
+/PxWeb/wwwroot/ControllerStates/PxWeb.Controllers.Api2.Admin.DatabaseController.json
+/PxWeb/wwwroot/ControllerStates/PxWeb.Controllers.Api2.Admin.SearchindexController.json
