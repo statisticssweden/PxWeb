@@ -129,6 +129,11 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
         {
             StringBuilder sb = new StringBuilder();
 
+            if (string.IsNullOrEmpty(child.Text))
+            {
+                return "TITLE MISSING";
+            }
+
             sb.Append(child.Text);
 
             if (IsInteger(child.Text[child.Text.Length - 1].ToString())) //Title ends with a number, add nothing

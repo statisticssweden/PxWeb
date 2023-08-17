@@ -73,8 +73,17 @@ namespace Px.Search
         private void TraverseDatabase(string id, string language, IIndex index)
         {
             bool exists;
+            Item? item;
 
-            Item? item = _source.CreateMenu(id, language, out exists);
+            try
+            {
+                item = _source.CreateMenu(id, language, out exists);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"TraverseDatabase : Could not CreateMenu for id {id} for language {language}", ex);
+                return; 
+            }
 
             if (item == null || !exists)
             {
