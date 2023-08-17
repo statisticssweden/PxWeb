@@ -136,7 +136,7 @@ namespace PxWeb.Controllers.Api2.Admin
         [SwaggerResponse(statusCode: 401, description: "Unauthorized")]
         public IActionResult GetState()
         {
-            return new JsonResult(_responseState);
+            return new JsonResult(_responseState.Data);
         }
     }
 }

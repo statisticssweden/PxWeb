@@ -5,6 +5,7 @@ namespace PxWeb.Code.BackgroundWorker
 {
     public interface IControllerState
     {
+        public ControllerStateData Data { get; }
         /// <summary>
         /// Indicate that the controller has begun working
         /// </summary>
