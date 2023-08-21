@@ -23,19 +23,19 @@ namespace PxWeb.Code.BackgroundWorker
             ControllerState state;
             if (!File.Exists(fileName))
             {
-                state = new ControllerState(id, fileName);
+                state = new ControllerState(id, fileName, null);
             }
             else
             {
                 try
                 {
                     string text = File.ReadAllText(fileName);
-                    state = JsonSerializer.Deserialize<ControllerState>(text);
-                    if (state is null) state = new ControllerState(id, fileName);
+                    var stateData = JsonSerializer.Deserialize<ControllerStateData>(text);
+                    state = new ControllerState(id, fileName, stateData);
                 }
                 catch (Exception)
                 {
-                    state = new ControllerState(id, fileName);
+                    state = new ControllerState(id, fileName, null);
                 }
 
             }
