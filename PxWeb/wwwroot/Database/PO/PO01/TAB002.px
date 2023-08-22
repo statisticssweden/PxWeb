@@ -77,7 +77,7 @@ VARIABLECODE[sv]("ålder")="AGE";
 VALUES[sv]("ålder")="Totalt","Yngre än 5 år","Från 5 till 9 år","Från 10 till 14 år","Yngre än 15 år","Från 15 till 19 år","Från 15 till 64 år","Från 20 till 24 år","Från 25 till 29 år","Från 30 till 34 år","Från 35 till 39 år","Från 40 till 44 år","Från 45 till 49 år",
 "Från 50 till 54 år","Från 55 till 59 år","Från 60 till 64 år","Från 65 till 69 år","65 år eller äldre","Från 70 till 74 år","Från 75 till 79 år","80 år eller äldre","Okänd";
 VARIABLECODE[sv]("medborgarskap")="CITIZENSHIP";
-VALUES[sv]("medborgarskap")="Fr?mmande land","Rapporterande land","Statsl?s","Totalt","Ok?nd";
+VALUES[sv]("medborgarskap")="Främmande land","Rapporterande land","Statslös","Totalt","Okänd";
 VARIABLECODE[sv]("tabellinnehåll")="ContentsCode";
 VALUES[sv]("tabellinnehåll")="Befolkning";
 VARIABLECODE[sv]("år")="TIME";
