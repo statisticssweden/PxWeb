@@ -253,11 +253,6 @@ Public Class TableQueryCodebehind
     ''' <remarks></remarks>
     Private Sub ShowApiV2URL()
         Dim sb As New System.Text.StringBuilder()
-        If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
-            txtUrlV2.Text = "-"
-            Return
-        End If
-
         Dim route As String
         If Not Marker.URLRootV2 Is Nothing Then
             route = Marker.URLRootV2.Replace("\", "/")
@@ -274,7 +269,7 @@ Public Class TableQueryCodebehind
         Dim tableId As String = model.Meta.TableID
 
         'If PX file the Matrix should be used as tabled identifier
-        If TypeOf PaxiomManager.PaxiomModelBuilder Is PXFileBuilder Then
+        If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
             tableId = model.Meta.Matrix
         End If
 
