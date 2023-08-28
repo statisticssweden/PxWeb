@@ -272,6 +272,12 @@ Public Class TableQueryCodebehind
         Dim builder As IPXModelBuilder = PaxiomManager.PaxiomModelBuilder()
         Dim model As PXModel = PaxiomManager.PaxiomModel
         Dim tableId As String = model.Meta.TableID
+
+        'If PX file the Matrix should be used as tabled identifier
+        If TypeOf PaxiomManager.PaxiomModelBuilder Is PXFileBuilder Then
+            tableId = model.Meta.Matrix
+        End If
+
         sb.Append(tableId)
 
         sb.Append("/data")
