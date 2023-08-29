@@ -242,7 +242,7 @@ namespace PxWeb.Mappers
             {
                 foreach (var contact in contInfo.ContactInfo)
                 {
-                    MapContact(tm, contact);
+                    MapContact(tm, contact, contInfo);
                 }
             }
             else
@@ -251,7 +251,7 @@ namespace PxWeb.Mappers
             }
         }
 
-        private void MapContact(TableMetadataResponse tm, PCAxis.Paxiom.Contact contact)
+        private void MapContact(TableMetadataResponse tm, PCAxis.Paxiom.Contact contact, ContInfo contInfo)
         {
             if (tm.Contacts == null)
             {
@@ -269,8 +269,19 @@ namespace PxWeb.Mappers
             c.Mail = contact.Email;
             c.Phone = contact.PhoneNo;
 
+            if (contInfo.Contact != null)
+            {
+                string[] contacts = contInfo.Contact.Split("##", StringSplitOptions.RemoveEmptyEntries);
+                var res = contacts.Where(x => x.Contains(contact.Forname) && x.Contains(contact.Surname) && x.Contains(contact.Email) && x.Contains(contact.PhoneNo)).FirstOrDefault();
+
+                if (res != null)
+                {
+                    c.Raw = res;
+                }
+            }
+
             // Only display unique contact once
-            if(!tm.Contacts.Exists(x => x.Mail.Equals(c.Mail) && x.Name.Equals(c.Name) && x.Phone.Equals(c.Phone)))
+            if (!tm.Contacts.Exists(x => x.Mail.Equals(c.Mail) && x.Name.Equals(c.Name) && x.Phone.Equals(c.Phone)))
             {
                 tm.Contacts.Add(c);
             }
