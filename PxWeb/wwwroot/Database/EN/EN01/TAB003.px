@@ -47,6 +47,11 @@ DAYADJ("Treated waste, non hazardous (tonnes)")=NO;
 SEASADJ("Treated waste, non hazardous (tonnes)")=NO;
 UNITS("Treated waste, non hazardous (tonnes)")="tonnes";
 DATABASE="Statistical database ";
+CONTACT("Treated waste, hazardous (tonnes)")="Test Testsson, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test.testsson@sc"
+"b.se#Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
+"@scb.se";
+CONTACT("Treated waste, non hazardous (tonnes)")="Test3 Testsson3, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test3.testsson3@sc"
+"b.se";
 SOURCE="Statistics Sweden";
 INFOFILE="ENVIRONMENT";
 NOTE=".. = Data not available";
@@ -100,6 +105,11 @@ SEASADJ[sv]("Hanterat avfall (ofarligt)")=NO;
 UNITS[sv]("Hanterat avfall (ofarligt)")="ton";
 DATABASE[sv]="Statistikdatabasen ";
 SOURCE[sv]="Statistikmyndigheten";
+CONTACT[sv]("Hanterat avfall (farligt)")="Test Testsson, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test.testsson@sc"
+"b.se#Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
+"@scb.se";
+CONTACT[sv]("Hanterat avfall (ofarligt)")="Test3 Testsson3, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test3.testsson3@sc"
+"b.se";
 NOTE[sv]=".. = Data not available";
 DATANOTESUM[sv]="*";
 VARIABLE-TYPE[sv]("behandlingstyp")="V";
