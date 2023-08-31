@@ -42,7 +42,7 @@ UNITS("Substance")="Device varies with the subject";
 DATABASE="Statistical database ";
 SOURCE="Statistics Sweden";
 CONTACT("Substance")="Test Testsson, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test.testsson@sc"
-"b.se#Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
+"b.se##Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
 "@scb.se";
 INFOFILE="ENVIRONMENT";
 NOTE="Footnote text##.. = Data not available";
@@ -91,7 +91,7 @@ UNITS[sv]("Ämne")="Enhet varierar med ämne";
 DATABASE[sv]="Statistikdatabasen ";
 SOURCE[sv]="Statistikmyndigheten";
 CONTACT[sv]("Ämne")="Test Testsson, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test.testsson@sc"
-"b.se#Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
+"b.se##Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
 "@scb.se";
 NOTE[sv]="Text för Fotnot##.. = Data not available";
 NOTE[sv]("sektor")="Text för Fotnot";
