@@ -611,7 +611,7 @@
   <sentence name="PxWebReturnToStartpage" value="Quppernermut siullermut uterit" />
   <sentence name="PxWebAdminLogout" value="Log-ud" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2022 v1" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2023 Beta1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb Homepage" />
   <sentence name="PxWebAdminSaveButton" value="Save" />
   <sentence name="PxWebAdminGenerateButton" value="Generate" />

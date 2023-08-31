@@ -689,8 +689,8 @@
 	 <sentence name="CancelButton" value="Cancel"/>
 
 	 <!-- PxWeb -->
-	 <sentence name="PxWebApplicationTitle" value="PxWeb 2022 v1"/>
-	 <sentence name="PxWebApplicationName" value="PxWeb 2022 v1"/>
+	 <sentence name="PxWebApplicationTitle" value="PxWeb 2023 Beta1"/>
+	 <sentence name="PxWebApplicationName" value="PxWeb 2023 Beta1"/>
    <sentence name="PxWebLogoAlt" value="PxWeb Logotype"/>
    <sentence name="PxWebExternalSearchText" value="Search"/>
    <sentence name="PxWebExternalSearchURL" value="https://www.google.com"/>
@@ -831,7 +831,7 @@
 
 	 <sentence name="PxWebAdminLogout" value="Log out"/>
 	 <sentence name="PxWebAdminHeading" value="PxWeb Administration"/>
-	 <sentence name="PxWebAdminVersion" value="PxWeb 2022 v1"/>
+	 <sentence name="PxWebAdminVersion" value="PxWeb 2023 Beta1"/>
 	 <sentence name="PxWebAdminHomePage" value="PxWeb Homepage"/>
 	 <sentence name="PxWebAdminSaveButton" value="Save"/>
 	 <sentence name="PxWebAdminGenerateButton" value="Generate"/>
