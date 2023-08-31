@@ -48,6 +48,7 @@ namespace PXWeb.Admin
             txtFetchCellLimit.Text = PXWeb.Settings.Current.Features.Api.FetchCellLimit.ToString();
             cboEnableCORS.SelectedValue = PXWeb.Settings.Current.Features.Api.EnableCORS.ToString();
             cboEnableCache.SelectedValue = PXWeb.Settings.Current.Features.Api.EnableCache.ToString();
+            cboEnableApiV2QueryLink.SelectedValue = PXWeb.Settings.Current.Features.Api.EnableApiV2QueryLink.ToString();
             //txtClearCache.Text = PXWeb.Settings.Current.Features.Api.ClearCache;
             cboShowQueryInformation.SelectedValue = PXWeb.Settings.Current.Features.Api.ShowQueryInformation.ToString();
             cboDefaultExampleResponseFormat.SelectedValue = PXWeb.Settings.Current.Features.Api.DefaultExampleResponseFormat;
@@ -55,6 +56,7 @@ namespace PXWeb.Admin
             txtSaveApiQueryText.Text = PXWeb.Settings.Current.Features.Api.SaveApiQueryText.ToString();
             ShowHideTextboxForQueryPrefix();
             txtUrlRoot.Text = PXWeb.Settings.Current.Features.Api.UrlRoot;
+            txtUrlRootV2.Text = PXWeb.Settings.Current.Features.Api.UrlRootV2;
         }
 
         /// <summary>
@@ -224,6 +226,8 @@ namespace PXWeb.Admin
                         api.SaveApiQueryText = txtSaveApiQueryText.Text;
 
                         api.UrlRoot = txtUrlRoot.Text;
+                        api.UrlRootV2 = txtUrlRootV2.Text;
+                        api.EnableApiV2QueryLink = bool.Parse(cboEnableApiV2QueryLink.SelectedValue);
 
                         PXWeb.Settings.Save();
 
@@ -483,6 +487,14 @@ namespace PXWeb.Admin
             Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralUrlRoot", "PxWebAdminFeaturesApiGeneralUrlRootInfo");
         }
 
+        protected void UrlRootInfoV2(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralUrlRootV2", "PxWebAdminFeaturesApiGeneralUrlRootInfoV2");
+        }
+        protected void EnableApiV2QueryLinkInfo(object sender, ImageClickEventArgs e)
+        {
+            Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralEnableApiV2QueryLink", "PxWebAdminFeaturesApiGeneralEnableApiV2QueryLinkInfo");
+        }
         protected void ShowSaveApiQueryButtonInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesApiGeneralShowSaveApiQueryButton", "PxWebAdminFeaturesApiGeneralShowSaveApiQueryButtonInfo");

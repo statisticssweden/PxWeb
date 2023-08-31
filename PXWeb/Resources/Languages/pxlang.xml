@@ -487,10 +487,12 @@
 	 <sentence name="CtrlTableQueryShowInformationTooltip" value="Get information about how you can connect to this table from your application" />
 	 <sentence name="CtrlTableQueryHideInformation" value="Hide" />
 	 <sentence name="CtrlTableQueryInformationText" value="POST the following JSON query to the URL below to access this table from your application." />
+	 <sentence name="CtrlTableQueryV2InformationText" value="Send a GET request to the URL below to access this table." />
 	 <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
 	 <sentence name="CtrlTableQueryQueryCaption" value="JSON query:" />
 	 <sentence name="CtrlTableQueryMoreInformation" value="More information" />
     <sentence name="CtrlTableQuerySaveQuery" value="Save API query (json)" />
+	<sentence name="CtrlTableQueryCopy" value="Copy" />
     
    <sentence name="CtrlNavigationFlowSectionScreenReader" value="Overview of the three steps in the process to get the data."/>
    <sentence name="CtrlNavigationFlowExplainScreenReader" value="The 3 steps are Choose table, Choose variable and Show result. You are currently at "/>
@@ -1300,6 +1302,10 @@
 	 <sentence name="PxWebAdminFeaturesApiGeneralRoutePrefixInfo" value="URL route identifying API requests." />
    <sentence name="PxWebAdminFeaturesApiGeneralUrlRoot" value="URL root API" />
    <sentence name="PxWebAdminFeaturesApiGeneralUrlRootInfo" value="Specify URL root for API on other instance" />
+	<sentence name="PxWebAdminFeaturesApiGeneralUrlRootV2" value="URL root API-V2" />
+	<sentence name="PxWebAdminFeaturesApiGeneralUrlRootInfoV2" value="Specify URL root for API-V2 on other instance" />
+	<sentence name="PxWebAdminFeaturesApiGeneralEnableApiV2QueryLink" value="Enable API-V2 query link" />
+	<sentence name="PxWebAdminFeaturesApiGeneralEnableApiV2QueryLinkInfo" value="Enable API-V2 link in the results view" />
 	 <sentence name="PxWebAdminFeaturesApiGeneralMaxValuesReturned" value="Max values returned" />
 	 <sentence name="PxWebAdminFeaturesApiGeneralMaxValuesReturnedInfo" value="Maximum number of values returned from request" />
 	 <sentence name="PxWebAdminFeaturesApiGeneralLimiterRequests" value="Limiter requests" />

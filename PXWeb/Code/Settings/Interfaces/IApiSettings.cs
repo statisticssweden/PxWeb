@@ -14,6 +14,17 @@ namespace PXWeb
         /// URL root. root of API url
         /// </summary>
         string UrlRoot { get; }
+
+
+        /// <summary>
+        /// If Api-V2 links should be shown in the results view
+        /// </summary>
+        bool EnableApiV2QueryLink { get; }
+
+        /// <summary>
+        /// URL root. root of API-V2 url
+        /// </summary>
+        string UrlRootV2 { get; }
         /// <summary>
         /// URL route identifying API request
         /// </summary>

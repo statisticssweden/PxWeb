@@ -22,6 +22,24 @@
                 </div>
             </div>
         </asp:Panel>
+        <asp:Panel ID="pnlQueryInformationV2" CssClass="tablequery_informationpanel" runat="server">
+            <asp:Label ID="lblV2text" runat="server" Text="" CssClass="tablequery_V2caption">Api-V2:</asp:Label>
+            <asp:Label ID="lblInformationTextV2" runat="server" Text="" CssClass="tablequery_informationtext"></asp:Label>
+            <asp:Label ID="lblUrlV2" runat="server" Text="" AssociatedControlID="txtUrl" CssClass="tablequery_urlcaption"></asp:Label>
+            <asp:TextBox ID="txtUrlV2" runat="server" ReadOnly="true" CssClass="tablequery_url"></asp:TextBox>
+            <asp:Button ID="btnCopyUrlV2" text="<%$ PxString: CtrlTableQueryCopy %>" runat="server" ClientIDMode="static" CssClass="pxweb-btn pxweb-buttons" OnClientClick="CopyQuery();return false" CausesValidation="false"></asp:Button>
+        </asp:Panel>
     </div>
 </div>
 </asp:panel>
+<script type="text/javascript">
+    function CopyQuery() {
+        var copyText = document.getElementById('<%=txtUrlV2.ClientID %>')
+        copyText.focus();
+        copyText.select(); // for mark as copied
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText("<%=txtUrlV2.Text%>");
+        return false;
+    }
+</script>

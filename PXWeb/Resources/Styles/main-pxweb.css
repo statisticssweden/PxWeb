@@ -3528,6 +3528,12 @@ $scrollbar-color: #b0b0b0;
   margin-top: 5px;
 }
 
+#pxwebcontent .tablequery_V2caption {
+    font-size: 20px;
+    display: block;
+    font-weight: bold;
+}
+
 #pxwebcontent .tablequery_url {
   display: block;
   width: 95%;
@@ -3567,13 +3573,16 @@ $scrollbar-color: #b0b0b0;
   color: #fff;
 }
 
+#pxwebcontent .tablequery_copy {
+}
+
 /* **********************************  _tablequery.scss TODO in real use? *********************************** */
 #pxwebcontent .textsearch select {
-  margin: 10px 0;
-  height: 100px;
-  width: 164px;
-  clear: both;
-  display: block;
+    margin: 10px 0;
+    height: 100px;
+    width: 164px;
+    clear: both;
+    display: block;
 }
 
 #pxwebcontent .textsearch input[type=text] {

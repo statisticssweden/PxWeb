@@ -21,23 +21,30 @@ Public Class TableQueryCodebehind
 
 #Region "fields"
     Protected pnlQueryInformation As Panel
+    Protected pnlQueryInformationV2 As Panel
     Protected lblInformationText As Label
+    Protected lblInformationTextV2 As Label
     Protected lblUrl As Label
+    Protected lblUrlV2 As Label
     Protected txtUrl As TextBox
+    Protected txtUrlV2 As TextBox
     Protected lblQuery As Label
     Protected txtQuery As TextBox
     Protected lnkMoreInfo As HyperLink
     Protected WithEvents btnSaveQuery As Button
     Protected lblTableQueryInformation As Label
+    Protected btnCopyUrlV2 As Button
 #End Region
 
 #Region "Localized strings"
     Private Const LOC_TABLEQUERY_SHOW_INFORMATION As String = "CtrlTableQueryShowInformation"
     Private Const LOC_TABLEQUERY_INFORMATION_TEXT As String = "CtrlTableQueryInformationText"
+    Private Const LOC_TABLEQUERY_V2_INFORMATION_TEXT As String = "CtrlTableQueryV2InformationText"
     Private Const LOC_TABLEQUERY_URL_CAPTION As String = "CtrlTableQueryUrlCaption"
     Private Const LOC_TABLEQUERY_QUERY_CAPTION As String = "CtrlTableQueryQueryCaption"
     Private Const LOC_TABLEQUERY_MORE_INFORMATION As String = "CtrlTableQueryMoreInformation"
     Private Const LOC_TABLEQUERY_SAVE_QUERY As String = "CtrlTableQuerySaveQuery"
+    Private Const LOC_TABLEQUERY_COPY As String = "CtrlTableQueryCopy"
 #End Region
 
 #Region "Events"
@@ -47,10 +54,12 @@ Public Class TableQueryCodebehind
             If VerifyDatabase() Then
                 Me.Visible = True
                 ShowApiURL()
+                ShowApiV2URL()
                 ShowApiQuery()
                 ShowMoreInfoLink()
                 Localize()
                 btnSaveQuery.Visible = Marker.ShowSaveApiQueryButton
+                pnlQueryInformationV2.Visible = Marker.EnableApiV2QueryLink
             Else
                 Me.Visible = False
             End If
@@ -61,6 +70,7 @@ Public Class TableQueryCodebehind
         If Me.Visible Then
             Localize()
             ShowApiURL()
+            ShowApiV2URL()
         End If
     End Sub
 
@@ -144,12 +154,15 @@ Public Class TableQueryCodebehind
     ''' <remarks></remarks>
     Private Sub Localize()
         lblInformationText.Text = GetLocalizedString(LOC_TABLEQUERY_INFORMATION_TEXT)
+        lblInformationTextV2.Text = GetLocalizedString(LOC_TABLEQUERY_V2_INFORMATION_TEXT)
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
+        lblUrlV2.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
         
         lnkMoreInfo.Text = String.Format("<span class=link-text>{0}</span>", Server.HtmlEncode(GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)))
         btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
         lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
+        btnCopyUrlV2.Text = GetLocalizedString(LOC_TABLEQUERY_COPY)
     End Sub
 
     ''' <summary>
@@ -233,6 +246,77 @@ Public Class TableQueryCodebehind
 
         txtUrl.Text = sb.ToString()
     End Sub
+
+    ''' <summary>
+    ''' Show the API-V2 URL
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private Sub ShowApiV2URL()
+        Dim sb As New System.Text.StringBuilder()
+        Dim route As String
+        If Not Marker.URLRootV2 Is Nothing Then
+            route = Marker.URLRootV2.Replace("\", "/")
+            sb.Append(route)
+            If Not route.EndsWith("/") Then
+                sb.Append("/")
+            End If
+        End If
+
+        sb.Append("tables/")
+
+        Dim builder As IPXModelBuilder = PaxiomManager.PaxiomModelBuilder()
+        Dim model As PXModel = PaxiomManager.PaxiomModel
+        Dim tableId As String = model.Meta.TableID
+
+        'If PX file the Matrix should be used as tabled identifier
+        If Marker.DatabaseType = PCAxis.Web.Core.Enums.DatabaseType.PX Then
+            tableId = model.Meta.Matrix
+        End If
+
+        sb.Append(tableId)
+
+        sb.Append("/data")
+
+        Dim lang As String = LocalizationManager.CurrentCulture.Name
+        lang = Util.GetLanguageForNet3_5(lang)
+        sb.Append("?lang=")
+        sb.Append(lang)
+
+
+        For Each var In model.Meta.Variables
+            Dim values As String = GetValuesString(var.Values)
+            'If var.CurrentValueSet IsNot Nothing Then
+            '    sb.Append(String.Format("&codelist[{0}]={1}", var.Code, var.CurrentValueSet.ID))
+            'End If
+            'If var.CurrentGrouping IsNot Nothing Then
+            '    sb.Append(String.Format("&outputValues[{0}]={1}", var.Code, "aggregated"))
+            'End If
+            sb.Append(String.Format("&valueCodes[{0}]={1}", var.Code, values))
+        Next
+
+        For Each var In PaxiomManager.QueryModel.Query
+            Dim filter As String = var.Selection.Filter
+            Dim prefix As String = filter.Split(":"c).First()
+            Dim suffix As String = filter.Split(":"c).Last()
+            If prefix.Equals("vs") Or prefix.Equals("agg") Then
+                sb.Append(String.Format("&codelist[{0}]={1}_{2}", var.Code, prefix, suffix))
+            End If
+            If prefix.Equals("agg") Then
+                sb.Append(String.Format("&outputValues[{0}]={1}", var.Code, "aggregated"))
+            End If
+        Next
+
+        txtUrlV2.Text = sb.ToString()
+    End Sub
+    Private Function GetValuesString(var As Values) As String
+        Dim valuesSB As New System.Text.StringBuilder()
+        For Each val As Value In var
+            valuesSB.Append(val.Code)
+            valuesSB.Append(",")
+        Next
+        valuesSB.Remove(valuesSB.Length - 1, 1)
+        Return valuesSB.ToString()
+    End Function
 
     Private Function GetAppPath() As String
         Dim appPath As String = String.Empty

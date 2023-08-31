@@ -411,10 +411,12 @@
   <sentence name="CtrlTableQueryShowInformationTooltip" value="Få information hur Du kan göra denna tabell tillgänglig i Din applikation" />
   <sentence name="CtrlTableQueryHideInformation" value="Dölj information" />
   <sentence name="CtrlTableQueryInformationText" value="Skicka (POST) följande JSON fråga till nedanstående URL för att nå denna tabell i Din applikation" />
+  <sentence name="CtrlTableQueryInformationV2Text" value="Skicka en GET-request till följande URL för att nå denna tabell" />
   <sentence name="CtrlTableQueryUrlCaption" value="URL:" />
   <sentence name="CtrlTableQueryQueryCaption" value="JSON fråga:" />
   <sentence name="CtrlTableQueryMoreInformation" value="Mer information" />
   <sentence name="CtrlTableQuerySaveQuery" value="Spara API-fråga (json)" />
+	<sentence name="CtrlTableQueryCopy" value="Kopiera" />
   <sentence name="CtrlNavigationFlowStep1" value="Välj tabell" />
   <sentence name="CtrlNavigationFlowStep1ScreenReader" value="Ikon som representerar sidan där du väljer tabell" />
   <sentence name="CtrlNavigationFlowStep2" value="Välj variabel" />

@@ -41,6 +41,24 @@
     </div>
 
     <div class="setting-field">
+        <asp:Label ID="lblEnableApiV2QueryLink" runat="server" Text="<%$ PxString: PxWebAdminFeaturesApiGeneralEnableApiV2QueryLink %>"></asp:Label>
+        <asp:DropDownList ID="cboEnableApiV2QueryLink" runat="server">
+            <asp:ListItem Value="True" Text="<%$ PxString: PxWebAdminYes %>"></asp:ListItem>
+            <asp:ListItem Value="False" Text="<%$ PxString: PxWebAdminNo %>"></asp:ListItem>
+        </asp:DropDownList>
+        &nbsp;<asp:ImageButton ID="imgEnableApiV2QueryLink" runat="server" onclick="EnableApiV2QueryLinkInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+    </div>
+
+    <div class="setting-field">
+        <asp:Label ID="lblUrlRootV2" runat="server" Text="<%$ PxString: PxWebAdminFeaturesApiGeneralUrlRootV2 %>"></asp:Label>
+        <asp:TextBox ID="txtUrlRootV2" runat="server"></asp:TextBox>
+        <asp:ImageButton ID="imgUrlRootV2" runat="server" onclick="UrlRootInfoV2" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
+        <asp:CustomValidator ID="validatorUrlRootV2" runat="server" 
+        ControlToValidate="txtUrlRootV2" OnServerValidate="ValidateUrlRoot"
+        ErrorMessage="*" ValidateEmptyText="False" CssClass="setting-field-validator" ></asp:CustomValidator>
+    </div>
+
+    <div class="setting-field">
         <asp:Label ID="lblMaxValuesReturned" runat="server" Text="<%$ PxString: PxWebAdminFeaturesApiGeneralMaxValuesReturned %>"></asp:Label>
         <asp:TextBox ID="txtMaxValuesReturned" runat="server" CssClass="smallinput" MaxLength="10" Width="50px"></asp:TextBox>
         <asp:ImageButton ID="imgMaxValuesReturned" runat="server" onclick="MaxValuesReturnedInfo" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>" />
