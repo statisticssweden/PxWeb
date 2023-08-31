@@ -48,6 +48,9 @@ SEASADJ("Population")=NO;
 UNITS("Population")="amount";
 DATABASE="Statistical database ";
 SOURCE="Eurostat";
+CONTACT("Population")="Test Testsson, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test.testsson@sc"
+"b.se##Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
+"@scb.se";
 INFOFILE="CENSUS";
 NOTE=".. = Data not available";
 DATASYMBOL1=".";
@@ -103,6 +106,9 @@ SEASADJ[sv]("Befolkning")=NO;
 UNITS[sv]("Befolkning")="antal";
 DATABASE[sv]="Statistikdatabasen ";
 SOURCE[sv]="Eurostat";
+CONTACT[sv]("Befolkning")="Test Testsson, SCB#Tel: 08-111 222 33#Fax: 08-222 333 44#E-mail: test.testsson@sc"
+"b.se##Test2 Testsson2, SCB#Tel: 08-333 444 55#Fax: 08-444 555 66#E-mail: test2.testsson2"
+"@scb.se";
 NOTE[sv]=".. = Data not available";
 DATANOTESUM[sv]="*";
 VARIABLE-TYPE[sv]("region")="G";

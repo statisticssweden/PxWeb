@@ -29,11 +29,11 @@
             <Attribute name="Var4Name">year</Attribute>
             <Attribute name="Var4Values">2010, 2012, 2014, 2016, </Attribute>
             <Attribute name="Var4NumberOfValues">4</Attribute>
-            <Attribute name="size">15161</Attribute>
+            <Attribute name="size">15910</Attribute>
             <Attribute name="cells">2448</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:35</Attribute>
             <Attribute name="modified">20230525 16:13</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:35:33</Published>
             <LastUpdated>2023-05-25 16:13:00</LastUpdated>
             <StartTime>2010</StartTime>
             <EndTime>2016</EndTime>
@@ -59,11 +59,11 @@
             <Attribute name="Var4Name">year</Attribute>
             <Attribute name="Var4Values">1990, 1991, 1992, 1993, ..., 2017</Attribute>
             <Attribute name="Var4NumberOfValues">28</Attribute>
-            <Attribute name="size">27422</Attribute>
+            <Attribute name="size">27839</Attribute>
             <Attribute name="cells">4312</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:40</Attribute>
             <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:40:21</Published>
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>1990</StartTime>
             <EndTime>2017</EndTime>
@@ -84,12 +84,12 @@
             <Attribute name="Var4Name">year</Attribute>
             <Attribute name="Var4Values">2010, 2015, </Attribute>
             <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="size">52375</Attribute>
+            <Attribute name="size">52815</Attribute>
             <Attribute name="cells">6402</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
-            <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
-            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <Attribute name="updated">20230831 13:27</Attribute>
+            <Attribute name="modified">20230831 15:42</Attribute>
+            <Published>2023-08-31 13:27:35</Published>
+            <LastUpdated>2023-08-31 15:42:00</LastUpdated>
             <StartTime>2010</StartTime>
             <EndTime>2015</EndTime>
           </Link>
@@ -122,11 +122,11 @@
             <Attribute name="Var5Name">year</Attribute>
             <Attribute name="Var5Values">1981, 1991, 2001, </Attribute>
             <Attribute name="Var5NumberOfValues">3</Attribute>
-            <Attribute name="size">46541</Attribute>
+            <Attribute name="size">46965</Attribute>
             <Attribute name="cells">5940</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:02</Attribute>
             <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:02:15</Published>
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>1981</StartTime>
             <EndTime>2001</EndTime>
@@ -153,11 +153,11 @@
             <Attribute name="Var6Name">year</Attribute>
             <Attribute name="Var6Values">1991, 2001, </Attribute>
             <Attribute name="Var6NumberOfValues">2</Attribute>
-            <Attribute name="size">131999</Attribute>
+            <Attribute name="size">132423</Attribute>
             <Attribute name="cells">19800</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:23</Attribute>
             <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:23:32</Published>
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>1991</StartTime>
             <EndTime>2001</EndTime>
@@ -195,11 +195,11 @@
             <Attribute name="Var4Name">år</Attribute>
             <Attribute name="Var4Values">2010, 2012, 2014, 2016, </Attribute>
             <Attribute name="Var4NumberOfValues">4</Attribute>
-            <Attribute name="size">15161</Attribute>
+            <Attribute name="size">15910</Attribute>
             <Attribute name="cells">2448</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:35</Attribute>
             <Attribute name="modified">20230525 16:13</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:35:33</Published>
             <LastUpdated>2023-05-25 16:13:00</LastUpdated>
             <StartTime>2010</StartTime>
             <EndTime>2016</EndTime>
@@ -225,11 +225,11 @@
             <Attribute name="Var4Name">år</Attribute>
             <Attribute name="Var4Values">1990, 1991, 1992, 1993, ..., 2017</Attribute>
             <Attribute name="Var4NumberOfValues">28</Attribute>
-            <Attribute name="size">27422</Attribute>
+            <Attribute name="size">27839</Attribute>
             <Attribute name="cells">4312</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:40</Attribute>
             <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:40:21</Published>
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>1990</StartTime>
             <EndTime>2017</EndTime>
@@ -250,12 +250,12 @@
             <Attribute name="Var4Name">år</Attribute>
             <Attribute name="Var4Values">2010, 2015, </Attribute>
             <Attribute name="Var4NumberOfValues">2</Attribute>
-            <Attribute name="size">52375</Attribute>
+            <Attribute name="size">52815</Attribute>
             <Attribute name="cells">6402</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
-            <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
-            <LastUpdated>2023-05-25 15:42:00</LastUpdated>
+            <Attribute name="updated">20230831 13:27</Attribute>
+            <Attribute name="modified">20230831 15:42</Attribute>
+            <Published>2023-08-31 13:27:35</Published>
+            <LastUpdated>2023-08-31 15:42:00</LastUpdated>
             <StartTime>2010</StartTime>
             <EndTime>2015</EndTime>
           </Link>
@@ -288,11 +288,11 @@
             <Attribute name="Var5Name">år</Attribute>
             <Attribute name="Var5Values">1981, 1991, 2001, </Attribute>
             <Attribute name="Var5NumberOfValues">3</Attribute>
-            <Attribute name="size">46541</Attribute>
+            <Attribute name="size">46965</Attribute>
             <Attribute name="cells">5940</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:02</Attribute>
             <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:02:15</Published>
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>1981</StartTime>
             <EndTime>2001</EndTime>
@@ -311,7 +311,7 @@
             <Attribute name="Var3Values">Totalt, Yngre än 5 år, Från 5 till 9 år, Från 10 till 14 år, ..., Okänd</Attribute>
             <Attribute name="Var3NumberOfValues">22</Attribute>
             <Attribute name="Var4Name">medborgarskap</Attribute>
-            <Attribute name="Var4Values">Fr?mmande land, Rapporterande land, Statsl?s, Totalt, Ok?nd</Attribute>
+            <Attribute name="Var4Values">Främmande land, Rapporterande land, Statslös, Totalt, Okänd</Attribute>
             <Attribute name="Var4NumberOfValues">5</Attribute>
             <Attribute name="Var5Name">tabellinnehåll</Attribute>
             <Attribute name="Var5Values">Befolkning, </Attribute>
@@ -319,11 +319,11 @@
             <Attribute name="Var6Name">år</Attribute>
             <Attribute name="Var6Values">1991, 2001, </Attribute>
             <Attribute name="Var6NumberOfValues">2</Attribute>
-            <Attribute name="size">131999</Attribute>
+            <Attribute name="size">132423</Attribute>
             <Attribute name="cells">19800</Attribute>
-            <Attribute name="updated">20230814 15:32</Attribute>
+            <Attribute name="updated">20230829 15:23</Attribute>
             <Attribute name="modified">20230525 15:42</Attribute>
-            <Published>2023-08-14 15:32:24</Published>
+            <Published>2023-08-29 15:23:32</Published>
             <LastUpdated>2023-05-25 15:42:00</LastUpdated>
             <StartTime>1991</StartTime>
             <EndTime>2001</EndTime>
