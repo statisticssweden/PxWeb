@@ -67,4 +67,4 @@
 - Better text for screenreader on buttons on selectionpage.
 - Added aria-live on selection page describing selection status and validation errors.
 - Moved checkbox for search in front of search-field. Better to read (screenreader) checkbox text before searchfield connected to checkbox.
-
+- Added filetype csv2 and csv3 #367
