@@ -14,7 +14,7 @@ Partial Public Class Csv2FileType
     Inherits FileTypeMarkerControlBase(Of Csv2FileTypeCodebehind, Csv2FileType)
 
     ''' <summary>
-    ''' Creates a html file and sends it to the user
+    ''' Creates a csv2 file and sends it to the user
     ''' </summary>
     ''' <remarks></remarks>
     Public Overrides Sub SerializeAndStream()

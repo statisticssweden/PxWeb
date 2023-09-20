@@ -14,7 +14,7 @@ Partial Public Class Csv3FileType
     Inherits FileTypeMarkerControlBase(Of Csv3FileTypeCodebehind, Csv3FileType)
 
     ''' <summary>
-    ''' Creates a html file and sends it to the user
+    ''' Creates a csv3 file and sends it to the user
     ''' </summary>
     ''' <remarks></remarks>
     Public Overrides Sub SerializeAndStream()
