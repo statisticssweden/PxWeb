@@ -417,11 +417,11 @@
 	 <sentence name="CtrlExcelInformationLevelAll" value="All information" />
 	 <sentence name="CtrlExcelDoubleColumn" value="Code and text in separate columns" />
 
-   <sentence name="FileTypePX" value="PX-file" />
-  <sentence name="FileTypeJson" value="Json file (json)" />
-  <sentence name="FileTypeJsonStat" value="JSON-stat file (json)" />
-  <sentence name="FileTypeJsonStat2" value="JSON-stat 2 file (json)" />
-   <sentence name="FileTypeExcel" value="Excel workbook (xml)" />
+	<sentence name="FileTypePX" value="PX-file" />
+	<sentence name="FileTypeJson" value="Json file (json)" />
+	<sentence name="FileTypeJsonStat" value="JSON-stat file (json)" />
+	<sentence name="FileTypeJsonStat2" value="JSON-stat 2 file (json)" />
+	<sentence name="FileTypeExcel" value="Excel workbook (xml)" />
 	 <sentence name="FileTypeExcelDoubleColumn" value="Excel workbook (xml) with code and text" />
 	 <sentence name="FileTypeExcelCompleteInfoFile" value="Excel file from screen" />
 	 <sentence name="FileTypeCsvWithHeadingAndTabulator" value="Tab delimited with heading" />
@@ -432,7 +432,10 @@
 	 <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Space delimited without heading" />
 	 <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Semicolon delimited with heading" />
 	 <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Semicolon delimited without heading" />
-	 <sentence name="FileTypeText" value="Text file (txt)" />  
+	 <sentence name="FileTypeCsv2" value="Csv2" />
+	 <sentence name="FileTypeCsv3" value="Csv3" />
+	
+	<sentence name="FileTypeText" value="Text file (txt)" />  
   <sentence name="FileTypeHtml5Table" value="Html5 table (htm)" />
   <sentence name="FileTypeHtml" value="Html file (htm)" />
 	 <sentence name="FileTypeRelational" value="Relational file (txt)" />

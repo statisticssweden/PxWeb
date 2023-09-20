@@ -115,6 +115,7 @@
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4, processorArchitecture=MSIL">
@@ -270,6 +271,24 @@
     <Compile Include="FileTypes\Chart\SaveAsChartCodebehind.vb">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="FileTypes\Csv\Csv2FileType.vb">
+      <DependentUpon>Csv2FileType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\Csv\Csv2FileTypeCodebehind.vb">
+      <DependentUpon>Csv2FileType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Csv\Csv2FileSerializerCreator.vb" /> 
+
+    <Compile Include="FileTypes\Csv\Csv3FileType.vb">
+      <DependentUpon>Csv3FileType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FileTypes\Csv\Csv3FileTypeCodebehind.vb">
+      <DependentUpon>Csv3FileType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileTypes\Csv\Csv3FileSerializerCreator.vb" /> 
+  
     <Compile Include="FileTypes\Excel\Excel.vb">
       <DependentUpon>Excel.ascx</DependentUpon>
     </Compile>
@@ -741,6 +760,10 @@
     <Content Include="EmbeddedResources\Config\FileConfig.xml">
       <SubType>Designer</SubType>
     </Content>
+    <EmbeddedResource Include="FileTypes\Csv\Csv3FileType.ascx" />
+    <EmbeddedResource Include="FileTypes\Csv\Csv2FileType.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelectFromGroup\SelectFromGroup.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </EmbeddedResource>
