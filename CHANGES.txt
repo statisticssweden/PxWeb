@@ -1,4 +1,5 @@
 === Release of PxWeb 2023 v1 ===
+- Added filetype csv2 and csv3 #367
 - Dcat file uses the organizations.json file to map between organization names and existing organization uris
 - Dcat admin tool and api-endpoint is now updated to allow for catalog titles and descriptions in multiple languages
 - Dcat admin tool settings are now saved separately for each database, in the corresponding database.config file
@@ -67,4 +68,3 @@
 - Better text for screenreader on buttons on selectionpage.
 - Added aria-live on selection page describing selection status and validation errors.
 - Moved checkbox for search in front of search-field. Better to read (screenreader) checkbox text before searchfield connected to checkbox.
-- Added filetype csv2 and csv3 #367
