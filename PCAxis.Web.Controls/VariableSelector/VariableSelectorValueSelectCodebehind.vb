@@ -1042,15 +1042,22 @@ Public Class VariableSelectorValueSelectCodebehind
     Friend Function ApplyGrouping(ByVal code As String, Optional ByVal clearSelection As Boolean = True, Optional ByVal include As Nullable(Of GroupingIncludesType) = Nothing) As Boolean
         Dim ok As Boolean = False
 
-        If (code.Equals("_RESTORE_") And Not (Marker.ValuesetMustBeSelectedFirst)) Then
+        If (code.Equals("_RESTORE_")) Then
             'Code "_RESTORE_" means that the option --Select classification-- has been selected in the dropdown.
             'This shall result in the values in the dropdown being restored to the initial ones.
-            'Restore of values is performed by applying the valueset _ALL_.
-            Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
-            vsInfo.ID = "_ALL_"
-            Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, vsInfo)
-            Marker.SelectedGroupingPresentation = GroupingIncludesType.SingleValues
-            ok = True
+
+            If (Marker.ValuesetMustBeSelectedFirst) Then
+                Marker.Variable.CurrentGrouping = Nothing
+                Marker.Variable.CurrentValueSet = Nothing
+                clearSelection = True
+            Else
+                'Restore of values is performed by applying the valueset _ALL_.
+                Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
+                vsInfo.ID = "_ALL_"
+                Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, vsInfo)
+                Marker.SelectedGroupingPresentation = GroupingIncludesType.SingleValues
+                ok = True
+            End If
         ElseIf code.StartsWith("gr__") Then
             'Apply grouping
             Dim grpInfo As PCAxis.Paxiom.GroupingInfo
