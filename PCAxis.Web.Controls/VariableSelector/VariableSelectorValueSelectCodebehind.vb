@@ -1051,10 +1051,15 @@ Public Class VariableSelectorValueSelectCodebehind
                 Marker.Variable.CurrentValueSet = Nothing
                 clearSelection = True
             Else
-                'Restore of values is performed by applying the valueset _ALL_.
-                Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
-                vsInfo.ID = "_ALL_"
-                Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, vsInfo)
+                'Fix for when only one valueset and _ALL_ does not exist
+                If Marker.Variable.ValueSets.Count = 1 Then
+                    Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, Marker.Variable.ValueSets(0))
+                Else
+                    'Restore of values is performed by applying the valueset _ALL_.
+                    Dim vsInfo As New PCAxis.Paxiom.ValueSetInfo
+                    vsInfo.ID = "_ALL_"
+                    Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(Marker.Variable.Code, vsInfo)
+                End If
                 Marker.SelectedGroupingPresentation = GroupingIncludesType.SingleValues
                 ok = True
             End If
