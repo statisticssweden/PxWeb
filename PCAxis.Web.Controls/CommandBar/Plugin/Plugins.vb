@@ -54,6 +54,8 @@
         Public Const XLS_EXCEL As String = "FileTypeExcel"
         Public Const XLS_DOUBLE_COLUMN As String = "FileTypeExcelDoubleColumn"
         Public Const CSV As String = "csv"
+        Public Const CSV2 As String = "FileTypeCsv2"
+        Public Const CSV3 As String = "FileTypeCsv3"
         Public Const CSV_TABULATOR_WITH_HEADING As String = "FileTypeCsvWithHeadingAndTabulator"
         Public Const CSV_TABULATOR_WITHOUT_HEADING As String = "FileTypeCsvWithoutHeadingAndTabulator"
         Public Const CSV_COMMA_WITH_HEADING As String = "FileTypeCsvWithHeadingAndComma"

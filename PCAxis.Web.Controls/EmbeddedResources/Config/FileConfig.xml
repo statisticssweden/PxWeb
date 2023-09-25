@@ -52,7 +52,35 @@ xsi:schemaLocation="http://www.scb.se ../XSDSchemas/FileSchema.xsd">
 		  <Image>button_save_as_csv.png</Image>
 		  <ShortcutImage>small_button_csv.png</ShortcutImage>
 	 </FileType>
-	 <FileType Active="true">
+	<FileType Active="true">
+		<Type>csv2</Type>
+		<AssemblyQualifiedName>PCAxis.Paxiom.Csv2FileSerializer, PCAxis.Core, Version=1.1.0.0</AssemblyQualifiedName>
+		<Creator>PCAxis.Web.Controls.Csv2FileSerializerCreator, PCAxis.Web.Controls</Creator>
+		<FileInfos>
+			<FileInfo>FileTypeCsv2</FileInfo>
+		</FileInfos>
+		<WebControl>PCAxis.Web.Controls.Csv2FileType, PCAxis.Web.Controls, Version=1.1.0.0</WebControl>
+		<MimeType>application/octet-stream</MimeType>
+		<FileExtension>csv</FileExtension>
+		<CssClass>?</CssClass>
+		<Image>button_save_as_csv.png</Image>
+		<ShortcutImage>small_button_csv.png</ShortcutImage>
+	</FileType>
+	<FileType Active="true">
+		<Type>csv3</Type>
+		<AssemblyQualifiedName>PCAxis.Paxiom.Csv3FileSerializer, PCAxis.Core, Version=1.1.0.0</AssemblyQualifiedName>
+		<Creator>PCAxis.Web.Controls.Csv3FileSerializerCreator, PCAxis.Web.Controls</Creator>
+		<FileInfos>
+			<FileInfo>FileTypeCsv3</FileInfo>
+		</FileInfos>
+		<WebControl>PCAxis.Web.Controls.Csv3FileType, PCAxis.Web.Controls, Version=1.1.0.0</WebControl>
+		<MimeType>application/octet-stream</MimeType>
+		<FileExtension>csv</FileExtension>
+		<CssClass>?</CssClass>
+		<Image>button_save_as_csv.png</Image>
+		<ShortcutImage>small_button_csv.png</ShortcutImage>
+	</FileType>	
+	<FileType Active="true">
 		  <Type>html</Type>
 		  <AssemblyQualifiedName>PCAxis.Paxiom.HtmlFileSerializer, PCAxis.Core, Version=1.1.0.0</AssemblyQualifiedName>
       <Creator>PCAxis.Web.Controls.HtmlSerializerCreator, PCAxis.Web.Controls</Creator>
