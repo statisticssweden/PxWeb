@@ -1,4 +1,5 @@
 === Release of PxWeb 2023 v1 ===
+- New version of PcAxis.Query.1.0.8 #367
 - Added filetype csv2 and csv3 #367
 - Dcat file uses the organizations.json file to map between organization names and existing organization uris
 - Dcat admin tool and api-endpoint is now updated to allow for catalog titles and descriptions in multiple languages
