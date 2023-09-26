@@ -1046,7 +1046,7 @@ Public Class VariableSelectorValueSelectCodebehind
             'Code "_RESTORE_" means that the option --Select classification-- has been selected in the dropdown.
             'This shall result in the values in the dropdown being restored to the initial ones.
 
-            If (Marker.ValuesetMustBeSelectedFirst) Then
+            If (Marker.ValuesetMustBeSelectedFirst AndAlso Marker.Variable.HasValuesets) Then
                 Marker.Variable.CurrentGrouping = Nothing
                 Marker.Variable.CurrentValueSet = Nothing
                 clearSelection = True
