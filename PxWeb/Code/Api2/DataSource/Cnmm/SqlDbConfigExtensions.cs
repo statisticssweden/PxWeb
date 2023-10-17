@@ -89,7 +89,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                         FROM 
                             {DB.MenuSelection.GetNameAndAlias()}
                         WHERE 
-                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
                         UNION
                         SELECT 
                             {DB.MenuSelection.MenuCol.ForSelect()}, 
@@ -135,7 +135,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                         FROM 
                             {DB.MenuSelection.GetNameAndAlias()}
                         WHERE 
-                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
                         UNION
                         SELECT 
                             {DB.MenuSelection.MenuCol.ForSelect()}, 
@@ -181,7 +181,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                         FROM 
                             {DB.MenuSelection.GetNameAndAlias()}
                         WHERE 
-                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol.Id()} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
                         UNION
                         SELECT 
                             {DB.MenuSelection.MenuCol.ForSelect()}, 
@@ -228,7 +228,7 @@ namespace PxWeb.Code.Api2.DataSource.Cnmm
                         FROM 
                             {DB.MenuSelection.GetNameAndAlias()}
                         WHERE 
-                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT [Value] FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
+                            {DB.MenuSelection.LevelNoCol.Id()} NOT IN (SELECT {DB.MetaAdm.ValueCol.Id()} FROM {DB.MetaAdm.GetNameAndAlias()} WHERE {DB.MetaAdm.PropertyCol.Id()} = 'MenuLevels') 
                         UNION
                         SELECT 
                             {DB.MenuSelection.MenuCol.ForSelect()}, 
