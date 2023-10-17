@@ -295,15 +295,17 @@ namespace PxWeb.Mappers
                 {
                     tm.Contacts = new System.Collections.Generic.List<Api2.Server.Models.Contact>();
                 }
+               
+                var contactsSplitString = contact.Split("##", StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                Api2.Server.Models.Contact c = new Api2.Server.Models.Contact();
-                c.Raw = contact;
-
-                // Only display unique contact once
-                if (!tm.Contacts.Exists(x => x.Raw.Equals(c.Raw)))
+                foreach (var item in contactsSplitString)
                 {
-                    tm.Contacts.Add(c);
-                }
+                    var contacts = new Api2.Server.Models.Contact
+                    {
+                        Raw = item,
+                    };
+                    tm.Contacts.Add(contacts);
+                }                    
             }
         }
 
