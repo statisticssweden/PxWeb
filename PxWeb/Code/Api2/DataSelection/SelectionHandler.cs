@@ -1,7 +1,4 @@
-﻿//using DocumentFormat.OpenXml.Spreadsheet;
-using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.EMMA;
-using Lucene.Net.Util;
+﻿using Lucene.Net.Util;
 using Microsoft.Extensions.Options;
 using PCAxis.Paxiom;
 using PCAxis.Sql.Pxs;
