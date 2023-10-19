@@ -49,6 +49,17 @@ namespace PxWeb.Mappers
                 tm.Variables.Add(Map(tm, variable));
             }
 
+            if (tm.Contacts is null || tm.Contacts.Count == 0)
+            {
+                // Contacts have not been mapped from the content variable - map it from table level instead
+                if (!string.IsNullOrEmpty(model.Meta.ContentInfo.Contact))
+                {
+                    MapContact(tm, model.Meta.ContentInfo.Contact);
+                }
+
+                // TODO: The rest of the content variable properties should maybe be mapped in the same way?
+            }
+
             MapTableNotes(tm, model);
 
             tm.Links = new System.Collections.Generic.List<Link>();
