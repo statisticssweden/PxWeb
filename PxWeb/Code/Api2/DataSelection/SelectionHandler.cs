@@ -1,5 +1,4 @@
-﻿//using DocumentFormat.OpenXml.Spreadsheet;
-using Lucene.Net.Util;
+﻿using Lucene.Net.Util;
 using Microsoft.Extensions.Options;
 using PCAxis.Paxiom;
 using PCAxis.Sql.Pxs;
@@ -95,15 +94,26 @@ namespace PxWeb.Code.Api2.DataSelection
         private bool VerifyAndApplyCodelists(IPXModelBuilder builder, VariablesSelection? variablesSelection, out Problem? problem)
         {
             problem = null;
-            
+
             if (variablesSelection is not null && HasSelection(variablesSelection))
             {
                 //Verify that variable exists
                 foreach (var variable in variablesSelection.Selection)
                 {
+                    //Check if time is used as identifier for the time variable in variable selection
+                    //If the time variable is named differently in the metadata, change to it
+                    if (variable.VariableCode.ToLower().Equals("time"))
+                    {
+                        Variable? pxVariableTime = builder.Model.Meta.Variables.FirstOrDefault(x => x.IsTime);
+                        
+                        if (pxVariableTime is not null && (variable.VariableCode.ToLower() != pxVariableTime.Code.ToLower()))
+                        {
+                            variable.VariableCode = pxVariableTime.Code.ToLower();
+                        }
+                    }
                     // Try to get variable using the code specified by the API user
                     Variable? pxVariable = builder.Model.Meta.Variables.GetByCode(variable.VariableCode);
-                    
+
                     if (pxVariable is null)
                     {
                         // Is it a case sensitivity problem?
