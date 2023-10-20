@@ -324,7 +324,7 @@ namespace PxWeb.Mappers
         {
             if (contInfo.LastUpdated.IsPxDate())
             {
-                DateTime tryDate = contInfo.LastUpdated.PxDateStringToDateTime();
+                DateTime tryDate = contInfo.LastUpdated.PxDateStringToDateTime().ToUniversalTime();
                 if (tm.Updated == null || tryDate > tm.Updated)
                 {
                     tm.Updated = tryDate;

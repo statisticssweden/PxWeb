@@ -4,6 +4,7 @@ using PCAxis.Menu;
 using PCAxis.Paxiom;
 using PxWeb.Api2.Server.Models;
 using PxWeb.Config.Api2;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -93,13 +94,21 @@ namespace PxWeb.Mappers
         {
             var tableId = child.TableId;
 
+            DateTime lastUpdated = DateTime.MinValue;
+
+            if (child.LastUpdated != null)
+            {
+                lastUpdated = (DateTime)child.LastUpdated;
+                lastUpdated = lastUpdated.ToUniversalTime();
+            }
+
             Table table = new Table
             {
                 Id = tableId,
                 Type = FolderContentItemTypeEnum.TableEnum,
                 Description = child.Description,
                 Label = child.Text,
-                Updated = child.Published,
+                Updated = child.LastUpdated != null ? lastUpdated : child.LastUpdated,
                 //Tags = null, // TODO: Implement later
                 Category = GetCategory(child.Category),
                 FirstPeriod = child.StartTime,
