@@ -4,30 +4,26 @@ on: push
 
 jobs:
   build:
-
-    runs-on: windows-2022
-
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Debug]
+        os: [windows-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
+      - uses: actions/checkout@v3
 
-    - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
 
-    - uses: microsoft/setup-msbuild@v1
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
 
-    - uses: NuGet/setup-nuget@v1
+      - name: Build the application
+        run: dotnet build --verbosity normal --no-restore --configuration ${{ matrix.configuration }}
 
-    - name: Restore NuGet packages
-      run: nuget restore
-
-    - name: Build the application
-      run: msbuild /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      - name: Execute unit tests
+        run: dotnet test --verbosity normal

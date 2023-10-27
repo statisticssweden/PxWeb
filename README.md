@@ -7,3 +7,10 @@ Please head over to the netstandard branch to see the activities.
 
 ## Installation
 If you are looking for a compiled version of the source, ready to install in your environment. Then please send a mail to [pc-axis@scb.se](mailto:pc-axis@scb.se?subject=Access%20to%20download%20portal) and you will receive credentials to Statistics Sweden’s download portal where you can download a complied version together with instructions.
+
+## Development notes
+
+```sh
+curl -i -H "API_ADMIN_KEY: test" -X 'PUT'  https://localhost:5001/api/v2/admin/database
+curl -i -H "API_ADMIN_KEY: test" -X 'POST' https://localhost:5001/api/v2/admin/searchindex
+```

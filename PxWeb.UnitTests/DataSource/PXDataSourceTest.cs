@@ -26,8 +26,8 @@ namespace PxWeb.UnitTests.DataSource
         {
             string pathAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string folderAssembly = System.IO.Path.GetDirectoryName(pathAssembly);
-            if (folderAssembly.EndsWith("\\") == false) folderAssembly = folderAssembly + "\\";
-            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly + "..\\..\\..\\..\\");
+            if (folderAssembly.EndsWith("/") == false) folderAssembly = folderAssembly + "/";
+            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly + "../../../../");
             return folderProjectLevel;
         }
 
@@ -77,7 +77,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+            var wwwrootPath = GetFullPathToFile(@"PxWeb/wwwroot/");
 
             hostingEnvironmentMock
                 .Setup(m => m.RootPath)
@@ -110,7 +110,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+            var wwwrootPath = GetFullPathToFile(@"PxWeb/wwwroot/");
 
             hostingEnvironmentMock
                 .Setup(m => m.RootPath)
@@ -160,7 +160,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+            var wwwrootPath = GetFullPathToFile(@"PxWeb/wwwroot/");
 
             hostingEnvironmentMock
                 .Setup(m => m.RootPath)
@@ -196,7 +196,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+            var wwwrootPath = GetFullPathToFile(@"PxWeb/wwwroot/");
 
             hostingEnvironmentMock
                 .Setup(m => m.RootPath)
@@ -244,7 +244,7 @@ namespace PxWeb.UnitTests.DataSource
 
             var pcAxisFactory = new ItemSelectorResolverPxFactory(configServiceMock.Object, hostingEnvironmentMock.Object, null);
 
-            var wwwrootPath = GetFullPathToFile(@"PxWeb\wwwroot\");
+            var wwwrootPath = GetFullPathToFile(@"PxWeb/wwwroot/");
 
             hostingEnvironmentMock
                 .Setup(m => m.RootPath)
