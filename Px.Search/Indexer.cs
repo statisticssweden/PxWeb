@@ -28,7 +28,8 @@ namespace Px.Search
         {
             _source = dataSource;
             _backend = backend;
-            _logger = logger;   
+            _logger = logger;
+            _indexedTables = new List<string>();
         }
         
         /// <summary>
