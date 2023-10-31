@@ -144,7 +144,7 @@ namespace PxWeb
                 options.RoutePrefix = string.Empty;
             });
             //}
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             if (corsEnbled)
             {
