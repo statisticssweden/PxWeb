@@ -69,7 +69,7 @@ namespace PxWeb.Controllers.Api2.Admin
                 }
                 catch (System.Exception ex)
                 {
-                    _logger.LogError("Error when building serach index", ex);
+                    _logger.LogError(ex,"Error when building serach index");
                 }
             });
             return new AcceptedResult();
