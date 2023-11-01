@@ -123,7 +123,7 @@ namespace PxWeb.Code.Api2.DataSource.PxFile
 
         private string GetIdentifierWithoutPath(string id)
         {
-            if (id.Contains('\\'))
+            if (id.Contains('/'))
             {
                 return Path.GetFileName(id);
             }
