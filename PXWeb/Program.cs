@@ -140,8 +140,8 @@ namespace PxWeb
             //app.UseSwaggerUI();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/pxweb-api2/swagger/v1/swagger.json", "v1");
-                options.RoutePrefix = "pxweb-api2/swagger";
+                options.SwaggerEndpoint("/pxapi2-beta/swagger/v1/swagger.json", "v1");
+                options.RoutePrefix = "pxapi2-beta/swagger";
             });
             //}
             //app.UseHttpsRedirection();
