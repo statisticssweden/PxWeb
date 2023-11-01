@@ -122,7 +122,7 @@ namespace Px.Search
                         }
                         else
                         {
-                            _logger.LogInformation($"Table {tableId} is already indexed.");
+                            _logger.LogDebug($"Table {tableId} is already indexed.");
                         }
  
                     }
