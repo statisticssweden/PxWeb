@@ -132,7 +132,7 @@ namespace PxWeb
 
             var app = builder.Build();
             app.UseHttpLogging();
-            app.UsePathBase("/pxapi2-beta");
+            //app.UsePathBase("/pxapi2-beta");
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
@@ -141,14 +141,13 @@ namespace PxWeb
             //{
             //    c.RouteTemplate = "pxapi2-beta/swagger/{documentname}/swagger.json";
             //});
-            app.UseSwaggerUI();
-            //app.UseSwaggerUI(options =>
-            //{
-            //    options.SwaggerEndpoint("pxapi2-beta/swagger/v1/swagger.json", "v1");
-            //    options.RoutePrefix = "pxapi2-beta/swagger";
-            //});
-            //}
-            //app.UseHttpsRedirection();
+            //app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "v1";
+                var basePath = string.IsNullOrWhiteSpace(c.RoutePrefix) ? "." : "..";
+                c.SwaggerEndpoint($"{basePath}/swagger/{c.RoutePrefix}/swagger.json", "Name");
+            });
 
             if (corsEnbled)
             {
