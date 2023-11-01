@@ -136,11 +136,15 @@ namespace PxWeb
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
-            app.UseSwagger();
+            //app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "pxapi2-beta/swagger/{documentname}/swagger.json";
+            });
             //app.UseSwaggerUI();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/pxapi2-beta/swagger/v1/swagger.json", "v1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 options.RoutePrefix = "pxapi2-beta/swagger";
             });
             //}
