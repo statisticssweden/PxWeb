@@ -38,7 +38,7 @@ namespace Px.Search.Lucene.Config
             {
                 StringBuilder dir = new StringBuilder(indexDirectory);
 
-                dir.Append(@"\_INDEX\");
+                dir.Append(@"/_INDEX/");
 
                 return dir.ToString();
             }

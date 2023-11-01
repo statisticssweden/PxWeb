@@ -30,12 +30,15 @@ using PxWeb.Code;
 using PxWeb.Code.Api2.Serialization;
 using PxWeb.Code.BackgroundWorker;
 using PxWeb.Code.Api2.DataSelection;
+using log4net;
+
 
 namespace PxWeb
 {
     public class Program
     {
-        private static ILogger<Program> _logger;
+        private static ILogger<Program> ?_logger;
+        private static ILog _log = LogManager.GetLogger(typeof(Program));
 
         public static void Main(string[] args)
         {
@@ -46,6 +49,11 @@ namespace PxWeb
 
             // Add services to the container.
             _logger = builder.Logging.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
+            builder.Logging.AddLog4Net();
+
+            _log.Info("Starting!");
+
+
 
             // needed to load configuration from appsettings.json
             builder.Services.AddOptions();
@@ -128,7 +136,7 @@ namespace PxWeb
             // Handle CORS configuration from appsettings.json
             bool corsEnbled = builder.Services.ConfigurePxCORS(builder, _logger);
 
-            builder.Logging.AddLog4Net();
+            
 
             var app = builder.Build();
             app.UseHttpLogging();

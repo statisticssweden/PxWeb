@@ -12,6 +12,7 @@ using PCAxis.Paxiom;
 using PCAxis.Paxiom.Extensions;
 using Microsoft.Extensions.Logging;
 using PCAxis.Paxiom.Localization;
+using System.Collections;
 
 
 namespace Px.Search
@@ -21,12 +22,14 @@ namespace Px.Search
         private IDataSource _source;
         private ISearchBackend _backend;
         private ILogger _logger;
+        private List<string> _indexedTables; 
 
         public Indexer(IDataSource dataSource, ISearchBackend backend, ILogger logger)
         {
             _source = dataSource;
             _backend = backend;
-            _logger = logger;   
+            _logger = logger;
+            _indexedTables = new List<string>();
         }
         
         /// <summary>
@@ -36,11 +39,15 @@ namespace Px.Search
         public void IndexDatabase(List<string> languages)
         {
             bool selectionExisits;
+           
             using (var index = _backend.GetIndex())
             {
                 foreach (var language in languages)
                 {
+
                     index.BeginWrite(language);
+                    _indexedTables = new List<string>();
+                    _logger.LogInformation($"Indexing starting for {language}.");
 
                     //Get the root item from the database
                     var item = _source.CreateMenu("", language, out selectionExisits);
@@ -58,6 +65,7 @@ namespace Px.Search
                             TraverseDatabase(item.ID.Selection, language, index);
                         }
                     }
+                    _logger.LogInformation($"Done for {language}. Indexed total of {_indexedTables.Count} tables.");
                     index.EndWrite(language);
                 }
             }
@@ -101,7 +109,22 @@ namespace Px.Search
                     }
                     else if (subitem is TableLink)
                     {
-                        IndexTable(((TableLink)subitem).TableId, (TableLink)subitem, language, index);
+                        string tableId = ((TableLink)subitem).TableId;
+                        if (!_indexedTables.Contains(tableId))
+                        {
+                            IndexTable(tableId, (TableLink)subitem, language, index);
+
+                            _indexedTables.Add(tableId);
+                            if (_indexedTables.Count % 100 == 0)
+                            {
+                                _logger.LogInformation($"Indexed {_indexedTables.Count} tables ...");
+                            }
+                        }
+                        else
+                        {
+                            _logger.LogDebug($"Table {tableId} is already indexed.");
+                        }
+ 
                     }
                 }
             }
