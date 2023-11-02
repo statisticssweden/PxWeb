@@ -149,12 +149,12 @@ namespace PxWeb
             //{
             //    c.RouteTemplate = "pxapi2-beta/swagger/{documentname}/swagger.json";
             //});
-            app.UseSwaggerUI();
-            //app.UseSwaggerUI(options =>
-            //{
-            //    options.SwaggerEndpoint("pxapi2-beta/swagger/v1/swagger.json", "v1");
-            //    options.RoutePrefix = "pxapi2-beta/swagger";
-            //});
+            //app.UseSwaggerUI();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("pxapi2-beta/beta/swagger/v1/swagger.json", "v1");
+                options.RoutePrefix = "pxapi2-beta/beta/swagger";
+            });
             //}
             //app.UseHttpsRedirection();
 
