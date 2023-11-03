@@ -345,14 +345,15 @@ namespace PXWeb.BackgroundWorker
 
             List<KeyValuePair<string, string>> titles = new List<KeyValuePair<string, string>>();
             List<KeyValuePair<string, string>> descriptions = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<string, string>> publisherNames = new List<KeyValuePair<string, string>>();
 
             foreach (IDcatLanguageSpecificSettings s in dcat.LanguageSpecificSettings)
             {
                 string lang = s.Language;
-                string title = s.CatalogTitle;
-                string desc = s.CatalogDescription;
-                titles.Add(new KeyValuePair<string, string>(lang, title));
-                descriptions.Add(new KeyValuePair<string, string>(lang, desc));
+
+                titles.Add(new KeyValuePair<string, string>(lang, s.CatalogTitle));
+                descriptions.Add(new KeyValuePair<string, string>(lang, s.CatalogDescription));
+                publisherNames.Add(new KeyValuePair<string, string>(lang, s.PublisherName));
             }
 
             string mainLanguage = new string(Settings.Current.General.Language.DefaultLanguage.Take(2).ToArray());
@@ -367,7 +368,7 @@ namespace PXWeb.BackgroundWorker
                 CatalogTitles = titles,
                 CatalogDescriptions = descriptions,
 
-                PublisherName = dcat.Publisher,
+                PublisherNames = publisherNames,
                 DatabaseId = dbid,
                 DatabaseType = dbType,
                 LandingPageUrl = dcat.LandingPageUrl,

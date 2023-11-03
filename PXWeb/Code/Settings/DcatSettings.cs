@@ -43,9 +43,6 @@ namespace PXWeb
             xpath = "./LandingPageUrl";
             LandingPageUrl = SettingsHelper.GetSettingValue(xpath, node, "https://baseLandingPage.com/");
             
-            xpath = "./Publisher";
-            Publisher = SettingsHelper.GetSettingValue(xpath, node, "SCB");
-            
             xpath = "./Database";
             Database = SettingsHelper.GetSettingValue(xpath, node, "Example");
             
@@ -88,9 +85,6 @@ namespace PXWeb
             xpath = "./LandingPageUrl";
             SettingsHelper.SetSettingValue(xpath, node, LandingPageUrl);
 
-            xpath = "./Publisher";
-            SettingsHelper.SetSettingValue(xpath, node, Publisher);
-
             xpath = "./Database";
             SettingsHelper.SetSettingValue(xpath, node, Database);
 
@@ -123,7 +117,6 @@ namespace PXWeb
         public string BaseURI { get; set; }
         public string BaseApiUrl { get; set; }
         public string LandingPageUrl { get; set; }
-        public string Publisher { get; set; }
         public string Database { get; set; }
         public string DatabaseType { get; set; }
         public string License { get; set; }

@@ -95,7 +95,7 @@ namespace PXWeb.API
                 License = input.License,
                 BaseApiUrl = input.BaseApiUrl,
                 LandingPageUrl = input.LandingPageUrl,
-                PublisherName = input.Publisher,
+                PublisherNames = input.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.PublisherName)).ToList(),
                 Languages = input.Languages,
                 ThemeMapping = themeMapping,
                 OrganizationMapping = organizationMapping,

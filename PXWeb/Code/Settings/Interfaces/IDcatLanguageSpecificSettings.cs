@@ -23,5 +23,10 @@ namespace PXWeb
         /// </summary>
         string CatalogDescription { get; }
 
+        /// <summary>
+        /// Publisher of the catalog
+        /// </summary>
+        string PublisherName { get; }
+
     }
 }

@@ -32,11 +32,6 @@ namespace PXWeb
         IEnumerable<IDcatLanguageSpecificSettings> LanguageSpecificSettings { get; }
 
         /// <summary>
-        /// Publisher of the catalog
-        /// </summary>
-        string Publisher { get; }
-
-        /// <summary>
         /// Database to be generated
         /// </summary>
         string Database { get; }
