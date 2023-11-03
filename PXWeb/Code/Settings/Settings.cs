@@ -338,11 +338,6 @@ namespace PXWeb
                 node = xdoc.SelectSingleNode(xpath);
                 _navigationSettings = new NavigationSettings(node);
 
-                xpath = "/settings/dcat";
-                //node = SettingsHelper.GetNode(xdoc, xpath);
-                node = xdoc.SelectSingleNode(xpath);
-                _dcatSettings = new DcatSettings(node);
-
             }
             catch (System.Exception ex)
             {
