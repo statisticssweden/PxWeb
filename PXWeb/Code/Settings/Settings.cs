@@ -154,10 +154,6 @@ namespace PXWeb
             node = xdoc.SelectSingleNode(xpath);
             ((NavigationSettings)_newSettings.Navigation).Save(node);
 
-            xpath = "/settings/dcat";
-            node = xdoc.SelectSingleNode(xpath);
-            ((DcatSettings)_newSettings.Dcat).Save(node);
-
             xdoc.Save(_path);
             _logger.Info("Settings-file was successfully saved");
 
