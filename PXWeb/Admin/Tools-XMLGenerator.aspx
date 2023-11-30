@@ -35,11 +35,6 @@
         <asp:TextBox ID="textBoxSelectLandingPageURL" runat="server"></asp:TextBox>
         <asp:ImageButton ID="imgSelectLandingPageURL" runat="server" onclick="imgSelectLandingPageURL_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
     </div>
-    <div class="setting-field">
-        <asp:Label ID="lblSelectPublisher" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectPublisher %>">"></asp:Label>
-        <asp:TextBox ID="textBoxSelectPublisher" runat="server"></asp:TextBox>
-        <asp:ImageButton ID="imgSelectPublisher" runat="server" onclick="imgSelectPublisher_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
-    </div>
 
     <div class="setting-field">
         <asp:Repeater ID="dcatLanguageSpecificSettings" runat="server">
@@ -58,6 +53,11 @@
                     <asp:Label ID="lblSelectCatalogDesc" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectCatalogDesc %>"></asp:Label>
                     <asp:TextBox ID="textBoxSelectCatalogDescription" CssClass="dcatCatalogDescTextbox" runat="server" Text=<%# Eval("Description") %>></asp:TextBox>
                     <asp:ImageButton ID="imgSelectCatalogDesc" runat="server" onclick="imgSelectCatalogDesc_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
+                </div>
+                <div class="setting-field">
+                    <asp:Label ID="lblSelectPublisher" runat="server" Text="<%$ PxString: PxWebAdminToolsXMLGeneratorSelectPublisher %>">"></asp:Label>
+                    <asp:TextBox ID="textBoxSelectPublisher" runat="server" Text=<%# Eval("Publisher") %>></asp:TextBox>
+                    <asp:ImageButton ID="imgSelectPublisher" runat="server" onclick="imgSelectPublisher_Click" Height="15px" Width="15px" ImageUrl="<%$ PxImage: questionmark.gif %>"/>
                 </div>
             </ItemTemplate>
 <%--            <AlternatingItemTemplate>

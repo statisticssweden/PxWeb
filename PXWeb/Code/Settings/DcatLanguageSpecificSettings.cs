@@ -31,15 +31,19 @@ namespace PXWeb
             xpath = "./CatalogDescription";
             CatalogDescription = SettingsHelper.GetSettingValue(xpath, node, "Catalog description");
 
+            xpath = "./PublisherName";
+            PublisherName = SettingsHelper.GetSettingValue(xpath, node, "Publisher");
+
         }
         /// <summary>
         /// Constructor
         /// </summary>
-        public DcatLanguageSpecificSettings(string language, string catalogTitle, string catalogDescription)
+        public DcatLanguageSpecificSettings(string language, string catalogTitle, string catalogDescription, string publisherName)
         {
             Language = language;
             CatalogTitle = catalogTitle;
             CatalogDescription = catalogDescription;
+            PublisherName = publisherName;
         }
 
         /// <summary>
@@ -59,11 +63,16 @@ namespace PXWeb
             xpath = "./CatalogDescription";
             SettingsHelper.SetSettingValue(xpath, node, CatalogDescription);
 
+
+            xpath = "./PublisherName";
+            SettingsHelper.SetSettingValue(xpath, node, PublisherName);
+
         }
 
         public string Language { get; set; }
         public string CatalogTitle { get; set; }
         public string CatalogDescription { get; set; }
+        public string PublisherName { get; set; }
         #endregion
     }
 }

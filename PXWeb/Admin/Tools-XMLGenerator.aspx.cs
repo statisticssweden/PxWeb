@@ -130,7 +130,6 @@ namespace PXWeb.Admin
             textBoxSelectBaseURI.Text = dcatSettings.BaseURI;
             textBoxSelectApiURL.Text = dcatSettings.BaseApiUrl;
             textBoxSelectLandingPageURL.Text = dcatSettings.LandingPageUrl;
-            textBoxSelectPublisher.Text = dcatSettings.Publisher;
             // textBoxSelectCatalogTitle.Text = dcatSettings.CatalogTitle;
             // textBoxSelectCatalogDesc.Text = dcatSettings.CatalogDescription;
             textBoxSelectLicense.Text = dcatSettings.License;
@@ -159,15 +158,18 @@ namespace PXWeb.Admin
                 IDcatLanguageSpecificSettings settings;
                 string title;
                 string desc;
+                string publisher;
                 if (settingsLookup.TryGetValue(id, out settings))
                 {
                     title = settings.CatalogTitle;
                     desc = settings.CatalogDescription;
+                    publisher = settings.PublisherName;
                 }
                 else
                 {
                     title = "Catalog title";
                     desc = "Catalog desc";
+                    publisher = "Publisher";
                 }
                 langSettings.Add(
                     new
@@ -176,6 +178,7 @@ namespace PXWeb.Admin
                         Name = new CultureInfo(id).EnglishName,
                         Title = title,
                         Description = desc,
+                        Publisher = publisher,
                     }
                 );
             }
@@ -202,7 +205,6 @@ namespace PXWeb.Admin
             dcats.BaseURI = textBoxSelectBaseURI.Text;
             dcats.BaseApiUrl = textBoxSelectApiURL.Text;
             dcats.LandingPageUrl = textBoxSelectLandingPageURL.Text;
-            dcats.Publisher = textBoxSelectPublisher.Text;
             // dcats.CatalogTitle = textBoxSelectCatalogTitle.Text;
             // dcats.CatalogDescription = textBoxSelectCatalogDesc.Text;
             dcats.License = textBoxSelectLicense.Text;
@@ -232,7 +234,10 @@ namespace PXWeb.Admin
             var descTextBox = (TextBox)itm.FindControl("textBoxSelectCatalogDescription");
             var desc = descTextBox.Text;
 
-            return new DcatLanguageSpecificSettings(lang, title, desc);
+            var publisherTextBox = (TextBox)itm.FindControl("textBoxSelectPublisher");
+            var publisherName = publisherTextBox.Text; 
+
+            return new DcatLanguageSpecificSettings(lang, title, desc, publisherName);
         }
 
         protected void MasterSave_Click(object sender, EventArgs e) {

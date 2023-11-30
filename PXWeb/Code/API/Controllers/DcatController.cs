@@ -14,7 +14,7 @@ namespace PXWeb.API
     [AuthenticationFilter]
     public class DcatController : ApiController
     {
-        public class Input
+        public class DcatInput
         {
             public string DatabaseType;
             public string Database;
@@ -22,51 +22,53 @@ namespace PXWeb.API
             public string License;
             public string BaseApiUrl;
             public string LandingPageUrl;
-            public string Publisher;
             public List<string> Languages;
-            public List<IDcatLanguageSpecificSettings> LanguageSpecificSettings;
+            public List<DcatLanguageSpecificSettingsInput> LanguageSpecificSettings;
+        }
+
+        public class DcatLanguageSpecificSettingsInput : IDcatLanguageSpecificSettings
+        {
+            public string Language { get; set; }
+            public string CatalogTitle { get; set; }
+            public string CatalogDescription { get; set; }
+            public string PublisherName { get; set; }
         }
 
         [HttpPost]
-        public HttpResponseMessage buildXML([FromBody] Input input)
+        public HttpResponseMessage buildXML([FromBody] DcatInput dcatInput)
         {
-            if (input is null) { return Request.CreateResponse(HttpStatusCode.BadRequest, $"Missing json body"); }
-            string databaseTypeLower = input.DatabaseType.ToLower();
+            if (dcatInput is null) { return Request.CreateResponse(HttpStatusCode.BadRequest, $"Missing json body"); }
 
             List<string> missingFields = new List<string>();
-            if (input.DatabaseType is null)
+            if (dcatInput.DatabaseType is null)
             {
                 missingFields.Add("DatabaseType");
             }
-            if (input.Database is null)
+            if (dcatInput.Database is null)
             {
                 missingFields.Add("Database");
             }
-            if (input.BaseUri is null)
+            if (dcatInput.BaseUri is null)
             {
                 missingFields.Add("BaseUri");
             }
-            if (input.License is null)
+            if (dcatInput.License is null)
             {
                 missingFields.Add("License");
             }
-            if (input.BaseApiUrl is null)
+            if (dcatInput.BaseApiUrl is null)
             {
                 missingFields.Add("BaseApiUrl");
             }
-            if (input.LandingPageUrl is null)
+            if (dcatInput.LandingPageUrl is null)
             {
                 missingFields.Add("LandingPageUrl");
             }
-            if (input.Publisher is null)
-            {
-                missingFields.Add("Publisher");
-            }
-            if (input.Languages is null)
+            if (dcatInput.Languages is null)
             {
                 missingFields.Add("Languages");
             }
-            if (input.LanguageSpecificSettings is null)
+            if (dcatInput.LanguageSpecificSettings is null)
             {
                 missingFields.Add("LanguageSpecificSettings");
             }
@@ -81,40 +83,44 @@ namespace PXWeb.API
             string databasePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath);
             string themeMapping = HttpContext.Current.Server.MapPath("~/Themes.json");
             string organizationMapping = HttpContext.Current.Server.MapPath("~/Organizations.json");
-            string localThemeMapping = databasePath + input.Database + "/Themes.json";
-            string localOrganizationMapping = databasePath + input.Database + "/Organizations.json";
+            string localThemeMapping = databasePath + dcatInput.Database + "/Themes.json";
+            string localOrganizationMapping = databasePath + dcatInput.Database + "/Organizations.json";
 
             if (File.Exists(localThemeMapping)) themeMapping = localThemeMapping;
             if (File.Exists(localOrganizationMapping)) organizationMapping = localOrganizationMapping;
 
             Px.Dcat.DcatSettings settings = new Px.Dcat.DcatSettings()
             {
-                BaseUri = input.BaseUri,
-                CatalogTitles = input.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.CatalogTitle)).ToList(),
-                CatalogDescriptions = input.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.CatalogDescription)).ToList(),
-                License = input.License,
-                BaseApiUrl = input.BaseApiUrl,
-                LandingPageUrl = input.LandingPageUrl,
-                PublisherName = input.Publisher,
-                Languages = input.Languages,
+                BaseUri = dcatInput.BaseUri,
+                CatalogTitles = dcatInput.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.CatalogTitle)).ToList(),
+                CatalogDescriptions = dcatInput.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.CatalogDescription)).ToList(),
+                License = dcatInput.License,
+                BaseApiUrl = dcatInput.BaseApiUrl,
+                LandingPageUrl = dcatInput.LandingPageUrl,
+                PublisherNames = dcatInput.LanguageSpecificSettings.Select(x => new KeyValuePair<string, string>(x.Language, x.PublisherName)).ToList(),
+                Languages = dcatInput.Languages,
                 ThemeMapping = themeMapping,
                 OrganizationMapping = organizationMapping,
                 MainLanguage = mainLanguage
             };
+
+            string databaseTypeLower = dcatInput.DatabaseType.ToLower();
+            
             if (databaseTypeLower == "cnmm") {
                 settings.DatabaseType = Px.Dcat.Helpers.DatabaseType.CNMM;
-                settings.DatabaseId = input.Database;
+                settings.DatabaseId = dcatInput.Database;
             }
             else if(databaseTypeLower == "px")
             {
                 settings.DatabaseType = Px.Dcat.Helpers.DatabaseType.PX;
-                settings.DatabaseId = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + input.Database + "/Menu.xml";
+                settings.DatabaseId = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + dcatInput.Database + "/Menu.xml";
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid database type: {input.DatabaseType}");
+                return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid database type: {dcatInput.DatabaseType}");
             }
-            string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + input.Database + "/dcat-ap.xml");
+            
+            string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + dcatInput.Database + "/dcat-ap.xml");
             DcatWriter.WriteToFile(savePath, settings);
             return Request.CreateResponse(HttpStatusCode.OK, "Xml-file created successfully");
         }
