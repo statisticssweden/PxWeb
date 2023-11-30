@@ -1,4 +1,6 @@
+=== Release of PxWeb 2024 v1 ===
 === Release of PxWeb 2023 v1 ===
+- New version of PCaxis.Serializers with JSON-STAT2 and Parquet
 - New version of PcAxis.Query.1.0.8 #367
 - Added filetype csv2 and csv3 #367
 - Fix for issue #344 (Classification does not get back to zero - ValuesetMustBeSelectedFirst)
