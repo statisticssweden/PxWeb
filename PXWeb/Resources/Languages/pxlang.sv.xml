@@ -537,8 +537,8 @@
   <sentence name="PageViewDataSortColumnIsSortedAscSR" value="Tabellen är sorterad i fallande ordning på {0}. Klicka för att sortera i stigande ordning." />
   <sentence name="PageViewDataSortColumnIsSortedDescSR" value="Tabellen är sorterad i stigande ordning på {0}. klicka för att sortera i fallande ordning." />
   <sentence name="CancelButton" value="Avbryt" />
-  <sentence name="PxWebApplicationTitle" value="PxWeb 2023 Beta1" />
-  <sentence name="PxWebApplicationName" value="PxWeb 2023 Beta1" />
+  <sentence name="PxWebApplicationTitle" value="PxWeb 2023 v1" />
+  <sentence name="PxWebApplicationName" value="PxWeb 2023 v1" />
   <sentence name="PxWebLogoAlt" value="PxWeb logotyp" />
   <sentence name="PxWebExternalSearchText" value="Sök"/>
   <sentence name="PxWebExternalSearchURL" value="https://www.google.se"/>
@@ -659,7 +659,7 @@
   <sentence name="PxWebSkipToSelectionLinkScreenReader" value="Nu har du hamnat på en sida där du ska välja variabler och värden för dessa." />
   <sentence name="PxWebAdminLogout" value="Logga ut" />
   <sentence name="PxWebAdminHeading" value="PxWeb Administration" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2023 Beta1" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2023 v1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb hemsida" />
   <sentence name="PxWebAdminSaveButton" value="Spara" />
   <sentence name="PxWebAdminGenerateButton" value="Generera" />
