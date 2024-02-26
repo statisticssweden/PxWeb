@@ -7,10 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PCAxis.Query;
 using System.Configuration;
-using PCAxis.Paxiom.Configuration;
-using PXWeb.Misc;
 
 namespace PXWeb.Admin
 {
