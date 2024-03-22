@@ -1,4 +1,5 @@
 === Release of PxWeb 2024 v1 ===
+- Fix redirect to selection page for change language(issues/619) and in presentation-page if paxiom and the url dont match(issues/624)
 === Release of PxWeb 2023 v1 ===
 - New version of PCaxis.Serializers with JSON-STAT2 and Parquet
 - New version of PcAxis.Query.1.0.8 #367

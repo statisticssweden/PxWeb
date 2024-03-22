@@ -74,8 +74,28 @@ namespace PXWeb
             Page.MaintainScrollPositionOnPostBack = true;
 
 
+            bool doRedirect = false;
 
-            if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel == null || !PaxiomManager.PaxiomModel.IsComplete)
+            var pxmodel = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel;
+
+            if (pxmodel == null || !pxmodel.IsComplete)
+            {
+                doRedirect = true;
+            }
+            else
+            {
+                if (PxUrlObject.Table.ToLower().EndsWith(".px"))
+                {
+                    // Asuming pxmodel.Meta.MainTable must be the full path to px-file.
+                    doRedirect = ! pxmodel.Meta.MainTable.ToLower().EndsWith(PxUrlObject.Table.ToLower());
+                }
+                else
+                {
+                    doRedirect = pxmodel.Meta.MainTable.ToLower() != PxUrlObject.Table.ToLower();
+                }
+            }
+
+            if (doRedirect)
             {
                 List<LinkManager.LinkItem> linkItems = new List<LinkManager.LinkItem>();
                 linkItems.Add(new LinkManager.LinkItem(PxUrl.LANGUAGE_KEY, PxUrlObject.Language));
@@ -87,7 +107,9 @@ namespace PXWeb
                 Response.Redirect(rurl);
             }
 
-            lblFullscreenTitle.Text = PaxiomManager.PaxiomModel.Meta.Title;
+
+
+            lblFullscreenTitle.Text = pxmodel.Meta.Title;
             InitializeTableHeadings();
 
             if (!IsPostBack)
