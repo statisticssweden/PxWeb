@@ -369,8 +369,8 @@
   <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Blankstegsavgränsad utan rubrik" />
   <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Semikolonavgränsad med rubrik" />
   <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Semikolonavgränsad utan rubrik" />
-  <sentence name="FileTypeCsv2" value="csv2" />
-  <sentence name="FileTypeCsv3" value="csv3" />	
+  <sentence name="FileTypeCsv2" value="Kommaavgränsad utan rubrik (kod och text för variabelvärden)" />
+  <sentence name="FileTypeCsv3" value="Kommaavgränsad utan rubrik (kod för variabelvärdena)" />	
   <sentence name="FileTypeText" value="Textfil (txt)" />
   <sentence name="FileTypeHtml5Table" value="Html5 tabell (htm)" />
   <sentence name="FileTypeHtml" value="Html fil (htm)" />
