@@ -432,8 +432,8 @@
 	 <sentence name="FileTypeCsvWithoutHeadingAndSpace" value="Space delimited without heading" />
 	 <sentence name="FileTypeCsvWithHeadingAndSemiColon" value="Semicolon delimited with heading" />
 	 <sentence name="FileTypeCsvWithoutHeadingAndSemiColon" value="Semicolon delimited without heading" />
-	 <sentence name="FileTypeCsv2" value="csv2" />
-	 <sentence name="FileTypeCsv3" value="csv3" />
+	 <sentence name="FileTypeCsv2" value="Comma delimited without heading (code and text for values)" />
+	 <sentence name="FileTypeCsv3" value="Comma delimited without heading (code for values)" />
 	
 	<sentence name="FileTypeText" value="Text file (txt)" />  
   <sentence name="FileTypeHtml5Table" value="Html5 table (htm)" />
