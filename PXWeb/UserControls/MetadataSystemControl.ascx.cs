@@ -1,11 +1,9 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
+using PCAxis.Web.Core.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using PCAxis.Web.Core.Management;
-using PCAxis.Paxiom;
 
 namespace PXWeb.UserControls
 {
@@ -22,7 +20,7 @@ namespace PXWeb.UserControls
                     return;
                 }
 
-                PXModel model = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel;                
+                PXModel model = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel;
                 ListItem li;
 
                 cboVariables.Items.Clear();

@@ -1,15 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Xml;
+﻿using System.Xml;
 
 namespace PXWeb
 {
@@ -18,7 +7,7 @@ namespace PXWeb
     /// </summary>
     internal class SiteSettings : ISiteSettings
     {
-       
+
         #region "public methods"
 
         /// <summary>
@@ -38,7 +27,7 @@ namespace PXWeb
 
             xpath = "./mainHeaderForTables";
             MainHeaderForTables = SettingsHelper.GetSettingValue(xpath, siteNode, MainHeaderForTablesType.TableName);
- 
+
             xpath = "./showExternalSearchLink";
             ShowExternalSearchLink = SettingsHelper.GetSettingValue(xpath, siteNode, false);
         }

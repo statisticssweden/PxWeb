@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PXWeb.API.Services
+﻿namespace PXWeb.API.Services
 {
     public interface ICacheService
     {

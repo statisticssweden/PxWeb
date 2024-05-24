@@ -1,14 +1,12 @@
-﻿Imports PCAxis.Web.Core.Enums
+﻿Imports System.Globalization
+Imports System.Text
+Imports System.Web.UI
+Imports System.Web.UI.HtmlControls
+Imports System.Web.UI.WebControls
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
-Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.Globalization
-Imports System.ComponentModel
-Imports PCAxis.Paxiom.Localization
-Imports System.Text
-Imports System.Web.UI.HtmlControls
+Imports PCAxis.Web.Core.Enums
 Imports PCAxis.Web.Core.Management
 ''' <summary>
 ''' Displays a <see cref="Paxiom.PXModel" /> as a table
@@ -296,7 +294,7 @@ Public Class TableCodeBehind
         If Me.weWroteExtraHeaderWithTitle Then
             table.Rows.RemoveAt(0)
         End If
-        
+
         Dim nrOfColumns As Integer = table.Rows(0).Cells.Count
         For c As Integer = 0 To nrOfColumns - 1
             For r As Integer = 0 To table.Rows.Count - 1

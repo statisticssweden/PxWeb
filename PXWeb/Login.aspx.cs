@@ -1,15 +1,8 @@
-﻿using System.Security.Authentication;
-using PCAxis.Web.Core.Management;
+﻿using PCAxis.Web.Core.Management;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Configuration;
-using System.Web.Profile;
 using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PXWeb
@@ -25,9 +18,9 @@ namespace PXWeb
                 litTitle.Text = "PX-Web";
             }
             //Logo
-            
+
             imgSiteLogo.Src = Path.Combine(
-                PXWeb.Settings.Current.General.Paths.ImagesPath, 
+                PXWeb.Settings.Current.General.Paths.ImagesPath,
                 PXWeb.Settings.Current.General.Site.LogoPath);
 
             imgSiteLogo.Alt = GetLocalizedString("PxWebLogoAlt");
@@ -35,17 +28,17 @@ namespace PXWeb
             //Application name
             litAppName.Text = Server.HtmlEncode(GetLocalizedString("PxWebApplicationName"));
 
-            LoginControl.FailureText = Server.HtmlEncode(GetLocalizedString("PxWebAdminUsersLoginFailure"));       
+            LoginControl.FailureText = Server.HtmlEncode(GetLocalizedString("PxWebAdminUsersLoginFailure"));
         }
 
         protected void LogIn(object sender, AuthenticateEventArgs e)
-        {                                      
+        {
             if (Membership.ValidateUser(LoginControl.UserName, LoginControl.Password))
             {
                 FormsAuthentication.RedirectFromLoginPage(LoginControl.UserName, false);
             }
             else
-            {             
+            {
                 e.Authenticated = false;
             }
         }

@@ -1,13 +1,7 @@
-﻿
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Enums
+﻿Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.Web.UI.HtmlControls
 Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core
 
 ''' <summary>
 ''' Control that presents information on limits for selecttion and selections done.

@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml;
+﻿using System.Xml;
 
 namespace PXWeb
 {
     /// <summary>
     /// Internal class for reading and writing the search settings
     /// </summary>
-    internal class SearchSettings : ISearchSettings 
+    internal class SearchSettings : ISearchSettings
     {
         #region "ISearchSettings members"
-        
+
         public int CacheTime { get; set; }
         public int ResultListLength { get; set; }
         public PCAxis.Search.DefaultOperator DefaultOperator { get; set; }
-        
+
         #endregion
 
 
@@ -29,7 +25,7 @@ namespace PXWeb
         public SearchSettings(XmlNode searchNode)
         {
             string xpath;
- 
+
             xpath = "./cacheTime";
             CacheTime = SettingsHelper.GetSettingValue(xpath, searchNode, 60);
 

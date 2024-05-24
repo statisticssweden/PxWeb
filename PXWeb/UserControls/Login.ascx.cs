@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PCAxis.Web.Core.Management;
+using System;
+using System.Globalization;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Security;
-using PCAxis.Web.Core.Management;
-using System.Globalization;
-using System.Configuration;
 
 namespace PXWeb.UserControls
 {
@@ -16,10 +13,10 @@ namespace PXWeb.UserControls
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(Login));
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             Button searchBtn = (Button)Page.Master.FindControl("form1$ContentPlaceHolderMain$pxSearch$pnlSearch$cmdSearch");
-  
-            if (!IsPostBack) 
+
+            if (!IsPostBack)
             {
                 SetFields();
             }
@@ -36,7 +33,7 @@ namespace PXWeb.UserControls
             Label PasswordLabel = (Label)LoginControl.FindControl("lblPassword");
 
             UserNameLabel.Text = Server.HtmlEncode(GetLocalizedString("PxWebUsername"));
-            PasswordLabel.Text = Server.HtmlEncode(GetLocalizedString("PxWebPassword"));   
+            PasswordLabel.Text = Server.HtmlEncode(GetLocalizedString("PxWebPassword"));
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 showLoginSectionBtn.Text = Server.HtmlEncode(GetLocalizedString("PxWebLogin"));
@@ -57,9 +54,9 @@ namespace PXWeb.UserControls
                 showLoginSectionBtn.Text = Server.HtmlEncode(GetLocalizedString("PxWebLogout"));
                 loggedInSection.Visible = true;
                 logInSection.Visible = false;
-                loggedInAsLabel.Text = Server.HtmlEncode(GetLocalizedString("PxWebLoggedIn")) + " " + HttpContext.Current.User.Identity.Name; 
+                loggedInAsLabel.Text = Server.HtmlEncode(GetLocalizedString("PxWebLoggedIn")) + " " + HttpContext.Current.User.Identity.Name;
             }
-            
+
             Label lblLoggedOutMessage = (Label)LoginControl.FindControl("lblLoggedOutMessage");
             lblLoggedOutMessage.Text = Server.HtmlEncode(GetLocalizedString("PxWebLoggedOut"));
             lblLoggedOutMessage.Visible = false;
@@ -75,7 +72,7 @@ namespace PXWeb.UserControls
         {
             try
             {
-               //Session.Clear();
+                //Session.Clear();
                 if (string.IsNullOrEmpty(LoginControl.UserName) || string.IsNullOrEmpty(LoginControl.Password))
                 {
                     LoginControl.FailureText = Server.HtmlEncode(GetLocalizedString("PxWebLoginMissingUserOrPassw"));
@@ -102,7 +99,7 @@ namespace PXWeb.UserControls
                     Response.Cookies.Add(loggedIn);
 
                     string currentUrl = Request.RawUrl;
-                    Response.Redirect(currentUrl, true);    
+                    Response.Redirect(currentUrl, true);
                 }
                 else
                 {
@@ -113,7 +110,7 @@ namespace PXWeb.UserControls
 
             catch (Exception ex)
             {
-                _logger.Error("Failed to Login. Username " + LoginControl.UserName + "Error:" + ex.Message );
+                _logger.Error("Failed to Login. Username " + LoginControl.UserName + "Error:" + ex.Message);
                 throw;
             }
         }
@@ -123,7 +120,7 @@ namespace PXWeb.UserControls
             var showLoginSectionBtn = (Button)sender;
             Button loginBtn = (Button)LoginControl.FindControl("Login");
 
-            if(showLoginSectionBtn.Text == Server.HtmlEncode(GetLocalizedString("PxWebLogout")))
+            if (showLoginSectionBtn.Text == Server.HtmlEncode(GetLocalizedString("PxWebLogout")))
             {
                 LogOut();
             }

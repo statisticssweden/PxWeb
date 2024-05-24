@@ -1,9 +1,7 @@
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 Imports System.ComponentModel
+Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core.Enums
 
 
@@ -16,7 +14,7 @@ Partial Public Class Table
     Inherits MarkerControlBase(Of TableCodeBehind, Table)
 
     Private _useUpperCase As Boolean
-    Private _layout As TableLayoutType = TableLayoutType.Layout1    
+    Private _layout As TableLayoutType = TableLayoutType.Layout1
     Private _dataNotePlacement As DataNotePlacementType = DataNotePlacementType.None
     Private _informationLevel As InformationLevelType = InformationLevelType.AllFootnotes
     Private _removeRowsOption As ZeroOptionType = ZeroOptionType.ShowAll

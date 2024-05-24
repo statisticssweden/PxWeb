@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PXWeb.Misc;
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PXWeb.Misc;
 
 namespace PXWeb.Admin
 {
@@ -19,7 +16,7 @@ namespace PXWeb.Admin
                 lnkStop.Attributes.Add("onclick", "return confirm('" + Master.GetLocalizedString("PxWebAdminFeaturesBackgroundWorkerConfirmStop") + "');");
                 lnkStart.Attributes.Add("onclick", "return confirm('" + Master.GetLocalizedString("PxWebAdminFeaturesBackgroundWorkerConfirmStart") + "');");
                 lnkWakeUp.Attributes.Add("onclick", "return confirm('" + Master.GetLocalizedString("PxWebAdminFeaturesBackgroundWorkerConfirmWakeUp") + "');");
-                
+
                 ReadSettings();
             }
         }
@@ -111,7 +108,7 @@ namespace PXWeb.Admin
         {
             BackgroundWorker.PxWebBackgroundWorker.Stop();
         }
-        
+
         /// <summary>
         /// Restart background worker process
         /// </summary>

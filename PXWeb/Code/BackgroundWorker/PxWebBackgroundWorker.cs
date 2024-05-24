@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading;
-using log4net;
-using System.IO;
+﻿using log4net;
 using PCAxis.Paxiom;
-using PCAxis.Search;
 using PCAxis.Paxiom.Extensions;
-using Px.Dcat.Interfaces;
+using PCAxis.Search;
 using Px.Dcat;
 using Px.Dcat.Helpers;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading;
 
 namespace PXWeb.BackgroundWorker
 {
@@ -31,7 +29,7 @@ namespace PXWeb.BackgroundWorker
     {
         private static readonly ILog _logger = LogManager.GetLogger(typeof(PxWebBackgroundWorker));
         private static Thread _worker;
-        
+
         /// <summary>
         /// Start work in a separate thread
         /// </summary>
@@ -94,14 +92,15 @@ namespace PXWeb.BackgroundWorker
         /// <summary>
         /// If worker shall run or not
         /// </summary>
-        public static bool Run {
+        public static bool Run
+        {
             get
             {
                 return _run;
             }
             set
-            { 
-                _run = value; 
+            {
+                _run = value;
             }
         }
 
@@ -109,34 +108,36 @@ namespace PXWeb.BackgroundWorker
         /// <summary>
         /// Time to sleep between work iterations in seconds
         /// </summary>
-        public static int SleepTime { 
-            get 
-            { 
-                return _sleepTime; 
-            } 
-            set 
-            { 
+        public static int SleepTime
+        {
+            get
+            {
+                return _sleepTime;
+            }
+            set
+            {
                 _sleepTime = value;
                 if (_sleepTime == 0)
                 {
                     _sleepTime = 10;
                 }
-            } 
+            }
         }
 
         private static string _activity;
         /// <summary>
         /// Status telling what the worker is doing right now
         /// </summary>
-        public static string CurrentActivity { 
-            get 
+        public static string CurrentActivity
+        {
+            get
             {
-                return _activity; 
-            } 
-            set 
+                return _activity;
+            }
+            set
             {
-                _activity = value; 
-            } 
+                _activity = value;
+            }
         }
 
         /// <summary>
@@ -171,7 +172,7 @@ namespace PXWeb.BackgroundWorker
             while (_run == true)
             {
                 _logger.Info("PX-Web background worker iteration started");
-                
+
                 try
                 {
                     if (_run == true)
@@ -247,7 +248,7 @@ namespace PXWeb.BackgroundWorker
             {
                 return;
             }
-            
+
             PXWeb.DatabaseSettings db = (PXWeb.DatabaseSettings)PXWeb.Settings.Current.GetDatabase(database);
             PXWeb.SearchIndexSettings searchIndex = (PXWeb.SearchIndexSettings)db.SearchIndex;
 
@@ -319,12 +320,12 @@ namespace PXWeb.BackgroundWorker
             string organizationMapping = System.Web.Hosting.HostingEnvironment.MapPath("~/Organizations.json");
 
             Px.Dcat.Helpers.DatabaseType dbType = dcat.DatabaseType == "PX" ? Px.Dcat.Helpers.DatabaseType.PX : Px.Dcat.Helpers.DatabaseType.CNMM;
-            
+
             string dbid;
             string databasepath = GetDatabasePath();
 
             string savePath = databasepath + dcat.Database + "/dcat-ap.xml";
-            
+
             string localThemeMapping = databasepath + dcat.Database + "/Themes.json";
             string localOrganizationMapping = databasepath + dcat.Database + "/Organizations.json";
 

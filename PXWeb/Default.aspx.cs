@@ -1,12 +1,7 @@
-﻿using System;
+﻿using PCAxis.Web.Core.Management;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using PCAxis.Web.Core.Management;
-using System.IO;
-using System.Globalization;
 
 namespace PXWeb
 {
@@ -73,14 +68,14 @@ namespace PXWeb
         {
             LinkManager.LinkItem[] li = new LinkManager.LinkItem[2];
             RepeaterItem itm = e.Item;
-           
-            if ((itm.ItemType == ListItemType.Item) || (itm.ItemType == ListItemType.AlternatingItem)) 
+
+            if ((itm.ItemType == ListItemType.Item) || (itm.ItemType == ListItemType.AlternatingItem))
             {
                 HyperLink lnk = (HyperLink)itm.FindControl("lnkDatabasesItem");
                 li[0] = new LinkManager.LinkItem("px_language", LocalizationManager.GetTwoLetterLanguageCode());
                 li[1] = new LinkManager.LinkItem("px_db", ((DatabaseInfo)itm.DataItem).Id);
-                lnk.NavigateUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink("Menu.aspx".Replace("\\", "/"), false, li);                
-            } 
+                lnk.NavigateUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink("Menu.aspx".Replace("\\", "/"), false, li);
+            }
         }
 
         /// <summary>

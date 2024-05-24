@@ -1,14 +1,13 @@
-﻿using System;
+﻿using PCAxis.Web.Controls;
+using PCAxis.Web.Controls.CommandBar.Plugin;
+using PCAxis.Web.Core.Management;
+using PXWeb.Code.Management;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using PCAxis.Web.Core.Management;
-using System.Globalization;
-using PCAxis.Web.Controls.CommandBar.Plugin;
-using PCAxis.Web.Controls;
-using PXWeb.Code.Management;
 
 namespace PXWeb
 {
@@ -87,7 +86,7 @@ namespace PXWeb
                 if (PxUrlObject.Table.ToLower().EndsWith(".px"))
                 {
                     // Asuming pxmodel.Meta.MainTable must be the full path to px-file.
-                    doRedirect = ! pxmodel.Meta.MainTable.ToLower().EndsWith(PxUrlObject.Table.ToLower());
+                    doRedirect = !pxmodel.Meta.MainTable.ToLower().EndsWith(PxUrlObject.Table.ToLower());
                 }
                 else
                 {
@@ -118,7 +117,7 @@ namespace PXWeb
                 string path = PxUrlObject.Path;
 
                 DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
-               
+
                 if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM && !CnmmDatabaseRootHelper.Check(path))
                 {
                     HttpContext.Current.Response.Redirect(LinkManager.CreateLink("~/Menu.aspx", new LinkManager.LinkItem() { Key = "msg", Value = "UnauthorizedTable" }));
@@ -297,7 +296,7 @@ namespace PXWeb
             TableQueryInformation.URLRoot = PXWeb.Settings.Current.Features.Api.UrlRoot;
             TableQueryInformation.URLRootV2 = PXWeb.Settings.Current.Features.Api.UrlRootV2;
             TableQueryInformation.EnableApiV2QueryLink = PXWeb.Settings.Current.Features.Api.EnableApiV2QueryLink;
-            TableQueryInformation.Database = db; 
+            TableQueryInformation.Database = db;
             TableQueryInformation.Path = PxUrlObject.Path;
             TableQueryInformation.Table = PxUrlObject.Table;
 
@@ -386,7 +385,7 @@ namespace PXWeb
                 }
             }
         }
-        
+
         /// <summary>
         /// Get the TimeValueLoadedSavedQuery value
         /// </summary>

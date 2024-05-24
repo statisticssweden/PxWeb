@@ -1,6 +1,4 @@
 Imports System.ComponentModel
-Imports PCAxis.Web.Core.Enums
-Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core.Management
 
@@ -58,8 +56,8 @@ Public MustInherit Class PaxiomControlBase(Of TControl As ControlBase(Of TContro
     ''' <param name="args">An EventArgs object that contains the event data</param>
     ''' <remarks></remarks>
     Protected Overrides Sub OnLanguageChanged(ByVal args As EventArgs)
-        If Me.PaxiomModel IsNot Nothing Then                        
-            Dim langCode As String = LocalizationManager.GetTwoLetterLanguageCode()            
+        If Me.PaxiomModel IsNot Nothing Then
+            Dim langCode As String = LocalizationManager.GetTwoLetterLanguageCode()
 
             Me.PaxiomModel.Meta.SetPreferredLanguage(langCode)
         End If

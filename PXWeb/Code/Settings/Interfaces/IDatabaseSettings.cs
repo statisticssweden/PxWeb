@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PXWeb
+﻿namespace PXWeb
 {
     //Interface for settings concerning a specific database
     public interface IDatabaseSettings

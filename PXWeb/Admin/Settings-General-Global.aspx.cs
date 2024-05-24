@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using System.Collections.Generic;
 
 namespace PXWeb.Admin
 {
@@ -61,12 +54,12 @@ namespace PXWeb.Admin
             }
 
             var infoTypes = from it in lst
-                           select new 
-                           {
-                               Id = it.ToString(),
-                               Name = Master.GetLocalizedString("CtrlInformation" + it.ToString() + "Label"),
-                               Selected = CheckIfInformationTypeIsSelected(it.ToString())
-                           };
+                            select new
+                            {
+                                Id = it.ToString(),
+                                Name = Master.GetLocalizedString("CtrlInformation" + it.ToString() + "Label"),
+                                Selected = CheckIfInformationTypeIsSelected(it.ToString())
+                            };
 
             rptInformationTypes.DataSource = infoTypes;
             rptInformationTypes.DataBind();
@@ -169,7 +162,7 @@ namespace PXWeb.Admin
                                 SaveInfoType(chk.Checked, hidSetting.Value);
                             }
                         }
-                        
+
                         PXWeb.Settings.Save();
                     }
                     finally
@@ -348,6 +341,6 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebDetailedInformation", "PxWebAdminSettingsGlobalDetailedInformationInfo");
         }
-        
+
     }
 }

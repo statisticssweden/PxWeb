@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using PCAxis.Paxiom;
 using PCAxis.Web.Controls;
-using PCAxis.Web.Core.Management;
 using PCAxis.Web.Controls.CommandBar.Plugin;
-using PCAxis.Paxiom;
+using PCAxis.Web.Core.Management;
+using System;
+using System.Collections.Generic;
+using System.Web.UI;
 
 namespace PXWeb
 {
@@ -29,7 +26,7 @@ namespace PXWeb
                 return _pxUrlObj;
             }
         }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder = null;
@@ -98,7 +95,7 @@ namespace PXWeb
             }
             SettingsLabel.Text = Master.GetLocalizedString("PxWebTableUserSettingsShow");
             pnlForRblZeroOption.GroupingText = "<span class='font-heading'>" + Master.GetLocalizedString("PxWebTableUserSettingsLegend") + "</span>"; ;
-            
+
         }
 
         /// <summary>

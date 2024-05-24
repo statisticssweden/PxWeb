@@ -1,34 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
-using System.Xml.Linq;
+﻿using log4net;
 using PCAxis.Chart;
-using PCAxis.Web.Controls;
-using System.Web.Routing;
-using PCAxis.Api;
 using PCAxis.Search;
-using PXWeb.BackgroundWorker;
-using System.Collections.Generic;
-using log4net;
 using PX.Web.Interfaces.Cache;
-using System.Runtime.Caching;
-using System.Web.Http;
-using PXWeb.API;
-using Ninject;
-using Ninject.Web.Common;
+using PXWeb.BackgroundWorker;
 using PXWeb.Code.Management;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Runtime.Caching;
+using System.Web;
+using System.Web.Http;
+using System.Web.Routing;
 
 namespace PXWeb
 {
     public class RouteInstance
     {
         public static IRouteExtender RouteExtender { get; set; }
-        public static IPxUrlProvider PxUrlProvider { get; set; }   
+        public static IPxUrlProvider PxUrlProvider { get; set; }
     }
 
     public interface ICacheService
@@ -170,7 +160,7 @@ namespace PXWeb
             settings.LegendFontSize = Settings.Current.Features.Charts.Legend.FontSize;
             settings.LegendHeight = Settings.Current.Features.Charts.Legend.Height;
             settings.LineThickness = Settings.Current.Features.Charts.LineThickness;
-            settings.Logotype = Settings.Current.Features.Charts.Logotype;            
+            settings.Logotype = Settings.Current.Features.Charts.Logotype;
             settings.ShowLegend = Settings.Current.Features.Charts.Legend.Visible;
             settings.TimeSortOrder = Settings.Current.Features.Charts.TimeSortOrder;
             //settings.Title = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.Title;
@@ -218,7 +208,7 @@ namespace PXWeb
             {
                 RouteManager.AddApiRoute();
             }
-            
+
             if (ConfigurationManager.AppSettings["CacheServiceExpirationInMinutes"] != null)
             {
                 int cacheServiceExpirationInMinutes = int.Parse(ConfigurationManager.AppSettings["CacheServiceExpirationInMinutes"]);
@@ -260,7 +250,7 @@ namespace PXWeb
             }
 
             //Initialize Index search
-            SearchManager.Current.Initialize(PXWeb.Settings.Current.General.Paths.PxDatabasesPath, 
+            SearchManager.Current.Initialize(PXWeb.Settings.Current.General.Paths.PxDatabasesPath,
                                             new PCAxis.Search.GetMenuDelegate(PXWeb.Management.PxContext.GetMenuAndItem),
                                             PXWeb.Settings.Current.Features.Search.CacheTime,
                                             PXWeb.Settings.Current.Features.Search.DefaultOperator);
@@ -271,7 +261,7 @@ namespace PXWeb
             InitializeCacheController();
 
             if (PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled)
-            {                
+            {
                 //Start PX-Web background worker
                 PxWebBackgroundWorker.Work(PXWeb.Settings.Current.Features.BackgroundWorker.SleepTime);
             }
@@ -280,7 +270,7 @@ namespace PXWeb
 
         protected void Session_Start(object sender, EventArgs e)
         {
-           // InitializeChartSettings();
+            // InitializeChartSettings();
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -347,7 +337,7 @@ namespace PXWeb
             //         , new SSDRouteHandler()
             //    ));
 
-            
+
 
             RouteTable.Routes.MapPageRoute("DefaultRoute",
                                            PxUrl.PX_START + "/",
@@ -364,7 +354,7 @@ namespace PXWeb
             RouteTable.Routes.MapPageRoute("DbSearchRoute",
                                            PxUrl.PX_START + "/" +
                                            "{" + PxUrl.LANGUAGE_KEY + "}/" +
-                                           "{" + PxUrl.DB_KEY + "}/" + 
+                                           "{" + PxUrl.DB_KEY + "}/" +
                                             PxUrl.VIEW_SEARCH + "/",
                                            "~/Search.aspx");
             RouteTable.Routes.MapPageRoute("DbPathRoute",
@@ -446,7 +436,7 @@ namespace PXWeb
                                            PxUrl.VIEW_SORTEDTABLE_IDENTIFIER + "/" +
                                            "{" + PxUrl.LAYOUT_KEY + "}/",
                                            "~/DataSort.aspx");
-            
+
             RouteTable.Routes.MapHttpRoute(name: "CacheApi", routeTemplate: "api/admin/v1/{controller}");
             RouteTable.Routes.MapHttpRoute(name: "MenuApi", routeTemplate: "api/admin/v1/{controller}/{database}");
             RouteTable.Routes.MapHttpRoute(name: "DcatApi", routeTemplate: "api/admin/v1/{controller}/{databaseType}/{database}");

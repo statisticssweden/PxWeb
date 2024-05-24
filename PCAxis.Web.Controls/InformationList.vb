@@ -1,6 +1,5 @@
 ﻿Imports PCAxis.Enums
 Imports PCAxis.Paxiom
-Imports System.Text.RegularExpressions
 
 Public Class InformationList
     ''' <summary>

@@ -1,10 +1,6 @@
-﻿Imports PCAxis.Web.Controls.Table
-Imports PCAxis.Web.Core.StateProvider
+﻿Imports PCAxis.Paxiom.Operations
 Imports PCAxis.Web.Controls.CommandBar.Plugin
-Imports System.Web.UI.WebControls
 Imports PCAxis.Web.Core.Management
-Imports PCAxis.Paxiom
-Imports PCAxis.Paxiom.Operations
 
 Public Class ChartView
     Implements ICommandBarNoGUIPlugin

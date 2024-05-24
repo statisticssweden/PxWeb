@@ -1,9 +1,9 @@
-﻿Imports PCAxis.Web.Controls.CommandBar.Plugin
-Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Operations
-Imports PCAxis.Web.Core.Management
+﻿Imports System.Web.UI.WebControls
 Imports PCAxis.Paxiom
+Imports PCAxis.Paxiom.Operations
+Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core.Attributes
+Imports PCAxis.Web.Core.Management
 
 ''' <summary>
 ''' This control makes it possible to rearrange how the variablevalues is displayed.
@@ -95,7 +95,7 @@ Public Class ChangeValueOrderCodebehind
         Else
             ContinueButton.Text = GetLocalizedString(COMPLETE_BUTTON_TEXT)
         End If
-        
+
         MoveUpButton.Text = Me.GetLocalizedString(MOVE_UP)
         MoveDownButton.Text = Me.GetLocalizedString(MOVE_DOWN)
         ListBoxLabel.Text = Me.GetLocalizedString(LISTBOX_LABEL)
@@ -135,7 +135,7 @@ Public Class ChangeValueOrderCodebehind
         End Set
     End Property
 
-    
+
     ''' <summary>
     ''' Set the number of rows in the listboxes
     ''' </summary>
@@ -275,7 +275,7 @@ Public Class ChangeValueOrderCodebehind
         MoveValuesToEnd(Me.ValuesOrder)
     End Sub
 
-    
+
     ''' <summary>
     ''' Move the selected values to the top of the listbox
     ''' </summary>

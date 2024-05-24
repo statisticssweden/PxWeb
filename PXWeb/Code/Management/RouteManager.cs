@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Routing;
-using System.Configuration;
-using PCAxis.Api;
+﻿using PCAxis.Api;
 using PXWeb.Management;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
+using System.Web.Routing;
 
 namespace PXWeb
 {
-    
+
     /// <summary>
     /// Class for handling routes in PX-Web
     /// </summary>
     public class RouteManager
     {
         private const string API_PATTERN = "{language}/{*path}";
-        
+
         /// <summary>
         /// Add Route for API calls
         /// </summary>
@@ -96,7 +94,7 @@ namespace PXWeb
             {
                 return;
             }
-            
+
             using (RouteTable.Routes.GetWriteLock())
             {
                 RouteTable.Routes.Add(new Route(url, new GotoRouteHandler()));

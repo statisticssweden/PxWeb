@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Data;
-using System.Linq;
+﻿using PCAxis.Chart;
+using PCAxis.Web.Controls;
+using PCAxis.Web.Core.Management;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Web;
 using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.Xml.Linq;
 using System.Web.SessionState;
-using PCAxis.Paxiom;
-using PCAxis.Charting;
-using System.IO;
-using System.Drawing.Imaging;
 using System.Windows.Forms.DataVisualization.Charting;
-using PCAxis.Web.Controls;
-using PCAxis.Chart;
-using PCAxis.Web.Core.Management;
 
 namespace PXWeb
 {
@@ -55,7 +47,7 @@ namespace PXWeb
             // Display on screen
             context.Response.ContentType = "image/png";
             chart.SaveImage(s, ImageFormat.Png);
-            
+
             s.WriteTo(context.Response.OutputStream);
             context.Response.End();
         }
@@ -157,7 +149,7 @@ namespace PXWeb
                         return PXWeb.Settings.Current.Features.Charts.MaxWidth;
                     }
                     else
-                    { 
+                    {
                         return width;
                     }
                 }
@@ -184,7 +176,7 @@ namespace PXWeb
                         return PXWeb.Settings.Current.Features.Charts.MaxHeight;
                     }
                     else
-                    { 
+                    {
                         return height;
                     }
                 }

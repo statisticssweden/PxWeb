@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.Caching;
-using System.Configuration;
 
 namespace PCAxis.Api
 {
@@ -73,7 +72,7 @@ namespace PCAxis.Api
             if (String.IsNullOrEmpty(LimiterHttpHeaderName) || String.IsNullOrEmpty(request.Headers[LimiterHttpHeaderName]))
             {
                 clientAddress = request.UserHostAddress;
-            } 
+            }
             else
             {
                 clientAddress = request.Headers[LimiterHttpHeaderName];

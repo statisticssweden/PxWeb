@@ -1,15 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Xml;
+﻿using System.Xml;
 
 namespace PXWeb
 {
@@ -43,7 +32,7 @@ namespace PXWeb
             CellLimitDownloads = SettingsHelper.GetSettingValue(xpath, fileFormatsNode, 10000);
 
             xpath = "./fileBaseName";
-            FileBaseName = SettingsHelper.GetSettingValue(xpath, fileFormatsNode, PCAxis.Paxiom.FileBaseNameType.Matrix );
+            FileBaseName = SettingsHelper.GetSettingValue(xpath, fileFormatsNode, PCAxis.Paxiom.FileBaseNameType.Matrix);
 
             xpath = "./excel";
             node = fileFormatsNode.SelectSingleNode(xpath);

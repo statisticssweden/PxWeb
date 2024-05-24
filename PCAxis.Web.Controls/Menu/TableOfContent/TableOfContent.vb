@@ -1,9 +1,5 @@
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
-Imports System.ComponentModel
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Menu
 Imports PCAxis.Web.Core.Enums
 
 
@@ -12,7 +8,7 @@ Imports PCAxis.Web.Core.Enums
 ''' </summary>
 ''' <remarks></remarks>
 Public Partial Class TableOfContent
-    Inherits MarkerControlBase(Of TableOfContentCodebehind,TableOfContent)
+    Inherits MarkerControlBase(Of TableOfContentCodebehind, TableOfContent)
 
     ''' <summary>
     ''' Delegate function for retrieving the menu

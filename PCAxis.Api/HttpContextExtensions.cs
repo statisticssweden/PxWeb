@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 
 namespace PCAxis.Api
 {
@@ -42,12 +39,12 @@ namespace PCAxis.Api
             }
         }
 
-         /// <summary>
-         /// Send a error response to the client
-         /// </summary>
-         /// <param name="context"></param>
-         /// <param name="data"></param>
-         /// <param name="code"></param>
+        /// <summary>
+        /// Send a error response to the client
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="data"></param>
+        /// <param name="code"></param>
         public static void SendJSONError(this HttpContext context, string data, int code)
         {
             context.Response.StatusCode = code;

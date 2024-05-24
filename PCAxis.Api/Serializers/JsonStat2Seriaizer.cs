@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PCAxis.Api.Serializers
+﻿namespace PCAxis.Api.Serializers
 {
     class JsonStat2Seriaizer : IWebSerializer
     {

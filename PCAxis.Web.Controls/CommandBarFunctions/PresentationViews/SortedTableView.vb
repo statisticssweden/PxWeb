@@ -1,7 +1,4 @@
-﻿Imports PCAxis.Web.Controls.Table
-Imports PCAxis.Web.Core.StateProvider
-Imports PCAxis.Web.Controls.CommandBar.Plugin
-Imports System.Web.UI.WebControls
+﻿Imports PCAxis.Web.Controls.CommandBar.Plugin
 Imports PCAxis.Web.Core.Management
 
 Public Class SortedTableView

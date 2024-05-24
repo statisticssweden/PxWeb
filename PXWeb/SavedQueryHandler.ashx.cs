@@ -89,7 +89,7 @@ namespace PXWeb
                 queryName = ValidationManager.GetValue(routeData.Values["QueryName"].ToString());
             }
             else
-            { 
+            {
                 //No query supplied goto error page.
                 //TODO just to shut the compiler up
                 queryName = "";
@@ -132,39 +132,39 @@ namespace PXWeb
                 //Check if the database is active. 
                 //It should not be possible to run a saved query if the database is not active
                 sq = PCAxis.Query.SavedQueryManager.Current.Load(queryName);
-				IEnumerable<string> db;
-				TableSource src = sq.Sources[0];
+                IEnumerable<string> db;
+                TableSource src = sq.Sources[0];
 
-				if (src.Type.ToLower() == "cnmm")
-				{
-					if (!CnmmDatabaseRootHelper.Check(src.Source))
+                if (src.Type.ToLower() == "cnmm")
+                {
+                    if (!CnmmDatabaseRootHelper.Check(src.Source))
                     {
                         throw new SystemException("Saved query: not authorized to run rooted saved query");
                     }
 
                     db = PXWeb.Settings.Current.General.Databases.CnmmDatabases;
-				}
-				else
-				{
-					db = PXWeb.Settings.Current.General.Databases.PxDatabases;
-				}
-				bool activeDatabase = false;
-				foreach (var item in db)
-				{
-					if (item.ToLower() == src.DatabaseId.ToLower())
-					{
-						activeDatabase = true;
-						break;
-					}					
-				}
-				if (!activeDatabase)
-				{
-					throw new SystemException();
-				}
+                }
+                else
+                {
+                    db = PXWeb.Settings.Current.General.Databases.PxDatabases;
+                }
+                bool activeDatabase = false;
+                foreach (var item in db)
+                {
+                    if (item.ToLower() == src.DatabaseId.ToLower())
+                    {
+                        activeDatabase = true;
+                        break;
+                    }
+                }
+                if (!activeDatabase)
+                {
+                    throw new SystemException();
+                }
 
 
-				//Validate that the user has the rights to access the table
-				string tableName = QueryHelper.GetTableName(src);
+                //Validate that the user has the rights to access the table
+                string tableName = QueryHelper.GetTableName(src);
                 //if (!AuthorizationUtil.IsAuthorized(src.DatabaseId, null, src.Source))
                 if (!AuthorizationUtil.IsAuthorized(src.DatabaseId, null, tableName)) //TODO: Should be dbid, menu and selection. Only works for SCB right now... (2018-11-14)
                 {
@@ -262,9 +262,9 @@ namespace PXWeb
                 }
             }
             catch (Exception ex)
-                {
+            {
 
-                if ((PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File && System.IO.File.Exists(queryName)) || 
+                if ((PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File && System.IO.File.Exists(queryName)) ||
                     (PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.Database))
                 {
                     PCAxis.Query.SavedQueryManager.Current.MarkAsFailed(queryName);
@@ -382,7 +382,7 @@ namespace PXWeb
         private string CreateUrlForScreenRendering(PCAxis.Query.SavedQuery sq, PXModel model)
         {
             if (sq.Sources.Count < 1) throw new Exception("No source specified"); //TODO fix message
-            
+
             var src = sq.Sources[0];
 
             if (string.Compare(src.SourceIdType, "path") != 0) throw new Exception("Incompatible source type"); //TODO fix
@@ -392,7 +392,7 @@ namespace PXWeb
 
             path = path.Substring(0, path.Length - (tableName.Length + 1));
 
-            if (string.Compare(sq.Sources[0].Type, "CNMM") == 0 )
+            if (string.Compare(sq.Sources[0].Type, "CNMM") == 0)
             {
                 if (!path.StartsWith("START"))
                 {
@@ -409,7 +409,7 @@ namespace PXWeb
             linkItems.Add(new LinkManager.LinkItem(PxUrl.DB_KEY, src.DatabaseId));
             linkItems.Add(new LinkManager.LinkItem(PxUrl.LANGUAGE_KEY, src.Language));
             linkItems.Add(new LinkManager.LinkItem(PxUrl.LAYOUT_KEY, "tableViewLayout1"));
-            
+
             var url = LinkManager.CreateLink("Table.aspx", false, linkItems.ToArray());
             PCAxis.Web.Core.Management.LocalizationManager.ChangeLanguage(src.Language);
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = model;
@@ -417,7 +417,7 @@ namespace PXWeb
             return url;
         }
 
-    
+
 
         private void SerializeResult(PCAxis.Query.SavedQuery sq, PXModel model, HttpContext context)
         {
@@ -445,17 +445,17 @@ namespace PXWeb
             if (info != null)
             {
                 return info.MimeType;
-            } 
+            }
 
             return "text/plain";
         }
-  
+
 
         private PXModel LoadData(PCAxis.Query.SavedQuery sq)
         {
             //Only loads the first table source otherwise redirects to a page
             if (sq.Sources.Count != 1)
-            { 
+            {
                 //TODO redirect to error page incopatable query for PX-Web
             }
 
@@ -484,7 +484,7 @@ namespace PXWeb
 
                     var tableName = QueryHelper.GetTableName(src);
                     builder = PxContext.CreatePaxiomBuilder(RouteInstance.RouteExtender.Db.Database.id, tableName);
-                }    
+                }
             }
             else if (src.Type == "PX")
             {

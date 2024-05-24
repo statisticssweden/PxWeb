@@ -1,13 +1,8 @@
-﻿using PCAxis.Menu;
+﻿using PCAxis.Sql;
 using PCAxis.Sql.DbClient;
-using PCAxis.Sql;
 using PCAxis.Sql.DbConfig;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCAxis.Api
 {
@@ -49,7 +44,7 @@ namespace PCAxis.Api
 
                 if (!pathLookup.Contains(key))
                 {
-                    pathLookup.Add(key); 
+                    pathLookup.Add(key);
                 }
             }
 
@@ -123,7 +118,7 @@ namespace PCAxis.Api
                     SELECT
                         {DB.MenuSelection.MenuCol.Id()},
                         {DB.MenuSelection.SelectionCol.Id()},
-                        cast({cmd.getConcatString(DB.MenuSelection.SelectionCol.Id() , "'/'" , "p.pathkey")} AS VARCHAR(1000)) 
+                        cast({cmd.getConcatString(DB.MenuSelection.SelectionCol.Id(), "'/'", "p.pathkey")} AS VARCHAR(1000)) 
                     FROM
                        {DB.MenuSelection.GetNameAndAlias()} inner join p on {DB.MenuSelection.SelectionCol.Id()} = p.{DB.MenuSelection.MenuCol.PureColumnName()}
                     )

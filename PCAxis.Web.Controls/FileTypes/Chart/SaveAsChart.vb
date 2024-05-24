@@ -1,13 +1,7 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Web
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Management
-Imports System.Drawing.Imaging
+﻿Imports System.Drawing.Imaging
 Imports PCAxis.Chart
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Management
 
 Partial Public Class SaveAsChart : Inherits FileTypeMarkerControlBase(Of SaveAsChartCodebehind, SaveAsChart)
 

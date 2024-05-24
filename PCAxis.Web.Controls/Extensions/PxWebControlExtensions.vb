@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.CompilerServices
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Paxiom.Extensions
 Imports System.Web
+Imports PCAxis.Paxiom.Extensions
+Imports PCAxis.Web.Core.Management
 
 Public Module PxWebControlExtensions
 

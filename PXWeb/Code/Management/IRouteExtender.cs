@@ -1,9 +1,6 @@
 ﻿using PCAxis.Sql.DbConfig;
 using PCAxis.Web.Core.Management;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Routing;
 
 namespace PXWeb
@@ -17,7 +14,7 @@ namespace PXWeb
         SqlDbConfig Db { get; set; }
         string GetPresentationRedirectUrl(string tableId, string presentationLayout);
         void AddSavedQueryRoute(RouteCollection routes);
-        void RegisterCustomRoutes(RouteCollection routes);  
+        void RegisterCustomRoutes(RouteCollection routes);
         string GetDatabase();
         bool ShowBreadcrumb();
         LinkManager.LinkMethod CreateLink { get; }

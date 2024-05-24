@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using PCAxis.Menu;
 using PCAxis.Paxiom;
-using PCAxis.Menu;
-using System.Web;
 using PCAxis.Web.Core.Enums;
+using System;
+using System.Web;
 
 namespace PCAxis.Search
 {
@@ -19,7 +16,7 @@ namespace PCAxis.Search
         private string _pxDatabaseBaseDirectory;
         private static PxModelManager _current = new PxModelManager();
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(PxModelManager));
-        
+
         #endregion
 
         #region "Public properties"

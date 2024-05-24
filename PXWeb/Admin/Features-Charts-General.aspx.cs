@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
+﻿using PCAxis.Chart;
 using PXWeb.Misc;
+using System;
 using System.Collections.Generic;
-using PCAxis.Chart;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace PXWeb.Admin
 {
@@ -35,7 +27,7 @@ namespace PXWeb.Admin
             }
         }
         private string _lineColorPhrame = "#AAAAAA";
-        public string LineColorPhrame 
+        public string LineColorPhrame
         {
             get
             {
@@ -76,13 +68,13 @@ namespace PXWeb.Admin
             }
             else
             {
-               AddColor(false);               
-               //_guidelinesColor = txtGuidelinesColor.Text;
-               //_lineColorPhrame = txtLineColorPhrame.Text;
-               
-               //_backgroundColorGraphs = txtBackgroundColorGraphs.Text;               
+                AddColor(false);
+                //_guidelinesColor = txtGuidelinesColor.Text;
+                //_lineColorPhrame = txtLineColorPhrame.Text;
+
+                //_backgroundColorGraphs = txtBackgroundColorGraphs.Text;               
             }
-            
+
         }
 
         /// <summary>
@@ -120,7 +112,7 @@ namespace PXWeb.Admin
             cboGuidelinesHorizontal.SelectedValue = PXWeb.Settings.Current.Features.Charts.Guidelines.Horizontal.ToString();
             cboGuidelinesVertical.SelectedValue = PXWeb.Settings.Current.Features.Charts.Guidelines.Vertical.ToString();
             txtMaxValues.Text = PXWeb.Settings.Current.Features.Charts.MaxValues.ToString();
-            cboShowLogo.SelectedValue = PXWeb.Settings.Current.Features.Charts.ShowLogo.ToString();    
+            cboShowLogo.SelectedValue = PXWeb.Settings.Current.Features.Charts.ShowLogo.ToString();
             txtPathImgLogo.Text = PXWeb.Settings.Current.Features.Charts.Logotype.ToString();
             cboShowSourse.SelectedValue = PXWeb.Settings.Current.Features.Charts.ShowSource.ToString();
             txtLineThicknessPhrame.Text = PXWeb.Settings.Current.Features.Charts.LineThicknessPhrame.ToString();
@@ -160,9 +152,9 @@ namespace PXWeb.Admin
                         charts.MaxLineThickness = int.Parse(txtMaxLineThickness.Text);
                         charts.MaxValues = int.Parse(txtMaxValues.Text);
                         charts.ShowLogo = bool.Parse(cboShowLogo.SelectedValue);
-                        charts.Logotype = this.txtPathImgLogo.Text.Trim();                        
-                        charts.ShowSource = bool.Parse(cboShowSourse.SelectedValue); 
-                        
+                        charts.Logotype = this.txtPathImgLogo.Text.Trim();
+                        charts.ShowSource = bool.Parse(cboShowSourse.SelectedValue);
+
                         switch (cboLabelOrientation.SelectedValue)
                         {
                             case "Vertical":
@@ -213,8 +205,8 @@ namespace PXWeb.Admin
                         guidelines.Color = txtGuidelinesColor.Text;
                         guidelines.Horizontal = bool.Parse(cboGuidelinesHorizontal.SelectedValue);
                         guidelines.Vertical = bool.Parse(cboGuidelinesVertical.SelectedValue);
-                        _guidelinesColor = txtGuidelinesColor.Text;                        
-                        
+                        _guidelinesColor = txtGuidelinesColor.Text;
+
                         Page.DataBind();
                         PXWeb.Settings.Save();
                         //Set the txtAddSelectedColor field to blank after saving so
@@ -348,7 +340,7 @@ namespace PXWeb.Admin
             string errorKey = "";
 
 
-            if (InputValidation.ValidateMandatoryPositiveInteger(source, args, out errorKey) == false )
+            if (InputValidation.ValidateMandatoryPositiveInteger(source, args, out errorKey) == false)
             {
                 SetValidationError(val, args, errorKey);
                 return;
@@ -372,11 +364,11 @@ namespace PXWeb.Admin
                 SetValidationError(val, args, "PxWebAdminSettingsValidationBiggerThanMaxSetting", Master.GetLocalizedString("PxWebAdminFeaturesChartsGeneralMaxLineThickness"));
                 return;
             }
-            
+
 
         }
 
-       /// <summary>
+        /// <summary>
         /// Validates the line thickness
         /// </summary>
         /// <param name="source">Validator object</param>
@@ -564,7 +556,7 @@ namespace PXWeb.Admin
                 }
                 rptColors.DataSource = lst;
                 rptColors.DataBind();
-                
+
             }
         }
 
@@ -617,12 +609,12 @@ namespace PXWeb.Admin
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                ClientScript.RegisterStartupScript(GetType(), "ColorpickerBinder" + e.Item.ItemIndex.ToString(), "BindColorPicker(\""+e.Item.ItemIndex.ToString() + "\",\"" + GetString(e.Item.DataItem) + "\");", true);
+                ClientScript.RegisterStartupScript(GetType(), "ColorpickerBinder" + e.Item.ItemIndex.ToString(), "BindColorPicker(\"" + e.Item.ItemIndex.ToString() + "\",\"" + GetString(e.Item.DataItem) + "\");", true);
                 TextBox tb = (TextBox)e.Item.FindControl("tbSelectedColor");
                 tb.Text = GetString(e.Item.DataItem);
                 tb.CssClass += " selectedColor" + e.Item.ItemIndex.ToString();
             }
-  
+
         }
         /// <summary>
         /// Is called when the value "Show logo" changes
@@ -641,7 +633,7 @@ namespace PXWeb.Admin
         {
             if (bool.Parse(cboShowLogo.SelectedValue))
             {
-                pnlLogotypeInGraphs.Visible = true;    
+                pnlLogotypeInGraphs.Visible = true;
             }
             else
             {
@@ -761,6 +753,6 @@ namespace PXWeb.Admin
         protected void LineColorPhrameInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminFeaturesChartsGeneralLineColorPhrame", "PxWebAdminFeaturesChartsGeneralLineColorPhrameInfo");
-        }        
+        }
     }
 }

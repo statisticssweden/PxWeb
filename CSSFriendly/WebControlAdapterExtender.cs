@@ -13,7 +13,7 @@ namespace CSSFriendly
         private WebControl _adaptedControl = null;
 
         private bool _disableAutoAccessKey = false;
-                     // used when dealing with things like read-only textboxes that should not have access keys
+        // used when dealing with things like read-only textboxes that should not have access keys
 
         public WebControlAdapterExtender(WebControl adaptedControl)
         {
@@ -203,10 +203,10 @@ namespace CSSFriendly
         {
             foreach (Control ctrl in coll)
             {
-                if (typeof (RequiredFieldValidator).IsAssignableFrom(ctrl.GetType()) ||
-                    typeof (CompareValidator).IsAssignableFrom(ctrl.GetType()) ||
-                    typeof (RegularExpressionValidator).IsAssignableFrom(ctrl.GetType()) ||
-                    typeof (ValidationSummary).IsAssignableFrom(ctrl.GetType()))
+                if (typeof(RequiredFieldValidator).IsAssignableFrom(ctrl.GetType()) ||
+                    typeof(CompareValidator).IsAssignableFrom(ctrl.GetType()) ||
+                    typeof(RegularExpressionValidator).IsAssignableFrom(ctrl.GetType()) ||
+                    typeof(ValidationSummary).IsAssignableFrom(ctrl.GetType()))
                 {
                     var cri = new ControlRestorationInfo(ctrl, coll);
                     stashedControls.Add(cri);

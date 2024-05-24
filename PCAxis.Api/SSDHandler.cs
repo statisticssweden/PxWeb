@@ -1,14 +1,12 @@
-﻿using System;
+﻿using PCAxis.Api.Serializers;
+using PCAxis.Menu;
+using PCAxis.Query;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Routing;
-using System.Collections.Generic;
-using System.Linq;
-using PCAxis.Query;
-using PCAxis.Menu;
-using System.IO;
-using PCAxis.Api.Serializers;
-using System.Configuration;
-using System.Net;
 
 
 namespace PCAxis.Api
@@ -73,7 +71,7 @@ namespace PCAxis.Api
                 Id = i.ID.Selection.Replace('\\', '/'),
                 Text = i.Text,
                 Type = GetMetaListType(i),
-                Updated =  i is TableLink ? (((TableLink)i).Published) : null
+                Updated = i is TableLink ? (((TableLink)i).Published) : null
             });
         }
 
@@ -133,9 +131,9 @@ namespace PCAxis.Api
             // There is an MatchAllDocsQuery class, but this means a bigger change
             // edit: never mind MatchAllDocsQuery, is the java versjon. Make sure to add .net when you google. Still 
             //could not find a magic int ...
-            
+
             // Get all tables that match the query under the search node
-            var result = PCAxis.Search.SearchManager.Current.Search(database, language, query, out status, filter,1000000).Where(r => r.Path.StartsWith(nodeFilter.ToString())).ToList();
+            var result = PCAxis.Search.SearchManager.Current.Search(database, language, query, out status, filter, 1000000).Where(r => r.Path.StartsWith(nodeFilter.ToString())).ToList();
 
             // Make the path in the result items relative the search node
             int length = nodeFilter.ToString().Length;
@@ -161,11 +159,11 @@ namespace PCAxis.Api
             {
                 case "PX":
                     builder = new PCAxis.Paxiom.PXFileBuilder();
-                    builder.SetPath(ExposedDatabases.DatabaseConfigurations[language][db].RootPath + "\\" + string.Join("\\", tablePath.ToArray())); 
+                    builder.SetPath(ExposedDatabases.DatabaseConfigurations[language][db].RootPath + "\\" + string.Join("\\", tablePath.ToArray()));
                     break;
                 case "CNMM":
                     builder = new PCAxis.PlugIn.Sql.PXSQLBuilder();
-                    builder.SetPath( string.Format("{0}:{1}",db,tablePath.Last()));
+                    builder.SetPath(string.Format("{0}:{1}", db, tablePath.Last()));
                     break;
                 default:
                     throw new NotImplementedException("Database type not implemented");
@@ -196,7 +194,7 @@ namespace PCAxis.Api
                     Text = variable.Name,
                     Elimination = variable.Elimination,
                     Time = variable.IsTime,
-					Map = string.IsNullOrEmpty(variable.Map)? null : variable.Map,
+                    Map = string.IsNullOrEmpty(variable.Map) ? null : variable.Map,
                     Values = variable.Values.Count > Settings.Current.MaxValues ? null : variable.Values.Select(value => value.Code).ToArray(),
                     ValueTexts = variable.Values.Count > Settings.Current.MaxValues ? null : variable.Values.Select(value => value.Value).ToArray()
                 }).ToArray()
@@ -315,11 +313,11 @@ namespace PCAxis.Api
                 string cacheKey = ""; // Key to request stored in cache
                 ResponseBucket cacheResponse; // Request stored in cache
                 string postData = ""; // Data part of POST request (contains JSON query)
-                
+
                 // Negotiate with the request limiter (if enabled)
-                if (_requestLimiter != null) 
+                if (_requestLimiter != null)
                 {
-                   
+
                     if (!_requestLimiter.ClientLimitOK(context.Request))
                     {
 
@@ -329,7 +327,7 @@ namespace PCAxis.Api
                         throw new HttpException(429, "429 - Too many requests in too short timeframe. Please try again later.");
                     }
                 }
-              
+
 
                 if (Settings.Current.EnableCORS)
                 {
@@ -390,7 +388,7 @@ namespace PCAxis.Api
                 cacheResponse.Key = cacheKey;
                 cacheResponse.Url = context.Request.Url.AbsoluteUri;
                 cacheResponse.PostData = postData;
-                
+
                 List<string> routeParts = null;
                 string language = null;
                 string db = null;
@@ -413,13 +411,15 @@ namespace PCAxis.Api
 
                 if (queryKeys.Contains("config"))
                 {
-                    var obj = new {
+                    var obj = new
+                    {
                         maxValues = Settings.Current.MaxValues,
                         maxCells = Settings.Current.FetchCellLimit,
                         maxCalls = Settings.Current.LimiterRequests,
                         timeWindow = Settings.Current.LimiterTimeSpan,
-                        CORS = Settings.Current.EnableCORS};
-                    
+                        CORS = Settings.Current.EnableCORS
+                    };
+
                     cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
                     cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(obj.ToJSON(options.PrettyPrint));
                     context.Send(cacheResponse, true);
@@ -510,72 +510,72 @@ namespace PCAxis.Api
                                     // Get the menu again...
                                     menu = PCAxisRepository.GetMenu(db, language, strNodePath);
                                 }
-                                
+
                             }
                         }
                         //else
                         //{
-                            var currentItem = menu;//.CurrentItem as Item;
+                        var currentItem = menu;//.CurrentItem as Item;
 
-                            if (currentItem.MenuType == typeof(PxMenuItem) && currentItem.HasSubItems)
+                        if (currentItem.MenuType == typeof(PxMenuItem) && currentItem.HasSubItems)
+                        {
+                            if (!string.IsNullOrEmpty(options.SearchQuery))
                             {
-                                if (!string.IsNullOrEmpty(options.SearchQuery))
-                                {
-                                    // Find tables using the search function
-                                    PCAxis.Search.SearchStatusType status;
+                                // Find tables using the search function
+                                PCAxis.Search.SearchStatusType status;
 
-                                    cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-                                    cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(GetSearchResult(db, language, options.SearchQuery, options.SearchFilter, routeParts, out status).ToJSON(options.PrettyPrint));
-                                    
-                                    if (status == Search.SearchStatusType.Successful)
-                                    {
-                                        context.Send(cacheResponse, false); // Send without caching
-                                    }
-                                    else
-                                    {
-                                        // Trying to search a non-indexed database...
-                                        context.SendJSONError(Error("Search not activated", false), 400);
-                                        _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false, message=Search not activated", context.Request.RawUrl, context.Request.UserHostAddress));
-                                        _logger.Warn(String.Format("Search not activated for {0} - {1}", db, language));
-#if DEBUG
-                                        stopWatch.Stop();
-                                        logTime.InfoFormat(System.Reflection.MethodBase.GetCurrentMethod().Name + " Done in ms = {0}", stopWatch.ElapsedMilliseconds);
-#endif
-                                        return;
-                                    }
+                                cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
+                                cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(GetSearchResult(db, language, options.SearchQuery, options.SearchFilter, routeParts, out status).ToJSON(options.PrettyPrint));
+
+                                if (status == Search.SearchStatusType.Successful)
+                                {
+                                    context.Send(cacheResponse, false); // Send without caching
                                 }
                                 else
                                 {
-                                    // Current item is a list item - return meta data for this list
-                                    cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-                                    cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(currentItem.MetaList.ToJSON(options.PrettyPrint));
-                                    context.Send(cacheResponse, true);
+                                    // Trying to search a non-indexed database...
+                                    context.SendJSONError(Error("Search not activated", false), 400);
+                                    _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false, message=Search not activated", context.Request.RawUrl, context.Request.UserHostAddress));
+                                    _logger.Warn(String.Format("Search not activated for {0} - {1}", db, language));
+#if DEBUG
+                                    stopWatch.Stop();
+                                    logTime.InfoFormat(System.Reflection.MethodBase.GetCurrentMethod().Name + " Done in ms = {0}", stopWatch.ElapsedMilliseconds);
+#endif
+                                    return;
                                 }
-
-                                //context.SendJSON(GetMetaList(context, (PxMenuItem)currentItem).ToJSON(options.PrettyPrint));
-                            }
-                            else if (context.Request.HttpMethod == "GET" && currentItem.MenuType == typeof(TableLink))
-                            {
-                                // Current item is not a list. Try to return table meta data
-                                cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
-                                cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(GetTableMeta(context, language, db, strNodePath).ToJSON(options.PrettyPrint));
-
-                                context.Send(cacheResponse, true);
-
-                                // Logs usage
-                                _usageLogger.Info(String.Format("url={0}, type=metadata, caller={1}, cached=false, format=json", context.Request.RawUrl, context.Request.UserHostAddress));
-                            }
-                            else if (context.Request.HttpMethod == "POST" && currentItem.MenuType == typeof(TableLink))
-                            {
-                                // Current item is not a list. Try to return table data.
-                                SendTableData(context, language, db, routeParts.ToArray(), cacheResponse);
                             }
                             else
                             {
-                                context.SendJSONError(Error("Parameter error", false), 400);
-                                // Logs usage
-                                _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false, message=Parameter error", context.Request.RawUrl, context.Request.UserHostAddress));
+                                // Current item is a list item - return meta data for this list
+                                cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
+                                cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(currentItem.MetaList.ToJSON(options.PrettyPrint));
+                                context.Send(cacheResponse, true);
                             }
+
+                            //context.SendJSON(GetMetaList(context, (PxMenuItem)currentItem).ToJSON(options.PrettyPrint));
+                        }
+                        else if (context.Request.HttpMethod == "GET" && currentItem.MenuType == typeof(TableLink))
+                        {
+                            // Current item is not a list. Try to return table meta data
+                            cacheResponse.ContentType = "application/json; charset=" + System.Text.Encoding.UTF8.WebName;
+                            cacheResponse.ResponseData = context.Response.ContentEncoding.GetBytes(GetTableMeta(context, language, db, strNodePath).ToJSON(options.PrettyPrint));
+
+                            context.Send(cacheResponse, true);
+
+                            // Logs usage
+                            _usageLogger.Info(String.Format("url={0}, type=metadata, caller={1}, cached=false, format=json", context.Request.RawUrl, context.Request.UserHostAddress));
+                        }
+                        else if (context.Request.HttpMethod == "POST" && currentItem.MenuType == typeof(TableLink))
+                        {
+                            // Current item is not a list. Try to return table data.
+                            SendTableData(context, language, db, routeParts.ToArray(), cacheResponse);
+                        }
+                        else
+                        {
+                            context.SendJSONError(Error("Parameter error", false), 400);
+                            // Logs usage
+                            _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false, message=Parameter error", context.Request.RawUrl, context.Request.UserHostAddress));
+                        }
                         //}
                     }
 
@@ -595,7 +595,7 @@ namespace PCAxis.Api
                 {
                     context.Response.TrySkipIisCustomErrors = true;
                     context.SendJSONError(Error(ex.Message, false), 429);
-                    
+
                 }
                 else
                 {
@@ -611,19 +611,19 @@ namespace PCAxis.Api
                 //{
 
 #if DEBUG
-                    stopWatch.Stop();
-                    logTime.InfoFormat(System.Reflection.MethodBase.GetCurrentMethod().Name + " Error Done in ms = {0}", stopWatch.ElapsedMilliseconds);
+                stopWatch.Stop();
+                logTime.InfoFormat(System.Reflection.MethodBase.GetCurrentMethod().Name + " Error Done in ms = {0}", stopWatch.ElapsedMilliseconds);
 #endif
-                    try
-                    {
-                        context.SendJSONError(Error("Parameter error", false), 400);
-                    }
-                    catch (Exception sendEx)
-                    {
-                        _logger.Error(String.Format("url={0}, type=error, caller={1}", context.Request.RawUrl, context.Request.UserHostAddress), sendEx);
-                    }
-                    _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false ", context.Request.RawUrl, context.Request.UserHostAddress), ex);
-                    _logger.Warn(ex);
+                try
+                {
+                    context.SendJSONError(Error("Parameter error", false), 400);
+                }
+                catch (Exception sendEx)
+                {
+                    _logger.Error(String.Format("url={0}, type=error, caller={1}", context.Request.RawUrl, context.Request.UserHostAddress), sendEx);
+                }
+                _usageLogger.Info(String.Format("url={0}, type=error, caller={1}, cached=false ", context.Request.RawUrl, context.Request.UserHostAddress), ex);
+                _logger.Warn(ex);
                 //}
             }
         }

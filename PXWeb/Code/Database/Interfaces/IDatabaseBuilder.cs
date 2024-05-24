@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PXWeb.Database
+﻿namespace PXWeb.Database
 {
 
     /// <summary>
@@ -42,7 +37,7 @@ namespace PXWeb.Database
         /// <param name="path">The path to the folder</param>
         /// <remarks>Notice that the DatabaseSpider works recursively depth first</remarks>
         void BeginNewLevel(string path);
-        
+
         /// <summary>
         /// This method will be called by the DatabaseSpider to inform the builder that it
         /// has steped back one level in the tree hierarchy of the file system
@@ -50,7 +45,7 @@ namespace PXWeb.Database
         /// <param name="path">The path to the folder</param>
         /// <remarks>Notice that the DatabaseSpider works recursively depth first</remarks>
         void EndNewLevel(string path);
-        
+
         /// <summary>
         /// This method will be called by the DatabaseSpider to inform the builder that a
         /// new item/file has be detected and handeled by a handler

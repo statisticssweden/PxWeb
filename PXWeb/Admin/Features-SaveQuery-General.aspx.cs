@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Query;
+using PXWeb.Misc;
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PCAxis.Query;
-using PXWeb.Misc;
 
 namespace PXWeb.Admin
 {
@@ -34,7 +31,7 @@ namespace PXWeb.Admin
         private void ReadSettings()
         {
             cboStorageType.SelectedValue = PXWeb.Settings.Current.Features.SavedQuery.StorageType.ToString();
-            cboEnableCache.SelectedValue =  PXWeb.Settings.Current.Features.SavedQuery.EnableCache.ToString(); 
+            cboEnableCache.SelectedValue = PXWeb.Settings.Current.Features.SavedQuery.EnableCache.ToString();
             txtCacheTime.Text = PXWeb.Settings.Current.Features.SavedQuery.CacheTime.ToString();
             cboEnableCORS.SelectedValue = PXWeb.Settings.Current.Features.SavedQuery.EnableCORS.ToString();
             cboShowPeriodAndId.SelectedValue = PXWeb.Settings.Current.Features.SavedQuery.ShowPeriodAndId.ToString();

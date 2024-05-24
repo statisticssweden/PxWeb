@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PCAxis.Paxiom;
+using PCAxis.Paxiom.Extensions;
+using System;
 using System.Linq;
 using System.Text;
-using PCAxis.Paxiom;
-using PCAxis.Paxiom.Extensions;
 
 namespace PCAxis.Search
 {

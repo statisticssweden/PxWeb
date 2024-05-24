@@ -1,10 +1,7 @@
 ﻿
-Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom
 Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core.Management
 Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core
 
 ''' <summary>
 ''' With this component you can make specific settings 

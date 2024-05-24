@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Xml;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 
 namespace PXWeb
 {
@@ -93,7 +83,7 @@ namespace PXWeb
 
             xpath = "./cnmmDatabases";
             SettingsHelper.SetSettingValue(xpath, databasesNode, "database", CnmmDatabases);
-        }       
+        }
         #endregion
 
         #region Private methods
@@ -107,95 +97,95 @@ namespace PXWeb
             {
                 LoadAllCnmmDatabases();
             }
-            
+
             if (_allPxDatabases == null)
+            {
+                // Assure that only one thread at a time can load "All PX databases"
+                lock (_allPxDbSettingLock)
                 {
-                    // Assure that only one thread at a time can load "All PX databases"
-                    lock (_allPxDbSettingLock)
+                    if (_allPxDatabases == null)
                     {
-                        if (_allPxDatabases == null)
+                        _logger.Info("Loading of PX databases started");
+                        _allPxDatabases = new Dictionary<string, DatabaseInfo>();
+                        string dbDir;
+
+                        //if (System.IO.Path.IsPathRooted(PXWeb.Settings.Current.General.Paths.PxDatabasesPath))
+                        //{
+                        //    //Absolute path
+                        //    dbDir = PXWeb.Settings.Current.General.Paths.PxDatabasesPath;
+                        //}
+                        //else
+                        //{
+                        //    //Relative path
+                        dbDir = System.Web.HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath);
+                        //}
+
+                        DirectoryInfo rootDir = new DirectoryInfo(dbDir);
+
+                        foreach (DirectoryInfo dir in rootDir.GetDirectories())
                         {
-                            _logger.Info("Loading of PX databases started");
-                            _allPxDatabases = new Dictionary<string, DatabaseInfo>();
-                            string dbDir;
-
-                            //if (System.IO.Path.IsPathRooted(PXWeb.Settings.Current.General.Paths.PxDatabasesPath))
-                            //{
-                            //    //Absolute path
-                            //    dbDir = PXWeb.Settings.Current.General.Paths.PxDatabasesPath;
-                            //}
-                            //else
-                            //{
-                            //    //Relative path
-                                dbDir = System.Web.HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath);
-                            //}
-
-                            DirectoryInfo rootDir = new DirectoryInfo(dbDir);
-
-                            foreach (DirectoryInfo dir in rootDir.GetDirectories())
+                            //Verify that this is not a CNMM database...
+                            if (!_allCnmmDatabases.ContainsKey(dir.Name))
                             {
-                                //Verify that this is not a CNMM database...
-                                if (!_allCnmmDatabases.ContainsKey(dir.Name))
+                                DatabaseInfo dbi = new DatabaseInfo();
+
+                                //dbi.Type = DatabaseType.PX;
+                                dbi.Type = PCAxis.Web.Core.Enums.DatabaseType.PX;
+                                dbi.Id = dir.Name;
+
+                                //Check if database file has been generated
+                                FileInfo dbFile = new FileInfo(Path.Combine(dir.FullName, PXWeb.Settings.Current.General.Databases.PxDatabaseFilename));
+
+                                if (dbFile.Exists)
                                 {
-                                    DatabaseInfo dbi = new DatabaseInfo();
+                                    dbi.LastUpdated = dbFile.LastWriteTime;
+                                    GetDatabaseLanguages(dbi, dbFile);
+                                }
+                                else
+                                {
+                                    dbi.LastUpdated = DateTime.MinValue;
+                                }
 
-                                    //dbi.Type = DatabaseType.PX;
-                                    dbi.Type = PCAxis.Web.Core.Enums.DatabaseType.PX;
-                                    dbi.Id = dir.Name;
+                                foreach (string lang in PXWeb.Settings.Current.General.Language.AllLanguages)
+                                {
+                                    string name = "";
 
-                                    //Check if database file has been generated
-                                    FileInfo dbFile = new FileInfo(Path.Combine(dir.FullName, PXWeb.Settings.Current.General.Databases.PxDatabaseFilename));
-
-                                    if (dbFile.Exists)
+                                    //Check for Alias-file in the actual language
+                                    string aliasFile = Path.Combine(dir.FullName, "Alias_" + lang + ".txt");
+                                    if (File.Exists(aliasFile))
                                     {
-                                        dbi.LastUpdated = dbFile.LastWriteTime;
-                                        GetDatabaseLanguages(dbi, dbFile);
+                                        name = ReadAliasName(aliasFile);
                                     }
-                                    else
-                                    {
-                                        dbi.LastUpdated = DateTime.MinValue;
-                                    }
 
-                                    foreach (string lang in PXWeb.Settings.Current.General.Language.AllLanguages)
+                                    // Check for Alias file in the fallback language
+                                    if (name.Length == 0)
                                     {
-                                        string name = "";
-
-                                        //Check for Alias-file in the actual language
-                                        string aliasFile = Path.Combine(dir.FullName, "Alias_" + lang + ".txt");
+                                        aliasFile = Path.Combine(dir.FullName, "Alias.txt");
                                         if (File.Exists(aliasFile))
                                         {
                                             name = ReadAliasName(aliasFile);
                                         }
-
-                                        // Check for Alias file in the fallback language
-                                        if (name.Length == 0)
-                                        {
-                                            aliasFile = Path.Combine(dir.FullName, "Alias.txt");
-                                            if (File.Exists(aliasFile))
-                                            {
-                                                name = ReadAliasName(aliasFile);
-                                            }
-                                        }
-
-                                        // Take the directory name
-                                        if (name.Length == 0)
-                                        {
-                                            name = dir.Name;
-                                        }
-
-                                        //Add Database name for the language
-                                        dbi.AddName(lang, name);
                                     }
 
-                                    _allPxDatabases.Add(dir.Name, dbi);
-                                    _logger.InfoFormat("PX database {0} added", dbi.Id);
-                                }
-                            }
-                            _logger.Info("Loading of PX databases ended");
+                                    // Take the directory name
+                                    if (name.Length == 0)
+                                    {
+                                        name = dir.Name;
+                                    }
 
+                                    //Add Database name for the language
+                                    dbi.AddName(lang, name);
+                                }
+
+                                _allPxDatabases.Add(dir.Name, dbi);
+                                _logger.InfoFormat("PX database {0} added", dbi.Id);
+                            }
                         }
+                        _logger.Info("Loading of PX databases ended");
+
                     }
                 }
+            }
 
 
         }
@@ -212,7 +202,7 @@ namespace PXWeb
             //Load the Menu.xml file
             XmlDocument xdoc = new XmlDocument();
             xdoc.Load(dbFile.FullName);
-                                    
+
             //Find all langauage-nodes
             XmlNodeList nodeList = xdoc.SelectNodes("//Language");
             foreach (XmlNode node in nodeList)
@@ -310,12 +300,12 @@ namespace PXWeb
                                 XmlNode descNode = node.SelectSingleNode(String.Format("./Descriptions/Description[@lang='{0}']", lang));
                                 if (descNode != null)
                                 {
-                                    dbi.AddName(lang,descNode.InnerText);
+                                    dbi.AddName(lang, descNode.InnerText);
                                 }
                                 else
                                 {
                                     descNode = node.SelectSingleNode("./Descriptions/Description");
-                                    dbi.AddName(lang,descNode.InnerText);
+                                    dbi.AddName(lang, descNode.InnerText);
                                 }
                             }
 
@@ -361,19 +351,19 @@ namespace PXWeb
 
         public IEnumerable<DatabaseInfo> AllPxDatabases
         {
-            get 
+            get
             {
                 LoadAllPxDatabases();
-                return _allPxDatabases.Values; 
+                return _allPxDatabases.Values;
             }
         }
 
         public IEnumerable<DatabaseInfo> AllCnmmDatabases
         {
-            get 
+            get
             {
                 LoadAllCnmmDatabases();
-                return _allCnmmDatabases.Values; 
+                return _allCnmmDatabases.Values;
             }
         }
 

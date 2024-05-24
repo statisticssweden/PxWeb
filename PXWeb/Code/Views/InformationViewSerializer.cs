@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using PCAxis.Query;
+﻿using PCAxis.Query;
 
 namespace PXWeb.Views
 {
@@ -12,7 +8,7 @@ namespace PXWeb.Views
         {
             var output = new Output();
             output.Type = PxUrl.VIEW_INFORMATION_IDENTIFIER;
-            
+
             var pxUrl = PXWeb.RouteInstance.PxUrlProvider.Create(null);
             string layout = pxUrl.Layout;
 

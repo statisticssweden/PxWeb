@@ -1,25 +1,14 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Xml;
-using System.IO;
-using System.Text;
-using PCAxis.Web.Core.Management;
+﻿using log4net;
 using PCAxis.Menu;
 using PCAxis.Menu.Implementations;
-using System.Diagnostics;
 using PCAxis.Web.Controls;
-using log4net;
+using PCAxis.Web.Core.Management;
 using PX.Web.Interfaces.Cache;
 using PXWeb.Code.Management;
+using System;
+using System.Text;
+using System.Web;
+using System.Xml.Linq;
 
 namespace PXWeb.Management
 {
@@ -31,7 +20,7 @@ namespace PXWeb.Management
         private static readonly ILog log = LogManager.GetLogger(typeof(PxContext));
 
         public static ICacheService CacheService { get; set; }
-        
+
         //Controller for all of the PxWeb caches
         public static IPxCacheController CacheController { get; set; }
 
@@ -53,7 +42,7 @@ namespace PXWeb.Management
 
             string tablePath;
             //path = ItemSelectionHelper.CreateFromString(path).Selection;
-            
+
             PCAxis.Paxiom.IPXModelBuilder builder;
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
 
@@ -89,7 +78,7 @@ namespace PXWeb.Management
                     newpath = tablePath;
                 }
 
-                if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder.Path.Equals(newpath) && (clearModel == false)) 
+                if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder.Path.Equals(newpath) && (clearModel == false))
                 {
                     // Existing builder is built against the wanted table
                     builder = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder;
@@ -129,7 +118,7 @@ namespace PXWeb.Management
                 builder.SetPreferredLanguage(lang);
                 builder.BuildForSelection();
             }
-            
+
             return builder.Model;
         }
 
@@ -167,7 +156,7 @@ namespace PXWeb.Management
             }
 
             return builder;
-       }
+        }
 
         public static PxMenuBase GetMenu(string db, string nodeId)
         {
@@ -283,8 +272,8 @@ namespace PXWeb.Management
                     return item;
                 }
             }
-            
-           
+
+
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
 
             if (dbi == null)
@@ -292,7 +281,7 @@ namespace PXWeb.Management
                 return null;
             }
 
-            
+
 
             try
             {
@@ -307,7 +296,7 @@ namespace PXWeb.Management
                 if (PxContext.CacheService != null)
                 {
                     string key = $"pxc_menu_{db}_{lang}_{nodeId}";
-                    
+
                     if (item != null)
                     {
                         PxContext.CacheService.Set(key, item);
@@ -582,8 +571,8 @@ namespace PXWeb.Management
         }
 
         private static void AlterMenuItem(Item item)
-        { 
-            
+        {
+
         }
     }
 }

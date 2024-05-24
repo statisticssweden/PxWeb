@@ -1,10 +1,4 @@
-﻿using DocumentFormat.OpenXml.EMMA;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PXWeb.Code.Management
+﻿namespace PXWeb.Code.Management
 {
     public class CnmmDatabaseRootHelper
     {

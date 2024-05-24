@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using PCAxis.Web.Controls.CommandBar.Plugin;
 using PCAxis.Web.Core;
-using PCAxis.Web.Controls.CommandBar.Plugin;
+using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace PCAxis.Excel.Web.Controls
 {
-    public class SaveAsXlsxCodebehind : FileTypeControlBase<SaveAsXlsxCodebehind, SaveAsXlsx> 
+    public class SaveAsXlsxCodebehind : FileTypeControlBase<SaveAsXlsxCodebehind, SaveAsXlsx>
     {
         public SaveAsXlsxCodebehind()
         {
             this.Load += SaveAsChart_Load;
         }
 
- 
+
 
         #region Controls
 
@@ -29,7 +27,7 @@ namespace PCAxis.Excel.Web.Controls
 
         #endregion
 
- 
+
 
         /// <summary>
         /// Called when the user control is loaded
@@ -88,9 +86,9 @@ namespace PCAxis.Excel.Web.Controls
             Marker.SerializeAndStream();
         }
 
-       /// <summary>
-       /// Set selected file format
-       /// </summary>
+        /// <summary>
+        /// Set selected file format
+        /// </summary>
         /// <remarks></remarks>
         private void SetSelectedFormat()
         {
@@ -103,7 +101,7 @@ namespace PCAxis.Excel.Web.Controls
                 else
                 {
                     //Set default
-                    this.Marker.SelectedFormat = "FileTypeXlsx";   
+                    this.Marker.SelectedFormat = "FileTypeXlsx";
                 }
             }
         }

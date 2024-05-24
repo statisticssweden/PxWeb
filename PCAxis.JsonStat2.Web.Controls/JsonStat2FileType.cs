@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PCAxis.Web.Core;
+﻿using PCAxis.Web.Core;
 using PCAxis.Web.Core.Management;
-using PCAxis.Web.Controls;
-using PCAxis.Paxiom;
-using System.Configuration;
 
 namespace PCAxis.JsonStat2.Web.Controls
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PXWeb
+﻿namespace PXWeb
 {
     /// <summary>
     /// Interface for the General.FileFormats settings
@@ -18,7 +13,7 @@ namespace PXWeb
         /// <summary>
         /// What information should the file name be based on
         /// </summary>
-        PCAxis.Paxiom.FileBaseNameType FileBaseName { get;  }
+        PCAxis.Paxiom.FileBaseNameType FileBaseName { get; }
 
         /// <summary>
         /// Excel settings

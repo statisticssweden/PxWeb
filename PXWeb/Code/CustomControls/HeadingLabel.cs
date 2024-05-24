@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PXWeb.CustomControls
+﻿namespace PXWeb.CustomControls
 {
     public class HeadingLabel : System.Web.UI.WebControls.Label
     {
@@ -21,8 +16,8 @@ namespace PXWeb.CustomControls
 
         protected override System.Web.UI.HtmlTextWriterTag TagKey
         {
-            get 
-            { 
+            get
+            {
                 switch (Level)
                 {
                     case HeadingLevel.H1:

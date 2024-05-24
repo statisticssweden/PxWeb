@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PXWeb.Database
 {
 
     public class DatabaseMessage
-    { 
-        public string Message { get; set;}
+    {
+        public string Message { get; set; }
         public BuilderMessageType MessageType { get; set; }
 
         public enum BuilderMessageType
-        { 
+        {
             Information,
             Warning,
             Error
@@ -30,7 +29,7 @@ namespace PXWeb.Database
     public class DatabaseSpider
     {
         public DatabaseSpider()
-        { 
+        {
             logger = new DatabaseLogger(LogMessage);
         }
 
@@ -63,7 +62,7 @@ namespace PXWeb.Database
                 builder.BeginBuild(startPath, logger);
             }
 
-            
+
             try
             {
                 SearchRecursive(startPath);
@@ -72,7 +71,7 @@ namespace PXWeb.Database
             {
                 var errorMessage = string.Format("Cannot search {0}. {1}", startPath, e.Message);
 
-               
+
                 logger(new DatabaseMessage()
                 {
                     MessageType = DatabaseMessage.BuilderMessageType.Error,

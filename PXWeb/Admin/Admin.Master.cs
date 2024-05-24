@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+using System.Globalization;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Globalization;
 
 namespace PXWeb.Admin
 {
@@ -180,9 +173,9 @@ namespace PXWeb.Admin
         /// <summary>
         /// The Administration sitemap
         /// </summary>
-        public SiteMapProvider AdminSiteMap 
-        { 
-            get 
+        public SiteMapProvider AdminSiteMap
+        {
+            get
             {
                 return SiteMap.Providers["AdminSiteMap"];
             }

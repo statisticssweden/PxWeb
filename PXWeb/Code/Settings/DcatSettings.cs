@@ -1,17 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
-using PCAxis.Chart;
 
 namespace PXWeb
 {
@@ -39,16 +27,16 @@ namespace PXWeb
 
             xpath = "./BaseApiUrl";
             BaseApiUrl = SettingsHelper.GetSettingValue(xpath, node, "https://baseAPI.com/");
-            
+
             xpath = "./LandingPageUrl";
             LandingPageUrl = SettingsHelper.GetSettingValue(xpath, node, "https://baseLandingPage.com/");
-            
+
             xpath = "./Database";
             Database = SettingsHelper.GetSettingValue(xpath, node, "Example");
-            
+
             xpath = "./DatabaseType";
             DatabaseType = SettingsHelper.GetSettingValue(xpath, node, "PX");
-            
+
             xpath = "./License";
             License = SettingsHelper.GetSettingValue(xpath, node, "http://creativecommons.org/publicdomain/zero/1.0/");
 
@@ -105,7 +93,7 @@ namespace PXWeb
 
             // Remove all current nodes
             foreach (XmlNode n in nodes) n.ParentNode.RemoveChild(n);
-            
+
             foreach (DcatLanguageSpecificSettings s in LanguageSpecificSettings)
             {
                 var newNode = node.OwnerDocument.CreateNode(XmlNodeType.Element, "LanguageSpecific", "");

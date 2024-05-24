@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 
 namespace PXWeb.Management
 {
@@ -51,11 +48,12 @@ namespace PXWeb.Management
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, con);
             rdr = cmd.ExecuteReader();
             return rdr;
-        
+
         }
 
-        public static string GetColumnName(string db, string tableVariabel) {
-            
+        public static string GetColumnName(string db, string tableVariabel)
+        {
+
             var database = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[db];
             var tableType = (from tbl in database.Database.Tables
                              where tbl.modelName == "SubTableVariable"
@@ -63,7 +61,7 @@ namespace PXWeb.Management
 
 
             return GetColumn(tableType, tableVariabel);
-            
+
         }
         private static string GetColumn(PCAxis.Sql.DbConfig.TableType table, string p)
         {
@@ -71,6 +69,6 @@ namespace PXWeb.Management
                     where col.modelName == p
                     select col.columnName).FirstOrDefault();
         }
-   
+
     }
 }

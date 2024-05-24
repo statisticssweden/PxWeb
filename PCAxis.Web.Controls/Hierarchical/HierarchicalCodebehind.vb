@@ -4,9 +4,7 @@ Imports System.Web.UI
 Imports System.Web.UI.WebControls
 
 Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.StateProvider
 
 ''' <summary>
 ''' Present dialogue for selecting hierarchical variables

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml;
+﻿using System.Xml;
 
 namespace PXWeb
 {
@@ -55,7 +51,7 @@ namespace PXWeb
 
             xpath = "./showQueryInformation";
             ShowQueryInformation = SettingsHelper.GetSettingValue(xpath, apiNode, true);
-            
+
             xpath = "./infoURL";
             InfoURL = SettingsHelper.GetSettingValue(xpath, apiNode, "");
 

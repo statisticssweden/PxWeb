@@ -1,18 +1,10 @@
 ﻿
 Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.ComponentModel
-
 Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
-Imports System.Collections
-Imports System.Text
-Imports PCAxis.Web.Controls.CommandBar.Plugin
-Imports PCAxis.Web.Core.Management
 Imports PCAxis.Paxiom.Operations
+Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core.Attributes
+Imports PCAxis.Web.Core.Management
 
 ''' <summary>
 ''' Pivot dialog control.

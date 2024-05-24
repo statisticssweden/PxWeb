@@ -1,6 +1,3 @@
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
-Imports System.ComponentModel
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core.Enums
@@ -10,7 +7,7 @@ Imports PCAxis.Web.Core.Enums
 ''' </summary>
 ''' <remarks></remarks>
 Public Partial Class VariableSelectorOutputFormats
-    Inherits MarkerControlBase(Of VariableSelectorOutputFormatsCodebehind,VariableSelectorOutputFormats)
+    Inherits MarkerControlBase(Of VariableSelectorOutputFormatsCodebehind, VariableSelectorOutputFormats)
 
     Private _presentationViews As New List(Of String)
     ''' <summary>

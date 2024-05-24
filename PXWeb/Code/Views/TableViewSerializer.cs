@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Paxiom;
 using PCAxis.Query;
-using PCAxis.Paxiom;
-using PCAxis.Web.Core.Management;
 using PCAxis.Web.Controls;
+using System;
 
 namespace PXWeb.Views
 {
@@ -32,6 +28,6 @@ namespace PXWeb.Views
             RenderToScreen(query, model, "tableViewLayout1", "Table.aspx", safe);
         }
 
-       
+
     }
 }

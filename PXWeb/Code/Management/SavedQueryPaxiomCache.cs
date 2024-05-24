@@ -1,13 +1,9 @@
 ﻿using PCAxis.Paxiom;
 using PX.Web.Interfaces.Cache;
 using System;
-using System.Collections.Generic;
 //using System.Configuration;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.Caching;
-using System.Text.RegularExpressions;
-using System.Web;
 
 namespace PXWeb.Management
 {
@@ -45,7 +41,7 @@ namespace PXWeb.Management
         /// Used to create a mutual-exclusion and thread-safe lock when cleaning the cache  
         /// </summary>
         private static string _cacheLock = "lock";
-        
+
         private static SavedQueryPaxiomCache _current;
 
         /// <summary>
@@ -81,12 +77,12 @@ namespace PXWeb.Management
             _cacheEnabled = PXWeb.Settings.Current.Features.SavedQuery.EnableCache; // Get setting from setting.config
             _cache = new MemoryCache("Saved Query Paxiom Cache");
             _cacheStartTime = DateTime.MinValue;
-            
+
             _paxiomCacheLogger.DebugFormat("PXWeb.Settings.Current.Features.SavedQuery.EnableCache = {0}", PXWeb.Settings.Current.Features.SavedQuery.EnableCache);
-            
+
         }
 
-      
+
         private void ClearCache()
         {
             lock (_cacheLock)
@@ -97,7 +93,7 @@ namespace PXWeb.Management
             }
         }
 
-      
+
 
         #endregion
 
@@ -166,12 +162,12 @@ namespace PXWeb.Management
         /// <returns>PXModel object</returns>
         public PXModel Fetch(string key, bool createCopy = false)
         {
-         
+
             if (!_cacheEnabled) return null;
 
             if (_coherenceChecker != null)
             {
-                if(!_coherenceChecker())
+                if (!_coherenceChecker())
                 {
                     Clear();
                 }
@@ -215,12 +211,12 @@ namespace PXWeb.Management
             }
 
             if (!_cache.Contains(queryModelCacheKey)) return null;
-            
+
             var queryModel = (PCAxis.Query.TableQuery)_cache[queryModelCacheKey];
             if (createCopy)
             {
                 PCAxis.Query.TableQuery newModel = queryModel.CreateCopy();
-                
+
 
                 return newModel;
             }
@@ -228,7 +224,7 @@ namespace PXWeb.Management
             {
                 return queryModel;
             }
-           
+
         }
 
         /// <summary>

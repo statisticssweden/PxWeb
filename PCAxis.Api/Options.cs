@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 
 namespace PCAxis.Api
 {
@@ -24,7 +20,7 @@ namespace PCAxis.Api
         /// <summary>
         /// Filter defining which fields to look in when using the search function. Comma separated list of field names.
         /// </summary>
-        public string SearchFilter { get; set; }       
+        public string SearchFilter { get; set; }
 
         /// <summary>
         /// Constructor
@@ -40,7 +36,7 @@ namespace PCAxis.Api
         {
             foreach (string key in queryString.Keys)
             {
-                if(string.IsNullOrEmpty(key)) continue;
+                if (string.IsNullOrEmpty(key)) continue;
                 switch (key.ToLower())
                 {
                     case "prettyprint":
@@ -51,7 +47,7 @@ namespace PCAxis.Api
                         break;
                     case "filter":
                         SearchFilter = queryString[key];
-                        break;                   
+                        break;
                     default:
                         break;
                 }

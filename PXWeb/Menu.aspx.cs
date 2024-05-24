@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Xml;
-using System.IO;
-using System.Text;
-using PCAxis.Web;
+﻿using PCAxis.Menu;
 using PCAxis.Web.Core.Management;
-using PCAxis.Menu;
-using PCAxis.Menu.Implementations;
+using System;
+using System.Web.UI;
 
 
 namespace PXWeb
@@ -34,10 +25,10 @@ namespace PXWeb
             ((PxWeb)this.Master).FooterText = "Menu";
 
             Master.HeadTitle = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebTitleMenu");
-            if (!Page.IsPostBack )
+            if (!Page.IsPostBack)
             {
                 Master.SetBreadcrumb(PCAxis.Web.Controls.Breadcrumb.BreadcrumbMode.Menu);
-                Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.First); 
+                Master.SetNavigationFlowMode(PCAxis.Web.Controls.NavigationFlow.NavigationFlowMode.First);
                 Master.SetNavigationFlowVisibility(PXWeb.Settings.Current.Navigation.ShowNavigationFlow);
                 Master.SetH1TextDatabase();
 
@@ -58,7 +49,7 @@ namespace PXWeb
                         Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ShowModalDialog", "<script type='text/javascript'> jQuery(function() { jQuery('#" + dialogModal.ClientID + "').dialog({ width: 480, height: 200,  modal: true, buttons: {" + Master.GetLocalizedString("PxWebPopupDialogClose") + ": function () {jQuery(this).dialog('close');} } }); });</script>  ");
                     }
                 }
-               
+
                 PCAxis.Web.Core.Management.PaxiomManager.Clear();
                 InitializeTableOfContent();
                 InitializeTableList();
@@ -102,10 +93,10 @@ namespace PXWeb
             {
                 Trace.Write(ex.ToString());
             }
-            
+
             if (menu.CurrentItem is PxMenuItem)
             {
-                foreach (var subItem in  ((PxMenuItem)menu.CurrentItem).SubItems)
+                foreach (var subItem in ((PxMenuItem)menu.CurrentItem).SubItems)
                 {
                     MyLoadAll(subItem, menu);
                 }

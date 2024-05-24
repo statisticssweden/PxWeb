@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
+using System.Configuration;
+using System.Web.Configuration;
 using System.Web.Profile;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PCAxis.Menu.Extensions;
-using System.Configuration;
-using System.Web.Configuration;
 
 namespace PXWeb.Admin
 {
@@ -29,9 +23,9 @@ namespace PXWeb.Admin
             }
             else
             {
-                CreateEvents();               
-            }                    
-        }                      
+                CreateEvents();
+            }
+        }
 
         /// <summary>
         /// When default user authentication is used hide possibilty to change and add users
@@ -57,11 +51,11 @@ namespace PXWeb.Admin
         }
 
         protected void FillGrid()
-        {          
+        {
             CreateEvents();
-            
+
             try
-            {               
+            {
                 grvUsers.DataSource = Membership.GetAllUsers();
                 grvUsers.DataBind();
             }
@@ -70,11 +64,11 @@ namespace PXWeb.Admin
                 plcNewUser.Visible = false;
                 lblOutput.Visible = true;
                 lblOutput.Text = e.Message;
-            }            
+            }
         }
 
         protected void CreateEvents()
-        {            
+        {
             grvUsers.RowDeleting += DeleteUser;
             grvUsers.RowEditing += EditUser;
             grvUsers.RowCancelingEdit += CancelingEdit;
@@ -85,8 +79,8 @@ namespace PXWeb.Admin
         protected bool UserIslockedOut(MembershipUser user)
         {
             return user.IsLockedOut;
-        }       
-        
+        }
+
         protected bool HasAdminAccess(string user)
         {
             if (Membership.Provider.Name.Equals("PXWebDefaultMembershipProvider"))
@@ -104,9 +98,9 @@ namespace PXWeb.Admin
                 return Master.GetLocalizedString("PxWebAdminUsersNeverExpires");
             }
             var profile = ProfileBase.Create(user);
-           
-            var license = ((DateTime) profile.GetPropertyValue("License"));
-           
+
+            var license = ((DateTime)profile.GetPropertyValue("License"));
+
             return license == DateTime.MinValue ? Master.GetLocalizedString("PxWebAdminUsersHasExpired") : license.AddYears(1).ToShortDateString();
         }
 
@@ -118,7 +112,7 @@ namespace PXWeb.Admin
             }
 
             var profile = ProfileBase.Create(user);
-            
+
             var licenseNumber = (int)profile.GetPropertyValue("LicenseNumber");
             return licenseNumber.ToString();
         }
@@ -130,15 +124,15 @@ namespace PXWeb.Admin
         }
 
         private void DeleteUser(object sender, GridViewDeleteEventArgs e)
-        {            
-            Membership.DeleteUser(e.Values[0].ToString(), true);           
+        {
+            Membership.DeleteUser(e.Values[0].ToString(), true);
             FillGrid();
         }
 
         protected void btnNewUser_Click(object sender, EventArgs e)
         {
             if (!val1.IsValid || !val2.IsValid || !val3.IsValid || !val4.IsValid || !val5.IsValid) return;
-            
+
             try
             {
                 var user = Membership.CreateUser(tbNewName.Text, tbNewPassword.Text, tbNewMail.Text);
@@ -147,7 +141,7 @@ namespace PXWeb.Admin
                 if (!string.IsNullOrEmpty(tbNewLicenseNumber.Text))
                 {
                     profile.SetPropertyValue("LicenseNumber", int.Parse(tbNewLicenseNumber.Text));
-                }               
+                }
                 profile.Save();
 
                 if (cbNewAdmin.Checked)
@@ -163,14 +157,14 @@ namespace PXWeb.Admin
                 cbNewAdmin.Checked = false;
                 tbNewLicenseNumber.Text = string.Empty;
 
-                FillGrid();              
+                FillGrid();
             }
             catch (Exception ex)
             {
                 lblOutput.Text = ex.Message;
                 lblOutput.Visible = true;
-            }        
-        }           
+            }
+        }
 
         protected void PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -230,8 +224,8 @@ namespace PXWeb.Admin
             catch (Exception ex)
             {
                 lblOutput.Text = ex.Message;
-                lblOutput.Visible = true;              
-            }       
+                lblOutput.Visible = true;
+            }
         }
 
 

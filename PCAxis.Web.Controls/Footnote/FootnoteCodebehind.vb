@@ -1,14 +1,9 @@
 ﻿
 
-Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.ComponentModel
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
 Imports System.Text
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports PCAxis.Web.Core
 
 <ToolboxData("<{0}:footnote runat=""server""></{0}:footnote>")>
 Public Class FootnoteCodebehind

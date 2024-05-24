@@ -8,7 +8,7 @@ namespace PXWeb.API
     /// <summary>
     /// Cotroller for PxWeb cache manipulation
     /// </summary>
-    
+
     [AuthenticationFilter]
     public class CacheController : ApiController
     {
@@ -28,12 +28,12 @@ namespace PXWeb.API
         public HttpResponseMessage Delete()
         {
             var statusCode = HttpStatusCode.NoContent;
-            try 
+            try
             {
                 _service.ClearCache();
                 _logger.Info("Cleared cache");
-            } 
-            catch(Exception e) 
+            }
+            catch (Exception e)
             {
                 _logger.Error(e);
                 statusCode = HttpStatusCode.InternalServerError;

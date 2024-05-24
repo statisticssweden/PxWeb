@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PCAxis.Search
+﻿namespace PCAxis.Search
 {
     /// <summary>
     /// Holds information about a table update in a search index

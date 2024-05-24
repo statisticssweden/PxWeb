@@ -1,23 +1,17 @@
-﻿using System;
+﻿using PCAxis.Web.Core.Management;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.IO;
-using System.Text;
-using System.Net;
-using PCAxis.Web.Core.Management;
 
 namespace PXWeb.UserControls
 {
     public partial class SearchControl : System.Web.UI.UserControl
     {
 
-#region "Localized strings"
+        #region "Localized strings"
         private const string SEARCH_LABEL = "PxWebSearchControlLabel";
         private const string SEARCH_BUTTONTEXT = "PxWebSearchControlButtonText";
-#endregion
+        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -62,18 +56,20 @@ namespace PXWeb.UserControls
             cmdSearch.Text = LocalizationManager.GetLocalizedString(SEARCH_BUTTONTEXT);
         }
 
-        public string SearchText {
+        public string SearchText
+        {
             get
             {
                 return txtSearch.Text.Trim();
             }
-            set 
+            set
             {
                 txtSearch.Text = value;
-            } 
+            }
         }
 
-        public bool RedirectOnSearch {
+        public bool RedirectOnSearch
+        {
             get
             {
                 return bool.Parse(hidRedirect.Value);

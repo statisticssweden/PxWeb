@@ -1,8 +1,8 @@
-﻿Imports System.Web
-Imports PCAxis.Web.Core
-Imports System.Xml.XPath
+﻿Imports System.Collections.Concurrent
+Imports System.Web
 Imports System.Xml
-Imports System.Collections.Concurrent
+Imports System.Xml.XPath
+Imports PCAxis.Web.Core
 
 Namespace CommandBar.Plugin
 
@@ -180,18 +180,18 @@ Namespace CommandBar.Plugin
                         'If it is a plugin, create a new plugin for it
                         If reader.Name = "plugin" Then
                             Dim plugin As New CommandBarPluginInfo(reader.Item("type"))
-							With plugin
-								.HasUI = CBool(reader.Item("hasUI"))
-								.NameCode = reader.Item("nameCode")
-								.Name = reader.Item("name")
-								.Image = reader.Item("Image")
-								.ShortcutImage = reader.Item("ShortcutImage")
-								.Category = reader.Item("category")
-								If Not (Integer.TryParse(reader.Item("SortOrder"), .SortOrder)) Then
-									.SortOrder = 0
-								End If
-							End With
-							list.GetOrAdd(plugin.Name, plugin)
+                            With plugin
+                                .HasUI = CBool(reader.Item("hasUI"))
+                                .NameCode = reader.Item("nameCode")
+                                .Name = reader.Item("name")
+                                .Image = reader.Item("Image")
+                                .ShortcutImage = reader.Item("ShortcutImage")
+                                .Category = reader.Item("category")
+                                If Not (Integer.TryParse(reader.Item("SortOrder"), .SortOrder)) Then
+                                    .SortOrder = 0
+                                End If
+                            End With
+                            list.GetOrAdd(plugin.Name, plugin)
                             currentPlugin = plugin
                         End If
                         'If it's a property then currentPlugin is already set so add the property

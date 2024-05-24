@@ -1,17 +1,8 @@
 ﻿
-Imports System.Web.UI.WebControls
 Imports System.Web.UI
-Imports System.ComponentModel
-
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
-Imports System.Collections
-Imports System.Text
-Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports System.Web.UI.WebControls
 Imports PCAxis.Paxiom.Operations
+Imports PCAxis.Web.Controls.CommandBar.Plugin
 Imports PCAxis.Web.Core.Management
 
 ''' <summary>

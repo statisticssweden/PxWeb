@@ -1,13 +1,9 @@
 ﻿Imports System.Text
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Enums
-Imports System.Web.UI.WebControls
 Imports System.Web.UI
 Imports System.Web.UI.HtmlControls
-Imports PCAxis.Web.Controls
+Imports System.Web.UI.WebControls
+Imports PCAxis.Paxiom
+Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Management
 
 ''' <summary>
@@ -1197,10 +1193,10 @@ Public Class VariableSelectorValueSelectCodebehind
     End Sub
 
     Protected Sub VariableValueLinksRepeater_ItemDataBound(ByVal sender As Object, ByVal e As RepeaterItemEventArgs)
-        CreateLink(e,"divVarValLink")
+        CreateLink(e, "divVarValLink")
     End Sub
 
-    private Sub CreateLink(Byval e As RepeaterItemEventArgs , byval placeholder As String)
+    private Sub CreateLink(Byval e As RepeaterItemEventArgs, byval placeholder As String)
         Dim itm As RepeaterItem = e.Item
 
         Dim currentItem As Metadata.MetaLink = TryCast(e.Item.DataItem, Metadata.MetaLink)
@@ -1222,7 +1218,7 @@ Public Class VariableSelectorValueSelectCodebehind
         Dim itm As RepeaterItem = e.Item
         Dim currentItem As MetaItem = TryCast(e.Item.DataItem, MetaItem)
 
-        Dim lbl As Label = TryCast(itm.FindControl("lblVariableValueName"),Label)
+        Dim lbl As Label = TryCast(itm.FindControl("lblVariableValueName"), Label)
         If String.IsNullOrWhiteSpace(currentItem.Name) Then
             lbl.Visible = False
         Else
@@ -1294,7 +1290,7 @@ Public Class VariableSelectorValueSelectCodebehind
         Dim lstVariableValueLinks As List(Of MetaItem) = GetVariableLinks()
         lstVariableValueLinks.AddRange(GetValueLinks())
 
-        If  lstVariableValueLinks.Count > 0
+        If lstVariableValueLinks.Count > 0
             VariableValueRepeater.DataSource = lstVariableValueLinks
             VariableValueRepeater.DataBind()
             VariableValueRepeater.Visible = true

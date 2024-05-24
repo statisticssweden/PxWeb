@@ -1,5 +1,4 @@
 ﻿Imports System.Globalization
-Imports System.Reflection
 
 Namespace StateProvider
     ''' <summary>
@@ -71,7 +70,7 @@ Namespace StateProvider
                 Return OnItemGet(GetFullName(type, name))
             End Get
             Set(ByVal value As Object)
-                OnItemSet(GetFullName(type, name), value)                
+                OnItemSet(GetFullName(type, name), value)
             End Set
         End Property
 

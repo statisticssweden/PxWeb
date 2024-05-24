@@ -1,17 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+﻿using System.IO;
 using System.Xml;
-using System.IO;
-using System.Collections.Generic;
 
 namespace PXWeb
 {
@@ -99,52 +87,52 @@ namespace PXWeb
 
             //try
             //{
-                //Load settings-file
-                XmlDocument xdoc = new XmlDocument();
-                if (File.Exists(_path))
-                {
-                    //try
-                    //{
-                        xdoc.Load(_path);
-                    //} 
-                    //catch (Exception e) 
-                    //{
-                    //    _logger.Error("Error when trying to load settings.", e);
-                    //    _logger.ErrorFormat("Could not use file {0}",_path);
-                    //    _logger.Warn("Continuing using empty settings.");
-                    //    xdoc = new XmlDocument();
-                    //    xdoc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\" ?><settings></settings>");
-                    //}
+            //Load settings-file
+            XmlDocument xdoc = new XmlDocument();
+            if (File.Exists(_path))
+            {
+                //try
+                //{
+                xdoc.Load(_path);
+                //} 
+                //catch (Exception e) 
+                //{
+                //    _logger.Error("Error when trying to load settings.", e);
+                //    _logger.ErrorFormat("Could not use file {0}",_path);
+                //    _logger.Warn("Continuing using empty settings.");
+                //    xdoc = new XmlDocument();
+                //    xdoc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\" ?><settings></settings>");
+                //}
 
 
-                }
-                else
-                {
-                    xdoc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\" ?><settings></settings>");
-                }
+            }
+            else
+            {
+                xdoc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\" ?><settings></settings>");
+            }
 
-                xpath = "/settings";
-                settingsNode = xdoc.SelectSingleNode(xpath);
+            xpath = "/settings";
+            settingsNode = xdoc.SelectSingleNode(xpath);
 
-                xpath = "/settings/homePages";
-                node = SettingsHelper.GetNode(settingsNode, xpath);
-                _homepagesSettings = new HomepagesSettings(node);
+            xpath = "/settings/homePages";
+            node = SettingsHelper.GetNode(settingsNode, xpath);
+            _homepagesSettings = new HomepagesSettings(node);
 
-                xpath = "/settings/searchIndex";
-                node = SettingsHelper.GetNode(settingsNode, xpath);
-                _searchIndexSettings = new SearchIndexSettings(node);
+            xpath = "/settings/searchIndex";
+            node = SettingsHelper.GetNode(settingsNode, xpath);
+            _searchIndexSettings = new SearchIndexSettings(node);
 
-                xpath = "/settings/dcat";
-                node = SettingsHelper.GetNode(settingsNode, xpath);
-                _dcatSettings = new DcatSettings(node);
+            xpath = "/settings/dcat";
+            node = SettingsHelper.GetNode(settingsNode, xpath);
+            _dcatSettings = new DcatSettings(node);
 
-                xpath = "/settings/protection";
-                node = SettingsHelper.GetNode(settingsNode, xpath);
-                _protection = new ProtectionSettings(node);
+            xpath = "/settings/protection";
+            node = SettingsHelper.GetNode(settingsNode, xpath);
+            _protection = new ProtectionSettings(node);
 
-                xpath = "/settings/metadata";
-                node = SettingsHelper.GetNode(settingsNode, xpath);
-                _metadata = new MetadataSettings(node);
+            xpath = "/settings/metadata";
+            node = SettingsHelper.GetNode(settingsNode, xpath);
+            _metadata = new MetadataSettings(node);
 
             //}
             //catch (System.Exception ex)
@@ -153,7 +141,7 @@ namespace PXWeb
             //    return false;
             //}
 
-//            _logger.Info("Database settings-file '" + _path + "' was loaded successfully");
+            //            _logger.Info("Database settings-file '" + _path + "' was loaded successfully");
             return true;
         }
 
@@ -282,6 +270,6 @@ namespace PXWeb
 
 
 
-  
+
     }
 }

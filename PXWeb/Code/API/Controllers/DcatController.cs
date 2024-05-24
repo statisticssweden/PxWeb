@@ -1,13 +1,11 @@
-using PXWeb.Database;
-using System;
+using Px.Dcat;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
-using Px.Dcat;
 using System.Web;
-using System.IO;
+using System.Web.Http;
 
 namespace PXWeb.API
 {
@@ -105,12 +103,13 @@ namespace PXWeb.API
             };
 
             string databaseTypeLower = dcatInput.DatabaseType.ToLower();
-            
-            if (databaseTypeLower == "cnmm") {
+
+            if (databaseTypeLower == "cnmm")
+            {
                 settings.DatabaseType = Px.Dcat.Helpers.DatabaseType.CNMM;
                 settings.DatabaseId = dcatInput.Database;
             }
-            else if(databaseTypeLower == "px")
+            else if (databaseTypeLower == "px")
             {
                 settings.DatabaseType = Px.Dcat.Helpers.DatabaseType.PX;
                 settings.DatabaseId = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath) + dcatInput.Database + "/Menu.xml";
@@ -119,7 +118,7 @@ namespace PXWeb.API
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid database type: {dcatInput.DatabaseType}");
             }
-            
+
             string savePath = HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.PxDatabasesPath + dcatInput.Database + "/dcat-ap.xml");
             DcatWriter.WriteToFile(savePath, settings);
             return Request.CreateResponse(HttpStatusCode.OK, "Xml-file created successfully");

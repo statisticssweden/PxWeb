@@ -1,12 +1,11 @@
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 Imports System.ComponentModel
+Imports System.Web.UI
+Imports PCAxis.Metadata
+Imports PCAxis.Paxiom
+Imports PCAxis.Web.Controls.CommandBar.Plugin
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core.Enums
-Imports PCAxis.Web.Controls.CommandBar.Plugin
-Imports PCAxis.Metadata
 
 
 ''' <summary>
@@ -871,7 +870,7 @@ Partial Public Class VariableSelector
         Get
             Return _metaLinkProvider
         End Get
-        Set(ByVal value As IMetaIdProvider )
+        Set(ByVal value As IMetaIdProvider)
             _metaLinkProvider = value
         End Set
     End Property

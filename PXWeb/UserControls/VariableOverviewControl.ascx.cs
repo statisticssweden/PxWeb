@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using PCAxis.Paxiom;
+﻿using PCAxis.Paxiom;
 using PCAxis.Web.Core.Management;
+using System;
+using System.Linq;
+using System.Web.UI.WebControls;
 
 namespace PXWeb.UserControls
 {
@@ -31,14 +28,14 @@ namespace PXWeb.UserControls
             if (HaveSetCandidateMustSelect())
             {
                 query = (from v in PaxiomManager.PaxiomModel.Meta.Variables
-                    orderby v.IsContentVariable descending, v.IsTime descending, v.ExtendedProperties["CandidateMustSelect"] descending
-                    select v);
+                         orderby v.IsContentVariable descending, v.IsTime descending, v.ExtendedProperties["CandidateMustSelect"] descending
+                         select v);
             }
             else
             {
                 query = (from v in PaxiomManager.PaxiomModel.Meta.Variables
-                    orderby v.IsContentVariable descending
-                    select v);
+                         orderby v.IsContentVariable descending
+                         select v);
             }
 
             VariableOverviewTitleRepeater.DataSource = query;

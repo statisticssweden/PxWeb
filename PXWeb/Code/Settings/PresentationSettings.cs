@@ -1,15 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Xml;
+﻿using System.Xml;
 
 namespace PXWeb
 {
@@ -31,7 +20,7 @@ namespace PXWeb
         private CommandBarSettings _commandBarSettings;
 
         #endregion
-        
+
         #region "public methods"
 
         /// <summary>
@@ -83,7 +72,7 @@ namespace PXWeb
         }
 
         #endregion
-        
+
 
         #region IPresentationSettings Members
 

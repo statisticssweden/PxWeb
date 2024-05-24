@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using System.Text;
+using System.Web;
 
 namespace PXWeb.Modules
 {
@@ -26,7 +17,7 @@ namespace PXWeb.Modules
         /// <param name="context"></param>
         public void Init(HttpApplication context)
         {
-            context.Error += new System.EventHandler (OnError);
+            context.Error += new System.EventHandler(OnError);
         }
 
         /// <summary>
@@ -34,39 +25,39 @@ namespace PXWeb.Modules
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="args"></param>
-        public void OnError (object obj, EventArgs args)
+        public void OnError(object obj, EventArgs args)
         {
-          // At this point we have information about the error
-          HttpContext ctx = HttpContext.Current;
+            // At this point we have information about the error
+            HttpContext ctx = HttpContext.Current;
 
-          Exception exception = ctx.Server.GetLastError ();
+            Exception exception = ctx.Server.GetLastError();
 
-          StringBuilder errorInfo = new StringBuilder();
-          errorInfo.Append("PX-Web Application Error --->");
-          errorInfo.Append(" Offending URL: " + ctx.Request.Url.ToString());
-          errorInfo.Append(" -- Source: " + exception.Source);
-          errorInfo.Append(" -- Message: " + exception.Message);
-          if (exception.InnerException != null)
-          {
-              errorInfo.Append(" -- Inner exception message: " + exception.InnerException.Message);
-          }
-          errorInfo.Append(" -- Stack trace: " + exception.StackTrace);
+            StringBuilder errorInfo = new StringBuilder();
+            errorInfo.Append("PX-Web Application Error --->");
+            errorInfo.Append(" Offending URL: " + ctx.Request.Url.ToString());
+            errorInfo.Append(" -- Source: " + exception.Source);
+            errorInfo.Append(" -- Message: " + exception.Message);
+            if (exception.InnerException != null)
+            {
+                errorInfo.Append(" -- Inner exception message: " + exception.InnerException.Message);
+            }
+            errorInfo.Append(" -- Stack trace: " + exception.StackTrace);
 
-          try
-          {
-              Logger.ErrorFormat(errorInfo.ToString());
-          }
-          catch
-          {
-              // Do nothing
-          }
+            try
+            {
+                Logger.ErrorFormat(errorInfo.ToString());
+            }
+            catch
+            {
+                // Do nothing
+            }
 
-          //ctx.Response.Write (errorInfo);
+            //ctx.Response.Write (errorInfo);
 
-          // --------------------------------------------------
-          // To let the page finish running we clear the error
-          // --------------------------------------------------
-          //ctx.Server.ClearError ();
+            // --------------------------------------------------
+            // To let the page finish running we clear the error
+            // --------------------------------------------------
+            //ctx.Server.ClearError ();
         }
 
         /// <summary>

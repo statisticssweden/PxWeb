@@ -1,9 +1,6 @@
 ﻿
-Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom
 Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core.Management
+Imports PCAxis.Web.Core
 
 Public Class PrnFileTypeCodebehind
     Inherits FileTypeControlBase(Of PrnFileTypeCodebehind, PrnFileType)

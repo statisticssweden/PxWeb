@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Paxiom;
 using PCAxis.Query;
-using PCAxis.Paxiom;
 using PCAxis.Web.Core.Management;
+using System;
+using System.IO;
+using System.Web;
 
 namespace PXWeb.Views
 {
     public class FileViewSerializer : IViewSerializer
     {
         protected string _fileFormat;
-        
+
         public FileViewSerializer()
         {
 

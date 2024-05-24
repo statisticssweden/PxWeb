@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml;
+﻿using System.Xml;
 
 namespace PXWeb
 {
     /// <summary>
     /// Internal class for reading and writing the Navigation settings
     /// </summary>
-    internal class NavigationSettings: INavigationSettings
+    internal class NavigationSettings : INavigationSettings
     {
-       #region "public methods"
+        #region "public methods"
 
         /// <summary>
         /// Constructor

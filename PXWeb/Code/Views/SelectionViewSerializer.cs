@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Paxiom;
 using PCAxis.Query;
-using PCAxis.Paxiom;
-using PCAxis.Web.Core.Management;
-using PCAxis.Web.Controls;
-using PXWeb.Views;
 
 namespace PXWeb.Views
 {

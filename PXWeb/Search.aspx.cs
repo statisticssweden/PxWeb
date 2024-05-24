@@ -1,13 +1,10 @@
-﻿using System;
+﻿using PCAxis.Search;
+using PCAxis.Web.Core.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using PCAxis.Search;
 using System.Text;
-using PCAxis.Web.Core.Management;
-using PXWeb.UserControls;
+using System.Web.UI;
 
 namespace PXWeb
 {
@@ -18,9 +15,9 @@ namespace PXWeb
         private string _language;
         private DatabaseInfo _dbi;
 
-#region "Localized strings"
+        #region "Localized strings"
         private const string SEARCH_RESULTTEXT = "PxWebSearchResultText";
-#endregion
+        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -162,7 +159,7 @@ namespace PXWeb
 
         protected string CreateUrl(object o)
         {
-            SearchResultItem itm = (SearchResultItem)o; 
+            SearchResultItem itm = (SearchResultItem)o;
             return SearchHelper.GetSearchResultUrl(itm, _dbi, _language);
         }
 

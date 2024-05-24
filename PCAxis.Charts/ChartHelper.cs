@@ -1,11 +1,8 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PCAxis.Paxiom;
-using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PCAxis.Chart
 {
@@ -19,7 +16,7 @@ namespace PCAxis.Chart
             CultureInfo ci = new CultureInfo(settings.CurrentCulture.Name);
             if (ci.IsNeutralCulture)
             {
-                ci =  CultureInfo.CreateSpecificCulture(settings.CurrentCulture.Name);
+                ci = CultureInfo.CreateSpecificCulture(settings.CurrentCulture.Name);
             }
 
             System.Threading.Thread.CurrentThread.CurrentCulture = ci;
@@ -74,19 +71,19 @@ namespace PCAxis.Chart
                 area.AxisY.MajorGrid.LineColor = System.Drawing.ColorTranslator.FromHtml(settings.GuidelinesColor);
                 area.AxisX.MajorGrid.LineColor = System.Drawing.ColorTranslator.FromHtml(settings.GuidelinesColor);
                 Color color = System.Drawing.ColorTranslator.FromHtml(settings.BackgroundColorGraphs);
-                area.BackColor = Color.FromArgb(settings.ChartAlpha, color);     
+                area.BackColor = Color.FromArgb(settings.ChartAlpha, color);
             }
 
             //If line thickness is more than 0 draw a line around the chart
-            if ( settings.LineThicknessPhrame > 0 )
+            if (settings.LineThicknessPhrame > 0)
             {
                 chart.BorderlineWidth = settings.LineThicknessPhrame;
                 chart.BorderlineColor = System.Drawing.ColorTranslator.FromHtml(settings.LineColorPhrame);
-                chart.BorderlineDashStyle = ChartDashStyle.Solid;                
+                chart.BorderlineDashStyle = ChartDashStyle.Solid;
 
             }
-                         
-            
+
+
             // Legend
             //If line thickness on phrame is more then
             // 0 the backcolor is set to transparent.

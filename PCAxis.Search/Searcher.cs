@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Lucene.Net.Store;
-using Lucene.Net.Search;
-using Lucene.Net.QueryParsers;
+﻿using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
-using Lucene.Net.Analysis.Standard;
+using Lucene.Net.QueryParsers;
+using Lucene.Net.Search;
+using Lucene.Net.Store;
 using PCAxis.Paxiom.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace PCAxis.Search
 {
@@ -29,7 +27,7 @@ namespace PCAxis.Search
         public Searcher(string indexDirectory)
         {
             _indexDirectory = indexDirectory;
-            _creationTime = DateTime.Now; 
+            _creationTime = DateTime.Now;
 
             FSDirectory fsDir = FSDirectory.Open(_indexDirectory);
 
@@ -39,11 +37,11 @@ namespace PCAxis.Search
             }
             catch (Exception)
             {
-                throw ;
+                throw;
             }
         }
 
-        public List<SearchResultItem> Search(string text, string filter = "", int resultListLength = 250 )
+        public List<SearchResultItem> Search(string text, string filter = "", int resultListLength = 250)
         {
             List<SearchResultItem> searchResult = new List<SearchResultItem>();
             string[] fields = GetSearchFields(filter);
@@ -87,10 +85,10 @@ namespace PCAxis.Search
         /// <summary>
         /// Default operator AND/OR that will be used when more than 1 word is specified in a search querie
         /// </summary>
-        public static QueryParser.Operator DefaultOperator 
+        public static QueryParser.Operator DefaultOperator
         {
             get
-            { 
+            {
                 return _defaultOperator;
             }
             set
@@ -112,16 +110,16 @@ namespace PCAxis.Search
             if (string.IsNullOrEmpty(filter))
             {
                 // Default fields
-                fields = new[] { SearchConstants.SEARCH_FIELD_SEARCHID, 
-                                 SearchConstants.SEARCH_FIELD_TITLE, 
-                                 SearchConstants.SEARCH_FIELD_VALUES, 
-                                 SearchConstants.SEARCH_FIELD_CODES, 
-                                 SearchConstants.SEARCH_FIELD_MATRIX, 
-                                 SearchConstants.SEARCH_FIELD_VARIABLES, 
-                                 SearchConstants.SEARCH_FIELD_PERIOD, 
-                                 SearchConstants.SEARCH_FIELD_GROUPINGS, 
-                                 SearchConstants.SEARCH_FIELD_GROUPINGCODES, 
-                                 SearchConstants.SEARCH_FIELD_VALUESETS, 
+                fields = new[] { SearchConstants.SEARCH_FIELD_SEARCHID,
+                                 SearchConstants.SEARCH_FIELD_TITLE,
+                                 SearchConstants.SEARCH_FIELD_VALUES,
+                                 SearchConstants.SEARCH_FIELD_CODES,
+                                 SearchConstants.SEARCH_FIELD_MATRIX,
+                                 SearchConstants.SEARCH_FIELD_VARIABLES,
+                                 SearchConstants.SEARCH_FIELD_PERIOD,
+                                 SearchConstants.SEARCH_FIELD_GROUPINGS,
+                                 SearchConstants.SEARCH_FIELD_GROUPINGCODES,
+                                 SearchConstants.SEARCH_FIELD_VALUESETS,
                                  SearchConstants.SEARCH_FIELD_VALUESETCODES,
                                  SearchConstants.SEARCH_FIELD_SYNONYMS };
             }

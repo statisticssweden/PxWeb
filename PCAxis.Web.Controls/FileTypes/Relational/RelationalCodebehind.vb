@@ -1,8 +1,4 @@
 ﻿Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom
-Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core.Management
 
 Public Class RelationalCodebehind
     Inherits FileTypeControlBase(Of RelationalCodebehind, Relational)

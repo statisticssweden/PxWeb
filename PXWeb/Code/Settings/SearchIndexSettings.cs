@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Search;
+using System;
 using System.Xml;
-using PCAxis.Search;
 
 namespace PXWeb
 {
@@ -14,12 +11,12 @@ namespace PXWeb
     {
         private ISearchIndex _updater;
         private string _updateMethod;
-        
+
         /// <summary>
         /// Log object
         /// </summary>
         private static log4net.ILog _logger;
-        
+
         #region "ISearchIndexSettings members"
 
         public SearchIndexStatusType Status { get; set; }
@@ -42,7 +39,7 @@ namespace PXWeb
         {
             string xpath;
             _logger = log4net.LogManager.GetLogger(typeof(SearchIndexSettings));
- 
+
             xpath = "./status";
             Status = SettingsHelper.GetSettingValue(xpath, indexNode, SearchIndexStatusType.NotIndexed);
 
@@ -101,7 +98,7 @@ namespace PXWeb
         {
             return _updateMethod;
         }
-        
+
         #endregion
 
 

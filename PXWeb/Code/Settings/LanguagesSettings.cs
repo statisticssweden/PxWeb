@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Xml;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Xml;
 
 namespace PXWeb
 {
@@ -23,13 +13,13 @@ namespace PXWeb
         #region "Private fields"
         private List<string> _allLanguages;
         private List<ILanguageSettings> _siteLanguages;
-        
+
         /// <summary>
         /// Object to control loading of "All languages" in a multithreaded environment 
         /// </summary>
         private static object _allLanguagesSettingLock = new Object();
         #endregion
-        
+
         #region "public methods"
 
         /// <summary>
@@ -98,7 +88,7 @@ namespace PXWeb
                     languagesNode.AppendChild(languageNode);
                 }
             }
-            
+
         }
 
 
@@ -141,7 +131,7 @@ namespace PXWeb
             //}
             //else
             //{
-                path = System.Web.HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.LanguagesPath);
+            path = System.Web.HttpContext.Current.Server.MapPath(PXWeb.Settings.Current.General.Paths.LanguagesPath);
             //}
 
             foreach (string file in System.IO.Directory.GetFiles(path, "*.xml", System.IO.SearchOption.TopDirectoryOnly))
@@ -178,7 +168,7 @@ namespace PXWeb
 
         public System.Collections.Generic.IEnumerable<string> AllLanguages
         {
-            get 
+            get
             {
                 if (_allLanguages == null)
                 {
@@ -192,7 +182,7 @@ namespace PXWeb
                     }
                 }
 
-                return _allLanguages; 
+                return _allLanguages;
             }
         }
 

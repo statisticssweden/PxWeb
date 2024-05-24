@@ -1,21 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using PXWeb.Database;
-using System.Xml;
-using System.Globalization;
-using System.Collections.Generic;
-using System.IO;
-using Px.Dcat;
 
 namespace PXWeb.Admin
 {
@@ -111,7 +98,7 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectApiURL", "PxWebAdminToolsXMLGeneratorSelectApiURLInfo");
         }
-        
+
         protected void imgSelectPublisher_Click(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminToolsXMLGeneratorSelectPublisher", "PxWebAdminToolsXMLGeneratorSelectPublisherInfo");
@@ -135,7 +122,8 @@ namespace PXWeb.Admin
             textBoxSelectLicense.Text = dcatSettings.License;
             updateStatusLabel(dcatSettings);
 
-            if (dcatSettings.FileStatus == DcatStatusType.Creating || dcatSettings.FileStatus == DcatStatusType.WaitingCreate) {
+            if (dcatSettings.FileStatus == DcatStatusType.Creating || dcatSettings.FileStatus == DcatStatusType.WaitingCreate)
+            {
                 btnGenerateXML.Enabled = false;
             }
             else
@@ -145,7 +133,8 @@ namespace PXWeb.Admin
 
             var settingsLookup = new Dictionary<string, IDcatLanguageSpecificSettings>();
             IEnumerable<IDcatLanguageSpecificSettings> languageSpecificSettings = dcatSettings.LanguageSpecificSettings;
-            if (languageSpecificSettings != null) {
+            if (languageSpecificSettings != null)
+            {
                 foreach (IDcatLanguageSpecificSettings l in dcatSettings.LanguageSpecificSettings)
                 {
                     settingsLookup.Add(l.Language, l);
@@ -153,7 +142,8 @@ namespace PXWeb.Admin
             }
 
             var langSettings = new List<object>();
-            foreach (ILanguageSettings l in Settings.Current.General.Language.SiteLanguages) {
+            foreach (ILanguageSettings l in Settings.Current.General.Language.SiteLanguages)
+            {
                 string id = l.Name;
                 IDcatLanguageSpecificSettings settings;
                 string title;
@@ -235,12 +225,13 @@ namespace PXWeb.Admin
             var desc = descTextBox.Text;
 
             var publisherTextBox = (TextBox)itm.FindControl("textBoxSelectPublisher");
-            var publisherName = publisherTextBox.Text; 
+            var publisherName = publisherTextBox.Text;
 
             return new DcatLanguageSpecificSettings(lang, title, desc, publisherName);
         }
 
-        protected void MasterSave_Click(object sender, EventArgs e) {
+        protected void MasterSave_Click(object sender, EventArgs e)
+        {
             saveCurrentSettings();
         }
         protected void btnGenerateXML_Click(object sender, EventArgs e)

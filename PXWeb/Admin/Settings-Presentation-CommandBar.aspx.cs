@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
+﻿using PCAxis.Web.Controls.CommandBar.Plugin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using PCAxis.Web.Controls.CommandBar.Plugin;
-using System.Globalization;
-using PCAxis.Web.Core.Management;
 
 namespace PXWeb.Admin
 {
@@ -48,7 +39,7 @@ namespace PXWeb.Admin
                 _viewMode = PXWeb.Settings.Current.Presentation.CommandBar.ViewMode;
                 DisplaySavedSettings();
             }
-            
+
         }
 
         /// <summary>
@@ -60,7 +51,7 @@ namespace PXWeb.Admin
         {
             pnlContent.Visible = true;
             lstViewMode.SelectedValue = _viewMode.ToString();
-            
+
             InitializeSettingsTable();
             InitializePresentationViewTable();
 
@@ -80,7 +71,7 @@ namespace PXWeb.Admin
                 default:
                     break;
             }
-            
+
             rptSettings.DataSource = _settingsTable;
             rptSettings.DataBind();
 
@@ -138,9 +129,9 @@ namespace PXWeb.Admin
         /// Generate table with saved settings for operations
         /// </summary>
         private void InitializeSettingsTable()
-        { 
+        {
             _settingsTable = new DataTable();
-            _settingsTable.Columns.Add("Setting",typeof(System.String));
+            _settingsTable.Columns.Add("Setting", typeof(System.String));
             _settingsTable.Columns.Add("SettingText", typeof(System.String));
             _settingsTable.Columns.Add("OperationSelect", typeof(System.Boolean));
             _settingsTable.Columns.Add("OperationShortcut", typeof(System.Boolean));
@@ -414,37 +405,37 @@ namespace PXWeb.Admin
                     CheckBox cbx;
                     foreach (RepeaterItem itm in rptSettings.Items)
                     {
-                       if ((itm.ItemType == ListItemType.Item) || (itm.ItemType == ListItemType.AlternatingItem))
-                       {
-                           HiddenField hidSetting = (HiddenField)itm.FindControl("hidSetting");
-                          
-                           //Saved if viewmode is DropDown
-                           if (_viewMode == PCAxis.Web.Controls.CommandBar.CommandBarViewMode.DropDown)
-                           {
-                               //Operations
-                               cbx = (CheckBox)itm.FindControl("cbxOperationSelect");
-                               if (cbx.Checked)
-                               {
-                                   ((List<string>)PXWeb.Settings.NewSettings.Presentation.CommandBar.Operations).Add(hidSetting.Value);
-                               }
-                               //OperationShortcuts
-                               cbx = (CheckBox)itm.FindControl("cbxOperationShortcut");
-                               if (cbx.Checked)
-                               {
-                                   ((List<string>)PXWeb.Settings.NewSettings.Presentation.CommandBar.OperationShortcuts).Add(hidSetting.Value);
-                               }
-                           }
-                           else //Saved if viewmode is Buttons
-                           {
-                               //CommandBar.OperationButtons
-                               cbx = (CheckBox)itm.FindControl("cbxOperationSelect");
-                               if (cbx.Checked)
-                               {
-                                   ((List<string>)PXWeb.Settings.NewSettings.Presentation.CommandBar.OperationButtons).Add(hidSetting.Value);
-                               }
+                        if ((itm.ItemType == ListItemType.Item) || (itm.ItemType == ListItemType.AlternatingItem))
+                        {
+                            HiddenField hidSetting = (HiddenField)itm.FindControl("hidSetting");
 
-                           }
-                       }
+                            //Saved if viewmode is DropDown
+                            if (_viewMode == PCAxis.Web.Controls.CommandBar.CommandBarViewMode.DropDown)
+                            {
+                                //Operations
+                                cbx = (CheckBox)itm.FindControl("cbxOperationSelect");
+                                if (cbx.Checked)
+                                {
+                                    ((List<string>)PXWeb.Settings.NewSettings.Presentation.CommandBar.Operations).Add(hidSetting.Value);
+                                }
+                                //OperationShortcuts
+                                cbx = (CheckBox)itm.FindControl("cbxOperationShortcut");
+                                if (cbx.Checked)
+                                {
+                                    ((List<string>)PXWeb.Settings.NewSettings.Presentation.CommandBar.OperationShortcuts).Add(hidSetting.Value);
+                                }
+                            }
+                            else //Saved if viewmode is Buttons
+                            {
+                                //CommandBar.OperationButtons
+                                cbx = (CheckBox)itm.FindControl("cbxOperationSelect");
+                                if (cbx.Checked)
+                                {
+                                    ((List<string>)PXWeb.Settings.NewSettings.Presentation.CommandBar.OperationButtons).Add(hidSetting.Value);
+                                }
+
+                            }
+                        }
                     }
                     PXWeb.Settings.Save();
                 }
@@ -481,7 +472,7 @@ namespace PXWeb.Admin
                         if ((itm.ItemType == ListItemType.Item) || (itm.ItemType == ListItemType.AlternatingItem))
                         {
                             HiddenField hidSetting = (HiddenField)itm.FindControl("hidFileFormat");
-                            
+
                             CheckBox cbx;
                             //CommandBar.OutputFormats used for dropdown
                             if (_viewMode == PCAxis.Web.Controls.CommandBar.CommandBarViewMode.DropDown)

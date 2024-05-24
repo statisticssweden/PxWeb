@@ -1,15 +1,11 @@
-﻿Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Web.Core.Attributes
-Imports System.Web.UI.WebControls
-Imports System.Collections.ObjectModel
+﻿Imports System.Collections.Concurrent
 Imports System.Web.UI
-Imports PCAxis.Web.Controls.CommandBar.Plugin
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Web.Core.Management.LinkManager
-Imports PCAxis.Web.Core.Interfaces
 Imports System.Web.UI.HtmlControls
-Imports System.Collections.Concurrent
+Imports System.Web.UI.WebControls
+Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Interfaces
+Imports PCAxis.Web.Core.Management
 
 Namespace CommandBar
     ''' <summary>
@@ -902,10 +898,10 @@ Namespace CommandBar
         ''' </summary>
         ''' <remarks></remarks>
         Private Sub HandleAccordionState()
-                If AccordionState.Value = "open" Then
-                    Page.ClientScript.RegisterClientScriptBlock(GetType(Page), "openAccordion", "jQuery(document).ready(function(){openAccordion('OperationsHeaderButton', 'OptionsBody')});", True)
-                    AccordionState.Value = String.Empty
-                End If
+            If AccordionState.Value = "open" Then
+                Page.ClientScript.RegisterClientScriptBlock(GetType(Page), "openAccordion", "jQuery(document).ready(function(){openAccordion('OperationsHeaderButton', 'OptionsBody')});", True)
+                AccordionState.Value = String.Empty
+            End If
         End Sub
     End Class
 

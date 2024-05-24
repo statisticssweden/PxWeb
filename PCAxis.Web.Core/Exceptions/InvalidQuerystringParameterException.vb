@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.Serialization
-Namespace Exceptions
+﻿Namespace Exceptions
 
     <Serializable()> _
     Public Class InvalidQuerystringParameterException

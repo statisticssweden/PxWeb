@@ -1,12 +1,10 @@
-﻿using System;
+﻿using PCAxis.Menu;
+using PCAxis.Menu.Implementations;
+using PCAxis.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using PCAxis.Menu;
-using PCAxis.Menu.Implementations;
-using PCAxis.Query;
-using System.Text;
-using System.Configuration;
 using System.Xml.Linq;
 
 namespace PCAxis.Api
@@ -60,7 +58,7 @@ namespace PCAxis.Api
         private static IEnumerable<MetaList> GetMetaList(PxMenuItem item)
         {
             // Logs usage
-           // _usageLogger.Info(String.Format("url={0}, type=metadata, caller={1}, cached=false", context.Request.RawUrl, context.Request.UserHostAddress));
+            // _usageLogger.Info(String.Format("url={0}, type=metadata, caller={1}, cached=false", context.Request.RawUrl, context.Request.UserHostAddress));
 
             return item.SubItems.Select(i => new MetaList
             {
@@ -97,7 +95,7 @@ namespace PCAxis.Api
     }
 
 
-public static class PCAxisRepository
+    public static class PCAxisRepository
     {
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(PCAxisRepository));
 
@@ -115,7 +113,7 @@ public static class PCAxisRepository
             var dbtype = database.Type;
             string cacheKey = ApiCache.CreateKey($"{db}_{language}_{string.Join("_", nodePath)}");
             MenuObject menuObj = null;
-            
+
             ResponseBucket cacheResponse = ApiCache.Current.Fetch(cacheKey);
 
             if (cacheResponse != null)
@@ -137,7 +135,7 @@ public static class PCAxisRepository
                         if (nodePath.Length == 1 && string.IsNullOrWhiteSpace(nodePath[0]))
                         {
                             // Redirect to rooted path
-                            nodePath[0] = CnmmDatabaseApiRootHelper.DatabaseRoot; 
+                            nodePath[0] = CnmmDatabaseApiRootHelper.DatabaseRoot;
                         }
 
                         // Check valid path
@@ -147,7 +145,7 @@ public static class PCAxisRepository
                         }
                     }
                     string tid = nodePath.Last();
-                    string menu = nodePath.Length > 1 ? nodePath[nodePath.Length-2]:"START";
+                    string menu = nodePath.Length > 1 ? nodePath[nodePath.Length - 2] : "START";
 
                     if (tid.Contains("'") || menu.Contains("'")) throw new ArgumentException("Possible SQL injection");
                     menuObj = MenuObject.Create(GetCnmmMenu(db, language, tid, menu));
@@ -157,7 +155,7 @@ public static class PCAxisRepository
                 cacheResponse = new ResponseBucket();
                 cacheResponse.Key = cacheKey;
                 cacheResponse.Menu = menuObj;
-                ApiCache.Current.Store(cacheResponse, new TimeSpan(24,0,0));
+                ApiCache.Current.Store(cacheResponse, new TimeSpan(24, 0, 0));
 
                 return menuObj;
             }
@@ -177,7 +175,7 @@ public static class PCAxisRepository
         private static Item GetPxMenu(string db, string language, string nodeId)
         {
             string menuXMLPath = System.IO.Path.Combine(ExposedDatabases.DatabaseConfigurations[language][db].RootPath, "menu.xml");
-            XDocument doc =  XDocument.Load(menuXMLPath);
+            XDocument doc = XDocument.Load(menuXMLPath);
             XmlMenu menu = new XmlMenu(doc, language,
             m => { m.AlterItemBeforeStorage = item => { item.ID.Selection = System.IO.Path.GetFileName(item.ID.Selection); }; });
 
@@ -192,8 +190,8 @@ public static class PCAxisRepository
                     //Menu level has not been found in database
                     return new PxMenuItem(null);
                 }
-                else if ( ((nodeId.ToLower().Contains(".px")) && (!nodeId.Contains(@"\"))) && 
-                          ((menu.CurrentItem.ID.Menu.Contains(@"\") && menu.CurrentItem.ID.Selection == nodeId)) )
+                else if (((nodeId.ToLower().Contains(".px")) && (!nodeId.Contains(@"\"))) &&
+                          ((menu.CurrentItem.ID.Menu.Contains(@"\") && menu.CurrentItem.ID.Selection == nodeId)))
                 {
                     // 1. We have a .PX-file with no path (no \) specified in nodeID
                     // 2. SetCurrentItemBySelection however has found the path to the table and put this in CurrentItem.ID.Selection
@@ -203,7 +201,7 @@ public static class PCAxisRepository
                     return new PxMenuItem(null);
                 }
             }
-            
+
             return menu.CurrentItem;
         }
 
@@ -253,7 +251,7 @@ public static class PCAxisRepository
                             };
                         });
 
-            
+
             return tblFix != null ? tblFix : menu.CurrentItem;
         }
 
@@ -272,7 +270,7 @@ public static class PCAxisRepository
             var selections = new List<PCAxis.Paxiom.Selection>();
             foreach (var variable in builder.Model.Meta.Variables)
             {
-                
+
                 PCAxis.Paxiom.Selection selection = new PCAxis.Paxiom.Selection(variable.Code);
                 var query = tableQuery.Query.SingleOrDefault(q => q.Code == variable.Code);
                 if (query != null)

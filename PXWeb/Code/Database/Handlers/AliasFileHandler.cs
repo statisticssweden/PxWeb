@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using log4net;
 
 namespace PXWeb.Database
 {
@@ -67,16 +63,16 @@ namespace PXWeb.Database
                 alias.Language = fileName.Substring(splittIndex + 1);
             }
             try
-            { 
+            {
                 alias.Alias = ReadAll(path);
-            } 
+            }
             catch (System.IO.IOException ex)
             {
                 logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Error, Message = "Could not read file " + path });
                 _logger.Warn(ex.ToString());
                 return null;
             }
-            
+
             return alias;
         }
 
@@ -90,13 +86,13 @@ namespace PXWeb.Database
             System.Text.Encoding encoding = PCAxis.Paxiom.Parsers.PXFileParser.GetEncoding(path);
             string data;
 
-            using (System.IO.StreamReader reader = 
+            using (System.IO.StreamReader reader =
                     new System.IO.StreamReader(
-                        new System.IO.FileStream(path, 
-                                                 System.IO.FileMode.Open, 
-                                                 System.IO.FileAccess.Read, 
-                                                 System.IO.FileShare.Read, 
-                                                 2048), 
+                        new System.IO.FileStream(path,
+                                                 System.IO.FileMode.Open,
+                                                 System.IO.FileAccess.Read,
+                                                 System.IO.FileShare.Read,
+                                                 2048),
                                                 encoding))
             {
                 data = reader.ReadToEnd();

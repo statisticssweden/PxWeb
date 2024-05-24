@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml;
-using PCAxis.Web.Controls.CommandBar.Plugin;
-using PCAxis.Chart;
+﻿using PCAxis.Chart;
 using PCAxis.Query;
+using PCAxis.Web.Controls.CommandBar.Plugin;
+using System;
+using System.Collections.Generic;
+using System.Xml;
 
 namespace PXWeb
 {
@@ -988,7 +986,7 @@ namespace PXWeb
         #endregion
 
         #region "Administration methods"
-        
+
         /// <summary>
         /// Check if plugin shall be removed
         /// </summary>

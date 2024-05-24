@@ -1,10 +1,4 @@
-﻿Imports PCAxis.Paxiom
-Imports System.IO
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core.Enums
-Imports PCAxis.Web.Core.Management
-
-''' <summary>
+﻿''' <summary>
 ''' Serves as the base class for all controls that handles fileformats
 ''' </summary>
 ''' <typeparam name="TControl">The type of the usercontrol</typeparam>

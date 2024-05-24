@@ -1,11 +1,8 @@
-using Moq;
 using NUnit.Framework;
 using PXWeb.API;
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
-using System.Web;
 using System.Web.Http.Controllers;
 
 namespace PxWeb.Test
@@ -21,7 +18,7 @@ namespace PxWeb.Test
         private HttpActionContext InitializeHttpActionContext(string apiKey, bool isApiKey = true)
         {
             HttpRequestMessage request = new HttpRequestMessage();
-            if(isApiKey)
+            if (isApiKey)
                 request.Headers.Add("APIKey", apiKey);
             HttpControllerContext controllerContext = new HttpControllerContext()
             {
@@ -58,7 +55,7 @@ namespace PxWeb.Test
         public void Call_AuthenticationFilterWithoutApikey_ReturnsForbidden(string apiKey, bool isApiKey = true)
         {
             // Arrange
-            var filter = new AuthenticationFilter();       
+            var filter = new AuthenticationFilter();
             var context = InitializeHttpActionContext(apiKey, isApiKey);
 
             // Act
@@ -79,8 +76,8 @@ namespace PxWeb.Test
             // Act
             try
             {
-                var filter = new AuthenticationFilter();        
-                Assert.Fail(); 
+                var filter = new AuthenticationFilter();
+                Assert.Fail();
             }
             catch (ArgumentException)
             {
@@ -93,5 +90,5 @@ namespace PxWeb.Test
             // Assert
         }
 
-     }
+    }
 }

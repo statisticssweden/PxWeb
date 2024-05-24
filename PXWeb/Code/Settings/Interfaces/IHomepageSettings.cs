@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PXWeb
+﻿namespace PXWeb
 {
     //Interface for settings concerning the homepage for a specific language
     public interface IHomepageSettings

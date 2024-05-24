@@ -40,7 +40,7 @@ Namespace Configuration.Sections
         End Property
 
         <ConfigurationProperty(CONFIG_XSDPATH, DefaultValue:="~/", IsRequired:=False)> _
-       Public Property Xsdpath() As String
+        Public Property Xsdpath() As String
             Get
                 Return Me(CONFIG_XSDPATH).ToString()
             End Get

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Lucene.Net.Analysis.Standard;
+using Lucene.Net.Documents;
+using Lucene.Net.Index;
+using Lucene.Net.Store;
+using PCAxis.Menu;
+using PCAxis.Paxiom;
+using PCAxis.Paxiom.Extensions;
+using PCAxis.Web.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Lucene.Net.Store;
-using Lucene.Net.Index;
-using Lucene.Net.Analysis.Standard;
-using PCAxis.Menu;
-using PCAxis.Paxiom;
-using Lucene.Net.Documents;
-using PCAxis.Web.Core.Enums;
-using PCAxis.Paxiom.Extensions;
 
 namespace PCAxis.Search
 {

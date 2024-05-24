@@ -1,9 +1,7 @@
-﻿using System;
+﻿using PCAxis.Query;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Xml;
-using PCAxis.Query;
 
 namespace PXWeb
 {
@@ -13,10 +11,10 @@ namespace PXWeb
     public class ExposedDatabasesManager
     {
         #region "Private fields"
-            private string _path;
-            private XmlDocument _xdoc;
-            private XmlNode _databasesNode;
-         #endregion
+        private string _path;
+        private XmlDocument _xdoc;
+        private XmlNode _databasesNode;
+        #endregion
 
         /// <summary>
         /// Constructor

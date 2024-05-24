@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
 
 namespace PXWeb.Admin
 {
@@ -18,7 +9,7 @@ namespace PXWeb.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             Master.EnableSave(new EventHandler(MasterSave_Click));
-            
+
             if (!IsPostBack)
             {
                 ReadSettings();
@@ -80,7 +71,7 @@ namespace PXWeb.Admin
         public void ValidatePath(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
         {
             CustomValidator val = (CustomValidator)source;
-                        
+
             if (args.Value.Length == 0)
             {
                 args.IsValid = false;

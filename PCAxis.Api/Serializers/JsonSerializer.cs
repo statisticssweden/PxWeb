@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PCAxis.Paxiom;
-using PCAxis.Query;
-using System.IO;
-using PCAxis.Paxiom.Operations;
-
-namespace PCAxis.Api.Serializers
+﻿namespace PCAxis.Api.Serializers
 {
     /// <summary>
     /// JSON serializer
     /// </summary>
-    public class JsonSerializer :IWebSerializer
-    {       
+    public class JsonSerializer : IWebSerializer
+    {
 
         #region IWebSerializer Members
 
@@ -26,7 +17,7 @@ namespace PCAxis.Api.Serializers
             {
 
                 serializer.Serialize(model, stream);
-                
+
                 cacheResponse.ResponseData = stream.ToArray();
             }
         }

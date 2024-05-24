@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace PXWeb.Database
 {
@@ -19,9 +16,9 @@ namespace PXWeb.Database
         /// </summary>
         public int Priority
         {
-            get 
-            { 
-                return 4; 
+            get
+            {
+                return 4;
             }
         }
 
@@ -86,7 +83,7 @@ namespace PXWeb.Database
             splittIndex = linkData.IndexOf(',', splittIndex);
 
             //No , after the second " corrupted link file
-            if (splittIndex < 0) 
+            if (splittIndex < 0)
             {
                 logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Warning, Message = "Corrupt link file " + path });
                 return null;

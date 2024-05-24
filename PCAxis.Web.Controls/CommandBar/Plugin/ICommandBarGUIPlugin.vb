@@ -1,5 +1,3 @@
-Imports PCAxis.Web.Core
-
 Namespace CommandBar.Plugin
     ''' <summary>
     ''' Interface for a plugin that has a UI

@@ -1,8 +1,8 @@
-Imports PCAxis.Paxiom.Localization
 Imports System.Globalization
-Imports PCAxis.Web.Core.StateProvider
 Imports System.Web
+Imports PCAxis.Paxiom.Localization
 Imports PCAxis.Web.Core.Interfaces
+Imports PCAxis.Web.Core.StateProvider
 
 Namespace Management
     ''' <summary>
@@ -12,13 +12,13 @@ Namespace Management
     Public NotInheritable Class LocalizationManager
         'Constants
         Private Const KEY_CURRENTCULTURE As String = "CurrentCulture"
-        Private Const LANGUAGE_CONTROLS_COLLECTION As String = "LanguageControlsCollection"        
+        Private Const LANGUAGE_CONTROLS_COLLECTION As String = "LanguageControlsCollection"
 
         'Default language is set to English
         Private Shared _defaultLanguage As String = "en"
 
         Private Sub New()
-            
+
         End Sub
 
         Shared Sub New()

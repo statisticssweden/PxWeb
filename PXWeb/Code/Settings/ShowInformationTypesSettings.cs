@@ -1,23 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
 using System.Xml;
-using System.Collections.Generic;
 
 namespace PXWeb
 {
     /// <summary>
     /// Internal class for reading and writing the General.Global.ShowInformationTypesSettings settings
     /// </summary>
-    internal class ShowInformationTypesSettings : IShowInformationTypesSettings 
+    internal class ShowInformationTypesSettings : IShowInformationTypesSettings
     {
         #region "public methods"
 
@@ -32,7 +21,7 @@ namespace PXWeb
 
             xpath = "./officialStatistics";
             OfficialStatistics = SettingsHelper.GetSettingAttributeValue(xpath, "enabled", infoNode, true);
-            
+
             xpath = "./unit";
             Unit = SettingsHelper.GetSettingAttributeValue(xpath, "enabled", infoNode, true);
 
@@ -99,7 +88,7 @@ namespace PXWeb
 
             xpath = "./officialStatistics";
             SettingsHelper.SetSettingAttributeValue(xpath, "enabled", infoNode, OfficialStatistics.ToString());
-            
+
             xpath = "./unit";
             SettingsHelper.SetSettingAttributeValue(xpath, "enabled", infoNode, Unit.ToString());
 
@@ -258,7 +247,7 @@ namespace PXWeb
 
             return lst;
         }
-        
+
         #endregion
     }
 }

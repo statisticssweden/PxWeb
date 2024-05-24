@@ -1,11 +1,10 @@
-﻿using System;
+﻿using PCAxis.Menu;
+using PCAxis.Paxiom.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using System.Text;
-using PCAxis.Menu;
-using PCAxis.Paxiom.Extensions;
-using System.IO;
+using System.Xml.Linq;
 
 namespace PXWeb.Database
 {
@@ -58,7 +57,7 @@ namespace PXWeb.Database
             _logger4Net.InfoFormat("Start building menu for {0}", path);
             _logger = logger;
             //TODO set use Date format
-            _logger(new DatabaseMessage() {MessageType = DatabaseMessage.BuilderMessageType.Information, Message = "Menu build started " + DateTime.Now.ToString() });
+            _logger(new DatabaseMessage() { MessageType = DatabaseMessage.BuilderMessageType.Information, Message = "Menu build started " + DateTime.Now.ToString() });
             string folderName = System.IO.Path.GetFileNameWithoutExtension(path);
             foreach (var language in _languages)
             {
@@ -77,13 +76,13 @@ namespace PXWeb.Database
         public void EndBuild(string path)
         {
 
-            var doc = new XDocument(new XDeclaration("1.0", "UTF-8", "true"),  
-                new XElement("Menu", 
-                    from lang in _languages 
-                    select new XElement("Language", 
+            var doc = new XDocument(new XDeclaration("1.0", "UTF-8", "true"),
+                new XElement("Menu",
+                    from lang in _languages
+                    select new XElement("Language",
                              new XAttribute("lang", lang),
-                             new XAttribute("default", lang == Settings.Current.General.Language.DefaultLanguage), 
-                             (_languageRoots[lang].HasSubItems?(XNode)_languageRoots[lang].SubItems[0].GetAsXML(): (XNode)new XComment("No items")))));
+                             new XAttribute("default", lang == Settings.Current.General.Language.DefaultLanguage),
+                             (_languageRoots[lang].HasSubItems ? (XNode)_languageRoots[lang].SubItems[0].GetAsXML() : (XNode)new XComment("No items")))));
 
             try
             {
@@ -133,14 +132,14 @@ namespace PXWeb.Database
                 {
                     return true;
                 }
-                else if (itm is PxMenuItem) 
+                else if (itm is PxMenuItem)
                 {
                     if (HasLinks((PxMenuItem)itm))
                     {
                         return true;
                     }
                 }
-            } 
+            }
             return false;
         }
 
@@ -177,7 +176,7 @@ namespace PXWeb.Database
                         _currentItems[alias.Language].SortCode = alias.Alias;
                     }
                     _currentItems[alias.Language].Text = alias.Alias;
-                    
+
                 }
             }
             else if (item is LinkItem)
@@ -222,7 +221,7 @@ namespace PXWeb.Database
                             }
                             else
                             {
-                                meta.SetLanguage("default");  
+                                meta.SetLanguage("default");
                             }
                             TableLink tbl = CreateTableLink(meta, path);
                             _currentItems[language].AddSubItem(tbl);
@@ -278,40 +277,40 @@ namespace PXWeb.Database
             //                              LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "",
             //                              PresCategory.Official);
 
-            TableLink tbl = new TableLink( !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "", PresCategory.Official);
-            
+            TableLink tbl = new TableLink(!string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "", PresCategory.Official);
+
             int cellCount = 1;
-                    for (int i = 0; i < meta.Variables.Count; i++)
-                    {
-                        tbl.SetAttribute("Var" + (i + 1) + "Name", meta.Variables[i].Name);
-                        tbl.SetAttribute("Var" + (i+1) + "Values", GetNames(meta.Variables[i]));
-                        tbl.SetAttribute("Var" + (i + 1) + "NumberOfValues", meta.Variables[i].Values.Count.ToString());
-                        cellCount *= meta.Variables[i].Values.Count;
-                    }
+            for (int i = 0; i < meta.Variables.Count; i++)
+            {
+                tbl.SetAttribute("Var" + (i + 1) + "Name", meta.Variables[i].Name);
+                tbl.SetAttribute("Var" + (i + 1) + "Values", GetNames(meta.Variables[i]));
+                tbl.SetAttribute("Var" + (i + 1) + "NumberOfValues", meta.Variables[i].Values.Count.ToString());
+                cellCount *= meta.Variables[i].Values.Count;
+            }
 
-                    System.IO.FileInfo info = new System.IO.FileInfo(path);
-                    tbl.SetAttribute("size", info.Length);
-                    tbl.SetAttribute("cells", cellCount.ToString());
+            System.IO.FileInfo info = new System.IO.FileInfo(path);
+            tbl.SetAttribute("size", info.Length);
+            tbl.SetAttribute("cells", cellCount.ToString());
 
-                    if (meta.AutoOpen)
-                    {
-                        tbl.SetAttribute("autoOpen", "true");
-                    }
-                    //TODO Use Data format
-                    //tbl.SetAttribute("updated", info.LastWriteTime.ToString());
-                    
-                    // Store dates in the PC-Axis date format
-                    tbl.SetAttribute("updated", info.LastWriteTime.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT));
-                    tbl.SetAttribute("modified", GetLastModified(meta));
+            if (meta.AutoOpen)
+            {
+                tbl.SetAttribute("autoOpen", "true");
+            }
+            //TODO Use Data format
+            //tbl.SetAttribute("updated", info.LastWriteTime.ToString());
 
-                    string lastUpdated = GetLastModified(meta);
-                    if (PxDate.IsPxDate(lastUpdated))
-                    {
-                        tbl.LastUpdated = PxDate.PxDateStringToDateTime(lastUpdated);
-                    }
-                    tbl.Published = info.LastWriteTime;
-                   
-               return tbl;
+            // Store dates in the PC-Axis date format
+            tbl.SetAttribute("updated", info.LastWriteTime.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT));
+            tbl.SetAttribute("modified", GetLastModified(meta));
+
+            string lastUpdated = GetLastModified(meta);
+            if (PxDate.IsPxDate(lastUpdated))
+            {
+                tbl.LastUpdated = PxDate.PxDateStringToDateTime(lastUpdated);
+            }
+            tbl.Published = info.LastWriteTime;
+
+            return tbl;
         }
 
         private static string GetLastModified(PCAxis.Paxiom.PXMeta meta)
@@ -325,9 +324,9 @@ namespace PXWeb.Database
                     if (value.ContentInfo != null)
                     {
                         if (value.ContentInfo.LastUpdated != "")
-                        { 
+                        {
                             DateTime d = GetDate(value.ContentInfo.LastUpdated);
-                            maxDate = maxDate > d?maxDate:d;
+                            maxDate = maxDate > d ? maxDate : d;
                         }
                     }
                 }
@@ -343,7 +342,7 @@ namespace PXWeb.Database
                 {
                     //TODO Use Date format
                     //date = maxDate.ToString();
-                    
+
                     // Store date in the PC-Axis date format
                     date = maxDate.ToString(PCAxis.Paxiom.PXConstant.PXDATEFORMAT);
                 }
@@ -378,7 +377,7 @@ namespace PXWeb.Database
                 }
                 catch (Exception)
                 {
-                    
+
                 }
             }
             return DateTime.MinValue;
@@ -395,9 +394,9 @@ namespace PXWeb.Database
                 // if the varible have five or less values
                 int limit = Math.Min(5, variable.Values.Count);
                 for (int i = 0; i < limit; i++)
-			    {
+                {
                     names.Append(variable.Values[i].Value);
-	                if (i < 4 && i <= (limit - 1))
+                    if (i < 4 && i <= (limit - 1))
                     {
                         names.Append(", ");
                     }
@@ -415,8 +414,8 @@ namespace PXWeb.Database
                     {
                         names.Append(", ");
                     }
-                   
-               }
+
+                }
                 names.Append("..., ");
                 names.Append(variable.Values[variable.Values.Count - 1].Value);
             }
@@ -431,7 +430,7 @@ namespace PXWeb.Database
         /// </summary>
         public int Priority
         {
-            get {return 1; }
+            get { return 1; }
         }
 
         #endregion

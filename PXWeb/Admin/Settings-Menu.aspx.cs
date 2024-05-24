@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
 
 namespace PXWeb.Admin
 {
@@ -65,7 +56,7 @@ namespace PXWeb.Admin
             cboTree2MetadataAsIcons.SelectedValue = PXWeb.Settings.Current.Menu.MetadataAsIcons.ToString();
             cboShowTextToMetadata.SelectedValue = PXWeb.Settings.Current.Menu.ShowTextToMetadata.ToString();
             cboShowMenuExplanation.SelectedValue = PXWeb.Settings.Current.Menu.ShowMenuExplanation.ToString();
-            
+
             if (PXWeb.Settings.Current.Menu.ViewLinkMode != MenuViewLinkModeType.DefaultValues)
             {
                 //lblListNumberOfValuesInDefaultView.Visible = false;
@@ -110,10 +101,10 @@ namespace PXWeb.Admin
 
             if (cboTree2MetadataAsIcons.SelectedValue == "False")
             {
-                pnlShowTextForMetadata.Visible = true;   
+                pnlShowTextForMetadata.Visible = true;
             }
         }
-        
+
 
         /// <summary>
         /// Save Menu settings
@@ -328,13 +319,13 @@ namespace PXWeb.Admin
                 pnlShowTextForMetadata.Visible = true;
 
             }
-            else 
+            else
             {
-                pnlShowTextForMetadata.Visible = false;                
+                pnlShowTextForMetadata.Visible = false;
             }
         }
 
-        
+
         protected void MenuModeInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsMenuMenuMode", "PxWebAdminSettingsMenuMenuModeInfo");
@@ -349,7 +340,7 @@ namespace PXWeb.Admin
         {
             Master.ShowInfoDialog("PxWebAdminSettingsMenuExpandAll", "PxWebAdminSettingsMenuExpandAllInfo");
         }
-        
+
         protected void SortByAliasInfo(object sender, ImageClickEventArgs e)
         {
             Master.ShowInfoDialog("PxWebAdminSettingsMenuSortByAlias", "PxWebAdminSettingsMenuSortByAliasInfo");

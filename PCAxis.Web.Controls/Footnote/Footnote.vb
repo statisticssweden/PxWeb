@@ -1,6 +1,3 @@
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
-Imports System.ComponentModel
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
 
@@ -10,7 +7,7 @@ Imports PCAxis.Web.Core.Attributes
 ''' </summary>
 ''' <remarks></remarks>
 Public Partial Class Footnote
-    Inherits MarkerControlBase(Of FootnoteCodebehind,Footnote)
+    Inherits MarkerControlBase(Of FootnoteCodebehind, Footnote)
 
     Private _ShowMandatoryOnly As Boolean = False
     Private _ShowNoFootnotes As Boolean = True

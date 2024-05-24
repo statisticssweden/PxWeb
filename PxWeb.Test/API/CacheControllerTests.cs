@@ -5,8 +5,6 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web;
-using System.Web.Http.Controllers;
 
 namespace PxWeb.Test
 {
@@ -31,7 +29,7 @@ namespace PxWeb.Test
 
         private CacheController InitializeCacheController()
         {
-            var controller =  new CacheController(_cacheServiceMock.Object, _logger.Object)
+            var controller = new CacheController(_cacheServiceMock.Object, _logger.Object)
             {
                 Request = new HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
@@ -87,6 +85,6 @@ namespace PxWeb.Test
 
         // TODO: Test unauthorized
         // 
-        
+
     }
 }

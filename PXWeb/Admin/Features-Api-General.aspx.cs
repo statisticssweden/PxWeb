@@ -3,15 +3,12 @@ using PCAxis.Query;
 using PXWeb.Misc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
 
 namespace PXWeb.Admin
 {
-	public partial class Features_Api_General : System.Web.UI.Page
+    public partial class Features_Api_General : System.Web.UI.Page
     {
         private const char SEPARATOR = '|';
 
@@ -65,85 +62,85 @@ namespace PXWeb.Admin
             {
                 if (PCAxis.Query.ExposedDatabases.DatabaseConfigurations.ContainsKey(lang.Name))
                 {
-					//PX databases
-					foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
-					{
-						CheckIfExposedDatabase(tblPxDatabases, lang, db);
-					}
+                    //PX databases
+                    foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
+                    {
+                        CheckIfExposedDatabase(tblPxDatabases, lang, db);
+                    }
 
-					//CNMM databases
-					foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllCnmmDatabases)
-					{
-						CheckIfExposedDatabase(tblCnmmDatabases, lang, db);
-					}
+                    //CNMM databases
+                    foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllCnmmDatabases)
+                    {
+                        CheckIfExposedDatabase(tblCnmmDatabases, lang, db);
+                    }
 
-				}
+                }
             }
         }
 
-		/// <summary>
-		/// Enables and disables the checkboxes in the tables for the databases if they support the languages.
-		/// </summary>
-		private void GetDatabasesLanguages()
-		{
-			foreach (LanguageSettings lang in PXWeb.Settings.Current.General.Language.SiteLanguages)
-			{
-				//PX databases
-				foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
-				{
-					CheckIfDatabaseHasLanguage(tblPxDatabases, lang, db);
-				}
+        /// <summary>
+        /// Enables and disables the checkboxes in the tables for the databases if they support the languages.
+        /// </summary>
+        private void GetDatabasesLanguages()
+        {
+            foreach (LanguageSettings lang in PXWeb.Settings.Current.General.Language.SiteLanguages)
+            {
+                //PX databases
+                foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllPxDatabases)
+                {
+                    CheckIfDatabaseHasLanguage(tblPxDatabases, lang, db);
+                }
 
-				//CNMM databases
-				foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllCnmmDatabases)
-				{
-					CheckIfDatabaseHasLanguage(tblCnmmDatabases, lang, db);
-				}
+                //CNMM databases
+                foreach (DatabaseInfo db in PXWeb.Settings.Current.General.Databases.AllCnmmDatabases)
+                {
+                    CheckIfDatabaseHasLanguage(tblCnmmDatabases, lang, db);
+                }
 
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// If the database is exposed via the API its checkbox in the table will be checked 
-		/// </summary>
-		/// <param name="tbl">Table web control</param>
-		/// <param name="lang">Language</param>
-		/// <param name="db">Database</param>
-		private void CheckIfExposedDatabase(System.Web.UI.WebControls.Table tbl, LanguageSettings lang, DatabaseInfo db)
-		{
-			if (PCAxis.Query.ExposedDatabases.DatabaseConfigurations[lang.Name].ContainsKey(db.Id))
-			{
-				CheckBox chk = (CheckBox)tbl.FindControl(lang.Name + SEPARATOR + db.Id);
-				if (chk != null)
-				{
-					chk.Checked = true;
-				}
-			}
-		}
+        /// <summary>
+        /// If the database is exposed via the API its checkbox in the table will be checked 
+        /// </summary>
+        /// <param name="tbl">Table web control</param>
+        /// <param name="lang">Language</param>
+        /// <param name="db">Database</param>
+        private void CheckIfExposedDatabase(System.Web.UI.WebControls.Table tbl, LanguageSettings lang, DatabaseInfo db)
+        {
+            if (PCAxis.Query.ExposedDatabases.DatabaseConfigurations[lang.Name].ContainsKey(db.Id))
+            {
+                CheckBox chk = (CheckBox)tbl.FindControl(lang.Name + SEPARATOR + db.Id);
+                if (chk != null)
+                {
+                    chk.Checked = true;
+                }
+            }
+        }
 
-		/// <summary>
-		/// Enables and disables the checkboxes in the tables for the databases if they support the languages. 
-		/// </summary>
-		/// <param name="tbl">Table web control</param>
-		/// <param name="lang">Language</param>
-		/// <param name="db">Database</param>
-		private void CheckIfDatabaseHasLanguage(System.Web.UI.WebControls.Table tbl, LanguageSettings lang, DatabaseInfo db)
-		{
-			CheckBox chk = (CheckBox)tbl.FindControl(lang.Name + SEPARATOR + db.Id);
+        /// <summary>
+        /// Enables and disables the checkboxes in the tables for the databases if they support the languages. 
+        /// </summary>
+        /// <param name="tbl">Table web control</param>
+        /// <param name="lang">Language</param>
+        /// <param name="db">Database</param>
+        private void CheckIfDatabaseHasLanguage(System.Web.UI.WebControls.Table tbl, LanguageSettings lang, DatabaseInfo db)
+        {
+            CheckBox chk = (CheckBox)tbl.FindControl(lang.Name + SEPARATOR + db.Id);
 
-			if (!db.HasLanguage(lang.Name))
-			{
-				chk.Enabled = false;
-			}
+            if (!db.HasLanguage(lang.Name))
+            {
+                chk.Enabled = false;
+            }
 
-		}
+        }
 
-		/// <summary>
-		/// Create table showing databases and languages
-		/// </summary>
-		/// <param name="tbl">Table control</param>
-		/// <param name="databases">Collection of database names</param>
-		private void CreateDatabaseTable(System.Web.UI.WebControls.Table tbl, IEnumerable<DatabaseInfo> databases)
+        /// <summary>
+        /// Create table showing databases and languages
+        /// </summary>
+        /// <param name="tbl">Table control</param>
+        /// <param name="databases">Collection of database names</param>
+        private void CreateDatabaseTable(System.Web.UI.WebControls.Table tbl, IEnumerable<DatabaseInfo> databases)
         {
             TableRow newRow;
             TableCell newCell;
@@ -158,14 +155,14 @@ namespace PXWeb.Admin
                 newCell.CssClass = "apiDatabaseCell";
                 newCell.Text = db.Id;
                 newRow.Cells.Add(newCell);
-                
+
                 foreach (LanguageSettings lang in PXWeb.Settings.Current.General.Language.SiteLanguages)
                 {
                     newCell = new TableCell();
                     CheckBox chk = new CheckBox();
                     chk.ID = lang.Name + SEPARATOR + db.Id;
                     newCell.Controls.Add(chk);
-                    newRow.Cells.Add(newCell);   
+                    newRow.Cells.Add(newCell);
                 }
             }
         }
@@ -179,7 +176,7 @@ namespace PXWeb.Admin
             TableRow newRow;
             TableCell newCell;
 
-            newRow= new TableRow();
+            newRow = new TableRow();
             tbl.Rows.Add(newRow);
 
             newCell = new TableCell();

@@ -1,8 +1,6 @@
-﻿using System;
+﻿using PCAxis.Chart;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PCAxis.Chart;
 
 namespace PXWeb
 {
@@ -96,7 +94,7 @@ namespace PXWeb
         /// <summary>
         /// Line thickness on phrame 
         /// </summary>
-        String LineColorPhrame { get; }   
+        String LineColorPhrame { get; }
 
         /// <summary>
         /// Default time sort order for chart

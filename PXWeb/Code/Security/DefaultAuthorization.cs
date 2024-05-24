@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using log4net;
 using System.Web;
-using log4net;
 
 namespace PXWeb.Security
 {
-    public class DefaultAuthorization : PX.Security.IAuthorization 
+    public class DefaultAuthorization : PX.Security.IAuthorization
     {
         private static readonly ILog _logger = LogManager.GetLogger(typeof(DefaultAuthorization));
 

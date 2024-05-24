@@ -1,21 +1,10 @@
-﻿
-
-Imports System.Web
+﻿Imports System.Text
 Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports System.ComponentModel
-Imports System.IO
-Imports System.Xml
-Imports System.Xml.Xsl
-Imports System.Net
-Imports System.Text
-
 Imports PCAxis.Menu
-
-Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Web.Core.Management
+Imports PCAxis.Web.Core.Management.LinkManager
 
 
 ''' <summary>
@@ -205,10 +194,10 @@ Public Class TableListCodebehind
                         End If
             'External link
                     Case LinkType.URL
-                            MenuLinkItem.Text = CType(childItem, Url).Text
-                            MenuLinkItem.LinkURLSelect = CType(childItem, PCAxis.Menu.Url).LinkUrl
-                            MenuLinkItem.Type = LinkType.URL
-                            MenuLinkList.Add(MenuLinkItem)
+                        MenuLinkItem.Text = CType(childItem, Url).Text
+                        MenuLinkItem.LinkURLSelect = CType(childItem, PCAxis.Menu.Url).LinkUrl
+                        MenuLinkItem.Type = LinkType.URL
+                        MenuLinkList.Add(MenuLinkItem)
                 End Select
             End If
         Next
@@ -547,11 +536,11 @@ Public Class TableListCodebehind
             End Select
 
             Dim link As HyperLink
-            
+
             link = CType(e.Item.FindControl("lnkTableListItemText"), HyperLink)
             link.NavigateUrl = DataBinder.Eval(e.Item.DataItem, "LinkURLSelect").ToString()
             link.Text = DataBinder.Eval(e.Item.DataItem, "Text").ToString()
-            link.Visible = True           
+            link.Visible = True
 
             If (_showLinkURLSelect AndAlso (Not IsNothing(DataBinder.Eval(e.Item.DataItem, "LinkURLSelectPart")))) Then
                 link = CType(e.Item.FindControl("lnkTableListLinkURLSelect"), HyperLink)

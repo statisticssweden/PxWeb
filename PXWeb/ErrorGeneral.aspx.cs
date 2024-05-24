@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+﻿using PCAxis.Web.Core.Management;
+using System;
 using System.IO;
-using PCAxis.Web.Core.Management;
+using System.Web.UI;
 
 namespace PXWeb
 {
@@ -58,7 +48,7 @@ namespace PXWeb
 
             //Check if the error is caused by invalid contents in querys string parameter value
             Exception exc = Server.GetLastError();
-            if(exc != null )
+            if (exc != null)
             {
                 if (exc is PCAxis.Web.Core.Exceptions.InvalidQuerystringParameterException)
                 {
@@ -98,7 +88,7 @@ namespace PXWeb
 
                 //Removes '/' from start
                 if (errorUrl.StartsWith("/"))
-                    errorUrl = errorUrl.Remove(0 , 1);
+                    errorUrl = errorUrl.Remove(0, 1);
 
                 if (errorUrl.StartsWith("sq"))
                     return true;
@@ -130,13 +120,13 @@ namespace PXWeb
         {
             string lang = null;
 
-            try 
-	        {
+            try
+            {
                 lang = PxUrlObj.Language;
-	        }
-	        catch (Exception)
-	        {
-	        }
+            }
+            catch (Exception)
+            {
+            }
 
             if (string.IsNullOrWhiteSpace(lang))
             {

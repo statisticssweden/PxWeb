@@ -76,13 +76,13 @@
 //        {
 //            System.Xml.XmlElement node = (System.Xml.XmlElement)doc.SelectSingleNode(String.Format("/SqlDbConfig/Database[@id='{0}']/Languages/Language[@main='true']", _databaseId));
 //            return node.Attributes["code"].Value;
-            
+
 //        }
 
 //        private List<string> GetOtherLanguages()
 //        {
 //            List<string> langs = new List<string>();
-     
+
 //            var nodes = doc.SelectNodes(String.Format("/SqlDbConfig/Database[@id='{0}']/Languages/Language[@main='false']", _databaseId ));
 
 //            foreach (System.Xml.XmlElement node in nodes)

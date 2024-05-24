@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using System.Collections.Generic;
+﻿using PCAxis.Web.Controls;
 using PCAxis.Web.Core.Management;
+using System;
+using System.Collections.Generic;
 using PCAxisPlugins = PCAxis.Web.Controls.CommandBar.Plugin;
-using PCAxis.Web.Controls;
 
 namespace PXWeb
 {
@@ -39,8 +28,9 @@ namespace PXWeb
             //Table.MaxRows = PXWeb.Settings.Current.Presentation.Table.MaxRows;
 
             lblTableTitle.Text = PCAxis.Util.GetModelTitle(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel);
-            lblDescription.Text =  LocalizationManager.GetLocalizedString("PageViewDataSortDescription");
-            if (! LocalizationManager.GetLocalizedString("PageViewDataSortCopyInstructions").Equals("PageViewDataSortCopyInstructions")){
+            lblDescription.Text = LocalizationManager.GetLocalizedString("PageViewDataSortDescription");
+            if (!LocalizationManager.GetLocalizedString("PageViewDataSortCopyInstructions").Equals("PageViewDataSortCopyInstructions"))
+            {
                 lblCopyDescription.Text = LocalizationManager.GetLocalizedString("PageViewDataSortCopyInstructions");
             }
             if (!PXWeb.Settings.Current.Selection.StandardApplicationHeadTitle)

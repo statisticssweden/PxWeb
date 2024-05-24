@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Security.Cryptography;
+﻿using PX.Web.Interfaces.Cache;
+using System;
 using System.Collections;
-using System.Text.RegularExpressions;
-using System.Globalization;
-using System.Web.Caching;
-using System.Web;
 using System.Configuration;
-using PX.Web.Interfaces.Cache;
+using System.Security.Cryptography;
+using System.Web;
 
 namespace PCAxis.Api
 {
@@ -100,7 +94,7 @@ namespace PCAxis.Api
                     Clear();
                 }
             }
-          
+
             return System.Web.HttpRuntime.Cache[key] as ResponseBucket;
         }
 
@@ -108,13 +102,13 @@ namespace PCAxis.Api
         /// Stores a ResponseBucket object in the cache
         /// </summary>
         /// <param name="data"></param>
-        public void Store(ResponseBucket data, TimeSpan ?time = null)
+        public void Store(ResponseBucket data, TimeSpan? time = null)
         {
             if (time == null)
             {
                 time = new TimeSpan(0, 2, 0);
             }
-            
+
             //Check if caching is enabled
             if (!Settings.Current.EnableCache) return;
 
@@ -212,7 +206,7 @@ namespace PCAxis.Api
         public void Clear()
         {
             _logger.Info("Cache cleared started");
-             ClearCache();
+            ClearCache();
             _logger.Info("Cache cleared finished");
         }
 

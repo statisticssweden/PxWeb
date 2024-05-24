@@ -1,7 +1,6 @@
-﻿Imports System.Web
+﻿Imports System.IO
+Imports System.Web
 Imports System.Web.Hosting
-Imports System.IO
-Imports System.Text.RegularExpressions
 
 ''' <summary>
 ''' Used to reroute virtual paths to assembly resources
@@ -50,7 +49,7 @@ Public Class AssemblyResourceProvider
     Public Overrides Function GetFile(ByVal virtualPath As String) As VirtualFile
 
         'Check if the virtual path should be rerouted
-        If (IsAppResourcePath(virtualPath)) Then            
+        If (IsAppResourcePath(virtualPath)) Then
             Return New AssemblyResourceVirtualFile(virtualPath)
         Else
             Return MyBase.GetFile(virtualPath)

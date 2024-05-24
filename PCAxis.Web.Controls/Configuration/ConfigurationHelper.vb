@@ -186,7 +186,7 @@ Namespace Configuration
         ''' <returns>A <see cref="String" /> representing the unique language of the page</returns>
         ''' <remarks></remarks>
         <ConfigurationProperty(CONFIG_LANGUAGE, IsRequired:=True)> _
-      Public Property Language() As String
+        Public Property Language() As String
             Get
                 Return Me(CONFIG_LANGUAGE).ToString()
             End Get
@@ -202,7 +202,7 @@ Namespace Configuration
         ''' <returns>A <see cref="String" /> representing the URL of the page</returns>
         ''' <remarks></remarks>
         <ConfigurationProperty(CONFIG_URL, IsRequired:=True)> _
-      Public Property Url() As String
+        Public Property Url() As String
             Get
                 Return Me(CONFIG_URL).ToString()
             End Get

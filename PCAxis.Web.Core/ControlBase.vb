@@ -1,21 +1,13 @@
 Imports System.ComponentModel
 Imports System.Globalization
-Imports System.IO
-Imports System.ComponentModel.Design
-Imports System.Web.UI.Design
-Imports System.Web.Caching
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Web.Core.Exceptions
-Imports PCAxis.Web.Core.Configuration
-Imports PCAxis.Web.Core.Attributes
-Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.StateProvider
-Imports System.Web.UI
-Imports System.Web
 Imports System.Reflection
+Imports System.Web.Caching
+Imports System.Web.UI
+Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core.Enums
-Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Web.Core.Interfaces
+Imports PCAxis.Web.Core.Management
+Imports PCAxis.Web.Core.StateProvider
 
 ''' <summary>
 ''' Base class for all usercontrols. Contains methods and properties that are common for all usercontrols

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Chart;
 using PCAxis.Query;
-using PCAxis.Paxiom;
-using PCAxis.Chart;
 using PCAxis.Web.Controls;
+using System;
 
 namespace PXWeb.Views
 {
@@ -15,7 +11,7 @@ namespace PXWeb.Views
         {
             _fileFormat = fileFormat;
         }
-        
+
         public override PCAxis.Query.Output Save()
         {
             Output output = new Output();
@@ -77,7 +73,7 @@ namespace PXWeb.Views
                     return "jpeg";
                 case PCAxis.Web.Controls.Plugins.FileFormats.CHART_PNG:
                     return "png";
-                default :
+                default:
                     return "png";
             }
 

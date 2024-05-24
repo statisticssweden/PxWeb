@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PCAxis.Chart
+﻿namespace PCAxis.Chart
 {
     /// <summary>
     /// Parameters to the chart service

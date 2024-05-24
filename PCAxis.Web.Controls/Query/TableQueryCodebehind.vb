@@ -1,17 +1,12 @@
 ﻿
 
-Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.ComponentModel
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Web.Core.Management.LinkManager
-Imports PCAxis.Query
 Imports System.IO
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports PCAxis.Paxiom
+Imports PCAxis.Query
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Management
 
 <ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")>
 Public Class TableQueryCodebehind
@@ -158,7 +153,7 @@ Public Class TableQueryCodebehind
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblUrlV2.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
-        
+
         lnkMoreInfo.Text = String.Format("<span class=link-text>{0}</span>", Server.HtmlEncode(GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)))
         btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
         lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)

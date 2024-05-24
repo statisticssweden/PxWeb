@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 
 namespace PXWeb.CustomControls
 {
@@ -38,9 +35,10 @@ namespace PXWeb.CustomControls
         {
             string headerKey = "";
             string textKey = "";
-            if (string.IsNullOrEmpty(manualFor)) {
-                headerKey = headerCode; 
-                textKey = textCode; 
+            if (string.IsNullOrEmpty(manualFor))
+            {
+                headerKey = headerCode;
+                textKey = textCode;
             }
             else
             {
@@ -57,7 +55,7 @@ namespace PXWeb.CustomControls
             builder.Append(@"""><span class=""screenreader-only"">");
             builder.Append(this.Page.Server.HtmlEncode(longText));
             builder.Append("</span></section>");
-            
+
             this.Text = builder.ToString();
         }
 

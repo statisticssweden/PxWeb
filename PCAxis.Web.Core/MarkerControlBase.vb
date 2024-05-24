@@ -1,11 +1,9 @@
-﻿Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports PCAxis.Web.Core.Exceptions
-Imports System.Web.Caching
-Imports System.Web.UI.Design
-Imports System.ComponentModel.Design
-Imports System.Globalization
+﻿Imports System.Globalization
 Imports System.IO
+Imports System.Web.Caching
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports PCAxis.Web.Core.Exceptions
 Imports PCAxis.Web.Core.Interfaces
 
 ''' <summary>

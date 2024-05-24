@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using System.Collections.Generic;
 
 namespace PXWeb.Admin
 {
@@ -120,14 +111,14 @@ namespace PXWeb.Admin
                     //{
                     //    if (VerifyIPAddress(txt.Text))
                     //    {
-                            lst.Add(txt.Text);
-                        //}
-                        //else
-                        //{
-                        //    lbl = (Label)ip.FindControl("lblError");
-                        //    lbl.Text = Master.GetLocalizedString("PxWebAdminSettingsAdministrationInvalidIPAddress");
-                        //    return;
-                        //}
+                    lst.Add(txt.Text);
+                    //}
+                    //else
+                    //{
+                    //    lbl = (Label)ip.FindControl("lblError");
+                    //    lbl.Text = Master.GetLocalizedString("PxWebAdminSettingsAdministrationInvalidIPAddress");
+                    //    return;
+                    //}
                     //}
                 }
             }

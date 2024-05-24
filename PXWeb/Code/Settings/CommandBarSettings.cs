@@ -1,16 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
 using System.Xml;
-using System.Collections.Generic;
 
 namespace PXWeb
 {
@@ -33,7 +22,7 @@ namespace PXWeb
         private List<string> _presentationViewButtons;
 
         #endregion
-        
+
         #region "public methods"
 
         /// <summary>
@@ -72,7 +61,7 @@ namespace PXWeb
             //node = commandBarNode.SelectSingleNode(xpath);
             node = SettingsHelper.GetNode(commandBarNode, xpath);
             xpath = ".//plugin";
-            _presentationViews  = SettingsHelper.GetSettingValue(xpath, node);
+            _presentationViews = SettingsHelper.GetSettingValue(xpath, node);
 
             xpath = "./presentationViewShortcuts";
             //node = commandBarNode.SelectSingleNode(xpath);
@@ -178,7 +167,7 @@ namespace PXWeb
         }
 
         #endregion
-        
+
         #region ICommandBarSettings Members
 
         public PCAxis.Web.Controls.CommandBar.CommandBarViewMode ViewMode { get; set; }

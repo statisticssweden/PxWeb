@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Xml;
 
 namespace PXWeb
@@ -13,7 +10,7 @@ namespace PXWeb
     {
         private PCAxis.Metadata.IMetaIdProvider _metaLinkCreator;
         private string _metaLinkMethod;
-        
+
         /// <summary>
         /// Log object
         /// </summary>

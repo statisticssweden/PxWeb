@@ -1,17 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+﻿using PCAxis.Chart;
+using System;
 using System.Collections.Generic;
 using System.Xml;
-using PCAxis.Chart;
 
 namespace PXWeb
 {
@@ -85,7 +75,7 @@ namespace PXWeb
             MaxValues = SettingsHelper.GetSettingValue(xpath, chartsNode, 50);
 
             xpath = "./timeSortOrder";
-            TimeSortOrder = SettingsHelper.GetSettingValue(xpath, chartsNode, ChartSettings.SortType.None );
+            TimeSortOrder = SettingsHelper.GetSettingValue(xpath, chartsNode, ChartSettings.SortType.None);
 
             xpath = "./labelOrientation";
             LabelOrientation = SettingsHelper.GetSettingValue(xpath, chartsNode, ChartSettings.OrientationType.Horizontal);

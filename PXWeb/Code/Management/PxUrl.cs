@@ -1,9 +1,7 @@
-﻿using System;
+﻿using PCAxis.Web.Core.Management;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using PCAxis.Web.Core.Management;
 
 namespace PXWeb
 {
@@ -24,7 +22,7 @@ namespace PXWeb
         /// <summary>
         /// Start for short-links
         /// </summary>
-        public const string PX_GOTO = "goto"; 
+        public const string PX_GOTO = "goto";
 
         /// <summary>
         /// Defines language
@@ -84,7 +82,7 @@ namespace PXWeb
         /// Querystring parameters
         /// </summary>
         private List<KeyValuePair<string, string>> _params;
-        
+
         #endregion
 
         #region "Public methods"

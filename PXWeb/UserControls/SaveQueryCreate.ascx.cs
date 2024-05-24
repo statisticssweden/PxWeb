@@ -1,20 +1,19 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
+using PCAxis.Web.Controls;
+using PCAxis.Web.Controls.CommandBar.Plugin;
+using PCAxis.Web.Core.Management;
+using PXWeb.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PCAxis.Paxiom;
-using PCAxis.Web.Core.Management;
-using PCAxis.Web.Controls.CommandBar.Plugin;
-using PCAxis.Web.Controls;
-using PXWeb.Views;
 
 namespace PXWeb.UserControls
 {
-    public partial class SaveQueryCreate : System.Web.UI.UserControl 
+    public partial class SaveQueryCreate : System.Web.UI.UserControl
     {
-        
+
         private const string SAVE_AS_CAPTION = "CtrlSaveQueryAsCaption";
         private const string SAVEQUERY_FOR_SCREEN = "CtrlSaveQueryForScreen";
         private const string SAVEQUERY_CREATEQUERY = "CtrlSaveQuerybtnCreateQuery";
@@ -22,12 +21,12 @@ namespace PXWeb.UserControls
         private const string SAVEQUERY_NOTIMEVALWARNING = "CtrlSaveQueryNoTimeValWarning";
         private const string SAVEQUERY_HELP_PAGE = "CtrlSaveQueryHelpPage";
         private const string SAVEQUERY_RBL_LEGEND = "CtrlSaveQueryChoosetimeperiodInformation";
-        private const string SAVEQUERY_COPY_LINK_COPIED= "CtrlSaveQueryCopyLinkCopied";
+        private const string SAVEQUERY_COPY_LINK_COPIED = "CtrlSaveQueryCopyLinkCopied";
 
 
         #region Private property
 
-        private ICommandBarPluginFilter _outputFilter = null;         
+        private ICommandBarPluginFilter _outputFilter = null;
         private string _tableTitle;
 
         // What outpotformats will be available
@@ -35,16 +34,16 @@ namespace PXWeb.UserControls
         {
             get { return _outputFilter; }
             set { _outputFilter = value; }
-        
+
         }
         //Subject for the mail
         public string Subject
         {
-            get { return _tableTitle = GetTitleForMailSubjekt(); }    
+            get { return _tableTitle = GetTitleForMailSubjekt(); }
         }
 
         private bool _enabled = true;
-        public bool Enabled 
+        public bool Enabled
         {
             get
             {
@@ -69,7 +68,7 @@ namespace PXWeb.UserControls
             {
                 imgTimeWarning.ImageUrl = Page.ClientScript.GetWebResourceUrl(typeof(BreadcrumbCodebehind), "PCAxis.Web.Controls.spacer.gif");
                 FillDropDownlist();
-                
+
                 pnlForRbl.GroupingText = "<span class='font-heading'>" + LocalizationManager.GetLocalizedString(SAVEQUERY_RBL_LEGEND) + "</span>";
                 lblResultAs.Text = LocalizationManager.GetLocalizedString(SAVE_AS_CAPTION);
             }
@@ -118,7 +117,7 @@ namespace PXWeb.UserControls
         {
             //Add select text
             ddlOutputFormats.Items.Add(new ListItem(LocalizationManager.GetLocalizedString("CtrlSaveQuerySelectFormat"), "selectFormat"));
-            
+
             List<string> _outputFormats = new List<string>();
             _outputFormats = (List<string>)PXWeb.Settings.Current.Presentation.CommandBar.OutputFormats;
             //Add a heading for dropdown
@@ -146,7 +145,7 @@ namespace PXWeb.UserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void CreateSavedQueryUrl(Object sender, EventArgs e) 
+        protected void CreateSavedQueryUrl(Object sender, EventArgs e)
         {
             txtSaveQueryUrl.Text = "";
             lblError.Visible = false;
@@ -175,24 +174,24 @@ namespace PXWeb.UserControls
 
             string time = rblTimePeriod.SelectedValue;
             try
-            { 
-            
+            {
+
                 var query = GetQueries();
 
 
                 //start jfi 
-                foreach(var queryVariable in query.Quieries)
+                foreach (var queryVariable in query.Quieries)
                 {
                     var paxiomVariable = PaxiomManager.PaxiomModel.Meta.Variables.FirstOrDefault(v => v.Code.Equals(queryVariable.Code));
                     if (paxiomVariable == null)
                     {
                         if (string.IsNullOrEmpty(queryVariable.VariableType))
-				queryVariable.VariableType = "N";
+                            queryVariable.VariableType = "N";
                     }
                     else
                     {
                         if (string.IsNullOrEmpty(queryVariable.VariableType))
-				queryVariable.VariableType = this.GetVariableTypeCode(paxiomVariable);
+                            queryVariable.VariableType = this.GetVariableTypeCode(paxiomVariable);
                     }
                 }
                 //end jfi 
@@ -262,7 +261,7 @@ namespace PXWeb.UserControls
                 string path = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/queries/");
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters.Add(PCAxis.Query.SavedQueryManager.SAVE_PARAMETER_PATH, path); // Save query to this directory
-                
+
                 string name = PCAxis.Query.SavedQueryManager.Current.Save(sq, parameters);
 
                 if (!string.IsNullOrWhiteSpace(name))
@@ -277,7 +276,7 @@ namespace PXWeb.UserControls
                     }
                 }
                 else
-                { 
+                {
                     lblError.Visible = true;
                 }
                 //Hide and show the right panels
@@ -295,14 +294,14 @@ namespace PXWeb.UserControls
                     "jQuery(document).ready(function(){openAccordion('SaveQueryHeader', 'SaveQueryBody')});", true);
             }
         }
-        
+
         private PCAxis.Query.WorkStep[] GetManualWorkStepsForModel()
         {
             //name is used as reference/identificator for variables due to some legacy(which can cause problems if name changes in db....)
             var result = new List<PCAxis.Query.WorkStep>();
             var pd = new List<PCAxis.Paxiom.Operations.PivotDescription>();
 
-            foreach(var variable in PaxiomManager.PaxiomModel.Meta.Heading)
+            foreach (var variable in PaxiomManager.PaxiomModel.Meta.Heading)
             {
                 pd.Add(new PCAxis.Paxiom.Operations.PivotDescription(variable.Name, PCAxis.Paxiom.PlacementType.Heading));
             }
@@ -316,13 +315,13 @@ namespace PXWeb.UserControls
 
             var manualWOrkStep = ser.Serialize(pd.ToArray());
             result.Add(manualWOrkStep);
-            
+
             return result.ToArray();
         }
 
         private string GetVariableTypeCode(Variable tvar)
         {
-            if(tvar.IsTime)
+            if (tvar.IsTime)
             {
                 return "T";
             }
@@ -330,14 +329,14 @@ namespace PXWeb.UserControls
             {
                 return "C";
             }
-            else if (! String.IsNullOrEmpty(tvar.Map))
+            else if (!String.IsNullOrEmpty(tvar.Map))
             {
                 return "G";
             }
             else
             {
                 return "N";
-            } 
+            }
             //Hva er tvar.VariableType?
         }
 
@@ -378,17 +377,19 @@ namespace PXWeb.UserControls
             {
                 src.Type = "PX";
             }
-                        
+
             src.SourceIdType = "path";
 
 
 
             src.Quieries.AddRange(
                 PaxiomManager.QueryModel.Query.Select(
-                    q => new PCAxis.Query.Query() 
-                        {Code = q.Code, 
-                         Selection = new PCAxis.Query.QuerySelection() 
-                            { Filter = q.Selection.Filter, Values = q.Selection.Values }  }).ToArray());
+                    q => new PCAxis.Query.Query()
+                    {
+                        Code = q.Code,
+                        Selection = new PCAxis.Query.QuerySelection()
+                        { Filter = q.Selection.Filter, Values = q.Selection.Values }
+                    }).ToArray());
 
             return src;
         }
@@ -447,7 +448,7 @@ namespace PXWeb.UserControls
             {
                 pnl2_SaveQuerySelection.Style.Add("display", "inline-block");
                 pnl3_ShowSaveQueryUrl.Style.Add("display", "none");
-            }        
+            }
         }
         #endregion
     }

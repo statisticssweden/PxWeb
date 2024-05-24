@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
+﻿using System.Configuration;
 
 namespace PCAxis.Api.Serializers
 {
@@ -22,9 +18,9 @@ namespace PCAxis.Api.Serializers
             {
                 jsonStatSerializer.GeoVariableCodes = geoVariablesStr.Split(",".ToCharArray());
             }
-            
+
             PCAxis.Paxiom.IPXModelStreamSerializer serializer = jsonStatSerializer;
-            
+
             using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
             {
                 serializer.Serialize(model, stream);

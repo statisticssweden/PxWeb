@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
-using System.Diagnostics.Eventing.Reader;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using PCAxis.Paxiom;
+﻿using PCAxis.Paxiom;
 using PCAxis.Web.Controls;
 using PCAxis.Web.Core.Management;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Web;
+using System.Web.UI.WebControls;
 
 namespace PXWeb
 {
@@ -37,7 +32,7 @@ namespace PXWeb
         public string TableTitle
         {
             get { return _tableTitle; }
-            set { _tableTitle = value ; }
+            set { _tableTitle = value; }
         }
         public string PageUrl
         {
@@ -71,7 +66,7 @@ namespace PXWeb
             get { return _selectionLayout; }
             set { _selectionLayout = value; }
         }
-        const string layoutCookie="layoutCookie";
+        const string layoutCookie = "layoutCookie";
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -107,7 +102,7 @@ namespace PXWeb
             }
 
             ((PxWeb)this.Master).FooterText = "Selection";
-            
+
             string lang = PxUrl.Language;
             string db = PxUrl.Database;
             string path = PxUrl.Path;
@@ -152,7 +147,7 @@ namespace PXWeb
             }
 
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel = PXWeb.Management.PxContext.GetPaxiomForSelection(db, path, table, lang, clearModel);
-           _linkManager = PXWeb.Settings.Current.Database[PxUrl.Database].Metadata.MetaLinkMethod;
+            _linkManager = PXWeb.Settings.Current.Database[PxUrl.Database].Metadata.MetaLinkMethod;
             InitializeLayoutFormat();
             InitializeTableHeadings();
 
@@ -174,12 +169,12 @@ namespace PXWeb
                 //Check if the queryStrings contains partTable and the database type is CNMM
                 //if so download subtable variables
                 if (!string.IsNullOrEmpty(partTable))
-                {                  
+                {
                     DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(db);
                     if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM)
                     {
                         SetValuesFromPartTable(partTable);
-                    }                                        
+                    }
                 }
             }
 
@@ -196,8 +191,9 @@ namespace PXWeb
 
         }
 
-        
-        protected void SetValuesFromPartTable(string partTable){
+
+        protected void SetValuesFromPartTable(string partTable)
+        {
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(partTable);
         }
 
@@ -218,7 +214,7 @@ namespace PXWeb
             VariableSelector1.PxActionEvent -= new PCAxis.Web.Controls.PxActionEventHandler(HandlePxAction);
         }
 
-        
+
 
         private void InitializeTableHeadings()
         {
@@ -251,7 +247,7 @@ namespace PXWeb
             VariableSelector1.ShowHierarchies = PXWeb.Settings.Current.Selection.Hierarchies.ShowHierarchies;
             VariableSelector1.HierarchicalSelectionLevelsOpen = PXWeb.Settings.Current.Selection.Hierarchies.HierarchicalLevelsOpen;
             VariableSelector1.ShowMarkingTips = PXWeb.Settings.Current.Selection.MarkingTips.ShowMarkingTips;
-            VariableSelector1.ClientSideValidation  = PXWeb.Settings.Current.Selection.ClientSideValidation;
+            VariableSelector1.ClientSideValidation = PXWeb.Settings.Current.Selection.ClientSideValidation;
 
             string markingTipsPage;
             markingTipsPage = PCAxis.Web.Controls.Configuration.ConfigurationHelper.GetPxPage("markingtips");
@@ -260,7 +256,7 @@ namespace PXWeb
                 markingTipsPage = "MarkingTips.aspx";
             }
             VariableSelector1.MarkingTipsLinkNavigateUrl = markingTipsPage;
-            
+
             VariableSelector1.SearchButtonMode = PXWeb.Settings.Current.Selection.SearchButtonMode;
             VariableSelector1.MaxRowsWithoutSearch = PXWeb.Settings.Current.Selection.MaxRowsWithoutSearch;
             VariableSelector1.AlwaysShowTimeVariableWithoutSearch = PXWeb.Settings.Current.Selection.AlwaysShowTimeVariableWithoutSearch;
@@ -309,7 +305,7 @@ namespace PXWeb
                 {
                     //ssb:Jira:UUP-267  For cases where the table has been repositioned in the menu-tree, and the user uses an old url:
                     // https..../START__old_pos/MyTableStillExistsElsewhere
-                   MenuTitle.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.Title;
+                    MenuTitle.Text = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.Title;
                 }
 
                 MenuTitle.Visible = true;
@@ -317,7 +313,7 @@ namespace PXWeb
                 {
                     Master.HeadTitle = MenuTitle.Text + ". " + siteTitle;
                 }
-                TableInformationSelect.Visible = false;               
+                TableInformationSelect.Visible = false;
             }
             else
             {
@@ -359,35 +355,37 @@ namespace PXWeb
 
                 TableTitle = currentItem.Text;
             }
-            else 
+            else
             {
                 TableTitle = PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Data.Model.Meta.Title;
             }
             //meta property URL            
-            System.Text.StringBuilder sbPageUrl = new System.Text.StringBuilder();       
+            System.Text.StringBuilder sbPageUrl = new System.Text.StringBuilder();
             sbPageUrl.Append(GetAppPath());
             //If the method returns a link that started with / so it must the / be removed otherwise it will be // in the path 
             if (PCAxis.Web.Core.Management.LinkManager.CreateLink("Selection.aspx").ToString().StartsWith("/"))
             {
-                sbPageUrl.Append(PCAxis.Web.Core.Management.LinkManager.CreateLink("Selection.aspx",null).ToString().Remove(0,1));                            
+                sbPageUrl.Append(PCAxis.Web.Core.Management.LinkManager.CreateLink("Selection.aspx", null).ToString().Remove(0, 1));
             }
             else
             {
                 sbPageUrl.Append(PCAxis.Web.Core.Management.LinkManager.CreateLink("Selection.aspx").ToString());
             }
             //If the pageurl contains rxid, remove this key because it´s not useful in the metatagg
-            if (sbPageUrl.ToString().Contains("rxid")) {
-                PageUrl =RemoveQueryStringByKey(sbPageUrl.ToString(), "rxid"); 
+            if (sbPageUrl.ToString().Contains("rxid"))
+            {
+                PageUrl = RemoveQueryStringByKey(sbPageUrl.ToString(), "rxid");
             }
             else
             {
                 PageUrl = sbPageUrl.ToString();
-                 
+
             }
         }
-        private String GetAppPath() {
-            string appPath = String.Empty;            
-            System.Web.HttpContext context   = System.Web.HttpContext.Current;
+        private String GetAppPath()
+        {
+            string appPath = String.Empty;
+            System.Web.HttpContext context = System.Web.HttpContext.Current;
 
             appPath = String.Format("{0}://{1}{2}{3}",
                                         context.Request.Url.Scheme,
@@ -397,7 +395,7 @@ namespace PXWeb
 
             return appPath;
         }
-        
+
         /// <summary>
         /// Initializes the metadata part of the selection page (footnotes and information)
         /// </summary>
@@ -435,10 +433,10 @@ namespace PXWeb
             string strPathTmp = "";
             string strInfoFile = "";
             int iStart;
-            char[] tilde = {'~'};
+            char[] tilde = { '~' };
 
             lnkDetailedInformation.Visible = false;
-            
+
             if (!string.IsNullOrEmpty(PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile) && PXWeb.Settings.Current.General.Global.ShowInfoFile)
             {
                 try
@@ -497,7 +495,7 @@ namespace PXWeb
 
                     // Is it a HTML-link?
                     if (PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile.Contains("<") &&
-                        PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile.Contains(">")) 
+                        PCAxis.Web.Core.Management.PaxiomManager.PaxiomModel.Meta.InfoFile.Contains(">"))
                     {
                         //check if the infofile shall appears as links next to the footnote link or as a link in 
                         //the information section on the tab About table
@@ -510,8 +508,8 @@ namespace PXWeb
                     }
                     else
                     {
-                         //check if the infofile shall appears as links next to the footnote link or as a link in 
-                         //the information section on the tab About table
+                        //check if the infofile shall appears as links next to the footnote link or as a link in 
+                        //the information section on the tab About table
                         if (PXWeb.Settings.Current.Selection.MetadataAsLinks)
                         {
                             // Show it as it is...
@@ -587,7 +585,7 @@ namespace PXWeb
             }
             if (e.ActionName.Equals("metadata"))
             {
-                
+
             }
         }
 
@@ -623,26 +621,26 @@ namespace PXWeb
             switch (defaultLayout)
             {
                 case "Layout1":
-                {
-                    VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT1;
-                    break;
-                }
+                    {
+                        VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT1;
+                        break;
+                    }
                 case "Layout2":
-                {
-                    VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT2;
-                    break;
-                }
+                    {
+                        VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT2;
+                        break;
+                    }
                 default:
-                {
-                    VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT1;
-                    break;
-                }
+                    {
+                        VariableSelector1.PresentationView = Plugins.Views.TABLE_LAYOUT1;
+                        break;
+                    }
             }
         }
         protected void ShowHideAboutTablePanel(object sender, EventArgs e)
         {
             LinkButton clickedButton = (LinkButton)sender;
-            if (clickedButton.ID== "aboutTablePanelButton")
+            if (clickedButton.ID == "aboutTablePanelButton")
             {
                 ShowAboutTablePanel();
             }
@@ -663,7 +661,7 @@ namespace PXWeb
             //}
         }
 
-            public void ShowAboutTablePanel()
+        public void ShowAboutTablePanel()
         {
             //AboutTablePanelExpanded.Visible = true;
             //AboutTablePanelCollapsed.Visible = false;
@@ -692,7 +690,7 @@ namespace PXWeb
             {
                 _selectionLayout = Request.Cookies[layoutCookie].Value.ToString() != "compact" ? LayoutFormat.simple : LayoutFormat.compact;
             }
-            if (_selectionLayout== LayoutFormat.compact)
+            if (_selectionLayout == LayoutFormat.compact)
             {
                 SwitchLayout.Text = _switchToListTxt;
                 SwitchLayout.CssClass = "variableselector-list-view  pxweb-btn icon-placement variableselector-buttons";
@@ -707,9 +705,9 @@ namespace PXWeb
                 //ucVariableOverview.Visible = true;
             }
 
-            
+
         }
-         protected void SwitchLayout_Click(object sender, EventArgs e)
+        protected void SwitchLayout_Click(object sender, EventArgs e)
         {
             HttpCookie myLayoutCookie = new HttpCookie(layoutCookie);
             if (SelectionLayout == LayoutFormat.simple)
@@ -722,7 +720,7 @@ namespace PXWeb
             }
             else
             {
-                myLayoutCookie.Value = LayoutFormat.simple.ToString();             
+                myLayoutCookie.Value = LayoutFormat.simple.ToString();
                 SwitchLayout.Text = _switchToCompactTxt;
                 SwitchLayout.CssClass = "variableselector-compact-view  pxweb-btn icon-placement variableselector-buttons";
                 SwitchLayout.Attributes.Add("aria-label", _switchToCompactTxtScreenReader);

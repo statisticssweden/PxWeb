@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using System.Xml;
 using System.Globalization;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace PXWeb.Admin
 {
@@ -90,7 +83,7 @@ namespace PXWeb.Admin
         private void InitFields()
         {
             string basepath = System.IO.Path.Combine(PXWeb.Settings.Current.General.Paths.LanguagesPath, PCAxis.Paxiom.Configuration.ConfigurationHelper.LocalizationSection.BaseFile);
-            
+
             _fallbackPath = MapPath(basepath + ".xml");
 
             if (!System.IO.File.Exists(_fallbackPath))
@@ -171,7 +164,7 @@ namespace PXWeb.Admin
                 lbl = new Label();
                 lbl.Text = key;
                 //lbl.CssClass = "languageManagerKeyColumn";
-                
+
                 txt = new TextBox();
                 txt.ID = "txt" + key;
                 txt.Width = new System.Web.UI.WebControls.Unit(98, UnitType.Percentage);

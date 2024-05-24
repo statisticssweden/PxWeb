@@ -1,10 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
+﻿using System.IO;
 using System.Web;
-using System.Xml.Linq;
-using System.IO;
 
 namespace PCAxis.Api.Serializers
 {

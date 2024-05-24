@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PCAxis.Paxiom;
-using PCAxis.Query;
+﻿using PCAxis.Paxiom;
 using System.IO;
-using PCAxis.Paxiom.Operations;
-using PCAxis.Chart;
 using System.Security.Cryptography;
 
 namespace PCAxis.Api.Serializers
@@ -22,9 +15,9 @@ namespace PCAxis.Api.Serializers
         public ChartSerializer(int? width, int? height, string encoding)
         {
             _chartSerializer = new PCAxis.Chart.ChartSerializer();
-            if(width.HasValue)
+            if (width.HasValue)
                 _chartSerializer.Settings.Width = width.Value;
-            if(height.HasValue)
+            if (height.HasValue)
                 _chartSerializer.Settings.Height = height.Value;
             _encoding = string.IsNullOrEmpty(encoding) ? "binary" : encoding;
         }
@@ -37,7 +30,7 @@ namespace PCAxis.Api.Serializers
 
             if (_encoding == "base64")
             {
-                s = new CryptoStream(httpResponse, new ToBase64Transform(), CryptoStreamMode.Write); 
+                s = new CryptoStream(httpResponse, new ToBase64Transform(), CryptoStreamMode.Write);
             }
             else
             {
@@ -51,7 +44,7 @@ namespace PCAxis.Api.Serializers
 
         public void Serialize(PCAxis.Paxiom.PXModel model, ResponseBucket cacheResponse)
         {
-            
+
             if (_encoding == "base64")
             {
                 cacheResponse.ContentType = "text/plain; charset=" + System.Text.Encoding.Default.WebName;

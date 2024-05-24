@@ -13,7 +13,7 @@
         Get
             Return _FootnoteType
         End Get
-            Set(ByVal value As Enums.FootnoteType)
+        Set(ByVal value As Enums.FootnoteType)
             _FootnoteType = value
         End Set
     End Property

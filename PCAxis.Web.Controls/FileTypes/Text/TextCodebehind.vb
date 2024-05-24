@@ -1,10 +1,7 @@
 ﻿
 
-Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom
 Imports System.Web.UI.WebControls
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core.Management
+Imports PCAxis.Web.Core
 Public Class TextCodebehind
     Inherits FileTypeControlBase(Of TextCodebehind, Text)
 
@@ -31,7 +28,7 @@ Public Class TextCodebehind
         LineLengthDescription.Text = GetLocalizedString("CtrlSaveAsLineLengthControl")
         PageLengthDescription.Text = GetLocalizedString("CtrlSaveAsPageLengthControl")
         MarginDescription.Text = GetLocalizedString("CtrlSaveAsMarginControl")
-        ContinueButton.Text = GetLocalizedString("CtrlSaveAsContinueButton")        
+        ContinueButton.Text = GetLocalizedString("CtrlSaveAsContinueButton")
     End Sub
 
     Private Sub continue_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ContinueButton.Click

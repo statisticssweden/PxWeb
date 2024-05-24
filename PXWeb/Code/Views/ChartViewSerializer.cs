@@ -1,10 +1,7 @@
-﻿using PCAxis.Query;
+﻿using PCAxis.Chart;
+using PCAxis.Query;
 using PCAxis.Web.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using PCAxis.Chart;
 
 namespace PXWeb.Views
 {
@@ -17,7 +14,7 @@ namespace PXWeb.Views
 
             var pxUrl = PXWeb.RouteInstance.PxUrlProvider.Create(null);
             string layout = pxUrl.Layout;
-            
+
             output.Params.Add("layout", layout);
             output.Params.Add("chart_title", ChartManager.Settings.Title);
             output.Params.Add("chart_width", ChartManager.Settings.Width.ToString());

@@ -1,18 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
+﻿using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Globalization;
-using PCAxis.Web.Core.Management;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
 
 namespace PXWeb.Misc
 {
@@ -29,7 +16,7 @@ namespace PXWeb.Misc
         /// Regular expression for times  10:15,11:15
         /// </summary>
         private static Regex _regTimes = new Regex(@"^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
-            //new Regex(@"(?!=^|,)(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9])$");//(@"^-*[0-9,\:]+$");
+        //new Regex(@"(?!=^|,)(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9])$");//(@"^-*[0-9,\:]+$");
         //^(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9])(?:,|$)$
         //(?!=^|,)(2[0-3]|1[0-9]|0[0-9]|[^0-9][0-9]):([0-5][0-9]|[0-9])(?!=^|,)$
         /// <summary>
@@ -176,17 +163,17 @@ namespace PXWeb.Misc
         /// <param name="keyErrorMessage">Contains key for error message if value is not valid</param>
         /// <returns>True if value is valid, else false</returns>
         public static bool ValidateStringOfTimes(object source, System.Web.UI.WebControls.ServerValidateEventArgs args, out string keyErrorMessage)
-        {            
+        {
             char[] separators = new char[] { ',' }; // Comma and semicolon are allowed as separators
             string times = args.Value.ToLower();
             string[] parts = times.Split(separators);
 
             foreach (var time in parts)
             {
-                if (! _regTimes.IsMatch(time.Trim()))
+                if (!_regTimes.IsMatch(time.Trim()))
                 {
                     keyErrorMessage = "PxWebAdminSettingsValidationIllegalTimeSeries";
-                    return false;  
+                    return false;
                 }
             }
 

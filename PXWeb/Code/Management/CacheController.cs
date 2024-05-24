@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Caching;
@@ -19,12 +18,12 @@ namespace PXWeb.Management
         /// <summary>
         /// List of PX caches that shall be handled by the cache controller
         /// </summary>
-        private List<IPxCache> _caches; 
+        private List<IPxCache> _caches;
 
         /// <summary>
         /// List of times when we want to clear all PX caches automatically
         /// </summary>
-        private List<string> _times; 
+        private List<string> _times;
 
         /// <summary>
         /// Initialize the cache controller
@@ -112,7 +111,7 @@ namespace PXWeb.Management
                 _logger.InfoFormat("Next scheduled clear at {0}", t.Value.ToString());
             }
         }
-        
+
         /// <summary>
         /// Callback to clean the PX caches and also resechdual the next cleaning of the PX caches
         /// </summary>

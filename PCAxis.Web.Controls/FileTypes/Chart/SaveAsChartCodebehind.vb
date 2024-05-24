@@ -1,14 +1,6 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Web
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Management
-Imports System.Drawing.Imaging
-Imports System.Web.UI.WebControls
+﻿Imports System.Web.UI.WebControls
 Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core
 
 Public Class SaveAsChartCodebehind : Inherits FileTypeControlBase(Of SaveAsChartCodebehind, SaveAsChart)
 

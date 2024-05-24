@@ -1,14 +1,9 @@
-﻿Imports PCAxis.Web.Core.Enums
-Imports PCAxis.Paxiom
+﻿Imports System.Globalization
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
 Imports PCAxis.Web.Core
 Imports PCAxis.Web.Core.Attributes
-Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.Globalization
-Imports System.ComponentModel
-Imports PCAxis.Paxiom.Localization
-Imports System.Text
-Imports System.Web.UI.HtmlControls
+Imports PCAxis.Web.Core.Enums
 Imports PCAxis.Web.Core.Management.LinkManager
 
 Public Enum SearchResultViewMode
@@ -74,7 +69,7 @@ Public Class TextSearchCodebehind
 
 
 
-    Private Sub TextSearch_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load        
+    Private Sub TextSearch_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         SearchTextBoxRequiredFieldValidator.ErrorMessage = Me.GetLocalizedString("CtrlTextSearchErrorTextBox")
         If TextSearch.SearchResults.Count > 0 Then
@@ -183,13 +178,13 @@ Public Class TextSearchCodebehind
 
     Private Sub ShowSearchResults(ByVal results As List(Of SearchResult))
         Dim resultQuery = From resultItem In results _
-                                      Let Attributes = (From attribute In resultItem.Attributes _
-                                                        Where Marker.VisibleAttributes.Contains(attribute.Key) _
-                                                        Select Key = Me.GetLocalizedString(attribute.Key), attribute.Value) _
-                                      Select resultItem.PresentationText, _
-                                      Selection = resultItem.MenuSelection, _
-                                      resultItem.Size, _
-                                      Attributes
+                          Let Attributes = (From attribute In resultItem.Attributes _
+                                            Where Marker.VisibleAttributes.Contains(attribute.Key) _
+                                            Select Key = Me.GetLocalizedString(attribute.Key), attribute.Value) _
+                          Select resultItem.PresentationText, _
+                          Selection = resultItem.MenuSelection, _
+                          resultItem.Size, _
+                          Attributes
 
 
         ResultRepeater.DataSource = resultQuery

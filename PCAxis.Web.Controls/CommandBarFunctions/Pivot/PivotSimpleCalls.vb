@@ -1,6 +1,6 @@
-﻿Imports PCAxis.Web.Controls.CommandBar.Plugin
+﻿Imports PCAxis.Paxiom.Operations
+Imports PCAxis.Web.Controls.CommandBar.Plugin
 Imports PCAxis.Web.Core.Management
-Imports PCAxis.Paxiom.Operations
 
 Public Class PivotSimpleCalls
     Implements ICommandBarNoGUIPlugin

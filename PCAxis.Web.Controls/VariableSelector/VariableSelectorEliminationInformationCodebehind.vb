@@ -1,5 +1,5 @@
-﻿Imports PCAxis.Web.Core
-Imports System.Web.UI.WebControls
+﻿Imports System.Web.UI.WebControls
+Imports PCAxis.Web.Core
 
 ''' <summary>
 ''' Control that presents information on elimination during variable select.
@@ -55,7 +55,7 @@ Public Class VariableSelectorEliminationInformationCodebehind
             End If
 
         End If
-      
+
     End Sub
 
     Private Sub VariableSelectorEliminationInformation_LanguageChanged(ByVal sender As Object, ByVal e As EventArgs) _

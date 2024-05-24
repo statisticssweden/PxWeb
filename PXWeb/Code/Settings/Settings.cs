@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using System.Collections.Generic;
 
 namespace PXWeb
 {
@@ -88,7 +88,7 @@ namespace PXWeb
         /// Log object
         /// </summary>
         private static log4net.ILog _logger;
-        
+
         #endregion
 
         #region "Public static methods"
@@ -193,7 +193,7 @@ namespace PXWeb
                 }
             }
 
-            
+
         }
 
 
@@ -261,7 +261,7 @@ namespace PXWeb
         }
 
         #endregion
-        
+
         #region "Private/Protected methods"
 
         /// <summary>
@@ -387,7 +387,7 @@ namespace PXWeb
                 }
             }
         }
-        
+
 
         /// <summary>
         /// Get the path to the databases directory
@@ -477,7 +477,7 @@ namespace PXWeb
             PCAxis.Paxiom.Settings.DataNotes.Placment = _generalSettings.Global.DataNotePlacement;
             PCAxis.Paxiom.Settings.Metadata.RemoveSingleContent = _generalSettings.Global.RemoveSingleContent;
 
-            PCAxis.Paxiom.Settings.Files.CompleteInfoFile = _generalSettings.FileFormats.Excel.InformationLevel;            
+            PCAxis.Paxiom.Settings.Files.CompleteInfoFile = _generalSettings.FileFormats.Excel.InformationLevel;
 
             switch (_generalSettings.FileFormats.FileBaseName)
             {
@@ -598,7 +598,7 @@ namespace PXWeb
         /// <summary>
         /// Features settings
         /// </summary>
-        public IFeaturesSettings Features { get { return _featuresSettings;  } }
+        public IFeaturesSettings Features { get { return _featuresSettings; } }
 
         /// <summary>
         /// Dictionary with settings per database

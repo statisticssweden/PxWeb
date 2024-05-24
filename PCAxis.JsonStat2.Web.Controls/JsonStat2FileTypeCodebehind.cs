@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PCAxis.Web.Core;
-using PCAxis.Web.Controls.CommandBar.Plugin;
-using System.Web.UI.WebControls;
+﻿using PCAxis.Web.Core;
 
 namespace PCAxis.JsonStat2.Web.Controls
 {

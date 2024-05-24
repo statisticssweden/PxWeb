@@ -1,9 +1,3 @@
-Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Web.Core.Attributes
-Imports System.Web.UI.WebControls
-Imports System.Collections.ObjectModel
-
 Namespace CommandBar
     ''' <summary>
     ''' Provides data for the <see cref="CommandBarPluginSelector.PluginSelected" /> event

@@ -1,16 +1,8 @@
 using System;
 using System.Collections.Specialized;
-using System.Configuration;
-using System.Data;
-using System.Web;
 using System.Web.Configuration;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-
-using System.Reflection;
 
 namespace CSSFriendly
 {
@@ -40,7 +32,7 @@ namespace CSSFriendly
         public TreeViewAdapter()
         {
             if (_viewState == null)
-                _viewState = string.Empty; 
+                _viewState = string.Empty;
             //{
             //    _viewState = new HiddenField();
             //}
@@ -140,7 +132,7 @@ namespace CSSFriendly
                 {
                     _newViewState = oldExpansionState;
                     _updateViewState = true;
-                    }
+                }
                 else if (!String.IsNullOrEmpty(Page.Request.Form[hiddenInputName]))
                 {
                     _newViewState = Page.Request.Form[hiddenInputName];
@@ -188,45 +180,45 @@ namespace CSSFriendly
         {
             Extender.RegisterScripts();
 
-			/* 
+            /* 
 			 * Modified for support of compiled CSSFriendly assembly
 			 * 
 			 * We will first search for embedded JavaScript files. If they are not
 			 * found, we default to the standard approach.
 			 */
 
-			Type type = this.GetType();
+            Type type = this.GetType();
 
-			// TreeViewAdapter.js
-			string resource = "CSSFriendly.JavaScript.TreeViewAdapter.js";
-			string filePath = Page.ClientScript.GetWebResourceUrl(type, resource);
-			
-			// if filePath is empty, use the old approach
-			if ( String.IsNullOrEmpty(filePath) )
-			{
-				string folderPath = WebConfigurationManager.AppSettings.Get("CSSFriendly-JavaScript-Path");
-				if (String.IsNullOrEmpty(folderPath))
-				{
-					folderPath = "~/JavaScript";
-				}
-				filePath = folderPath.EndsWith("/") ? folderPath + "TreeViewAdapter.js" : folderPath + "/TreeViewAdapter.js";
-			}
+            // TreeViewAdapter.js
+            string resource = "CSSFriendly.JavaScript.TreeViewAdapter.js";
+            string filePath = Page.ClientScript.GetWebResourceUrl(type, resource);
 
-			if (!Page.ClientScript.IsClientScriptIncludeRegistered(type, resource))
-				Page.ClientScript.RegisterClientScriptInclude(type, resource, Page.ResolveUrl(filePath));
+            // if filePath is empty, use the old approach
+            if (String.IsNullOrEmpty(filePath))
+            {
+                string folderPath = WebConfigurationManager.AppSettings.Get("CSSFriendly-JavaScript-Path");
+                if (String.IsNullOrEmpty(folderPath))
+                {
+                    folderPath = "~/JavaScript";
+                }
+                filePath = folderPath.EndsWith("/") ? folderPath + "TreeViewAdapter.js" : folderPath + "/TreeViewAdapter.js";
+            }
 
-         //// TreeView.css -- only add if it is embedded
-         //resource = "CSSFriendly.CSS.TreeView.css";
-         //filePath = Page.ClientScript.GetWebResourceUrl(type, resource);
-			
-         //// if filePath is not empty, embedded CSS exists -- register it
-         //if (!String.IsNullOrEmpty(filePath))
-         //{
-         //   string cssTag = "<link href=\"" + Page.ResolveUrl(filePath) + "\" type=\"text/css\" rel=\"stylesheet\"></link>";
-         //   if (!Page.ClientScript.IsClientScriptBlockRegistered(type, resource))
-         //      Page.ClientScript.RegisterClientScriptBlock(type, resource, cssTag, false);
-         //}
-		}
+            if (!Page.ClientScript.IsClientScriptIncludeRegistered(type, resource))
+                Page.ClientScript.RegisterClientScriptInclude(type, resource, Page.ResolveUrl(filePath));
+
+            //// TreeView.css -- only add if it is embedded
+            //resource = "CSSFriendly.CSS.TreeView.css";
+            //filePath = Page.ClientScript.GetWebResourceUrl(type, resource);
+
+            //// if filePath is not empty, embedded CSS exists -- register it
+            //if (!String.IsNullOrEmpty(filePath))
+            //{
+            //   string cssTag = "<link href=\"" + Page.ResolveUrl(filePath) + "\" type=\"text/css\" rel=\"stylesheet\"></link>";
+            //   if (!Page.ClientScript.IsClientScriptBlockRegistered(type, resource))
+            //      Page.ClientScript.RegisterClientScriptBlock(type, resource, cssTag, false);
+            //}
+        }
 
         protected override void RenderBeginTag(HtmlTextWriter writer)
         {
@@ -413,44 +405,44 @@ namespace CSSFriendly
 
 
         private void WriteNodeLink(TreeView treeView, TreeNode item, HtmlTextWriter writer)
-                {
-                    writer.WriteBeginTag("a");
+        {
+            writer.WriteBeginTag("a");
 
             if (!String.IsNullOrEmpty(item.NavigateUrl))
-                    {
+            {
                 writer.WriteAttribute("href", Extender.ResolveUrl(item.NavigateUrl));
-                    }
-                    else
-                    {
-                        string codePrefix = "";
-                        if (item.SelectAction == TreeNodeSelectAction.Select)
-                        {
-                            codePrefix = "s";
-                        }
-                        else if (item.SelectAction == TreeNodeSelectAction.SelectExpand)
-                        {
-                            codePrefix = "e";
-                        }
-                        else if (item.PopulateOnDemand)
-                        {
-                            codePrefix = "p";
-                        }
-                        writer.WriteAttribute("href", Page.ClientScript.GetPostBackClientHyperlink(treeView, codePrefix + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
-                    }
+            }
+            else
+            {
+                string codePrefix = "";
+                if (item.SelectAction == TreeNodeSelectAction.Select)
+                {
+                    codePrefix = "s";
+                }
+                else if (item.SelectAction == TreeNodeSelectAction.SelectExpand)
+                {
+                    codePrefix = "e";
+                }
+                else if (item.PopulateOnDemand)
+                {
+                    codePrefix = "p";
+                }
+                writer.WriteAttribute("href", Page.ClientScript.GetPostBackClientHyperlink(treeView, codePrefix + (Page.Server.HtmlEncode(item.ValuePath)).Replace("/", "\\"), true));
+            }
 
             WebControlAdapterExtender.WriteTargetAttribute(writer, item.Target);
 
             if (!String.IsNullOrEmpty(item.ToolTip))
-                    {
-                        writer.WriteAttribute("title", item.ToolTip);
-                    }
+            {
+                writer.WriteAttribute("title", item.ToolTip);
+            }
             else if (!String.IsNullOrEmpty(treeView.ToolTip))
-                    {
-                        writer.WriteAttribute("title", treeView.ToolTip);
-                    }
-                    writer.Write(HtmlTextWriter.TagRightChar);
-                    writer.Indent++;
-                    writer.WriteLine();
+            {
+                writer.WriteAttribute("title", treeView.ToolTip);
+            }
+            writer.Write(HtmlTextWriter.TagRightChar);
+            writer.Indent++;
+            writer.WriteLine();
 
             WriteNodeImage(treeView, item, writer);
 
@@ -461,7 +453,7 @@ namespace CSSFriendly
 
             writer.Indent--;
             writer.WriteEndTag("a");
-                }
+        }
 
         /// <summary>
         /// Write URL-links to the node
@@ -576,7 +568,7 @@ namespace CSSFriendly
                 {
                     //if (IsExpandable(item))
                     //{
-                        value = "AspNet-TreeView-Root";
+                    value = "AspNet-TreeView-Root";
                     //}
                     //else
                     //{
@@ -730,7 +722,7 @@ namespace CSSFriendly
         private string ComposeViewState(TreeNodeCollection nodes, string state)
         {
             if (nodes != null)
-        {
+            {
                 foreach (TreeNode node in nodes)
                 {
                     if (IsExpandable(node))
@@ -741,10 +733,10 @@ namespace CSSFriendly
                             state = ComposeViewState(node.ChildNodes, state);
                         }
                         else
-            {
+                        {
                             state += "n";
-            }
-        }
+                        }
+                    }
                 }
             }
 
@@ -756,17 +748,17 @@ namespace CSSFriendly
             if ((nodes != null) && (!String.IsNullOrEmpty(state)))
             {
                 foreach (TreeNode node in nodes)
-        {
+                {
                     if (IsExpandable(node))
-            {
+                    {
                         bool bExpand = (state[0] == 'e');
                         state = state.Substring(1);
                         if (bExpand)
-                {
+                        {
                             node.Expand();
                             state = ExpandToState(node.ChildNodes, state);
-                }
-            }
+                        }
+                    }
                 }
             }
 

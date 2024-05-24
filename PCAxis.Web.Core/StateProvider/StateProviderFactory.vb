@@ -1,5 +1,4 @@
-﻿Imports System.Reflection
-Imports System.Web
+﻿Imports System.Web
 Imports System.Web.Caching
 Imports PCAxis.Web.Core.Management
 
@@ -109,7 +108,7 @@ Namespace StateProvider
                     provider = CreateStateProvider(stateProviderName, requestID)
                     StoreStateProvider(provider, stateProviderName)
                 End If
-            End If        
+            End If
             Return provider
         End Function
 

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Configuration;
 using System.Web.Security;
 
 namespace PXWeb.Security
@@ -72,7 +67,7 @@ namespace PXWeb.Security
 
             return configValue;
         }
-        
+
         public override string ApplicationName
         {
             get

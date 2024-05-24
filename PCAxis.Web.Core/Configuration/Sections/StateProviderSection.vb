@@ -162,7 +162,7 @@ Namespace Configuration.Sections
         ''' <returns>A <see cref="String" /> representing the unique name of the provider</returns>
         ''' <remarks></remarks>
         <ConfigurationProperty(CONFIG_NAME, IsRequired:=True)> _
-      Public Property Name() As String
+        Public Property Name() As String
             Get
                 Return Me(CONFIG_NAME).ToString()
             End Get

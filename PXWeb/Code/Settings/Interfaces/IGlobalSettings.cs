@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace PXWeb
+﻿namespace PXWeb
 {
     /// <summary>
     /// Interface for the General.Global settings
@@ -88,7 +83,7 @@ namespace PXWeb
         /// <summary>
         /// if the link to the infofile shall appear under the information tab
         /// </summary>
-        bool ShowInfoFile { get;  }
+        bool ShowInfoFile { get; }
 
     }
 }

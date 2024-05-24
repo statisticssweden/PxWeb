@@ -1,15 +1,10 @@
-﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Xml.Linq;
-using System.Windows.Forms.DataVisualization.Charting;
-using PCAxis.Charting;
-using PCAxis.Paxiom;
+﻿using PCAxis.Paxiom;
+using System;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Globalization;
+using System.Linq;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PCAxis.Chart
 {
@@ -52,7 +47,7 @@ namespace PCAxis.Chart
                 // ...else use localized text
                 InfoText = ChartHelper.GetLocalizedString("PxWebChartsSourceLabel", CurrentCulture) + " " + ChartHelper.GetLocalizedString("PxWebChartsSource", CurrentCulture);
             }
-            
+
         }
 
         /// <summary>
@@ -78,10 +73,10 @@ namespace PCAxis.Chart
         protected override void additionalGraphics(Graphics graphics)
         {
             System.Drawing.Image img = null;
-            
+
             int borderThickness = 0;
 
-            if (Settings != null &&  Settings.LineThicknessPhrame != null && Settings.LineThicknessPhrame > 0)
+            if (Settings != null && Settings.LineThicknessPhrame != null && Settings.LineThicknessPhrame > 0)
             {
                 borderThickness = Settings.LineThicknessPhrame;
             }
@@ -98,8 +93,8 @@ namespace PCAxis.Chart
 
                     if (loggtypePath.StartsWith("~"))
                     {
-                        loggtypePath = loggtypePath.Remove(0,1);
-                    
+                        loggtypePath = loggtypePath.Remove(0, 1);
+
                     }
 
                     if (loggtypePath.StartsWith("/") && appPath.ToString().EndsWith("/"))
@@ -157,7 +152,7 @@ namespace PCAxis.Chart
 
         private void WriteTopAxisText(Graphics graphics)
         {
-             
+
             float x;
             ChartArea ca = ChartAreas.First();
 
@@ -270,7 +265,7 @@ namespace PCAxis.Chart
         /// Add legend
         /// </summary>
         protected override void addLegend()
-        {           
+        {
             if (showLegend)
             {
                 LegendItemOrder order = LegendItemOrder.ReversedSeriesOrder;
@@ -291,15 +286,15 @@ namespace PCAxis.Chart
         }
 
 
-        private String  GetAppPath ()
+        private String GetAppPath()
         {
             String appPath = string.Empty;
-            System.Web.HttpContext context = System.Web.HttpContext.Current; 
+            System.Web.HttpContext context = System.Web.HttpContext.Current;
 
-            appPath = String.Format("{0}://{1}{2}{3}", 
+            appPath = String.Format("{0}://{1}{2}{3}",
                                     context.Request.Url.Scheme,
                                     context.Request.Url.Host,
-                                    context.Request.Url.Port.Equals(80) ? String.Empty : ":" + context.Request.Url.Port.ToString(), 
+                                    context.Request.Url.Port.Equals(80) ? String.Empty : ":" + context.Request.Url.Port.ToString(),
                                     context.Request.ApplicationPath);
             return appPath;
         }

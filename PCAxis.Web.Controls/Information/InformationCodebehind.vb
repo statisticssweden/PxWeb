@@ -1,11 +1,9 @@
 ﻿
 Imports System.Text
 Imports System.Web.UI
-Imports PCAxis.Enums
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core
 Imports System.Web.UI.WebControls
+Imports PCAxis.Enums
+Imports PCAxis.Web.Core
 
 ''' <summary>
 ''' Showing information
@@ -47,7 +45,7 @@ Public Class InformationCodebehind
     ''' </summary>
     ''' <remarks></remarks>
     Friend Sub GetInformation()
-        If Me.PaxiomModel IsNot Nothing Then            
+        If Me.PaxiomModel IsNot Nothing Then
             If Marker.ShowInformationTypes Is Nothing Then 'Create default which is all information types.
                 Marker.ShowInformationTypes = New List(Of InformationType)
                 Dim enumValues As Array = System.[Enum].GetValues(GetType(InformationType))

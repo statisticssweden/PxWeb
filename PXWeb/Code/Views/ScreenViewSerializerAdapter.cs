@@ -1,11 +1,11 @@
-﻿using System;
+﻿using PCAxis.Paxiom;
+using PCAxis.Query;
+using PCAxis.Web.Controls;
+using PCAxis.Web.Core.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using PCAxis.Query;
-using PCAxis.Web.Core.Management;
-using PCAxis.Paxiom;
-using PCAxis.Web.Controls;
 
 namespace PXWeb.Views
 {
@@ -15,7 +15,8 @@ namespace PXWeb.Views
 
         public abstract void Render(string format, PCAxis.Query.SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe);
 
-        protected void RenderToScreen(PCAxis.Query.SavedQuery query, PXModel model, string defaultLayout, string page, bool safe) {
+        protected void RenderToScreen(PCAxis.Query.SavedQuery query, PXModel model, string defaultLayout, string page, bool safe)
+        {
             if (query.Sources.Count < 1) throw new Exception("No source specified"); //TODO fix message
 
             var src = query.Sources[0];
@@ -31,7 +32,7 @@ namespace PXWeb.Views
             {
                 layout = defaultLayout;
             }
-                 
+
 
             string path = src.Source;
             var tableName = GetTableName(src);
@@ -47,7 +48,7 @@ namespace PXWeb.Views
             }
 
             path = path.Replace(@"/", PxPathHandler.NODE_DIVIDER);
-            
+
             string url = null;
 
             if (RouteInstance.RouteExtender == null)

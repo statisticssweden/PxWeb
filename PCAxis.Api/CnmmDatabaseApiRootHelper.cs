@@ -1,12 +1,6 @@
-﻿using PCAxis.Menu;
-using PX.Web.Interfaces.Cache;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PCAxis.Api
 {
@@ -15,8 +9,8 @@ namespace PCAxis.Api
         private static string _databaseRoot = null;
         private static bool _isRooted;
         private static bool _isInitialized = false;
-        public static string DatabaseRoot 
-        { 
+        public static string DatabaseRoot
+        {
             get
             {
                 if (!_isInitialized)
@@ -28,16 +22,16 @@ namespace PCAxis.Api
             }
         }
 
-        public static bool IsRooted 
-        { 
+        public static bool IsRooted
+        {
             get
-            { 
+            {
                 if (!_isInitialized)
                 {
                     ReadConfig();
                 }
 
-                return _isRooted; 
+                return _isRooted;
             }
         }
 
@@ -45,7 +39,7 @@ namespace PCAxis.Api
         {
             string lookupTableName = "pxapi_LookUpApiPathCache_" + language;
             var lookupTable = ApiCache.Current.Get<HashSet<string>>(lookupTableName);
-            
+
             if (lookupTable is null)
             {
                 lookupTable = PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[db].GetApiPathLookup(DatabaseRoot);

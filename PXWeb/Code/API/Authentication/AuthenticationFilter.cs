@@ -16,9 +16,9 @@ namespace PXWeb.API
         public AuthenticationFilter()
         {
             _key = ConfigurationManager.AppSettings.Get(KEYNAME);
-            if (string.IsNullOrWhiteSpace(_key)) 
+            if (string.IsNullOrWhiteSpace(_key))
             {
-                _key = Environment.GetEnvironmentVariable(KEYNAME); 
+                _key = Environment.GetEnvironmentVariable(KEYNAME);
             }
             if (string.IsNullOrEmpty(_key))
             {

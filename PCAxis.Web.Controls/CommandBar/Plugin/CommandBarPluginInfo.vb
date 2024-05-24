@@ -163,43 +163,43 @@
         End Property
 
         Private _shortcutImage As String
-		''' <summary>
-		''' The image that will be shown for the plugin as a shortcut when CommandBar is in ViewMode = DropDown
-		''' </summary>
-		''' <value>The name of the image</value>
-		''' <returns>The name of the image</returns>
-		''' <remarks></remarks>
-		Public Property ShortcutImage() As String
-			Get
-				Return _shortcutImage
-			End Get
-			Set(ByVal value As String)
-				_shortcutImage = value
-			End Set
-		End Property
-		Private _sortOrder As Integer
-		''' <summary>
-		''' The sort order for the plugin in lists
-		''' </summary>
-		''' <value>Sort order</value>
-		''' <returns>The sort order</returns>
-		''' <remarks></remarks>
-		Public Property SortOrder() As Integer
-			Get
-				Return _sortOrder
-			End Get
-			Set(ByVal value As Integer)
-				_sortOrder = value
-			End Set
-		End Property
+        ''' <summary>
+        ''' The image that will be shown for the plugin as a shortcut when CommandBar is in ViewMode = DropDown
+        ''' </summary>
+        ''' <value>The name of the image</value>
+        ''' <returns>The name of the image</returns>
+        ''' <remarks></remarks>
+        Public Property ShortcutImage() As String
+            Get
+                Return _shortcutImage
+            End Get
+            Set(ByVal value As String)
+                _shortcutImage = value
+            End Set
+        End Property
+        Private _sortOrder As Integer
+        ''' <summary>
+        ''' The sort order for the plugin in lists
+        ''' </summary>
+        ''' <value>Sort order</value>
+        ''' <returns>The sort order</returns>
+        ''' <remarks></remarks>
+        Public Property SortOrder() As Integer
+            Get
+                Return _sortOrder
+            End Get
+            Set(ByVal value As Integer)
+                _sortOrder = value
+            End Set
+        End Property
 
 
-		''' <summary>
-		''' Initializes a new instance of the <see cref="CommandBarPluginInfo"  />
-		''' </summary>
-		''' <param name="type">The <see cref="System.Type" /> of the plugin</param>
-		''' <remarks></remarks>
-		Friend Sub New(ByVal type As String)
+        ''' <summary>
+        ''' Initializes a new instance of the <see cref="CommandBarPluginInfo"  />
+        ''' </summary>
+        ''' <param name="type">The <see cref="System.Type" /> of the plugin</param>
+        ''' <remarks></remarks>
+        Friend Sub New(ByVal type As String)
             Me._type = System.Type.GetType(type)
         End Sub
 

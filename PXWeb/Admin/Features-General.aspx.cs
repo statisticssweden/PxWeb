@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
+﻿using PCAxis.Web.Controls.CommandBar.Plugin;
+using PXWeb.Misc;
+using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using PCAxis.Web.Controls.CommandBar.Plugin;
-using System.Collections.Generic;
-using PXWeb.Misc;
 
 namespace PXWeb.Admin
 {
@@ -41,7 +32,7 @@ namespace PXWeb.Admin
             chkSearch.Checked = PXWeb.Settings.Current.Features.General.SearchEnabled;
             chkBackgroundWorker.Checked = PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled;
             txtClearCache.Text = PXWeb.Settings.Current.Features.General.ClearCache;
-            
+
         }
 
         /// <summary>
@@ -83,8 +74,8 @@ namespace PXWeb.Admin
                         general.SearchEnabled = chkSearch.Checked;
                         general.BackgroundWorkerEnabled = chkBackgroundWorker.Checked;
                         general.SavedQueryEnabled = chkSavedQuery.Checked;
-                        general.ClearCache = txtClearCache.Text.Replace(" ","");
-                        
+                        general.ClearCache = txtClearCache.Text.Replace(" ", "");
+
 
                         PXWeb.Settings.Save();
 
@@ -171,7 +162,7 @@ namespace PXWeb.Admin
         private void RemoveFileFormatsByCategory(List<string> lst, string category)
         {
             //PCAxis.Web.Controls.FileGenerator fileGenerator = new PCAxis.Web.Controls.FileGenerator(Master.SelectedCulture());
-            
+
             for (int i = lst.Count - 1; i >= 0; i--)
             {
                 if (CommandBarPluginManager.GetFileType(lst[i]).Category.Equals(category))

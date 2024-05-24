@@ -1,10 +1,7 @@
 ﻿
 
-Imports PCAxis.Web.Core
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Web.Core.Attributes
 Imports System.Web.UI.WebControls
-Imports System.Collections.ObjectModel
+Imports PCAxis.Web.Core
 
 Namespace CommandBar
     ''' <summary>
@@ -33,7 +30,7 @@ Namespace CommandBar
         ''' <param name="sender">The source of the event</param>
         ''' <param name="e">An EventArgs that contains no event data</param>
         ''' <remarks></remarks>
-        Private Sub CommandBarPluginSelector_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load            
+        Private Sub CommandBarPluginSelector_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
             'If no plugins have yet been loaded
             If PluginSelectorListBox.Items.Count = 0 Then
@@ -55,6 +52,6 @@ Namespace CommandBar
             'Fire the PluginSelected event
             Marker.OnPluginSelected(PluginSelectorListBox.SelectedValue)
         End Sub
-     
+
     End Class
 End Namespace

@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
+﻿using PCAxis.Paxiom.Extensions;
+using PCAxis.Web.Controls;
+using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using System.Xml.Linq;
-using System.Collections.Generic;
-using PCAxis.Web.Controls;
-using PCAxis.Paxiom.Extensions;
 
 namespace PXWeb.Admin
 {
@@ -185,8 +176,8 @@ namespace PXWeb.Admin
                 return false;
             }
 
-            if (searchIndex.Status == SearchIndexStatusType.Indexing || 
-                searchIndex.Status == SearchIndexStatusType.WaitingCreate || 
+            if (searchIndex.Status == SearchIndexStatusType.Indexing ||
+                searchIndex.Status == SearchIndexStatusType.WaitingCreate ||
                 searchIndex.Status == SearchIndexStatusType.WaitingUpdate)
             {
                 return false;
@@ -282,7 +273,7 @@ namespace PXWeb.Admin
             {
                 searchIndex.Status = SearchIndexStatusType.WaitingCreate;
                 db.Save();
-                
+
                 if (PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled)
                 {
                     // Wake up the background worker if it is asleep

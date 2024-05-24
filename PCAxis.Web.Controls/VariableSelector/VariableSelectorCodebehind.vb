@@ -1,16 +1,9 @@
-﻿Imports System.Collections.Generic
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Enums
+﻿Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.Web.UI.HtmlControls
-Imports PCAxis.Web.Core.StateProvider
-Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Paxiom
 Imports PCAxis.Query
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Management
 
 Public Class VariableSelectorCodebehind
     Inherits PaxiomControlBase(Of VariableSelectorCodebehind, VariableSelector)

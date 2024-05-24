@@ -1,19 +1,10 @@
 ﻿
 
-Imports System.Web.UI.WebControls
 Imports System.Web.UI
-Imports System.ComponentModel
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
-Imports System.Collections
-Imports System.Text
-Imports System.Xml
-Imports System.Xml.XPath
-Imports PCAxis.Web.Core.Interfaces
+Imports System.Web.UI.WebControls
 Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Interfaces
 
 ''' <summary>
 ''' Save dialog control.

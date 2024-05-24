@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.UI;
 
 namespace PXWeb.Views
@@ -20,15 +17,15 @@ namespace PXWeb.Views
             {
                 case PxUrl.PAGE_SELECT:
                     return new SelectionViewSerializer();
-                case PxUrl.VIEW_TABLE_IDENTIFIER :
+                case PxUrl.VIEW_TABLE_IDENTIFIER:
                     return new TableViewSerializer();
-                case PxUrl.VIEW_CHART_IDENTIFIER :
+                case PxUrl.VIEW_CHART_IDENTIFIER:
                     return new ChartViewSerializer();
                 case PxUrl.VIEW_FOOTNOTES_IDENTIFIER:
-                  return new TableViewSerializer();
-                case PxUrl.VIEW_INFORMATION_IDENTIFIER :
+                    return new TableViewSerializer();
+                case PxUrl.VIEW_INFORMATION_IDENTIFIER:
                     return new InformationViewSerializer();
-                case PxUrl.VIEW_SORTEDTABLE_IDENTIFIER :
+                case PxUrl.VIEW_SORTEDTABLE_IDENTIFIER:
                     return new SortedTableViewSerializer();
                 case PCAxis.Web.Controls.Plugins.FileFormats.CHART_PNG:
                 case PCAxis.Web.Controls.Plugins.FileFormats.CHART_JPEG:

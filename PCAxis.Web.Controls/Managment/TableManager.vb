@@ -1,10 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Web
-Imports PCAxis.Web.Core.StateProvider
-Imports PCAxis.Chart
-Imports PCAxis.Web.Controls
+﻿Imports PCAxis.Web.Core.StateProvider
 
 Public NotInheritable Class TableManager
 

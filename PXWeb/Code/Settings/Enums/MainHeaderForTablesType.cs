@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PXWeb
+﻿namespace PXWeb
 {
     /// <summary>
     /// Describe which HTML heading structure that will be used for tables

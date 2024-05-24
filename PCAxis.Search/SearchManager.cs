@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Web;
-using PCAxis.Menu;
-using System.Xml;
+﻿using PCAxis.Menu;
 using PCAxis.Paxiom.Extensions;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Web;
+using System.Xml;
 
 namespace PCAxis.Search
 {
@@ -21,7 +19,7 @@ namespace PCAxis.Search
         // No search index existed for the database/language
         NotIndexed
     }
-    
+
     /// <summary>
     /// Delegate function for getting the Menu
     /// </summary>
@@ -37,19 +35,19 @@ namespace PCAxis.Search
     public class SearchManager
     {
         #region "Private fields"
-        
+
         private static SearchManager _current = new SearchManager();
         private DirectoryInfo _databaseBaseDirectory;
         private GetMenuDelegate _menuMethod;
         private static log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(SearchManager));
         private FileSystemWatcher _dbConfigWatcher;
         private int _cacheTime;
-        
+
         #endregion
 
 
         #region "Public properties"
-        
+
         /// <summary>
         /// Get the (Singleton) SearchManager object
         /// </summary>
@@ -64,7 +62,7 @@ namespace PCAxis.Search
         /// <summary>
         /// Time in minutes that search index will be cached
         /// </summary>
-        public int CacheTime 
+        public int CacheTime
         {
             get
             {
@@ -93,7 +91,7 @@ namespace PCAxis.Search
         /// <param name="databaseBaseDirectory">Base directory for PX databases</param>
         /// <param name="menuMethod">Delegate method to get the Menu</param>
         /// <param name="cacheTime">Time in minutes that searchers will be cached</param>
-        public void Initialize(string databaseBaseDirectory, GetMenuDelegate menuMethod, int cacheTime=60, DefaultOperator defaultOperator=DefaultOperator.OR)
+        public void Initialize(string databaseBaseDirectory, GetMenuDelegate menuMethod, int cacheTime = 60, DefaultOperator defaultOperator = DefaultOperator.OR)
         {
             SetDatabaseBaseDirectory(databaseBaseDirectory);
             SetDbConfigWatcher();
@@ -113,7 +111,8 @@ namespace PCAxis.Search
         {
             Indexer indexer = new Indexer(GetIndexDirectoryPath(database, language), _menuMethod, database, language);
 
-            if (!indexer.CreateIndex()) {
+            if (!indexer.CreateIndex())
+            {
                 return false;
             }
 
@@ -130,7 +129,8 @@ namespace PCAxis.Search
         {
             Indexer indexer = new Indexer(GetIndexDirectoryPath(database, language), _menuMethod, database, language);
 
-            if (!indexer.UpdateIndex(tableList)) {
+            if (!indexer.UpdateIndex(tableList))
+            {
                 return false;
             }
 
@@ -149,7 +149,7 @@ namespace PCAxis.Search
         public List<SearchResultItem> Search(string database, string language, string text, out SearchStatusType status, string filter = "", int resultListLength = 250)
         {
             Searcher searcher = GetSearcher(database, language);
-            
+
             if (searcher == null)
             {
                 // Return empty list
@@ -237,7 +237,7 @@ namespace PCAxis.Search
         {
             FileInfo dbConf = new FileInfo(e.FullPath);
             DirectoryInfo dbDir = dbConf.Directory;
-            string indexPath = Path.Combine(dbDir.FullName, "_INDEX"); 
+            string indexPath = Path.Combine(dbDir.FullName, "_INDEX");
 
             if (!Directory.Exists(indexPath))
             {

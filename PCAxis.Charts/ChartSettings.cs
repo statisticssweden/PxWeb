@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms.DataVisualization.Charting;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PCAxis.Chart
 {
@@ -66,9 +64,9 @@ namespace PCAxis.Chart
         public int TitleFontSize { get; set; }
         public int AxisFontSize { get; set; }
         public string BackgroundColorGraphs { get; set; }
-        public int LineThicknessPhrame { get; set;  }
+        public int LineThicknessPhrame { get; set; }
         public String LineColorPhrame { get; set; }
-        
+
         #endregion
 
         public ChartSettings()

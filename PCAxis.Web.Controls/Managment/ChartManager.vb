@@ -1,9 +1,5 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Web
+﻿Imports PCAxis.Chart
 Imports PCAxis.Web.Core.StateProvider
-Imports PCAxis.Chart
 
 Public NotInheritable Class ChartManager
 

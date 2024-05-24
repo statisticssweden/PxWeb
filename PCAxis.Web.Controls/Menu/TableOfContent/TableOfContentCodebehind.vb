@@ -1,22 +1,10 @@
-﻿
-
-Imports System.Web
+﻿Imports System.Text
 Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports System.ComponentModel
-Imports System.IO
-Imports System.Xml
-Imports System.Xml.Xsl
-Imports System.Net
-Imports System.Text
-Imports System.Globalization
-
 Imports PCAxis.Menu
-
-Imports PCAxis.Web.Core.Attributes
 Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Web.Core.Management
+Imports PCAxis.Web.Core.Management.LinkManager
 ''' <summary>
 ''' 
 ''' </summary>
@@ -515,7 +503,7 @@ Public Class TableOfContentCodebehind
 
         If TypeOf (MenuItem) Is PCAxis.Menu.Link Then
             Dim MenuLink As PCAxis.Menu.Link = CType(MenuItem, PCAxis.Menu.Link)
-            
+
             If ShowMetaIcons Then
                 Dim imgPath As String
                 If (MenuLink.HasAttribute("size")) Then

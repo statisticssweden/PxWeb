@@ -1,6 +1,4 @@
-﻿Imports PCAxis.Web.Core
-
-Namespace CommandBar.Plugin
+﻿Namespace CommandBar.Plugin
     ''' <summary>
     ''' Interface for PluginFilter
     ''' </summary>

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PCAxis.Paxiom.Extensions;
 using PCAxis.Search;
-using System.Text;
-using PCAxis.Web.Core.Management;
 using PCAxis.Web.Controls;
-using PCAxis.Paxiom.Extensions;
+using PCAxis.Web.Core.Management;
 using PXWeb.Code.Management;
+using System.Collections.Generic;
+using System.Text;
 
 namespace PXWeb
 {
@@ -41,7 +38,7 @@ namespace PXWeb
             }
 
             path.Append(itm.Path.TrimStart(sep).Replace(@"/", PxPathHandler.NODE_DIVIDER));
-                       
+
             linkItems.Add(new LinkManager.LinkItem(PxUrl.TABLE_KEY, itm.Table));
             linkItems.Add(new LinkManager.LinkItem(PxUrl.PATH_KEY, path.ToString()));
             linkItems.Add(new LinkManager.LinkItem(PxUrl.DB_KEY, dbi.Id));

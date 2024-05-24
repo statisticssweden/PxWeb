@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Text;
-using PCAxis.Web.Controls;
 
 namespace PXWeb
 {
@@ -173,7 +170,7 @@ namespace PXWeb
 
                     if (parts[parts.Length - 1] != pxUrl.Table)
                     {
-                        url.Append(parts[parts.Length -1] + "/");
+                        url.Append(parts[parts.Length - 1] + "/");
                     }
                 }
             }
