@@ -12,12 +12,22 @@ using PCAxis.Menu;
 using PCAxis.Paxiom.Localization;
 using PCAxis.Sql.DbConfig;
 using System.IO;
+using Newtonsoft.Json;
+using System.IO.Compression;
+using PCAxis.Paxiom;
+using System.Text;
 
 namespace PXWeb.Code.API.Controllers
 {
     [AuthenticationFilter]
     public class BulkController : ApiController
     {
+        internal class FileInfo
+        {
+            public string TableId { get; set; }
+            public DateTime GenerationDate { get; set; }
+        }
+
         [HttpPost]
         public HttpResponseMessage CreateBulkFiles(string database, string language)
         {
@@ -28,7 +38,82 @@ namespace PXWeb.Code.API.Controllers
             var tempPath = System.IO.Path.Combine(dbPath, "temp");
             InitDatabaseFolder(dbPath, tempPath);
 
+            var historyPath = System.IO.Path.Combine(dbPath, "content.json");
+
+            var history = new List<FileInfo>();
+            if (File.Exists(historyPath))
+            {
+                history = JsonConvert.DeserializeObject<List<FileInfo>>(File.ReadAllText(historyPath));
+            }
+
+            var serializer = new PCAxis.Paxiom.Csv3FileSerializer();
+
+            foreach (var table in tables)
+            {
+                var fileInfo = history.FirstOrDefault(x => x.TableId == table.TableId);
+                var zipPath = System.IO.Path.Combine(dbPath, $"{table.TableId}.zip");
+                if (fileInfo != null)
+                {
+                    if (table.Published != null &&
+                        fileInfo.GenerationDate > table.Published.Value &&
+                        File.Exists(zipPath))
+                    {
+                        //Console.WriteLine($"[{table.TableId}] - {table.Text} - Already processed");
+                        continue;
+                    }
+                }
+                else
+                {
+                    fileInfo = new FileInfo
+                    {
+                        TableId = table.TableId,
+                    };
+                }
+                fileInfo.GenerationDate = DateTime.Now;
+                Console.WriteLine($"[{table.TableId}] - {table.Text} - Processing");
+                var model = GetModel(database, table.ID.Selection, "sv");
+                var path = Path.Combine(tempPath, $"{table.TableId}.csv");
+                serializer.Serialize(model, path);
+                if (File.Exists(zipPath))
+                {
+                    File.Delete(zipPath);
+                }
+                ZipFile.CreateFromDirectory(tempPath, zipPath);
+                File.Delete(path);
+                history.Add(fileInfo);
+            }
+
+
+            string json = JsonConvert.SerializeObject(history, Formatting.Indented);
+            File.WriteAllText(historyPath, json);
+
+            CreateIndexFile(history, bulkRoot);
             return Request.CreateResponse(HttpStatusCode.OK, $"Bulk files created successfully for database {database}");
+        }
+
+        private static void CreateIndexFile(List<FileInfo> files, string location)
+        {
+            var content = new StringBuilder("<!DOCTYPE html><html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <title>Bulk files</title>\r\n</head>\r\n\r\n<body>\r\n  <h1>Bulk files</h1>\r\n");
+
+            foreach (var file in files)
+            {
+                content.Append($"<a href=\"{file.TableId}.zip\">{file.TableId}.zip</a><br>\r\n");
+            }
+
+            content.Append("</body>\r\n\r\n</html>");
+
+            //write content to file
+            File.WriteAllText(Path.Combine(location, "index.html"), content.ToString());
+        }
+
+        private static PXModel GetModel(string database, string id, string language)
+        {
+            var builder = PxContext.CreatePaxiomBuilder(database, id);
+            builder.SetPreferredLanguage(language);
+            builder.BuildForSelection();
+            builder.BuildForPresentation(PCAxis.Paxiom.Selection.SelectAll(builder.Model.Meta));
+            return builder.Model;
+
         }
 
         private static string GetBulkRoot()
