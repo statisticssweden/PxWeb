@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using System.IO.Compression;
 using PCAxis.Paxiom;
 using System.Text;
+using PCAxis.Web.Core.Enums;
 
 namespace PXWeb.Code.API.Controllers
 {
@@ -28,9 +29,18 @@ namespace PXWeb.Code.API.Controllers
             public DateTime GenerationDate { get; set; }
         }
 
+
         [HttpPost]
         public HttpResponseMessage CreateBulkFiles(string database, string language)
         {
+            DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(database);
+            //Validate database and lanuage parameters
+
+            if (!(dbi != null && dbi.HasLanguage(language)))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid parameters");
+            }
+
             var tables = GetTables(database, language);
             string bulkRoot = GetBulkRoot();
 
@@ -50,15 +60,15 @@ namespace PXWeb.Code.API.Controllers
 
             foreach (var table in tables)
             {
-                var fileInfo = history.FirstOrDefault(x => x.TableId == table.TableId);
-                var zipPath = System.IO.Path.Combine(dbPath, $"{table.TableId}.zip");
+                string tableId = table.TableId;
+                var fileInfo = history.FirstOrDefault(x => x.TableId == tableId);
+                var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}.zip");
                 if (fileInfo != null)
                 {
                     if (table.Published != null &&
                         fileInfo.GenerationDate > table.Published.Value &&
                         File.Exists(zipPath))
                     {
-                        //Console.WriteLine($"[{table.TableId}] - {table.Text} - Already processed");
                         continue;
                     }
                 }
@@ -66,13 +76,12 @@ namespace PXWeb.Code.API.Controllers
                 {
                     fileInfo = new FileInfo
                     {
-                        TableId = table.TableId,
+                        TableId = tableId,
                     };
                 }
                 fileInfo.GenerationDate = DateTime.Now;
-                Console.WriteLine($"[{table.TableId}] - {table.Text} - Processing");
                 var model = GetModel(database, table.ID.Selection, "sv");
-                var path = Path.Combine(tempPath, $"{table.TableId}.csv");
+                var path = Path.Combine(tempPath, $"{tableId}.csv");
                 serializer.Serialize(model, path);
                 if (File.Exists(zipPath))
                 {
