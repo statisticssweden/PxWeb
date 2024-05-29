@@ -35,26 +35,19 @@ namespace PXWeb.Code.API.Controllers
         {
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(database);
             //Validate database and lanuage parameters
-
             if (!(dbi != null && dbi.HasLanguage(language)))
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid parameters");
             }
 
             var tables = GetTables(database, language);
-            string bulkRoot = GetBulkRoot();
-
+            var bulkRoot = GetBulkRoot();
             var dbPath = System.IO.Path.Combine(bulkRoot, database);
             var tempPath = System.IO.Path.Combine(dbPath, "temp");
+
             InitDatabaseFolder(dbPath, tempPath);
 
-            var historyPath = System.IO.Path.Combine(dbPath, "content.json");
-
-            var history = new List<FileInfo>();
-            if (File.Exists(historyPath))
-            {
-                history = JsonConvert.DeserializeObject<List<FileInfo>>(File.ReadAllText(historyPath));
-            }
+            List<FileInfo> history = LoadHistory(dbPath);
 
             var serializer = new PCAxis.Paxiom.Csv3FileSerializer();
 
@@ -92,12 +85,34 @@ namespace PXWeb.Code.API.Controllers
                 history.Add(fileInfo);
             }
 
+            SaveHistory(dbPath, history);
+
+            CreateIndexFile(history, bulkRoot);
+            return Request.CreateResponse(HttpStatusCode.OK, $"Bulk files created successfully for database {database}");
+
+            
+        }
+
+        private List<FileInfo> LoadHistory(string path)
+        {
+            var history = new List<FileInfo>();
+            var historyPath = System.IO.Path.Combine(path, "content.json");
+
+            if (File.Exists(historyPath))
+            {
+                history = JsonConvert.DeserializeObject<List<FileInfo>>(File.ReadAllText(historyPath));
+            }
+
+            return history;
+        }
+
+        private static void SaveHistory(string path, List<FileInfo> history)
+        {
+            var historyPath = System.IO.Path.Combine(path, "content.json");
 
             string json = JsonConvert.SerializeObject(history, Formatting.Indented);
             File.WriteAllText(historyPath, json);
 
-            CreateIndexFile(history, bulkRoot);
-            return Request.CreateResponse(HttpStatusCode.OK, $"Bulk files created successfully for database {database}");
         }
 
         private static void CreateIndexFile(List<FileInfo> files, string location)
