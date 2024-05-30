@@ -12,6 +12,13 @@ namespace PXWeb.Code.API.Services
 {
     public class TableService : ITableService
     {
+
+        private readonly log4net.ILog _logger;
+
+        public TableService(log4net.ILog logger) 
+        {
+            _logger = logger;        
+        }
         /// <summary>
         /// Get all tables from the specified database and language.
         /// </summary>
@@ -36,11 +43,18 @@ namespace PXWeb.Code.API.Services
         /// <returns>The table model.</returns>
         public PXModel GetTableModel(string database, string selection, string language)
         {
-            var builder = PxContext.CreatePaxiomBuilder(database, id);
-            builder.SetPreferredLanguage(language);
-            builder.BuildForSelection();
-            builder.BuildForPresentation(PCAxis.Paxiom.Selection.SelectAll(builder.Model.Meta));
-            return builder.Model;
+            try
+            {
+                var builder = PxContext.CreatePaxiomBuilder(database, selection);
+                builder.SetPreferredLanguage(language);
+                builder.BuildForSelection();
+                builder.BuildForPresentation(PCAxis.Paxiom.Selection.SelectAll(builder.Model.Meta));
+                return builder.Model;
+            } catch (Exception ex)
+            {
+                _logger.Warn($"Failed to get table model for database {database}, selection {selection}, language {language}", ex);
+            }
+            return null;
         }
 
 

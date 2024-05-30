@@ -60,6 +60,13 @@ namespace PXWeb.Code.API.Services
                 var generationDate = DateTime.Now;
 
                 var model = _tableService.GetTableModel(database, table.ID.Selection, language);
+
+                //Make sure we got a model
+                if (model == null)
+                {
+                    continue;
+                }
+
                 var path = Path.Combine(tempPath, $"{tableId}.csv");
                 serializer.Serialize(model, path);
 
