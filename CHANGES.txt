@@ -1,3 +1,4 @@
+- Added admin endpoint that can dump out all tables to zipped CSV files that can be used for bulk download.
 === Release of PxWeb 2024 v1 ===
 - Fix redirect to selection page for change language(issues/619) and in presentation-page if paxiom and the url dont match(issues/624)
 === Release of PxWeb 2023 v1 ===
