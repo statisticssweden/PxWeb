@@ -670,6 +670,7 @@
     <Compile Include="Code\API\Controllers\MenuController.cs" />
     <Compile Include="Code\API\Interfaces\IBulkRegistry.cs" />
     <Compile Include="Code\API\Interfaces\IBulkService.cs" />
+    <Compile Include="Code\API\Interfaces\ITableService.cs" />
     <Compile Include="Code\API\Services\BulkRegistry.cs" />
     <Compile Include="Code\API\Services\BulkService.cs" />
     <Compile Include="Code\API\Services\CacheService.cs" />
@@ -685,6 +686,7 @@
     <Compile Include="ChartHandler.ashx.cs">
       <DependentUpon>ChartHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Code\API\Services\TableService.cs" />
     <Compile Include="Code\BackgroundWorker\PxWebBackgroundWorker.cs" />
     <Compile Include="Code\CustomControls\HeadingLabel.cs" />
     <Compile Include="Code\CustomControls\UserManualScreenReader.cs" />

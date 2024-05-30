@@ -15,14 +15,31 @@ namespace PXWeb.Code.API.Services
     public class BulkService : IBulkService
     {
         private readonly IBulkRegistry _registry;
-        public BulkService(IBulkRegistry registry)
+        private readonly ITableService _tableService;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BulkService"/> class.
+        /// </summary>
+        /// <param name="registry">The bulk registry.</param>
+        /// <param name="tableService">The table service.</param>
+        public BulkService(IBulkRegistry registry, ITableService tableService)
         {
             _registry = registry;
+            _tableService = tableService;
         }
 
+        /// <summary>
+        /// Creates bulk files for a database.
+        /// The files are created in the bulk folder of the database. 
+        /// One zip file is created for each table in the database.
+        /// The zip file contains a CSV file with the table data.
+        /// </summary>
+        /// <param name="database">The database name.</param>
+        /// <param name="language">The language.</param>
+        /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
         public bool CreateBulkFilesForDatabase(string database, string language)
         {
-            var tables = GetTables(database, language);
+            var tables = _tableService.GetAllTables(database, language);
             var bulkRoot = GetBulkRoot();
             var dbPath = System.IO.Path.Combine(bulkRoot, database);
             var tempPath = System.IO.Path.Combine(dbPath, "temp");
@@ -42,8 +59,7 @@ namespace PXWeb.Code.API.Services
                 var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}.zip");
                 var generationDate = DateTime.Now;
 
-
-                var model = GetModel(database, table.ID.Selection, language);
+                var model = _tableService.GetTableModel(database, table.ID.Selection, language);
                 var path = Path.Combine(tempPath, $"{tableId}.csv");
                 serializer.Serialize(model, path);
 
@@ -63,17 +79,12 @@ namespace PXWeb.Code.API.Services
             return true;
         }
 
-
-        private static PXModel GetModel(string database, string id, string language)
-        {
-            var builder = PxContext.CreatePaxiomBuilder(database, id);
-            builder.SetPreferredLanguage(language);
-            builder.BuildForSelection();
-            builder.BuildForPresentation(PCAxis.Paxiom.Selection.SelectAll(builder.Model.Meta));
-            return builder.Model;
-        }
-
-        private static string GetBulkRoot()
+        /// <summary>
+        /// Gets the root path for the bulk files.
+        /// It is one level above the database folder.
+        /// </summary>
+        /// <returns>The root path for the bulk files.</returns>
+        private string GetBulkRoot()
         {
             var path = System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath);
             if (path.EndsWith("\\"))
@@ -84,7 +95,13 @@ namespace PXWeb.Code.API.Services
             return bulkRoot;
         }
 
-        private static void InitDatabaseFolder(string dbPath, string tempPath)
+        /// <summary>
+        /// Initializes the database folder for bulk operations.
+        /// It creates a folder for the database and a temporary folder that is used during the generation of the bulk files.
+        /// </summary>
+        /// <param name="dbPath">The path of the database folder.</param>
+        /// <param name="tempPath">The path of the temporary folder.</param>
+        private void InitDatabaseFolder(string dbPath, string tempPath)
         {
             if (!System.IO.Directory.Exists(dbPath))
             {
@@ -105,30 +122,6 @@ namespace PXWeb.Code.API.Services
                         System.IO.File.Delete(file);
                     }
                 }
-            }
-        }
-
-        static List<TableLink> GetTables(string database, string language)
-        {
-            var root = PxContext.GetMenu(database, "", language, 10);
-            var tables = new List<TableLink>();
-            AddTables(root.CurrentItem, tables);
-
-            return tables;
-        }
-
-        static void AddTables(PCAxis.Menu.Item item, List<TableLink> tables)
-        {
-            if (item is PxMenuItem)
-            {
-                foreach (var child in ((PxMenuItem)item).SubItems)
-                {
-                    AddTables(child, tables);
-                }
-            }
-            else if (item is TableLink)
-            {
-                tables.Add((TableLink)item);
             }
         }
     }

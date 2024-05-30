@@ -70,6 +70,7 @@ namespace PXWeb.App_Start
 
             kernel.Bind<IBulkRegistry>().To<Code.API.Services.BulkRegistry>();
             kernel.Bind<IBulkService>().To<Code.API.Services.BulkService>();
+            kernel.Bind<ITableService>().To<Code.API.Services.TableService>();
 
         }
     }
