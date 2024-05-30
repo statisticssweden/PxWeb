@@ -17,26 +17,34 @@ using System.IO.Compression;
 using PCAxis.Paxiom;
 using System.Text;
 using PCAxis.Web.Core.Enums;
+using log4net.Repository.Hierarchy;
+using PXWeb.Code.API.Interfaces;
 
 namespace PXWeb.Code.API.Controllers
 {
     [AuthenticationFilter]
     public class BulkController : ApiController
     {
-        internal class FileInfo
-        {
-            public string TableId { get; set; }
-            public DateTime GenerationDate { get; set; }
-        }
 
+        private readonly log4net.ILog _logger;
+        private readonly IBulkRegistry _registry;
+
+        public BulkController(IBulkRegistry registry, log4net.ILog logger)
+        {
+            _registry = registry;
+            _logger = logger;
+        }
 
         [HttpPost]
         public HttpResponseMessage CreateBulkFiles(string database, string language)
         {
+            _logger.Info($"CreateBulkFiles - started for database {database}");
+
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(database);
             //Validate database and lanuage parameters
             if (!(dbi != null && dbi.HasLanguage(language)))
             {
+                _logger.Warn($"Invalid parameters: database={database}, language={language}");
                 return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid parameters");
             }
 
@@ -46,89 +54,48 @@ namespace PXWeb.Code.API.Controllers
             var tempPath = System.IO.Path.Combine(dbPath, "temp");
 
             InitDatabaseFolder(dbPath, tempPath);
-
-            List<FileInfo> history = LoadHistory(dbPath);
-
+            _registry.SetContext(dbPath);
             var serializer = new PCAxis.Paxiom.Csv3FileSerializer();
 
             foreach (var table in tables)
             {
                 string tableId = table.TableId;
-                var fileInfo = history.FirstOrDefault(x => x.TableId == tableId);
+                if (!_registry.ShouldTableBeUpdated(tableId, table.Published.Value))
+                {
+                    continue;
+                }
+
                 var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}.zip");
-                if (fileInfo != null)
-                {
-                    if (table.Published != null &&
-                        fileInfo.GenerationDate > table.Published.Value &&
-                        File.Exists(zipPath))
-                    {
-                        continue;
-                    }
-                }
-                else
-                {
-                    fileInfo = new FileInfo
-                    {
-                        TableId = tableId,
-                    };
-                }
-                fileInfo.GenerationDate = DateTime.Now;
-                var model = GetModel(database, table.ID.Selection, "sv");
+                var generationDate = DateTime.Now;
+                
+
+                var model = GetModel(database, table.ID.Selection, language);
                 var path = Path.Combine(tempPath, $"{tableId}.csv");
                 serializer.Serialize(model, path);
+                
                 if (File.Exists(zipPath))
                 {
                     File.Delete(zipPath);
                 }
+
                 ZipFile.CreateFromDirectory(tempPath, zipPath);
                 File.Delete(path);
-                history.Add(fileInfo);
+
+                _registry.RegisterTableBulkFileUpdated(tableId, generationDate);
             }
 
-            SaveHistory(dbPath, history);
+            _registry.Save();
 
-            CreateIndexFile(history, bulkRoot);
             return Request.CreateResponse(HttpStatusCode.OK, $"Bulk files created successfully for database {database}");
 
             
         }
 
-        private List<FileInfo> LoadHistory(string path)
-        {
-            var history = new List<FileInfo>();
-            var historyPath = System.IO.Path.Combine(path, "content.json");
 
-            if (File.Exists(historyPath))
-            {
-                history = JsonConvert.DeserializeObject<List<FileInfo>>(File.ReadAllText(historyPath));
-            }
 
-            return history;
-        }
 
-        private static void SaveHistory(string path, List<FileInfo> history)
-        {
-            var historyPath = System.IO.Path.Combine(path, "content.json");
 
-            string json = JsonConvert.SerializeObject(history, Formatting.Indented);
-            File.WriteAllText(historyPath, json);
 
-        }
-
-        private static void CreateIndexFile(List<FileInfo> files, string location)
-        {
-            var content = new StringBuilder("<!DOCTYPE html><html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <title>Bulk files</title>\r\n</head>\r\n\r\n<body>\r\n  <h1>Bulk files</h1>\r\n");
-
-            foreach (var file in files)
-            {
-                content.Append($"<a href=\"{file.TableId}.zip\">{file.TableId}.zip</a><br>\r\n");
-            }
-
-            content.Append("</body>\r\n\r\n</html>");
-
-            //write content to file
-            File.WriteAllText(Path.Combine(location, "index.html"), content.ToString());
-        }
 
         private static PXModel GetModel(string database, string id, string language)
         {
