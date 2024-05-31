@@ -366,7 +366,7 @@ Public Class TableCodeBehind
     ''' Creates a header element with a invisible span for screenreader and an input button
     ''' </summary>
     ''' <param name="column">The column index to create the button for</param>
-    ''' <param name="text">The text of the button</param>
+    ''' <param name="text_raw">The text of the button</param>
     ''' <returns>A <see cref="TableHeaderCell" /> with the button in it</returns>
     ''' <remarks>Used by the sorting. Wave said th-element must have some text</remarks>
     Private Function CreateHeaderLink(ByVal column As Integer, ByVal text_raw As String) As TableHeaderCell

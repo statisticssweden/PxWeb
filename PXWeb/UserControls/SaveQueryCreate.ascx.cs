@@ -283,7 +283,7 @@ namespace PXWeb.UserControls
                 pnl2_SaveQuerySelection.Style.Add("display", "none");
                 pnl3_ShowSaveQueryUrl.Style.Add("display", "inline-block");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 lblError.Visible = true;
             }

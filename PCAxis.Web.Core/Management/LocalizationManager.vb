@@ -160,14 +160,6 @@ Namespace Management
         Public Shared Function GetLocalizedString(ByVal key As String) As String
             Return GetLocalizedString(key, CurrentCulture)
         End Function
-        ''' <summary>
-        ''' Enables to programmatically add a language to the <see cref="PxResourceManager" />
-        ''' </summary>
-        ''' <param name="language">The <see cref="Language" /> to add</param>
-        ''' <remarks></remarks>
-        'Public Shared Sub LoadLanguage(ByVal language As Language)
-        '    GetResourceManager().LoadLanguage(language)
-        'End Sub
 
         ''' <summary>
         ''' Gets an instance <see cref="PxResourceManager" />

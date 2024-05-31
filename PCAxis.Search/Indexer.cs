@@ -213,7 +213,7 @@ namespace PCAxis.Search
                                 _logger.Info("Search index " + _database + " - " + _language + " updated table " + table.Id);
                             }
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             string tableInfo = table.Path;
                             errorTables.Add(tableInfo);

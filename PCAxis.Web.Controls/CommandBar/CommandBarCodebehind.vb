@@ -319,7 +319,6 @@ Namespace CommandBar
         Private Sub FillShortcutButtons(ByVal shortCutPanel As Panel)
             Dim plugin As CommandBarPluginInfo
             Dim filetype As FileType
-            Dim li As ListItem
 
             'Operations
             For Each op As String In Marker.OperationShortcuts
@@ -362,7 +361,6 @@ Namespace CommandBar
         Private Sub FillButtons(ByVal shortCutPanel As Panel)
             Dim plugin As CommandBarPluginInfo
             Dim filetype As FileType
-            Dim li As ListItem
 
 
             If Not _isImageButtonsLoaded Then

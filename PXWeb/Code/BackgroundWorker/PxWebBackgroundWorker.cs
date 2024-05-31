@@ -197,7 +197,7 @@ namespace PXWeb.BackgroundWorker
                         Thread.Sleep(_sleepTime * 1000);
                     }
                 }
-                catch (ThreadInterruptedException e)
+                catch (ThreadInterruptedException)
                 {
                     _logger.Info("PX-Web background worker has been awakened");
                 }

@@ -528,7 +528,7 @@ namespace PCAxis.Charting.InternalExtensions
         /// Returns the string with sections divided by newline
         /// </summary>
         /// <param name="s"></param>
-        /// <param name="minBitSize">The minimum size of each section</param>
+        /// <param name="minSectionSize">The minimum size of each section</param>
         /// <returns></returns>
         public static string InsertBreaks(this string s, int minSectionSize)
         {

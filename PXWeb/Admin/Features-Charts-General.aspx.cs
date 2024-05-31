@@ -422,7 +422,7 @@ namespace PXWeb.Admin
             {
                 alpha = int.Parse(args.Value);
             }
-            catch (System.FormatException e)
+            catch (System.FormatException)
             {
                 SetValidationError(val, args, "Invalid number");
                 return;

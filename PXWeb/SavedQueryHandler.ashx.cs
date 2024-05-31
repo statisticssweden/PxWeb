@@ -261,7 +261,7 @@ namespace PXWeb
                     safe = !CheckForUnsafeOperations(sq.Workflow);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 if ((PCAxis.Query.SavedQueryManager.StorageType == PCAxis.Query.SavedQueryStorageType.File && System.IO.File.Exists(queryName)) ||

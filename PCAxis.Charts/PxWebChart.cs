@@ -114,7 +114,7 @@ namespace PCAxis.Chart
                     response.Close();
 
                 }
-                catch (System.Exception ex)
+                catch (System.Exception)
                 {
 
                 }

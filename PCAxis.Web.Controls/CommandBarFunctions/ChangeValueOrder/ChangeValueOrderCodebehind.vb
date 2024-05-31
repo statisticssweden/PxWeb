@@ -172,9 +172,9 @@ Public Class ChangeValueOrderCodebehind
     End Sub
 
     ''' <summary>
-    ''' Moves the selected items in the listbox to the end of the listbox
+    ''' Moves the selected items in the listbox to the top of the listbox
     ''' </summary>
-    ''' <param name="source"></param>
+    ''' <param name="listBox"></param>
     ''' <remarks></remarks>
     Private Sub MoveValuesToTop(ByVal listBox As ListBox)
         Dim lst As New List(Of ListItem)
