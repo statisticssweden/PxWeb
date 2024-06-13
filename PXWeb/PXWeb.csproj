@@ -197,6 +197,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
     </Reference>
@@ -450,9 +451,13 @@
     <Content Include="UserControls\SaveQueryCreate.ascx" />
     <Content Include="UserControls\SearchControl.ascx" />
     <Content Include="UserControls\VariableOverviewControl.ascx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.Master.cs">
@@ -659,9 +664,15 @@
       <DependentUpon>ApiHelp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\API\Authentication\AuthenticationFilter.cs" />
+    <Compile Include="Code\API\Controllers\BulkController.cs" />
     <Compile Include="Code\API\Controllers\CacheController.cs" />
     <Compile Include="Code\API\Controllers\DcatController.cs" />
     <Compile Include="Code\API\Controllers\MenuController.cs" />
+    <Compile Include="Code\API\Interfaces\IBulkRegistry.cs" />
+    <Compile Include="Code\API\Interfaces\IBulkService.cs" />
+    <Compile Include="Code\API\Interfaces\ITableService.cs" />
+    <Compile Include="Code\API\Services\BulkRegistry.cs" />
+    <Compile Include="Code\API\Services\BulkService.cs" />
     <Compile Include="Code\API\Services\CacheService.cs" />
     <Compile Include="Code\API\Interfaces\ICacheService.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -675,6 +686,7 @@
     <Compile Include="ChartHandler.ashx.cs">
       <DependentUpon>ChartHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Code\API\Services\TableService.cs" />
     <Compile Include="Code\BackgroundWorker\PxWebBackgroundWorker.cs" />
     <Compile Include="Code\CustomControls\HeadingLabel.cs" />
     <Compile Include="Code\CustomControls\UserManualScreenReader.cs" />

@@ -11,6 +11,7 @@ namespace PXWeb.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
+    using PXWeb.Code.API.Interfaces;
 
     public static class NinjectWebCommon 
     {
@@ -66,6 +67,11 @@ namespace PXWeb.App_Start
             {
                 return log4net.LogManager.GetLogger(ctx.Request.Target.Member.DeclaringType);
             });
+
+            kernel.Bind<IBulkRegistry>().To<Code.API.Services.BulkRegistry>();
+            kernel.Bind<IBulkService>().To<Code.API.Services.BulkService>();
+            kernel.Bind<ITableService>().To<Code.API.Services.TableService>();
+
         }
     }
 }

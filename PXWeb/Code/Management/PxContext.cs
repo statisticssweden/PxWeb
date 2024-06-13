@@ -180,7 +180,7 @@ namespace PXWeb.Management
         /// </summary>
         /// <remarks></remarks>
         /// <returns>A menu object</returns>
-        public static PxMenuBase GetMenu(string db, string nodeId, string lang)
+        public static PxMenuBase GetMenu(string db, string nodeId, string lang, int noOfLevels = 1)
         {
             //Verifies that the user is authorized to view the database
             var dbcfg = Settings.Current.Database[db];
@@ -228,7 +228,7 @@ namespace PXWeb.Management
                 }
                 else if (dbi.Type == PCAxis.Web.Core.Enums.DatabaseType.CNMM)
                 {
-                    return GetCnmmMenu(db, nodeId, lang);
+                    return GetCnmmMenu(db, nodeId, lang, noOfLevels);
                 }
                 return null;
             }
@@ -254,10 +254,10 @@ namespace PXWeb.Management
         /// Gets the CNMM menu object
         /// </summary>
         /// <returns>A Common Nordic Metamodel Menu object</returns>
-        private static PxMenuBase GetCnmmMenu(string dbid, string nodeId, string lang)
+        private static PxMenuBase GetCnmmMenu(string dbid, string nodeId, string lang, int noOfLevels = 1)
         {
             PCAxis.Menu.Item menuItem = null;
-            return GetCnmmMenuAndItem(dbid, nodeId, lang, out menuItem);
+            return GetCnmmMenuAndItem(dbid, nodeId, lang, out menuItem, noOfLevels);
         }
 
         public static PCAxis.Menu.Item GetMenuItem(string db, string nodeId)
@@ -407,7 +407,7 @@ namespace PXWeb.Management
             return null;
         }
 
-        private static PxMenuBase GetCnmmMenuAndItem(string dbid, string nodeId, string lang, out PCAxis.Menu.Item currentItem)
+        private static PxMenuBase GetCnmmMenuAndItem(string dbid, string nodeId, string lang, out PCAxis.Menu.Item currentItem, int noOfLevels = 1)
         {
             nodeId = CnmmDatabaseRootHelper.GetId(nodeId);
 
@@ -423,6 +423,7 @@ namespace PXWeb.Management
                         PCAxis.Sql.DbConfig.SqlDbConfigsStatic.DataBases[dbid],
                         m =>
                         {
+                            m.NumberOfLevels = noOfLevels;
                             m.RootSelection = string.IsNullOrEmpty(nodeId) ? new ItemSelection() : PathHandlerFactory.Create(PCAxis.Web.Core.Enums.DatabaseType.CNMM).GetSelection(nodeId);
                             m.AlterItemBeforeStorage = item =>
                             {

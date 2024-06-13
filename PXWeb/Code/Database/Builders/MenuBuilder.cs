@@ -278,7 +278,7 @@ namespace PXWeb.Database
             //                              LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "",
             //                              PresCategory.Official);
 
-            TableLink tbl = new TableLink( !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.TableID ?? "", PresCategory.Official);
+            TableLink tbl = new TableLink( !string.IsNullOrEmpty(meta.Description) ? meta.Description : meta.Title, meta.Matrix, _sortOrder(meta, path), cid.Menu, cid.Selection, meta.Description ?? "", LinkType.PX, TableStatus.AccessibleToAll, null, "", "", meta.Matrix ?? "", PresCategory.Official);
             
             int cellCount = 1;
                     for (int i = 0; i < meta.Variables.Count; i++)
