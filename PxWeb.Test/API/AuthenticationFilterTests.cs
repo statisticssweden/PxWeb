@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web;
 using System.Web.Http.Controllers;
+using NUnit.Framework.Legacy;
 
 namespace PxWeb.Test
 {
@@ -48,7 +49,7 @@ namespace PxWeb.Test
             var response = context.Response;
 
             // Assert
-            Assert.IsNull(response);
+            ClassicAssert.IsNull(response);
 
         }
 
@@ -67,7 +68,7 @@ namespace PxWeb.Test
             var response = context.Response;
 
             // Assert
-            Assert.AreEqual(HttpStatusCode.Forbidden, response.StatusCode);
+            ClassicAssert.AreEqual(HttpStatusCode.Forbidden, response.StatusCode);
         }
 
         [Test]
