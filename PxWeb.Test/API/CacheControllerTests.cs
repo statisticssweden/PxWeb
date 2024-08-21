@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web;
 using System.Web.Http.Controllers;
+using NUnit.Framework.Legacy;
 
 namespace PxWeb.Test
 {
@@ -52,7 +53,7 @@ namespace PxWeb.Test
             var response = controller.Delete();
 
             // Assert
-            Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
+            ClassicAssert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
         }
 
         [Test]
@@ -66,7 +67,7 @@ namespace PxWeb.Test
             var response = controller.Delete();
 
             // Assert
-            Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
+            ClassicAssert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
 
         }
 
@@ -80,7 +81,7 @@ namespace PxWeb.Test
             var response = controller.Delete();
 
             // Assert
-            Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
+            ClassicAssert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
             _cacheServiceMock.Verify(mock => mock.ClearCache(), Times.Once());
 
         }
