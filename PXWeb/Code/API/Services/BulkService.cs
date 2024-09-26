@@ -39,18 +39,28 @@ namespace PXWeb.Code.API.Services
         /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
         public bool CreateBulkFilesForDatabase(string database, string language)
         {
-            var tables = _tableService.GetAllTables(database, language);
+            var tables = _tableService.GetAllTables(database, language)
+                                       .OrderBy(table => table.Text)
+                                       .ToList();
             var bulkRoot = GetBulkRoot();
             var dbPath = System.IO.Path.Combine(bulkRoot, database);
             var tempPath = System.IO.Path.Combine(dbPath, "temp");
 
             InitDatabaseFolder(dbPath, tempPath);
             _registry.SetContext(dbPath);
-            var serializer = new PCAxis.Paxiom.Csv3FileSerializer();
-
+            _registry.SetLang(language);
+            
+            var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
+#if DEBUG
+            if (tables != null && tables.Count > 10)
+            {
+                tables = tables.Take(10).ToList();
+            }
+#endif           
             foreach (var table in tables)
             {
                 string tableId = table.TableId;
+                string tableText = table.Text;
                 if (!_registry.ShouldTableBeUpdated(tableId, table.Published.Value))
                 {
                     continue;
@@ -78,7 +88,7 @@ namespace PXWeb.Code.API.Services
                 ZipFile.CreateFromDirectory(tempPath, zipPath);
                 File.Delete(path);
 
-                _registry.RegisterTableBulkFileUpdated(tableId, generationDate);
+                _registry.RegisterTableBulkFileUpdated(tableId, tableText, generationDate);
             }
 
             _registry.Save();
