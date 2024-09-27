@@ -1446,8 +1446,7 @@
   <sentence name="PxWebAdminUsersErrorMail" value="Invalid e-mail"/>
   <sentence name="PxWebAdminUsersLogin" value="Login"/>
   <sentence name="PxWebAdminUsersAddedUser" value="has been added as a user"/>
-  <sentence name="PxWebBulkInformation" value="&lt;p&gt;The tables available for download contain the entire dataset and all reference periods published as statistics within the High Value Dataset.&lt;br/&gt;The files are available in CSV format and due to the size of the files, they are packaged in ZIP format.&lt;br/&gt;&lt;br/&gt;
-  Questions about the content are answered by &lt;a href='https://www.scb.se/en/om-scb/kontakta-oss/statistikservice/'>Statistics service&lt;/a&gt;&lt;/p&gt;" />
+  <sentence name="PxWebBulkInformation" value="&lt;p&gt;The tables available for download contain the entire dataset and all reference periods published as statistics. The files are available in CSV format and due to the size of the files, they are packaged in ZIP format.&lt;/p&gt;" />
   <sentence name="PxWebBulkTitleOnTab" value="Bulk files" />
   <sentence name="PxWebBulkTableTitle" value="Tables for download" />
   <sentence name="PxWebBulkTableColumnText" value="Presentation text" />
