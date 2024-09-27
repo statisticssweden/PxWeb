@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
+using PCAxis.Web.Core.Management;
 using PXWeb.Code.API.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
+
 
 namespace PXWeb.Code.API.Services
 {
@@ -16,7 +18,8 @@ namespace PXWeb.Code.API.Services
     {
         private string _context;
         private List<FileInfo> _history;
-
+        private String _language;
+        
         /// <summary>
         /// Saves the history of table bulk files and creates an index file.
         /// </summary>
@@ -31,19 +34,28 @@ namespace PXWeb.Code.API.Services
         /// </summary>
         /// <param name="tableId">The ID of the table.</param>
         /// <param name="generationDate">The generation date of the file.</param>
-        public void RegisterTableBulkFileUpdated(string tableId, DateTime generationDate)
+        public void RegisterTableBulkFileUpdated(string tableId, string tableText, DateTime generationDate)
         {
             var fileInfo = _history.FirstOrDefault(x => x.TableId == tableId);
 
             if (fileInfo != null)
             {
+                fileInfo.TableText = tableText;
                 fileInfo.GenerationDate = generationDate;
             }
             else
             {
-                _history.Add(new FileInfo { TableId = tableId, GenerationDate = generationDate });
+                _history.Add(new FileInfo { TableId = tableId, TableText = tableText, GenerationDate = generationDate });
             }
 
+        }
+        /// <summary>
+        /// Sets the selected language for the bulk registry.
+        /// </summary>
+        /// <param name="context">The context path.</param>
+        public void SetLang(string language)
+        {
+            _language = language;
         }
 
         /// <summary>
@@ -105,7 +117,7 @@ namespace PXWeb.Code.API.Services
         {
             var historyPath = System.IO.Path.Combine(_context, "content.json");
 
-            string json = JsonConvert.SerializeObject(_history, Formatting.Indented);
+            string json = JsonConvert.SerializeObject(_history, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(historyPath, json);
         }
 
@@ -114,22 +126,58 @@ namespace PXWeb.Code.API.Services
         /// </summary>
         private void CreateIndexFile()
         {
-            var content = new StringBuilder("<!DOCTYPE html><html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <title>Bulk files</title>\r\n</head>\r\n\r\n<body>\r\n  <h1>Bulk files</h1>\r\n");
+            string informationBox = GetLocalizedString("PxWebBulkInformation", _language);
+            string titleOnBrowserTab = GetLocalizedString("PxWebBulkTitleOnTab", _language);
+            string tableTitle = GetLocalizedString("PxWebBulkTableTitle", _language);
+            string tableColumnText = GetLocalizedString("PxWebBulkTableColumnText", _language);
+            string tableColumnTabelId = GetLocalizedString("PxWebBulkTableColumnTableId", _language);
+            string tableColumnFileName = GetLocalizedString("PxWebBulkTableColumnFileName", _language );
+            string tableColumCreatedTime = GetLocalizedString("PxWebBulkTableColumCreatedTime", _language);
 
+            const string style = "<style>table {border-collapse: collapse;}table, th, td {border: 1px solid black;}th, td {padding: 5px;text-align: left;}th {background-color: #bdbebd;}</style>";
+            bool isGray = false;
+            var content = new StringBuilder($"<!DOCTYPE html><html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <title>" + titleOnBrowserTab + "</title>\r\n</head>\r\n\r\n<body>\r\n  <h1>" + tableTitle +"</h1>\r\n");
+            content.Append(informationBox);
+            content.Append(style);
+            content.Append("<table border><tr style=\"background-color:#bdbebd;\">\r\n"); 
+            content.Append($"<td><h3>" + tableColumnText + "</h3></td><td><h3>" + tableColumnTabelId + "</h3></td><td><h3>" + tableColumnFileName +"</h3></td><td><h3>"+ tableColumCreatedTime +"</h3></td></tr>\r\n");
             foreach (var file in _history)
             {
-                content.Append($"<a href=\"{file.TableId}.zip\">{file.TableId}.zip</a><br>\r\n");
+                string rowColor = isGray ? " style=\"background-color:#e9e9e9;\"" : "";
+                content.Append($"<tr {rowColor}>");
+                content.Append($"<td><a href=\"{file.TableId}.zip\">{file.TableText}</a></td>\r\n");
+                content.Append($"<td>{file.TableId}</td>\r\n");
+                content.Append($"<td><a href=\"{file.TableId}.zip\">{file.TableId}.zip</a></td>\r\n");
+                content.Append($"<td>{file.GenerationDate.ToShortDateString()}</td>\r\n");
+                content.Append("</tr>");
+                isGray = !isGray;
             }
-
+            content.Append("</table>");
             content.Append("</body>\r\n\r\n</html>");
 
             //write content to file
             File.WriteAllText(Path.Combine(_context, "index.html"), content.ToString());
         }
 
+       
+        /// <summary>
+        /// Get text in the currently selected language
+        /// </summary>
+        /// <param name="key">Key identifying the string in the language file</param>
+        /// <returns>Localized string</returns>
+        public string GetLocalizedString(string key, string lang)
+        {
+            if(string.IsNullOrWhiteSpace(lang))
+            {
+                lang = LocalizationManager.CurrentCulture.Name;
+            }            
+            return PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString(key, new CultureInfo(lang));
+        }
+       
         internal class FileInfo
         {
             public string TableId { get; set; }
+            public string TableText { get; set; }
             public DateTime GenerationDate { get; set; }
         }
     }

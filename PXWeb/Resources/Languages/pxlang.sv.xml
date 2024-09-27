@@ -1206,4 +1206,11 @@
   <sentence name="PxWebAdminUsersErrorMail" value="E-posten är inte korrekt ifylld" />
   <sentence name="PxWebAdminUsersLogin" value="Logga in" />
   <sentence name="PxWebAdminUsersAddedUser" value="har lagts till som användare" />
+  <sentence name="PxWebBulkInformation" value="&lt;p&gt;Tabellerna som finns tillgänglig för nedladdning innehåller hela datamängden och alla referensperioder som finns publicerad som statistik.&lt;br/&gt;Filerna är tillgängliga i CSV-format och på grund av storleken på filerna är de packeterade i formatet ZIP.&lt;/p&gt;" />
+  <sentence name="PxWebBulkTitleOnTab" value="Bulk filer" />
+  <sentence name="PxWebBulkTableTitle" value="Tabeller för nedladdning" />
+  <sentence name="PxWebBulkTableColumnText" value="Presentationstext" />
+  <sentence name="PxWebBulkTableColumnTableId" value="TabelId" />
+  <sentence name="PxWebBulkTableColumnFileName" value="Filnamn" />
+  <sentence name="PxWebBulkTableColumCreatedTime" value="Skapad" />
 </language>

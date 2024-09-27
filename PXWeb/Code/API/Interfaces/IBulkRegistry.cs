@@ -29,12 +29,20 @@ namespace PXWeb.Code.API.Interfaces
         /// Registers that a table bulk file has been updated.
         /// </summary>
         /// <param name="tableId">The ID of the table.</param>
+        /// <param name="tableText">The presentation text of the table.</param>
         /// <param name="generationDate">The generation date of the bulk file.</param>
-        void RegisterTableBulkFileUpdated(string tableId, DateTime generationDate);
+        void RegisterTableBulkFileUpdated(string tableId, string tableText, DateTime generationDate);
 
         /// <summary>
         /// Saves the changes made to the bulk registry.
         /// </summary>
         void Save();
+
+        /// <summary>
+        /// Sets the languare for the bulk registry.
+        /// </summary>
+        /// <param name="lang">The selected language.</param>
+        void SetLang(string lang);
+       
     }
 }
