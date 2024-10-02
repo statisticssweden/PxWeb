@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PXWeb.Admin {
-    
-    
-    public partial class Features_General {
-        
+namespace PXWeb.Admin
+{
+
+
+    public partial class Features_General
+    {
+
         /// <summary>
         /// lblFeature control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFeature;
-        
+
         /// <summary>
         /// imgFeature control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgFeature;
-        
+
         /// <summary>
         /// chkCharts control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkCharts;
-        
+
         /// <summary>
         /// chkApi control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkApi;
-        
+
         /// <summary>
         /// chkSavedQuery control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkSavedQuery;
-        
+
         /// <summary>
         /// chkUserFriendlyUrls control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkUserFriendlyUrls;
-        
+
         /// <summary>
         /// chkUserStatistics control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkUserStatistics;
-        
+
         /// <summary>
         /// chkSearch control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkSearch;
-        
+
         /// <summary>
         /// chkBackgroundWorker control.
         /// </summary>
@@ -92,7 +94,16 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkBackgroundWorker;
-        
+
+        /// <summary>
+        /// chkBulkLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkBulkLink;
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// lblClearCache control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblClearCache;
-        
+
         /// <summary>
         /// txtClearCache control.
         /// </summary>
@@ -119,7 +130,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClearCache;
-        
+
         /// <summary>
         /// imgClearCache control.
         /// </summary>
@@ -128,7 +139,7 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgClearCache;
-        
+
         /// <summary>
         /// validatorClearCache control.
         /// </summary>
@@ -137,15 +148,17 @@ namespace PXWeb.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CustomValidator validatorClearCache;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new PXWeb.Admin.Admin Master {
-            get {
+        public new PXWeb.Admin.Admin Master
+        {
+            get
+            {
                 return ((PXWeb.Admin.Admin)(base.Master));
             }
         }

@@ -10,6 +10,7 @@
         <asp:CheckBox ID="chkUserStatistics" Text="<%$ PxString: PxWebAdminFeaturesGeneralFeatureUserStatistics %>" runat="server" /><br />
         <asp:CheckBox ID="chkSearch" Text="<%$ PxString: PxWebAdminFeaturesGeneralFeatureSearch %>" runat="server" /><br />
         <asp:CheckBox ID="chkBackgroundWorker" Text="<%$ PxString: PxWebAdminFeaturesGeneralFeatureBackgroundWorker %>" runat="server" /><br />
+        <asp:CheckBox ID="chkBulkLink" Text="<%$ PxString: PxWebAdminFeaturesGeneralFeatureBulkLink %>" runat="server" /><br />
         <br />
         <p>
             <asp:Label ID="Label1" runat="server" Text="Cache" CssClass="setting_keyword"></asp:Label>

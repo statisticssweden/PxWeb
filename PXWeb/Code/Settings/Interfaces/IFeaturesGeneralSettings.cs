@@ -39,6 +39,10 @@ namespace PXWeb
         /// </summary>
         bool BackgroundWorkerEnabled { get; }
         /// <summary>
+        /// If bulk link is enabled or not
+        /// </summary>
+        bool BulkLinkEnabled { get; }
+        /// <summary>
         /// Clear the cache at the specified time(s)
         /// </summary>
         string ClearCache { get; }

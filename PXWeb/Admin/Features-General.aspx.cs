@@ -40,6 +40,7 @@ namespace PXWeb.Admin
             chkUserStatistics.Checked = PXWeb.Settings.Current.Features.General.UserStatisticsEnabled;
             chkSearch.Checked = PXWeb.Settings.Current.Features.General.SearchEnabled;
             chkBackgroundWorker.Checked = PXWeb.Settings.Current.Features.General.BackgroundWorkerEnabled;
+            chkBulkLink.Checked = PXWeb.Settings.Current.Features.General.BulkLinkEnabled;
             txtClearCache.Text = PXWeb.Settings.Current.Features.General.ClearCache;
             
         }
@@ -82,6 +83,7 @@ namespace PXWeb.Admin
                         general.UserStatisticsEnabled = chkUserStatistics.Checked;
                         general.SearchEnabled = chkSearch.Checked;
                         general.BackgroundWorkerEnabled = chkBackgroundWorker.Checked;
+                        general.BulkLinkEnabled = chkBulkLink.Checked;
                         general.SavedQueryEnabled = chkSavedQuery.Checked;
                         general.ClearCache = txtClearCache.Text.Replace(" ","");
                         

@@ -1003,6 +1003,7 @@
   <sentence name="PxWebAdminFeaturesGeneralFeatureUserStatistics" value="Användarstatistik" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureSearch" value="Sökfunktion" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureBackgroundWorker" value="Bakgrundsprocess" />
+  <sentence name="PxWebAdminFeaturesGeneralFeatureBulkLink" value="Visa länk till nedladdning av tabell" />
   <sentence name="PxWebAdminFeaturesGeneralClearCache" value="Töm cache" />
   <sentence name="PxWebAdminFeaturesGeneralClearCacheInfo" value="Om specificerad kommer cachen att tömmas vid angiven tidpunkt(er). Separera tidpunkter med komma. Exempel: 09:30,12:00,13:49" />
   <sentence name="PxWebAdminFeaturesChartsGeneralChartSettings" value="Diagraminställningar" />

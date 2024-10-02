@@ -41,6 +41,8 @@ namespace PXWeb
             SearchEnabled = SettingsHelper.GetSettingValue(xpath, featuresGeneralNode, false);
             xpath = "./backgroundWorkerEnabled";
             BackgroundWorkerEnabled = SettingsHelper.GetSettingValue(xpath, featuresGeneralNode, false);
+            xpath = "./bulkLinkEnabled";
+            BulkLinkEnabled = SettingsHelper.GetSettingValue(xpath, featuresGeneralNode, false);
             xpath = "./clearCache";
             ClearCache = SettingsHelper.GetSettingValue(xpath, featuresGeneralNode, "");
 
@@ -68,6 +70,8 @@ namespace PXWeb
             SettingsHelper.SetSettingValue(xpath, featuresGeneralNode, SearchEnabled.ToString());
             xpath = "./backgroundWorkerEnabled";
             SettingsHelper.SetSettingValue(xpath, featuresGeneralNode, BackgroundWorkerEnabled.ToString());
+            xpath = "./bulkLinkEnabled";
+            SettingsHelper.SetSettingValue(xpath, featuresGeneralNode, BulkLinkEnabled.ToString());
             xpath = "./clearCache";
             SettingsHelper.SetSettingValue(xpath, featuresGeneralNode, ClearCache.ToString());
         }       
@@ -83,6 +87,7 @@ namespace PXWeb
         public bool UserStatisticsEnabled { get; set; }
         public bool SearchEnabled { get; set; }
         public bool BackgroundWorkerEnabled { get; set; }
+        public bool BulkLinkEnabled { get; set; }
         public string ClearCache { get; set; }
         
 
