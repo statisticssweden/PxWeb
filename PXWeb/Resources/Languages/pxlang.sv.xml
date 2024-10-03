@@ -1214,4 +1214,5 @@
   <sentence name="PxWebBulkTableColumnTableId" value="TabelId" />
   <sentence name="PxWebBulkTableColumnFileName" value="Filnamn" />
   <sentence name="PxWebBulkTableColumCreatedTime" value="Skapad" />
+  <sentence name="PxWebBulkLink" value="Ladda ner hela tabellen som csv-fil" />
 </language>

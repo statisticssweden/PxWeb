@@ -1454,4 +1454,5 @@
   <sentence name="PxWebBulkTableColumnTableId" value="TableId" />
   <sentence name="PxWebBulkTableColumnFileName" value="Filename" />
   <sentence name="PxWebBulkTableColumCreatedTime" value="Created" />
+  <sentence name="PxWebBulkLink" value="Download the entire table as csv file" />
 </language>
