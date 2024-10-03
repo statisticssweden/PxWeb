@@ -435,6 +435,7 @@ namespace PXWeb
             if (!bBulkLink)
             {
                 linkBulkLink.Visible = false;
+                linkBulkDiv.Visible = false;
                 return;
             }
             else
@@ -450,6 +451,7 @@ namespace PXWeb
                     if (File.Exists(realPath))
                     {
                         linkBulkLink.Visible = true;
+                        linkBulkDiv.Visible = true;
                         linkBulkLink.Text = linkText;
                         linkBulkLink.NavigateUrl = path;
                         return;
@@ -458,12 +460,10 @@ namespace PXWeb
                 else
                 {
                     linkBulkLink.Visible = false;
+                    linkBulkDiv.Visible = false;
                     return;
                 }                
-
-                linkBulkLink.Visible = false;
-                return;
-
+                
             }
         }
 
