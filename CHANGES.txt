@@ -1,3 +1,4 @@
+- Added "Bulk Link" feature with UI and admin-setting support
 - Added localization, table text and an html-table for structure of the zip-files in the Index.html for the bulk download.
 - Added admin endpoint that can dump out all tables to zipped CSV files that can be used for bulk download.
 === Release of PxWeb 2024 v1 ===
