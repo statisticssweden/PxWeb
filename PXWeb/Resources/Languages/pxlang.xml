@@ -1225,6 +1225,7 @@
   <sentence name="PxWebAdminFeaturesGeneralFeatureUserStatistics" value="User statistics" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureSearch" value="Search" />
   <sentence name="PxWebAdminFeaturesGeneralFeatureBackgroundWorker" value="Background worker process" />
+	<sentence name="PxWebAdminFeaturesGeneralFeatureBulkLink" value="Show link to download table" />
   <sentence name="PxWebAdminFeaturesGeneralClearCache" value="Clear cache" />
   <sentence name="PxWebAdminFeaturesGeneralClearCacheInfo" value="If specified the cache will be cleared at the specified time(s). Separate times with comma. Example: 09:30,12:00,13:49" />
 
@@ -1453,4 +1454,5 @@
   <sentence name="PxWebBulkTableColumnTableId" value="TableId" />
   <sentence name="PxWebBulkTableColumnFileName" value="Filename" />
   <sentence name="PxWebBulkTableColumCreatedTime" value="Created" />
+  <sentence name="PxWebBulkLink" value="Download the entire table as csv file" />
 </language>

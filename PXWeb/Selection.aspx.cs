@@ -196,7 +196,7 @@ namespace PXWeb
 
         }
 
-        
+
         protected void SetValuesFromPartTable(string partTable){
             PCAxis.Web.Core.Management.PaxiomManager.PaxiomModelBuilder.ApplyValueSet(partTable);
         }
@@ -408,7 +408,7 @@ namespace PXWeb
                 lnkInformation.NavigateUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink("~/InformationSelection.aspx");
                 lnkInformation.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebInformation");
                 lnkFootnotes.NavigateUrl = PCAxis.Web.Core.Management.LinkManager.CreateLink("~/FootnotesSelection.aspx");
-                lnkFootnotes.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebFootnotes");
+                lnkFootnotes.Text = PCAxis.Web.Core.Management.LocalizationManager.GetLocalizedString("PxWebFootnotes");              
                 InitializeDetailedInformation(path);
                 InformationLinks.Visible = true;
                 SelectionFootnotes.Visible = false;
@@ -423,8 +423,49 @@ namespace PXWeb
                 bool bMeta = PXWeb.Settings.Current.Database[url.Database].Metadata.UseMetadata;
             }
 
+
+           SetBulkLink();
+
         }
 
+        private void SetBulkLink()
+        {
+            var bBulkLink = PXWeb.Settings.Current.Features.General.BulkLinkEnabled;
+
+            if (!bBulkLink)
+            {
+                linkBulkLink.Visible = false;
+                linkBulkDiv.Visible = false;
+                return;
+            }
+            else
+            {               
+                var tableid = PaxiomManager.PaxiomModel.Meta.TableID;
+                if (tableid != null)
+                {
+                    IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
+                    var path = "/Resources/PX/bulk/" + url.Database + "/" + tableid + ".zip";
+                    var linkText = LocalizationManager.GetLocalizedString("PxWebBulkLink") + " (" + tableid + ".zip)";
+                    var realPath = Server.MapPath(path);
+
+                    if (File.Exists(realPath))
+                    {
+                        linkBulkLink.Visible = true;
+                        linkBulkDiv.Visible = true;
+                        linkBulkLink.Text = linkText;
+                        linkBulkLink.NavigateUrl = path;
+                        return;
+                    }
+                }
+                else
+                {
+                    linkBulkLink.Visible = false;
+                    linkBulkDiv.Visible = false;
+                    return;
+                }                
+                
+            }
+        }
 
         /// <summary>
         /// Initializes the link with detailed information about the table

@@ -29,8 +29,14 @@
         <% if (!string.IsNullOrWhiteSpace(Master.OfficialStatisticsImage)){%>
             <img src=<%= Master.OfficialStatisticsImage%> class="officialStatisticsImage" alt="<%= Master.GetLocalizedString("PxWebOfficialStatisticsLogo") %>"/>
         <%} %>
-
-
+        <div id="linkBulkDiv" runat="server" visible="false">
+        <%if (PXWeb.Settings.Current.Features.General.BulkLinkEnabled)
+            {%>                   
+                <asp:HyperLink ID="linkBulkLink" class="pxweb-link" runat="server"></asp:HyperLink>  
+            <br />
+            <br />  
+           <%}%>
+        </div> 
         <div id="PageElements">
             <div id="subheader">
                 <pxwebCustomControl:HeadingLabel id="lblSubHeader" runat="server" Text="<%$ PxString: PxWebSubHeaderChooseVariables%>"></pxwebCustomControl:HeadingLabel>
