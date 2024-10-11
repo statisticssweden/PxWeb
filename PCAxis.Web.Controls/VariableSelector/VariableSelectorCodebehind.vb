@@ -474,6 +474,14 @@ Public Class VariableSelectorCodebehind
             Dim builder As Paxiom.IPXModelBuilder
             Dim query As New PCAxis.Query.TableQuery(PaxiomManager.PaxiomModel, selections)
 
+            'Set PaxiomManager.Content if only one content is selected and RemoveSingleContent is true
+            Dim contentVariable As String = PaxiomManager.PaxiomModel.Meta.Variables.FirstOrDefault(Function(x) x.IsContentVariable = True).Code
+            If Settings.Metadata.RemoveSingleContent = True And sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).ValueCodes.Count = 1 Then
+                PaxiomManager.SelectionContent = sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable))
+            Else
+                PaxiomManager.SelectionContent = Nothing
+            End If
+
             builder = Management.PaxiomManager.PaxiomModelBuilder
             If Not builder.BuildForPresentation(selections) Then
                 'Fatal error when building for presentation - Show error message

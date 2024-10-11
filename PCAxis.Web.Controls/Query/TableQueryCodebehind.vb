@@ -288,6 +288,9 @@ Public Class TableQueryCodebehind
         sb.Append("?lang=")
         sb.Append(lang)
 
+        If Not PaxiomManager.SelectionContent Is Nothing Then
+            sb.Append($"&valueCodes[{PaxiomManager.SelectionContent.VariableCode}]={PaxiomManager.SelectionContent.ValueCodes(0).ToString()}")
+        End If
 
         For Each var In model.Meta.Variables
             Dim values As String = GetValuesString(var.Values)
