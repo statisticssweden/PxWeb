@@ -336,7 +336,7 @@ Namespace CommandBar.Plugin
                     ft.ShortcutImage = xmlNI.Current.SelectSingleNode("ns:ShortcutImage", manager).Value
                 End If
 
-                _fileTypes.GetOrAdd(ft.Type, ft)
+                _fileTypes.AddOrUpdate(ft.Type, ft, Function(key, value) ft)
             End While
         End Sub
 
