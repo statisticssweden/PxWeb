@@ -111,13 +111,13 @@ Namespace Management
         ''' <value></value>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Shared Property SelectionContent() As Selection
+        Public Shared Property SingleContentSelection() As Dictionary(Of String, String)
             Get
-                Dim content As Selection = CType(StateProvider.StateProviderFactory.GetStateProvider().Item(GetType(Selection), SELECTIONCONTENTID), Selection)
+                Dim content As Dictionary(Of String, String) = CType(StateProvider.StateProviderFactory.GetStateProvider().Item(GetType(Dictionary(Of String, String)), SELECTIONCONTENTID), Dictionary(Of String, String))
                 Return content
             End Get
-            Set(ByVal value As Selection)
-                StateProvider.StateProviderFactory.GetStateProvider().Add(GetType(Selection), SELECTIONCONTENTID, value)
+            Set(ByVal value As Dictionary(Of String, String))
+                StateProvider.StateProviderFactory.GetStateProvider().Add(GetType(Dictionary(Of String, String)), SELECTIONCONTENTID, value)
             End Set
         End Property
 

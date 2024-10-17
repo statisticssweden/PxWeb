@@ -474,12 +474,14 @@ Public Class VariableSelectorCodebehind
             Dim builder As Paxiom.IPXModelBuilder
             Dim query As New PCAxis.Query.TableQuery(PaxiomManager.PaxiomModel, selections)
 
+            Dim contentDictionary As New Dictionary(Of String, String)()
+
             'Set PaxiomManager.Content if only one content is selected and RemoveSingleContent is true
             Dim contentVariable As String = PaxiomManager.PaxiomModel.Meta.Variables.FirstOrDefault(Function(x) x.IsContentVariable = True).Code
             If Settings.Metadata.RemoveSingleContent = True And sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).ValueCodes.Count = 1 Then
-                PaxiomManager.SelectionContent = sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable))
+                contentDictionary.Add(sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).VariableCode, sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).ValueCodes(0))
             Else
-                PaxiomManager.SelectionContent = Nothing
+                contentDictionary = Nothing
             End If
 
             builder = Management.PaxiomManager.PaxiomModelBuilder
@@ -499,6 +501,7 @@ Public Class VariableSelectorCodebehind
             PaxiomManager.PaxiomModel = builder.Model
             PaxiomManager.QueryModel = query
             PaxiomManager.OperationsTracker = New OperationsTracker()
+            PaxiomManager.SingleContentSelection = contentDictionary
 
             SignalAction()
 
