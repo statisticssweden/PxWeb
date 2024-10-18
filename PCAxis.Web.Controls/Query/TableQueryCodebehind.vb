@@ -288,6 +288,9 @@ Public Class TableQueryCodebehind
         sb.Append("?lang=")
         sb.Append(lang)
 
+        If Not PaxiomManager.SingleContentSelection Is Nothing Then
+            sb.Append($"&valueCodes[{PaxiomManager.SingleContentSelection.First().Key}]={PaxiomManager.SingleContentSelection.First().Value}")
+        End If
 
         For Each var In model.Meta.Variables
             Dim values As String = GetValuesString(var.Values)

@@ -18,6 +18,7 @@ Namespace Management
         Const PAXIOMMODELCHANGEDBUCKET As String = "PaxiomModelChangedBucket"
         Const QUERYMODELID As String = "QueryModel"
         Const OPERATIONS_TRACKER As String = "OperationsTracker"
+        Const SELECTIONCONTENTID As String = " SelectionContentId"
         Private Shared _logger As log4net.ILog = log4net.LogManager.GetLogger(GetType(PaxiomManager))
 
         ''' <summary>
@@ -101,6 +102,22 @@ Namespace Management
             End Get
             Set(ByVal value As OperationsTracker)
                 StateProvider.StateProviderFactory.GetStateProvider().Add(GetType(OperationsTracker), OPERATIONS_TRACKER, value)
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Sting field used in ShowApiV2URL to store the content variable
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Shared Property SingleContentSelection() As Dictionary(Of String, String)
+            Get
+                Dim content As Dictionary(Of String, String) = CType(StateProvider.StateProviderFactory.GetStateProvider().Item(GetType(Dictionary(Of String, String)), SELECTIONCONTENTID), Dictionary(Of String, String))
+                Return content
+            End Get
+            Set(ByVal value As Dictionary(Of String, String))
+                StateProvider.StateProviderFactory.GetStateProvider().Add(GetType(Dictionary(Of String, String)), SELECTIONCONTENTID, value)
             End Set
         End Property
 
