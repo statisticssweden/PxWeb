@@ -37,7 +37,7 @@ namespace PXWeb
             xpath = "./pxDatabasesPath";
             PxDatabasesPath = SettingsHelper.GetSettingValue(xpath, pathsNode, "~/Resources/PX/Databases/");
 
-            xpath = "./pxAggreagationsPath";
+            xpath = "./pxAggregationsPath";
             PxAggregationsPath = SettingsHelper.GetSettingValue(xpath, pathsNode, "~/Resources/PX/Aggregations/");
         }
 
@@ -58,7 +58,7 @@ namespace PXWeb
             xpath = "./pxDatabasesPath";
             SettingsHelper.SetSettingValue(xpath, pathsNode, PxDatabasesPath);
 
-            xpath = "./pxAggreagationsPath";
+            xpath = "./pxAggregationsPath";
             SettingsHelper.SetSettingValue(xpath, pathsNode, PxAggregationsPath);
         }
 
