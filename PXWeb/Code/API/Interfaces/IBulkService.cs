@@ -17,6 +17,6 @@ namespace PXWeb.Code.API.Interfaces
         /// <param name="database">The name of the database.</param>
         /// <param name="language">The language of the bulk files.</param>
         /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
-        bool CreateBulkFilesForDatabase(string database, string language);
+        bool CreateBulkFilesForDatabase(string database);
     }
 }

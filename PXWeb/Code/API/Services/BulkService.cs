@@ -9,6 +9,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
 
 namespace PXWeb.Code.API.Services
 {
@@ -16,6 +17,7 @@ namespace PXWeb.Code.API.Services
     {
         private readonly IBulkRegistry _registry;
         private readonly ITableService _tableService;
+        private readonly log4net.ILog _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkService"/> class.
@@ -28,6 +30,7 @@ namespace PXWeb.Code.API.Services
             _tableService = tableService;
         }
 
+
         /// <summary>
         /// Creates bulk files for a database.
         /// The files are created in the bulk folder of the database. 
@@ -37,63 +40,78 @@ namespace PXWeb.Code.API.Services
         /// <param name="database">The database name.</param>
         /// <param name="language">The language.</param>
         /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
-        public bool CreateBulkFilesForDatabase(string database, string language)
+        public bool CreateBulkFilesForDatabase(string database)
         {
-            var tables = _tableService.GetAllTables(database, language)
-                                       .OrderBy(table => table.Text)
-                                       .ToList();
-            var bulkRoot = GetBulkRoot();
-            var dbPath = System.IO.Path.Combine(bulkRoot, database);
-            var tempPath = System.IO.Path.Combine(dbPath, "temp");
+            var languages = GetLanguagesForBulkFiles();
 
-            InitDatabaseFolder(dbPath, tempPath);
-            _registry.SetContext(dbPath);
-            _registry.SetLang(language);
-            
-            var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
-#if DEBUG
-            if (tables != null && tables.Count > 10)
+
+            //Make sure we have languages to create bulk files for
+            if (languages == null || languages.Count == 0)
             {
-                tables = tables.Take(10).ToList();
+                _logger.Error("No languages found in databases.config");
+                return false;
             }
-#endif           
-            foreach (var table in tables)
+
+            foreach (var language in languages)
             {
-                string tableId = table.TableId;
-                string tableText = table.Text;
+
+                var tables = _tableService.GetAllTables(database, language)
+                                       .OrderBy(table => table.Text)
+                                           .ToList();
+                var bulkRoot = GetBulkRoot();                
+                var dbPath = System.IO.Path.Combine(bulkRoot, database,language);
+                var tempPath = System.IO.Path.Combine(dbPath, "temp");
+
+                InitDatabaseFolder(dbPath, tempPath);
+                _registry.SetContext(dbPath);
+                _registry.SetLang(language);
+
+                var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
+#if DEBUG
+                if (tables != null && tables.Count > 10)
+                {
+                tables = tables.Take(10).ToList();
+                }
+#endif
+                foreach (var table in tables)
+                {
+                    string tableId = table.TableId;
+                    string tableText = table.Text;
                 if (!_registry.ShouldTableBeUpdated(tableId, table.Published.Value))
                 {
                     continue;
                 }
 
-                var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}.zip");
-                var generationDate = DateTime.Now;
+                    var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}_{language}.zip");
+                    var generationDate = DateTime.Now;
 
-                var model = _tableService.GetTableModel(database, table.ID.Selection, language);
+                    var model = _tableService.GetTableModel(database, table.ID.Selection, language);
 
-                //Make sure we got a model
-                if (model == null)
-                {
-                    continue;
+                    //Make sure we got a model
+                    if (model == null)
+                    {
+                        continue;
+                    }
+
+                    var path = Path.Combine(tempPath, $"{tableId}_{language}.csv");
+                    serializer.Serialize(model, path);
+
+                    if (File.Exists(zipPath))
+                    {
+                        File.Delete(zipPath);
+                    }
+
+                    ZipFile.CreateFromDirectory(tempPath, zipPath);
+                    File.Delete(path);
+
+                    _registry.RegisterTableBulkFileUpdated(tableId, tableText, generationDate);
                 }
 
-                var path = Path.Combine(tempPath, $"{tableId}.csv");
-                serializer.Serialize(model, path);
-
-                if (File.Exists(zipPath))
-                {
-                    File.Delete(zipPath);
-                }
-
-                ZipFile.CreateFromDirectory(tempPath, zipPath);
-                File.Delete(path);
-
-                _registry.RegisterTableBulkFileUpdated(tableId, tableText, generationDate);
+                _registry.Save(language);
             }
 
-            _registry.Save();
-
             return true;
+                
         }
 
         /// <summary>
@@ -141,6 +159,44 @@ namespace PXWeb.Code.API.Services
                 }
             }
         }
+
+        /// <summary>
+        /// Gets languages from the configuration file for input to creating bulk files.        
+        /// </summary>
+        /// <returns>List of languages</returns>
+        public List<string> GetLanguagesForBulkFiles()
+        {
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            //var configFilePath = System.IO.Path.Combine(path, "databases.config");
+
+            var configFilePath = "C:\\Development\\github\\PxWeb\\PXWeb\\databases.config";
+            var languages = new List<string>();
+
+            try
+            {
+                // Load file
+                var doc = XDocument.Load(configFilePath);
+
+                // Get "DatabaseSet" element and "language" attribut
+                var languageElements = doc.Descendants("DatabaseSet")
+                                          .Attributes("language");
+
+                // Extract languagecodes to a list
+                languages = languageElements.Select(e => e.Value).ToList();
+            }
+            catch (Exception ex)
+            {
+               
+                 _logger.Error("Error reading languages from config file", ex);
+            }
+
+            return languages;
+        }
+
+        
+               
+    
+
     }
 
 }

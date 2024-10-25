@@ -36,7 +36,7 @@ namespace PXWeb.Code.API.Interfaces
         /// <summary>
         /// Saves the changes made to the bulk registry.
         /// </summary>
-        void Save();
+        void Save(string language);
 
         /// <summary>
         /// Sets the languare for the bulk registry.

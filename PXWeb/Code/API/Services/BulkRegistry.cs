@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PCAxis.Paxiom.Localization;
 using PCAxis.Web.Core.Management;
 using PXWeb.Code.API.Interfaces;
 using System;
@@ -23,10 +24,10 @@ namespace PXWeb.Code.API.Services
         /// <summary>
         /// Saves the history of table bulk files and creates an index file.
         /// </summary>
-        public void Save()
+        public void Save(string language)
         {
             SaveHistory();
-            CreateIndexFile();
+            CreateIndexFile(language);
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace PXWeb.Code.API.Services
 
             if (fileInfo != null)
             {
-                var zipPath = System.IO.Path.Combine(_context, $"{tableId}.zip");
+                var zipPath = System.IO.Path.Combine(_context, $"{tableId}_{_language}.zip");
 
                 if (lastUpdated != null &&
                     fileInfo.GenerationDate > lastUpdated &&
@@ -124,7 +125,7 @@ namespace PXWeb.Code.API.Services
         /// <summary>
         /// Creates an index.html file that contains a link to each bulk file.
         /// </summary>
-        private void CreateIndexFile()
+        private void CreateIndexFile(string language)
         {
             string informationBox = GetLocalizedString("PxWebBulkInformation", _language);
             string titleOnBrowserTab = GetLocalizedString("PxWebBulkTitleOnTab", _language);
@@ -145,9 +146,9 @@ namespace PXWeb.Code.API.Services
             {
                 string rowColor = isGray ? " style=\"background-color:#e9e9e9;\"" : "";
                 content.Append($"<tr {rowColor}>");
-                content.Append($"<td><a href=\"{file.TableId}.zip\">{file.TableText}</a></td>\r\n");
+                content.Append($"<td><a href=\"{file.TableId}_{language}.zip\">{file.TableText}</a></td>\r\n");
                 content.Append($"<td>{file.TableId}</td>\r\n");
-                content.Append($"<td><a href=\"{file.TableId}.zip\">{file.TableId}.zip</a></td>\r\n");
+                content.Append($"<td><a href=\"{file.TableId}_{language}.zip\">{file.TableId}_{language}.zip</a></td>\r\n");
                 content.Append($"<td>{file.GenerationDate.ToShortDateString()}</td>\r\n");
                 content.Append("</tr>");
                 isGray = !isGray;
