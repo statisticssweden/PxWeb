@@ -167,9 +167,8 @@ namespace PXWeb.Code.API.Services
         public List<string> GetLanguagesForBulkFiles()
         {
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            //var configFilePath = System.IO.Path.Combine(path, "databases.config");
+            var configFilePath = System.IO.Path.Combine(path, "databases.config");
 
-            var configFilePath = "C:\\Development\\github\\PxWeb\\PXWeb\\databases.config";
             var languages = new List<string>();
 
             try
