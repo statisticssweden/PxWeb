@@ -38,7 +38,6 @@ namespace PXWeb.Code.API.Services
         /// The zip file contains a CSV file with the table data.
         /// </summary>
         /// <param name="database">The database name.</param>
-        /// <param name="language">The language.</param>
         /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
         public bool CreateBulkFilesForDatabase(string database)
         {
@@ -164,7 +163,7 @@ namespace PXWeb.Code.API.Services
         /// Gets languages from the configuration file for input to creating bulk files.        
         /// </summary>
         /// <returns>List of languages</returns>
-        public List<string> GetLanguagesForBulkFiles()
+        private List<string> GetLanguagesForBulkFiles()
         {
             var path = AppDomain.CurrentDomain.BaseDirectory;
             var configFilePath = System.IO.Path.Combine(path, "databases.config");
