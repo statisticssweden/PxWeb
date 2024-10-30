@@ -32,7 +32,7 @@ namespace PXWeb.Code.API.Services
 
         /// <summary>
         /// Creates bulk files for a database for every active language.
-        /// The files are created in the bulk folder of the database in sepearate language folders. 
+        /// The files are created in the bulk folder of the database in separate language folders. 
         /// One zip file is created for each table in the database.
         /// The zip file contains a CSV file with the table data.
         /// </summary>
