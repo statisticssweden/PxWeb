@@ -30,10 +30,9 @@ namespace PXWeb.Code.API.Services
             _tableService = tableService;
         }
 
-
         /// <summary>
-        /// Creates bulk files for a database.
-        /// The files are created in the bulk folder of the database. 
+        /// Creates bulk files for a database for every active language.
+        /// The files are created in the bulk folder of the database in sepearate language folders. 
         /// One zip file is created for each table in the database.
         /// The zip file contains a CSV file with the table data.
         /// </summary>
@@ -41,76 +40,105 @@ namespace PXWeb.Code.API.Services
         /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
         public bool CreateBulkFilesForDatabase(string database)
         {
-            var languages = GetLanguagesForBulkFiles();
-
-
-            //Make sure we have languages to create bulk files for
-            if (languages == null || languages.Count == 0)
+            var languages = GetSiteLanguages();
+            if (!DatabaseHasLanguages(database, languages))
             {
-                _logger.Error("No languages found in databases.config");
+                _logger.Error($"Database {database} does not support the required languages.");
                 return false;
             }
 
             foreach (var language in languages)
             {
+                var tables = GetTablesForLanguage(database, language);
+                if (tables == null || !tables.Any())
+                {
+                    continue;
+                }
 
-                var tables = _tableService.GetAllTables(database, language)
-                                       .OrderBy(table => table.Text)
-                                           .ToList();
-                var bulkRoot = GetBulkRoot();                
-                var dbPath = System.IO.Path.Combine(bulkRoot, database,language);
-                var tempPath = System.IO.Path.Combine(dbPath, "temp");
+                var dbPath = GetDatabasePath(database, language);
+                var tempPath = Path.Combine(dbPath, "temp");
 
                 InitDatabaseFolder(dbPath, tempPath);
                 _registry.SetContext(dbPath);
                 _registry.SetLang(language);
 
-                var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
-#if DEBUG
-                if (tables != null && tables.Count > 10)
+                ProcessTables(database, language, tables, tempPath, dbPath);
+            }
+
+            return true;
+        }
+
+        private List<string> GetSiteLanguages()
+        {
+            return PXWeb.Settings.Current.General.Language.SiteLanguages.Select(l => l.Name).ToList();
+        }
+
+        private bool DatabaseHasLanguages(string database, List<string> languages)
+        {
+            var db = PXWeb.Settings.Current.General.Databases.GetDatabase(database);
+            foreach (var lang in languages)
+            {
+                if (!db.HasLanguage(lang))
                 {
-                tables = tables.Take(10).ToList();
+                    return false;
                 }
+            }
+            return true;
+        }
+
+        private List<TableLink> GetTablesForLanguage(string database, string language)
+        {
+            return _tableService.GetAllTables(database, language)
+                                .OrderBy(table => table.Text)
+                                .ToList();
+        }
+
+        private string GetDatabasePath(string database, string language)
+        {
+            var bulkRoot = GetBulkRoot();
+            return Path.Combine(bulkRoot, database, language);
+        }
+
+        private void ProcessTables(string database, string language, List<TableLink> tables, string tempPath, string dbPath)
+        {
+            var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
+
+#if DEBUG
+            if (tables.Count > 10)
+            {
+                tables = tables.Take(10).ToList();
+            }
 #endif
-                foreach (var table in tables)
-                {
-                    string tableId = table.TableId;
-                    string tableText = table.Text;
-                if (!_registry.ShouldTableBeUpdated(tableId, table.Published.Value))
+
+            foreach (var table in tables)
+            {
+                if (!_registry.ShouldTableBeUpdated(table.TableId, table.Published.Value))
                 {
                     continue;
                 }
 
-                    var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}_{language}.zip");
-                    var generationDate = DateTime.Now;
-
-                    var model = _tableService.GetTableModel(database, table.ID.Selection, language);
-
-                    //Make sure we got a model
-                    if (model == null)
-                    {
-                        continue;
-                    }
-
-                    var path = Path.Combine(tempPath, $"{tableId}_{language}.csv");
-                    serializer.Serialize(model, path);
-
-                    if (File.Exists(zipPath))
-                    {
-                        File.Delete(zipPath);
-                    }
-
-                    ZipFile.CreateFromDirectory(tempPath, zipPath);
-                    File.Delete(path);
-
-                    _registry.RegisterTableBulkFileUpdated(tableId, tableText, generationDate);
+                var model = _tableService.GetTableModel(database, table.ID.Selection, language);
+                if (model == null)
+                {
+                    continue;
                 }
 
-                _registry.Save(language);
+                var csvPath = Path.Combine(tempPath, $"{table.TableId}_{language}.csv");
+                serializer.Serialize(model, csvPath);
+
+                var zipPath = Path.Combine(dbPath, $"{table.TableId}_{language}.zip");
+                if (File.Exists(zipPath))
+                {
+                    File.Delete(zipPath);
+                }
+
+                ZipFile.CreateFromDirectory(tempPath, zipPath);
+                File.Delete(csvPath);
+
+                _registry.RegisterTableBulkFileUpdated(table.TableId, table.Text, DateTime.Now);
             }
 
-            return true;
-                
+            _registry.Save(language);
         }
 
         /// <summary>
@@ -157,43 +185,7 @@ namespace PXWeb.Code.API.Services
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Gets languages from the configuration file for input to creating bulk files.        
-        /// </summary>
-        /// <returns>List of languages</returns>
-        private List<string> GetLanguagesForBulkFiles()
-        {
-            var path = AppDomain.CurrentDomain.BaseDirectory;
-            var configFilePath = System.IO.Path.Combine(path, "databases.config");
-
-            var languages = new List<string>();
-
-            try
-            {
-                // Load file
-                var doc = XDocument.Load(configFilePath);
-
-                // Get "DatabaseSet" element and "language" attribut
-                var languageElements = doc.Descendants("DatabaseSet")
-                                          .Attributes("language");
-
-                // Extract languagecodes to a list
-                languages = languageElements.Select(e => e.Value).ToList();
-            }
-            catch (Exception ex)
-            {
-               
-                 _logger.Error("Error reading languages from config file", ex);
-            }
-
-            return languages;
-        }
-
-        
-               
-    
+        }       
 
     }
 
