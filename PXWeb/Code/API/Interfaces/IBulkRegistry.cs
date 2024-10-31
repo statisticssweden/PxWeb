@@ -15,7 +15,8 @@ namespace PXWeb.Code.API.Interfaces
         /// Sets the context for the bulk registry.
         /// </summary>
         /// <param name="context">The context to set.</param>
-        void SetContext(string context);
+        /// <param name="language">The language for the current context.</param>
+        void SetContext(string context, string language);
 
         /// <summary>
         /// Determines whether a table should be updated based on its last updated date.
@@ -36,13 +37,6 @@ namespace PXWeb.Code.API.Interfaces
         /// <summary>
         /// Saves the changes made to the bulk registry.
         /// </summary>
-        void Save(string language);
-
-        /// <summary>
-        /// Sets the languare for the bulk registry.
-        /// </summary>
-        /// <param name="lang">The selected language.</param>
-        void SetLang(string lang);
-       
+        void Save();
     }
 }

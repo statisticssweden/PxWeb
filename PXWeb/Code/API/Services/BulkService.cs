@@ -59,8 +59,7 @@ namespace PXWeb.Code.API.Services
                 var tempPath = Path.Combine(dbPath, "temp");
 
                 InitDatabaseFolder(dbPath, tempPath);
-                _registry.SetContext(dbPath);
-                _registry.SetLang(language);
+                _registry.SetContext(dbPath,language);                
 
                 ProcessTables(database, language, tables, tempPath, dbPath);
             }
@@ -138,7 +137,7 @@ namespace PXWeb.Code.API.Services
                 _registry.RegisterTableBulkFileUpdated(table.TableId, table.Text, DateTime.Now);
             }
 
-            _registry.Save(language);
+            _registry.Save();
         }
 
         /// <summary>
