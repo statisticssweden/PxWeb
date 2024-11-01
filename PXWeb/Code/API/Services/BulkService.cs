@@ -9,6 +9,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
 
 namespace PXWeb.Code.API.Services
 {
@@ -16,6 +17,7 @@ namespace PXWeb.Code.API.Services
     {
         private readonly IBulkRegistry _registry;
         private readonly ITableService _tableService;
+        private readonly log4net.ILog _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkService"/> class.
@@ -29,71 +31,113 @@ namespace PXWeb.Code.API.Services
         }
 
         /// <summary>
-        /// Creates bulk files for a database.
-        /// The files are created in the bulk folder of the database. 
+        /// Creates bulk files for a database for every active language.
+        /// The files are created in the bulk folder of the database in separate language folders. 
         /// One zip file is created for each table in the database.
         /// The zip file contains a CSV file with the table data.
         /// </summary>
         /// <param name="database">The database name.</param>
-        /// <param name="language">The language.</param>
         /// <returns><c>true</c> if the bulk files are created successfully; otherwise, <c>false</c>.</returns>
-        public bool CreateBulkFilesForDatabase(string database, string language)
+        public bool CreateBulkFilesForDatabase(string database)
         {
-            var tables = _tableService.GetAllTables(database, language)
-                                       .OrderBy(table => table.Text)
-                                       .ToList();
-            var bulkRoot = GetBulkRoot();
-            var dbPath = System.IO.Path.Combine(bulkRoot, database);
-            var tempPath = System.IO.Path.Combine(dbPath, "temp");
-
-            InitDatabaseFolder(dbPath, tempPath);
-            _registry.SetContext(dbPath);
-            _registry.SetLang(language);
-            
-            var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
-#if DEBUG
-            if (tables != null && tables.Count > 10)
+            var languages = GetSiteLanguages();
+            if (!DatabaseHasLanguages(database, languages))
             {
-                tables = tables.Take(10).ToList();
+                _logger.Error($"Database {database} does not support the required languages.");
+                return false;
             }
-#endif           
-            foreach (var table in tables)
+
+            foreach (var language in languages)
             {
-                string tableId = table.TableId;
-                string tableText = table.Text;
-                if (!_registry.ShouldTableBeUpdated(tableId, table.Published.Value))
+                var tables = GetTablesForLanguage(database, language);
+                if (tables == null || !tables.Any())
                 {
                     continue;
                 }
 
-                var zipPath = System.IO.Path.Combine(dbPath, $"{tableId}.zip");
-                var generationDate = DateTime.Now;
+                var dbPath = GetDatabasePath(database, language);
+                var tempPath = Path.Combine(dbPath, "temp");
+
+                InitDatabaseFolder(dbPath, tempPath);
+                _registry.SetContext(dbPath,language);                
+
+                ProcessTables(database, language, tables, tempPath, dbPath);
+            }
+
+            return true;
+        }
+
+        private List<string> GetSiteLanguages()
+        {
+            return PXWeb.Settings.Current.General.Language.SiteLanguages.Select(l => l.Name).ToList();
+        }
+
+        private bool DatabaseHasLanguages(string database, List<string> languages)
+        {
+            var db = PXWeb.Settings.Current.General.Databases.GetDatabase(database);
+            foreach (var lang in languages)
+            {
+                if (!db.HasLanguage(lang))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private List<TableLink> GetTablesForLanguage(string database, string language)
+        {
+            return _tableService.GetAllTables(database, language)
+                                .OrderBy(table => table.Text)
+                                .ToList();
+        }
+
+        private string GetDatabasePath(string database, string language)
+        {
+            var bulkRoot = GetBulkRoot();
+            return Path.Combine(bulkRoot, database, language);
+        }
+
+        private void ProcessTables(string database, string language, List<TableLink> tables, string tempPath, string dbPath)
+        {
+            var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
+
+#if DEBUG
+            if (tables.Count > 10)
+            {
+                tables = tables.Take(10).ToList();
+            }
+#endif
+
+            foreach (var table in tables)
+            {
+                if (!_registry.ShouldTableBeUpdated(table.TableId, table.Published.Value))
+                {
+                    continue;
+                }
 
                 var model = _tableService.GetTableModel(database, table.ID.Selection, language);
-
-                //Make sure we got a model
                 if (model == null)
                 {
                     continue;
                 }
 
-                var path = Path.Combine(tempPath, $"{tableId}.csv");
-                serializer.Serialize(model, path);
+                var csvPath = Path.Combine(tempPath, $"{table.TableId}_{language}.csv");
+                serializer.Serialize(model, csvPath);
 
+                var zipPath = Path.Combine(dbPath, $"{table.TableId}_{language}.zip");
                 if (File.Exists(zipPath))
                 {
                     File.Delete(zipPath);
                 }
 
                 ZipFile.CreateFromDirectory(tempPath, zipPath);
-                File.Delete(path);
+                File.Delete(csvPath);
 
-                _registry.RegisterTableBulkFileUpdated(tableId, tableText, generationDate);
+                _registry.RegisterTableBulkFileUpdated(table.TableId, table.Text, DateTime.Now);
             }
 
             _registry.Save();
-
-            return true;
         }
 
         /// <summary>
@@ -140,7 +184,8 @@ namespace PXWeb.Code.API.Services
                     }
                 }
             }
-        }
+        }       
+
     }
 
 }

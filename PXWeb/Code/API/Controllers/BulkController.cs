@@ -30,19 +30,19 @@ namespace PXWeb.Code.API.Controllers
         /// <param name="language">The language. This sould be the defult language to make sure that all tables are included</param>
         /// <returns>The HTTP response message indicating the result of the operation.</returns>
         [HttpPost]
-        public HttpResponseMessage CreateBulkFiles(string database, string language)
+        public HttpResponseMessage CreateBulkFiles(string database)
         {
             _logger.Info($"CreateBulkFiles - started for database {database}");
 
             DatabaseInfo dbi = PXWeb.Settings.Current.General.Databases.GetDatabase(database);
             //Validate database and language parameters
-            if (!(dbi != null && dbi.HasLanguage(language)))
+            if (!(dbi != null ))
             {
-                _logger.Warn($"Invalid parameters: database={database}, language={language}");
-                return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid parameters");
+                _logger.Warn($"Invalid parameter: database={database}");
+                return Request.CreateResponse(HttpStatusCode.BadRequest, $"Invalid parameter");
             }
 
-            if (_bulkService.CreateBulkFilesForDatabase(database, language))
+            if (_bulkService.CreateBulkFilesForDatabase(database))
             {
                 return Request.CreateResponse(HttpStatusCode.OK, $"Bulk files created successfully for database {database}");
             }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PCAxis.Paxiom.Localization;
 using PCAxis.Web.Core.Management;
 using PXWeb.Code.API.Interfaces;
 using System;
@@ -49,23 +50,17 @@ namespace PXWeb.Code.API.Services
             }
 
         }
-        /// <summary>
-        /// Sets the selected language for the bulk registry.
-        /// </summary>
-        /// <param name="context">The context path.</param>
-        public void SetLang(string language)
-        {
-            _language = language;
-        }
 
         /// <summary>
         /// Sets the context for the bulk registry.
         /// </summary>
         /// <param name="context">The context path.</param>
-        public void SetContext(string context)
+        public void SetContext(string context, string language)
         {
             _context = context;
+            _language = language;
             _history = LoadHistory();
+            
         }
 
         /// <summary>
@@ -80,7 +75,7 @@ namespace PXWeb.Code.API.Services
 
             if (fileInfo != null)
             {
-                var zipPath = System.IO.Path.Combine(_context, $"{tableId}.zip");
+                var zipPath = System.IO.Path.Combine(_context, $"{tableId}_{_language}.zip");
 
                 if (lastUpdated != null &&
                     fileInfo.GenerationDate > lastUpdated &&
@@ -145,9 +140,9 @@ namespace PXWeb.Code.API.Services
             {
                 string rowColor = isGray ? " style=\"background-color:#e9e9e9;\"" : "";
                 content.Append($"<tr {rowColor}>");
-                content.Append($"<td><a href=\"{file.TableId}.zip\">{file.TableText}</a></td>\r\n");
+                content.Append($"<td><a href=\"{file.TableId}_{_language}.zip\">{file.TableText}</a></td>\r\n");
                 content.Append($"<td>{file.TableId}</td>\r\n");
-                content.Append($"<td><a href=\"{file.TableId}.zip\">{file.TableId}.zip</a></td>\r\n");
+                content.Append($"<td><a href=\"{file.TableId}_{_language}.zip\">{file.TableId}_{_language}.zip</a></td>\r\n");
                 content.Append($"<td>{file.GenerationDate.ToShortDateString()}</td>\r\n");
                 content.Append("</tr>");
                 isGray = !isGray;

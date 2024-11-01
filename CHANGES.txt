@@ -1,3 +1,4 @@
+- Removed language parameter for bulk files API, languages now sourced from the databases.config file. Added language suffix for bulk files.
 - Added fix for ApiV2 to generate content element in querylink when remove singlecontent is set to true    
 - Added "Bulk Link" feature with UI and admin-setting support
 - Added localization, table text and an html-table for structure of the zip-files in the Index.html for the bulk download.

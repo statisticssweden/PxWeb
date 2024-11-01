@@ -439,13 +439,14 @@ namespace PXWeb
                 return;
             }
             else
-            {               
+            {  
+                var language = PaxiomManager.PaxiomModel.Meta.Language;
                 var tableid = PaxiomManager.PaxiomModel.Meta.TableID;
                 if (tableid != null)
                 {
                     IPxUrl url = RouteInstance.PxUrlProvider.Create(null);
-                    var path = "/Resources/PX/bulk/" + url.Database + "/" + tableid + ".zip";
-                    var linkText = LocalizationManager.GetLocalizedString("PxWebBulkLink") + " (" + tableid + ".zip)";
+                    var path = "/Resources/PX/bulk/" + url.Database + "/" + language + "/" + tableid + "_" +language + ".zip";
+                    var linkText = LocalizationManager.GetLocalizedString("PxWebBulkLink") + " (" + tableid + "_" + language + ".zip)";
                     var realPath = Server.MapPath(path);
 
                     if (File.Exists(realPath))
