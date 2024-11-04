@@ -17,7 +17,7 @@ jobs:
 
     - uses: microsoft/setup-msbuild@v2.0.0
 
-    - uses: NuGet/setup-nuget@v2.0.0
+    - uses: NuGet/setup-nuget@v2.0.1
 
     - name: Restore NuGet packages
       run: nuget restore
