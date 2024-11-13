@@ -28,12 +28,26 @@ namespace PXWeb.API
             _logger.Info("RebuildMenu - started");
             try
             {
+                // Validate the database parameter (from CodeQL AI)
+                if (database.Contains("..") || database.Contains("/") || database.Contains("\\"))
+                {
+                    //dont think it is possible to hit this
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid database name");
+                }
+
+                // this prevents typos
+                if (!(PXWeb.Settings.Current.General.Databases.CnmmDatabases.Contains(database) ||
+                      PXWeb.Settings.Current.General.Databases.PxDatabases.Contains(database)))
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Unknown database name");
+                }
+
                 string path;
 
                 path = System.Web.HttpContext.Current.Server.MapPath(Settings.Current.General.Paths.PxDatabasesPath);
                 path = System.IO.Path.Combine(path, database);
 
-                
+
                 result = AdminTool.GenerateDatabase(path, languageDependent, sortBy);
 
                 // Clear all caches
