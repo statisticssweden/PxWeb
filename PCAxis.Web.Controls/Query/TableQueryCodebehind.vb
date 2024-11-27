@@ -331,10 +331,10 @@ Public Class TableQueryCodebehind
         Dim appPath As String = String.Empty
         Dim context As System.Web.HttpContext = System.Web.HttpContext.Current
 
-        appPath = String.Format("{0}://{1}{2}{3}", _
-                                    context.Request.Url.Scheme, _
-                                    context.Request.Url.Host, _
-                                    IIf(context.Request.Url.Port.Equals(80), String.Empty, ":" & context.Request.Url.Port), _
+        appPath = String.Format("{0}://{1}{2}{3}",
+                                    context.Request.Url.Scheme,
+                                    context.Request.Url.Host,
+                                    IIf(context.Request.Url.Port.Equals(80) Or context.Request.Url.Port.Equals(443), String.Empty, ":" & context.Request.Url.Port),
                                     context.Request.ApplicationPath)
 
         Return appPath
