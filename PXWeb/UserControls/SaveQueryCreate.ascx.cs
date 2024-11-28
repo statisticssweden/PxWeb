@@ -399,20 +399,22 @@ namespace PXWeb.UserControls
         private String GetAppPath()
         {
             string appPath = String.Empty;
-            System.Web.HttpContext context = System.Web.HttpContext.Current;
+            HttpContext context = HttpContext.Current;
 
             // UrlReferrer handles the case when PxWeb is installed on load balanced servers
-            appPath = String.Format("{0}://{1}{2}{3}",
-                                        !string.IsNullOrWhiteSpace(context.Request.UrlReferrer.Scheme) ? context.Request.UrlReferrer.Scheme : context.Request.Url.Scheme,
-                                        context.Request.Url.Host,
-                                        context.Request.Url.Port.Equals(80) ? string.Empty : ":" + context.Request.Url.Port,
-                                        context.Request.ApplicationPath);
+            string scheme = !string.IsNullOrWhiteSpace(context.Request.UrlReferrer?.Scheme) ? context.Request.UrlReferrer.Scheme : context.Request.Url.Scheme;
+            string host = context.Request.Url.Host;
+            int port = context.Request.Url.Port;
+            string applicationPath = context.Request.ApplicationPath;
+
+            string portPart = (port == 80 && scheme == "http") || (port == 443 && scheme == "https") ? string.Empty : ":" + port;
+
+            appPath = $"{scheme}://{host}{portPart}{applicationPath}";
 
             if (!appPath.EndsWith("/"))
             {
-                appPath = appPath + "/";
+                appPath += "/";
             }
-
             return appPath;
         }
 
