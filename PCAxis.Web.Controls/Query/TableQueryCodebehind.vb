@@ -328,16 +328,15 @@ Public Class TableQueryCodebehind
     End Function
 
     Private Function GetAppPath() As String
-        Dim appPath As String = String.Empty
         Dim context As System.Web.HttpContext = System.Web.HttpContext.Current
+        Dim scheme As String = context.Request.Url.Scheme
+        Dim host As String = context.Request.Url.Host
+        Dim port As Integer = context.Request.Url.Port
+        Dim applicationPath As String = context.Request.ApplicationPath
 
-        appPath = String.Format("{0}://{1}{2}{3}",
-                                    context.Request.Url.Scheme,
-                                    context.Request.Url.Host,
-                                    IIf(context.Request.Url.Port.Equals(80) Or context.Request.Url.Port.Equals(443), String.Empty, ":" & context.Request.Url.Port),
-                                    context.Request.ApplicationPath)
+        Dim portPart As String = If((port = 80 And scheme = "http") Or (port = 443 And scheme = "https"), String.Empty, $":{port}")
 
-        Return appPath
+        Return $"{scheme}://{host}{portPart}{applicationPath}"
     End Function
 
     ''' <summary>
