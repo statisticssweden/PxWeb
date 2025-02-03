@@ -54,7 +54,7 @@ namespace PCAxis.Search
 
             qp.DefaultOperator = _defaultOperator;
 
-            Query q = qp.Parse(text);
+            Lucene.Net.Search.Query q = qp.Parse(text);
             TopDocs topDocs = _indexSearcher.Search(q, resultListLength);
             //hits = topDocs.TotalHits;
             foreach (var d in topDocs.ScoreDocs)
