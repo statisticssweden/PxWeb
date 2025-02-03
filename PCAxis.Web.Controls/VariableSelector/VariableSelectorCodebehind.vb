@@ -1,16 +1,9 @@
-﻿Imports System.Collections.Generic
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Enums
+﻿Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.Web.UI.HtmlControls
-Imports PCAxis.Web.Core.StateProvider
-Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Paxiom
 Imports PCAxis.Query
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Management
 
 Public Class VariableSelectorCodebehind
     Inherits PaxiomControlBase(Of VariableSelectorCodebehind, VariableSelector)
@@ -477,9 +470,10 @@ Public Class VariableSelectorCodebehind
             Dim contentDictionary As New Dictionary(Of String, String)()
 
             'Set PaxiomManager.Content if only one content is selected and RemoveSingleContent is true
-            Dim contentVariable As String = PaxiomManager.PaxiomModel.Meta.Variables.FirstOrDefault(Function(x) x.IsContentVariable = True).Code
-            If Settings.Metadata.RemoveSingleContent = True And sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).ValueCodes.Count = 1 Then
-                contentDictionary.Add(sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).VariableCode, sels.FirstOrDefault(Function(x) x.VariableCode.Equals(contentVariable)).ValueCodes(0))
+            If Settings.Metadata.RemoveSingleContent = True And PaxiomManager.PaxiomModel.Meta.ContentVariable IsNot Nothing Then
+                If sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes.Count = 1 Then
+                    contentDictionary.Add(sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).VariableCode, sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes(0))
+                End If
             Else
                 contentDictionary = Nothing
             End If
