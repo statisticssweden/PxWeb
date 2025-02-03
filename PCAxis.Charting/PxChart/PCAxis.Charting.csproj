@@ -119,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PcAxis.Core">
-      <Version>1.2.4</Version>
+      <Version>1.2.5</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.Menu">
       <Version>1.0.3</Version>
