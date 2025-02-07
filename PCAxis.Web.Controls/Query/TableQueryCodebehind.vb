@@ -12,6 +12,7 @@ Imports PCAxis.Web.Core.Management
 Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Query
 Imports System.IO
+Imports System.Web
 
 <ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")>
 Public Class TableQueryCodebehind
@@ -158,7 +159,7 @@ Public Class TableQueryCodebehind
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblUrlV2.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
-        
+
         lnkMoreInfo.Text = String.Format("<span class=link-text>{0}</span>", Server.HtmlEncode(GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)))
         btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
         lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
@@ -320,7 +321,7 @@ Public Class TableQueryCodebehind
     Private Function GetValuesString(var As Values) As String
         Dim valuesSB As New System.Text.StringBuilder()
         For Each val As Value In var
-            valuesSB.Append(val.Code)
+            valuesSB.Append(HttpUtility.UrlEncode(val.Code))
             valuesSB.Append(",")
         Next
         valuesSB.Remove(valuesSB.Length - 1, 1)
