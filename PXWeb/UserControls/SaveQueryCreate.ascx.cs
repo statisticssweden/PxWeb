@@ -401,9 +401,13 @@ namespace PXWeb.UserControls
             string appPath = String.Empty;
             HttpContext context = HttpContext.Current;
 
-            string scheme = context.Request.Url.Scheme;
+            // UrlReferrer handles the case when PxWeb is installed on load balanced servers
+            string scheme = !string.IsNullOrWhiteSpace(context.Request.UrlReferrer?.Scheme) ? context.Request.UrlReferrer.Scheme : context.Request.Url.Scheme;
+            
             string host = context.Request.Url.Host;
-            int port = context.Request.Url.Port;
+            
+            int port = context.Request.UrlReferrer is null ? context.Request.Url.Port : context.Request.UrlReferrer.Port;
+
             string applicationPath = context.Request.ApplicationPath;
 
             string portPart = (port == 80 && scheme == "http") || (port == 443 && scheme == "https") ? string.Empty : ":" + port;
