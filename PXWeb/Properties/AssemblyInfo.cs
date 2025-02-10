@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SCB")]
 [assembly: AssemblyProduct("PXWeb")]
-[assembly: AssemblyCopyright("Copyright © SCB 2023")]
+[assembly: AssemblyCopyright("Copyright © SCB 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("23.0.0.*")]
-[assembly: AssemblyFileVersion("23.0.0.0")]
+[assembly: AssemblyVersion("25.1.0.*")]
+[assembly: AssemblyFileVersion("25.1.0.0")]
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
