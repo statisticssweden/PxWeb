@@ -2,14 +2,9 @@
 
 Imports System.Web.UI.WebControls
 Imports System.Web.UI
-Imports System.ComponentModel
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
 Imports PCAxis.Web.Core.Management
-Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Query
 Imports System.IO
 
@@ -264,7 +259,6 @@ Public Class TableQueryCodebehind
 
         sb.Append("tables/")
 
-        Dim builder As IPXModelBuilder = PaxiomManager.PaxiomModelBuilder()
         Dim model As PXModel = PaxiomManager.PaxiomModel
 
         If model Is Nothing Then
@@ -282,13 +276,12 @@ Public Class TableQueryCodebehind
         sb.Append(tableId)
 
         sb.Append("/data")
-
         Dim lang As String = LocalizationManager.CurrentCulture.Name
         lang = Util.GetLanguageForNet3_5(lang)
         sb.Append("?lang=")
         sb.Append(lang)
 
-        If Not PaxiomManager.SingleContentSelection Is Nothing Then
+        If PaxiomManager.SingleContentSelection IsNot Nothing AndAlso PaxiomManager.SingleContentSelection.Count > 0 Then
             sb.Append($"&valueCodes[{PaxiomManager.SingleContentSelection.First().Key}]={PaxiomManager.SingleContentSelection.First().Value}")
         End If
 
