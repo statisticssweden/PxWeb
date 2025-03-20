@@ -106,7 +106,7 @@ Namespace Management
         End Property
 
         ''' <summary>
-        ''' Sting field used in ShowApiV2URL to store the content variable
+        ''' String field used in ShowApiV2URL to store the content variable
         ''' </summary>
         ''' <value></value>
         ''' <returns></returns>

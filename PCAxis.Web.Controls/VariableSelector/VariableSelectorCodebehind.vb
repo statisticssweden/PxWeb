@@ -470,10 +470,8 @@ Public Class VariableSelectorCodebehind
             Dim contentDictionary As New Dictionary(Of String, String)()
 
             'Set PaxiomManager.Content if only one content is selected and RemoveSingleContent is true
-            If Settings.Metadata.RemoveSingleContent = True And PaxiomManager.PaxiomModel.Meta.ContentVariable IsNot Nothing Then
-                If sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes.Count = 1 Then
-                    contentDictionary.Add(sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).VariableCode, sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes(0))
-                End If
+            If Settings.Metadata.RemoveSingleContent = True And PaxiomManager.PaxiomModel.Meta.ContentVariable IsNot Nothing And sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes.Count = 1 Then
+                contentDictionary.Add(sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).VariableCode, sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes(0))
             Else
                 contentDictionary = Nothing
             End If
