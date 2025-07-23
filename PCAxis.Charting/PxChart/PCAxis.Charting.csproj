@@ -119,10 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PcAxis.Core">
-      <Version>1.2.5</Version>
+      <Version>1.2.6</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.Menu">
-      <Version>1.0.3</Version>
+      <Version>1.0.4</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.PxExtend">
       <Version>1.0.4</Version>

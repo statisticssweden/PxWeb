@@ -206,7 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PcAxis.Query">
-      <Version>1.0.9</Version>
+      <Version>1.0.10</Version>
     </PackageReference>
     <PackageReference Include="System.Security.AccessControl">
       <Version>6.0.1</Version>
