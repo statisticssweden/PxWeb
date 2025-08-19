@@ -2,7 +2,7 @@
 This is the official source code repository for PxWeb. PxWeb is a nice web application for dissemination of statistical tables please read more abou it at the official web page on Statistics Sweden web site at [www.scb.se/px-web](https://www.scb.se/px-web).
 
 ## Current activities
-We are currently working on a version 2 of the API. Read more about it at [https://www.scb.se/en/services/open-data-api/pxapi-2.0/](https://www.scb.se/en/services/open-data-api/pxapi-2.0/). The development is done in the pxapi2/master branch of this repository.
+We are currently working on a version 2 of the API and a brand new PxWeb. The development is moved to a new GitHub organization [pxtools](https://github.com/PxTools).
 
 ## Installation
 The compiled version is available free of charge for governmental agencies and municipalities, international NSI:s an international organisations of statistics. Please read the terms of use at this page [https://www.scb.se/pxweb](https://www.scb.se/pxweb). 
