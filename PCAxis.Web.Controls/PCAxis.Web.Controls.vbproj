@@ -748,13 +748,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PCAxis.Menu">
-      <Version>1.0.3</Version>
+      <Version>1.0.4</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.Metadata">
-      <Version>1.0.3</Version>
+      <Version>1.0.4</Version>
     </PackageReference>
     <PackageReference Include="PcAxis.Query">
-      <Version>1.0.9</Version>
+      <Version>1.0.10</Version>
     </PackageReference>
     <PackageReference Include="System.Security.AccessControl">
       <Version>6.0.1</Version>
