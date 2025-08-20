@@ -1,6 +1,7 @@
-=== Release of PxWeb 2025 v1 ===
+- Updated assembly binding versions in template web.config
 - Misc upgrade of dependencies
 - Fix for problems to show result if multiple contents is choosen. #675
+=== Release of PxWeb 2025 v1 ===
 - Fix for special characters in the ApiV2 url, issue #663
 - Fix to hide port number in the URL to the saved query when port is 80. #649
 - Hide port number in the URL to the API and saved query when port is 80 or 443. #649
