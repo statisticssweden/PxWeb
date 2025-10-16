@@ -5,6 +5,7 @@ using PXWeb.Code.API.Interfaces;
 using PXWeb.Management;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace PXWeb.Code.API.Services
     {
         private readonly IBulkRegistry _registry;
         private readonly ITableService _tableService;
-        private readonly log4net.ILog _logger;
+        private readonly log4net.ILog _logger; 
+
+        // Added: progress logging controls
+        private const int ProgressLogInterval = 50; // tables
+        private static readonly TimeSpan ProgressTimeInterval = TimeSpan.FromSeconds(30); // max time between progress logs
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkService"/> class.
@@ -28,6 +33,7 @@ namespace PXWeb.Code.API.Services
         {
             _registry = registry;
             _tableService = tableService;
+            _logger = log4net.LogManager.GetLogger(typeof(BulkService));
         }
 
         /// <summary>
@@ -52,6 +58,7 @@ namespace PXWeb.Code.API.Services
                 var tables = GetTablesForLanguage(database, language);
                 if (tables == null || !tables.Any())
                 {
+                    _logger.Warn($"No tables found for {database}/{language}.");
                     continue;
                 }
 
@@ -59,7 +66,7 @@ namespace PXWeb.Code.API.Services
                 var tempPath = Path.Combine(dbPath, "temp");
 
                 InitDatabaseFolder(dbPath, tempPath);
-                _registry.SetContext(dbPath,language);                
+                _registry.SetContext(dbPath, language);
 
                 ProcessTables(database, language, tables, tempPath, dbPath);
             }
@@ -101,43 +108,109 @@ namespace PXWeb.Code.API.Services
         private void ProcessTables(string database, string language, List<TableLink> tables, string tempPath, string dbPath)
         {
             var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
-
 #if DEBUG
             if (tables.Count > 10)
             {
                 tables = tables.Take(10).ToList();
             }
 #endif
+            int total = tables.Count;
+            int processed = 0;
+            int updated = 0;
+            int skippedUnchanged = 0;
+            int skippedNullModel = 0;
+            int errors = 0;
+            var overall = Stopwatch.StartNew();
+            var progressTimer = Stopwatch.StartNew();
+            _logger.Info($"Bulk start {database}/{language}. Tables to process: {total}");
 
             foreach (var table in tables)
             {
-                if (!_registry.ShouldTableBeUpdated(table.TableId, table.Published.Value))
+                processed++;
+                try
                 {
-                    continue;
+                    if (!_registry.ShouldTableBeUpdated(table.TableId, table.Published.Value))
+                    {
+                        skippedUnchanged++;
+                    }
+                    else
+                    {
+                        var model = _tableService.GetTableModel(database, table.ID.Selection, language);
+                        if (model == null)
+                        {
+                            skippedNullModel++;
+                        }
+                        else
+                        {
+                            var csvPath = Path.Combine(tempPath, $"{table.TableId}_{language}.csv");
+                            serializer.Serialize(model, csvPath);
+
+                            var zipPath = Path.Combine(dbPath, $"{table.TableId}_{language}.zip");
+                            if (File.Exists(zipPath))
+                            {
+                                File.Delete(zipPath);
+                            }
+
+                            ZipFile.CreateFromDirectory(tempPath, zipPath);
+                            File.Delete(csvPath);
+
+                            _registry.RegisterTableBulkFileUpdated(table.TableId, table.Text, DateTime.Now);
+                            updated++;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    errors++;
+                    _logger.Error($"Error generating bulk file for table {table.TableId} ({processed}/{total}) i {database}/{language}: {ex.Message}", ex);
                 }
 
-                var model = _tableService.GetTableModel(database, table.ID.Selection, language);
-                if (model == null)
+                // Progress logging (count or time based)
+                if (_logger.IsInfoEnabled && (processed % ProgressLogInterval == 0 || progressTimer.Elapsed > ProgressTimeInterval))
                 {
-                    continue;
+                    long managedMem = GC.GetTotalMemory(false) / (1024 * 1024); // MB
+                    long procMem = 0;
+                    try
+                    {
+                        procMem = Process.GetCurrentProcess().PrivateMemorySize64 / (1024 * 1024); // MB
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warn("Failed to get process memory usage", ex);
+                    }
+                    int tempFileCount = 0;
+                    try
+                    {
+                        tempFileCount = Directory.Exists(tempPath) ? Directory.GetFiles(tempPath).Length : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Warn($"Failed to count temp files in {tempPath}", ex);
+                    }
+                    _logger.Info($"Progress {database}/{language}: {processed}/{total}. Updated: {updated}, Unchanged: {skippedUnchanged}, NullModel: {skippedNullModel}, Errors: {errors}. ManagedMem(MB): {managedMem}, ProcMem(MB): {procMem}, TempFiles: {tempFileCount}. Elapsed: {overall.Elapsed}.");
+                    progressTimer.Restart();
                 }
-
-                var csvPath = Path.Combine(tempPath, $"{table.TableId}_{language}.csv");
-                serializer.Serialize(model, csvPath);
-
-                var zipPath = Path.Combine(dbPath, $"{table.TableId}_{language}.zip");
-                if (File.Exists(zipPath))
-                {
-                    File.Delete(zipPath);
-                }
-
-                ZipFile.CreateFromDirectory(tempPath, zipPath);
-                File.Delete(csvPath);
-
-                _registry.RegisterTableBulkFileUpdated(table.TableId, table.Text, DateTime.Now);
             }
 
-            _registry.Save();
+            // Log before Save
+            _logger.Info($"Saving registry for {database}/{language}...");
+            try
+            {
+                _registry.Save();
+                _logger.Info($"Registry saved for {database}/{language}.");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Error during Save() for {database}/{language}: {ex.Message}", ex);
+            }
+            try
+            {
+                _logger.Info($"Bulk complete {database}/{language}. Totalt: {total}, Updated: {updated}, Unchanged: {skippedUnchanged}, NullModel: {skippedNullModel}, Errors: {errors}. Total time: {overall.Elapsed}");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Error during final logging for {database}/{language}: {ex.Message}", ex);
+            }
         }
 
         /// <summary>
@@ -184,7 +257,7 @@ namespace PXWeb.Code.API.Services
                     }
                 }
             }
-        }       
+        }
 
     }
 
