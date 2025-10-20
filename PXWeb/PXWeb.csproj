@@ -58,11 +58,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Azure.Core, Version=1.47.2.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Azure.Core.1.47.2\lib\net472\Azure.Core.dll</HintPath>
+    <Reference Include="Azure.Core, Version=1.49.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\Azure.Core.1.49.0\lib\net472\Azure.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Azure.Identity, Version=1.15.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Azure.Identity.1.15.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    <Reference Include="Azure.Identity, Version=1.17.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\Azure.Identity.1.17.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ClosedXML, Version=0.97.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.97.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
@@ -92,14 +94,17 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.3, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.3\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Identity.Client, Version=4.73.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.4.73.1\lib\net472\Microsoft.Identity.Client.dll</HintPath>
+    <Reference Include="Microsoft.Identity.Client, Version=4.77.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.77.1\lib\net472\Microsoft.Identity.Client.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.73.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.73.1\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.77.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.77.1\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.8.0.1\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=8.14.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.8.14.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=8.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.8.0.1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
@@ -183,8 +188,9 @@
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
-    <Reference Include="System.ClientModel, Version=1.6.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ClientModel.1.6.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+    <Reference Include="System.ClientModel, Version=1.7.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8">
+      <HintPath>..\packages\System.ClientModel.1.7.0\lib\netstandard2.0\System.ClientModel.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
