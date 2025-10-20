@@ -1,3 +1,4 @@
+- Improve logging and error handling in BulkService. Upgrade library dependencies (System.Buffers, System.Memory, etc.) to newer versions
 - Updated assembly binding versions in template web.config
 - Misc upgrade of dependencies
 - Fix for problems to show result if multiple contents is choosen. #675
