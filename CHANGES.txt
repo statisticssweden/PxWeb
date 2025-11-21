@@ -1,3 +1,4 @@
+- Added an `errorFolder` to improve error handling and file management in the bulk processing workflow. Move temporary files to this folder when an error occurs during bulk processing.
 - Improve logging and error handling in BulkService. Upgrade library dependencies (System.Buffers, System.Memory, etc.) to newer versions
 - Updated assembly binding versions in template web.config
 - Misc upgrade of dependencies

@@ -64,11 +64,15 @@ namespace PXWeb.Code.API.Services
 
                 var dbPath = GetDatabasePath(database, language);
                 var tempPath = Path.Combine(dbPath, "temp");
+                var errorFolder = Path.Combine(dbPath, "error");
 
-                InitDatabaseFolder(dbPath, tempPath);
+                // Added path logging
+                _logger.Info($"Bulk paths for {database}/{language}: dbPath='{dbPath}', tempPath='{tempPath}', errorFolder='{errorFolder}'");
+
+                InitDatabaseFolder(dbPath, tempPath, errorFolder);
                 _registry.SetContext(dbPath, language);
 
-                ProcessTables(database, language, tables, tempPath, dbPath);
+                ProcessTables(database, language, tables, tempPath, dbPath, errorFolder);
             }
 
             return true;
@@ -105,7 +109,7 @@ namespace PXWeb.Code.API.Services
             return Path.Combine(bulkRoot, database, language);
         }
 
-        private void ProcessTables(string database, string language, List<TableLink> tables, string tempPath, string dbPath)
+        private void ProcessTables(string database, string language, List<TableLink> tables, string tempPath, string dbPath, string errorFolder)
         {
             var serializer = new PCAxis.Paxiom.Csv2FileSerializer();
 #if DEBUG
@@ -127,6 +131,10 @@ namespace PXWeb.Code.API.Services
             foreach (var table in tables)
             {
                 processed++;
+                MoveTempFilesToError(tempPath, errorFolder);
+                // prepare csv path so we can handle errors
+                var csvPath = Path.Combine(tempPath, $"{table.TableId}_{language}.csv");
+
                 try
                 {
                     if (!_registry.ShouldTableBeUpdated(table.TableId, table.Published.Value))
@@ -136,15 +144,14 @@ namespace PXWeb.Code.API.Services
                     else
                     {
                         var model = _tableService.GetTableModel(database, table.ID.Selection, language);
+
                         if (model == null)
                         {
                             skippedNullModel++;
                         }
                         else
                         {
-                            var csvPath = Path.Combine(tempPath, $"{table.TableId}_{language}.csv");
                             serializer.Serialize(model, csvPath);
-
                             var zipPath = Path.Combine(dbPath, $"{table.TableId}_{language}.zip");
                             if (File.Exists(zipPath))
                             {
@@ -152,7 +159,11 @@ namespace PXWeb.Code.API.Services
                             }
 
                             ZipFile.CreateFromDirectory(tempPath, zipPath);
-                            File.Delete(csvPath);
+                            // Remove the temporary csv after successful zip
+                            if (File.Exists(csvPath))
+                            {
+                                File.Delete(csvPath);
+                            }
 
                             _registry.RegisterTableBulkFileUpdated(table.TableId, table.Text, DateTime.Now);
                             updated++;
@@ -235,12 +246,14 @@ namespace PXWeb.Code.API.Services
         /// </summary>
         /// <param name="dbPath">The path of the database folder.</param>
         /// <param name="tempPath">The path of the temporary folder.</param>
-        private void InitDatabaseFolder(string dbPath, string tempPath)
+        /// <param name="errorFolder">Path to error folder.</param>
+        private void InitDatabaseFolder(string dbPath, string tempPath, string errorFolder)
         {
             if (!System.IO.Directory.Exists(dbPath))
             {
                 Directory.CreateDirectory(dbPath);
                 Directory.CreateDirectory(tempPath);
+                Directory.CreateDirectory(errorFolder);
             }
             else
             {
@@ -253,9 +266,89 @@ namespace PXWeb.Code.API.Services
                     var tempFiles = Directory.GetFiles(tempPath);
                     foreach (var file in tempFiles)
                     {
-                        System.IO.File.Delete(file);
+                        File.Delete(file);
                     }
                 }
+                if (!Directory.Exists(errorFolder))
+                {
+                    Directory.CreateDirectory(errorFolder);
+                }
+                {
+                    // Clear error folder    
+                    var errorFiles = Directory.GetFiles(errorFolder);
+                    foreach (var file in errorFiles)
+                    {
+                        File.Delete(file);
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Moves all files in the temp folder to the error folder.
+        /// If a file with the same name already exists in the error folder it is deleted and replaced.
+        /// </summary>
+        /// <param name="tempPath">Path to temp folder.</param>
+        /// <param name="errorFolder">Path to error folder.</param>
+        /// <returns>Number of files moved.</returns>
+        private int MoveTempFilesToError(string tempPath, string errorFolder)
+        {
+            try
+            {
+                if (!Directory.Exists(tempPath))
+                {
+                    _logger.Info($"Temp folder missing: {tempPath}");
+                    return 0;
+                }
+
+                var files = Directory.GetFiles(tempPath);
+                if (files.Length == 0)
+                {
+                    return 0;
+                }
+
+                if (!Directory.Exists(errorFolder))
+                {
+                    Directory.CreateDirectory(errorFolder);
+                    _logger.Info($"Created error folder: {errorFolder}");
+                }
+
+                int moved = 0;
+                foreach (var file in files)
+                {
+                    var fileName = Path.GetFileName(file);
+                    var destPath = Path.Combine(errorFolder, fileName);
+
+                    //If the file already exists in errorFolder it is removed and replaced by the new one
+                    if (File.Exists(destPath))
+                    {
+                        try
+                        {
+                            File.Delete(destPath);
+                            _logger.Info($"Deleted existing file in error folder: {destPath}");
+                        }
+                        catch (Exception exDel)
+                        {
+                            _logger.Warn($"Could not delete existing file '{destPath}': {exDel.Message}. Will try to replace anyway.", exDel);
+                        }
+                    }
+                    try
+                    {
+                        File.Move(file, destPath);
+                        moved++;
+                        _logger.Info($"Moved temp file '{fileName}' to '{destPath}'");
+                    }
+                    catch (Exception exFile)
+                    {
+                        _logger.Warn($"Failed to move file '{fileName}' from '{tempPath}' to '{errorFolder}': {exFile.Message}", exFile);
+                    }
+                }
+
+                return moved;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Error in MoveTempFilesToError: {ex.Message}", ex);
+                return 0;
             }
         }
 
