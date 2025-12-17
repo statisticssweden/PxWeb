@@ -83,10 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Core">
-      <Version>1.47.2</Version>
+      <Version>1.50.0</Version>
     </PackageReference>
     <PackageReference Include="Azure.Identity">
-      <Version>1.15.0</Version>
+      <Version>1.17.1</Version>
     </PackageReference>
     <PackageReference Include="log4net">
       <Version>3.1.0</Version>
@@ -98,7 +98,7 @@
       <Version>5.2.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal">
-      <Version>4.73.1</Version>
+      <Version>4.78.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect">
       <Version>8.0.1</Version>
