@@ -122,7 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="log4net">
-      <Version>3.1.0</Version>
+      <Version>3.3.1</Version>
     </PackageReference>
     <PackageReference Include="PcAxis.Core">
       <Version>1.2.6</Version>
