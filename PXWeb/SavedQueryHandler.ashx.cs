@@ -589,6 +589,8 @@ namespace PXWeb
             PCAxis.Query.TableQuery tbl = new PCAxis.Query.TableQuery(builder.Model, selection);
             PaxiomManager.QueryModel = tbl;
 
+            AddSingleContent(builder, selection);
+
             BuildModelForPresentation(builder, selection);
 
             return builder.Model;
@@ -642,6 +644,22 @@ namespace PXWeb
             }
         }
 
+        /// <summary>
+        /// Stores the selected content value in <see cref="PaxiomManager.SingleContentSelection"/> when single content is enabled and exactly one content value is selected.
+        /// </summary>
+        /// <param name="builder">The model builder containing metadata for the current table.</param>
+        /// <param name="selection">The current variable selections used to identify selected content values.</param>
+        private void AddSingleContent(IPXModelBuilder builder, PCAxis.Paxiom.Selection[] selection)
+        {
+            Variable contentVar = builder.Model.Meta.ContentVariable.CreateCopyWithValues();
+            var selectedContent = selection.FirstOrDefault(x => x.VariableCode.Equals(contentVar.Code));
+            if (PCAxis.Paxiom.Settings.Metadata.RemoveSingleContent && selectedContent != null && selectedContent.ValueCodes.Count == 1)
+            {
+                Dictionary<string, string> contentDictionary = new Dictionary<string, string>();
+                contentDictionary.Add(selectedContent.VariableCode, selectedContent.ValueCodes[0]);
+                PaxiomManager.SingleContentSelection = contentDictionary;
+            }
+        }
 
         public bool IsReusable
         {
