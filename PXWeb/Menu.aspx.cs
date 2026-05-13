@@ -46,19 +46,49 @@ namespace PXWeb
                 {
                     dialogModal.Visible = true;
 
-                    dialogModal.Attributes["title"] = Master.GetLocalizedString(msg + "Title");
-                    lblMsg.Text = Master.GetLocalizedString(msg + "Message");
-                    if (PXWeb.Settings.Current.Menu.MenuMode == MenuModeType.TreeViewWithFiles)
-                    {
-                        //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ShowModalDialog", "<script type='text/javascript'> jQuery(function() {var offset = jQuery('.AspNet-TreeView-Collapse:first').offset().top; jQuery('#" + dialogModal.ClientID + "').dialog({ width: 480, height: 200,  modal: true, position: ['top', offset], buttons: {" + Master.GetLocalizedString("PxWebPopupDialogClose") + ": function () {jQuery(this).dialog('close');} } }); });</script>  ");
-                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ShowModalDialog", "<script type='text/javascript'> jQuery(function() {var offset = jQuery('.AspNet-TreeView-Collapse:first').offset(); jQuery('#" + dialogModal.ClientID + "').dialog({ width: 480, height: 200,  modal: true, position: ['top', offset], buttons: {" + Master.GetLocalizedString("PxWebPopupDialogClose") + ": function () {jQuery(this).dialog('close');} } }); });</script>  ");
-                    }
-                    else
-                    {
-                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ShowModalDialog", "<script type='text/javascript'> jQuery(function() { jQuery('#" + dialogModal.ClientID + "').dialog({ width: 480, height: 200,  modal: true, buttons: {" + Master.GetLocalizedString("PxWebPopupDialogClose") + ": function () {jQuery(this).dialog('close');} } }); });</script>  ");
-                    }
+                    string title = Master.GetLocalizedString(msg + "Title");
+                    string message = Master.GetLocalizedString(msg + "Message");
+                    string closeText = Master.GetLocalizedString("PxWebPopupDialogClose");
+
+                    dialogModal.Attributes["title"] = title;
+                    lblMsg.Text = message;
+
+                    string jsCloseText = HttpUtility.JavaScriptStringEncode(closeText);
+
+                    string script = $@"
+                            <script type='text/javascript'>
+                                jQuery(function() {{
+                                    var dlg = jQuery('#{dialogModal.ClientID}').dialog({{
+                                        width: 480,
+                                        height: 200,
+                                        modal: true,
+                                        appendTo: 'body',
+                                        buttons: {{
+                                            '{jsCloseText}': function () {{ jQuery(this).dialog('close'); }}
+                                        }},
+                                        open: function(event, ui) {{
+                                            var $dlg = jQuery(this);
+                                            $dlg.attr('tabindex', -1).focus();
+                                            setTimeout(function() {{
+                                                window.scrollTo({{
+                                                    top: 0,
+                                                    left: 0,
+                                                    behavior: 'smooth'
+                                                }});
+                                            }}, 100); // Wait until the dialog is rendered
+                                        }}
+                                    }});
+                                    dlg.find('button:first').focus();
+                                }});
+                            </script>";
+
+                    Page.ClientScript.RegisterClientScriptBlock(
+                        this.GetType(),
+                        "ShowModalDialog",
+                        script
+                    );
                 }
-               
+
                 PCAxis.Web.Core.Management.PaxiomManager.Clear();
                 InitializeTableOfContent();
                 InitializeTableList();
