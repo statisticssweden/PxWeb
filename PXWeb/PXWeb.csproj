@@ -64,9 +64,6 @@
     <Reference Include="Azure.Identity, Version=1.21.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Identity.1.21.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
-    <Reference Include="Irony, Version=1.1.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Irony.NetCore.1.1.11\lib\netstandard2.0\Irony.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=3.5.0.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.3.5.0\lib\net462\log4net.dll</HintPath>
     </Reference>
