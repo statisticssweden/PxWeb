@@ -748,19 +748,19 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PCAxis.Menu">
-      <Version>1.0.4</Version>
+      <Version>1.0.6</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.Metadata">
-      <Version>1.0.4</Version>
+      <Version>1.0.6</Version>
     </PackageReference>
     <PackageReference Include="PcAxis.Query">
-      <Version>1.0.10</Version>
+      <Version>1.0.14</Version>
     </PackageReference>
     <PackageReference Include="System.Security.AccessControl">
       <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="System.Security.Permissions">
-      <Version>8.0.0</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />

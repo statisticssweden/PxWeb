@@ -1,12 +1,9 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using PCAxis.Menu;
+﻿using PCAxis.Menu;
 using PCAxis.Paxiom;
 using PXWeb.Code.API.Interfaces;
 using PXWeb.Management;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace PXWeb.Code.API.Services
 {
@@ -15,9 +12,9 @@ namespace PXWeb.Code.API.Services
 
         private readonly log4net.ILog _logger;
 
-        public TableService(log4net.ILog logger) 
+        public TableService(log4net.ILog logger)
         {
-            _logger = logger;        
+            _logger = logger;
         }
         /// <summary>
         /// Get all tables from the specified database and language.
@@ -50,7 +47,8 @@ namespace PXWeb.Code.API.Services
                 builder.BuildForSelection();
                 builder.BuildForPresentation(PCAxis.Paxiom.Selection.SelectAll(builder.Model.Meta));
                 return builder.Model;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 _logger.Warn($"Failed to get table model for database {database}, selection {selection}, language {language}", ex);
             }
