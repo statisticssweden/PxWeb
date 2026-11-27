@@ -131,8 +131,17 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="ExcelNumberFormat">
+      <Version>1.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Http">
       <Version>2.3.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Bcl.HashCode">
+      <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IO.RecyclableMemoryStream">
       <Version>3.0.1</Version>
@@ -152,8 +161,17 @@
     <PackageReference Include="PCAxis.Serializers">
       <Version>1.12.4</Version>
     </PackageReference>
+    <PackageReference Include="RBush.Signed">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="SixLabors.Fonts">
+      <Version>1.0.0</Version>
+    </PackageReference>
     <PackageReference Include="System.AppContext">
       <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.6.1</Version>
     </PackageReference>
     <PackageReference Include="System.Collections">
       <Version>4.3.0</Version>
@@ -202,6 +220,9 @@
     </PackageReference>
     <PackageReference Include="System.Linq.Expressions">
       <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.6.3</Version>
     </PackageReference>
     <PackageReference Include="System.Net.Http">
       <Version>4.3.4</Version>
