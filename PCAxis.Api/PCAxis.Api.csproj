@@ -156,22 +156,31 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Core">
-      <Version>1.47.2</Version>
+      <Version>1.65.0</Version>
     </PackageReference>
     <PackageReference Include="Azure.Identity">
-      <Version>1.15.0</Version>
+      <Version>1.21.0</Version>
     </PackageReference>
-    <PackageReference Include="Irony.NetCore">
-      <Version>1.1.11</Version>
+    <PackageReference Include="DocumentFormat.OpenXml">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="ExcelNumberFormat">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Http">
+      <Version>2.3.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Bcl.HashCode">
+      <Version>1.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Data.SqlClient">
-      <Version>5.2.3</Version>
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal">
-      <Version>4.73.1</Version>
+      <Version>4.92.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect">
-      <Version>8.0.1</Version>
+      <Version>8.23.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IO.RecyclableMemoryStream">
       <Version>3.0.1</Version>
@@ -186,22 +195,28 @@
       <Version>2.0.3</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.Menu.ConfigDatamodelMenu">
-      <Version>1.0.9</Version>
+      <Version>1.0.11</Version>
     </PackageReference>
     <PackageReference Include="PcAxis.Query">
-      <Version>1.0.10</Version>
+      <Version>1.0.14</Version>
     </PackageReference>
     <PackageReference Include="PCAxis.Serializers">
-      <Version>1.9.1</Version>
+      <Version>1.12.4</Version>
     </PackageReference>
     <PackageReference Include="PcAxis.Sql">
-      <Version>1.4.5</Version>
+      <Version>1.8.0</Version>
+    </PackageReference>
+    <PackageReference Include="RBush.Signed">
+      <Version>4.0.0</Version>
     </PackageReference>
     <PackageReference Include="SixLabors.Fonts">
       <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.AppContext">
       <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.6.1</Version>
     </PackageReference>
     <PackageReference Include="System.Collections">
       <Version>4.3.0</Version>
@@ -210,7 +225,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.Collections.Immutable">
-      <Version>8.0.0</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Console">
       <Version>4.3.1</Version>
@@ -222,10 +237,10 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.Diagnostics.DiagnosticSource">
-      <Version>8.0.1</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Diagnostics.PerformanceCounter">
-      <Version>8.0.0</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Diagnostics.Tools">
       <Version>4.3.0</Version>
@@ -233,11 +248,8 @@
     <PackageReference Include="System.Diagnostics.Tracing">
       <Version>4.3.0</Version>
     </PackageReference>
-    <PackageReference Include="System.DirectoryServices">
-      <Version>8.0.0</Version>
-    </PackageReference>
     <PackageReference Include="System.DirectoryServices.Protocols">
-      <Version>8.0.0</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Globalization">
       <Version>4.3.0</Version>
@@ -255,7 +267,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.IO.Packaging">
-      <Version>8.0.1</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Linq">
       <Version>4.3.0</Version>
@@ -263,8 +275,11 @@
     <PackageReference Include="System.Linq.Expressions">
       <Version>4.3.0</Version>
     </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.6.3</Version>
+    </PackageReference>
     <PackageReference Include="System.Memory.Data">
-      <Version>8.0.1</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Net.Http">
       <Version>4.3.4</Version>
@@ -314,17 +329,20 @@
     <PackageReference Include="System.Security.Cryptography.Algorithms">
       <Version>4.3.1</Version>
     </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Pkcs">
+      <Version>10.0.15</Version>
+    </PackageReference>
     <PackageReference Include="System.Security.Cryptography.ProtectedData">
-      <Version>8.0.0</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Security.Cryptography.X509Certificates">
       <Version>4.3.2</Version>
     </PackageReference>
     <PackageReference Include="System.Security.Cryptography.Xml">
-      <Version>8.0.3</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Security.Permissions">
-      <Version>8.0.0</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Encoding">
       <Version>4.3.0</Version>
@@ -333,7 +351,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.Text.Json">
-      <Version>8.0.6</Version>
+      <Version>10.0.15</Version>
     </PackageReference>
     <PackageReference Include="System.Text.RegularExpressions">
       <Version>4.3.1</Version>
