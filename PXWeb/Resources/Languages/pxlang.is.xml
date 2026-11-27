@@ -554,7 +554,7 @@
 	<!-- PxWeb Administration -->
 	<sentence name="PxWebAdminLogout" value="Aftengjast"/>
 	<sentence name="PxWebAdminHeading" value="PxWeb kerfisstjórn"/>
-	<sentence name="PxWebAdminVersion" value="PxWeb útgáfa 2019 v1"/>
+	<sentence name="PxWebAdminVersion" value="PxWeb útgáfa 2026 v1"/>
 	<sentence name="PxWebAdminHomePage" value="PxWeb heimasíða"/>
 	<sentence name="PxWebAdminSaveButton" value="Vista"/>
 	<sentence name="PxWebAdminGenerateButton" value="Framkalla"/>
