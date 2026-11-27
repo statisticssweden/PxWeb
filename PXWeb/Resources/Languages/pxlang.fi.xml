@@ -637,7 +637,7 @@
   <sentence name="PxWebMetadataNoValueMeta" value="Näille määrittelyille ei ole arvoja" />
   <sentence name="PxWebAdminLogout" value="Kirjaudu ulos" />
   <sentence name="PxWebAdminHeading" value="PxWeb-ylläpito" />
-  <sentence name="PxWebAdminVersion" value="PxWeb 2023 v1" />
+  <sentence name="PxWebAdminVersion" value="PxWeb 2026 v1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb-kotisivu" />
   <sentence name="PxWebAdminSaveButton" value="Tallenna" />
   <sentence name="PxWebAdminGenerateButton" value="Luo" />

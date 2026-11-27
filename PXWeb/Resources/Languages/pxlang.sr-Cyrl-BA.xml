@@ -541,7 +541,7 @@
   <sentence name="PxWebTableCropped" value="Биљешка: Табела је скраћена. Максимално {0} редова и {1} колона могу бити приказане у табели на екрану." />
   <sentence name="PxWebAdminLogout" value="Одјава" />
   <sentence name="PxWebAdminHeading" value="PxWeb Администрација" />
-  <sentence name="PxWebAdminVersion" value="PxWeb верзија 2019 v1" />
+  <sentence name="PxWebAdminVersion" value="PxWeb верзија 2026 v1" />
   <sentence name="PxWebAdminHomePage" value="PxWeb почетна страница" />
   <sentence name="PxWebAdminSaveButton" value="Сачувај" />
   <sentence name="PxWebAdminGenerateButton" value="Генериши" />
